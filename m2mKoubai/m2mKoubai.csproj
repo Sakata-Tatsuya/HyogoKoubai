@@ -1,0 +1,670 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3916CEE0-FA96-4403-98D2-8192E4D2E53D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>m2mKoubai</RootNamespace>
+    <AssemblyName>m2mKoubai</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvBarCode, Version=1.0.0.2129, Culture=neutral, PublicKeyToken=cc1705a919d51785">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\AdvBarCode.dll</HintPath>
+    </Reference>
+    <Reference Include="AdvBarCodeCtrl, Version=1.0.0.2129, Culture=neutral, PublicKeyToken=1a4d1dc24102cdfb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\AdvBarCodeCtrl.dll</HintPath>
+    </Reference>
+    <Reference Include="Core, Version=1.0.1.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="m2mKoubaiDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\m2mKoubaiDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="RadAjax.Net2, Version=1.7.2.0, Culture=neutral, PublicKeyToken=3f7b438d1c762d0b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\RadAjax.Net2.dll</HintPath>
+    </Reference>
+    <Reference Include="RadCalendar.Net2, Version=2.1.2.0, Culture=neutral, PublicKeyToken=a1432cd341173140, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\RadCalendar.Net2.dll</HintPath>
+    </Reference>
+    <Reference Include="RadInput.Net2, Version=2.0.2.0, Culture=neutral, PublicKeyToken=a1432cd341173140, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\RadInput.Net2.dll</HintPath>
+    </Reference>
+    <Reference Include="RadTabStrip.Net2, Version=3.5.2.0, Culture=neutral, PublicKeyToken=a87324b017ca21ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\RadTabStrip.Net2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BarCode\AdvBarCode.dll" />
+    <Content Include="BarCode\AdvBarCodeCtrl.dll" />
+    <Content Include="BarCode\BarCodeForm.aspx" />
+    <Content Include="Denpyou\CtlGenpinhyou.ascx" />
+    <Content Include="Denpyou\CtlJyuryosho_M.ascx" />
+    <Content Include="Denpyou\CtlJyuryousho_F.ascx" />
+    <Content Include="Denpyou\CtlJyuryousho_H.ascx" />
+    <Content Include="Denpyou\CtlKenshuMeisaihyo_H.ascx" />
+    <Content Include="Denpyou\CtlNouhinsho_F.ascx" />
+    <Content Include="Denpyou\CtlNouhinsho_H.ascx" />
+    <Content Include="Denpyou\CtlNouhinsho_M.ascx" />
+    <Content Include="Denpyou\CtlSeikyuMeisaisho_H.ascx" />
+    <Content Include="Denpyou\CtlSeikyuMeisaisho_M.ascx" />
+    <Content Include="Denpyou\GenpinhyouForm.aspx" />
+    <Content Include="Download\CtlKenshuDownload.ascx" />
+    <Content Include="Download\CtlNonyuZanDownload.ascx" />
+    <Content Include="Download\DownloadForm.aspx" />
+    <Content Include="Img\bg03.gif" />
+    <Content Include="Common\CtlMyPager.ascx" />
+    <Content Include="Common\CtlNengappiFromTo.ascx" />
+    <Content Include="CtlNouki.ascx" />
+    <Content Include="Denpyou\CtlA4.ascx" />
+    <Content Include="Denpyou\CtlHacchuusho.ascx" />
+    <Content Include="Denpyou\CtlKenshuMeisaihyo_M.ascx" />
+    <Content Include="Denpyou\CtlSeikyusho.ascx" />
+    <Content Include="Denpyou\HacchuushoForm.aspx" />
+    <Content Include="Denpyou\KenshuMeisaihyoForm.aspx" />
+    <Content Include="Denpyou\NouhinsyoForm.aspx" />
+    <Content Include="Denpyou\SeikyusyoForm.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Img\bg01.gif" />
+    <Content Include="Img\bg02.gif" />
+    <Content Include="Img\bg04.gif" />
+    <Content Include="Kenshu\KenshuInfoForm.aspx" />
+    <Content Include="Kenshu\KenshuInfoShukeiForm.aspx" />
+    <Content Include="LoginForm.aspx" />
+    <Content Include="MainStyle.css" />
+    <Content Include="Img\Close.gif" />
+    <Content Include="Img\Load.gif" />
+    <Content Include="Master\BuhinForm.aspx" />
+    <Content Include="Master\BuhinUpForm.aspx" />
+    <Content Include="Master\KaishaInfoForm.aspx" />
+    <Content Include="Master\KaishaInfoUpForm.aspx" />
+    <Content Include="Master\LoginMsgForm.aspx" />
+    <Content Include="Master\LoginMsgUpForm.aspx" />
+    <Content Include="Master\NounyuBashoForm.aspx" />
+    <Content Include="Master\NounyuBashoUpForm.aspx" />
+    <Content Include="Master\ShiiresakiAccountForm.aspx" />
+    <Content Include="Master\ShiiresakiAccountUpForm.aspx" />
+    <Content Include="Master\ShiiresakiForm.aspx" />
+    <Content Include="Master\ShiiresakiUpForm.aspx" />
+    <Content Include="Master\TantoushaAccountForm.aspx" />
+    <Content Include="Master\TantoushaAccountUpForm.aspx" />
+    <Content Include="MessegeForm.aspx" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\ScrollLeft.gif" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\ScrollLeftDisabled.gif" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\ScrollRight.gif" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\ScrollRightDisabled.gif" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\tabLeftFirstOff.gif" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\tabLeftFirstOn.gif" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\tabRightLastOff.gif" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\tabRightLastOn.gif" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\tabStripeOff.gif" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\tabStripeOn.gif" />
+    <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\styles.css" />
+    <Content Include="NouhinForm.aspx" />
+    <Content Include="Order\MultiOrderInputForm.aspx" />
+    <Content Include="Order\OrderInfoForm.aspx" />
+    <Content Include="Order\OrderInputForm.aspx" />
+    <Content Include="Order\OrderShousaiForm.aspx" />
+    <Content Include="PassChangeForm.aspx" />
+    <Content Include="Shiiresaki\CtlNoukiKaitou.ascx" />
+    <Content Include="Shiiresaki\KaishaInfoForm.aspx" />
+    <Content Include="Shiiresaki\KenshuInfoForm.aspx" />
+    <Content Include="Shiiresaki\CtlTabShiire.ascx" />
+    <Content Include="CtlTabMain.ascx" />
+    <Content Include="Shiiresaki\MessegeForm.aspx" />
+    <Content Include="Shiiresaki\OrderInfoForm.aspx" />
+    <Content Include="Shiiresaki\OrderShousaiForm.aspx" />
+    <Content Include="Shiiresaki\PassChangeForm.aspx" />
+    <Content Include="Upload\CtlHinmokuUpload.ascx" />
+    <Content Include="Upload\CtlOrderUpload.ascx" />
+    <Content Include="Upload\UploadForm.aspx" />
+    <Content Include="Upload\品目データサンプル.txt" />
+    <Content Include="Upload\発注データサンプル.txt" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppCommon.cs" />
+    <Compile Include="BarCode\BarCodeForm.aspx.cs">
+      <DependentUpon>BarCodeForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BarCode\BarCodeForm.aspx.designer.cs">
+      <DependentUpon>BarCodeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CtlMyPager.ascx.cs">
+      <DependentUpon>CtlMyPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\CtlMyPager.ascx.designer.cs">
+      <DependentUpon>CtlMyPager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CtlNengappiFromTo.ascx.cs">
+      <DependentUpon>CtlNengappiFromTo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\CtlNengappiFromTo.ascx.designer.cs">
+      <DependentUpon>CtlNengappiFromTo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CtlNouki.ascx.cs">
+      <DependentUpon>CtlNouki.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CtlNouki.ascx.designer.cs">
+      <DependentUpon>CtlNouki.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlA4.ascx.cs">
+      <DependentUpon>CtlA4.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlA4.ascx.designer.cs">
+      <DependentUpon>CtlA4.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlGenpinhyou.ascx.cs">
+      <DependentUpon>CtlGenpinhyou.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlGenpinhyou.ascx.designer.cs">
+      <DependentUpon>CtlGenpinhyou.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlHacchuusho.ascx.cs">
+      <DependentUpon>CtlHacchuusho.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlHacchuusho.ascx.designer.cs">
+      <DependentUpon>CtlHacchuusho.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlJyuryosho_M.ascx.cs">
+      <DependentUpon>CtlJyuryosho_M.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlJyuryosho_M.ascx.designer.cs">
+      <DependentUpon>CtlJyuryosho_M.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlJyuryousho_F.ascx.cs">
+      <DependentUpon>CtlJyuryousho_F.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlJyuryousho_F.ascx.designer.cs">
+      <DependentUpon>CtlJyuryousho_F.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlJyuryousho_H.ascx.cs">
+      <DependentUpon>CtlJyuryousho_H.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlJyuryousho_H.ascx.designer.cs">
+      <DependentUpon>CtlJyuryousho_H.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlKenshuMeisaihyo_H.ascx.cs">
+      <DependentUpon>CtlKenshuMeisaihyo_H.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlKenshuMeisaihyo_H.ascx.designer.cs">
+      <DependentUpon>CtlKenshuMeisaihyo_H.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlKenshuMeisaihyo_M.ascx.cs">
+      <DependentUpon>CtlKenshuMeisaihyo_M.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlKenshuMeisaihyo_M.ascx.designer.cs">
+      <DependentUpon>CtlKenshuMeisaihyo_M.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlNouhinsho_F.ascx.cs">
+      <DependentUpon>CtlNouhinsho_F.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlNouhinsho_F.ascx.designer.cs">
+      <DependentUpon>CtlNouhinsho_F.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlNouhinsho_H.ascx.cs">
+      <DependentUpon>CtlNouhinsho_H.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlNouhinsho_H.ascx.designer.cs">
+      <DependentUpon>CtlNouhinsho_H.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlNouhinsho_M.ascx.cs">
+      <DependentUpon>CtlNouhinsho_M.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlNouhinsho_M.ascx.designer.cs">
+      <DependentUpon>CtlNouhinsho_M.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlSeikyuMeisaisho_H.ascx.cs">
+      <DependentUpon>CtlSeikyuMeisaisho_H.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlSeikyuMeisaisho_H.ascx.designer.cs">
+      <DependentUpon>CtlSeikyuMeisaisho_H.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlSeikyuMeisaisho_M.ascx.cs">
+      <DependentUpon>CtlSeikyuMeisaisho_M.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlSeikyuMeisaisho_M.ascx.designer.cs">
+      <DependentUpon>CtlSeikyuMeisaisho_M.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\CtlSeikyusho.ascx.cs">
+      <DependentUpon>CtlSeikyusho.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\CtlSeikyusho.ascx.designer.cs">
+      <DependentUpon>CtlSeikyusho.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\GenpinhyouForm.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>GenpinhyouForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\GenpinhyouForm.aspx.designer.cs">
+      <DependentUpon>GenpinhyouForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\HacchuushoForm.aspx.cs">
+      <DependentUpon>HacchuushoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\HacchuushoForm.aspx.designer.cs">
+      <DependentUpon>HacchuushoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\KenshuMeisaihyoForm.aspx.cs">
+      <DependentUpon>KenshuMeisaihyoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\KenshuMeisaihyoForm.aspx.designer.cs">
+      <DependentUpon>KenshuMeisaihyoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\NouhinsyoForm.aspx.cs">
+      <DependentUpon>NouhinsyoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\NouhinsyoForm.aspx.designer.cs">
+      <DependentUpon>NouhinsyoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Denpyou\SeikyusyoForm.aspx.cs">
+      <DependentUpon>SeikyusyoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denpyou\SeikyusyoForm.aspx.designer.cs">
+      <DependentUpon>SeikyusyoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Download\CtlKenshuDownload.ascx.cs">
+      <DependentUpon>CtlKenshuDownload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Download\CtlKenshuDownload.ascx.designer.cs">
+      <DependentUpon>CtlKenshuDownload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Download\CtlNonyuZanDownload.ascx.cs">
+      <DependentUpon>CtlNonyuZanDownload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Download\CtlNonyuZanDownload.ascx.designer.cs">
+      <DependentUpon>CtlNonyuZanDownload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Download\DownloadForm.aspx.cs">
+      <DependentUpon>DownloadForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Download\DownloadForm.aspx.designer.cs">
+      <DependentUpon>DownloadForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Kenshu\KenshuInfoForm.aspx.cs">
+      <DependentUpon>KenshuInfoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kenshu\KenshuInfoForm.aspx.designer.cs">
+      <DependentUpon>KenshuInfoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kenshu\KenshuInfoShukeiForm.aspx.cs">
+      <DependentUpon>KenshuInfoShukeiForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kenshu\KenshuInfoShukeiForm.aspx.designer.cs">
+      <DependentUpon>KenshuInfoShukeiForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListSet.cs" />
+    <Compile Include="LoginForm.aspx.cs">
+      <DependentUpon>LoginForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginForm.aspx.designer.cs">
+      <DependentUpon>LoginForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\BuhinForm.aspx.cs">
+      <DependentUpon>BuhinForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\BuhinForm.aspx.designer.cs">
+      <DependentUpon>BuhinForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\BuhinUpForm.aspx.cs">
+      <DependentUpon>BuhinUpForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\BuhinUpForm.aspx.designer.cs">
+      <DependentUpon>BuhinUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\KaishaInfoForm.aspx.cs">
+      <DependentUpon>KaishaInfoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\KaishaInfoForm.aspx.designer.cs">
+      <DependentUpon>KaishaInfoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\KaishaInfoUpForm.aspx.cs">
+      <DependentUpon>KaishaInfoUpForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\KaishaInfoUpForm.aspx.designer.cs">
+      <DependentUpon>KaishaInfoUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\LoginMsgForm.aspx.cs">
+      <DependentUpon>LoginMsgForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\LoginMsgForm.aspx.designer.cs">
+      <DependentUpon>LoginMsgForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\LoginMsgUpForm.aspx.cs">
+      <DependentUpon>LoginMsgUpForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\LoginMsgUpForm.aspx.designer.cs">
+      <DependentUpon>LoginMsgUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\NounyuBashoForm.aspx.cs">
+      <DependentUpon>NounyuBashoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\NounyuBashoForm.aspx.designer.cs">
+      <DependentUpon>NounyuBashoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\NounyuBashoUpForm.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>NounyuBashoUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\NounyuBashoUpForm.aspx.designer.cs">
+      <DependentUpon>NounyuBashoUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\ShiiresakiAccountForm.aspx.cs">
+      <DependentUpon>ShiiresakiAccountForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\ShiiresakiAccountForm.aspx.designer.cs">
+      <DependentUpon>ShiiresakiAccountForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\ShiiresakiAccountUpForm.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ShiiresakiAccountUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\ShiiresakiAccountUpForm.aspx.designer.cs">
+      <DependentUpon>ShiiresakiAccountUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\ShiiresakiForm.aspx.cs">
+      <DependentUpon>ShiiresakiForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\ShiiresakiForm.aspx.designer.cs">
+      <DependentUpon>ShiiresakiForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\ShiiresakiUpForm.aspx.cs">
+      <DependentUpon>ShiiresakiUpForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\ShiiresakiUpForm.aspx.designer.cs">
+      <DependentUpon>ShiiresakiUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\TantoushaAccountForm.aspx.cs">
+      <DependentUpon>TantoushaAccountForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\TantoushaAccountForm.aspx.designer.cs">
+      <DependentUpon>TantoushaAccountForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\TantoushaAccountUpForm.aspx.cs">
+      <DependentUpon>TantoushaAccountUpForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\TantoushaAccountUpForm.aspx.designer.cs">
+      <DependentUpon>TantoushaAccountUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MessegeForm.aspx.cs">
+      <DependentUpon>MessegeForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessegeForm.aspx.designer.cs">
+      <DependentUpon>MessegeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NouhinForm.aspx.cs">
+      <DependentUpon>NouhinForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NouhinForm.aspx.designer.cs">
+      <DependentUpon>NouhinForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order\MultiOrderInputForm.aspx.cs">
+      <DependentUpon>MultiOrderInputForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order\MultiOrderInputForm.aspx.designer.cs">
+      <DependentUpon>MultiOrderInputForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderInfoForm.aspx.cs">
+      <DependentUpon>OrderInfoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order\OrderInfoForm.aspx.designer.cs">
+      <DependentUpon>OrderInfoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderInputForm.aspx.cs">
+      <DependentUpon>OrderInputForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order\OrderInputForm.aspx.designer.cs">
+      <DependentUpon>OrderInputForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderShousaiForm.aspx.cs">
+      <DependentUpon>OrderShousaiForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order\OrderShousaiForm.aspx.designer.cs">
+      <DependentUpon>OrderShousaiForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PassChangeForm.aspx.cs">
+      <DependentUpon>PassChangeForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PassChangeForm.aspx.designer.cs">
+      <DependentUpon>PassChangeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionManager.cs" />
+    <Compile Include="Shiiresaki\CtlNoukiKaitou.ascx.cs">
+      <DependentUpon>CtlNoukiKaitou.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shiiresaki\CtlNoukiKaitou.ascx.designer.cs">
+      <DependentUpon>CtlNoukiKaitou.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Shiiresaki\KaishaInfoForm.aspx.cs">
+      <DependentUpon>KaishaInfoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shiiresaki\KaishaInfoForm.aspx.designer.cs">
+      <DependentUpon>KaishaInfoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shiiresaki\KenshuInfoForm.aspx.cs">
+      <DependentUpon>KenshuInfoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shiiresaki\KenshuInfoForm.aspx.designer.cs">
+      <DependentUpon>KenshuInfoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shiiresaki\CtlTabShiire.ascx.cs">
+      <DependentUpon>CtlTabShiire.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shiiresaki\CtlTabShiire.ascx.designer.cs">
+      <DependentUpon>CtlTabShiire.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CtlTabMain.ascx.cs">
+      <DependentUpon>CtlTabMain.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CtlTabMain.ascx.designer.cs">
+      <DependentUpon>CtlTabMain.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Shiiresaki\MessegeForm.aspx.cs">
+      <DependentUpon>MessegeForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shiiresaki\MessegeForm.aspx.designer.cs">
+      <DependentUpon>MessegeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shiiresaki\OrderInfoForm.aspx.cs">
+      <DependentUpon>OrderInfoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shiiresaki\OrderInfoForm.aspx.designer.cs">
+      <DependentUpon>OrderInfoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shiiresaki\OrderShousaiForm.aspx.cs">
+      <DependentUpon>OrderShousaiForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shiiresaki\OrderShousaiForm.aspx.designer.cs">
+      <DependentUpon>OrderShousaiForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shiiresaki\PassChangeForm.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PassChangeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shiiresaki\PassChangeForm.aspx.designer.cs">
+      <DependentUpon>PassChangeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\CtlHinmokuUpload.ascx.cs">
+      <DependentUpon>CtlHinmokuUpload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload\CtlHinmokuUpload.ascx.designer.cs">
+      <DependentUpon>CtlHinmokuUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\CtlOrderUpload.ascx.cs">
+      <DependentUpon>CtlOrderUpload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload\CtlOrderUpload.ascx.designer.cs">
+      <DependentUpon>CtlOrderUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\UploadForm.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>UploadForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\UploadForm.aspx.designer.cs">
+      <DependentUpon>UploadForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Upload\品目データサンプル.csv" />
+    <None Include="Upload\発注データサンプル.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50632</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50632/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

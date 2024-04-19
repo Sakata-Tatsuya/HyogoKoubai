@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NoukiKaitouDataSet" targetNamespace="http://tempuri.org/NoukiKaitouDataSet.xsd" xmlns:mstns="http://tempuri.org/NoukiKaitouDataSet.xsd" xmlns="http://tempuri.org/NoukiKaitouDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="m2mKoubaiConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="m2mKoubaiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.m2mKoubaiConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="NoukiKaitouDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="NoukiKaitouDataSet" msprop:Generator_DataSetName="NoukiKaitouDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KaitouNouki" msprop:Generator_UserTableName="KaitouNouki" msprop:Generator_RowDeletedName="KaitouNoukiRowDeleted" msprop:Generator_RowChangedName="KaitouNoukiRowChanged" msprop:Generator_RowClassName="KaitouNoukiRow" msprop:Generator_RowChangingName="KaitouNoukiRowChanging" msprop:Generator_RowEvArgName="KaitouNoukiRowChangeEvent" msprop:Generator_RowEvHandlerName="KaitouNoukiRowChangeEventHandler" msprop:Generator_TableClassName="KaitouNoukiDataTable" msprop:Generator_TableVarName="tableKaitouNouki" msprop:Generator_RowDeletingName="KaitouNoukiRowDeleting" msprop:Generator_TablePropName="KaitouNouki">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Year" msprop:Generator_UserColumnName="Year" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInTable="YearColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="HacchuuNo" msprop:Generator_UserColumnName="HacchuuNo" msprop:Generator_ColumnPropNameInRow="HacchuuNo" msprop:Generator_ColumnVarNameInTable="columnHacchuuNo" msprop:Generator_ColumnPropNameInTable="HacchuuNoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="KaitouNo" msdata:Caption="HenkouNo" msprop:Generator_UserColumnName="KaitouNo" msprop:Generator_ColumnPropNameInRow="KaitouNo" msprop:Generator_ColumnVarNameInTable="columnKaitouNo" msprop:Generator_ColumnPropNameInTable="KaitouNoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="RowNo" msprop:Generator_UserColumnName="RowNo" msprop:Generator_ColumnPropNameInRow="RowNo" msprop:Generator_ColumnVarNameInTable="columnRowNo" msprop:Generator_ColumnPropNameInTable="RowNoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Nouki" msprop:Generator_UserColumnName="Nouki" msprop:Generator_ColumnPropNameInRow="Nouki" msprop:Generator_ColumnVarNameInTable="columnNouki" msprop:Generator_ColumnPropNameInTable="NoukiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Suuryou" msprop:Generator_UserColumnName="Suuryou" msprop:Generator_ColumnPropNameInRow="Suuryou" msprop:Generator_ColumnVarNameInTable="columnSuuryou" msprop:Generator_ColumnPropNameInTable="SuuryouColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Tourokubi" msprop:Generator_UserColumnName="Tourokubi" msprop:Generator_ColumnPropNameInRow="Tourokubi" msprop:Generator_ColumnVarNameInTable="columnTourokubi" msprop:Generator_ColumnPropNameInTable="TourokubiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="JigyoushoKubun" msprop:Generator_UserColumnName="JigyoushoKubun" msprop:Generator_ColumnPropNameInRow="JigyoushoKubun" msprop:Generator_ColumnVarNameInTable="columnJigyoushoKubun" msprop:Generator_ColumnPropNameInTable="JigyoushoKubunColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

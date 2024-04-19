@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ShiiresakiDataSet" targetNamespace="http://tempuri.org/ShiiresakiDataSet.xsd" xmlns:mstns="http://tempuri.org/ShiiresakiDataSet.xsd" xmlns="http://tempuri.org/ShiiresakiDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="m2mKoubaiConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="m2mKoubaiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.m2mKoubaiConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_Nouhinsho_HeaderTableAdapter" GeneratorDataComponentClassName="V_Nouhinsho_HeaderTableAdapter" Name="V_Nouhinsho_Header" UserDataComponentName="V_Nouhinsho_HeaderTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="m2mKoubaiConnectionString (Settings)" DbObjectName="m2mKoubai.dbo.V_Nouhinsho_Header" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT LoginID, ShiiresakiMei, YubinBangou, Address, Tel, Fax, EigyouSho, KaishaMei, YuubinY, AddressY, TelY, FaxY FROM dbo.V_Nouhinsho_Header</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="LoginID" DataSetColumn="LoginID" />
+              <Mapping SourceColumn="ShiiresakiMei" DataSetColumn="ShiiresakiMei" />
+              <Mapping SourceColumn="YubinBangou" DataSetColumn="YubinBangou" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Tel" DataSetColumn="Tel" />
+              <Mapping SourceColumn="Fax" DataSetColumn="Fax" />
+              <Mapping SourceColumn="EigyouSho" DataSetColumn="EigyouSho" />
+              <Mapping SourceColumn="KaishaMei" DataSetColumn="KaishaMei" />
+              <Mapping SourceColumn="YuubinY" DataSetColumn="YuubinY" />
+              <Mapping SourceColumn="AddressY" DataSetColumn="AddressY" />
+              <Mapping SourceColumn="TelY" DataSetColumn="TelY" />
+              <Mapping SourceColumn="FaxY" DataSetColumn="FaxY" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ShiiresakiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ShiiresakiDataSet" msprop:Generator_DataSetName="ShiiresakiDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_Nouhinsho_Header" msprop:Generator_UserTableName="V_Nouhinsho_Header" msprop:Generator_RowDeletedName="V_Nouhinsho_HeaderRowDeleted" msprop:Generator_TableClassName="V_Nouhinsho_HeaderDataTable" msprop:Generator_RowChangedName="V_Nouhinsho_HeaderRowChanged" msprop:Generator_RowClassName="V_Nouhinsho_HeaderRow" msprop:Generator_RowChangingName="V_Nouhinsho_HeaderRowChanging" msprop:Generator_RowEvArgName="V_Nouhinsho_HeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="V_Nouhinsho_HeaderRowChangeEventHandler" msprop:Generator_TablePropName="V_Nouhinsho_Header" msprop:Generator_TableVarName="tableV_Nouhinsho_Header" msprop:Generator_RowDeletingName="V_Nouhinsho_HeaderRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LoginID" msprop:Generator_UserColumnName="LoginID" msprop:Generator_ColumnPropNameInRow="LoginID" msprop:Generator_ColumnVarNameInTable="columnLoginID" msprop:Generator_ColumnPropNameInTable="LoginIDColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShiiresakiMei" msprop:Generator_UserColumnName="ShiiresakiMei" msprop:Generator_ColumnPropNameInRow="ShiiresakiMei" msprop:Generator_ColumnVarNameInTable="columnShiiresakiMei" msprop:Generator_ColumnPropNameInTable="ShiiresakiMeiColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="YubinBangou" msprop:Generator_UserColumnName="YubinBangou" msprop:Generator_ColumnPropNameInRow="YubinBangou" msprop:Generator_ColumnVarNameInTable="columnYubinBangou" msprop:Generator_ColumnPropNameInTable="YubinBangouColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_UserColumnName="Address" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInTable="AddressColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tel" msprop:Generator_UserColumnName="Tel" msprop:Generator_ColumnPropNameInRow="Tel" msprop:Generator_ColumnVarNameInTable="columnTel" msprop:Generator_ColumnPropNameInTable="TelColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fax" msprop:Generator_UserColumnName="Fax" msprop:Generator_ColumnPropNameInRow="Fax" msprop:Generator_ColumnVarNameInTable="columnFax" msprop:Generator_ColumnPropNameInTable="FaxColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EigyouSho" msprop:Generator_UserColumnName="EigyouSho" msprop:Generator_ColumnPropNameInRow="EigyouSho" msprop:Generator_ColumnVarNameInTable="columnEigyouSho" msprop:Generator_ColumnPropNameInTable="EigyouShoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KaishaMei" msprop:Generator_UserColumnName="KaishaMei" msprop:Generator_ColumnPropNameInRow="KaishaMei" msprop:Generator_ColumnVarNameInTable="columnKaishaMei" msprop:Generator_ColumnPropNameInTable="KaishaMeiColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="YuubinY" msprop:Generator_UserColumnName="YuubinY" msprop:Generator_ColumnPropNameInRow="YuubinY" msprop:Generator_ColumnVarNameInTable="columnYuubinY" msprop:Generator_ColumnPropNameInTable="YuubinYColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AddressY" msprop:Generator_UserColumnName="AddressY" msprop:Generator_ColumnPropNameInRow="AddressY" msprop:Generator_ColumnVarNameInTable="columnAddressY" msprop:Generator_ColumnPropNameInTable="AddressYColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TelY" msprop:Generator_UserColumnName="TelY" msprop:Generator_ColumnPropNameInRow="TelY" msprop:Generator_ColumnVarNameInTable="columnTelY" msprop:Generator_ColumnPropNameInTable="TelYColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FaxY" msprop:Generator_UserColumnName="FaxY" msprop:Generator_ColumnPropNameInRow="FaxY" msprop:Generator_ColumnVarNameInTable="columnFaxY" msprop:Generator_ColumnPropNameInTable="FaxYColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_Nouhinsho_Header" />
+      <xs:field xpath="mstns:LoginID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

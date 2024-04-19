@@ -1,0 +1,406 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{33061399-7C75-46C1-8D81-5DE099287C18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>m2mKoubaiDAL</RootNamespace>
+    <AssemblyName>m2mKoubaiDAL</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Core, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\m2mKoubai\dll\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Web, Version=1.0.1.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\m2mKoubai\dll\Core.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="m2mKoubai">
+      <HintPath>..\m2mKoubai\bin\m2mKoubai.dll</HintPath>
+    </Reference>
+    <Reference Include="m2mKoubaiDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\m2mKoubai\bin\m2mKoubaiDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuhinClass.cs" />
+    <Compile Include="BuhinClass_S.cs" />
+    <Compile Include="BuhinDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuhinDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BuhinDataSet_S.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuhinDataSet_S.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ChumonClass.cs" />
+    <Compile Include="ChumonClass_S.cs" />
+    <Compile Include="ChumonDataSet.cs">
+      <DependentUpon>ChumonDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ChumonDataSet.designer.cs">
+      <DependentUpon>ChumonDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ChumonDataSet_S.cs">
+      <DependentUpon>ChumonDataSet_S.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ChumonDataSet_S.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChumonDataSet_S.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ChumonMsgClass.cs" />
+    <Compile Include="ChumonMsgDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChumonMsgDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadClass.cs" />
+    <Compile Include="DownloadDataSet.cs">
+      <DependentUpon>DownloadDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DownloadDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HacchuClass.cs" />
+    <Compile Include="HacchuDataSet_M.cs">
+      <DependentUpon>HacchuDataSet_M.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HacchuDataSet_M.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HacchuDataSet_M.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KaishaInfoClass.cs" />
+    <Compile Include="KenshuClass.cs" />
+    <Compile Include="KenshuDataSet.cs">
+      <DependentUpon>KenshuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KenshuDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KenshuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LoginClass.cs" />
+    <Compile Include="LoginDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LoginMsgClass.cs" />
+    <Compile Include="MailClass.cs" />
+    <Compile Include="NouhinClass_N.cs" />
+    <Compile Include="NouhinClass_Y.cs" />
+    <Compile Include="NouhinDataSet_N.cs">
+      <DependentUpon>NouhinDataSet_N.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NouhinDataSet_N.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NouhinDataSet_N.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NoukiHenkouClass.cs" />
+    <Compile Include="NoukiHenkouDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NoukiHenkouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NoukiKaitouClass.cs" />
+    <Compile Include="NoukiKaitouDataSet.cs">
+      <DependentUpon>NoukiKaitouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NoukiKaitouDataSet.designer.cs">
+      <DependentUpon>NoukiKaitouDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="NounyuuBashoClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ShiiresakiClass.cs" />
+    <Compile Include="ShiiresakiDataSet.cs">
+      <DependentUpon>ShiiresakiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ShiiresakiDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShiiresakiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ShiiresakiDataSet_S.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShiiresakiDataSet_S.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Type.cs" />
+    <Compile Include="UploadClass.cs" />
+    <Compile Include="m2mKoubaiDataSet.cs">
+      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="m2mKoubaiDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="BuhinDataSet.xsc">
+      <DependentUpon>BuhinDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BuhinDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BuhinDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BuhinDataSet.xss">
+      <DependentUpon>BuhinDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BuhinDataSet_S.xsc">
+      <DependentUpon>BuhinDataSet_S.xsd</DependentUpon>
+    </None>
+    <None Include="BuhinDataSet_S.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BuhinDataSet_S.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BuhinDataSet_S.xss">
+      <DependentUpon>BuhinDataSet_S.xsd</DependentUpon>
+    </None>
+    <None Include="ChumonDataSet.xsc">
+      <DependentUpon>ChumonDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ChumonDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChumonDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ChumonDataSet.xss">
+      <DependentUpon>ChumonDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ChumonDataSet_S.xsc">
+      <DependentUpon>ChumonDataSet_S.xsd</DependentUpon>
+    </None>
+    <None Include="ChumonDataSet_S.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChumonDataSet_S.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ChumonDataSet_S.xss">
+      <DependentUpon>ChumonDataSet_S.xsd</DependentUpon>
+    </None>
+    <None Include="ChumonMsgDataSet.xsc">
+      <DependentUpon>ChumonMsgDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ChumonMsgDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChumonMsgDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ChumonMsgDataSet.xss">
+      <DependentUpon>ChumonMsgDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DownloadDataSet.xsc">
+      <DependentUpon>DownloadDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DownloadDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DownloadDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DownloadDataSet.xss">
+      <DependentUpon>DownloadDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HacchuDataSet_M.xsc">
+      <DependentUpon>HacchuDataSet_M.xsd</DependentUpon>
+    </None>
+    <None Include="HacchuDataSet_M.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HacchuDataSet_M.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="HacchuDataSet_M.xss">
+      <DependentUpon>HacchuDataSet_M.xsd</DependentUpon>
+    </None>
+    <None Include="KenshuDataSet.xsc">
+      <DependentUpon>KenshuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KenshuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KenshuDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="KenshuDataSet.xss">
+      <DependentUpon>KenshuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LoginDataSet.xsc">
+      <DependentUpon>LoginDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LoginDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LoginDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LoginDataSet.xss">
+      <DependentUpon>LoginDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NouhinDataSet_N.xsc">
+      <DependentUpon>NouhinDataSet_N.xsd</DependentUpon>
+    </None>
+    <None Include="NouhinDataSet_N.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NouhinDataSet_N.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NouhinDataSet_N.xss">
+      <DependentUpon>NouhinDataSet_N.xsd</DependentUpon>
+    </None>
+    <None Include="NoukiHenkouDataSet.xsc">
+      <DependentUpon>NoukiHenkouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NoukiHenkouDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NoukiHenkouDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NoukiHenkouDataSet.xss">
+      <DependentUpon>NoukiHenkouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NoukiKaitouDataSet.xsc">
+      <DependentUpon>NoukiKaitouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NoukiKaitouDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NoukiKaitouDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NoukiKaitouDataSet.xss">
+      <DependentUpon>NoukiKaitouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ShiiresakiDataSet.xsc">
+      <DependentUpon>ShiiresakiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ShiiresakiDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ShiiresakiDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ShiiresakiDataSet.xss">
+      <DependentUpon>ShiiresakiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ShiiresakiDataSet_S.xsc">
+      <DependentUpon>ShiiresakiDataSet_S.xsd</DependentUpon>
+    </None>
+    <None Include="ShiiresakiDataSet_S.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ShiiresakiDataSet_S.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ShiiresakiDataSet_S.xss">
+      <DependentUpon>ShiiresakiDataSet_S.xsd</DependentUpon>
+    </None>
+    <None Include="m2mKoubaiDataSet.xsc">
+      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="m2mKoubaiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>m2mKoubaiDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="m2mKoubaiDataSet.xss">
+      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

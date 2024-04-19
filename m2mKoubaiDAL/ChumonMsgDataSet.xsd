@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ChumonMsgDataSet" targetNamespace="http://tempuri.org/ChumonMsgDataSet.xsd" xmlns:mstns="http://tempuri.org/ChumonMsgDataSet.xsd" xmlns="http://tempuri.org/ChumonMsgDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="m2mKoubaiConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="m2mKoubaiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.m2mKoubaiConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_Chumon_MessageTableAdapter" GeneratorDataComponentClassName="V_Chumon_MessageTableAdapter" Name="V_Chumon_Message" UserDataComponentName="V_Chumon_MessageTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="m2mKoubaiConnectionString (Settings)" DbObjectName="m2mKoubai.dbo.V_Chumon_Message" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT Name, OpenedName, MsgID, Year, HacchuuNo, UserKubun, LoginID, Message, TourokuBi, KoushinBi, OpenedFlg, OpenedUserKubun, OpenedLoginID, OpenedDate, JigyoushoKubun FROM dbo.V_Chumon_Message</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="OpenedName" DataSetColumn="OpenedName" />
+              <Mapping SourceColumn="MsgID" DataSetColumn="MsgID" />
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+              <Mapping SourceColumn="HacchuuNo" DataSetColumn="HacchuuNo" />
+              <Mapping SourceColumn="UserKubun" DataSetColumn="UserKubun" />
+              <Mapping SourceColumn="LoginID" DataSetColumn="LoginID" />
+              <Mapping SourceColumn="Message" DataSetColumn="Message" />
+              <Mapping SourceColumn="TourokuBi" DataSetColumn="TourokuBi" />
+              <Mapping SourceColumn="KoushinBi" DataSetColumn="KoushinBi" />
+              <Mapping SourceColumn="OpenedFlg" DataSetColumn="OpenedFlg" />
+              <Mapping SourceColumn="OpenedUserKubun" DataSetColumn="OpenedUserKubun" />
+              <Mapping SourceColumn="OpenedLoginID" DataSetColumn="OpenedLoginID" />
+              <Mapping SourceColumn="OpenedDate" DataSetColumn="OpenedDate" />
+              <Mapping SourceColumn="JigyoushoKubun" DataSetColumn="JigyoushoKubun" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ChumonMsgDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ChumonMsgDataSet" msprop:Generator_DataSetName="ChumonMsgDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_Chumon_Message" msprop:Generator_UserTableName="V_Chumon_Message" msprop:Generator_RowDeletedName="V_Chumon_MessageRowDeleted" msprop:Generator_TableClassName="V_Chumon_MessageDataTable" msprop:Generator_RowChangedName="V_Chumon_MessageRowChanged" msprop:Generator_RowClassName="V_Chumon_MessageRow" msprop:Generator_RowChangingName="V_Chumon_MessageRowChanging" msprop:Generator_RowEvArgName="V_Chumon_MessageRowChangeEvent" msprop:Generator_RowEvHandlerName="V_Chumon_MessageRowChangeEventHandler" msprop:Generator_TablePropName="V_Chumon_Message" msprop:Generator_TableVarName="tableV_Chumon_Message" msprop:Generator_RowDeletingName="V_Chumon_MessageRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OpenedName" msprop:Generator_UserColumnName="OpenedName" msprop:Generator_ColumnPropNameInRow="OpenedName" msprop:Generator_ColumnVarNameInTable="columnOpenedName" msprop:Generator_ColumnPropNameInTable="OpenedNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MsgID" msprop:Generator_UserColumnName="MsgID" msprop:Generator_ColumnPropNameInRow="MsgID" msprop:Generator_ColumnVarNameInTable="columnMsgID" msprop:Generator_ColumnPropNameInTable="MsgIDColumn" type="xs:long" />
+              <xs:element name="Year" msprop:Generator_UserColumnName="Year" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInTable="YearColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HacchuuNo" msprop:Generator_UserColumnName="HacchuuNo" msprop:Generator_ColumnPropNameInRow="HacchuuNo" msprop:Generator_ColumnVarNameInTable="columnHacchuuNo" msprop:Generator_ColumnPropNameInTable="HacchuuNoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UserKubun" msprop:Generator_UserColumnName="UserKubun" msprop:Generator_ColumnPropNameInRow="UserKubun" msprop:Generator_ColumnVarNameInTable="columnUserKubun" msprop:Generator_ColumnPropNameInTable="UserKubunColumn" type="xs:unsignedByte" />
+              <xs:element name="LoginID" msprop:Generator_UserColumnName="LoginID" msprop:Generator_ColumnPropNameInRow="LoginID" msprop:Generator_ColumnVarNameInTable="columnLoginID" msprop:Generator_ColumnPropNameInTable="LoginIDColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Message" msprop:Generator_UserColumnName="Message" msprop:Generator_ColumnPropNameInRow="Message" msprop:Generator_ColumnVarNameInTable="columnMessage" msprop:Generator_ColumnPropNameInTable="MessageColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TourokuBi" msprop:Generator_UserColumnName="TourokuBi" msprop:Generator_ColumnPropNameInRow="TourokuBi" msprop:Generator_ColumnVarNameInTable="columnTourokuBi" msprop:Generator_ColumnPropNameInTable="TourokuBiColumn" type="xs:dateTime" />
+              <xs:element name="KoushinBi" msprop:Generator_UserColumnName="KoushinBi" msprop:Generator_ColumnPropNameInRow="KoushinBi" msprop:Generator_ColumnVarNameInTable="columnKoushinBi" msprop:Generator_ColumnPropNameInTable="KoushinBiColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="OpenedFlg" msprop:Generator_UserColumnName="OpenedFlg" msprop:Generator_ColumnPropNameInRow="OpenedFlg" msprop:Generator_ColumnVarNameInTable="columnOpenedFlg" msprop:Generator_ColumnPropNameInTable="OpenedFlgColumn" type="xs:boolean" />
+              <xs:element name="OpenedUserKubun" msprop:Generator_UserColumnName="OpenedUserKubun" msprop:Generator_ColumnPropNameInRow="OpenedUserKubun" msprop:Generator_ColumnVarNameInTable="columnOpenedUserKubun" msprop:Generator_ColumnPropNameInTable="OpenedUserKubunColumn" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="OpenedLoginID" msprop:Generator_UserColumnName="OpenedLoginID" msprop:Generator_ColumnPropNameInRow="OpenedLoginID" msprop:Generator_ColumnVarNameInTable="columnOpenedLoginID" msprop:Generator_ColumnPropNameInTable="OpenedLoginIDColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OpenedDate" msprop:Generator_UserColumnName="OpenedDate" msprop:Generator_ColumnPropNameInRow="OpenedDate" msprop:Generator_ColumnVarNameInTable="columnOpenedDate" msprop:Generator_ColumnPropNameInTable="OpenedDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JigyoushoKubun" msprop:Generator_UserColumnName="JigyoushoKubun" msprop:Generator_ColumnPropNameInRow="JigyoushoKubun" msprop:Generator_ColumnVarNameInTable="columnJigyoushoKubun" msprop:Generator_ColumnPropNameInTable="JigyoushoKubunColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_Chumon_Message" />
+      <xs:field xpath="mstns:MsgID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

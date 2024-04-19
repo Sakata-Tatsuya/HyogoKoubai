@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BuhinDataSet" targetNamespace="http://tempuri.org/BuhinDataSet.xsd" xmlns:mstns="http://tempuri.org/BuhinDataSet.xsd" xmlns="http://tempuri.org/BuhinDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="m2mKoubaiConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="m2mKoubaiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.m2mKoubaiConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="m2mKoubaiConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="m2mKoubaiConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.m2mKoubaiConnectionString1" Provider="System.Data.SqlClient">
+          </Connection>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="m2mKoubaiConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="m2mKoubaiConnectionString2 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.m2mKoubaiConnectionString2" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_Buhin_BuhinKubunTableAdapter" GeneratorDataComponentClassName="V_Buhin_BuhinKubunTableAdapter" Name="V_Buhin_BuhinKubun" UserDataComponentName="V_Buhin_BuhinKubunTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="m2mKoubaiConnectionString (Settings)" DbObjectName="m2mKoubai.dbo.V_Buhin_BuhinKubun" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT BuhinKubun FROM dbo.V_Buhin_BuhinKubun</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BuhinKubun" DataSetColumn="BuhinKubun" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_Buhin_TaniTableAdapter" GeneratorDataComponentClassName="V_Buhin_TaniTableAdapter" Name="V_Buhin_Tani" UserDataComponentName="V_Buhin_TaniTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="m2mKoubaiConnectionString (Settings)" DbObjectName="m2mKoubai.dbo.V_Buhin_Tani" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT Tani FROM dbo.V_Buhin_Tani</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Tani" DataSetColumn="Tani" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_Buhin_MasterTableAdapter" GeneratorDataComponentClassName="V_Buhin_MasterTableAdapter" Name="V_Buhin_Master" UserDataComponentName="V_Buhin_MasterTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="m2mKoubaiConnectionString2 (Settings)" DbObjectName="m2mKoubai.dbo.V_Buhin_Master" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT BuhinCode, BuhinKubun, BuhinMei, Tani, LT_Suuji, LT_Tani, Tanka, Lot, ShiiresakiCode1, ShiiresakiCode2, ShiiresakiMei1, ShiiresakiMei2, KanjyouKamokuCode, HiyouKamokuCode, HojyoKamokuNo FROM dbo.V_Buhin_Master</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BuhinCode" DataSetColumn="BuhinCode" />
+              <Mapping SourceColumn="BuhinKubun" DataSetColumn="BuhinKubun" />
+              <Mapping SourceColumn="BuhinMei" DataSetColumn="BuhinMei" />
+              <Mapping SourceColumn="Tani" DataSetColumn="Tani" />
+              <Mapping SourceColumn="LT_Suuji" DataSetColumn="LT_Suuji" />
+              <Mapping SourceColumn="LT_Tani" DataSetColumn="LT_Tani" />
+              <Mapping SourceColumn="Tanka" DataSetColumn="Tanka" />
+              <Mapping SourceColumn="Lot" DataSetColumn="Lot" />
+              <Mapping SourceColumn="ShiiresakiCode1" DataSetColumn="ShiiresakiCode1" />
+              <Mapping SourceColumn="ShiiresakiCode2" DataSetColumn="ShiiresakiCode2" />
+              <Mapping SourceColumn="ShiiresakiMei1" DataSetColumn="ShiiresakiMei1" />
+              <Mapping SourceColumn="ShiiresakiMei2" DataSetColumn="ShiiresakiMei2" />
+              <Mapping SourceColumn="KanjyouKamokuCode" DataSetColumn="KanjyouKamokuCode" />
+              <Mapping SourceColumn="HiyouKamokuCode" DataSetColumn="HiyouKamokuCode" />
+              <Mapping SourceColumn="HojyoKamokuNo" DataSetColumn="HojyoKamokuNo" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BuhinDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="BuhinDataSet" msprop:Generator_DataSetName="BuhinDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_Buhin_BuhinKubun" msprop:Generator_UserTableName="V_Buhin_BuhinKubun" msprop:Generator_RowDeletedName="V_Buhin_BuhinKubunRowDeleted" msprop:Generator_RowChangedName="V_Buhin_BuhinKubunRowChanged" msprop:Generator_RowClassName="V_Buhin_BuhinKubunRow" msprop:Generator_RowChangingName="V_Buhin_BuhinKubunRowChanging" msprop:Generator_RowEvArgName="V_Buhin_BuhinKubunRowChangeEvent" msprop:Generator_RowEvHandlerName="V_Buhin_BuhinKubunRowChangeEventHandler" msprop:Generator_TableClassName="V_Buhin_BuhinKubunDataTable" msprop:Generator_TableVarName="tableV_Buhin_BuhinKubun" msprop:Generator_RowDeletingName="V_Buhin_BuhinKubunRowDeleting" msprop:Generator_TablePropName="V_Buhin_BuhinKubun">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BuhinKubun" msprop:Generator_UserColumnName="BuhinKubun" msprop:Generator_ColumnVarNameInTable="columnBuhinKubun" msprop:Generator_ColumnPropNameInRow="BuhinKubun" msprop:Generator_ColumnPropNameInTable="BuhinKubunColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_Buhin_Tani" msprop:Generator_UserTableName="V_Buhin_Tani" msprop:Generator_RowDeletedName="V_Buhin_TaniRowDeleted" msprop:Generator_RowChangedName="V_Buhin_TaniRowChanged" msprop:Generator_RowClassName="V_Buhin_TaniRow" msprop:Generator_RowChangingName="V_Buhin_TaniRowChanging" msprop:Generator_RowEvArgName="V_Buhin_TaniRowChangeEvent" msprop:Generator_RowEvHandlerName="V_Buhin_TaniRowChangeEventHandler" msprop:Generator_TableClassName="V_Buhin_TaniDataTable" msprop:Generator_TableVarName="tableV_Buhin_Tani" msprop:Generator_RowDeletingName="V_Buhin_TaniRowDeleting" msprop:Generator_TablePropName="V_Buhin_Tani">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Tani" msprop:Generator_UserColumnName="Tani" msprop:Generator_ColumnVarNameInTable="columnTani" msprop:Generator_ColumnPropNameInRow="Tani" msprop:Generator_ColumnPropNameInTable="TaniColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_Buhin_Master" msprop:Generator_UserTableName="V_Buhin_Master" msprop:Generator_RowDeletedName="V_Buhin_MasterRowDeleted" msprop:Generator_TableClassName="V_Buhin_MasterDataTable" msprop:Generator_RowChangedName="V_Buhin_MasterRowChanged" msprop:Generator_RowClassName="V_Buhin_MasterRow" msprop:Generator_RowChangingName="V_Buhin_MasterRowChanging" msprop:Generator_RowEvArgName="V_Buhin_MasterRowChangeEvent" msprop:Generator_RowEvHandlerName="V_Buhin_MasterRowChangeEventHandler" msprop:Generator_TablePropName="V_Buhin_Master" msprop:Generator_TableVarName="tableV_Buhin_Master" msprop:Generator_RowDeletingName="V_Buhin_MasterRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BuhinCode" msprop:Generator_UserColumnName="BuhinCode" msprop:Generator_ColumnPropNameInRow="BuhinCode" msprop:Generator_ColumnVarNameInTable="columnBuhinCode" msprop:Generator_ColumnPropNameInTable="BuhinCodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BuhinKubun" msprop:Generator_UserColumnName="BuhinKubun" msprop:Generator_ColumnPropNameInRow="BuhinKubun" msprop:Generator_ColumnVarNameInTable="columnBuhinKubun" msprop:Generator_ColumnPropNameInTable="BuhinKubunColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BuhinMei" msprop:Generator_UserColumnName="BuhinMei" msprop:Generator_ColumnPropNameInRow="BuhinMei" msprop:Generator_ColumnVarNameInTable="columnBuhinMei" msprop:Generator_ColumnPropNameInTable="BuhinMeiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tani" msprop:Generator_UserColumnName="Tani" msprop:Generator_ColumnPropNameInRow="Tani" msprop:Generator_ColumnVarNameInTable="columnTani" msprop:Generator_ColumnPropNameInTable="TaniColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LT_Suuji" msprop:Generator_UserColumnName="LT_Suuji" msprop:Generator_ColumnPropNameInRow="LT_Suuji" msprop:Generator_ColumnVarNameInTable="columnLT_Suuji" msprop:Generator_ColumnPropNameInTable="LT_SuujiColumn" type="xs:int" />
+              <xs:element name="LT_Tani" msprop:Generator_UserColumnName="LT_Tani" msprop:Generator_ColumnPropNameInRow="LT_Tani" msprop:Generator_ColumnVarNameInTable="columnLT_Tani" msprop:Generator_ColumnPropNameInTable="LT_TaniColumn" type="xs:unsignedByte" />
+              <xs:element name="Tanka" msprop:Generator_UserColumnName="Tanka" msprop:Generator_ColumnPropNameInRow="Tanka" msprop:Generator_ColumnVarNameInTable="columnTanka" msprop:Generator_ColumnPropNameInTable="TankaColumn" type="xs:decimal" />
+              <xs:element name="Lot" msprop:Generator_UserColumnName="Lot" msprop:Generator_ColumnPropNameInRow="Lot" msprop:Generator_ColumnVarNameInTable="columnLot" msprop:Generator_ColumnPropNameInTable="LotColumn" type="xs:int" />
+              <xs:element name="ShiiresakiCode1" msprop:Generator_UserColumnName="ShiiresakiCode1" msprop:Generator_ColumnPropNameInRow="ShiiresakiCode1" msprop:Generator_ColumnVarNameInTable="columnShiiresakiCode1" msprop:Generator_ColumnPropNameInTable="ShiiresakiCode1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShiiresakiCode2" msprop:Generator_UserColumnName="ShiiresakiCode2" msprop:Generator_ColumnPropNameInRow="ShiiresakiCode2" msprop:Generator_ColumnVarNameInTable="columnShiiresakiCode2" msprop:Generator_ColumnPropNameInTable="ShiiresakiCode2Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShiiresakiMei1" msprop:Generator_UserColumnName="ShiiresakiMei1" msprop:Generator_ColumnPropNameInRow="ShiiresakiMei1" msprop:Generator_ColumnVarNameInTable="columnShiiresakiMei1" msprop:Generator_ColumnPropNameInTable="ShiiresakiMei1Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShiiresakiMei2" msprop:Generator_UserColumnName="ShiiresakiMei2" msprop:Generator_ColumnPropNameInRow="ShiiresakiMei2" msprop:Generator_ColumnVarNameInTable="columnShiiresakiMei2" msprop:Generator_ColumnPropNameInTable="ShiiresakiMei2Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KanjyouKamokuCode" msprop:Generator_UserColumnName="KanjyouKamokuCode" msprop:Generator_ColumnPropNameInRow="KanjyouKamokuCode" msprop:Generator_ColumnVarNameInTable="columnKanjyouKamokuCode" msprop:Generator_ColumnPropNameInTable="KanjyouKamokuCodeColumn" type="xs:int" />
+              <xs:element name="HiyouKamokuCode" msprop:Generator_UserColumnName="HiyouKamokuCode" msprop:Generator_ColumnPropNameInRow="HiyouKamokuCode" msprop:Generator_ColumnVarNameInTable="columnHiyouKamokuCode" msprop:Generator_ColumnPropNameInTable="HiyouKamokuCodeColumn" type="xs:int" />
+              <xs:element name="HojyoKamokuNo" msprop:Generator_UserColumnName="HojyoKamokuNo" msprop:Generator_ColumnPropNameInRow="HojyoKamokuNo" msprop:Generator_ColumnVarNameInTable="columnHojyoKamokuNo" msprop:Generator_ColumnPropNameInTable="HojyoKamokuNoColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_Buhin_Master" />
+      <xs:field xpath="mstns:BuhinCode" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
