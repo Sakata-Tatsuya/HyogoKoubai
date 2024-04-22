@@ -111,7 +111,7 @@ namespace m2mKoubai
             }
 
             SessionManager.Login(dr);     
-            if (dr.UserKubun == (byte)UserKubun.Yodoko)
+            if (dr.UserKubun == (byte)UserKubun.Owner)
             {
                 // ƒˆƒhƒRƒE
                 this.Response.Redirect("~/Order/OrderInfoForm.aspx");

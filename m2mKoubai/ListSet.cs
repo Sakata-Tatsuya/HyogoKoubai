@@ -327,7 +327,7 @@ namespace m2mKoubai
             ddl.Items.Add(new ListItem("---", "0"));
             ddl.Items.Add(new ListItem("”[Šú‰ñ“š‚ ‚è", "1"));
             ddl.Items.Add(new ListItem("”[Šú‰ñ“š‚È‚µ", "2"));
-            if(nkubun == (byte)UserKubun.Yodoko)
+            if(nkubun == (byte)UserKubun.Owner)
                 ddl.Items.Add(new ListItem("–¢³”F", "3"));
         }
         /// <summary>

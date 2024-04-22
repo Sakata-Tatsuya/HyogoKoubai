@@ -25,7 +25,7 @@ namespace m2mKoubai.Master
         private const int G_CELL_PASSWORD = 9;
         private const int G_CELL_KANRISHA_KUBUN = 10;
        
-        private byte bKubun = (byte)UserKubun.Yodoko;
+        private byte bKubun = (byte)UserKubun.Owner;
 
         private int VsCurrentPageIndex
         {
@@ -46,7 +46,7 @@ namespace m2mKoubai.Master
         {
             if (!this.IsPostBack)
             {
-                if (SessionManager.UserKubun != (byte)UserKubun.Yodoko) // YodokoÇÃÇ›ï\é¶â¬
+                if (SessionManager.UserKubun != (byte)UserKubun.Owner) // î≠íçë§ÇÃÇ›ï\é¶â¬
                 {
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;

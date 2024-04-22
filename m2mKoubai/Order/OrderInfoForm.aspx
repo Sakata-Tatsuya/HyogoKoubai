@@ -488,47 +488,29 @@
             <td class="tl">
                 <table border="1" bordercolor="#000000" class="col tc" frame="below" width="100%">
                     <tr class="bg3">
-                        <td>
-                            発注No
-                        </td>
-                        <td>
-                            仕入先
-                        </td>
-                        <td>
-                            納入場所
-                        </td>
-                        <td>
-                            納期回答状況
-                        </td>
-                        <td>
-                            納品状況
-                        </td>
-                        <td>
-                            納期
-                        </td>
-                        <td>
-                            回答納期
-                        </td>
+                        <td>発注No</td>
+                        <td>仕入先</td>
+                        <td>納入場所</td>
+                        <td>納期回答状況</td>
+                        <td>納品状況</td>
+                        <td>納期</td>
+                        <td>回答納期</td>
                     </tr>
                     <tr>
                         <td>
                             <asp:TextBox ID="TbxHacchuNo" runat="server" Width="100px" MaxLength="7"></asp:TextBox>
                         </td>
                         <td>
-                            <asp:DropDownList ID="DdlShiire" runat="server">
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="DdlShiire" runat="server"></asp:DropDownList>
                         </td>
                         <td>
-                            <asp:DropDownList ID="DdlNBasho" runat="server">
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="DdlNBasho" runat="server"></asp:DropDownList>
                         </td>
                         <td>
-                            <asp:DropDownList ID="DdlNKJyoukyou" runat="server">
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="DdlNKJyoukyou" runat="server"></asp:DropDownList>
                         </td>
                         <td>
-                            <asp:DropDownList ID="DdlNJyoukyou" runat="server">
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="DdlNJyoukyou" runat="server"></asp:DropDownList>
                         </td>
                         <td>
                             <uc3:CtlNengappiFromTo ID="CtlNouki" runat="server" />
@@ -540,40 +522,23 @@
                 </table>
                 <table border="1" bordercolor="#000000" class="col tc" frame="void" width="100%">
                     <tr class="bg3">
-                        <td>
-                            品目グループ
-                        </td>
-                        <td>
-                            品目名
-                        </td>
-                        <td>
-                            発注担当者
-                        </td>
-                        <td>
-                            発注日
-                        </td>
-                        <td>
-                            納品日
-                        </td>
-                        <td>
-                            メッセージ
-                        </td>
-                        <td>
-                            キャンセル注文
-                        </td>
+                        <td>品目グループ</td>
+                        <td>品目名</td>
+                        <td>発注担当者</td>
+                        <td>発注日</td>
+                        <td>納品日</td>
+                        <td>メッセージ</td>
+                        <td>キャンセル注文</td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:DropDownList ID="DdlBuhinKubun" runat="server">
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="DdlBuhinKubun" runat="server"></asp:DropDownList>
                         </td>
                         <td>
-                            <asp:DropDownList ID="DdlBuhin" runat="server">
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="DdlBuhin" runat="server"></asp:DropDownList>
                         </td>
                         <td>
-                            <asp:DropDownList ID="DdlHacchuTantousha" runat="server">
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="DdlHacchuTantousha" runat="server"></asp:DropDownList>
                         </td>
                         <td>
                             <uc3:CtlNengappiFromTo ID="CtlHacchuubi" runat="server" />
@@ -582,13 +547,11 @@
                             <uc3:CtlNengappiFromTo ID="CtlNouhinbi" runat="server" />
                         </td>
                         <td>
-                            <asp:DropDownList ID="DdlMsg" runat="server">
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="DdlMsg" runat="server"></asp:DropDownList>
                             &nbsp;
                         </td>
                         <td>
-                            <asp:DropDownList ID="DdlCancel" runat="server">
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="DdlCancel" runat="server"></asp:DropDownList>
                         </td>
                     </tr>
                 </table>
@@ -621,7 +584,7 @@
                             <uc2:CtlMyPager ID="Pt" runat="server" />
                         </td>
                         <td class="nw" valign="bottom">
-                            <input id="BtnI" runat="server" type="button" value="チェックした発注書を印刷する" class="bg6 w170 f9" />
+                            <input id="BtnI" runat="server" type="button" value="チェックした発注書を印刷する" class="bg6 w180 f9" />
                         </td>
                         <td class="tr" valign="bottom">
                             <table id="TblRow" runat="server">

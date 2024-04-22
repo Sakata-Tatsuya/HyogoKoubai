@@ -36,7 +36,7 @@ namespace m2mKoubai.Master
 
             if (!IsPostBack)
             {
-                if (SessionManager.UserKubun != (byte)UserKubun.Yodoko) // Yodokoë§ÇÃÇ›ï\é¶â¬
+                if (SessionManager.UserKubun != (byte)UserKubun.Owner) // î≠íçë§ÇÃÇ›ï\é¶â¬
                 {
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;

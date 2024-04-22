@@ -24,7 +24,7 @@ namespace m2mKoubai.Denpyou
                 bKubun = SessionManager.UserKubun;
 
                 // ヨドコウ側、仕入先側のみ表示可
-                if (bKubun != (byte)UserKubun.Yodoko && bKubun != (byte)UserKubun.Shiiresaki)
+                if (bKubun != (byte)UserKubun.Owner && bKubun != (byte)UserKubun.Shiiresaki)
                 {
                     HttpContext.Current.Response.Redirect(Global.LoginPageURL, false);
                     return;
@@ -64,7 +64,7 @@ namespace m2mKoubai.Denpyou
                 ShowMsg(AppCommon.NO_DATA, true);
                 return;
             }
-            if (bKubun == (byte)UserKubun.Yodoko)
+            if (bKubun == (byte)UserKubun.Owner)
             {
                 // 仕入先配列を作成
                 ArrayList aryShiire = new ArrayList();

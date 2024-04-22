@@ -383,7 +383,7 @@
                                 <tr>
                                     <td>
                                         <asp:DropDownList ID="DdlTax" runat="server" AutoPostBack="True" onselectedindexchanged="DdlTax_SelectedIndexChanged">
-                                            <asp:ListItem Value="5">5%</asp:ListItem>
+                                            <asp:ListItem Value="10">10%</asp:ListItem>
                                             <asp:ListItem Value="8">8%</asp:ListItem>
                                         </asp:DropDownList>
                                     </td>

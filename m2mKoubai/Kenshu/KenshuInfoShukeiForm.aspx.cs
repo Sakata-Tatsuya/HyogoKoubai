@@ -36,7 +36,7 @@ namespace m2mKoubai.Kenshu
         {
             if (!IsPostBack)
             {
-                if (SessionManager.UserKubun != (byte)UserKubun.Yodoko)
+                if (SessionManager.UserKubun != (byte)UserKubun.Owner)
                 {
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;

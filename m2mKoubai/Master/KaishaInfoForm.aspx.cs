@@ -31,7 +31,7 @@ namespace m2mKoubai.Master
             set { this.ViewState["VsKaishaID"] = value; }
         }
 
-        private byte bKubun = (byte)UserKubun.Yodoko;
+        private byte bKubun = (byte)UserKubun.Owner;
 
 
         private int VsCurrentPageIndex
@@ -53,7 +53,7 @@ namespace m2mKoubai.Master
         {
             if (!IsPostBack)
             {
-                if (SessionManager.UserKubun != (byte)UserKubun.Yodoko)
+                if (SessionManager.UserKubun != (byte)UserKubun.Owner)
                 {
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;

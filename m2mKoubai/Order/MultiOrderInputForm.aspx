@@ -410,7 +410,9 @@
             </tr>
             <tr>
                 <td>
-                <TABLE class="col tc" borderColor=#000000 border=1 frame=box><TBODY><TR><TD class="bg3 b f10">仕入先 </TD></TR><TR><TD class="bg8"><asp:DropDownList id="DdlShiire" runat="server"></asp:DropDownList></TD></TR></TBODY></TABLE>
+                    <table class="col tc" bordercolor="#000000" border="1" frame="box">
+                        <tbody><tr><td class="bg3 b f10">仕入先 </td></tr><tr><td class="bg8"><asp:DropDownList id="DdlShiire" runat="server"></asp:DropDownList></td></tr></tbody>
+                    </table>
                     <table width="100%">
                         <tr>
                             <td>
@@ -430,8 +432,8 @@
                                                 </td>
                                                 <td>
                                                     <asp:DropDownList ID="DdlTax" runat="server">
-                                                        <asp:ListItem Value="5">5%</asp:ListItem>
                                                         <asp:ListItem Value="8">8%</asp:ListItem>
+                                                        <asp:ListItem Value="10">10%</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
                                             </tr>
@@ -549,15 +551,15 @@
                                     <table align="center" class="col" frame="void" width="100%">
                                         <tr>
                                             <td class="tc s3">
-                                    <radCln:RadDatePicker ID="RdpNouki" runat="server">
-                                        <DateInput Width="80px" Font-Size="11pt" ></DateInput>
-                                    </radCln:RadDatePicker>
+                                                <radCln:RadDatePicker ID="RdpNouki" runat="server">
+                                                <DateInput Width="80px" Font-Size="11pt" ></DateInput>
+                                                </radCln:RadDatePicker>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="tc">
-                                    <asp:DropDownList ID="DdlBasho" runat="server">
-                                    </asp:DropDownList></td>
+                                                <asp:DropDownList ID="DdlBasho" runat="server">
+                                                </asp:DropDownList></td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
@@ -591,7 +593,7 @@
             </tr>
             <tr>
                 <td class="tr">
-                                            <input id="BtnAdd" runat="server" type="button" value="行を追加する" class="bg6" /></td>
+                    <input id="BtnAdd" runat="server" type="button" value="行を追加する" class="bg6" /></td>
             </tr>
             <tr>
                 <td class="tc">
@@ -599,14 +601,15 @@
             </tr>
             <tr>
                 <td class="tc">
-                                            <input id="BtnT" runat="server" type="button" value="上記の内容で発注する" class="b bg6" /></td>
+                    <input id="BtnT" runat="server" type="button" value="上記の内容で発注する" class="b bg6" /></td>
             </tr>
             <tr>
                 <td>
                     <radcln:radcalendar id="SC" runat="server" Skin="Web20"></radCln:radcalendar>
                     <input id="HidChkID" runat="server" type="hidden" />
                     <input id="HidArgs" runat="server" type="hidden" />
-                    <input id="HidNoukiID" runat="server" type="hidden" /></td>
+                    <input id="HidNoukiID" runat="server" type="hidden" />
+                </td>
             </tr>
         </table>
         <radA:RadAjaxManager ID="Ram"  runat="server" OnAjaxRequest="Ram_AjaxRequest">

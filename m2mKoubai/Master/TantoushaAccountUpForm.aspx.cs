@@ -28,7 +28,7 @@ namespace m2mKoubai.Master
 
             if (!IsPostBack)
             {
-                if (SessionManager.UserKubun != (byte)UserKubun.Yodoko) // Yodoko側のみ表示可
+                if (SessionManager.UserKubun != (byte)UserKubun.Owner) // 発注側のみ表示可
                 {
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
@@ -201,7 +201,7 @@ namespace m2mKoubai.Master
                 dr.LoginID = LitLoginID.Text;
             }
             //　ユーザー区分
-            dr.UserKubun = (byte)UserKubun.Yodoko;
+            dr.UserKubun = (byte)UserKubun.Owner;
             //　仕入先コード
             dr.KaishaCode = "0";
             //  部署

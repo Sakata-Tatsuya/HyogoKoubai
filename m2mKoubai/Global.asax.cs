@@ -66,7 +66,7 @@ namespace m2mKoubai
 
         public static void SendMail(string strMsg)
         {
-            string strSubject = "Yodoko興産Web-EDIエラー";
+            string strSubject = "m2m Web-EDIエラー";
 
             System.Net.Mail.MailMessage mm = new System.Net.Mail.MailMessage
                 (System.Configuration.ConfigurationManager.AppSettings["Err_Mail_From"],

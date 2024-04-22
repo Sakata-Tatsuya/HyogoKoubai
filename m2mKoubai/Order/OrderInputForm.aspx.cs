@@ -86,17 +86,10 @@ namespace m2mKoubai.Order
         {
             if (!IsPostBack)
             {
-                // ëùê≈ëŒâû
-                if (DateTime.Today >= new DateTime(2014, 4, 1))
-                {
-                    this.DdlTax.SelectedValue = "8";
-                }
-                else
-                {
-                    this.DdlTax.SelectedValue = "5";
-                }
+                // ëùê≈ëŒâû(2019/10/1 10%)
+                this.DdlTax.SelectedValue = "10";
 
-                if (SessionManager.UserKubun != (byte)UserKubun.Yodoko)
+                if (SessionManager.UserKubun != (byte)UserKubun.Owner)
                 {
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;

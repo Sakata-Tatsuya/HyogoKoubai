@@ -279,7 +279,7 @@ namespace m2mKoubaiDAL
             {
                 if (k._Msg == 0)
                 {
-                    if (k._userKubun == (byte)UserKubun.Yodoko)
+                    if (k._userKubun == (byte)UserKubun.Owner)
                     {
                         w.Add("  (((SELECT TOP (1) OpenedFlg "
                                + "FROM dbo.T_ChumonMsg AS T_ChumonMsg_1 "
@@ -304,7 +304,7 @@ namespace m2mKoubaiDAL
                 }
                 else if (k._Msg == 1)
                 {
-                    if (k._userKubun == (byte)UserKubun.Yodoko)
+                    if (k._userKubun == (byte)UserKubun.Owner)
                     {
                         w.Add("  (((SELECT TOP (1) OpenedFlg "
                                 + "FROM dbo.T_ChumonMsg AS T_ChumonMsg_1 "

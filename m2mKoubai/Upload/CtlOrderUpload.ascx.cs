@@ -25,7 +25,7 @@ namespace m2mKoubai.Upload
 
         public void Create()
         {
-            ListSet.SetDdlTantoushaValueIsId((byte)UserKubun.Yodoko, DdlHachuTantousha);
+            ListSet.SetDdlTantoushaValueIsId((byte)UserKubun.Owner, DdlHachuTantousha);
 
             if (this.DdlHachuTantousha.Items.FindByValue(SessionManager.LoginID) != null)
             {

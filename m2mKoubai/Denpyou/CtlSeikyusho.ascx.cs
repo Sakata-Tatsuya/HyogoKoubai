@@ -23,7 +23,7 @@ namespace m2mKoubai.Denpyou
         public void Create(m2mKoubaiDataSet.M_ShiiresakiRow drShiire, ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader, int nMonth)
         {
             // ヨドコウ興産株式会社
-            LitYodoko.Text = drHeader.KaishaMei +  " " + drHeader.EigyouSho;
+            LitOwner.Text = drHeader.KaishaMei +  " " + drHeader.EigyouSho;
             // 日付
             LitDate.Text = DateTime.Today.ToString("yyyy年MM月dd日");
          

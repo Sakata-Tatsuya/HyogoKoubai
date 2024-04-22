@@ -50,7 +50,7 @@ namespace m2mKoubai.Master
         {
             if (!this.IsPostBack)
             {
-                if (SessionManager.UserKubun != (byte)UserKubun.Yodoko) // Yodoko‚Ì‚İ•\¦‰Â
+                if (SessionManager.UserKubun != (byte)UserKubun.Owner) // ”­’‘¤‚Ì‚İ•\¦‰Â
                 {
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;

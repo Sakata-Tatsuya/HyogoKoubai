@@ -3,7 +3,7 @@
 <table width="100%">
     <tr>
         <td>
-            <asp:Literal ID="LitYodoko" runat="server"></asp:Literal>Œä’†</td>
+            <asp:Literal ID="LitOwner" runat="server"></asp:Literal>Œä’†</td>
     </tr>
     <tr>
         <td>

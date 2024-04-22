@@ -58,7 +58,7 @@ namespace m2mKoubai.Order
         {
             if (!IsPostBack)
             {
-                if (SessionManager.UserKubun != (byte)UserKubun.Yodoko)
+                if (SessionManager.UserKubun != (byte)UserKubun.Owner)
                 {
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
@@ -744,7 +744,7 @@ namespace m2mKoubai.Order
         private string BtnMsgText(Byte mFlag)
         {
             string strText = "";
-            if (mFlag == (byte)UserKubun.Yodoko)
+            if (mFlag == (byte)UserKubun.Owner)
                 strText = "ëóêM";
             else
                 strText = "éÛêM";

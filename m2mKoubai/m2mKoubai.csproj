@@ -58,9 +58,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\Core.dll</HintPath>
     </Reference>
+    <Reference Include="m2mKoubai, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\m2mKoubai.dll</HintPath>
+    </Reference>
     <Reference Include="m2mKoubaiDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\m2mKoubaiDAL.dll</HintPath>
+      <HintPath>..\m2mKoubaiDAL\bin\Release\m2mKoubaiDAL.dll</HintPath>
     </Reference>
     <Reference Include="RadAjax.Net2, Version=1.7.2.0, Culture=neutral, PublicKeyToken=3f7b438d1c762d0b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -97,8 +101,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BarCode\AdvBarCode.dll" />
-    <Content Include="BarCode\AdvBarCodeCtrl.dll" />
     <Content Include="BarCode\BarCodeForm.aspx" />
     <Content Include="Denpyou\CtlGenpinhyou.ascx" />
     <Content Include="Denpyou\CtlJyuryosho_M.ascx" />

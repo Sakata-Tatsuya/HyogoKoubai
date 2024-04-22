@@ -8,7 +8,7 @@ namespace m2mKoubaiDAL
 {
     public class MailClass
     {
-        private const string _SystemURL = "http://yodo-kosan.m2m-asp.com/";
+        private const string _SystemURL = "http://m2mkoubai.m2m-asp.com/";
         /// <summary>
         /// メール送信時に必要な項目
         /// (メール送信時、このインスタンスを作成し、全ての項目に値をセットする)
@@ -58,8 +58,8 @@ namespace m2mKoubaiDAL
 
                     // 成功した時も自分にメール送信
                     System.Net.Mail.MailMessage mm2 = new System.Net.Mail.MailMessage();
-                    mm2.From = new System.Net.Mail.MailAddress("yodoko@m2m-asp.com");
-                    mm2.To.Add("keiran@m2m-asp.com");
+                    mm2.From = new System.Net.Mail.MailAddress("dev@m2m-asp.com");
+                    mm2.To.Add("sakata@m2m-asp.com");
                     mm2.Subject = "送信成功";
                     mm2.Body = p._Body;
 
@@ -74,8 +74,8 @@ namespace m2mKoubaiDAL
                 {
                     System.Net.Mail.MailMessage mm = new System.Net.Mail.MailMessage();
                     // 送信元と送信元表示名                
-                    mm.From = new System.Net.Mail.MailAddress("yodoko@m2m-asp.com");
-                    mm.To.Add("keiran@m2m-asp.com");
+                    mm.From = new System.Net.Mail.MailAddress("dev@m2m-asp.com");
+                    mm.To.Add("sakata@m2m-asp.com");
                     mm.Subject = "送信失敗";
                     mm.Body = "送信元: " + p._MailFrom + "\r\n\r\n"
                                 + "送信先: " + p._MailTo + "\r\n\r\n"
@@ -97,8 +97,8 @@ namespace m2mKoubaiDAL
             {
                 System.Net.Mail.MailMessage mm1 = new System.Net.Mail.MailMessage();
                 // 送信元と送信元表示名                
-                mm1.From = new System.Net.Mail.MailAddress("yodoko@m2m-asp.com");
-                mm1.To.Add("keiran@m2m-asp.com");
+                mm1.From = new System.Net.Mail.MailAddress("dev@m2m-asp.com");
+                mm1.To.Add("sakata@m2m-asp.com");
                 mm1.Subject = "送信失敗";
                 mm1.Body = "送信元: " + p._MailFrom + "\r\n\r\n"
                             + "送信先: " + p._MailTo + "\r\n\r\n"
