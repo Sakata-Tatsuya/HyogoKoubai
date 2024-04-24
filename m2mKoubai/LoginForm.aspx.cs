@@ -28,6 +28,7 @@ namespace m2mKoubai
                 this.Create();
             }
         }
+
         // メッセージ表示
         private void ShowErrMsg(string strMsg)
         {

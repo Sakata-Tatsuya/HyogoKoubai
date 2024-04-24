@@ -43,8 +43,7 @@ namespace m2mKoubai.Denpyou
         private void Create(string key)
         {
             // キーによって、印刷する納品書明細を取得
-            ChumonDataSet.V_Chumon_MeisaiDataTable dt =
-                     ChumonClass.getV_Chumon_MeisaiDataTable(key, Global.GetConnection());
+            ChumonDataSet.V_Chumon_MeisaiDataTable dt = ChumonClass.getV_Chumon_MeisaiDataTable(key, Global.GetConnection());
 
             if (dt.Rows.Count == 0)
             {
@@ -68,9 +67,7 @@ namespace m2mKoubai.Denpyou
             {
                 nGoukei = 0;
                 // 納品書ヘッダー
-                ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader =
-                    ShiiresakiClass.getV_Nouhinsho_HeaderRow(SessionManager.LoginID, 
-                                                            int.Parse(aryKubun[nKubunCnt].ToString()), Global.GetConnection());
+                ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader = ShiiresakiClass.getV_Nouhinsho_HeaderRow(SessionManager.LoginID,int.Parse(aryKubun[nKubunCnt].ToString()), Global.GetConnection());
                 if (drHeader != null)
                 {
                     CtlNouhinsho_H c = LoadControl("CtlNouhinsho_H.ascx") as CtlNouhinsho_H;
@@ -87,8 +84,7 @@ namespace m2mKoubai.Denpyou
                     if (dt[j].JigyoushoKubun.ToString() == aryKubun[nKubunCnt].ToString())
                     {
                         // NewBindRow()
-                        ChumonDataSet.V_Nouhinsho_MeisaiRow drBind =
-                            dtBind.NewV_Nouhinsho_MeisaiRow();
+                        ChumonDataSet.V_Nouhinsho_MeisaiRow drBind = dtBind.NewV_Nouhinsho_MeisaiRow();
 
                         drBind.HacchuuNo = dt[j].HacchuuNo;
                         drBind.Hacchuubi = dt[j].HacchuuBi.ToString("yy/MM/dd");
@@ -211,9 +207,8 @@ namespace m2mKoubai.Denpyou
             // 事業所ことで、受領書を印刷する
             for (int nKubunCnt = 0; nKubunCnt < aryKubun.Count; nKubunCnt++)
             {
-                // 受領書ヘッダ                
-                ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeaderJ =
-                 ShiiresakiClass.getV_Nouhinsho_HeaderRow(SessionManager.LoginID, int.Parse(aryKubun[nKubunCnt].ToString()), Global.GetConnection());
+                // 受領書ヘッダ
+                ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeaderJ = ShiiresakiClass.getV_Nouhinsho_HeaderRow(SessionManager.LoginID, int.Parse(aryKubun[nKubunCnt].ToString()), Global.GetConnection());
 
                 if (drHeaderJ != null)
                 {
@@ -222,13 +217,10 @@ namespace m2mKoubai.Denpyou
                     this.T.Rows[0].Cells[0].Controls.Add(c);
                 }
                 // キーによって、印刷する受領書明細を取得
-                KenshuDataSet.V_KenshuDataTable dtMeisai =
-                    KenshuClass.getV_Kenshu_MeisaiDataTable(key, Global.GetConnection());
+                KenshuDataSet.V_KenshuDataTable dtMeisai = KenshuClass.getV_Kenshu_MeisaiDataTable(key, Global.GetConnection());
 
                 // G.DataSourceテーブル
-                ChumonDataSet.V_Jyuryosho_MeisaiDataTable dtBindJ =
-                    new ChumonDataSet.V_Jyuryosho_MeisaiDataTable();
-
+                ChumonDataSet.V_Jyuryosho_MeisaiDataTable dtBindJ = new ChumonDataSet.V_Jyuryosho_MeisaiDataTable();
 
                 nGoukei = 0;
                 for (int i = 0; i < dt.Rows.Count; i++)
@@ -308,8 +300,7 @@ namespace m2mKoubai.Denpyou
                         }
 
                     }
-                    ChumonDataSet.V_Jyuryosho_MeisaiRow[] drAry =
-                        new ChumonDataSet.V_Jyuryosho_MeisaiRow[ary.Count];
+                    ChumonDataSet.V_Jyuryosho_MeisaiRow[] drAry = new ChumonDataSet.V_Jyuryosho_MeisaiRow[ary.Count];
 
                     nNowPageCountJ += drAry.Length;
                     ary.CopyTo(drAry);

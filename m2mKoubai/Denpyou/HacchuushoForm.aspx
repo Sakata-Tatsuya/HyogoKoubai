@@ -9,15 +9,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    
-                    <asp:Label ID="LblMsg" runat="server" CssClass="b def9"></asp:Label>
-         <table id="T" runat="server" width="100%">
+        <asp:Label ID="LblMsg" runat="server" CssClass="b def9"></asp:Label>
+        <table id="T" runat="server" width="100%">
             <tr>
                 <td valign="top">
                 </td>
             </tr>
         </table>
-  
+ 
     </form>
 </body>
 </html>

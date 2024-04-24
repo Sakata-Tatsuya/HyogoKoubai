@@ -38,16 +38,15 @@
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
-                                                <asp:Literal ID="LitKaishaMeiY" runat="server"></asp:Literal>&nbsp;
-                                                御中</td>
+                                    <asp:Literal ID="LitKaishaMeiY" runat="server"></asp:Literal>&nbsp;御中</td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
-                                                TEL：<asp:Literal ID="LitTelY" runat="server"></asp:Literal></td>
+                                    TEL：<asp:Literal ID="LitTelY" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
-                                                FAX：<asp:Literal ID="LitFaxY" runat="server"></asp:Literal></td>
+                                    FAX：<asp:Literal ID="LitFaxY" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td>
@@ -79,11 +78,11 @@
                             </tr>
                           <tr>
                               <td>
-                                                TEL：<asp:Literal ID="LitTel" runat="server"></asp:Literal></td>
+                                TEL：<asp:Literal ID="LitTel" runat="server"></asp:Literal></td>
                           </tr>
                           <tr>
                               <td style="height: 16px">
-                                                FAX：<asp:Literal ID="LitFax" runat="server"></asp:Literal></td>
+                                FAX：<asp:Literal ID="LitFax" runat="server"></asp:Literal></td>
                           </tr>
                             <tr>
                                 <td>

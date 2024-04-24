@@ -54,13 +54,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\AdvBarCodeCtrl.dll</HintPath>
     </Reference>
-    <Reference Include="Core, Version=1.0.1.0, Culture=neutral">
+    <Reference Include="Core, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\Core.dll</HintPath>
-    </Reference>
-    <Reference Include="m2mKoubai, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\m2mKoubai.dll</HintPath>
     </Reference>
     <Reference Include="m2mKoubaiDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
