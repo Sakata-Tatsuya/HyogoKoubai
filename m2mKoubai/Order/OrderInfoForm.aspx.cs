@@ -12,7 +12,7 @@ using m2mKoubaiDAL;
 
 namespace m2mKoubai.Order
 {
-    public partial class OrderInfoForm : Core.Web.ServerViewStatePage
+    public partial class OrderInfoForm : HonyakuPage
     {
         private const int G_CELL_I = 0;
         private const int G_CELL_CANCEL = 1;

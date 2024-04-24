@@ -7,10 +7,90 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using Telerik.Web;
 using m2mKoubaiDAL;
 
 namespace m2mKoubai
 {
+    [Serializable]
+    public class HonyakuUserControl : System.Web.UI.UserControl
+    {
+        public System.IO.MemoryStream ms;
+        public byte[] theData;
+
+        public bool HonyakuZumi
+        {
+            get;
+            set;
+        }
+
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            if (!SessionManager.User.TwoLetterISOLanguageName.Equals("ja"))
+            {
+                if (!HonyakuZumi)
+                {
+                    for (int i = 0; i < this.Controls.Count; i++)
+                        AppCommon.HonyakuChildControls(this.Controls[i]);
+                    this.HonyakuZumi = true;
+                }
+            }
+        }
+    }
+
+    [Serializable]
+    public class HonyakuPage : Core.Web.ServerViewStatePage
+    {
+
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            if (!SessionManager.User.TwoLetterISOLanguageName.Equals("ja"))
+            {
+                for (int i = 0; i < this.Controls.Count; i++)
+                    AppCommon.HonyakuChildControls(this.Controls[i]);
+
+            }
+        }
+    }
+
+    [Serializable]
+    public class Language
+    {
+        // ISO 639の2桁コードで定義する。
+        public const string Japanese = "ja";
+        public const string English = "en";
+        public const string Chinese = "zh";
+    }
+
+    [Serializable]
+    public class RM
+    {
+        public static string GetString(string str)
+        {
+            return SessionManager.User.Honyaku(str);
+        }
+
+        public static void Honyaku(Core.Web.FilterTextBox tbx)
+        {
+            for (int i = 0; i < tbx.FilterItems.Count; i++)
+            {
+                tbx.FilterItems[i].Text = SessionManager.User.Honyaku(tbx.FilterItems[i].Text);
+            }
+        }
+
+        public static void Honyaku(DropDownList ddl)
+        {
+            if (ddl.Attributes["Honyaku"] == "true") return;
+            for (int i = 0; i < ddl.Items.Count; i++)
+                ddl.Items[i].Text = SessionManager.User.Honyaku(ddl.Items[i].Text);
+
+            ddl.Attributes["Honyaku"] = "true";
+        }
+    }
+
+    [Serializable]
     public class AppCommon
     {
 
@@ -503,6 +583,167 @@ namespace m2mKoubai
             }
 
             return nNewDay;
+        }
+
+        public static void HonyakuChildControls(System.Web.UI.Control c)
+        {
+            if (c is Literal)
+            {
+                (c as Literal).Text = SessionManager.User.Honyaku((c as Literal).Text);
+            }
+            else if (c is Label)
+            {
+                (c as Label).Text = SessionManager.User.Honyaku((c as Label).Text);
+            }
+            else if (c is Button)
+            {
+                (c as Button).Text = SessionManager.User.Honyaku((c as Button).Text);
+            }
+            else if (c is HtmlInputButton)
+            {
+                (c as HtmlInputButton).Value = SessionManager.User.Honyaku((c as HtmlInputButton).Value);
+            }
+            else if (c is DropDownList)
+            {
+                DropDownList ddl = c as DropDownList;
+                for (int i = 0; i < ddl.Items.Count; i++)
+                    ddl.Items[i].Text = SessionManager.User.Honyaku(ddl.Items[i].Text);
+            }
+            else if (c is RadioButtonList)
+            {
+                RadioButtonList rbl = c as RadioButtonList;
+                for (int i = 0; i < rbl.Items.Count; i++)
+                    rbl.Items[i].Text = SessionManager.User.Honyaku(rbl.Items[i].Text);
+            }
+            else if (c is CheckBoxList)
+            {
+                CheckBoxList cbl = c as CheckBoxList;
+                for (int i = 0; i < cbl.Items.Count; i++)
+                    cbl.Items[i].Text = SessionManager.User.Honyaku(cbl.Items[i].Text);
+            }
+            else if (c is Core.Web.FilterTextBox)
+            {
+                Core.Web.FilterTextBox tbx = c as Core.Web.FilterTextBox;
+                for (int i = 0; i < tbx.FilterItems.Count; i++)
+                    tbx.FilterItems[i].Text = SessionManager.User.Honyaku(tbx.FilterItems[i].Text);
+            }
+            else if (c is CheckBox)
+            {
+                (c as CheckBox).Text = SessionManager.User.Honyaku((c as CheckBox).Text);
+            }
+            else if (c is HyperLink)
+            {
+                HyperLink l = c as HyperLink;
+                l.Text = SessionManager.User.Honyaku(l.Text);
+            }
+            else if (c is Telerik.Web.UI.RadGrid)
+            {
+                Telerik.Web.UI.RadGrid dgd = c as Telerik.Web.UI.RadGrid;
+
+                for (int i = 0; i < dgd.Columns.Count; i++)
+                    dgd.Columns[i].HeaderText = SessionManager.User.Honyaku(dgd.Columns[i].HeaderText);
+
+                dgd.MasterTableView.PagerStyle.PagerTextFormat =
+                    SessionManager.User.Honyaku("ページ移動: {4} &nbsp;ページ : <strong>{0:N0}</strong> / <strong>{1:N0}</strong> | 件数: <strong>{2:N0}</strong> - <strong>{3:N0}件</strong> / <strong>{5:N0}</strong>件中");
+                dgd.MasterTableView.PagerStyle.FirstPageToolTip = SessionManager.User.Honyaku("最初のページに移動");
+                dgd.MasterTableView.PagerStyle.LastPageToolTip = SessionManager.User.Honyaku("最後のページに移動");
+                dgd.MasterTableView.PagerStyle.NextPageToolTip = SessionManager.User.Honyaku("次のページに移動");
+                dgd.MasterTableView.PagerStyle.PrevPageToolTip = SessionManager.User.Honyaku("前のページに移動");
+                dgd.MasterTableView.PagerStyle.PageSizeLabelText = SessionManager.User.Honyaku("ページサイズ");
+
+                dgd.MasterTableView.PagerStyle.PrevPagesToolTip = SessionManager.User.Honyaku("前のページに移動");
+                dgd.MasterTableView.PagerStyle.NextPagesToolTip = SessionManager.User.Honyaku("次のページに移動");
+
+            }
+            else if (c is Telerik.Web.UI.RadDatePicker)
+            {
+                Telerik.Web.UI.RadDatePicker r = c as Telerik.Web.UI.RadDatePicker;
+                r.DatePopupButton.ToolTip = SessionManager.User.Honyaku("カレンダーを開きます。");
+            }
+            else if (c is DataGrid)
+            {
+                DataGrid d = c as DataGrid;
+                for (int i = 0; i < d.Columns.Count; i++)
+                {
+                    d.Columns[i].HeaderText = SessionManager.User.Honyaku(d.Columns[i].HeaderText);
+                }
+            }
+            else if (c is GridView)
+            {
+                GridView d = c as GridView;
+                for (int i = 0; i < d.Columns.Count; i++)
+                    d.Columns[i].HeaderText = SessionManager.User.Honyaku(d.Columns[i].HeaderText);
+            }
+            else if (c is Telerik.Web.UI.RadWindow)
+            {
+                Telerik.Web.UI.RadWindow w = c as Telerik.Web.UI.RadWindow;
+                w.Title = SessionManager.User.Honyaku(w.Title);
+
+                w.Localization.Cancel = SessionManager.User.Honyaku("キャンセル");
+                w.Localization.Close = SessionManager.User.Honyaku("閉じる");
+                w.Localization.Maximize = SessionManager.User.Honyaku("最大化");
+                w.Localization.Minimize = SessionManager.User.Honyaku("最小化");
+                w.Localization.No = SessionManager.User.Honyaku("いいえ");
+                w.Localization.Reload = SessionManager.User.Honyaku("再表示");
+                w.Localization.Restore = SessionManager.User.Honyaku("保存");
+                w.Localization.Yes = SessionManager.User.Honyaku("はい");
+
+                // RadWindowにはテンプレートのコントロールがあるので注意
+                for (int i = 0; i < w.Controls.Count; i++)
+                {
+                    HonyakuChildControls(w.Controls[i]);
+                }
+            }
+            else if (c is Telerik.Web.UI.RadWindowManager)
+            {
+                Telerik.Web.UI.RadWindowManager w = c as Telerik.Web.UI.RadWindowManager;
+                for (int i = 0; i < w.Windows.Count; i++)
+                    w.Windows[i].Title = SessionManager.User.Honyaku(w.Windows[i].Title);
+            }
+            else if (c is Telerik.Web.UI.RadTabStrip)
+            {
+                Telerik.Web.UI.RadTabStrip t = c as Telerik.Web.UI.RadTabStrip;
+                for (int i = 0; i < t.Tabs.Count; i++)
+                    t.Tabs[i].Text = SessionManager.User.Honyaku(t.Tabs[i].Text);
+            }
+            else if (c is Core.Web.DataBindControls.DataBindTextBox)
+            {
+                Core.Web.DataBindControls.DataBindTextBox t = c as Core.Web.DataBindControls.DataBindTextBox;
+                if (string.IsNullOrEmpty(t.DataName))
+                    t.DataName = SessionManager.User.Honyaku(t.DataName);
+            }
+            else if (c is Core.Web.DataBindControls.DataBindRadioButtonList)
+            {
+                Core.Web.DataBindControls.DataBindRadioButtonList t = c as Core.Web.DataBindControls.DataBindRadioButtonList;
+                if (string.IsNullOrEmpty(t.DataName))
+                    t.DataName = SessionManager.User.Honyaku(t.DataName);
+            }
+            else
+            {
+                if (c is HonyakuUserControl)
+                {
+                    HonyakuUserControl ascx = c as HonyakuUserControl;
+                    if (ascx.HonyakuZumi) return;   // HonyakuUserControl内で既に翻訳済みの場合は処理する必要がない(翻訳後の内容を翻訳してしてしまう問題がある)
+                    ascx.HonyakuZumi = true;
+                }
+                // DataGridなどは、翻訳した後DataGridの子コントロールに対して以下を絶対に実行してはいけない
+                for (int i = 0; i < c.Controls.Count; i++)
+                    HonyakuChildControls(c.Controls[i]);
+
+
+            }
+
+        }
+
+
+        public static void Honyaku(Core.Web.FilterTextBox tbx)
+        {
+            if (tbx.Attributes["Honyaku"] == "true") return;
+            for (int i = 0; i < tbx.FilterItems.Count; i++)
+            {
+                tbx.FilterItems[i].Text = SessionManager.User.Honyaku(tbx.FilterItems[i].Text);
+            }
+            tbx.Attributes["Honyaku"] = "true";
         }
 
     }

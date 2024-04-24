@@ -83,8 +83,7 @@ namespace m2mKoubai
             }
             // 
             // 認証
-            m2mKoubaiDataSet.M_LoginRow dr =
-                LoginClass.getM_LoginRow(strId, strPass, Global.GetConnection());
+            m2mKoubaiDataSet.M_LoginRow dr = LoginClass.getM_LoginRow(strId, strPass, Global.GetConnection());
 
             if (dr == null)
             {
@@ -111,10 +110,11 @@ namespace m2mKoubai
                 }
             }
 
-            SessionManager.Login(dr);     
+            SessionManager.Login(dr,"ja");
+
             if (dr.UserKubun == (byte)UserKubun.Owner)
             {
-                // ヨドコウ
+                // 発注元
                 this.Response.Redirect("~/Order/OrderInfoForm.aspx");
             }
             else            

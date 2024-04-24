@@ -13,7 +13,7 @@ using System.Drawing;
 
 namespace m2mKoubai.Order
 {
-    public partial class OrderShousaiForm : Core.Web.ServerViewStatePage
+    public partial class OrderShousaiForm : HonyakuPage
     {
         /// <summary>
         /// åƒL[1

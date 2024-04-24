@@ -5,10 +5,10 @@ using System.Collections;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
-
 using System.Management;
 using System.Data.SqlClient;
-
+using System.Web.Optimization;
+using System.Web.Routing;
 
 using m2mKoubaiDAL;
 
@@ -17,12 +17,29 @@ namespace m2mKoubai
 {
     public class Global : System.Web.HttpApplication
     {
-
-        protected void Application_Start(object sender, EventArgs e)
+        private static HonyakuClass.HonyakuManager _HonyakuManager = new HonyakuClass.HonyakuManager(Global.Languages, Global.GetConnection());
+        void Application_Start(object sender, EventArgs e)
         {
-
+            // アプリケーションのスタートアップで実行するコードです
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
+        public static HonyakuClass.HonyakuManager HonyakuManager
+        {
+            get
+            {
+                return _HonyakuManager;
+            }
+        }
+
+        public static string[] Languages
+        {
+            get
+            {
+                return System.Configuration.ConfigurationManager.AppSettings["Languages"].Split(',');
+            }
+        }
         protected void Application_End(object sender, EventArgs e)
         {
 
