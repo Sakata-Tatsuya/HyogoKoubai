@@ -1,0 +1,228 @@
+/* Microsoft Visual Studio .Net 2003 Toolbar Skin Stylesheet */
+
+/* normal button */
+.vsnet_radbutton_normal 
+{
+	background-color: #dbd8d1;
+	border: solid 1px #dbd8d1;
+	cursor: default;
+}
+.vsnet_radbutton_hover
+{
+	background-color: #b6bdd2;	
+	border: solid 1px #0a246a;
+	cursor: default;
+}
+.vsnet_radbutton_disabled
+{
+	background-color: #dbd8d1;
+	border: solid 1px #dbd8d1;
+	cursor: default;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=30,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);/* IE */
+	-moz-opacity: .30;/* Mozilla */
+}
+.vsnet_radbutton_mousedown
+{
+	border: solid 1px #0a246a;
+	cursor: default;
+	background-color: #8592b5;
+}
+/* end normal button */
+
+/* toggle button */
+.vsnet_radtbutton_normal 
+{
+	background-color: #dbd8d1;
+	border: solid 1px #dbd8d1;
+	cursor: default;
+}
+.vsnet_radtbutton_hover
+{
+	background-color: #b6bdd2;	
+	border: solid 1px #0a246a;
+	cursor: default;
+}
+.vsnet_radtbutton_toggled, .vsnet_radtbutton_hover_toggled
+{
+	border: solid 1px #0a246a;
+	cursor: default;
+	background-color: #8592b5;
+}
+.vsnet_radtbutton_disabled
+{
+	background-color: #dbd8d1;
+	border: solid 1px #dbd8d1;
+	cursor: default;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=30,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);/* IE */
+	-moz-opacity: .30;/* Mozilla */
+}
+.vsnet_radtbutton_mousedown
+{
+	border: solid 1px #0a246a;
+	cursor: default;
+	background-color: #8592b5;
+}
+/* end toggle button */
+
+/* horizontal toobar */
+.vsnet_radtoolbar_horizontal
+{
+	background-color: #dbd8d1;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+/* end horizontal toobar */
+
+/* vertical toobar */
+.vsnet_radtoolbar_vertical
+{
+	background-color: #dbd8d1;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+/* end vertical toobar */
+
+/* horizonatal toolbar grips */
+/* left */
+.vsnet_radtoolbar_left
+{
+	background-image: url(Img/toolbarLeft.gif);
+	background-repeat: no-repeat;
+	background-color: #dbd8d1;
+	width: 8px !important;
+}
+/* right */
+.vsnet_radtoolbar_right
+{
+	/* not implemented in this example */
+}
+/* end horizonatal toolbar grips */
+
+/* vertical toolbar grips */
+/* top */
+.vsnet_radtoolbar_top
+{
+	background-image: url(Img/toolbarLeftV.gif);
+	background-repeat: no-repeat;
+	background-color: #dbd8d1;
+	height: 8px !important;
+}
+/* bottom */
+.vsnet_radtoolbar_bot
+{
+	/* not implemented in this example */
+}
+/* end vertical toolbar grips */
+/* separators */
+/* horizontal */
+.vsnet_radseparator_h
+{
+	background-color: transparent;
+	width: 1px;
+	height: 90%;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: 2px;
+	margin-right: 1px;
+	border-left: solid 1px #c5c2b8;
+}
+/* vertical */
+.vsnet_radseparator_v
+{
+	width: 90%;
+	margin-left: 1px;
+	margin-right: 1px;
+	height: 1px;
+	font-size: 1px;
+	border-top: solid 1px #c5c2b8;
+}
+/* end separators */
+
+/* margins fix */
+.vsnet_radbutton_normal IMG, .vsnet_radbutton_hover IMG, .vsnet_radbutton_normal SPAN, .vsnet_radbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+
+.vsnet_radtbutton_mousedown IMG, .vsnet_radtbutton_mousedown SPAN, .vsnet_radtbutton_toggled IMG, .vsnet_radtbutton_hover_toggled IMG
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+
+.vsnet_radtbutton_normal IMG, .vsnet_radtbutton_hover IMG, .vsnet_radtbutton_normal SPAN, .vsnet_radtbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+.vsnet_radbutton_mousedown IMG, .vsnet_radbutton_mousedown SPAN
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+.vsnet_radbutton_disabled IMG
+{
+	margin-top: 1px;
+}
+/* buttons with text and images */
+.vsnet_radbutton_text_normal, .vsnet_radtbutton_text_normal
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	cursor: default;
+	background-color: #dbd8d1;
+	border: solid 1px #dbd8d1;
+	cursor: default;
+	padding-left: 2px;
+	padding-left: 2px;
+}
+.vsnet_radbutton_text_hover, .vsnet_radtbutton_text_hover
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	cursor: default;
+	background-color: #b6bdd2;	
+	border: solid 1px #0a246a;
+	cursor: default;
+	padding-left: 2px;
+	padding-left: 2px;
+}
+.vsnet_radbutton_text_mousedown, .vsnet_radtbutton_text_mousedown, .vsnet_radtbutton_text_toggled, .vsnet_radtbutton_text_hover_toggled
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	border: solid 1px #0a246a;
+	background-color: #8592b5;
+	cursor: default;
+	color: #fff;
+	padding-left: 2px;
+	padding-left: 2px;
+}
+.vsnet_radbutton_text_normal SPAN, .vsnet_radbutton_text_hover SPAN, .vsnet_radbutton_text_mousedown SPAN, .vsnet_radtbutton_text_normal SPAN, .vsnet_radtbutton_text_hover SPAN, .vsnet_radtbutton_text_mousedown SPAN, .vsnet_radtbutton_text_toggled SPAN, .vsnet_radtbutton_text_hover_toggled SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	float: left;
+}
+.vsnet_radbutton_text_normal IMG, .vsnet_radbutton_text_hover IMG, .vsnet_radbutton_text_mousedown IMG, .vsnet_radtbutton_text_normal IMG, .vsnet_radtbutton_text_hover IMG, .vsnet_radtbutton_text_mousedown IMG, .vsnet_radtbutton_text_toggled IMG, .vsnet_radtbutton_text_hover_toggled IMG
+{
+	margin-top: 3px;
+	float: left;
+}
+
+.vsnet_radbutton_text_disabled SPAN
+{
+	display: inline-block;
+	margin-top: 4px;
+	font-size: 11px;
+	color: #808080;
+	cursor: default;
+}

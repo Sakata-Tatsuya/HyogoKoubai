@@ -1,0 +1,297 @@
+/* Microsoft Internet Explorer XP Toolbar Skin Stylesheet */
+/* normal button */
+.explorerxp_radbutton_normal 
+{
+	background-color: #f0f1e9;
+	cursor: default;
+	height: 24px;
+}
+.explorerxp_radbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	cursor: default;
+	height: 24px;
+}
+.explorerxp_radbutton_disabled,
+.explorerxp_radbutton_text_disabled
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: none;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100); /* IE */
+	-moz-opacity: .40; /* Mozilla */
+	cursor: no-drop;
+}
+
+.explorerxp_radbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+}
+/* end normal button */
+
+/* toggle button */
+.explorerxp_radtbutton_normal 
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	cursor: default;
+	height: 24px;
+}
+.explorerxp_radtbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	cursor: default;
+	height: 24px;
+}
+.explorerxp_radtbutton_toggled, .explorerxp_radtbutton_hover_toggled
+{
+	background-image: url(Img/btnToggled.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+}
+.explorerxp_radtbutton_disabled
+{
+	background-color: transparent;
+	border: none;
+	cursor: default;
+}
+.explorerxp_radtbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+}
+/* end toggle button */
+
+/* horizontal toobar */
+.explorerxp_radtoolbar_horizontal
+{
+	background-image: url(Img/toolbarBgH.gif);
+	background-repeat: repeat-x;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+/* end horizontal toobar */
+
+/* vertical toobar */
+.explorerxp_radtoolbar_vertical
+{
+	background-image: url(Img/toolbarBgV.gif);
+	background-repeat: repeat-y;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-left: 1px;
+	padding-right: 1px;
+}	
+/* end vertical toobar */
+
+/* horizonatal toolbar grips */
+/* left */
+.explorerxp_radtoolbar_left
+{
+	background-image: url(Img/toolbarLeft.gif);
+	background-repeat: no-repeat;
+	background-color: #f0f1e9;
+	width: 6px;
+}
+/* right */
+.explorerxp_radtoolbar_right
+{
+	background-image: url(Img/toolbarRight.gif);
+	background-repeat: no-repeat;
+	width: 6px;
+}
+/* end horizonatal toolbar grips */
+
+/* vertical toolbar grips */
+/* top */
+.explorerxp_radtoolbar_top
+{
+	background-image: url(Img/toolbarLeftV.gif);
+	background-repeat: no-repeat;
+	background-color: #f0f1e9;
+	height: 6px;
+}
+/* bottom */
+.explorerxp_radtoolbar_bot
+{
+	background-image: url(Img/toolbarRightV.gif);
+	background-repeat: no-repeat;
+	height: 6px;
+}
+/* end vertical toolbar grips */
+
+/* separators */
+/* horizontal */
+.explorerxp_radseparator_h
+{
+	background-color: transparent;
+	width: 2px;
+	height: 90%;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	border-left: solid 1px #cac6af;
+	margin-left: 1px;
+}
+/* vertical */
+.explorerxp_radseparator_v
+{
+	width: 90%;
+	margin-left: 1px;
+	margin-right: 1px;
+	height: 1px;
+	font-size: 1px;
+	border-top: solid 1px cac6af;
+}
+/* end separators */
+
+/* margins fix */
+.explorerxp_radbutton_normal IMG, .explorerxp_radbutton_hover IMG, .explorerxp_radbutton_normal SPAN, .explorerxp_radbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+
+.explorerxp_radtbutton_mousedown IMG, .explorerxp_radtbutton_mousedown SPAN, .explorerxp_radtbutton_toggled IMG, .explorerxp_radtbutton_hover_toggled IMG
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+
+.explorerxp_radtbutton_normal IMG, .explorerxp_radtbutton_hover IMG, .explorerxp_radtbutton_normal SPAN, .explorerxp_radtbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+.explorerxp_radbutton_mousedown IMG, .explorerxp_radbutton_mousedown SPAN
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+.explorerxp_radbutton_disabled IMG
+{
+	margin-top: 1px;
+}
+/* image and text buttons start */
+.explorerxp_radbutton_text_normal
+{
+	background-color: #f0f1e9;
+	font-family: Arial, Verdana, Sans-Serif;
+	color: 4c4c4c;
+	font-size: 11px;
+	border-left: solid 1px #f0f1e9;
+	border-right: solid 1px #f0f1e9;
+	cursor: default;
+}
+.explorerxp_radbutton_text_normal SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+}
+.explorerxp_radbutton_text_normal IMG, .explorerxp_radbutton_text_hover IMG, .explorerxp_radbutton_text_mousedown IMG
+{
+	float:left;
+	margin-top: 3px;
+}
+.explorerxp_radbutton_text_hover, .explorerxp_radtbutton_text_hover
+{
+	background-color: #f0f1e9;
+	font-family: Arial, Verdana, Sans-Serif;
+	color: 4c4c4c;
+	font-size: 11px;
+	border-left: solid 1px #cecec3;
+	border-right: solid 1px #cecec3;
+	cursor: default;
+	background-image: url(Img/btnTextHoverBg.gif);
+	background-repeat: repeat-x;
+}
+.explorerxp_radbutton_text_hover SPAN, .explorerxp_radtbutton_text_hover SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+}
+.explorerxp_radbutton_text_mousedown, .explorerxp_radtbutton_text_mousedown, .explorerxp_radtbutton_text_hover_toggled
+{
+	background-color: #f0f1e9;
+	font-family: Arial, Verdana, Sans-Serif;
+	color: 4c4c4c;
+	font-size: 11px;
+	border-left: solid 1px #9d9d92;
+	border-right: solid 1px #9d9d92;
+	cursor: default;
+	background-image: url(Img/btnTextMouseDownBg.gif);
+	background-repeat: repeat-x;
+}
+.explorerxp_radbutton_text_mousedown SPAN, .explorerxp_radtbutton_text_mousedown SPAN, .explorerxp_radtbutton_text_toggled SPAN, .explorerxp_radtbutton_text_hover_toggled SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+}
+
+/* text and image toggle button */
+.explorerxp_radtbutton_text_normal
+{
+	background-color: #f0f1e9;
+	font-family: Arial, Verdana, Sans-Serif;
+	color: 4c4c4c;
+	font-size: 11px;
+	border-left: solid 1px #f0f1e9;
+	border-right: solid 1px #f0f1e9;
+	cursor: default;
+}
+.explorerxp_radbutton_text_normal SPAN, .explorerxp_radbutton_text_hover SPAN, .explorerxp_radbutton_text_mousedown SPAN, .explorerxp_radtbutton_text_normal SPAN, .explorerxp_radtbutton_text_hover SPAN, .explorerxp_radtbutton_text_mousedown SPAN, .explorerxp_radtbutton_text_toggled SPAN, .explorerxp_radtbutton_text_hover_toggled SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	float: left;
+}
+.explorerxp_radtbutton_text_normal IMG, .explorerxp_radtbutton_text_hover IMG, .explorerxp_radtbutton_text_mousedown IMG, .explorerxp_radtbutton_text_toggled IMG, .explorerxp_radtbutton_text_hover_toggled IMG
+{
+	float: left;
+	margin-top: 3px;
+}
+
+.explorerxp_radtbutton_text_toggled, .explorerxp_radtbutton_text_hover_toggled
+{
+	background-color: #f0f1e9;
+	font-family: Arial, Verdana, Sans-Serif;
+	color: 4c4c4c;
+	font-size: 11px;
+	border-left: solid 1px #7a98af;
+	border-right: solid 1px #7a98af;
+	cursor: default;
+	background-image: url(Img/btnTextToggleBg.gif);
+	background-repeat: repeat-x;
+}
+
+.explorerxp_radbutton_text_disabled span
+{
+	display: inline-block;
+	font-size: 11px;
+	color: #808080;
+	cursor: default;
+	position: relative;
+	left: -1px;
+	top: 2px;
+}
+
+.explorerxp_radbutton_text_disabled img
+{
+	position: relative;
+	margin-top: 3px;
+	margin-left: 1px;
+}
+/* image and text buttons end */

@@ -1,0 +1,294 @@
+/* Telerik Toolbar Skin Stylesheet */
+
+body
+{
+	/**/
+}
+/* normal button */
+.telerik_radbutton_normal 
+{
+	background: transparent url(Img/btnNormalBg.gif) no-repeat;
+	cursor: default;
+	height: 24px;
+	width: 24px;
+}
+
+.telerik_radbutton_hover
+{
+	background: transparent url(Img/btnHoverBg.gif) no-repeat;
+	cursor: default;
+	height: 24px;
+	width: 24px;
+}
+
+.telerik_radbutton_disabled
+{
+	background-image: transparent url(Img/btnNormalBg.gif) no-repeat;
+	border: none;
+	cursor: default;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);/* IE */
+	-moz-opacity: .40;/* Mozilla */
+	cursor: no-drop;
+}
+.telerik_radbutton_mousedown
+{
+	background: transparent url(Img/btnToggled.gif) no-repeat;
+	cursor: default;
+}
+/* end normal button */
+
+/* toggle button */
+.telerik_radtbutton_normal 
+{
+	background: transparent url(Img/btnNormalBg.gif) no-repeat;
+	cursor: default;
+	height: 24px;
+	width: 24px;
+}
+
+.telerik_radtbutton_hover
+{
+	background: transparent url(Img/btnHoverBg.gif) no-repeat;
+	cursor: default;
+	height: 24px;
+	width: 24px;
+}
+
+.telerik_radtbutton_toggled, .telerik_radtbutton_hover_toggled
+{
+	background: transparent url(Img/btnToggled.gif) no-repeat;
+	cursor: default;
+}
+
+.telerik_radtbutton_disabled
+{
+	background-color: transparent;
+	border: none;
+	cursor: default;
+}
+
+.telerik_radtbutton_mousedown
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	cursor: default;
+}
+/* end toggle button */
+
+/* horizontal toobar */
+.telerik_radtoolbar_horizontal
+{
+	background: transparent url(Img/toolbarBgH.gif) repeat-x;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+}
+/* end horizontal toobar */
+
+/* vertical toobar */
+.telerik_radtoolbar_vertical
+{
+	background: transparent url(Img/toolbarBgV.gif) repeat-y;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-left: 1px;
+	padding-right: 1px;
+}	
+/* end vertical toobar */
+
+/* horizonatal toolbar grips */
+/* left */
+.telerik_radtoolbar_left
+{
+	background: transparent url(Img/toolbarLeft.gif) no-repeat;
+	width: 6px;
+	height: 26px;
+	cursor: move;
+}
+/* right */
+.telerik_radtoolbar_right
+{
+	background: transparent url(Img/toolbarRight.gif) no-repeat;
+	width: 6px;
+}
+/* end horizonatal toolbar grips */
+
+/* vertical toolbar grips */
+/* top */
+.telerik_radtoolbar_top
+{
+	background: transparent url(Img/toolbarLeftV.gif) no-repeat;
+	height: 6px;
+	cursor: move;
+}
+/* bottom */
+.telerik_radtoolbar_bot
+{
+	background: transparent url(Img/toolbarRightV.gif) no-repeat;
+	height: 6px;
+}
+/* end vertical toolbar grips */
+/* separators */
+/* horizontal */
+.radseparator_h
+{
+	background: transparent url(Img/separator_h.gif) repeat-y;
+	width: 2px;
+	height: 22px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+/* vertical */
+.radseparator_v
+{
+	background: transparent url(Img/separator_v.gif) repeat-x;
+	height: 2px;
+	font-size: 2px;
+	width: 22px;
+	margin-left: 1px;
+	margin-right: 1px;
+	display: none;
+}
+/* end separators */
+
+/* margins fix */
+.telerik_radbutton_normal IMG, .telerik_radbutton_hover IMG, .telerik_radbutton_normal SPAN, .telerik_radbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+
+.telerik_radtbutton_mousedown IMG, .telerik_radtbutton_mousedown SPAN, .telerik_radtbutton_toggled IMG, .telerik_radtbutton_hover_toggled IMG
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+
+.telerik_radtbutton_normal IMG, .telerik_radtbutton_hover IMG, .telerik_radtbutton_normal SPAN, .telerik_radtbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+.telerik_radbutton_mousedown IMG, .telerik_radbutton_mousedown SPAN
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+.telerik_radbutton_disabled IMG
+{
+	margin-top: 1px;
+}
+
+/* buttons with text begin */
+/* normal button */
+.telerik_radbutton_text_normal
+{
+	color: #333;
+	font: bold 10px Arial, Verdana, Helvetica;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+/* hover */
+.telerik_radbutton_text_hover
+{
+	color: #333;
+	cursor: default;
+	font: bold 10px Arial, Verdana, Helvetica;
+	background: transparent url(Img/btnTxtHoverBg.gif) repeat-x;
+	border-left: solid 1px #819368;
+	border-right: solid 1px #819368;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+/* mousedown */
+.telerik_radbutton_text_mousedown
+{
+	color: #333;
+	cursor: default;
+	font: bold 10px Arial, Verdana, Helvetica;
+	background: transparent url(Img/btnTxtToggledBg.gif) repeat-x;
+	border-left: solid 1px #819368;
+	border-right: solid 1px #819368;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+/* toggle button */
+/* normal */
+.telerik_radtbutton_text_normal
+{
+	color: #333;
+	font: bold 10px Arial, Verdana, Sans-serif;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+/* hover */
+.telerik_radtbutton_text_hover
+{
+	color: #333;
+	cursor: default;
+	font: bold 10px Arial, Verdana, Sans-serif;
+	background: transparent url(Img/btnTxtHoverBg.gif) repeat-x;
+	border-left: solid 1px #b0b3b8;
+	border-right: solid 1px #b0b3b8;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+/* toggled & hover toggled */
+.telerik_radtbutton_text_toggled, .telerik_radtbutton_text_hover_toggled
+{
+	color: #333;
+	cursor: default;
+	font: bold 10px Arial, Verdana, Sans-serif;
+	background: transparent url(Img/btnTxtToggledBg.gif) repeat-x;
+	border-left: solid 1px #b0b3b8;
+	border-right: solid 1px #b0b3b8;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+.telerik_radtbutton_text_mousedown
+{
+	color: #333;
+	cursor: default;
+	font: bold 10px Arial, Verdana, Sans-serif;
+	background: transparent url(Img/btnTxtToggledBg.gif) repeat-x;
+	border-left: solid 1px #6c6c6c;
+	border-right: solid 1px #6c6c6c;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+/*  button text */
+.telerik_radbutton_text_normal SPAN, .telerik_radbutton_text_hover SPAN, .telerik_radbutton_text_mousedown SPAN, .telerik_radtbutton_text_normal SPAN, .telerik_radtbutton_text_hover SPAN, .telerik_radtbutton_text_toggled SPAN, .telerik_radtbutton_text_hover_toggled SPAN, .telerik_radtbutton_text_mousedown SPAN, .telerik_radtbutton_text_disabled SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	float: left;
+}
+
+.telerik_radtbutton_text_normal IMG, .telerik_radtbutton_text_hover IMG, .telerik_radtbutton_text_toggled IMG, .telerik_radtbutton_text_toggled IMG, .telerik_radtbutton_text_hover_toggled IMG, .telerik_radtbutton_text_mousedown IMG, .telerik_radbutton_text_normal IMG, .telerik_radbutton_text_hover IMG, .telerik_radbutton_text_mousedown IMG, .telerik_radtbutton_text_disabled IMG
+{
+	float: left;
+	margin-top: 3px;
+}
+
+/* buttons with text end */
+
+/* vertical toolbar text buttons rotation for Internet Explorer */
+.telerik_radtoolbar_vertical .telerik_radbutton_text_hover,
+.telerik_radtoolbar_vertical .telerik_radbutton_text_normal,
+.telerik_radtoolbar_vertical .telerik_radbutton_text_mousedown,
+.telerik_radtoolbar_vertical .telerik_radtbutton_text_hover,
+.telerik_radtoolbar_vertical .telerik_radtbutton_text_normal,
+.telerik_radtoolbar_vertical .telerik_radtbutton_text_toggled,
+.telerik_radtoolbar_vertical .telerik_radtbutton_text_mousedown,
+.telerik_radtoolbar_vertical .telerik_radtbutton_text_hover_toggled
+{
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3) !important;
+}
+
+.telerik_radtbutton_text_disabled SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	font-size: 10px;
+	color: #808080;
+	cursor: default;
+}

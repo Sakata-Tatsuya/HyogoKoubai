@@ -11,7 +11,7 @@
                             <asp:TextBox ID="TbxN" runat="server" MaxLength="6" Width="60px" ></asp:TextBox><br />
                             <asp:TextBox ID="TbxKTNo" CssClass="tr" runat="server" MaxLength="14" Width="60px" >
                             </asp:TextBox>
-                        </ItemTemplate>                       
+                        </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="”—Ê">
                         <FooterTemplate>

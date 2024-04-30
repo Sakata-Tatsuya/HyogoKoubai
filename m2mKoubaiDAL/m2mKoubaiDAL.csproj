@@ -54,17 +54,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\m2mKoubai\dll\Core.dll</HintPath>
     </Reference>
-    <Reference Include="Core.Web, Version=1.0.1.0, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\m2mKoubai\dll\Core.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="m2mKoubai">
-      <HintPath>..\m2mKoubai\bin\m2mKoubai.dll</HintPath>
-    </Reference>
-    <Reference Include="m2mKoubaiDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\m2mKoubai\bin\m2mKoubaiDAL.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />

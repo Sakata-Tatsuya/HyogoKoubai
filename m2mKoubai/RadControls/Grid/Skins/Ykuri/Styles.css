@@ -1,0 +1,167 @@
+/* Telerik RadGrid blue skin */
+
+.RadGrid_Ykuri
+{
+/*	background: #5898c5;*/
+	/*border: solid 1px #c6dddf;*/
+	font: 9pt Tahoma;
+	/*text-align: left;*/
+	/*cursor: default;*/
+}
+
+.RadGrid_Ykuri th,
+.RadGrid_Ykuri th a
+{
+	/* 
+	font: bold 9pt Tahoma;
+	color: #fff;*/
+}
+
+.RadGrid_Ykuri td,
+.RadGrid_Ykuri td a
+{ 
+	/*font: 11px tahoma;
+	color: #000;*/
+}
+
+.MasterTable_Ykuri
+{
+	/*border: 0px !important;
+	border-collapse: separate !important;*/
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.GridHeader_Ykuri
+{
+	/*color: #fff;
+	height: 34px;
+	background: #5898C5;
+*/
+	
+	background-color: black;
+		
+}
+.GridHeader_Ykuri a
+{
+	/*
+	color: #fff;*/
+}
+
+
+th.GridHeader_Ykuri
+{
+	/*
+	background: transparent url('Img/RadGridHeaderBg.gif') no-repeat right 0;
+	padding:4px 0 0 5px;
+	font-weight: bold;
+	color: white;
+*/
+}
+
+.GridRow_Ykuri,
+.GridAltRow_Ykuri,
+.SelectedRow_Ykuri,
+.GridEditRow_Ykuri,
+.ActiveRow_Ykuri
+{
+
+}
+
+.GridRow_Ykuri
+{
+/*	background-color: #F2F9FF;*/
+}
+.GridRow_Ykuri td
+{
+/*	border-bottom: solid 1px #c6dddf;*/
+}
+
+.GridAltRow_Ykuri
+{
+/*	background: #fff;*/
+}
+.GridAltRow_Ykuri td
+{
+/*	border-bottom: solid 1px #c6dddf;*/
+}
+
+.SelectedRow_Ykuri,
+.GridEditRow_Ykuri
+{
+	/*background-color: #ffffe1 !important;*/
+	background-color:#f0e68c
+}
+.SelectedRow_Ykuri td,
+.GridEditRow_Ykuri td
+{
+	/*border-bottom:1px solid #c6dddf;*/
+}
+
+.ActiveRow_Ykuri
+{
+	/*background-color: #c5dcf0 !important;*/
+}
+.ActiveRow_Ykuri td
+{/*
+	border-bottom:1px solid #c6dddf;*/
+}
+
+.GridPager_Ykuri
+{
+	background: #deeffe;
+	font: 11pt Tahoma;
+	/*height: 17px;*/
+}
+.GridPager_Ykuri td
+{
+	border-top: 1px solid #c6dddf;
+	padding-left: 11px;
+}
+.GridPager_Ykuri a
+{
+	color: #333;	
+}
+
+tr.GroupHeader_Ykuri
+{
+	background: #deeffe;
+	font-weight: bold;
+	height:20px;
+}
+tr.GroupHeader_Ykuri td
+{
+	border-bottom: solid 1px #c6dddf;
+}
+
+.GroupPanel_Ykuri
+{
+	background-color: #467a9e;
+	width: 100%;
+	border-collapse: collapse;
+	border-bottom: 1px solid #c6dddf;
+}
+
+.GroupPanel_Ykuri td
+{
+	color: #fff;
+}
+
+.GroupPanelItems_Ykuri
+{
+	background: #6ca7d2;
+	color: #fff !important;
+	border: solid 1px #bbd8e8;
+	white-space:  nowrap;
+	font-size: 11px;
+}
+td.GridHeader_Ykuri input
+{
+	width: auto;
+	float: left;
+	border: solid 1px #666;
+	background: #fafafa;
+	font: bold 10px Verdana, Arial, Sans-serif;
+	color: #989cb0;
+	height: 14px;
+	vertical-align:middle;
+}

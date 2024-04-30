@@ -1,0 +1,289 @@
+/* Glassy Toolbar Skin Stylesheet */
+
+
+/* normal button */
+.glassy_radbutton_normal 
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	cursor: default;
+	height: 24px;
+}
+
+.glassy_radbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	cursor: default;
+	height: 24px;
+}
+
+.glassy_radbutton_disabled
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: none;
+	cursor: default;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);/* IE */
+	-moz-opacity: .40;/* Mozilla */
+	cursor: no-drop;
+}
+.glassy_radbutton_mousedown
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: orange;
+	cursor: default;
+}
+/* end normal button */
+
+/* toggle button */
+.glassy_radtbutton_normal 
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-repeat: no-repeat;
+	cursor: default;
+	height: 24px;
+}
+
+.glassy_radtbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	cursor: default;
+	height: 24px;
+}
+
+.glassy_radtbutton_toggled, .glassy_radtbutton_hover_toggled
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+}
+
+.glassy_radtbutton_disabled
+{
+	background-color: transparent;
+	border: none;
+	cursor: default;
+}
+
+.glassy_radtbutton_mousedown
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: orange;
+	cursor: default;
+}
+/* end toggle button */
+
+/* horizontal toobar */
+.glassy_radtoolbar_horizontal
+{
+	background-image: url(Img/toolbarBgH.gif);
+	background-repeat: repeat-x;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+/* end horizontal toobar */
+
+/* vertical toobar */
+.glassy_radtoolbar_vertical
+{
+	background-image: url(Img/toolbarBgV.gif);
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-left: 0px;
+	padding-right: 1px;
+	width: 25;
+}	
+/* end vertical toobar */
+
+/* horizonatal toolbar grips */
+/* left */
+.glassy_radtoolbar_left
+{
+	background-image: url(Img/toolbarLeft.gif);
+	background-repeat: no-repeat;
+	width: 13px;
+	height: 25px;
+}
+/* right */
+.glassy_radtoolbar_right
+{
+	background-image: url(Img/toolbarRight.gif);
+	background-repeat: no-repeat;
+	width: 13px;
+	height: 25px;
+}
+/* end horizonatal toolbar grips */
+
+/* vertical toolbar grips */
+/* top */
+.glassy_radtoolbar_top
+{
+	background-image: url(Img/toolbarLeftV.gif);
+	background-repeat: no-repeat;
+	height: 13px;
+	width: 25px;
+}
+/* bottom */
+.glassy_radtoolbar_bot
+{
+	background-image: url(Img/toolbarRightV.gif);
+	background-repeat: no-repeat;
+	height: 13px;
+	width: 25px;
+}
+/* end vertical toolbar grips */
+/* separators */
+/* horizontal */
+.glassy_radseparator_h
+{
+	height: 20px;
+	width: 2px;
+	background-image: url(Img/separator_h.gif);
+	background-repeat: repeat-y;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+/* vertical */
+.glassy_radseparator_v
+{
+	
+	background-image: url(Img/separator_v.gif);
+	background-repeat: repeat-x;
+	height: 2px;
+	width: 10;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+/* end separators */
+
+/* margins fix */
+.glassy_radbutton_normal IMG, .glassy_radbutton_hover IMG, .glassy_radbutton_normal SPAN, .glassy_radbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+
+.glassy_radtbutton_mousedown IMG, .glassy_radtbutton_mousedown SPAN, .glassy_radtbutton_toggled IMG, .glassy_radtbutton_hover_toggled IMG
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+
+.glassy_radtbutton_normal IMG, .glassy_radtbutton_hover IMG, .glassy_radtbutton_normal SPAN, .glassy_radtbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+.glassy_radbutton_mousedown IMG, .glassy_radbutton_mousedown SPAN
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+.glassy_radbutton_disabled IMG
+{
+	margin-top: 1px;
+}
+/* text and image buttons begin */
+/* normal */
+.glassy_radbutton_text_normal
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	color: #4d4d4d;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+/* hover */
+.glassy_radbutton_text_hover, .glassy_radbutton_text_mousedown
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	color: #4d4d4d;
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	background-color: transparent;	
+	cursor: default;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+/* mousedown */
+.glassy_radbutton_text_mousedown
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	color: #fff;
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	background-color: transparent;	
+	cursor: default;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.glassy_radbutton_text_normal SPAN, .glassy_radbutton_text_hover SPAN, .glassy_radbutton_text_mousedown SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+}
+/* image and text toggle button */
+.glassy_radtbutton_text_normal
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	color: #4d4d4d;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.glassy_radtbutton_text_hover
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	font-size: 11px;
+	color: #4d4d4d;
+	cursor: default;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+/* mousedown */
+.glassy_radtbutton_text_mousedown, .glassy_radtbutton_text_toggled, .glassy_radtbutton_text_hover_toggled
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	font-size: 11px;
+	color: #fff;
+	cursor: default;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.glassy_radbutton_text_normal SPAN, .glassy_radbutton_text_hover SPAN, .glassy_radbutton_text_mousedown SPAN, .glassy_radtbutton_text_normal SPAN, .glassy_radtbutton_text_hover SPAN, .glassy_radtbutton_text_mousedown SPAN, .glassy_radtbutton_text_toggled SPAN, .glassy_radtbutton_text_hover_toggled SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	float: left;
+}
+.glassy_radbutton_text_normal IMG, .glassy_radbutton_text_hover IMG, .glassy_radbutton_text_mousedown IMG, .glassy_radtbutton_text_normal IMG, .glassy_radtbutton_text_hover IMG, .glassy_radtbutton_text_mousedown IMG, .glassy_radtbutton_text_toggled IMG, .glassy_radtbutton_text_hover_toggled IMG
+{
+	margin-top: 3px;
+	float: left;
+}
+
+.glassy_radbutton_text_disabled SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	font-size: 11px;
+	color: #808080;
+	cursor: default;
+}
+/* text and image buttons end */

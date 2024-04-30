@@ -1,0 +1,323 @@
+/* Microsoft Office 12 32x32 Toolbar Skin Stylesheet */
+
+
+/* normal button */
+.inox_32x32_radbutton_normal 
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	cursor: default;
+	height: 32px !important;
+	width: 32px !important;
+}
+
+.inox_32x32_radbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	cursor: default;
+	height: 32px !important;
+	width: 32px !important;
+}
+
+.inox_32x32_radbutton_disabled
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: none;
+	cursor: default;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);/* IE */
+	-moz-opacity: .40;/* Mozilla */
+	cursor: no-drop;
+	height: 32px !important;
+	width: 32px !important;
+}
+.inox_32x32_radbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.gif);
+	background-repeat: no-repeat;
+	background-color: orange;
+	cursor: default;
+	height: 32px !important;
+	width: 32px !important;
+}
+/* end normal button */
+
+/* toggle button */
+.inox_32x32_radtbutton_normal 
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	cursor: default;
+	height: 32px !important;
+	width: 32px !important;
+}
+
+.inox_32x32_radtbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: #ffd091;	
+	cursor: default;
+	height: 32px !important;
+	width: 32px !important;
+}
+
+.inox_32x32_radtbutton_toggled, .inox_32x32_radtbutton_hover_toggled
+{
+	background-image: url(Img/btnToggled.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 32px !important;
+	width: 32px !important;
+}
+
+.inox_32x32_radtbutton_disabled
+{
+	background-color: transparent;
+	border: none;
+	cursor: default;
+	height: 32px !important;
+	width: 32px !important;
+}
+
+.inox_32x32_radtbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.gif);
+	background-repeat: no-repeat;
+	background-color: orange;
+	cursor: default;
+	height: 32px !important;
+	width: 32px !important;
+}
+/* end toggle button */
+
+/* horizontal toobar */
+.inox_32x32_radtoolbar_horizontal
+{
+	background-image: url(Img/toolbarBgH.gif);
+	background-color: #fff;
+	background-repeat: repeat-x;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+/* end horizontal toobar */
+
+/* vertical toobar */
+.inox_32x32_radtoolbar_vertical
+{
+	background-image: url(Img/toolbarBgV.gif);
+	background-color: #fff;
+	background-repeat: repeat-y;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-left: 1px;
+	padding-right: 1px;
+}	
+/* end vertical toobar */
+
+/* horizonatal toolbar grips */
+/* left */
+.inox_32x32_radtoolbar_left
+{
+	background-image: url(Img/toolbarLeft.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	width: 6px;
+}
+/* right */
+.inox_32x32_radtoolbar_right
+{
+	background-image: url(Img/toolbarRight.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	width: 6px;
+}
+/* end horizonatal toolbar grips */
+
+/* vertical toolbar grips */
+/* top */
+.inox_32x32_radtoolbar_top
+{
+	background-image: url(Img/toolbarLeftV.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	height: 4px;
+}
+/* bottom */
+.inox_32x32_radtoolbar_bot
+{
+	background-image: url(Img/toolbarRightV.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	height: 6px;
+}
+/* end vertical toolbar grips */
+/* separators */
+/* horizontal */
+.inox_32x32_radseparator_h
+{
+	background-image: url(Img/separator_h.gif);
+	background-color: transparent;
+	background-repeat: repeat-y;
+	width: 2px;
+	height: 29px;
+	margin-top: 1px;
+	margin-bottom: 2px;
+}
+/* vertical */
+.inox_32x32_radseparator_v
+{
+	background-image: url(Img/separator_v.gif);
+	background-repeat: repeat-x;
+	height: 2px;
+	font-size: 2px;
+	width: 30px;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+/* end separators */
+
+/* margins fix */
+.inox_32x32_radbutton_normal IMG, .inox_32x32_radbutton_hover IMG, .inox_32x32_radbutton_normal SPAN, .inox_32x32_radbutton_hover SPAN
+{
+	margin-top: 5px;
+}
+
+.inox_32x32_radtbutton_mousedown IMG, .inox_32x32_radtbutton_mousedown SPAN, .inox_32x32_radtbutton_toggled IMG, .inox_32x32_radtbutton_hover_toggled IMG
+{
+	margin-top: 6px;
+	margin-left: 3px;
+}
+
+.inox_32x32_radtbutton_normal IMG, .inox_32x32_radtbutton_hover IMG, .inox_32x32_radtbutton_normal SPAN, .inox_32x32_radtbutton_hover SPAN
+{
+	margin-top: 5px;
+}
+.inox_32x32_radbutton_mousedown IMG, .inox_32x32_radbutton_mousedown SPAN
+{
+	margin-top: 6px;
+	margin-left: 3px;
+}
+.inox_32x32_radbutton_disabled IMG
+{
+	margin-top: 5px;
+}
+
+/* buttons with text begin */
+/* normal button */
+.inox_32x32_radbutton_text_normal
+{
+	color: #808080;
+	font: bold 10px Arial, Verdana, Helvetica;
+	padding-left: 2px;
+	padding-right: 2px;
+	height: 32px !important;
+}
+/* hover */
+.inox_32x32_radbutton_text_hover
+{
+	color: #808080;
+	cursor: default;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 10px;
+	font-weight: bold;
+	background-image: url(Img/btnTxtHoverBg.gif);
+	background-repeat: repeat-x;
+	border-left: solid 1px #b0b3b8;
+	border-right: solid 1px #b0b3b8;
+	padding-left: 1px;
+	padding-right: 1px;
+	height: 32px !important;
+}
+/* mousedown */
+.inox_32x32_radbutton_text_mousedown
+{
+	color: #808080;
+	cursor: default;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 10px;
+	font-weight: bold;
+	background-image: url(Img/btnTxtMouseDownBg.gif);
+	background-repeat: repeat-x;
+	border-left: solid 1px #b0b3b8;
+	border-right: solid 1px #b0b3b8;
+	padding-left: 1px;
+	padding-right: 1px;
+	height: 32px !important;
+}
+/* toggle button */
+/* normal */
+.inox_32x32_radtbutton_text_normal
+{
+	color: #808080;
+	font-family: Arial, Verdana, Sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	padding-left: 2px;
+	padding-right: 2px;
+	height: 32px !important;
+}
+/* hover */
+.inox_32x32_radtbutton_text_hover
+{
+	color: #808080;
+	cursor: default;
+	font-family: Arial, Verdana, Sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background-image: url(Img/btnTxtHoverBg.gif);
+	background-repeat: repeat-x;
+	border-left: solid 1px #b0b3b8;
+	border-right: solid 1px #b0b3b8;
+	padding-left: 1px;
+	padding-right: 1px;
+	height: 32px !important;
+}
+/* toggled & hover toggled */
+.inox_32x32_radtbutton_text_toggled, .inox_32x32_radtbutton_text_hover_toggled
+{
+	color: #808080;
+	cursor: default;
+	font-family: Arial, Verdana, Sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background-image: url(Img/btnTxtToggledBg.gif);
+	background-repeat: repeat-x;
+	border-left: solid 1px #b0b3b8;
+	border-right: solid 1px #b0b3b8;
+	padding-left: 1px;
+	padding-right: 1px;
+	height: 32px !important;
+}
+.inox_32x32_radtbutton_text_mousedown
+{
+	color: #808080;
+	cursor: default;
+	font-family: Arial, Verdana, Sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background-image: url(Img/btnTxtMouseDownBg.gif);
+	background-repeat: repeat-x;
+	border-left: solid 1px #6c6c6c;
+	border-right: solid 1px #6c6c6c;
+	padding-left: 1px;
+	padding-right: 1px;
+	height: 32px !important;
+}
+/*  button text */
+.inox_32x32_radbutton_text_normal SPAN, .inox_32x32_radbutton_text_hover SPAN, .inox_32x32_radbutton_text_mousedown SPAN, .inox_32x32_radtbutton_text_normal SPAN, .inox_32x32_radtbutton_text_hover SPAN, .inox_32x32_radtbutton_text_toggled SPAN, .inox_32x32_radtbutton_text_hover_toggled SPAN, .inox_32x32_radtbutton_text_mousedown SPAN
+{
+	display: inline-block;
+	margin-top: 7px;
+}
+/* buttons with text end */

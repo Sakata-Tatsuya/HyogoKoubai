@@ -1,0 +1,71 @@
+.radTimeTableCss_Modern caption
+{
+    display: none;
+}
+
+.radTimeTableCss_Modern 
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	border: solid 1px #e1b84f;
+	border-top: 0;
+	border-collapse: collapse;
+	background: white;
+	cursor: pointer;
+	cursor: default;
+	background: white url('Img/calendarBg.gif') no-repeat center;
+}
+
+.radTimeTableCss_Modern a
+{
+	display: block;
+	font-size: 11px;
+	text-decoration: none;
+	color: #f6bf4b;
+	line-height: 21px;
+	padding: 0 2px;
+}
+
+.radTimeOverCss_Modern a
+{
+	color: #7f7f7f;
+}
+
+.radHeaderCss_Modern
+{
+	font-size: 11px;
+	font-weight: bold;
+	color: #666;
+	height: 14px;
+	background: white url('Img/calendarBg.gif') no-repeat center top;
+	border-bottom: solid 1px #e6e6e6;
+}
+
+.radItemCss_Modern a,
+.radAlternatingItemCss_Modern
+{
+    /**/
+}
+
+.radItemCss_Modern a:hover,
+.radAlternatingItemCss_Modern a:hover
+{	
+	/**/
+}
+
+.radPopupImage_Modern img
+{
+	vertical-align: middle;
+	_vertical-align: top; /* IE fix */	
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: -1px; /* IE margins fix */
+	_margin-top: 0px; 
+	border-width: 0px;
+}
+
+.radDisabled_Modern img
+{
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}

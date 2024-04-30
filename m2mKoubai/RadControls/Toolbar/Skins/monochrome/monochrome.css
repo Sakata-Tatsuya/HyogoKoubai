@@ -1,0 +1,314 @@
+/* Telerik Monochrome Toolbar Skin Stylesheett */
+
+body
+{
+	/**/
+}
+/* normal button */
+.monochrome_radbutton_normal 
+{
+	background-color: transparent;
+	border: none;
+	cursor: default;
+	height: 22px !important;
+	width: 22px !important;
+	padding: 1px;
+}
+
+.monochrome_radbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	background-color: #d3eb99;	
+	border: solid 1px #6e9700;
+	cursor: default;
+	height: 22px !important;
+	width: 22px !important;
+}
+
+.monochrome_radbutton_disabled
+{
+	background-color: transparent;
+	border: none;
+	cursor: default;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);/* IE */
+	-moz-opacity: .40; /* Mozilla */
+	cursor: no-drop;
+	height: 24px !important;
+	width: 24px !important;
+}
+.monochrome_radbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.gif);
+	background-repeat: repeat-x;
+	background-color: #e1e1e1;
+	border-top: solid 1px #808080;
+	border-left: solid 1px #808080;
+	border-right: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	cursor: default;
+	height: 22px !important;
+	width: 22px !important;
+}
+/* end normal button */
+
+/* toggle button */
+.monochrome_radtbutton_normal 
+{
+	background-color: transparent;
+	border: none;
+	cursor: default;
+	height: 22px !important;
+	width: 22px !important;
+	padding: 1px;
+}
+
+.monochrome_radtbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	background-color: #d3eb99;	
+	border: solid 1px #6e9700;
+	cursor: default;
+	height: 22px !important;
+	width: 22px !important;
+}
+
+.monochrome_radtbutton_toggled, .monochrome_radtbutton_hover_toggled
+{
+	background-image: url(Img/btnMouseDown.gif);
+	background-repeat: repeat-x;
+	background-color: #e1e1e1;
+	border-top: solid 1px #808080;
+	border-left: solid 1px #808080;
+	border-right: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	cursor: default;
+	height: 22px !important;
+	width: 22px !important;
+}
+
+.monochrome_radtbutton_disabled
+{
+	background-color: transparent;
+	border: none;
+	cursor: default;
+}
+
+.monochrome_radtbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.gif);
+	background-repeat: repeat-x;
+	background-color: #e1e1e1;
+	border-top: solid 1px #808080;
+	border-left: solid 1px #808080;
+	border-right: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	cursor: default;
+	height: 22px !important;
+	width: 22px !important;
+}
+/* end toggle button */
+
+/* horizontal toobar */
+.monochrome_radtoolbar_horizontal
+{
+	background-image: url(Img/toolbarBgH.gif);
+	background-color: #e1e1e1;
+	background-repeat: repeat-x;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+/* end horizontal toobar */
+
+/* vertical toobar */
+.monochrome_radtoolbar_vertical
+{
+	background-image: url(Img/toolbarBgV.gif);
+	background-color: #e1e1e1;
+	background-repeat: repeat-y;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-left: 1px;
+	padding-right: 1px;
+}	
+/* end vertical toobar */
+
+/* horizonatal toolbar grips */
+/* left */
+.monochrome_radtoolbar_left
+{
+	background-image: url(Img/toolbarLeft.gif);
+	background-repeat: no-repeat;
+	width: 6px !important;
+}
+/* right */
+.monochrome_radtoolbar_right
+{
+	background-image: url(Img/toolbarBgH.gif);
+	background-repeat: repeat-x;
+	width: 8px;
+}
+/* end horizonatal toolbar grips */
+
+/* vertical toolbar grips */
+/* top */
+.monochrome_radtoolbar_top
+{
+	background-image: url(Img/toolbarLeftV.gif);
+	background-repeat: no-repeat;
+	height: 8px !important;
+}
+/* bottom */
+.monochrome_radtoolbar_bot
+{
+	background-image: url(Img/toolbarBgV.gif);
+	background-repeat: repeat-y;
+	height: 8px;
+}
+/* end vertical toolbar grips */
+
+/* separators */
+/* horizontal */
+.monochrome_radseparator_h
+{
+	background-image: url(Img/separator_h.gif);
+	background-repeat: repeat-y;
+	width: 2px;
+	height: 22px;
+	vertical-align: middle;
+	margin-left:2px;
+	margin-right:1px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+/* vertical */
+.monochrome_radseparator_v
+{
+	
+	background-image: url(Img/separator_v.gif);
+	background-repeat: repeat-x;
+	height: 2px;
+	font-size: 2px;
+	width: 22px;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+/* end separators */
+
+/* margins fix */
+.monochrome_radbutton_normal IMG
+{
+	margin-top: 0px;
+}
+.monochrome_radbutton_hover IMG, .monochrome_radbutton_normal SPAN, .monochrome_radbutton_hover SPAN
+{
+	margin-top: 0px;
+}
+
+.monochrome_radtbutton_mousedown IMG, .monochrome_radtbutton_mousedown SPAN, .monochrome_radtbutton_toggled IMG, .monochrome_radtbutton_hover_toggled IMG
+{
+	margin-top: 0px;
+	margin-left: 0px;
+}
+
+.monochrome_radtbutton_normal IMG, .monochrome_radtbutton_normal SPAN, .monochrome_radtbutton_hover SPAN
+{
+	margin-top: 0px;
+}
+.monochrome_radtbutton_hover IMG
+{
+	margin-top: 0px;
+}
+.monochrome_radbutton_mousedown IMG, .monochrome_radbutton_mousedown SPAN
+{
+	margin-top: 0px;
+	margin-left: 0px;
+}
+.monochrome_radbutton_disabled IMG
+{
+	margin-top: 1px;
+}
+/* buttons with text and images */
+.monochrome_radbutton_text_normal, .monochrome_radtbutton_text_normal
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #4d4d4d;
+	padding-left: 2px;
+	padding-right: 2px;
+	height: 24px;
+}
+.monochrome_radbutton_text_hover, .monochrome_radtbutton_text_hover
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #4d4d4d;
+	padding-left: 1px;
+	padding-right: 1px;
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	background-color: #d3eb99;	
+	border: solid 1px #6e9700;
+	cursor: default;
+	height: 22px !important;
+}
+.monochrome_radbutton_text_mousedown, .monochrome_radtbutton_text_mousedown, .monochrome_radtbutton_text_toggled, .monochrome_radtbutton_text_hover_toggled
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #4d4d4d;
+	padding-left: 1px;
+	padding-right: 1px;
+	border: solid 1px #6e9700;
+	height: 22px !important;
+	background-image: url(Img/btnMouseDown.gif);
+	background-repeat: repeat-x;
+	background-color: #e1e1e1;
+	border-top: solid 1px #808080;
+	border-left: solid 1px #808080;
+	border-right: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	cursor: default;
+}
+/* button text */
+.monochrome_radbutton_text_normal SPAN, .monochrome_radbutton_text_hover SPAN,  .monochrome_radtbutton_text_normal SPAN, .monochrome_radbutton_text_hover SPAN, .monochrome_radbutton_text_mousedown SPAN, radbutton_text_mousedown SPAN, .monochrome_radtbutton_text_hover SPAN, .monochrome_radtbutton_text_mousedown SPAN, .monochrome_radtbutton_text_toggled SPAN, .monochrome_radtbutton_text_hover_toggled SPAN
+{
+	display: inline-block;
+	margin-top: 2px;
+	float: left;
+}
+.monochrome_radbutton_text_hover SPAN, .monochrome_radbutton_text_mousedown SPAN, radbutton_text_mousedown SPAN, .monochrome_radtbutton_text_hover SPAN, .monochrome_radtbutton_text_mousedown SPAN, .monochrome_radtbutton_text_toggled SPAN, .monochrome_radtbutton_text_hover_toggled SPAN
+{
+	display: inline-block;
+	margin-top: 1px;
+	float: left;
+}
+/**/
+.monochrome_radbutton_text_normal IMG, .monochrome_radbutton_text_hover IMG,  .monochrome_radtbutton_text_normal IMG, .monochrome_radbutton_text_hover IMG, .monochrome_radbutton_text_mousedown IMG, radbutton_text_mousedown IMG, .monochrome_radtbutton_text_hover IMG, .monochrome_radtbutton_text_mousedown IMG, .monochrome_radtbutton_text_toggled IMG, .monochrome_radtbutton_text_hover_toggled IMG
+{
+	display: inline-block;
+	margin-top: 2px;
+	float: left;
+}
+.monochrome_radbutton_text_hover IMG, .monochrome_radbutton_text_mousedown IMG, radbutton_text_mousedown IMG, .monochrome_radtbutton_text_hover IMG, .monochrome_radtbutton_text_mousedown IMG, .monochrome_radtbutton_text_toggled IMG, .monochrome_radtbutton_text_hover_toggled IMG
+{
+	margin-top: 1px;
+	float: left;
+}
+
+.monochrome_radbutton_text_disabled SPAN
+{
+	display: inline-block;
+	margin-top: 2px;
+	font-size: 11px;
+	color: #808080;
+	cursor: default;
+}

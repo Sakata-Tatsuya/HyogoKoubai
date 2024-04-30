@@ -1,0 +1,210 @@
+/* eCard Toolbar Skin Stylesheet */
+/* normal button */
+/* normal */
+.ecard_radbutton_normal 
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	cursor: default;
+	height: 34px;
+}
+/* hover */
+.ecard_radbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	cursor: default;
+	height: 34px;
+	border: 1px solid red;
+}
+/* mousedown */
+.ecard_radbutton_mousedown
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: orange;
+	cursor: default;
+}
+/* end normal button */
+/* toggle button */
+/* normal */
+.ecard_radtbutton_normal 
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-repeat: no-repeat;
+	cursor: default;
+	height: 34px;
+}
+/* hover */
+.ecard_radtbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	cursor: default;
+	height: 34px;
+}
+/* toggled, hover-toggled, mousedown */
+.ecard_radtbutton_toggled, .ecard_radtbutton_hover_toggled, .ecard_radtbutton_mousedown
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+}
+/* end toggle button */
+/* horizontal toobar */
+.ecard_radtoolbar_horizontal
+{
+	background-image: url(Img/toolbarBgH.gif);
+	background-repeat: repeat-x;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-bottom: 1px;
+	height: 34px;
+}
+/* end horizontal toobar */
+/* horizonatal toolbar grips */
+/* left */
+.ecard_radtoolbar_left
+{
+	background-image: url(Img/toolbarLeft.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 34px;
+	cursor: move;
+}
+/* right */
+.ecard_radtoolbar_right
+{
+	background-image: url(Img/toolbarRight.gif);
+	background-repeat: no-repeat;
+	width: 11px;
+	height: 34px;
+}
+/* end horizonatal toolbar grips */
+/* separators */
+/* horizontal */
+.ecard_radseparator_h
+{
+	height: 20px;
+	width: 2px;
+	background-image: url(Img/separator_h.gif);
+	background-repeat: repeat-y;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+/* margins fix */
+.ecard_radbutton_normal IMG, .ecard_radbutton_hover IMG, .ecard_radbutton_normal SPAN, .ecard_radbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+
+.ecard_radtbutton_mousedown IMG, .ecard_radtbutton_mousedown SPAN, .ecard_radtbutton_toggled IMG, .ecard_radtbutton_hover_toggled IMG
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+
+.ecard_radtbutton_normal IMG, .ecard_radtbutton_hover IMG, .ecard_radtbutton_normal SPAN, .ecard_radtbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+.ecard_radbutton_mousedown IMG, .ecard_radbutton_mousedown SPAN
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+.ecard_radbutton_disabled IMG
+{
+	margin-top: 1px;
+}
+/* text and image buttons begin */
+/* normal */
+.ecard_radbutton_text_normal
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	color: #4d4d4d;
+	padding-left: 2px;
+	padding-right: 2px;
+	color: #b24608;
+	padding-top: 5px;
+}
+
+.ecard_radbutton_text_normal IMG, .ecard_radbutton_text_hover IMG
+{
+	margin-bottom: 3px;
+}
+/* hover */
+.ecard_radbutton_text_hover, .ecard_radbutton_text_mousedown
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	color: #ce0000;
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	background-color: transparent;	
+	cursor: default;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 5px;
+}
+/* mousedown */
+.ecard_radbutton_text_mousedown
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	color: #fff;
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	background-color: transparent;	
+	cursor: default;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.ecard_radbutton_text_normal SPAN, .ecard_radbutton_text_hover SPAN, .ecard_radbutton_text_mousedown SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+}
+/* image and text toggle button */
+.ecard_radtbutton_text_normal
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	color: #4d4d4d;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.ecard_radtbutton_text_hover
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	font-size: 11px;
+	color: #4d4d4d;
+	cursor: default;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+/* mousedown */
+.ecard_radtbutton_text_mousedown, .ecard_radtbutton_text_toggled, .ecard_radtbutton_text_hover_toggled
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: repeat-x;
+	font-size: 11px;
+	color: #fff;
+	cursor: default;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.ecard_radtbutton_text_normal SPAN, .ecard_radtbutton_text_mousedown SPAN, .ecard_radtbutton_text_toggled SPAN, .ecard_radtbutton_text_hover_toggled SPAN, .ecard_radtbutton_text_hover SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+}
+/* text and image buttons end */

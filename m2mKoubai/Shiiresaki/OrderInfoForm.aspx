@@ -1,9 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInfoForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.OrderInfoForm" ValidateRequest="false" %>
-
 <%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc4" %>
-
 <%@ Register Src="../Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
-
 <%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
 <%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
@@ -21,58 +18,58 @@
     }   
     function AjaxRequest(command_name, arg)
 	{
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		
+		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
 	}
 	function HacchuuNo(key, hacchuuNo)
     {
         $('HidKey').value = key +'\t'+ hacchuuNo;
         NewForm.action = "OrderShousaiForm.aspx";
         NewForm.target = "_hacchuu"; 
-	    OpenWinPost("_hacchuu",500,500,'');               
-        NewForm.submit();               
+	    OpenWinPost("_hacchuu",500,500,'');
+        NewForm.submit();
     }
      function Msg(key)
      {
-	    $('HidKey').value = key;	  
-        NewForm.action = "MessegeForm.aspx";      
-        NewForm.target = "_msg";       
-	    OpenWinPost("_msg",700,500,'');               
-        NewForm.submit();  
-     } 
+	    $('HidKey').value = key;
+        NewForm.action = "MessegeForm.aspx";
+        NewForm.target = "_msg";
+	    OpenWinPost("_msg",700,500,'');
+        NewForm.submit();
+     }
      
      function Print(strName)
      {
         if(strName == "発注書")
-        {             
-            var chkIdAry = $('HidChkID_H').value.split(',');        
+        {
+            var chkIdAry = $('HidChkID_H').value.split(',');
             var hidPrintKey = ''
             for(var i = 0; i < chkIdAry.length; i++)
-            {                
-                var chk = $(chkIdAry[i]);              
+            {
+                var chk = $(chkIdAry[i]);
                 if(chk.checked)
                 {
                     if(hidPrintKey != "") hidPrintKey += "_";
-                    hidPrintKey += chk.value;                    
+                    hidPrintKey += chk.value;
                 }
             }
             if(hidPrintKey == "")
             {
                 alert(strName + "チェックを入れてください");
                 return false;
-            }                
-            $('HidKey').value = hidPrintKey;	            
-            NewForm.action = "../Denpyou/HacchuushoForm.aspx";   
-            NewForm.target = "_hacchuusho";   
+            }
+            $('HidKey').value = hidPrintKey;
+            NewForm.action = "../Denpyou/HacchuushoForm.aspx";
+            NewForm.target = "_hacchuusho";
             OpenWinPost("_hacchuusho",800,600,',menubar=yes');
         }
         else if(strName == "納品書")
         {
-            var chkIdAry2 = $('HidChkID_N').value.split(',');    
+            var chkIdAry2 = $('HidChkID_N').value.split(',');
             var hidPrintKey = ''    
              
             for(var i = 0; i < chkIdAry2.length; i++)
             {
-                var chk2 = $(chkIdAry2[i]);                   
+                var chk2 = $(chkIdAry2[i]);
                 if(chk2.checked)
                 {
                     if(hidPrintKey != "") hidPrintKey += "_";
@@ -92,12 +89,12 @@
         }
         else if(strName == "現品票")
         {
-             var chkIdAry3 = $('HidChkID_G').value.split(',');  
-             var hidPrintKey = ''     
-               
+             var chkIdAry3 = $('HidChkID_G').value.split(',');
+             var hidPrintKey = ''
+            
             for(var i = 0; i < chkIdAry3.length; i++)
             {
-                var chk3 = $(chkIdAry3[i]);                 
+                var chk3 = $(chkIdAry3[i]);
                 if(chk3.checked)
                 {
                     if(hidPrintKey != "") hidPrintKey += "_";
@@ -109,109 +106,107 @@
             {
                 alert(strName + "チェックを入れてください");
                 return false;
-            }   
-            $('HidKey').value = hidPrintKey;	
-            NewForm.action = "../Denpyou/GenpinhyouForm.aspx"; 
-            NewForm.target = "_hacchuusho";   
-            OpenWinPost("_hacchuusho",500,600,',menubar=yes'); 
-        }                         
-        NewForm.submit();                    
-           
+            }
+            $('HidKey').value = hidPrintKey;
+            NewForm.action = "../Denpyou/GenpinhyouForm.aspx";
+            NewForm.target = "_hacchuusho";
+            OpenWinPost("_hacchuusho",500,600,',menubar=yes');
+        }
+        NewForm.submit();
      }
  
     var win = null;
     function OpenWinPost(target,w,h, ect)
     {
         win = window.open
-            ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes" + ect);            
+            ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes" + ect);
 	    win.focus();
     } 
    
     function ChkAll_H(bool)
-    {      
+    {
         var idAry = $('HidChkID_H').value.split(',');
       
         for(var i = 0; i < idAry.length; i++)
-       {         
+       {
            var chk = $(idAry[i]);
            chk.checked = bool;
        }
     }
     function ChkAll_N(bool)
-    {      
-        var idAry = $('HidChkID_N').value.split(',');    
+    {
+        var idAry = $('HidChkID_N').value.split(',');
        
         for(var i = 0; i < idAry.length; i++)
         {
-           
            var chk = $(idAry[i]);
            chk.checked = bool;
        }
     }
     function ChkAll_G(bool)
-    {      
-        var idAry = $('HidChkID_G').value.split(',');       
+    {
+        var idAry = $('HidChkID_G').value.split(',');
         for(var i = 0; i < idAry.length; i++)
-       {          
+       {
            var chk = $(idAry[i]);
            chk.checked = bool;
        }
     }
     function Reload()
-    {        
-        AjaxRequest('reload', '');    
+    {
+        AjaxRequest('reload', '');
     }
     function Kensaku()
     {
 	    AjaxRequest('kensaku', '');
-    }   
+    }
     function RowChange()
     {
 	    AjaxRequest('row', '');
-    }   
+    }
     function PageChange(pageIndex)
     {
 	    AjaxRequest('page', pageIndex);
-    }   
+    }
     function OnBuhin()
     {
         AjaxRequest('ddlBuhin', '');
     }
     function Shounin(strKey)
     {
-        if (confirm('承認しますか？'))            
+        if (confirm('承認しますか？'))
         {
             AjaxRequest('shounin', strKey);
         }
     }
     function OnRequestStart(sender, args)
 	{
-        $("Img1").style.display = '';		
+        $("Img1").style.display = '';
 	}
 	function OnResponseEnd(sender, args)
-    { 
+    {
         var cmd = args.EventArgument.substring(0, args.EventArgument.indexOf(":"));
-        var param = args.EventArgument.substring(args.EventArgument.indexOf(":") + 1);  
+        var param = args.EventArgument.substring(args.EventArgument.indexOf(":") + 1);
         switch(cmd)
         {
             case "nyuryoku_open":
                 
                 var g = $('G');
-                var cn_array = param.split('\t');	                
+                var cn_array = param.split('\t');
                 var div = $('DivNoukiKaitou');          
                 
                 if(div.children.length != cn_array.length)
                 {
                     alert('error');
                     return;
-                }      
+                }
                 
                 for(var i = 0; i < cn_array.length; i++)
                 {
-                    var index = GetIndex(cn_array[i]);	               
+                    var index = GetIndex(cn_array[i]);
                     g.rows(index + 1).cells(<%=cell_index %>).innerHTML = div.children[i].innerHTML;
-                }     
-                div.innerHTML = '';                     
+                }
+                div.innerHTML = '';
                 break;
             
             case "nyuryoku_close":
@@ -234,7 +229,7 @@
                
                 for(var i = 0; i < cn_array.length; i++)
                 {
-                    var index = GetIndex(cn_array[i]);                   
+                    var index = GetIndex(cn_array[i]);
                     g.rows(index + 1).cells(<%=cell_index %>).innerHTML = hid_current_array[i] + "<br>" + hid_current_array2[i];  
                     
                 } 
@@ -288,9 +283,9 @@
 	        if (hidData.value == "") return [];   
 	        	
 	        var arrayKey = hidDataKey.value.split(separatorKey);
-	        var arrayData = hidData.value.split(separatorData);     
+	        var arrayData = hidData.value.split(separatorData);
 	       
-	        var index = -1;	    
+	        var index = -1;
 	        for(var i = 0; i < arrayKey.length; i++) 
 	        {  
 		        if (key == arrayKey[i]) 
@@ -316,7 +311,7 @@
             
             $("Img1").style.display = '';    
            
-            <%=Ram.ClientID%>.AjaxRequest('nyuryoku_open' + ':' + cn_jk);            
+            <%=Ram.ClientID%>.AjaxRequest('nyuryoku_open' + ':' + cn_jk);
         }
         
         
@@ -326,19 +321,19 @@
             var g = $('G');
            
             for (var i = 1; i < g.rows.length; i++)
-            {  
+            {
                 var btn = g.rows.item(i).cells.item(nBtnCell).lastChild;
-                btn.visible = true;                
-            }    
-                           
+                btn.visible = true;
+            }
+            
             AjaxRequest('nyuryoku_close', cn);
         }
         function AjaxRequest(command_name, arg)
 	    {
-		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		   
+		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
 	    }
 	    function NKM_Touroku(btn, cn_jk,_nk,_su,_kn)
-	    {	    
+	    {
 	        NKC_REG(cn_jk);
 	    }
 	    function NKC_REG(cnjk_arg)
@@ -347,7 +342,7 @@
 	        
 	        if (null == cnjk_arg)
 	        {
-	            nkd_array = GetDataArray2('KaitouNoukiData');            
+	            nkd_array = GetDataArray2('KaitouNoukiData');
 	        }
 	        else
 	        {
@@ -398,19 +393,19 @@
 	                var no = $(ktno_vals[t]).value;
 	                
 	                if('' == n && '' == s) continue;
-	                                
+	                
 	                // 追加部分 
                      if('' == n)
                      {
                          alert("納期を入力してください");
                          return;
-                     }                 
+                     }
                      if('' == s)
                      {
                          alert("数量を入力してください");
                          return;
                      }
-                                 
+                     
 	                if('' != nk_suu) nk_suu += '\t';
 	                nk_suu += (n + '\t' + s + '\t' + no);
 	            }
@@ -429,9 +424,9 @@
 		        if (!confirm('登録しますか？'))
 			        return false;
 	        }
-    			
+    		
 	        var hid_arg = $('HidKaitouNoukiArg');
-	        hid_arg.value = data_array.join("|");   	    
+	        hid_arg.value = data_array.join("|");
     	    
 	        AjaxRequest('nouki_kaitou_reg', cn_tab_array.join("\t"));
     }
@@ -535,31 +530,31 @@
 	    if(0 == cn_array_not_open.length)
 	    {
 	        
-	        alert("全て表示しています");        
+	        alert("全て表示しています");
 			return;
 	    }
-	    AjaxRequest('nyuryoku_open',cn_array_not_open.join("\t"));	
-	}	
+	    AjaxRequest('nyuryoku_open',cn_array_not_open.join("\t"));
+	}
 	function NKC_CLOSE()
 	{
 	    var cn_array = GetDataArray('C');
 	    var a = GetDataArray2('KaitouNoukiData');
 	    
 	    if(0 == a.length)
-	        return;    
+	        return;
 	    var cn_array_open = [];
 	    for(var i = 0; i < a.length; i++)
 	    {
-	        var data_array = a[i].split('\t');  
-	        var nk = $(data_array[1]);    
+	        var data_array = a[i].split('\t');
+	        var nk = $(data_array[1]);
 	        if(null != nk)
 	            cn_array_open.push(data_array[0]);
-	    }	     
+	    }
 	    if(0 == cn_array_open.length)
-	    {	       
+	    {
 	        alert("全て非表示です");
 			return;
-	    }	    
+	    }
 	    AjaxRequest('nyuryoku_close', cn_array_open.join('\t'));
 	}
 	function ShiteiNouki(strKey)
@@ -584,11 +579,11 @@
     {
        if(confirm("チェックした納品書を印刷しますか？"))
        {
-             $('HidKey').value = key;	
-             NewForm.action = "../Denpyou/NouhinsyoForm.aspx";        
-             NewForm.target = "_hacchuusho";   
+             $('HidKey').value = key;
+             NewForm.action = "../Denpyou/NouhinsyoForm.aspx";
+             NewForm.target = "_hacchuusho";
              OpenWinPost("_hacchuusho",800,600,',menubar=yes');
-             NewForm.submit();   
+             NewForm.submit();
        }
     }
   </script>

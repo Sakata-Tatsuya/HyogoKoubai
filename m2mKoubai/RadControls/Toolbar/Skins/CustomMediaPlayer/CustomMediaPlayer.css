@@ -1,0 +1,200 @@
+/* custommediaplayer Skin Stylesheet */
+/* normal button */
+.custommediaplayer_radbutton_normal 
+{
+	background-image: url(Img/btnNormal.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 28px !important;
+	width: 28px !important;
+}
+.custommediaplayer_radbutton_hover
+{
+	background-image: url(Img/btnHover.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	height: 28px !important;
+	width: 28px !important;
+}
+.custommediaplayer_radbutton_disabled
+{
+	background-image: url(Img/btnNormal.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 28px !important;
+	width: 28px !important;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);/* IE */
+	-moz-opacity: .40;/* Mozilla */
+}
+.custommediaplayer_radbutton_mousedown
+{
+	background-image: url(Img/btnHover.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 28px !important;
+	width: 28px !important;
+}
+/* end normal button */
+
+/* toggle button */
+.custommediaplayer_radtbutton_normal 
+{
+	background-image: url(Img/btnNormal.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 29px !important;
+	width: 29px !important;
+}
+.custommediaplayer_radtbutton_hover
+{
+	background-image: url(Img/btnHover.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	height: 29px !important;
+	width: 29px !important;
+}
+.custommediaplayer_radtbutton_toggled, .custommediaplayer_radtbutton_hover_toggled
+{
+	background-image: url(Img/btnToggled.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 29px !important;
+	width: 29px !important;
+}
+.custommediaplayer_radtbutton_disabled
+{
+	background-color: #dbd8d1;
+	border: solid 1px #dbd8d1;
+	cursor: default;
+}
+.custommediaplayer_radtbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 29px !important;
+	width: 29px !important;
+}
+/* end toggle button */
+
+/* horizontal toobar */
+.custommediaplayer_radtoolbar_horizontal
+{
+	background-image: url(Img/toolbarBgH.gif);
+	background-repeat: no-repeat;
+	background-color: Transparent;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	height: 40px;
+	padding-top: 1px;
+}
+/* end horizontal toobar */
+
+/* vertical toobar */
+.custommediaplayer_radtoolbar_vertical
+{
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	background-color: #b3b9c5;
+	background-image: url(Img/toolbarBgV.gif);
+	background-repeat: repeat-y;
+}
+/* end vertical toobar */
+
+/* horizonatal toolbar grips */
+/* left */
+.custommediaplayer_radtoolbar_left
+{
+	background-image: url(Img/toolbarLeft.gif);
+	background-repeat: no-repeat;
+	background-color: #dbd8d1;
+	width: 46px !important;
+	height: 40px !important;
+	cursor: default;
+}
+/* right */
+.custommediaplayer_radtoolbar_right
+{
+	background-image: url(Img/toolbarRightH.gif);
+	background-repeat: no-repeat;
+	width: 80px !important;
+	height: 41px !important;
+	cursor: default;
+}
+/* end horizonatal toolbar grips */
+
+/* vertical toolbar grips */
+/* top */
+.custommediaplayer_radtoolbar_top
+{
+	background-image: url(Img/toolbarLeftV.gif);
+	background-repeat: no-repeat;
+	background-color: #dbd8d1;
+	height: 7px !important;
+}
+/* bottom */
+.custommediaplayer_radtoolbar_bot
+{
+	background-image: url(Img/toolbarRightV.gif);
+	background-repeat: no-repeat;
+	height: 7px !important;
+	position: relative;
+}
+/* end vertical toolbar grips */
+/* separators */
+/* horizontal */
+.custommediaplayer_radseparator_h
+{
+	width: 2px;
+	border-left: solid 1px #808080;
+	border-right: solid 1px #c5ced3;
+	height: 90%;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+/* vertical */
+.custommediaplayer_radseparator_v
+{
+	width: 90%;
+	margin-left: 3px;
+	margin-right: 1px;
+	height: 2px;
+	font-size: 2px;
+	background-image: url(Img/separator_v.gif);
+	background-repeat: repeat-x;
+}
+/* end separators */
+
+/* margins fix */
+.custommediaplayer_radbutton_normal IMG, .custommediaplayer_radbutton_hover IMG, .custommediaplayer_radbutton_normal SPAN, .custommediaplayer_radbutton_hover SPAN
+{
+	margin-top: 9px;
+}
+
+.custommediaplayer_radtbutton_mousedown IMG, .custommediaplayer_radtbutton_mousedown SPAN, .custommediaplayer_radtbutton_toggled IMG, .custommediaplayer_radtbutton_hover_toggled IMG
+{
+	margin-top: 11px;
+	margin-left: 3px;
+}
+
+.custommediaplayer_radtbutton_normal IMG, .custommediaplayer_radtbutton_hover IMG, .custommediaplayer_radtbutton_normal SPAN, .custommediaplayer_radtbutton_hover SPAN
+{
+	margin-top: 9px;
+}
+.custommediaplayer_radbutton_mousedown IMG, .custommediaplayer_radbutton_mousedown SPAN
+{
+	margin-top: 10px;
+	margin-left: 2px;
+}
+.custommediaplayer_radbutton_disabled IMG
+{
+	margin-top: 9px;
+}

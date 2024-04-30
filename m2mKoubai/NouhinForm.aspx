@@ -20,43 +20,41 @@
         if(tbx != null)
         {
             tbx.focus();
-        } 
+        }
     }
     function AjaxRequest(command_name, arg)
 	{
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);	
-	}               
-    function Check()    
-    { 
+		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
+	}
+    function Check()
+    {
         var tbx = $('TbxHacchuNo');
         if (tbx == "")
         {
             alert("発注Noを入力してください");
             tbx.focus();
             return;
-        }        
+        }
         if(!CheckSuu(tbx, '発注No'))
         {
             return;
-        }       
+        }
         
-        AjaxRequest('Check', '');         
+        AjaxRequest('Check', '');
     }
     
     function Clear(tbl)
-    {        
+    {
         var tbx = $("TbxHacchuNo");
         tbx.value = "";
-        $(tbl).style.display = "none"; 
+        $(tbl).style.display = "none";
         tbx.focus();
-             
         //AjaxRequest('Clear', '');           
         
     }
     
     function Nouhin()
     {
-        // 追加 09/08/19 呉
         var tbx = $("TbxNouhinsuu");
         if (tbx.value == "")
         {
@@ -69,15 +67,13 @@
             return;
         }
         if(!confirm("入力した数量で納品を確定しますか？"))
-            return false;     
+            return false;
             
         AjaxRequest('Nouhin', '');
         
     }
-    // 追加 09/07/23
     function Kannou()
     {   
-        // 追加 09/08/19 呉
         var tbx = $("TbxNouhinsuu");
         if (tbx.value == "")
         {
@@ -88,37 +84,34 @@
         if(!CheckSuu(tbx,"納品数量"))
         {
             return;
-        }    
+        }
 
         if(!confirm("入力した数量で納品を納品を確定し、注文を完納にしますか?"))
             return false;    
-             
         AjaxRequest('Kannou', '');
     }
     function OnRequestStart(sender, args)
 	{
-        $("Img1").style.display = '';		
+        $("Img1").style.display = '';
 	}
 	function OnResponseEnd(sender, args)
-    {    
+    {
         $('Img1').style.display = 'none';
-    }  
+    }
      function KeyCodeCheck()
-    {       
-        var kc = event.keyCode;                    
+    {
+        var kc = event.keyCode;
         if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-            kc == 46 || kc == 8 || kc == 13 || kc == 9)         
-            return true;                 
-        else          
-            return false;         
-    }    
+            kc == 46 || kc == 8 || kc == 13 || kc == 9)
+            return true;
+        else
+            return false;
+    }
     function SuuryouChk(nSuuryou1, nSuuryou2, nSuuryou3)
-    {   
+    {
         var suu1 = parseInt(nSuuryou1,10);
         var suu2 = parseInt(nSuuryou2,10);
         var tbx = $(nSuuryou3);
-        
-    
         var suu3 = parseInt(tbx.value, 10);
         if(suu1 - suu2 < suu3)
         {
@@ -129,13 +122,13 @@
        
     }
     function KenChk()
-    {       
+    {
         if (event.keyCode == 13)
-        {              
+        {
             if(!Check())
             {
                 return;
-            }           
+            }
         
            // AjaxRequest('Check', '');  
         }          

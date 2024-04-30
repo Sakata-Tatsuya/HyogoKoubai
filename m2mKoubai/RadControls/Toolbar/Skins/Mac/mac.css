@@ -1,0 +1,306 @@
+/* macos X Toolbar Skin Stylesheet */
+
+/* normal button */
+.mac_radbutton_normal
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	height: 24px;
+}
+.mac_radbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	cursor: default;
+	height: 24px;
+}
+.mac_radbutton_disabled
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: none;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100); /* IE */
+	-moz-opacity: .40; /* Mozilla */
+	cursor: no-drop;
+}
+.mac_radbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+}
+/* end normal button */
+
+/* toggle button */
+.mac_radtbutton_normal 
+{
+	background-image: url(Img/btnNormalBg.gif);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	height: 24px;
+}
+.mac_radtbutton_hover
+{
+	background-image: url(Img/btnHoverBg.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	cursor: default;
+	height: 24px;
+}
+.mac_radtbutton_toggled, .mac_radtbutton_hover_toggled
+{
+	background-image: url(Img/btnToggled.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+}
+.mac_radtbutton_disabled
+{
+	background-color: transparent;
+	border: none;
+	cursor: default;
+}
+.mac_radtbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+}
+/* end toggle button */
+
+/* horizontal toobar */
+.mac_radtoolbar_horizontal
+{
+	background-image: url(Img/toolbarBgH.gif);
+	background-color: transparent;
+	background-repeat: repeat-x;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+/* end horizontal toobar */
+
+/* vertical toobar */
+.mac_radtoolbar_vertical
+{
+	background-image: url(Img/toolbarBgV.gif);
+	background-color: transparent;
+	background-repeat: repeat-y;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	padding-left: 1px;
+	padding-right: 1px;
+}	
+/* end vertical toobar */
+
+/* horizonatal toolbar grips */
+/* left */
+.mac_radtoolbar_left
+{
+	background-image: url(Img/toolbarLeft.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	width: 8px;
+}
+/* right */
+.mac_radtoolbar_right
+{
+	background-image: url(Img/toolbarRight.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	width: 8px;
+}
+/* end horizonatal toolbar grips */
+
+/* vertical toolbar grips */
+/* top */
+.mac_radtoolbar_top
+{
+	background-image: url(Img/toolbarLeftV.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	height: 8px;
+}
+/* bottom */
+.mac_radtoolbar_bot
+{
+	background-image: url(Img/toolbarRightV.gif);
+	background-color: transparent;
+	height: 8px;
+}
+/* end vertical toolbar grips */
+/* separators */
+/* horizontal */
+.mac_radseparator_h
+{
+	background-image: url(Img/separator_h.gif);
+	background-color: transparent;
+	background-repeat: repeat-y;
+	width: 2px;
+	margin-left:2px;
+	margin-right:1px;
+	height: 22px;
+	margin-top: 1px;
+	margin-bottom: 2px;
+}
+/* vertical */
+.mac_radseparator_v
+{
+	background-image: url(Img/separator_v.gif);
+	background-repeat: repeat-x;
+	height: 2px;
+	font-size: 2px;
+	width: 22px;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+/* end separators */
+
+/* margins fix */
+.mac_radbutton_normal IMG, .mac_radbutton_hover IMG, .mac_radbutton_normal SPAN, .mac_radbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+
+.mac_radtbutton_mousedown IMG, .mac_radtbutton_mousedown SPAN, .mac_radtbutton_toggled IMG, .mac_radtbutton_hover_toggled IMG
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+
+.mac_radtbutton_normal IMG, .mac_radtbutton_hover IMG, .mac_radtbutton_normal SPAN, .mac_radtbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+.mac_radbutton_mousedown IMG, .mac_radbutton_mousedown SPAN
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+.mac_radbutton_disabled IMG
+{
+	margin-top: 1px;
+}
+
+/* buttons with text begin */
+/* normal */
+.mac_radbutton_text_normal
+{
+	color: #808080;
+	font: bold 10px Arial, Verdana, Helvetica;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+/* hover */
+.mac_radbutton_text_hover
+{
+	color: #fff;
+	cursor: default;
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 10px;
+	font-weight: bold;
+	background-image: url(Img/textBtnBg.gif);
+	background-repeat: repeat-x;
+	border-left: solid 1px #6c6c6c;
+	border-right: solid 1px #6c6c6c;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+/* mousedown */
+.mac_radbutton_text_mousedown
+{
+	color: #fff;
+	cursor: default;
+	font: bold 10px Arial, Verdana, Helvetica;
+	background-image: url(Img/textBtnBgMouseDown.gif);
+	background-repeat: repeat-x;
+	border-left: solid 1px #6c6c6c;
+	border-right: solid 1px #6c6c6c;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+/* toggle button */
+/* normal */
+.mac_radtbutton_text_normal
+{
+	color: #808080;
+	font-family: Arial, Verdana, Sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.mac_radtbutton_text_hover
+{
+	color: #fff;
+	cursor: default;
+	font-family: Arial, Verdana, Sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background-image: url(Img/textBtnBg.gif);
+	background-repeat: repeat-x;
+	border-left: solid 1px #6c6c6c;
+	border-right: solid 1px #6c6c6c;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+.mac_radtbutton_text_toggled, .mac_radtbutton_text_hover_toggled
+{
+	color: #fff;
+	cursor: default;
+	font-family: Arial, Verdana, Sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background-image: url(Img/textBtnBg.gif);
+	background-repeat: repeat-x;
+	background-color: #e1e1e1;
+	border-left: solid 1px #6c6c6c;
+	border-right: solid 1px #6c6c6c;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+.mac_radtbutton_text_mousedown
+{
+	color: #fff;
+	cursor: default;
+	font-family: Arial, Verdana, Sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background-image: url(Img/textBtnBgMouseDown.gif);
+	background-repeat: repeat-x;
+	border-left: solid 1px #6c6c6c;
+	border-right: solid 1px #6c6c6c;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+/* button text */
+.mac_radtbutton_text_normal SPAN, .mac_radtbutton_text_hover SPAN, .mac_radtbutton_text_toggled SPAN, .mac_radtbutton_text_toggled SPAN, .mac_radtbutton_text_hover_toggled SPAN, .mac_radtbutton_text_mousedown SPAN, .mac_radbutton_text_normal SPAN, .mac_radbutton_text_hover SPAN, .mac_radbutton_text_mousedown SPAN
+{
+	margin-top: 3px;
+	display: inline-block;
+	float: left;
+}
+/**/
+.mac_radtbutton_text_normal IMG, .mac_radtbutton_text_hover IMG, .mac_radtbutton_text_toggled IMG, .mac_radtbutton_text_toggled IMG, .mac_radtbutton_text_hover_toggled IMG, .mac_radtbutton_text_mousedown IMG, .mac_radbutton_text_normal IMG, .mac_radbutton_text_hover IMG, .mac_radbutton_text_mousedown IMG
+{
+	float: left;
+	margin-top: 3px;
+}
+
+.mac_radbutton_text_disabled SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	font-size: 10px;
+	color: #808080;
+	cursor: default;
+}
+/* buttons with text end */

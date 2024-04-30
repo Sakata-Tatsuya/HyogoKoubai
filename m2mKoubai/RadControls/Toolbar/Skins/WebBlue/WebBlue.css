@@ -1,0 +1,232 @@
+/* WebBlue Toolbar Skin Stylesheet */
+
+.webblue_radtoolbar_horizontal
+{
+	background: #d3d9e9 url('img/toolbarBgH.gif') repeat-x;
+	border-collapse: collapse;
+	border-top: solid 1px #d2d5d6;
+	border-bottom: solid 1px #878d93;
+	vertical-align: top;
+}
+
+.webblue_radtoolbar_horizontal span
+{
+	font: normal 10px Verdana, Arial, Sans-serif;
+	line-height: 18px;
+	display: block;
+}
+
+.webblue_radtoolbar_horizontal img
+{
+	float: left;
+	margin-left: 3px;
+	margin-top: 2px;
+}
+
+.webblue_radbutton_normal 
+{
+	background: transparent;
+	cursor: default;
+	height: 24px !important;
+	width: 25px !important;
+}
+
+.webblue_radbutton_hover,
+.webblue_radtbutton_hover
+{
+	background: transparent url('img/btnHoverBg.gif') no-repeat;
+	cursor: default;
+	height: 24px !important;
+	width: 25px !important;
+}
+
+.webblue_radbutton_disabled
+{
+	background: transparent;
+	border: 0px;
+	cursor: default;
+	cursor: no-drop;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);
+	-moz-opacity: .40;
+	height: 24px !important;
+	width: 25px !important;
+}
+
+.webblue_radtbutton_normal 
+{
+	background: transparent;
+	cursor: default;
+	height: 24px !important;
+	width: 25px !important;
+}
+
+.webblue_radtbutton_toggled,
+.webblue_radtbutton_hover_toggled,
+.webblue_radbutton_mousedown,
+.webblue_radtbutton_mousedown
+{
+	cursor: default;
+	height: 24px !important;
+	width: 25px !important;
+	background: #dddee0 url('img/ButtonClickedBg.gif') no-repeat;
+}
+
+.webblue_radtbutton_disabled
+{
+	background: transparent;
+	border: none;
+	cursor: default;
+	height: 24px !important;
+	width: 25px !important;
+}
+
+/* vertical toobar */
+
+.webblue_radtoolbar_vertical
+{
+	background: url('img/toolbarBgV.gif') repeat-y;
+	font: normal 11px Verdana, Arial, Sans-serif;
+	border-collapse: collapse;
+	border-left: solid 1px #878d93;
+	border-right: solid 1px #d2d5d6;
+	border-top: 0px;
+	border-bottom: 0px;
+	vertical-align: top;
+}	
+
+.webblue_radtoolbar_vertical .webblue_radbutton_normal,
+.webblue_radtoolbar_vertical .webblue_radtbutton_normal,
+.webblue_radtoolbar_vertical .webblue_radbutton_disabled
+{
+	background: none;
+	width: 24px !important;
+	height: 25px !important;
+}
+
+.webblue_radtoolbar_vertical .webblue_radbutton_hover,
+.webblue_radtoolbar_vertical .webblue_radtbutton_hover
+{
+	background: url('img/btnHoverBgV.gif') no-repeat;
+	width: 24px !important;
+	height: 25px !important;
+}
+
+.webblue_radtoolbar_vertical .webblue_radtbutton_toggled,
+.webblue_radtoolbar_vertical .webblue_radtbutton_hover_toggled,
+.webblue_radtoolbar_vertical .webblue_radbutton_mousedown,
+.webblue_radtoolbar_vertical .webblue_radtbutton_mousedown
+{
+	cursor: default;
+	background: url('img/ButtonClickedBgV.gif') no-repeat;
+	width: 24px !important;
+	height: 25px !important;
+}
+
+/* horizonatal toolbar grips */
+.webblue_radtoolbar_left
+{
+	background: url('img/toolbarLeft.gif') no-repeat;
+	width: 13px !important;
+	height: 26px !important;
+}
+
+.webblue_radtoolbar_right
+{
+	background: url('img/toolbarRight.gif') no-repeat;
+	width: 13px !important;
+	height: 26px !important;
+}
+
+/* vertical toolbar grips */
+.webblue_radtoolbar_top
+{
+	background: url('img/toolbarLeftV.gif') no-repeat;
+	height: 13px;
+	width: 26px;
+}
+
+.webblue_radtoolbar_bot
+{
+	background: url('img/toolbarRightV.gif') no-repeat;
+	height: 13px;
+	width: 26px;
+}
+
+/* separators */
+.webblue_radseparator_h,
+.webblue_radseparator_v
+{
+	display: none; /* this skin does not support separators */
+}
+
+/* margins fix */
+.webblue_radtbutton_mousedown img, 
+.webblue_radtbutton_toggled img, 
+.webblue_radtbutton_hover_toggled img,
+.webblue_radbutton_mousedown img, 
+.webblue_radtbutton_text_mousedown img,
+.webblue_radtbutton_text_toggled img,
+.webblue_radtbutton_text_hover_toggled img
+{
+	margin-left: 4px;
+	margin-top: 3px;
+	padding-left: 1px; /* Mozilla FF fix */
+}
+
+
+.webblue_radtbutton_mousedown span, 
+.webblue_radbutton_mousedown span,
+.webblue_radbutton_text_mousedown span
+{
+	padding-top: 2px;
+}
+
+/* text and image buttons begin */
+
+.webblue_radbutton_text_normal span,
+.webblue_radbutton_text_hover span,
+.webblue_radbutton_text_mousedown span
+{
+	display: inline-block;
+}
+
+.webblue_radtbutton_text_normal,
+.webblue_radbutton_text_normal
+{
+	color: #4d4d4d;
+	height: 24px !important;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+.webblue_radtbutton_text_hover,
+.webblue_radbutton_text_hover,
+.webblue_radbutton_text_mousedown
+{
+	background: url('img/TextButtonBg.gif') repeat-x;
+	color: #4d4d4d;
+	cursor: default;
+	height: 24px !important;
+	border-left: solid 1px #8fa0af;
+	border-right: solid 1px #8fa0af;
+}
+
+.webblue_radtbutton_text_mousedown,
+.webblue_radtbutton_text_toggled,
+.webblue_radtbutton_text_hover_toggled,
+.webblue_radbutton_text_mousedown
+{
+	background: url('img/TextButtonBgClicked.gif') repeat-x;
+	color: #fff;
+	cursor: default;
+	height: 24px !important;
+	border-left: solid 1px #a0a5ac;
+	border-right: solid 1px #a0a5ac;
+}
+
+.webblue_radbutton_text_disabled span
+{
+	height: 20px !important;
+	color: #808080;
+	cursor: default;
+}

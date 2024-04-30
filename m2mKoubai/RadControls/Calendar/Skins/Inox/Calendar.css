@@ -1,0 +1,185 @@
+/* Telerik RadCalendar 1.6 inox skin */
+
+/* main calendar table */
+.calendarWrapper_Inox
+{
+	font: bold 11px Verdana, Arial, Sans-serif;
+	cursor: default;
+	border-right: solid 1px #868b8f;
+	border-bottom: solid 1px #868b8f;
+	border-left: solid 1px #bec1c3;
+	border-top: solid 1px #bec1c3;
+	background:	#eee url('Img/TitleBgFix.gif') repeat-x;
+}
+
+/* cell links */
+.calendarWrapper_Inox a
+{
+	color: #666;
+	cursor: default;
+	text-decoration: none;
+}
+
+/* calendar cells */
+.calendarWrapper_Inox td
+{
+	text-align: center;
+}
+
+/* calendar titlebar */
+table.titlebar_Inox
+{
+	width: 231px;
+	height: 31px;
+	color: #7b838e;
+	font-size: 12px;
+	font-weight: bold;
+	background: transparent url(Img/titleBg.gif) no-repeat center;
+	margin: 1px;
+	margin-bottom: 0px;
+}
+
+/* navigation arrows in the titlebar */
+table.titlebar_Inox td img
+{
+	cursor: hand;
+}
+
+/* calendar layout */
+table.TableLayout_Inox
+{
+	width: 231px;
+	background: #bbbbbb url(Img/calendarBg.gif) repeat-y;
+	margin: 1px;
+	margin-top: 0px;
+	border-collapse: separate !important;
+}
+
+/* calendar cells */
+table.TableLayout_Inox td
+{
+	width: 30px;
+	height: 22px;
+}
+
+/* days of the week header */
+td.DaysOfWeek_Inox
+{
+	font-weight: bold;
+	color: #f0f5f6;
+	background: transparent url(Img/DaysOfWeek.gif) repeat-x;
+	height: 24px !important;
+}
+
+/* cells start */
+.radCalDefault_Inox, .radCalWeekendDefault_Inox
+{
+	border-left: solid 1px #dcdddf;
+	border-top: solid 1px #dcdddf;
+	border-right: solid 1px #b5bac0;
+	border-bottom: solid 1px #b5bac0;
+}
+
+.radCalHover_Inox, .radCalWeekendHover_Inox
+{
+	background: url(Img/hoverBg.gif) repeat;
+	border-left: solid 1px #dcdddf;
+	border-top: solid 1px #dcdddf;
+	border-right: solid 1px #b5bac0;
+	border-bottom: solid 1px #b5bac0;
+}
+.radCalToday_Inox
+{
+	border-left: solid 1px #dcdddf;
+	border-top: solid 1px #dcdddf;
+	border-right: solid 1px #b5bac0;
+	border-bottom: solid 1px #b5bac0;
+	background-color: #fff;
+}
+.radCalSelect_Inox, .radCalWeekendSelect_Inox
+{
+	border-left: solid 1px #dcdddf;
+	border-top: solid 1px #dcdddf;
+	border-right: solid 1px #b5bac0;
+	border-bottom: solid 1px #b5bac0;
+	background: url(Img/selectBg.gif) repeat;
+}
+
+.otherMonth_Inox
+{
+	color: #eaeaea;
+	border-left: solid 1px #dcdddf;
+	border-top: solid 1px #dcdddf;
+	border-right: solid 1px #b5bac0;
+	border-bottom: solid 1px #b5bac0;
+}
+
+.otherMonth_Inox a
+{
+	color: #eaeaea;
+}
+
+.outOfRange_Inox
+{
+	color: #eaeaea;
+	border-left: solid 1px #dcdddf;
+	border-top: solid 1px #dcdddf;
+	border-right: solid 1px #b5bac0;
+	border-bottom: solid 1px #b5bac0;
+}
+/* cells end */
+
+/* titlebar menu */
+.MonthYearFastNav_Inox
+{
+	font: normal 10px Verdana, Arial, Sans-serif;
+	color: #666;
+	border: solid 1px #868b8f;
+	background-color: #eee;
+	border-collapse: collapse;
+	filter: progid:DXImageTransform.Microsoft.Shadow(direction=140,color=#666666,strength=3);
+	cursor: hand;
+	cursor: pointer; /* Mozilla */
+}
+
+.MonthYearFastNav_Inox td
+{
+	border-bottom: solid 1px #868b8f;
+	height: 19px;
+	color: #666;
+}
+
+.MonthYearFastNav_Inox td.selected_Inox
+{
+	background: #eee url(Img/MonthYearFastNavSelected.gif);
+}
+
+/* Today, OK and Cancel buttons in the titlebar menu */
+.MonthYearFastNav_Inox td input
+{
+	background: transparent url(Img/MonthYearFastNavBtnBg.gif) repeat-x;
+	border: solid 1px #868b8f;
+	font: normal 10px Verdana;
+	color: #666;
+	float: left;
+	margin: 1px;
+	height: 19px;
+}
+
+.radPopupImage_Inox img
+{
+	vertical-align: middle;
+	_vertical-align: top; /* IE fix */	
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: -1px; /* IE margins fix */
+	_margin-top: 0px; 
+	border-width: 0px;
+}
+
+.radDisabled_Inox img
+{
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}
