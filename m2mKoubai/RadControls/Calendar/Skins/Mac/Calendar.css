@@ -1,0 +1,218 @@
+.calendarWrapper_Mac
+{
+	border: 0px;
+	cursor: default;
+}
+.radCalDefault_Mac, .radCalWeekendDefault_Mac
+{
+	width: 21px;
+	height: 20px;
+	text-align: center;
+}
+.radCalHover_Mac, .radCalWeekendHover_Mac
+{
+	width: 21px;
+	height: 20px;
+	background-image: url(Img/hoverBg.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	cursor: default;
+	text-align: center;
+}
+.radCalToday_Mac
+{
+	width: 21px;
+	height: 20px;
+	background-color: white;
+	text-align: center;
+}
+.radCalSelect_Mac, .radCalWeekendSelect_Mac
+{
+	width: 21px;
+	height: 20px;
+	background-image: url(Img/selectBg.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-align: center;
+}
+.DaysOfWeek_Mac
+{
+	font-weight: bold;
+	color: #535353;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 8pt;
+	font-weight: bold;
+	height: 11px;
+	cursor: default;
+	background-color: Transparent;
+	text-align: center;
+	padding: 0px 3px;
+}
+
+.otherMonth_Mac a
+{
+	color: #fff;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 8pt;
+	font-weight: bold;
+	width: 21px;
+	height: 20px;
+	background-color: transparent;
+	cursor: default;
+	text-align: center;
+	text-decoration: none;
+}
+
+.otherMonth_Mac
+{
+	color: #fff;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 8pt;
+	font-weight: bold;
+	width: 21px;
+	height: 20px;
+	background-color: transparent;
+	cursor: default;
+	text-align: center;
+}
+
+.outOfRange_Mac
+{
+	color: #fff;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 8pt;
+	font-weight: bold;
+	width: 21px;
+	height: 20px;
+	background-color: transparent;
+	cursor: default;
+	text-align: center;
+}
+
+.titlebar_Mac
+{
+	border: solid 1px #b2b2b2;
+	color: #000000;
+	font-family: Arial, Verdana, Sans-Serif;
+	background-image: url(Img/titleBg.gif);
+	background-repeat: repeat-x;
+	font-size: 8pt;
+	font-weight: normal;
+	height: 14px;
+	cursor: default;
+	text-align: center;
+	width: 100%;
+}
+
+.TableLayout_Mac
+{
+	background-image: url(Img/calendarBg.gif);
+	background-repeat: repeat-x;
+	background-position: 0px 13px;
+}
+
+/*** MonthYearFastNav ***/
+.MonthYearFastNav_Mac
+{
+	border: 1px solid #d6d6d6;
+	background-color: #ffffff;
+	font: normal 10px Verdana;
+	color: #000000;
+	border-collapse: collapse;
+	filter: progid:DXImageTransform.Microsoft.Shadow(direction=140,color=#666666,strength=3);
+}
+
+.MonthYearFastNav_Mac TD
+{
+	text-align: center;
+	vertical-align: middle;
+	border-bottom: 1px solid #d6d6d6;
+	cursor: hand;
+}
+
+.MonthYearFastNav_Mac TD.selected_Mac
+{
+	border-color: #cecece;
+	background-color: #cecece;
+	color: #ffffff;
+}
+
+.MonthYearFastNav_Mac TD.bottom_Mac
+{
+	text-align: center;
+}
+
+.MonthYearFastNav_Mac TD INPUT
+{
+	background-image: url(Img/MonthYearFastNavBtnBg.gif);
+	background-repeat: repeat-x;
+	border-top: solid 1px #666c59;
+	border-left: solid 1px #666c59;
+	border-right: solid 1px #aaaf9e;
+	border-bottom: solid 1px #aaaf9e;
+	font: normal 10px Verdana;
+	color: #000000;
+	float: left;
+	margin-right: 1px;
+}
+/*** MonthYearFastNav ***/
+/* cell links */
+.radCalDefault_Mac A, .radCalWeekendDefault_Mac A
+{
+	color: #4c4c4c;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 8pt;
+	font-weight: bold;
+	cursor: default;
+	text-decoration: none;
+}
+.radCalHover_Mac A, .radCalWeekendHover_Mac A
+{
+	color: #fff;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 8pt;
+	font-weight: bold;
+	text-decoration: none;
+}
+.radCalSelect_Mac A, .radCalWeekendSelect_Mac A
+{
+	color: #fff;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 8pt;
+	font-weight: bold;
+	cursor: default;
+	text-decoration: none;
+}
+.radCalToday_Mac A
+{
+	color: #7f7f7f;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 8pt;
+	font-weight: bold;
+	border: solid 1px #d2f24f;
+	display:block;
+	height: 21px;
+	padding-top:7px;
+	background-color: white;
+	cursor: default;
+	text-decoration: none;
+}
+/* cell links end */
+
+.radPopupImage_Mac img
+{
+	vertical-align: middle;
+	_vertical-align: top; /* IE fix */	
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: -1px; /* IE margins fix */
+	_margin-top: 0px; 
+	border-width: 0px;
+}
+
+.radDisabled_Mac img
+{
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}

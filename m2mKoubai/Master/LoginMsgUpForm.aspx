@@ -29,12 +29,12 @@
                        
         if (confirm("登録しますか？"))
         {            
-            $('BtnTS').click();
+            document.getElementById('BtnTS').click();
         }                                           
     }  
     function MsgCheck()
    {              
-        var msg = $("TbxMsg").value;
+        var msg = document.getElementById("TbxMsg").value;
         if (msg == "")
         {
             alert("メッセージを入力して下さい");
@@ -53,7 +53,7 @@
             return;
         if (confirm("更新しますか？"))
         {                         
-            $('BtnKS').click();
+            document.getElementById('BtnKS').click();
         }                               
     }  
     function Close() 
@@ -63,11 +63,11 @@
     }   
     function OnRequestStart()
     {            
-        $('Img1').style.display = '';
+        document.getElementById('Img1').style.display = '';
     }           
     function OnResponseEnd()
     {            
-        $('Img1').style.display = 'none';
+        document.getElementById('Img1').style.display = 'none';
     }                
     </script>
 </head>

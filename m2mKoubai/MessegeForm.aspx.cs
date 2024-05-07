@@ -57,15 +57,8 @@ namespace m2mKoubai
         {
             if (!IsPostBack)
             {
-                if (HttpContext.Current.Request.HttpMethod != "POST")
-                {
-                    HttpContext.Current.Response.Redirect(Global.LoginPageURL, false);
-                    return;
-                }
-              
                 try
                 {
-
                     string[] strAry = HttpContext.Current.Request.Form["HidKey"].Split('\t');
                     if (strAry == null)
                     {

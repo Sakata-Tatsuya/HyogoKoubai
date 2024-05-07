@@ -1,0 +1,358 @@
+/* WinAmp 5.0 Modern Toolbar Skin Stylesheet */
+
+/* normal button */
+.winampmodern_radbutton_normal 
+{
+	background-image: url(Img/btnNormal.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 29px !important;
+	width: 29px !important;
+}
+.winampmodern_radbutton_hover
+{
+	background-image: url(Img/btnHover.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	height: 29px !important;
+	width: 29px !important;
+}
+.winampmodern_radbutton_disabled
+{
+	background-image: url(Img/btnNormal.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 29px !important;
+	width: 29px !important;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=30,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);/* IE */
+	-moz-opacity: .30;/* Mozilla */
+}
+.winampmodern_radbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 29px !important;
+	width: 29px !important;
+}
+/* end normal button */
+
+/* toggle button */
+.winampmodern_radtbutton_normal 
+{
+	background-image: url(Img/btnNormal.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 29px !important;
+	width: 29px !important;
+}
+.winampmodern_radtbutton_hover
+{
+	background-image: url(Img/btnHover.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;	
+	height: 29px !important;
+	width: 29px !important;
+}
+.winampmodern_radtbutton_toggled, .winampmodern_radtbutton_hover_toggled
+{
+	background-image: url(Img/btnToggled.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 29px !important;
+	width: 29px !important;
+}
+.winampmodern_radtbutton_disabled
+{
+	background-color: #dbd8d1;
+	border: solid 1px #dbd8d1;
+	cursor: default;
+}
+.winampmodern_radtbutton_mousedown
+{
+	background-image: url(Img/btnMouseDown.jpg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: default;
+	height: 29px !important;
+	width: 29px !important;
+}
+/* end toggle button */
+
+/* horizontal toobar */
+.winampmodern_radtoolbar_horizontal
+{
+	background-image: url(Img/toolbarBgH.gif);
+	background-repeat: repeat-x;
+	background-color: #666;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	height: 29px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+/* end horizontal toobar */
+
+/* vertical toobar */
+.winampmodern_radtoolbar_vertical
+{
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	background-color: #b3b9c5;
+	background-image: url(Img/toolbarBgV.gif);
+	background-repeat: repeat-y;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+/* end vertical toobar */
+
+/* horizonatal toolbar grips */
+/* left */
+.winampmodern_radtoolbar_left
+{
+	background-image: url(Img/toolbarLeft.gif);
+	background-repeat: no-repeat;
+	background-color: #dbd8d1;
+	width: 5px !important;
+}
+/* right */
+.winampmodern_radtoolbar_right
+{
+	background-image: url(Img/toolbarRightH.gif);
+	background-repeat: no-repeat;
+	width: 7px !important;
+}
+/* end horizonatal toolbar grips */
+
+/* vertical toolbar grips */
+/* top */
+.winampmodern_radtoolbar_top
+{
+	background-image: url(Img/toolbarLeftV.gif);
+	background-repeat: no-repeat;
+	background-color: #dbd8d1;
+	height: 7px !important;
+}
+/* bottom */
+.winampmodern_radtoolbar_bot
+{
+	background-image: url(Img/toolbarRightV.gif);
+	background-repeat: no-repeat;
+	height: 7px !important;
+	position: relative;
+}
+/* end vertical toolbar grips */
+/* separators */
+/* horizontal */
+.winampmodern_radseparator_h
+{
+	background-image: url(Img/separator_h.gif);
+	width: 2px;
+	height: 20px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	background-repeat: repeat-y;
+}
+/* vertical */
+.winampmodern_radseparator_v
+{
+	width: 20;
+	height: 2px;
+	margin-left: 1px;
+	margin-right: 1px;
+	background-image: url(Img/separator_v.gif);
+	background-repeat: repeat-x;
+	text-align: center;
+	font-size: 2px;
+}
+/* end separators */
+
+/* margins fix */
+.winampmodern_radbutton_normal IMG
+{
+	margin-top: 4px;
+	margin-left: 1px;
+}
+.winampmodern_radbutton_hover IMG, .winampmodern_radbutton_normal SPAN, .winampmodern_radbutton_hover SPAN
+{
+	margin-top: 4px;
+	margin-left: 1px;
+}
+
+.winampmodern_radtbutton_mousedown IMG, .winampmodern_radtbutton_mousedown SPAN, .winampmodern_radtbutton_toggled IMG, .winampmodern_radtbutton_hover_toggled IMG
+{
+	margin-top: 5px;
+	margin-left: 3px;
+}
+
+.winampmodern_radtbutton_normal IMG, .winampmodern_radtbutton_hover IMG, .winampmodern_radtbutton_normal SPAN, .winampmodern_radtbutton_hover SPAN
+{
+	margin-top: 4px;
+	margin-left: 1px;
+}
+.winampmodern_radbutton_mousedown IMG, .winampmodern_radbutton_mousedown SPAN
+{
+	margin-top: 5px;
+	margin-left: 3px;
+}
+.winampmodern_radbutton_disabled IMG
+{
+	margin-top: 4px;
+	margin-left: 1px;
+}
+/* image and text buttons start */
+/* normal */
+.winampmodern_radbutton_text_normal
+{
+	background-color: transparent;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #e1e1e1;
+	padding: 1px 1px 1px 1px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.winampmodern_radbutton_text_normal SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+}
+/* hover */
+.winampmodern_radbutton_text_hover
+{
+	background-color: transparent;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #fff;
+	border: solid 1px #c5ced3;
+	padding: 0px 0px 0px 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.winampmodern_radbutton_text_hover SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	cursor: default;
+}
+/* mousedown */
+.winampmodern_radbutton_text_mousedown
+{
+	background-color: transparent;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #fff;
+	border: solid 1px #fff;
+	padding: 0px 0px 0px 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.winampmodern_radbutton_text_mousedown SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	cursor: default;
+}
+/* toggle button */
+/* normal */
+.winampmodern_radtbutton_text_normal
+{
+	background-color: transparent;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #e1e1e1;
+	padding: 1px 1px 1px 1px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.winampmodern_radtbutton_text_normal SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+}
+.winampmodern_radtbutton_text_normal IMG
+{
+	display: inline-block;
+}
+/* hover */
+.winampmodern_radtbutton_text_hover
+{
+	background-color: transparent;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #fff;
+	border: solid 1px #c5ced3;
+	padding: 0px 0px 0px 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.winampmodern_radtbutton_text_hover SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	cursor: default;
+}
+/* mousedown */
+.winampmodern_radtbutton_text_mousedown
+{
+	background-color: transparent;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #fff;
+	border: solid 1px #fff;
+	padding: 0px 0px 0px 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.winampmodern_radtbutton_text_mousedown SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	cursor: default;
+}
+/* toggled */
+.winampmodern_radtbutton_text_toggled, .winampmodern_radtbutton_text_hover_toggled
+{
+	background-color: transparent;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #fff;
+	border: solid 1px #fff;
+	padding: 0px 0px 0px 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.winampmodern_radtbutton_text_toggled SPAN, .winampmodern_radtbutton_text_hover_toggled SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	cursor: default;
+}
+/* image and text buttons end */
+/*  button text */
+.winampmodern_radbutton_text_normal SPAN, .winampmodern_radbutton_text_hover SPAN, .winampmodern_radbutton_text_mousedown SPAN, .winampmodern_radtbutton_text_normal SPAN, .winampmodern_radtbutton_text_hover SPAN, .winampmodern_radtbutton_text_toggled SPAN, .winampmodern_radtbutton_text_hover_toggled SPAN, .winampmodern_radtbutton_text_mousedown SPAN
+{
+	display: inline-block;
+	margin-top: 4px;
+	float: left;
+}
+/**/
+.winampmodern_radtbutton_text_normal IMG, .winampmodern_radtbutton_text_hover IMG, .winampmodern_radtbutton_text_toggled IMG, .winampmodern_radtbutton_text_toggled IMG, .winampmodern_radtbutton_text_hover_toggled IMG, .winampmodern_radtbutton_text_mousedown IMG, .winampmodern_radbutton_text_normal IMG, .winampmodern_radbutton_text_hover IMG, .winampmodern_radbutton_text_mousedown IMG
+{
+	float: left;
+	margin-top: 4px;
+}

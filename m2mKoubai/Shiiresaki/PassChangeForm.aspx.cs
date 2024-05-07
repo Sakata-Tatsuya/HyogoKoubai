@@ -69,7 +69,7 @@ namespace m2mKoubai.Shiiresaki
 
         }
 
-        protected void Ram_AjaxRequest(object sender, Telerik.WebControls.AjaxRequestEventArgs e)
+        protected void Ram_AjaxRequest(object sender, Telerik.Web.UI.AjaxRequestEventArgs e)
         {
             this.Ram.AjaxSettings.Clear();
 

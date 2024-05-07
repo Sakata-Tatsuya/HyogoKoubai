@@ -29,7 +29,7 @@
       
       if (confirm("登録しますか？"))
       {
-          $('BtnTS').click();
+          document.getElementById('BtnTS').click();
       }
   }  
   function TourokuChk(bool)
@@ -37,7 +37,7 @@
       if (bool)
       {     
          /*
-          var TbxKaishaMei = $('TbxKaishaMei');
+          var TbxKaishaMei = document.getElementById('TbxKaishaMei');
           if (TbxKaishaMei.value == "")
           {
               alert("会社名を入力してください");
@@ -45,7 +45,7 @@
               return;
           }
           */
-           var TbxKaishaID = $('TbxKaishaID');
+           var TbxKaishaID = document.getElementById('TbxKaishaID');
           if (TbxKaishaID.value == "")
           {
               alert("事業所コードを入力してください");
@@ -58,28 +58,28 @@
               TbxKaishaID.focus();
               return;
           }
-          var TbxEigyousho = $('TbxEigyousho');
+          var TbxEigyousho = document.getElementById('TbxEigyousho');
           if (TbxEigyousho.value == "")
           {
               alert("事業所名を入力してください")
               TbxEigyousho.focus();
               return;
           }
-          var TbxJyusho = $('TbxJyusho');
+          var TbxJyusho = document.getElementById('TbxJyusho');
           if (TbxJyusho.value == "")
           {
               alert("住所を入力してください");
               TbxJyusho.focus();
               return;
           }
-          var TbxYubin = $('TbxYubin');
+          var TbxYubin = document.getElementById('TbxYubin');
           if (TbxYubin.value == "")
           {
               alert("郵便番号を入力してください")
               TbxYubin.focus();
               return;
           }
-          var TbxTel = $('TbxTel');
+          var TbxTel = document.getElementById('TbxTel');
           if (TbxTel.value == "")
           {
               alert("電話番号を入力してください")
@@ -95,7 +95,7 @@
           return;
       if (confirm("更新しますか？"));
       {
-          $('BtnKS').click();
+          document.getElementById('BtnKS').click();
       }
   }
   function KeyCodeCheck()

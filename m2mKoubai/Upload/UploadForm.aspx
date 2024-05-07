@@ -1,9 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Codebehind="UploadForm.aspx.cs" Inherits="m2mKoubai.Upload.UploadForm" %>
 
 <%@ Register Src="../CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc3" %>
-
 <%@ Register Src="CtlOrderUpload.ascx" TagName="CtlOrderUpload" TagPrefix="uc2" %>
-
 <%@ Register Src="CtlHinmokuUpload.ascx" TagName="CtlHinmokuUpload" TagPrefix="uc1" %>
 <%@ Register Assembly="RadTabStrip.Net2" Namespace="Telerik.WebControls" TagPrefix="radTS" %>
 <!DOCTYPE html>

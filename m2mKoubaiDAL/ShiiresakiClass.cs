@@ -156,7 +156,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki WHERE ShiiresakiCode = @ShiiresakiCode";
-            da.SelectCommand.Parameters.Add("@ShiiresakiCode", ShiiresakiCode);
+            da.SelectCommand.Parameters.AddWithValue("@ShiiresakiCode", ShiiresakiCode);
             m2mKoubaiDataSet.M_ShiiresakiDataTable dt = new m2mKoubaiDataSet.M_ShiiresakiDataTable();
             da.Fill(dt);
             if (1 == dt.Rows.Count)
@@ -207,7 +207,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki WHERE ShiiresakiCode = @ShiiresakiCode";
-            da.SelectCommand.Parameters.Add("@ShiiresakiCode", ShiiresakiCode);
+            da.SelectCommand.Parameters.AddWithValue("@ShiiresakiCode", ShiiresakiCode);
             da.UpdateCommand = (new SqlCommandBuilder(da)).GetUpdateCommand();
             m2mKoubaiDataSet.M_ShiiresakiDataTable dt = new m2mKoubaiDataSet.M_ShiiresakiDataTable();
             da.Fill(dt);
@@ -287,8 +287,8 @@ namespace m2mKoubaiDAL
             + "T_KaishaInfo ON T_Chumon.JigyoushoKubun = T_KaishaInfo.KaishaID RIGHT OUTER JOIN "
             + "M_Login ON M_Shiiresaki.ShiiresakiCode = M_Login.KaishaCode "
             + "WHERE                   (M_Login.LoginID = @LoginID) AND (dbo.T_KaishaInfo.KaishaID = @Kubun)";
-            da.SelectCommand.Parameters.Add("@LoginID", strLoginID);
-            da.SelectCommand.Parameters.Add("@Kubun", nKubun);
+            da.SelectCommand.Parameters.AddWithValue("@LoginID", strLoginID);
+            da.SelectCommand.Parameters.AddWithValue("@Kubun", nKubun);
             ShiiresakiDataSet.V_Nouhinsho_HeaderDataTable dt = new ShiiresakiDataSet.V_Nouhinsho_HeaderDataTable();
             da.Fill(dt);
             if (1 == dt.Rows.Count)
@@ -324,7 +324,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki WHERE ShiiresakiCode = @ShiiresakiCode";
-            da.SelectCommand.Parameters.Add("@ShiiresakiCode", ShiiresakiCode);
+            da.SelectCommand.Parameters.AddWithValue("@ShiiresakiCode", ShiiresakiCode);
             da.UpdateCommand = (new SqlCommandBuilder(da)).GetUpdateCommand();
             m2mKoubaiDataSet.M_ShiiresakiDataTable dt = new m2mKoubaiDataSet.M_ShiiresakiDataTable();
             da.Fill(dt);

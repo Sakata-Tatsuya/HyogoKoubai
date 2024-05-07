@@ -1,0 +1,119 @@
+/* r.a.d.dock Office 2007 skin */
+
+.RadDockingZone
+{
+	background: white;
+	border: solid 1px #8db2e3;
+	font: normal 10px Verdana, Arial, Sanserif;
+	padding: 4px;
+}
+
+.RadDockableObjectFixed
+{
+	border: solid 2px #8db2e3;
+	background: #d5e4f2;
+}
+
+.RadDockableObjectResizeable
+{
+	border: solid 3px #8db2e3;
+	background: #d5e4f2;
+}
+
+/* titlebar start */
+
+.RadDockableObjectTitleBarLeft
+{
+	width: 3px;
+	height: 19px;
+	background: transparent url('img/titleBarLeft.gif') no-repeat;
+}
+
+.RadDockableObjectTitleBarRight
+{
+	width: 3px;
+	height: 19px;
+	background: transparent url('img/titleBarRight.gif') repeat-x;
+}
+
+.RadDockableObjectTitle
+{
+	background: white url('img/titleBarBg.gif') repeat-x;
+	padding-left: 2px;
+}
+
+/* titlebar text */
+
+.RadDockableObjectTitleBar
+{
+	height: 19px;
+	color: #154a93;
+	font: bold 11px Verdana, Arial, Sans-serif;
+	text-align: left;
+}
+
+/* command button table cell */
+
+.RadDockableObjectCommandButton
+{
+	width: 12px;
+	height: 19px;
+	background: transparent url('img/titleBarBg.gif') repeat-x;
+}
+
+/* button image */
+
+.RadDockableObjectCommandButton img
+{
+	width: 12px;
+	height: 19px;
+	margin-left: 3px; /* buttons to button offeset */
+}
+
+/* titlebar end */
+
+/* horizontal grip */
+
+.RadDockableObjectHorizontalGrip
+{
+	height: 4px;
+	background: #666;
+	font-size: 1px;
+	line-height: 1px;
+}
+
+/* vertical grip */
+
+.RadDockableObjectVerticalGrip
+{
+	width: 4px;
+	background-color: #666;
+	font-size: 1px;
+}
+
+/* content of the dock */
+
+.RadDockableObjectInnerContainer
+{
+	vertical-align: top;
+	padding: 4px;
+	font: normal 10px Arial, Verdana, Sanserif;
+	text-align: left;
+	margin: 200px;
+	background: white;
+	border-top: solid 1px #7f9db9;
+}
+
+.RadDragHelper
+{
+	background-color: orange;
+}
+
+.RadDragHelperTooltip
+{
+	border: solid 1px #333;
+	padding: 2px;
+	background-color: #dadada;
+	color: #000;
+	font: normal 10px Verdana, Arial, Sans-Serif;
+}

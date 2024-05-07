@@ -12,7 +12,7 @@ using m2mKoubaiDAL;
 
 namespace m2mKoubai.Kenshu
 {
-    public partial class KenshuInfoShukeiForm : Core.Web.ServerViewStatePage
+    public partial class KenshuInfoShukeiForm : System.Web.UI.Page
     {
         private int VsCurrentPageIndex
         {
@@ -303,7 +303,7 @@ namespace m2mKoubai.Kenshu
         }
 
 
-        protected void Ram_AjaxRequest(object sender, Telerik.WebControls.AjaxRequestEventArgs e)
+        protected void Ram_AjaxRequest(object sender, Telerik.Web.UI.AjaxRequestEventArgs e)
         {
             this.Ram.AjaxSettings.Clear();
 

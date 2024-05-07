@@ -1,12 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderShousaiForm.aspx.cs" Inherits="m2mKoubai.Order.OrderShousaiForm" %>
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head id="Head1" runat="server">
     <title>発注詳細画面</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
-     <script type="text/javascript">
+    <script type="text/javascript">
         function $(id)
         {
             return document.getElementById(id);
@@ -14,15 +14,15 @@
 
         function Cancel()
         {
-            if (confirm('キャンセルしますか？'))            
+            if (confirm('キャンセルしますか？'))
             {
                 if (confirm('本当にキャンセルしますか？')) 
                 {
-                    $('HidProcess').value = 'cancel';
-                    $('BtnProcess').click();               
+                    document.getElementById('HidProcess').value = 'cancel';
+                    document.getElementById('BtnProcess').click();
                 }
             }
-        }       
+        }
         function KeyCodeCheck()
 	    {
 	        var kc = event.keyCode;
@@ -34,8 +34,8 @@
 	    }
 	    function Koushin(suu,tanka)
 	    {
-	        var tbxTanka = $('TbxT');
-	        var tbxSuuryou = $('TbxS');	        
+	        var tbxTanka = document.getElementById('TbxT');
+	        var tbxSuuryou = document.getElementById('TbxS');
 	      
 	        if (parseInt(tbxTanka.value) == 0)
             {
@@ -48,13 +48,12 @@
                 alert("単価に変更がありません");
                 tbxTanka.focus();  
                 return;
-            }           
+            }
             else if (!CheckDecimal(tbxTanka.value, tanka))
-            {      
-                tbxTanka.focus();        
+            {
+                tbxTanka.focus();
                 return ;
-            }           
-            
+            }
          
            if (tbxSuuryou.value == '0')
             {
@@ -82,12 +81,12 @@
 	        }
 	        else
 	        {
-	            if (confirm('更新しますか？'))            
-                {              
-                    $('HidProcess').value = 'koushin';
-                    $('BtnProcess').click();                 
-                }	 
-            }       
+	            if (confirm('更新しますか？'))
+                {
+                    document.getElementById('HidProcess').value = 'koushin';
+                    document.getElementById('BtnProcess').click();
+                }
+            }
 	    }
 	     // 数値チェック
         function CheckSuu(tbx,str)
@@ -101,60 +100,58 @@
 	        return true;
 	    }	
         function CheckDecimal(deci,tanka)
-        {	
-            
+        {
             if (deci == '')
             {
                 return true;
             }
             else
-            {	  
+            {
                 if (deci.match( /[^0-9.,]/ ) != null)
                 {
-                    alert('単価の入力値が正しくありません');	            
+                    alert('単価の入力値が正しくありません');
                     return false;
-                }  
-                var valAry = tanka.split('.');              	        
+                }
+                var valAry = tanka.split('.');
                 var deciAry = deci.split('.');
                 if (deciAry.length > 2)
                 {
                     alert('小数点は1つだけ入力可能です');
                     return false;
-                }        
+                }
                 if (deciAry.length == 2 && (deciAry[0].length == 0 || deciAry[1].length == 0))
                 {
-                    alert('単価の入力値が正しくありません');	            
+                    alert('単価の入力値が正しくありません');
                     return false;
-                }  	   
+                }
                 if (deciAry.length < 3 && deciAry[0].length > 8)
                 {
                     alert('単価の整数部は8桁以内で入力して下さい');
-                    return false;	           
-                }	        
+                    return false;
+                }
                 if (deciAry.length == 2 && deciAry[1].length > 2)
                 {
                     alert('単価の小数部は2桁以内で入力して下さい');
                     return false;
-                }	            
+                }
                 if (deciAry.length == 2 && parseInt(deciAry[0]) == 0 && parseInt(deciAry[1]) == 0)
                 {
                     alert('単価は0以上で入力して下さい');
                     return false;
-                }     
-               
+                }
                 return true;
             }
-        }    
+        }
         function OnLoad(loadFlg)
         { 
             if (window.opener != null) 
             {        
                 if (loadFlg == 1) 
-                {            
+                {
                     window.opener.Reload();
                 }
             }
-        }    
+        }
   </script>
 </head>
 <body class="bg0" onload="OnLoad(<%=loadFlg%>)">
@@ -164,7 +161,6 @@
             <tr>
                 <td align="center" colspan="2" width="50%" class="hei20">
                     <asp:Label ID="LblErrMsg" runat="server" CssClass="b"></asp:Label></td>
-               
             </tr>
            
             <tr>

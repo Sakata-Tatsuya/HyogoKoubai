@@ -81,7 +81,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_LoginMsg WHERE MsgID = @MsgID";
-            da.SelectCommand.Parameters.Add("@MsgID", MsgID);
+            da.SelectCommand.Parameters.AddWithValue("@MsgID", MsgID);
             m2mKoubaiDataSet.M_LoginMsgDataTable dt = new m2mKoubaiDataSet.M_LoginMsgDataTable();
             da.Fill(dt);
             if (1 == dt.Rows.Count)
@@ -132,7 +132,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_LoginMsg WHERE MsgID = @MsgID";
-            da.SelectCommand.Parameters.Add("@MsgID", MsgID);
+            da.SelectCommand.Parameters.AddWithValue("@MsgID", MsgID);
             da.UpdateCommand = (new SqlCommandBuilder(da)).GetUpdateCommand();
             m2mKoubaiDataSet.M_LoginMsgDataTable dt = new m2mKoubaiDataSet.M_LoginMsgDataTable();
             da.Fill(dt);
@@ -163,7 +163,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_LoginMsg WHERE MsgID = @MsgID";
-            da.SelectCommand.Parameters.Add("@MsgID", MsgID);
+            da.SelectCommand.Parameters.AddWithValue("@MsgID", MsgID);
             da.DeleteCommand = (new SqlCommandBuilder(da)).GetDeleteCommand();
             m2mKoubaiDataSet.M_LoginMsgDataTable dt = new m2mKoubaiDataSet.M_LoginMsgDataTable();
             da.Fill(dt);

@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="KaishaInfoForm.aspx.cs" Inherits="m2mKoubai.Master.KaishaInfoForm" %>
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 
@@ -15,25 +15,25 @@
         return document.getElementById(id);
      }
      function Shinki()
-     {        
+     {
         var win = window.open
-        ("KaishaInfoUpForm.aspx","_brank","width=550px,height=350px,location=no,resizable=yes,scrollbars=yes");
-        win.focus();        
-     }     
+        ("KaishaInfoUpForm","_brank","width=550px,height=350px,location=no,resizable=yes,scrollbars=yes");
+        win.focus();
+     }
      function Update(key)
      {
         var win = window.open
-        ("KaishaInfoUpForm.aspx?key="+key,"_brank","width=550px,height=350px,location=no,resizable=yes,scrollbars=yes");
+        ("KaishaInfoUpForm?key="+key,"_brank","width=550px,height=350px,location=no,resizable=yes,scrollbars=yes");
         win.focus();
      }
      function Delete()
-     {     
-        var chkIDAry = $('HidChkID').value.split(',');
-        var thisIDAry = $('HidThisID').value.split(',');
+     {
+         var chkIDAry = document.getElementById('HidChkID').value.split(',');
+         var thisIDAry = document.getElementById('HidThisID').value.split(',');
         var hidDelKey = '';
         for (var i = 0; i < chkIDAry.length; i++)
         {
-            var chk = $(chkIDAry[i]);
+            var chk = document.getElementById(chkIDAry[i]);
             if (chk.checked)
             {
                 if (hidDelKey != "") hidDelKey += ",";
@@ -45,39 +45,39 @@
         {
             alert("チェックを入れてください");
             return false;
-        }        
+        }
         if (confirm("削除しますか？"))
         {
             if (confirm("本当に削除しますか？"))
             {
                 AjaxRequest('delete', hidDelKey);
             }
-        }                        
+        }
      }
      function DelChk(bool)
      {
-        var idAry = $('HidChkID').value.split(',');
+         var idAry = document.getElementById('HidChkID').value.split(',');
         for (var i = 0; i < idAry.length; i++)
         {
-            var chk = $(idAry[i]);
+            var chk = document.getElementById(idAry[i]);
             chk.checked = bool;
         }
-     }  
+     }
      function OnRequestStart()
-     {            
-        $('Img1').style.display = '';
-     }           
+     {
+         document.getElementById('Img1').style.display = '';
+     }
      function OnResponseEnd()
-     {            
-        $('Img1').style.display = 'none';
+     {
+         document.getElementById('Img1').style.display = 'none';
      }
      function PageChange(pageIndex)
      {
         AjaxRequest('page', pageIndex);
-     }         
+     }
      function AjaxRequest(command_name, arg)
      {
- 	     <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		
+ 	     <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
 	 }
 	 function Kensaku()
 	 {
@@ -91,7 +91,6 @@
 	 {
 	    AjaxRequest('row', '');
 	 }
-	                                    
     </script>    
 </head>
 <body class="bg0">
@@ -206,9 +205,19 @@
                 </td>
             </tr>
         </table>
-         <radA:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
-         <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </radA:RadAjaxManager>
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
+                </asp:ScriptReference>
+            </Scripts>
+        </telerik:RadScriptManager>
+        <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+            <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
+        </telerik:RadAjaxManager>
     </form>
 </body>
 

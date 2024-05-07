@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MultiOrderInputForm.aspx.cs" Inherits="m2mKoubai.Order.MultiOrderInputForm" %>
 
 <%@ Register Assembly="RadInput.Net2" Namespace="Telerik.WebControls" TagPrefix="radI" %>
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
 <%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
@@ -16,67 +16,67 @@
         function $(id)
         {
             return document.getElementById(id);
-        }      
+        }
         function RowClear()
-        {         
-            var chkIDAry = $('HidChkID').value.split(',');            
+        {
+            var chkIDAry = document.getElementById('HidChkID').value.split(',');
             var bChecked = false;
             var nDelCnt = 0;
             for (var i = 0; i < chkIDAry.length; i++)
-            {                
-                var chk = $(chkIDAry[i]);                
+            {
+                var chk = document.getElementById(chkIDAry[i]);
                 if (chk.checked)
-                {                    
-                    bChecked = true;                     
-                    //break;  
-                    nDelCnt++;              
+                {
+                    bChecked = true;
+                    //break;
+                    nDelCnt++;
                 }
-            }            
+            }
             if (nDelCnt == 0)
             {
                 alert('チェックを入れて下さい');
                 return;
-            }            
-            $('HidArgs').value = nDelCnt;            
-            var meisai = CreateMeisai(true, false);              
+            }
+            document.getElementById('HidArgs').value = nDelCnt;
+            var meisai = CreateMeisai(true, false);
             if (confirm("入力内容を削除しますか？"))
             {
                 for (var i = 0; i < chkIDAry.length; i++)
-                {                
-                    var chk = $(chkIDAry[i]);                
+                {
+                    var chk = document.getElementById(chkIDAry[i]);
                     if (chk.checked)
-                    {                   
+                    {
                         chk.checked = false;
                     }
-                }            
+                }
                 AjaxRequest('RowClear', meisai);
-            }                            
-        } 
+            }
+        }
         function AllClear()
         {
             if (confirm("入力した内容を全て削除しますか？"))
             {
                 AjaxRequest('AllClear', '');
             }
-        }              
+        }
         function CreateMeisai(bSakujo, bTouroku)
         {
-            var meisai = '';            
+            var meisai = '';
             //var bErr = false;
-            var noukiAry = $('HidNoukiID').value.split(',');            
-            var grid = $('G');                
+            var noukiAry = document.getElementById('HidNoukiID').value.split(',');
+            var grid = document.getElementById('G');
             for (var i = 1; i < grid.rows.length; i++)
-            {       
-                var chkKan = grid.rows.item(i).cells.item(0).firstChild;  
+            {
+                var chkKan = grid.rows.item(i).cells.item(0).firstChild;
                 if (bSakujo && chkKan.checked)
-                {                   
+                {
                     continue;
-                }          
+                }
                 
 //                var tbl3 = grid.rows.item(i).cells.item(1).firstChild;	     
-	            var ddlShiire = $('DdlShiire');	           
+                var ddlShiire = document.getElementById('DdlShiire');
                 if (ddlShiire.length == 0 || ddlShiire.selectedIndex == 0)
-                {                  
+                {
                     break;
                 }
                 var shiireCode = ddlShiire.options[ddlShiire.selectedIndex].value;
@@ -102,7 +102,6 @@
 	            var lblLot = tbl1.rows.item(0).cells.item(0).firstChild;
 	            var lot = lblLot.innerText;
 	            
-                // 追加 09/07/28
                 var chkKariTanka = tbl1.rows.item(1).cells.item(0).childNodes.item(1);
                 var kariTankaFlg;
                 if (chkKariTanka.checked) { kariTankaFlg = "0"; }
@@ -122,7 +121,7 @@
 
                 var tbl2 = grid.rows.item(i).cells.item(7).firstChild;
 	            var rdpNouki = noukiAry[i-1];
-	            var nouki = $(rdpNouki).value;
+	            var nouki = document.getElementById(rdpNouki).value;
 	            var ddlBasho = tbl2.rows.item(1).cells.item(0).firstChild;
                 var bashoCode = '';
                 if (ddlBasho.length > 0 && ddlBasho.selectedIndex > 0)
@@ -268,7 +267,6 @@
                 alert("日付を正しく入力して下さい");
                 return -1;
             }
-            	        
             var dt = new Date();
             var year = nen[1];
             var month = nen[2];
@@ -278,47 +276,47 @@
             {
                 alert("西暦を正しく入力して下さい"); 
                 return -1;
-            }   
-                         
+            }
+
             month = FormatMonthDay(month);     
             // 月の判定
             if (!(month >= 1 && month <= 12))
-            {		            
-                alert("月を正しく入力して下さい"); 
-                return -1;		        
-            }	                    	
-            var yy = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 29);	
-            var monthChk = month; 		        
+            {
+                alert("月を正しく入力して下さい");
+                return -1;
+            }
+            var yy = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 29);
+            var monthChk = month;
             // 閏年の判定
             if (((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) && month == 2)
-                monthChk = 12;            
-            else 
+                monthChk = 12;
+            else
                 monthChk--;
-                        
-            day = FormatMonthDay(day);                        
-            // 日の判定          
+
+            day = FormatMonthDay(day);
+            // 日の判定
             if (!(day >= 1 && day <= yy[monthChk])) {
                 alert("日付を正しく入力して下さい");
                 return -1;
-            }                        
-            // 今日より前の日付はエラー        
+            }
+            // 今日より前の日付はエラー
             if (dt.getFullYear() + FormatMonthDay(dt.getMonth()+1) + FormatMonthDay(dt.getDate()) > year + month + day)
             {
                 alert('本日以降の日付を入力して下さい');
                 return -1;
-            }                     
-            return (year + "/" + month + "/" + day);            
-        }    
+            }
+            return (year + "/" + month + "/" + day);
+        }
         function FormatMonthDay(monthDay)
-        {   
+        {
             var str = monthDay.toString();
             if (str.length == 1)
-            {            
-                return "0" + str;            
+            {
+                return "0" + str;
             }
             else
-            {            
-                return str;            
+            {
+                return str;
             }
         }
         // 数値チェック
@@ -331,13 +329,13 @@
 	            return false;
 	        }
 	        return true;
-	    }	
+	    }
         function DelChk(bool)
         { 
-            var idAry = $('HidChkID').value.split(',');              
+            var idAry = document.getElementById('HidChkID').value.split(',');
             for (var i = 0; i < idAry.length; i++)
             {
-                var chk = $(idAry[i]);
+                var chk = document.getElementById(idAry[i]);
                 chk.checked = bool;
             }
         }
@@ -348,13 +346,13 @@
         }
         function BuhinChange(rowNo)
         {
-            $('HidArgs').value = rowNo;
+            document.getElementById('HidArgs').value = rowNo;
             var meisai = CreateMeisai(false, false);
             AjaxRequest('BuhinChange', meisai);
         }
         function Touroku()
         { 
-            var meisai = CreateMeisai(false, true);            
+            var meisai = CreateMeisai(false, true);
             /*
             if (meisai == '')
             {
@@ -368,8 +366,8 @@
             }
         }
         function AddRow()
-        {      
-            var meisai = CreateMeisai(false, false);            
+        {
+            var meisai = CreateMeisai(false, false);
             AjaxRequest('AddRow', meisai);
         }
         /*
@@ -380,17 +378,17 @@
         */
         function KubunChange()
         {
-            var meisai = CreateMeisai(false, false);                          
-            AjaxRequest('KubunChange', meisai);                 	        
+            var meisai = CreateMeisai(false, false);
+            AjaxRequest('KubunChange', meisai);
         }
-        function OnRequestStart(){$('Img1').style.display = '';}
-        function OnResponseEnd() {$('Img1').style.display = 'none';}
+        function OnRequestStart() { document.getElementById('Img1').style.display = '';}
+        function OnResponseEnd() { document.getElementById('Img1').style.display = 'none';}
         function AjaxRequest(command_name, arg)
-	    {	        
+	    {
 		    <%=Ram.ClientID %>.AjaxRequest(command_name + ':' + arg);	
 	    }
        
-</script>
+    </script>
 </head>
 <body class="bg0">
     <form id="form1" runat="server">    
@@ -612,9 +610,19 @@
                 </td>
             </tr>
         </table>
-        <radA:RadAjaxManager ID="Ram"  runat="server" OnAjaxRequest="Ram_AjaxRequest">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
+                </asp:ScriptReference>
+            </Scripts>
+        </telerik:RadScriptManager>
+        <telerik:RadAjaxManager ID="Ram"  runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </radA:RadAjaxManager>
+        </telerik:RadAjaxManager>
     </form>
 </body>
 </html>

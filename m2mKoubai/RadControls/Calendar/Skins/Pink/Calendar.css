@@ -1,0 +1,193 @@
+.calendarWrapper_Pink
+{
+	cursor: default;
+	border: solid 1px #000;
+	background-image: url(Img/tableLayoutBg.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	background-color: #e2bebe;
+	width: 280px;
+}
+
+.radCalDefault_Pink, .radCalWeekendDefault_Pink
+{
+	color: #7f7f7f;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	background-color: transparent;
+	cursor: default;
+	text-align: center;
+	height: 40px;
+	width: 40px;
+}
+.radCalHover_Pink, .radCalWeekendHover_Pink
+{
+	color: #7f7f7f;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: underline;
+	cursor: default;
+	text-align: center;
+	height: 40px;
+	width: 40px;
+	background-image: url(Img/hoverBg.gif);
+	background-repeat: no-repeat;
+	background-position: 4px 3px;
+}
+.radCalSelect_Pink, .radCalWeekendSelect_Pink
+{
+	color: #7f7f7f;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	text-decoration: underline;
+	font-weight: bold;
+	cursor: default;
+	text-align: center;
+	height: 41px;
+	width: 41px;
+	background-image: url(Img/selectBg.gif);
+	background-repeat: no-repeat;
+	background-repeat: no-repeat;
+	background-position: 4px 3px;
+}
+.DaysOfWeek_Pink
+{
+	font-weight: normal;
+	color: #333333;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	height: 19px;
+	cursor: default;
+	background-image: url(Img/DaysOfWeek.gif);
+	background-repeat: repeat-x;
+	background-color: transparent;
+	text-align: center;
+}
+.otherMonth_Pink
+{
+	color: #fff;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	cursor: default;
+	text-align: center;
+}
+
+.otherMonth_Pink a
+{
+	color: #fff;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	cursor: default;
+	text-align: center;
+	text-decoration: none;
+}
+
+.outOfRange_Pink
+{
+	background-color: transparent;
+	color: #fff;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	cursor: default;
+	text-align: center;
+}
+.titlebar_Pink
+{
+	color: #686868;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: bold;
+	height: 22px;	
+	cursor: default;
+	text-align: center;
+}
+.TableLayout_Pink
+{
+	width: 280px;
+}
+.TableLayout_Pink td
+{
+	height: 40px;
+	width: 40px;
+}
+/*** MonthYearFastNav ***/
+.MonthYearFastNav_Pink
+{
+	border: 1px solid #000;
+	background-color: #ffffff;
+	font: normal 10px Verdana;
+	color: #000000;
+	border-collapse: collapse;
+	filter: progid:DXImageTransform.Microsoft.Shadow(direction=140,color=#666666,strength=3);
+}
+
+.MonthYearFastNav_Pink TD
+{
+	text-align: center;
+	vertical-align: middle;
+	cursor: hand;
+	padding: 4px;
+}
+
+.MonthYearFastNav_Pink TD.selected_Outlook
+{
+	background-color: #e2bebe;
+	color: #000;
+}
+
+.MonthYearFastNav_Pink TD.bottom_Outlook
+{
+	text-align: center;
+}
+
+.MonthYearFastNav_Pink TD INPUT
+{
+	background-color: #e2bebe;
+	border: solid 1px #000;
+	font: normal 10px Verdana;
+	color: #000000;
+	float: left;
+	margin-right: 1px;
+}
+/*** MonthYearFastNav ***/
+/* cell links */
+.radCalDefault_Pink A, 
+.radCalHover_Pink A, 
+.radCalSelect_Pink A, 
+.radCalWeekendDefault_Pink A, 
+.radCalWeekendHover_Pink A, 
+.radCalWeekendSelect_Pink A
+{
+	color: #7f7f7f;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	cursor: default;
+	text-decoration: none;
+	margin-left: 2px;
+	margin-top: 3px;
+}
+/* cell links end */
+
+.radPopupImage_Pink img
+{
+	vertical-align: middle;
+	_vertical-align: top; /* IE fix */	
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: -1px; /* IE margins fix */
+	_margin-top: 0px; 
+	border-width: 0px;
+}
+
+.radDisabled_Pink img
+{
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}

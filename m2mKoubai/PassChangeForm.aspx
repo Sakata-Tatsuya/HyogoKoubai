@@ -1,8 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PassChangeForm.aspx.cs" Inherits="m2mKoubai.PassChangeForm" %>
 
 <%@ Register Src="CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
-
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 
 <!DOCTYPE html>
 
@@ -15,7 +14,7 @@
     
    function Load()
    {
-       $("TbxPass").focus();
+       document.getElementById("TbxPass").focus();
    }
    function $(id)
     {
@@ -37,7 +36,7 @@
 	}
 	function Check()
 	{   
-	    var tbxPass = $('TbxPass');	  
+	    var tbxPass = document.getElementById('TbxPass');	  
 	    if(tbxPass.value == "")
 	    {
 	        alert("パスワードを入力して下さい");	      
@@ -55,7 +54,7 @@
 	   　   tbxPass.focus();
 	        return;
 	   　}
-	    var tbxPass2 = $("TbxPass2");
+	    var tbxPass2 = document.getElementById("TbxPass2");
 	    if(tbxPass2.value == "")
 	    {
 	        alert("確認用パスワードを入力して下さい");	     
@@ -81,7 +80,7 @@
 	    function HankakuChk(tbxId, objName)
         {      
             var count = 0;
-            var val = $(tbxId).value;   
+            var val = document.getElementById(tbxId).value;   
            
             for( var i = 0; i < val.length; i++ )
             {
@@ -140,10 +139,20 @@
                 <td class="tc" >
                     <input id="BtnT" runat="server" type="button" value="変更登録" class="mt20 bg6 " /></td>
             </tr>
-        </table>    
-        <rada:radajaxmanager id="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+        </table>
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
+                </asp:ScriptReference>
+            </Scripts>
+        </telerik:RadScriptManager>
+        <telerik:radajaxmanager id="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </rada:radajaxmanager>
+        </telerik:radajaxmanager>
     </form>
 </body>
 </html>

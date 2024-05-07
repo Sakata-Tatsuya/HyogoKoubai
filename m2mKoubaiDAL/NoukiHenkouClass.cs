@@ -131,9 +131,9 @@ namespace m2mKoubaiDAL
                 daC.SelectCommand.CommandText =
                 "SELECT * FROM T_Chumon "
                 + "WHERE Year = @Year AND HacchuuNo = @HacchuuNo AND JigyoushoKubun = @JigyoushoKubun ";
-                daC.SelectCommand.Parameters.Add("@Year", strYear);
-                daC.SelectCommand.Parameters.Add("@HacchuuNo", strHacchuuNo);
-                daC.SelectCommand.Parameters.Add("@JigyoushoKubun", nKubun);
+                daC.SelectCommand.Parameters.AddWithValue("@Year", strYear);
+                daC.SelectCommand.Parameters.AddWithValue("@HacchuuNo", strHacchuuNo);
+                daC.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);
                 daC.UpdateCommand = (new SqlCommandBuilder(daC)).GetUpdateCommand();
                 m2mKoubaiDataSet.T_ChumonDataTable dtC = new m2mKoubaiDataSet.T_ChumonDataTable();
                 daC.Fill(dtC);

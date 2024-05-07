@@ -29,14 +29,14 @@
                        
                 if (confirm("登録しますか？"))
                 {            
-                    $('BtnTouroku').click();
+                    document.getElementById('BtnTouroku').click();
                 }                                           
             }  
             function TourokuChk(bool)
             {  
                 if(bool)
                 {
-                    var TbxShiireCode = $('TbxShiireCode');
+                    var TbxShiireCode = document.getElementById('TbxShiireCode');
                     if(TbxShiireCode.value == "") 
                     {
                         alert("仕入先コードを入力してください");
@@ -44,47 +44,47 @@
                     }
                 }
                 
-                var TbxShiireName = $('TbxShiireName');
+                var TbxShiireName = document.getElementById('TbxShiireName');
                 if(TbxShiireName.value == "")
                 {
                     alert("仕入先名を入力してください");
                     TbxShiireName.focus();
                     return;
                 } 
-                var TbxYuubin = $('TbxYuubin');
+                var TbxYuubin = document.getElementById('TbxYuubin');
                 if(TbxYuubin.value == "")
                 {
                     alert("郵便番号入力してください");
                     TbxYuubin.focus();
                     return;
                 }
-                var TbxTel = $('TbxTel');
+                var TbxTel = document.getElementById('TbxTel');
                 if(TbxTel.value == "")
                 {
                     alert("電話番号を入力してください");
                     TbxTel.focus();
                     return;
                 }
-                var TbxFax = $('TbxFax');
+                var TbxFax = document.getElementById('TbxFax');
                 if(TbxFax.value == "")
                 {
                     alert("FAX番号を入力してください");
                     TbxFax.focus();
                     return;
                 }
-                var DdlShimebi = $('DdlShimebi');
+                var DdlShimebi = document.getElementById('DdlShimebi');
                 if(DdlShimebi.selectedIndex == 0)
                 {
                     alert("支払締日を選択してください");
                     return;
                 }
-                var DdlYotebi1 = $('DdlYotebi1');
+                var DdlYotebi1 = document.getElementById('DdlYotebi1');
                 if(DdlYotebi1.selectedIndex == 0)
                 {
                     alert("支払予定月を選択してください");
                     return;
                 }
-                var DdlYotebi2 = $('DdlYotebi2');
+                var DdlYotebi2 = document.getElementById('DdlYotebi2');
                 if(DdlYotebi2.selectedIndex == 0)
                 {
                     alert("支払予定日を選択してください");
@@ -98,7 +98,7 @@
                     return; 
                 if (confirm("更新しますか？"))
                 {                         
-                    $('BtnKoushin').click();
+                    document.getElementById('BtnKoushin').click();
                 }                               
             }  
             function Close() 
@@ -111,11 +111,11 @@
             }   
             function OnRequestStart()
             {            
-                $('Img1').style.display = '';
+                document.getElementById('Img1').style.display = '';
             }           
             function OnResponseEnd()
             {            
-                $('Img1').style.display = 'none';
+                document.getElementById('Img1').style.display = 'none';
             }  
             function KeyCodeCheck()
             {       

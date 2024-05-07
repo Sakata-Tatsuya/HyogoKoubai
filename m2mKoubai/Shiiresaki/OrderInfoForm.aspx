@@ -1,12 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInfoForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.OrderInfoForm" ValidateRequest="false" %>
-
 <%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc4" %>
-
 <%@ Register Src="../Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
-
 <%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
 <!DOCTYPE html>
 
@@ -21,63 +19,62 @@
     }   
     function AjaxRequest(command_name, arg)
 	{
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		
+		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
 	}
 	function HacchuuNo(key, hacchuuNo)
     {
-        $('HidKey').value = key +'\t'+ hacchuuNo;
-        NewForm.action = "OrderShousaiForm.aspx";
-        NewForm.target = "_hacchuu"; 
-	    OpenWinPost("_hacchuu",500,500,'');               
-        NewForm.submit();               
+        document.getElementById('HidKey').value = key +'\t'+ hacchuuNo;
+        NewForm.action = "OrderShousaiForm";
+        NewForm.target = "_hacchuu";
+	    OpenWinPost("_hacchuu",500,500,'');
+        NewForm.submit();
     }
      function Msg(key)
      {
-	    $('HidKey').value = key;	  
-        NewForm.action = "MessegeForm.aspx";      
-        NewForm.target = "_msg";       
-	    OpenWinPost("_msg",700,500,'');               
-        NewForm.submit();  
-     } 
+	    document.getElementById('HidKey').value = key;
+        NewForm.action = "MessegeForm";
+        NewForm.target = "_msg";
+	    OpenWinPost("_msg",700,500,'');
+        NewForm.submit();
+     }
      
      function Print(strName)
      {
         if(strName == "発注書")
-        {             
-            var chkIdAry = $('HidChkID_H').value.split(',');        
+        {
+            var chkIdAry = document.getElementById('HidChkID_H').value.split(',');
             var hidPrintKey = ''
             for(var i = 0; i < chkIdAry.length; i++)
-            {                
-                var chk = $(chkIdAry[i]);              
+            {
+                var chk = document.getElementById(chkIdAry[i]);
                 if(chk.checked)
                 {
                     if(hidPrintKey != "") hidPrintKey += "_";
-                    hidPrintKey += chk.value;                    
+                    hidPrintKey += chk.value;
                 }
             }
             if(hidPrintKey == "")
             {
                 alert(strName + "チェックを入れてください");
                 return false;
-            }                
-            $('HidKey').value = hidPrintKey;	            
-            NewForm.action = "../Denpyou/HacchuushoForm.aspx";   
-            NewForm.target = "_hacchuusho";   
+            }
+            document.getElementById('HidKey').value = hidPrintKey;
+            NewForm.action = "../Denpyou/HacchuushoForm.aspx";
+            NewForm.target = "_hacchuusho";
             OpenWinPost("_hacchuusho",800,600,',menubar=yes');
         }
         else if(strName == "納品書")
         {
-            var chkIdAry2 = $('HidChkID_N').value.split(',');    
-            var hidPrintKey = ''    
+            var chkIdAry2 = document.getElementById('HidChkID_N').value.split(',');
+            var hidPrintKey = ''
              
             for(var i = 0; i < chkIdAry2.length; i++)
             {
-                var chk2 = $(chkIdAry2[i]);                   
+                var chk2 = document.getElementById(chkIdAry2[i]);
                 if(chk2.checked)
                 {
                     if(hidPrintKey != "") hidPrintKey += "_";
                     hidPrintKey += chk2.value;
-                  
                 }
             }
             if(hidPrintKey == "")
@@ -85,36 +82,35 @@
                 alert(strName + "チェックを入れてください");
                 return false;
             }
-            $('HidKey').value = hidPrintKey;	
-            NewForm.action = "../Denpyou/NouhinsyoForm.aspx";        
-            NewForm.target = "_hacchuusho";   
+            document.getElementById('HidKey').value = hidPrintKey;
+            NewForm.action = "../Denpyou/NouhinsyoForm";
+            NewForm.target = "_hacchuusho";
             OpenWinPost("_hacchuusho",800,600,',menubar=yes');
         }
         else if(strName == "現品票")
         {
-             var chkIdAry3 = $('HidChkID_G').value.split(',');  
-             var hidPrintKey = ''     
+             var chkIdAry3 = document.getElementById('HidChkID_G').value.split(',');  
+             var hidPrintKey = ''
                
             for(var i = 0; i < chkIdAry3.length; i++)
             {
-                var chk3 = $(chkIdAry3[i]);                 
+                var chk3 = document.getElementById(chkIdAry3[i]);
                 if(chk3.checked)
                 {
                     if(hidPrintKey != "") hidPrintKey += "_";
                     hidPrintKey += chk3.value;
-                   
                 }
-            }  
-             if(hidPrintKey == "")
+            }
+            if(hidPrintKey == "")
             {
                 alert(strName + "チェックを入れてください");
                 return false;
-            }   
-            $('HidKey').value = hidPrintKey;	
-            NewForm.action = "../Denpyou/GenpinhyouForm.aspx"; 
-            NewForm.target = "_hacchuusho";   
-            OpenWinPost("_hacchuusho",500,600,',menubar=yes'); 
-        }                         
+            }
+            document.getElementById('HidKey').value = hidPrintKey;
+            NewForm.action = "../Denpyou/GenpinhyouForm";
+            NewForm.target = "_hacchuusho";
+            OpenWinPost("_hacchuusho",500,600,',menubar=yes');
+        }
         NewForm.submit();                    
            
      }
@@ -123,37 +119,37 @@
     function OpenWinPost(target,w,h, ect)
     {
         win = window.open
-            ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes" + ect);            
+            ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes" + ect);
 	    win.focus();
     } 
    
     function ChkAll_H(bool)
     {      
-        var idAry = $('HidChkID_H').value.split(',');
+        var idAry = document.getElementById('HidChkID_H').value.split(',');
       
         for(var i = 0; i < idAry.length; i++)
        {         
-           var chk = $(idAry[i]);
+           var chk = document.getElementById(idAry[i]);
            chk.checked = bool;
        }
     }
     function ChkAll_N(bool)
     {      
-        var idAry = $('HidChkID_N').value.split(',');    
+        var idAry = document.getElementById('HidChkID_N').value.split(',');    
        
         for(var i = 0; i < idAry.length; i++)
         {
            
-           var chk = $(idAry[i]);
+           var chk = document.getElementById(idAry[i]);
            chk.checked = bool;
        }
     }
     function ChkAll_G(bool)
     {      
-        var idAry = $('HidChkID_G').value.split(',');       
+        var idAry = document.getElementById('HidChkID_G').value.split(',');       
         for(var i = 0; i < idAry.length; i++)
        {          
-           var chk = $(idAry[i]);
+           var chk = document.getElementById(idAry[i]);
            chk.checked = bool;
        }
     }
@@ -186,7 +182,7 @@
     }
     function OnRequestStart(sender, args)
 	{
-        $("Img1").style.display = '';		
+        document.getElementById("Img1").style.display = '';		
 	}
 	function OnResponseEnd(sender, args)
     { 
@@ -196,9 +192,9 @@
         {
             case "nyuryoku_open":
                 
-                var g = $('G');
+                var g = document.getElementById('G');
                 var cn_array = param.split('\t');	                
-                var div = $('DivNoukiKaitou');          
+                var div = document.getElementById('DivNoukiKaitou');          
                 
                 if(div.children.length != cn_array.length)
                 {
@@ -211,19 +207,19 @@
                     var index = GetIndex(cn_array[i]);	               
                     g.rows(index + 1).cells(<%=cell_index %>).innerHTML = div.children[i].innerHTML;
                 }     
-                div.innerHTML = '';                     
+                div.innerHTML = '';
                 break;
             
             case "nyuryoku_close":
                
-                var g = $('G');
+                var g = document.getElementById('G');
                 
                 var cell_index = <%=cell_index %>;
                
                 var cn_array = param.split("\t");
                 
-                var hid_current_array = $('TbxKaitouNouki').value.split("\t"); 
-                var hid_current_array2 = $('TbxShiteiNouki').value.split("\t"); 
+                var hid_current_array = document.getElementById('TbxKaitouNouki').value.split("\t"); 
+                var hid_current_array2 = document.getElementById('TbxShiteiNouki').value.split("\t"); 
                 
               
                 if(hid_current_array.length != cn_array.length)
@@ -234,7 +230,7 @@
                
                 for(var i = 0; i < cn_array.length; i++)
                 {
-                    var index = GetIndex(cn_array[i]);                   
+                    var index = GetIndex(cn_array[i]);
                     g.rows(index + 1).cells(<%=cell_index %>).innerHTML = hid_current_array[i] + "<br>" + hid_current_array2[i];  
                     
                 } 
@@ -242,8 +238,8 @@
                 break;
             case "nyuryoku_add_row":
             case "nyuryoku_del_row":
-                var g = $('G');
-                var div = $('DivNoukiKaitou');
+                var g = document.getElementById('G');
+                var div = document.getElementById('DivNoukiKaitou');
                 var index = GetIndex(param);
                 g.rows(index + 1).cells(<%=cell_index %>).innerHTML = div.innerHTML;
                 div.innerHTML = '';
@@ -254,7 +250,7 @@
                       
         }
         
-          $('Img1').style.display = 'none';
+          document.getElementById('Img1').style.display = 'none';
         
         
     }  
@@ -274,11 +270,11 @@
 	    }
 	   function GetDataArray(key)
 	   {	  
-	         return Core_GetDataArray(key,$('HidDataKey'), $('HidData'), ',', ':', true);
+	         return Core_GetDataArray(key,document.getElementById('HidDataKey'), document.getElementById('HidData'), ',', ':', true);
 	   }
 	    function GetDataArray2(key)
 	    {	 	       
-		    return Core_GetDataArray(key, $('HidDataKey'), $('HidData'),',', ':', false);
+		    return Core_GetDataArray(key, document.getElementById('HidDataKey'), document.getElementById('HidData'),',', ':', false);
 	    }	
 
         // Keyに対応するデータを配列として返す
@@ -314,7 +310,7 @@
         function YN(cn_jk)
         {
             
-            $("Img1").style.display = '';    
+            document.getElementById("Img1").style.display = '';    
            
             <%=Ram.ClientID%>.AjaxRequest('nyuryoku_open' + ':' + cn_jk);            
         }
@@ -323,7 +319,7 @@
         function NKM_Close(cn)
         {
            var nBtnCell = <%=cell_index %>;
-            var g = $('G');
+            var g = document.getElementById('G');
            
             for (var i = 1; i < g.rows.length; i++)
             {  
@@ -377,9 +373,9 @@
 	        {
 	            var kaitou_nouki_data = nkd_array[i].split('\t');
 	            var cn_jk = kaitou_nouki_data[0];
-	            var nk = $(kaitou_nouki_data[1]);
-	            var suu = $(kaitou_nouki_data[2]);
-	            var ktno = $(kaitou_nouki_data[3]);
+	            var nk = document.getElementById(kaitou_nouki_data[1]);
+	            var suu = document.getElementById(kaitou_nouki_data[2]);
+	            var ktno = document.getElementById(kaitou_nouki_data[3]);
 	            
 	            if(null == nk || null == suu) continue;
 	            
@@ -393,25 +389,24 @@
 	            
 	            for(var t = 0; t < nk_vals.length; t++)
 	            {
-	                var n = $(nk_vals[t]).value;
-	                var s = $(suu_vals[t]).value;
-	                var no = $(ktno_vals[t]).value;
+	                var n = document.getElementById(nk_vals[t]).value;
+	                var s = document.getElementById(suu_vals[t]).value;
+	                var no = document.getElementById(ktno_vals[t]).value;
 	                
 	                if('' == n && '' == s) continue;
-	                                
-	                // 追加部分 
-                     if('' == n)
-                     {
+
+                    if ('' == n)
+                    {
                          alert("納期を入力してください");
                          return;
-                     }                 
-                     if('' == s)
-                     {
+                    }                 
+                    if('' == s)
+                    {
                          alert("数量を入力してください");
                          return;
-                     }
-                                 
-	                if('' != nk_suu) nk_suu += '\t';
+                    }
+
+                    if ('' != nk_suu) nk_suu += '\t';
 	                nk_suu += (n + '\t' + s + '\t' + no);
 	            }
 	            nk_suu = nk_suu.replace('|', '');
@@ -430,8 +425,8 @@
 			        return false;
 	        }
     			
-	        var hid_arg = $('HidKaitouNoukiArg');
-	        hid_arg.value = data_array.join("|");   	    
+	        var hid_arg = document.getElementById('HidKaitouNoukiArg');
+	        hid_arg.value = data_array.join("|");
     	    
 	        AjaxRequest('nouki_kaitou_reg', cn_tab_array.join("\t"));
     }
@@ -442,7 +437,7 @@
 	    var dSum = 0;
 	    for(var i = 0; i < _suu.length; i++)
 	    {
-	        var t = $(_suu[i]);
+	        var t = document.getElementById(_suu[i]);
 	        if(t == null) 
 	            continue;
 	        if (t.value == "") 
@@ -458,7 +453,7 @@
 	        dSum += parseFloat(t.value);
 	    }
 	    
-	    $(tbx_sum).value = (0 >= dSum)? "" : Shousuu2keta(dSum);
+	    document.getElementById(tbx_sum).value = (0 >= dSum)? "" : Shousuu2keta(dSum);
 	}
 	function Shousuu2keta(num)
 	{
@@ -480,9 +475,9 @@
 	    var str = '';
 	    for(var i = 0; i < _nk.length; i++)
 	    {
-	        var nk = $(_nk[i]);
-	        var suu = $(_suu[i]);
-	        var ncno = $(_ncno[i]);
+	        var nk = document.getElementById(_nk[i]);
+	        var suu = document.getElementById(_suu[i]);
+	        var ncno = document.getElementById(_ncno[i]);
 	        if('' != str) str +='\t';
 	        str = str + nk.value;
 	        str += '\t';
@@ -490,7 +485,7 @@
 	        str += '\t';
 	        str = str + ncno.value; 
 	    }
-	    $('HidKaitouNoukiArg').value = str;
+	    document.getElementById('HidKaitouNoukiArg').value = str;
 	    AjaxRequest('nyuryoku_add_row', cn);
 	}
 	
@@ -499,9 +494,9 @@
 	    var str = '';
 	    for(var i = 0; i < _nk.length; i++)
 	    {
-	        var nk = $(_nk[i]);
-	        var suu = $(_suu[i]);
-	        var ncno = $(_ncno[i]);
+	        var nk = document.getElementById(_nk[i]);
+	        var suu = document.getElementById(_suu[i]);
+	        var ncno = document.getElementById(_ncno[i]);
 	        if(i == index) continue;
 	        if('' != str) str +='\t';
 	        str = str + nk.value;
@@ -510,7 +505,7 @@
 	        str += '\t';
 	        str = str + ncno.value; 
 	    }
-	    $('HidKaitouNoukiArg').value = str;
+	    document.getElementById('HidKaitouNoukiArg').value = str;
 	    AjaxRequest('nyuryoku_del_row', cn);
 	
 	}
@@ -520,7 +515,7 @@
 	    var a = GetDataArray2('KaitouNoukiData');
 	    if(0 == a.length)
 	    {
-	        alert("表示する項目はありません");	       
+	        alert("表示する項目はありません");
 	        return;
 	    }
 	    var cn_array_not_open = [];
@@ -528,38 +523,38 @@
 	    {
 	        var data_array = a[i].split('\t');
     	    
-	        var nk = $(data_array[1]);
+	        var nk = document.getElementById(data_array[1]);
 	        if(null == nk)
 	            cn_array_not_open.push(data_array[0]);
 	    }
 	    if(0 == cn_array_not_open.length)
 	    {
 	        
-	        alert("全て表示しています");        
+	        alert("全て表示しています");
 			return;
 	    }
-	    AjaxRequest('nyuryoku_open',cn_array_not_open.join("\t"));	
-	}	
+	    AjaxRequest('nyuryoku_open',cn_array_not_open.join("\t"));
+	}
 	function NKC_CLOSE()
 	{
 	    var cn_array = GetDataArray('C');
 	    var a = GetDataArray2('KaitouNoukiData');
 	    
 	    if(0 == a.length)
-	        return;    
+	        return;
 	    var cn_array_open = [];
 	    for(var i = 0; i < a.length; i++)
 	    {
-	        var data_array = a[i].split('\t');  
-	        var nk = $(data_array[1]);    
+	        var data_array = a[i].split('\t');
+	        var nk = document.getElementById(data_array[1]);
 	        if(null != nk)
 	            cn_array_open.push(data_array[0]);
-	    }	     
+	    }
 	    if(0 == cn_array_open.length)
-	    {	       
+	    {
 	        alert("全て非表示です");
 			return;
-	    }	    
+	    }
 	    AjaxRequest('nyuryoku_close', cn_array_open.join('\t'));
 	}
 	function ShiteiNouki(strKey)
@@ -584,11 +579,11 @@
     {
        if(confirm("チェックした納品書を印刷しますか？"))
        {
-             $('HidKey').value = key;	
-             NewForm.action = "../Denpyou/NouhinsyoForm.aspx";        
-             NewForm.target = "_hacchuusho";   
+             document.getElementById('HidKey').value = key;
+             NewForm.action = "../Denpyou/NouhinsyoForm";
+             NewForm.target = "_hacchuusho";
              OpenWinPost("_hacchuusho",800,600,',menubar=yes');
-             NewForm.submit();   
+             NewForm.submit();
        }
     }
   </script>
@@ -994,13 +989,14 @@
             <tr><td><div id="DivNoukiKaitou" runat="server"></div></td></tr>
         </table>
      
-        <radCln:RadCalendar ID="SC" runat="server" Skin="Web20">
-        </radCln:RadCalendar>
-        <radA:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
-         <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </radA:RadAjaxManager>    
-        </form>        
+        <telerik:RadCalendar ID="SC" runat="server" Skin="Web20">
+        </telerik:RadCalendar>
+        <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+            <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
+        </telerik:RadAjaxManager>    
+    </form>        
     <form id="NewForm" method="post" name="NewForm" >
-            <input id="HidKey" runat="server" type="hidden"/></form>
+        <input id="HidKey" runat="server" type="hidden"/>
+    </form>
 </body>
 </html>

@@ -29,12 +29,12 @@
                        
         if (confirm("登録しますか？"))
         {            
-            $('BtnTS').click();
+            document.getElementById('BtnTS').click();
         }                                           
     }  
     function TourokuChk(bool)
     {  
-        var tbxKubun = $('TbxKubun');
+        var tbxKubun = document.getElementById('TbxKubun');
         if(tbxKubun.value == "")
         {
             alert("品目グループを入力してください");
@@ -43,7 +43,7 @@
         }             
         if(bool)
         {      
-            var tbxCode = $('TbxCode');
+            var tbxCode = document.getElementById('TbxCode');
             if(tbxCode.value == "")
             {
                 alert("品目コードを入力してください");
@@ -51,7 +51,7 @@
                 return false;
             }           
         }     
-        var tbxName = $('TbxHinmei');
+        var tbxName = document.getElementById('TbxHinmei');
         if(tbxName.value == "")
         {
             alert("品目名を入力してください");
@@ -59,14 +59,14 @@
             return false;
         }
         // 単価
-        var tbxTanka = $('TbxTanka');
+        var tbxTanka = document.getElementById('TbxTanka');
         if(tbxTanka.value != "" && !CheckDecimal(tbxTanka.value))
         {
             tbxTanka.focus();            
             return false;
         }      
         
-        var tbxTani = $('TbxTani');
+        var tbxTani = document.getElementById('TbxTani');
         if(tbxTani.value == "")
         {
             alert("単位を入力してください");
@@ -74,30 +74,30 @@
             return false;
         }   
         // ロット
-        var tbxLot = $('TbxLot');
+        var tbxLot = document.getElementById('TbxLot');
         if(tbxLot.value != "" && !CheckSuu(tbxLot,'ロット'))
         {
             return false;
         }       
-        var tbxLeadTime = $('TbxLeadTime');
-        if($('DdlLeadTime').selectedIndex > 0 && tbxLeadTime.value == "")
+        var tbxLeadTime = document.getElementById('TbxLeadTime');
+        if (document.getElementById('DdlLeadTime').selectedIndex > 0 && tbxLeadTime.value == "")
         {
             alert("リードタイムを入力をしてください");
             tbxLeadTime.focus();
             return false;
         }       
-        if(tbxLeadTime.value != "" && $('DdlLeadTime').selectedIndex == 0)
+        if (tbxLeadTime.value != "" && document.getElementById('DdlLeadTime').selectedIndex == 0)
         {
              alert("リードタイムの単位を選択してしてください");             
             return false;
         }   
         // 仕入先        
-        if($('DdlShiire1').selectedIndex == 0)
+        if (document.getElementById('DdlShiire1').selectedIndex == 0)
         {
             alert("仕入先1を選択して下さい");            
             return false;
         }      
-        if($('DdlShiire1').selectedIndex == $('DdlShiire2').selectedIndex)
+        if (document.getElementById('DdlShiire1').selectedIndex == document.getElementById('DdlShiire2').selectedIndex)
         {
             alert("仕入先1と仕入先2は違う仕入先を選択して下さい");            
             return false;
@@ -151,7 +151,7 @@
             return;     
         if (confirm("更新しますか？"))
         {                         
-            $('BtnKS').click();
+            document.getElementById('BtnKS').click();
         }                               
     }  
     function Close() 
@@ -160,11 +160,11 @@
     }   
     function OnRequestStart()
     {            
-        $('Img1').style.display = '';
+        document.getElementById('Img1').style.display = '';
     }           
     function OnResponseEnd()
     {            
-        $('Img1').style.display = 'none';
+        document.getElementById('Img1').style.display = 'none';
     }  
      function KeyCodeCheck()
     {       

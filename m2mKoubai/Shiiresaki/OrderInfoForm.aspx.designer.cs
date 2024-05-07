@@ -417,7 +417,7 @@ namespace m2mKoubai.Shiiresaki
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::Telerik.WebControls.RadCalendar SC;
+        protected global::Telerik.Web.UI.RadCalendar SC;
 
         /// <summary>
         /// Ram コントロール。
@@ -426,7 +426,7 @@ namespace m2mKoubai.Shiiresaki
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::Telerik.WebControls.RadAjaxManager Ram;
+        protected global::Telerik.Web.UI.RadAjaxManager Ram;
 
         /// <summary>
         /// HidKey コントロール。

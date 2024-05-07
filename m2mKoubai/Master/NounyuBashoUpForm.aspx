@@ -30,14 +30,14 @@
                        
         if (confirm("登録しますか？"))
         {            
-            $('BtnTS').click();
+            document.getElementById('BtnTS').click();
         }                                           
     }  
     function TourokuChk(bool)
     {  
         if(bool)
         {
-            var tbxCode = $('TbxCode');
+            var tbxCode = document.getElementById('TbxCode');
             if(tbxCode.value == "")
             {
                 alert("納入場所コードを入力してください");
@@ -51,7 +51,7 @@
                 return;
             }
       }
-        var tbxName = $('TbxName');
+        var tbxName = document.getElementById('TbxName');
         if(tbxName.value == "")
         {
             alert("納入場所を入力してください");
@@ -68,7 +68,7 @@
             return; 
         if (confirm("更新しますか？"))
         {                         
-            $('BtnKS').click();
+            document.getElementById('BtnKS').click();
         }                               
     }  
     function Close() 
@@ -77,11 +77,11 @@
     }   
     function OnRequestStart()
     {            
-        $('Img1').style.display = '';
+        document.getElementById('Img1').style.display = '';
     }           
     function OnResponseEnd()
     {            
-        $('Img1').style.display = 'none';
+        document.getElementById('Img1').style.display = 'none';
     }  
      function KeyCodeCheck()
     {       

@@ -13,7 +13,7 @@ using System.Drawing;
 
 namespace m2mKoubai.Order
 {
-    public partial class OrderShousaiForm : HonyakuPage
+    public partial class OrderShousaiForm : System.Web.UI.Page
     {
         /// <summary>
         /// 主キー1
@@ -45,7 +45,7 @@ namespace m2mKoubai.Order
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
+             {
                 string[] strAry = HttpContext.Current.Request.Form["HidKey"].Split('\t');
                 if (strAry == null)
                 {
@@ -54,8 +54,7 @@ namespace m2mKoubai.Order
                     return;
                 }
                 // 注文キー情報
-                ChumonClass.ChumonKey key =
-                    new ChumonClass.ChumonKey(strAry[0]);
+                ChumonClass.ChumonKey key = new ChumonClass.ChumonKey(strAry[0]);
 
                 // 主キー1
                 VsYear = key.Year;

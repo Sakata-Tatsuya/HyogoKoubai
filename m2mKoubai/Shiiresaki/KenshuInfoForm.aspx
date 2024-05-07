@@ -3,7 +3,7 @@
 <%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>
 <%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
 
 <!DOCTYPE html>
@@ -19,15 +19,15 @@
     }   
     function AjaxRequest(command_name, arg)
 	{
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		
+		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
 	}
 	 function Reload()
-    {        
-        AjaxRequest('reload', '');    
+    {
+        AjaxRequest('reload', '');
     }
     function Kensaku()
-    {       
-        if ($('DdlMonth').selectedIndex == 0)
+    {
+        if (document.getElementById('DdlMonth').selectedIndex == 0)
         {
             alert('検収月を選択して下さい');
             return;
@@ -48,66 +48,66 @@
     }    
 	function HacchuuNo(key, hacchuuNo)
     {
-        $('HidKey').value = key +'\t'+ hacchuuNo;
-        NewForm.action = "OrderShousaiForm.aspx";
+        document.getElementById('HidKey').value = key +'\t'+ hacchuuNo;
+        NewForm.action = "OrderShousaiForm";
         NewForm.target = "_hacchuu"; 
-	    OpenWinPost("_hacchuu",500,500);               
-        NewForm.submit();               
+	    OpenWinPost("_hacchuu",500,500);
+        NewForm.submit();
     }    
     function Print()
     {       
-        var chkIdAry = $('HidChkID').value.split(',');        
+        var chkIdAry = document.getElementById('HidChkID').value.split(',');
         var hidPrintKey = ''
         for(var i = 0; i < chkIdAry.length; i++)
         {
-            var chk = $(chkIdAry[i]);
+            var chk = document.getElementById(chkIdAry[i]);
            
             if(chk.checked)
             {
                 if(hidPrintKey != "") hidPrintKey += "_";
-                hidPrintKey += chk.value;               
+                hidPrintKey += chk.value;
             }
         }
         if(hidPrintKey == "")
         {
             alert("チェックを入れてください");
             return false;
-        }   
+        }
     
-        $('HidKey').value = hidPrintKey;	
-        NewForm.action = "../Denpyou/JyuryousyoForm.aspx";
-        NewForm.target = "_hacchuusho"; 
-	    OpenWinPost2("_hacchuusho",800,600);               
-        NewForm.submit();     
+        document.getElementById('HidKey').value = hidPrintKey;
+        NewForm.action = "../Denpyou/JyuryousyoForm";
+        NewForm.target = "_hacchuusho";
+	    OpenWinPost2("_hacchuusho",800,600);
+        NewForm.submit();
     }
     function Kenshu(key)
     {     
-        $('HidKey').value = key;	
-        NewForm.action = "../Denpyou/KenshuMeisaihyoForm.aspx";
-        NewForm.target = "_hacchuusho"; 
-	    OpenWinPost2("_hacchuusho",800,600);               
-        NewForm.submit();     
+        document.getElementById('HidKey').value = key;
+        NewForm.action = "../Denpyou/KenshuMeisaihyoForm";
+        NewForm.target = "_hacchuusho";
+	    OpenWinPost2("_hacchuusho",800,600);
+        NewForm.submit();
     }
     function Seikyu(key)
     {
-        $('HidKey').value = key;	
-        NewForm.action = "../Denpyou/SeikyusyoForm.aspx";
-        NewForm.target = "_hacchuusho"; 
-	    OpenWinPost2("_hacchuusho",800,600);               
-        NewForm.submit();     
+        document.getElementById('HidKey').value = key;
+        NewForm.action = "../Denpyou/SeikyusyoForm";
+        NewForm.target = "_hacchuusho";
+	    OpenWinPost2("_hacchuusho",800,600);
+        NewForm.submit();
     }
     function Jyuryou()
     {
-        var chkIdAry = $('HidChkID').value.split(',');        
+        var chkIdAry = document.getElementById('HidChkID').value.split(',');
         var hidPrintKey = ''
         for(var i = 0; i < chkIdAry.length; i++)
         {
-            var chk = $(chkIdAry[i]);
+            var chk = document.getElementById(chkIdAry[i]);
            
             if(chk.checked)
             {
                 if(hidPrintKey != "") hidPrintKey += "_";
-                hidPrintKey += chk.value;               
+                hidPrintKey += chk.value;
             }
         }
         if(hidPrintKey == "")
@@ -116,44 +116,44 @@
             return false;
         }   
     
-        $('HidKey').value = hidPrintKey;	
-        NewForm.action = "../Denpyou/JyuryousyoForm.aspx";
+        document.getElementById('HidKey').value = hidPrintKey;
+        NewForm.action = "../Denpyou/JyuryousyoForm";
         NewForm.target = "_hacchuusho"; 
-	    OpenWinPost2("_hacchuusho",800,600);               
+	    OpenWinPost2("_hacchuusho",800,600);
         NewForm.submit();     
     }
     var win = null;
     function OpenWinPost(target,w,h)
     {
         win = window.open
-            ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes");            
+            ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes");
 	    win.focus();
     }
      
     function OpenWinPost2(target,w,h,etc)
     {
         win = window.open
-            ("",target,"width="+w+"px,height="+h+"px,menubar=yes,location=no,resizable=yes,scrollbars=yes");            
+            ("",target,"width="+w+"px,height="+h+"px,menubar=yes,location=no,resizable=yes,scrollbars=yes");
 	    win.focus();
     } 
 	function ChkAll(bool)
     {
-        var idAry = $('HidChkID').value.split(',');
+        var idAry = document.getElementById('HidChkID').value.split(',');
       
         for(var i = 0; i < idAry.length; i++)
         {    
-            var chk = $(idAry[i]);
+            var chk = document.getElementById(idAry[i]);
             chk.checked = bool;
         }
     }	
 	
     function OnRequestStart(sender, args)
 	{
-        $("Img1").style.display = '';		
+        document.getElementById("Img1").style.display = '';		
 	}
 	function OnResponseEnd(sender, args)
     {    
-        $('Img1').style.display = 'none';
+        document.getElementById('Img1').style.display = 'none';
     }  
    
     function KeyCodeCheck()
@@ -321,9 +321,9 @@
         </table>
     
     </div>
-        <radA:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
-         <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </radA:RadAjaxManager>    
+        <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+            <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
+        </telerik:RadAjaxManager>    
     </form>   
     <form id="NewForm" method="post" name="NewForm" >
             <input id="HidKey" runat="server" type="hidden" /></form>

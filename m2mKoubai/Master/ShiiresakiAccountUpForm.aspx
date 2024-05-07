@@ -29,19 +29,19 @@
                        
         if (confirm("登録しますか？"))
         {            
-            $('BtnTS').click();
+            document.getElementById('BtnTS').click();
         }                                           
     }  
     function TourokuChk(bool)
     {  
         if(bool)
         {
-            if($('DdlShiire').selectedIndex == 0)   
+            if(document.getElementById('DdlShiire').selectedIndex == 0)   
             {
                 alert("仕入先を選択してください");
                 return;
             }
-            var tbxID = $('TbxID');
+            var tbxID = document.getElementById('TbxID');
             if(tbxID.value == "")
             {
                 alert("ログインIDを入力してください");
@@ -53,7 +53,7 @@
                 tbxID.focus();
                 return;
             }
-             var tbxPass = $('TbxPass');
+             var tbxPass = document.getElementById('TbxPass');
             if(tbxPass.value == "")
             {
                 alert("パスワードを入力してください");
@@ -76,7 +76,7 @@
        }
        else
        {
-            var tbxPass = $('TbxPass'); 
+            var tbxPass = document.getElementById('TbxPass'); 
             if(tbxPass.value != "")
             {
                 if(tbxPass.value.length < 8)
@@ -95,7 +95,7 @@
        }
                 
        
-        var tbxCode = $('TbxTCode');
+        var tbxCode = document.getElementById('TbxTCode');
         if(tbxCode.value == "")
         {
             alert("担当者コードを入力してください");
@@ -108,7 +108,7 @@
             tbxCode.focus();
             return;
         }
-        var tbxName = $('TbxTName');
+        var tbxName = document.getElementById('TbxTName');
         if(tbxName.value == "")
         {
             alert("担当者名を入力してください");
@@ -116,14 +116,14 @@
             return;
         }
         /*
-        var tbxBusho = $('TbxBusho');
+        var tbxBusho = document.getElementById('TbxBusho');
         if(tbxBusho.value == "")
         {
             alert(" 所属部署を入力してください");
             tbxBusho.focus();
             return;
         }
-         var tbxYakushoku = $('TbxYakushoku');
+         var tbxYakushoku = document.getElementById('TbxYakushoku');
         if(tbxYakushoku.value == "")
         {
             alert("役職を入力してください");
@@ -132,7 +132,7 @@
         }
         
         
-        var tbxMail = $('TbxMail');
+        var tbxMail = document.getElementById('TbxMail');
         if(tbxMail.value == "")
         {
             alert("メールアドレスを入力してください");
@@ -140,7 +140,7 @@
             return;
         }
         */
-        var tbxMail = $('TbxMail');
+        var tbxMail = document.getElementById('TbxMail');
         if (tbxMail.value != "")
         {
             if(!MailCheck(tbxMail.value))
@@ -162,7 +162,7 @@
             return; 
         if (confirm("更新しますか？"))
         {                         
-            $('BtnKS').click();
+            document.getElementById('BtnKS').click();
         }                               
     }  
     function Close() 
@@ -171,11 +171,11 @@
     }   
     function OnRequestStart()
     {            
-        $('Img1').style.display = '';
+        document.getElementById('Img1').style.display = '';
     }           
     function OnResponseEnd()
     {            
-        $('Img1').style.display = 'none';
+        document.getElementById('Img1').style.display = 'none';
     }  
      function KeyCodeCheck()
     {       
@@ -189,7 +189,7 @@
     function HankakuChk(tbxId, objName)
     {      
         var count = 0;
-        var val = $(tbxId).value;   
+        var val = document.getElementById(tbxId).value;   
        
         for( var i = 0; i < val.length; i++ )
         {

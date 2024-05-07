@@ -1,10 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInfoForm.aspx.cs" Inherits="m2mKoubai.Order.OrderInfoForm" ValidateRequest="false" %>
 
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
-<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
+<%@ Register Assembly="Core" namespace="Core.Web" tagprefix="cc1" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -17,114 +17,117 @@
             return document.getElementById(id);
         }   
         function AjaxRequest(command_name, arg)
-	    {
-		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		
+        {
+            <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
 	    }
 	     function Reload()
-        {        
-            AjaxRequest('reload', '');    
+        {
+            AjaxRequest('reload', '');
         }
         function Kensaku()
         {
 	        AjaxRequest('kensaku', '');
-        }   
+        }
         function RowChange()
         {
 	        AjaxRequest('row', '');
-        }   
+        }
         function PageChange(pageIndex)
         {
 	        AjaxRequest('page', pageIndex);
-        }   
+        }
         function OnBuhin()
         {
             AjaxRequest('ddlBuhin', '');
         }
 	     function HacchuuNo(key)
-        {
-            $('HidKey').value = key +'\t'+ 'hacchu';
-            NewForm.action = "OrderShousaiForm.aspx";
-            NewForm.target = "_hacchuu"; 
-	        OpenWinPost("_hacchuu",500,500,'');               
-            NewForm.submit();               
+         {
+             document.getElementById('HidKey').value = key + '\t' + 'hacchu';
+             NewForm.action = "OrderShousaiForm";
+             NewForm.target = "_hacchuu";
+             OpenWinPost("_hacchuu", 500, 500, '');
+             NewForm.submit();
         }
         function Print()
-        {       
-            var chkIdAry = $('HidChkID').value.split(',');        
+        {
+            var chkIdAry = document.getElementById('HidChkID').value.split(',');
             var hidPrintKey = ''
             for(var i = 0; i < chkIdAry.length; i++)
             {
-                var chk = $(chkIdAry[i]);
+                var chk = document.getElementById(chkIdAry[i]);
                
                 if(chk.checked)
                 {
                     if(hidPrintKey != "") hidPrintKey += "_";
-                    hidPrintKey += chk.value;                   
+                    hidPrintKey += chk.value;
                 }
             }
             if(hidPrintKey == "")
             {
                 alert("チェックを入れてください");
                 return false;
-            }           
-            $('HidKey').value = hidPrintKey;	
-            NewForm.action = "../Denpyou/HacchuushoForm.aspx";
-            NewForm.target = "_hacchuusho"; 
-	        OpenWinPost("_hacchuusho",800,600,',menubar=yes');               
-            NewForm.submit();            
-            
+            }
+/*            document.getElementById('HidKey').value = hidPrintKey;*/
+            document.getElementById('HidKey').value = hidPrintKey;
+            NewForm.action = "../Denpyou/HacchuushoForm";
+            NewForm.target = "_hacchuusho";
+	        OpenWinPost("_hacchuusho",800,600,',menubar=yes');
+            NewForm.submit();
         }
         function Msg(key)
         {
-	        $('HidKey').value = key;	  
-            NewForm.action = "../MessegeForm.aspx";      
-            NewForm.target = "_msg";       
-	        OpenWinPost("_msg",700,500,'');               
-            NewForm.submit();  
+/*	        document.getElementById('HidKey').value = key;*/
+            document.getElementById('HidKey').value = key;
+            NewForm.action = "../MessegeForm";
+            NewForm.target = "_msg";
+	        OpenWinPost("_msg",700,500,'');
+            NewForm.submit();
         }    
         var win = null;
         function OpenWinPost(target,w,h,etc)
         {
             win = window.open
-                ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes" + etc);            
-	        win.focus();
+                ("", target, "width=" + w + "px,height=" + h + "px,location=no,resizable=yes,scrollbars=yes" + etc);
+            win.focus();
         }
          
         function Shounin(strKey)
         {
-            if (confirm('承認しますか？'))            
+            if (confirm('承認しますか？'))
             {
                 AjaxRequest('shounin', strKey);
             }
         }
 	    function ChkAll(bool)
         {
-            var idAry = $('HidChkID').value.split(',');            
+            var idAry = document.getElementById('HidChkID').value.split(',');
             for(var i = 0; i < idAry.length; i++)
-            {            
-                var chk = $(idAry[i]);
+            {
+                var chk = document.getElementById(idAry[i]);
                 chk.checked = bool;
             }
-        }   	
+        }
     	
         function OnRequestStart(sender, args)
 	    {
-            $("Img1").style.display = '';		
+            //document.getElementById("Img1").style.display = '';
+            document.getElementById("Img1").style.display = '';
 	    }
 	    function OnResponseEnd(sender, args)
         {
+            document.getElementById('Img1').style.display = 'none';
             var cmd = args.EventArgument.substring(0, args.EventArgument.indexOf(":"));
-            var param = args.EventArgument.substring(args.EventArgument.indexOf(":") + 1);          
-            
-            switch(cmd)
+            var param = args.EventArgument.substring(args.EventArgument.indexOf(":") + 1);
+
+            switch (cmd)
             {
                 case "nyuryoku_open":
                    
-                    var g = $('G');
-                    var cn_array = param.split('\t');                
-                    var div = $('DivNoukiHenkou');              
-                    
-                    if(div.children.length != cn_array.length)
+                    var g = document.getElementById('G');
+                    var cn_array = param.split('\t');
+                    var div = document.getElementById('DivNoukiHenkou');
+
+                    if (div.children.length != cn_array.length)
                     {
                         alert('error');
                         return;
@@ -132,20 +135,17 @@
                     
                     for(var i = 0; i < cn_array.length; i++)
                     {
-                        var index = GetIndex(cn_array[i]);	                    
-                        g.rows(index + 1).cells(<%=cell_index %>).innerHTML = div.children[i].innerHTML;
-                    }                    
-                    div.innerHTML = '';	                                    
+                        var index = GetIndex(cn_array[i]);
+                        g.rows[index + 1].cells[<%=cell_index %>].innerHTML = div.children[i].innerHTML;
+                    }
+                    div.innerHTML = '';
                     break;
                 case "nyuryoku_close":
                  
-                    var g = $('G');
-                    
+                    var g = document.getElementById('G');
                     var cell_index = <%=cell_index %>;
-                   
                     var cn_array = param.split("\t");
-                    
-                    var hid_current_array = $('TbxHenkouNouki').value.split("\t");
+                    var hid_current_array = document.getElementById('TbxHenkouNouki').value.split("\t");
                  
                     if(hid_current_array.length != cn_array.length)
                     {
@@ -155,66 +155,58 @@
                    
                     for(var i = 0; i < cn_array.length; i++)
                     {
-                        var index = GetIndex(cn_array[i]);                   
-                        g.rows(index + 1).cells(<%=cell_index %>).innerHTML = hid_current_array[i];  
-                        
-                    } 
+                        var index = GetIndex(cn_array[i]);
+                        g.rows[index + 1].cells[<%=cell_index %>].innerHTML = hid_current_array[i];  
+                    }
                    
                     break;
                 case "nyuryoku_add_row":
                 case "nyuryoku_del_row":
-                    var g = $('G');
-                    var div = $('DivNoukiHenkou');
+                    var g = document.getElementById('G');
+                    var div = document.getElementById('DivNoukiHenkou');
                     var index = GetIndex(param);
-                    g.rows(index + 1).cells(<%=cell_index %>).innerHTML = div.innerHTML;
+                    g.rows[index + 1].cells[<%=cell_index %>].innerHTML = div.innerHTML;
                     div.innerHTML = '';
                     break;
                case "nouki_kaitou_reg":
-               
-                    break;     
-        
+                    break;
             }
-        
-            $('Img1').style.display = 'none';
-        }    
-　　
+        }
    
         function YN(cn_jk)
         {
-            $("Img1").style.display = '';     
-                     
-            <%=Ram.ClientID%>.AjaxRequest('nyuryoku_open' + ':' + cn_jk);            
+            AjaxRequest('nyuryoku_open' ,cn_jk);
         }
         function GetIndex(cn)
         {
 	        var a = GetDataArray('C');  // key 'C'に紐づくデータは「注文番号_情報区分コード」のCSV形式データ
     	   
 	        for (var i = 0; i < a.length; i++) 
-	        {		    
-		        if (cn == a[i]) 
+	        {
+                if (cn == a[i])
 		            return i;
 	        }
 	        return -1;
         }
 	    function GetDataArray(key)
 	    {
-	   	    return Core_GetDataArray(key,$('HidDataKey'), $('HidData'), ',', ':', true);
+            return Core_GetDataArray(key, document.getElementById('HidDataKey'), document.getElementById('HidData'), ',', ':', true);
 	    }
 	    function GetDataArray2(key)
-	    {   	    
-		    return Core_GetDataArray(key, $('HidDataKey'), $('HidData'),',', ':', false);
+	    {
+            return Core_GetDataArray(key, document.getElementById('HidDataKey'), document.getElementById('HidData'),',', ':', false);
 	    }	
 
         // Keyに対応するデータを配列として返す
         function Core_GetDataArray(key, hidDataKey, hidData, separatorKey, separatorData, bErrorNotFoundKey)
         {
-            if (null == hidData) return [];	        
-	        if (hidData.value == "") return [];   
-	        	
-	        var arrayKey = hidDataKey.value.split(separatorKey);
-	        var arrayData = hidData.value.split(separatorData);     
+            if (null == hidData) return [];
+	        if (hidData.value == "") return [];
+
+            var arrayKey = hidDataKey.value.split(separatorKey);
+	        var arrayData = hidData.value.split(separatorData);
 	       
-	        var index = -1;	    
+	        var index = -1;
 	        for(var i = 0; i < arrayKey.length; i++) 
 	        {  
 		        if (key == arrayKey[i]) 
@@ -234,8 +226,6 @@
 	        return arrayData[index].split(",");
         }
 
-
-   
         function KeyCodeCheck()
 	    {
 	        var kc = event.keyCode;
@@ -246,11 +236,11 @@
 	            return false;
 	    }
          function NKM_Close(cn)
-        {                  
+        {
             AjaxRequest('nyuryoku_close', cn);
         }
 	    function NKM_Touroku(btn, cn_jk,_nk,_su,_kn)
-	    {	    
+	    {
 	        NKC_REG(cn_jk);
 	    }
 	    function NKC_REG(cnjk_arg)
@@ -259,7 +249,7 @@
 	        
 	        if (null == cnjk_arg)
 	        {
-	            nkd_array = GetDataArray2('HenkouNoukiData');            
+	            nkd_array = GetDataArray2('HenkouNoukiData');
 	        }
 	        else
 	        {
@@ -289,9 +279,9 @@
 	        {
 	            var kaitou_nouki_data = nkd_array[i].split('\t');
 	            var cn_jk = kaitou_nouki_data[0];
-	            var nk = $(kaitou_nouki_data[1]);
-	            var suu = $(kaitou_nouki_data[2]);
-	            var ktno = $(kaitou_nouki_data[3]);
+                var nk = document.getElementById(kaitou_nouki_data[1]);
+                var suu = document.getElementById(kaitou_nouki_data[2]);
+                var ktno = document.getElementById(kaitou_nouki_data[3]);
 	            
 	            if(null == nk || null == suu) continue;
 	            
@@ -305,9 +295,9 @@
 	            
 	            for(var t = 0; t < nk_vals.length; t++)
 	            {
-	                var n = $(nk_vals[t]).value;
-	                var s = $(suu_vals[t]).value;
-	                var no = $(ktno_vals[t]).value;
+                    var n = document.getElementById(nk_vals[t]).value;
+                    var s = document.getElementById(suu_vals[t]).value;
+                    var no = document.getElementById(ktno_vals[t]).value;
 	                
 	                if('' == n && '' == s) continue;
 	                
@@ -316,14 +306,14 @@
                      {
                          alert("納期を入力してください");
                          return;
-                     }                 
+                     }
                      if('' == s)
                      {
                          alert("数量を入力してください");
                          return;
                      }
-                                 
-	                if('' != nk_suu) nk_suu += '\t';
+
+                    if ('' != nk_suu) nk_suu += '\t';
 	                nk_suu += (n + '\t' + s + '\t' + no);
 	            }
 	            nk_suu = nk_suu.replace('|', '');
@@ -341,20 +331,19 @@
 		        if (!confirm('登録しますか？'))
 			        return false;
 	        }
-    			
-	        var hid_arg = $('HidHenkouNoukiArg');
-	        hid_arg.value = data_array.join("|");   	    
-    	    
-	        AjaxRequest('nouki_kaitou_reg', cn_tab_array.join("\t"));
+
+            var hid_arg = document.getElementById('HidHenkouNoukiArg');
+	        hid_arg.value = data_array.join("|");
+
+            AjaxRequest('nouki_kaitou_reg', cn_tab_array.join("\t"));
         }
-    
     
         function NKM_Sum(_suu, tbx_sum)
 	    {
 	        var dSum = 0;
 	        for(var i = 0; i < _suu.length; i++)
 	        {
-	            var t = $(_suu[i]);
+                var t = document.getElementById(_suu[i]);
 	            if(t == null) 
 	                continue;
 	            if (t.value == "") 
@@ -370,7 +359,7 @@
 	            dSum += parseFloat(t.value);
 	        }
     	    
-	        $(tbx_sum).value = (0 >= dSum)? "" : Shousuu2keta(dSum);
+            document.getElementById(tbx_sum).value = (0 >= dSum)? "" : Shousuu2keta(dSum);
 	    }
 	    function Shousuu2keta(num)
 	    {
@@ -392,9 +381,9 @@
 	        var str = '';
 	        for(var i = 0; i < _nk.length; i++)
 	        {
-	            var nk = $(_nk[i]);
-	            var suu = $(_suu[i]);
-	            var ncno = $(_ncno[i]);
+                var nk = document.getElementById(_nk[i]);
+                var suu = document.getElementById(_suu[i]);
+                var ncno = document.getElementById(_ncno[i]);
 	            if('' != str) str +='\t';
 	            str = str + nk.value;
 	            str += '\t';
@@ -402,7 +391,7 @@
 	            str += '\t';
 	            str = str + ncno.value; 
 	        }
-	        $('HidHenkouNoukiArg').value = str;
+            document.getElementById('HidHenkouNoukiArg').value = str;
 	        AjaxRequest('nyuryoku_add_row', cn);
 	    }
     	
@@ -411,9 +400,9 @@
 	        var str = '';
 	        for(var i = 0; i < _nk.length; i++)
 	        {
-	            var nk = $(_nk[i]);
-	            var suu = $(_suu[i]);
-	            var ncno = $(_ncno[i]);
+                var nk = document.getElementById(_nk[i]);
+                var suu = document.getElementById(_suu[i]);
+                var ncno = document.getElementById(_ncno[i]);
 	            if(i == index) continue;
 	            if('' != str) str +='\t';
 	            str = str + nk.value;
@@ -422,7 +411,7 @@
 	            str += '\t';
 	            str = str + ncno.value; 
 	        }
-	        $('HidHenkouNoukiArg').value = str;
+            document.getElementById('HidHenkouNoukiArg').value = str;
 	        AjaxRequest('nyuryoku_del_row', cn);
     	
 	    }
@@ -432,7 +421,7 @@
 	        var a = GetDataArray2('HenkouNoukiData');
 	        if(0 == a.length)
 	        {
-	            alert("表示する項目はありません");	       
+	            alert("表示する項目はありません");
 	            return;
 	        }
 	        var cn_array_not_open = [];
@@ -440,14 +429,13 @@
 	        {
 	            var data_array = a[i].split('\t');
         	    
-	            var nk = $(data_array[1]);
+                var nk = document.getElementById(data_array[1]);
 	            if(null == nk)
 	                cn_array_not_open.push(data_array[0]);
 	        }
 	        if(0 == cn_array_not_open.length)
 	        {
-    	        
-	            alert("全て表示しています");        
+	            alert("全て表示しています");
 			    return;
 	        }
 	        AjaxRequest('nyuryoku_open',cn_array_not_open.join("\t"));	
@@ -456,32 +444,40 @@
 	    function NKC_CLOSE()
 	    {
 	        var cn_array = GetDataArray('C');
-	        var a = GetDataArray2('HenkouNoukiData');    	  
+	        var a = GetDataArray2('HenkouNoukiData');
 	        if(0 == a.length)
-	            return;  
+	            return;
 	        var cn_array_open = [];
 	        for(var i = 0; i < a.length; i++)
 	        { 
-	            var data_array = a[i].split('\t');       
-	            var nk = $(data_array[1]);       
+	            var data_array = a[i].split('\t');
+                var nk = document.getElementById(data_array[1]);
 	            if(null != nk)
-	                cn_array_open.push(data_array[0]);    	            
-	        }    	   
+	                cn_array_open.push(data_array[0]);
+	        }
 	        if(0 == cn_array_open.length)
-	        {	       
+	        {
 	            alert("全て非表示です");
 			    return;
-	        }    	    
+	        }
 	        AjaxRequest('nyuryoku_close', cn_array_open.join('\t'));
 	    }
 
-	
-        
     </script>
 
 </head>
 <body class="bg0">
     <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
+                </asp:ScriptReference>
+            </Scripts>
+        </telerik:RadScriptManager>
     <uc1:CtlTabMain ID="Tab" runat="server" />
     <table border="1" bordercolor="#000000" class="col def9 mt5 bg1">
         <tr>
@@ -861,13 +857,17 @@
             </td>
         </tr>
     </table>
-    <radCln:RadCalendar ID="SC" runat="server" Skin="Web20">
-    </radCln:RadCalendar>
-    <radA:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
-        <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-    </radA:RadAjaxManager>
+
+    <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+         <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
+    </telerik:RadAjaxManager>
+
+    <telerik:RadCalendar ID="SC" runat="server" Skin="Web20">
+    </telerik:RadCalendar>
+
     </form>
     <form id="NewForm" method="post" name="NewForm">
-    <input id="HidKey" runat="server" type="hidden" /></form>
+        <input id="HidKey" runat="server" type="hidden" />
+    </form>
 </body>
 </html>

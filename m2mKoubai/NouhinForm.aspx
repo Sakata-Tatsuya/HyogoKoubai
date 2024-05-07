@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NouhinForm.aspx.cs" Inherits="m2mKoubai.NouhinForm" %>
 
 <%@ Register Src="CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,19 +16,19 @@
     }    
     function Load()
     {
-       var tbx = $("TbxHacchuNo");
+        var tbx = document.getElementById("TbxHacchuNo");
         if(tbx != null)
         {
             tbx.focus();
         } 
     }
     function AjaxRequest(command_name, arg)
-	{
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);	
-	}               
-    function Check()    
-    { 
-        var tbx = $('TbxHacchuNo');
+    {
+        <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+    }
+    function Check()
+    {
+        var tbx = document.getElementById('TbxHacchuNo');
         if (tbx == "")
         {
             alert("発注Noを入力してください");
@@ -38,26 +38,22 @@
         if(!CheckSuu(tbx, '発注No'))
         {
             return;
-        }       
-        
-        AjaxRequest('Check', '');         
+        }
+        AjaxRequest('Check', '');
     }
     
     function Clear(tbl)
-    {        
-        var tbx = $("TbxHacchuNo");
+    {
+        var tbx = document.getElementById("TbxHacchuNo");
         tbx.value = "";
-        $(tbl).style.display = "none"; 
+        document.getElementById(tbl).style.display = "none"; 
         tbx.focus();
-             
-        //AjaxRequest('Clear', '');           
-        
+        //AjaxRequest('Clear', '');
     }
     
     function Nouhin()
     {
-        // 追加 09/08/19 呉
-        var tbx = $("TbxNouhinsuu");
+        var tbx = document.getElementById("TbxNouhinsuu");
         if (tbx.value == "")
         {
             alert("数量を入力して下さい");
@@ -69,16 +65,13 @@
             return;
         }
         if(!confirm("入力した数量で納品を確定しますか？"))
-            return false;     
-            
+            return false;
         AjaxRequest('Nouhin', '');
-        
     }
-    // 追加 09/07/23
+
     function Kannou()
     {   
-        // 追加 09/08/19 呉
-        var tbx = $("TbxNouhinsuu");
+        var tbx = document.getElementById("TbxNouhinsuu");
         if (tbx.value == "")
         {
             alert("数量を入力して下さい");
@@ -88,37 +81,33 @@
         if(!CheckSuu(tbx,"納品数量"))
         {
             return;
-        }    
-
+        }
         if(!confirm("入力した数量で納品を納品を確定し、注文を完納にしますか?"))
-            return false;    
-             
+            return false;
         AjaxRequest('Kannou', '');
     }
     function OnRequestStart(sender, args)
 	{
-        $("Img1").style.display = '';		
+        document.getElementById("Img1").style.display = '';
 	}
 	function OnResponseEnd(sender, args)
-    {    
-        $('Img1').style.display = 'none';
-    }  
-     function KeyCodeCheck()
-    {       
-        var kc = event.keyCode;                    
+    {
+        document.getElementById('Img1').style.display = 'none';
+    }
+    function KeyCodeCheck()
+    {
+        var kc = event.keyCode;
         if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-            kc == 46 || kc == 8 || kc == 13 || kc == 9)         
-            return true;                 
-        else          
-            return false;         
-    }    
+            kc == 46 || kc == 8 || kc == 13 || kc == 9)
+            return true;
+        else
+            return false;
+    }
     function SuuryouChk(nSuuryou1, nSuuryou2, nSuuryou3)
-    {   
+    {
         var suu1 = parseInt(nSuuryou1,10);
         var suu2 = parseInt(nSuuryou2,10);
-        var tbx = $(nSuuryou3);
-        
-    
+        var tbx = document.getElementById(nSuuryou3);
         var suu3 = parseInt(tbx.value, 10);
         if(suu1 - suu2 < suu3)
         {
@@ -126,20 +115,18 @@
             tbx.focus();
             return;
         }
-       
     }
     function KenChk()
-    {       
+    {
         if (event.keyCode == 13)
-        {              
+        {
             if(!Check())
             {
                 return;
-            }           
-        
-           // AjaxRequest('Check', '');  
-        }          
-    }   
+            }
+           // AjaxRequest('Check', '');
+        }
+    }
      // 数値チェック
         function CheckSuu(tbx,str)
 	    {
@@ -420,9 +407,20 @@
         </tr>
     </table>
     </td> </tr> </table>
-    <radA:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+        <Scripts>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
+            </asp:ScriptReference>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
+            </asp:ScriptReference>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
+            </asp:ScriptReference>
+        </Scripts>
+    </telerik:RadScriptManager>
+    <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
         <ClientEvents OnResponseEnd="OnResponseEnd" OnRequestStart="OnRequestStart" />
-    </radA:RadAjaxManager>
+    </telerik:RadAjaxManager>
     <asp:TextBox ID="TextBox1" runat="server" CssClass="none" />
     </form>
 </body>

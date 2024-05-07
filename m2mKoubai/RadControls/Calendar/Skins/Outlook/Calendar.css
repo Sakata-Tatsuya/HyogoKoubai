@@ -1,0 +1,166 @@
+/* Telerik RadCalendar OUTLOOK skin */
+
+table.calendarWrapper_Outlook
+{
+	background: #fff;
+	cursor: default;
+	font: normal 8pt Tahoma;
+}
+
+.TableLayout_Outlook
+{
+	margin: 0px 7px;
+	background: url('img/titlebarBg.gif') repeat-x left 15px;
+}
+
+.TableLayout_Outlook td a
+{
+	text-align: right;
+	width: 13px;
+	height: 12px;
+	padding: 1px;
+	display: block;
+	text-decoration: none;
+	color: #000;
+	cursor: default;
+}
+
+.DaysOfWeek_Outlook
+{
+	color: #000004;
+	text-align: right;
+	text-transform: uppercase;
+	height: 16px;
+}
+
+.otherMonth_Outlook
+{
+	color: #aca899;
+	text-align: right;
+}
+
+.otherMonth_Outlook a
+{
+	color: #aca899 !important;
+	text-align: right;
+	border: solid 1px #fff;
+}
+
+.outOfRange_Outlook
+{
+	color: #aca899;
+	text-align: right;
+	background: #fff;
+}
+
+.titlebar_Outlook
+{
+	font: normal 8pt Tahoma;
+	height: 16px;
+	width: 100%;
+	background-color: #9ebef5;
+	border: 1px solid #9ebef5;
+}
+
+.MonthYearFastNav_Outlook
+{
+	border: 1px solid #9ebef5;
+	background: #fff;
+	font: normal 8pt Tahoma;
+	color: #000;
+	border-collapse: collapse;
+	filter: progid:DXImageTransform.Microsoft.Shadow(direction=140,color=#666666,strength=3);
+	cursor: default;
+}
+
+.MonthYearFastNav_Outlook td
+{
+	vertical-align: middle;
+}
+
+.MonthYearFastNav_Outlook td.selected_Outlook
+{
+	background: #fbe694;
+	color: #000;
+	text-align: center;
+}
+
+.MonthYearFastNav_Outlook td.bottom_Outlook
+{
+	text-align: right;
+	padding-left: 9px;
+}
+
+.MonthYearFastNav_Outlook td input
+{
+	background: #9ebef5;
+	border: solid 1px #000;
+	font: normal 8pt Tahoma;
+	color: #000000;
+	float: left;
+	width: auto;
+	margin-right: 1px;
+}
+
+.radCalDefault_Outlook a,
+.radCalHover_Outlook a,
+.radCalWeekendDefault_Outlook a, 
+.radCalWeekendHover_Outlook a
+{
+	background: #fff;
+	border: solid 1px #fff;
+	text-align: right;
+	width: 15px;
+	height: 13px;
+	display: block;
+	text-decoration: none;
+	color: #000;
+}
+
+.radCalToday_Outlook a
+{
+	background: #fff;
+	border: solid 1px #bb5503;
+}
+
+.radCalTodaySelected_Outlook a
+{
+	background: #fbe694;
+	border: solid 1px #bb5503;
+}
+
+.radCalTodaySelected_Outlook
+{
+	background: #fbe694  !important;
+}
+
+.radCalSelect_Outlook a,
+.radCalWeekendSelect_Outlook a
+{
+	background: #fbe694;
+	border: solid 1px #fbe694;
+}
+
+.radCalSelect_Outlook,
+.radCalWeekendSelect_Outlook
+{
+	background: #fbe694 !important;
+}
+
+.radPopupImage_Outlook img
+{
+	vertical-align: middle;
+	_vertical-align: top; /* IE fix */	
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: -1px; /* IE margins fix */
+	_margin-top: 0px; 
+	border-width: 0px;
+}
+
+.radDisabled_Outlook img
+{
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}

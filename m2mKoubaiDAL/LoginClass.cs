@@ -40,8 +40,8 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE LoginID = @LoginID AND Password =@Pass";
-            da.SelectCommand.Parameters.Add("@LoginID", LoginID);
-            da.SelectCommand.Parameters.Add("@Pass", Pass);
+            da.SelectCommand.Parameters.AddWithValue("@LoginID", LoginID);
+            da.SelectCommand.Parameters.AddWithValue("@Pass", Pass);
             m2mKoubaiDataSet.M_LoginDataTable dt = new m2mKoubaiDataSet.M_LoginDataTable();
             da.Fill(dt);
             if (1 == dt.Rows.Count)
@@ -101,7 +101,7 @@ namespace m2mKoubaiDAL
             {
                 da.SelectCommand.CommandText += "AND " + strWhere;
             }
-            da.SelectCommand.Parameters.Add("@kubun", bkubun);
+            da.SelectCommand.Parameters.AddWithValue("@kubun", bkubun);
 
             m2mKoubaiDataSet.M_LoginDataTable dt = new m2mKoubaiDataSet.M_LoginDataTable();
             da.Fill(dt);
@@ -118,7 +118,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE UserKubun = @UserKubun ";
-            da.SelectCommand.Parameters.Add("@UserKubun", bKubun);
+            da.SelectCommand.Parameters.AddWithValue("@UserKubun", bKubun);
             m2mKoubaiDataSet.M_LoginDataTable dt = new m2mKoubaiDataSet.M_LoginDataTable();
             da.Fill(dt);
             return dt;
@@ -134,7 +134,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE LoginID = @LoginID";
-            da.SelectCommand.Parameters.Add("@LoginID", LoginID);
+            da.SelectCommand.Parameters.AddWithValue("@LoginID", LoginID);
             da.DeleteCommand = (new SqlCommandBuilder(da)).GetDeleteCommand();
             m2mKoubaiDataSet.M_LoginDataTable dt = new m2mKoubaiDataSet.M_LoginDataTable();
             da.Fill(dt);
@@ -201,7 +201,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE LoginID = @LoginID";
-            da.SelectCommand.Parameters.Add("@LoginID", LoginID);
+            da.SelectCommand.Parameters.AddWithValue("@LoginID", LoginID);
             da.UpdateCommand = (new SqlCommandBuilder(da)).GetUpdateCommand();
             m2mKoubaiDataSet.M_LoginDataTable dt = new m2mKoubaiDataSet.M_LoginDataTable();
             da.Fill(dt);
@@ -268,7 +268,7 @@ namespace m2mKoubaiDAL
                 da.SelectCommand.CommandText += "AND " + strWhere;
             }
             da.SelectCommand.CommandText += "ORDER BY M_Shiiresaki.ShiiresakiCode ";
-            da.SelectCommand.Parameters.Add("@UserKubun", bUserKubun);
+            da.SelectCommand.Parameters.AddWithValue("@UserKubun", bUserKubun);
             LoginDataSet.V_ShiiresakiAccountDataTable dt = new LoginDataSet.V_ShiiresakiAccountDataTable();
             da.Fill(dt);
             return dt;
@@ -289,7 +289,7 @@ namespace m2mKoubaiDAL
             + "M_Login.KaishaCode = M_Shiiresaki.ShiiresakiCode "
             + "WHERE                   (M_Login.UserKubun = @UserKubun) ";
 
-            da.SelectCommand.Parameters.Add("@UserKubun", bUserKubun);
+            da.SelectCommand.Parameters.AddWithValue("@UserKubun", bUserKubun);
             LoginDataSet.V_ShiiresakiAccountDataTable dt = new LoginDataSet.V_ShiiresakiAccountDataTable();
             da.Fill(dt);
             return dt;
@@ -299,7 +299,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE LoginID = @LoginID";
-            da.SelectCommand.Parameters.Add("@LoginID", LoginID);
+            da.SelectCommand.Parameters.AddWithValue("@LoginID", LoginID);
             m2mKoubaiDataSet.M_LoginDataTable dt = new m2mKoubaiDataSet.M_LoginDataTable();
             da.Fill(dt);
             if (1 == dt.Rows.Count)
@@ -324,8 +324,8 @@ namespace m2mKoubaiDAL
                 "SELECT dbo.M_Shiiresaki.KensyukoukaiFlg, M_Shiiresaki.KousinKyokaFlg FROM dbo.M_Shiiresaki INNER JOIN "
               + "dbo.M_Login ON dbo.M_Shiiresaki.ShiiresakiCode = dbo.M_Login.KaishaCode "
               + "WHERE (LoginID = @LoginID) AND (Password = @Pass)";
-            da.SelectCommand.Parameters.Add("@LoginID", LoginID);
-            da.SelectCommand.Parameters.Add("@Pass", Pass);
+            da.SelectCommand.Parameters.AddWithValue("@LoginID", LoginID);
+            da.SelectCommand.Parameters.AddWithValue("@Pass", Pass);
             LoginDataSet.V_Shiiresaki_FlgDataTable dt = new LoginDataSet.V_Shiiresaki_FlgDataTable();
             da.Fill(dt);
             if (1 == dt.Rows.Count)

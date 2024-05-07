@@ -3,16 +3,15 @@ using System.Data;
 using System.Configuration;
 using System.Collections;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls.WebParts;
 using m2mKoubaiDAL;
 
 namespace m2mKoubai.Kenshu
 {
-    public partial class KenshuInfoForm : Core.Web.ServerViewStatePage
+    public partial class KenshuInfoForm : System.Web.UI.Page
     {
         private int VsCurrentPageIndex
         {
@@ -268,7 +267,7 @@ namespace m2mKoubai.Kenshu
             this.Create();
         }
 
-        protected void Ram_AjaxRequest(object sender, Telerik.WebControls.AjaxRequestEventArgs e)
+        protected void Ram_AjaxRequest(object sender, Telerik.Web.UI.AjaxRequestEventArgs e)
         {
             this.Ram.AjaxSettings.Clear();
 

@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginForm.aspx.cs" Inherits="m2mKoubai.LoginForm" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
@@ -13,7 +12,7 @@
     }
     function Load()
     {
-        var tbx = $("TbxID");
+        var tbx = document.getElementById("TbxID");
         if(tbx != null)
         {
             tbx.focus();

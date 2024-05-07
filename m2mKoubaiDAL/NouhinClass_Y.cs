@@ -107,9 +107,9 @@ namespace m2mKoubaiDAL
             daNs.SelectCommand.CommandText =
                 "SELECT SUM(Suuryou) as SuryouSum FROM T_Nouhin "
                 + "WHERE Year = @Year AND HacchuuNo = @HacchuuNo AND JigyoushoKubun = @JigyoushoKubun";
-            daNs.SelectCommand.Parameters.Add("@Year", Year);
-            daNs.SelectCommand.Parameters.Add("@HacchuuNo", HacchuuNo);
-            daNs.SelectCommand.Parameters.Add("@JigyoushoKubun", nKubun);
+            daNs.SelectCommand.Parameters.AddWithValue("@Year", Year);
+            daNs.SelectCommand.Parameters.AddWithValue("@HacchuuNo", HacchuuNo);
+            daNs.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);
             NouhinDataSet_N.V_Nouhin_SuryouSumDataTable dtNs = new NouhinDataSet_N.V_Nouhin_SuryouSumDataTable();
             daNs.Fill(dtNs);
 
@@ -117,9 +117,9 @@ namespace m2mKoubaiDAL
             daC.SelectCommand.CommandText =
                 "SELECT * FROM T_Chumon "
                 + "WHERE Year = @Year AND HacchuuNo = @HacchuuNo AND JigyoushoKubun = @JigyoushoKubun ";
-            daC.SelectCommand.Parameters.Add("@Year", Year);
-            daC.SelectCommand.Parameters.Add("@HacchuuNo", HacchuuNo);
-            daC.SelectCommand.Parameters.Add("@JigyoushoKubun", nKubun);
+            daC.SelectCommand.Parameters.AddWithValue("@Year", Year);
+            daC.SelectCommand.Parameters.AddWithValue("@HacchuuNo", HacchuuNo);
+            daC.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);
             daC.UpdateCommand = (new SqlCommandBuilder(daC)).GetUpdateCommand();
             m2mKoubaiDataSet.T_ChumonDataTable dtC = new m2mKoubaiDataSet.T_ChumonDataTable();
             daC.Fill(dtC);

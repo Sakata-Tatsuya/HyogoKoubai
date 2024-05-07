@@ -1,0 +1,170 @@
+/* Telerik RadCalendar OFFICE2007 skin */
+
+table.calendarWrapper_Office2007
+{
+	background: white;
+	cursor: default;
+	font: normal 8pt Tahoma;
+}
+
+.TableLayout_Office2007
+{
+	margin: 0px 7px;
+	background: url('img/titlebarBg.gif') repeat-x left 15px;
+}
+
+.TableLayout_Office2007 td a
+{
+	text-align: right;
+	width: 13px;
+	height: 12px;
+	padding: 1px;
+	display: block;
+	text-decoration: none;
+	color: black;
+	cursor: default;
+}
+
+.DaysOfWeek_Office2007
+{
+	color: black;
+	text-align: right;
+	text-transform: uppercase;
+	height: 16px;
+}
+
+.otherMonth_Office2007
+{
+	color: #aca899;
+	text-align: right;
+}
+
+.otherMonth_Office2007 a
+{
+	color: #b3b3b3 !important;
+	display:block;
+	width: 15px;
+	height: 13px;
+	border:1px solid #fff;
+}
+
+.outOfRange_Office2007
+{
+	color: #aca899;
+	text-align: right;
+	background: white;
+}
+
+.titlebar_Office2007
+{
+	font: normal 8pt Tahoma;
+	height: 16px;
+	width: 100%;
+	background: #e3efff;
+	border: solid 1px #e3efff;
+}
+
+.MonthYearFastNav_Office2007
+{
+	border: 1px solid #9ebef5;
+	background: white;
+	font: normal 8pt Tahoma;
+	color: #000;
+	border-collapse: collapse;
+	filter: progid:DXImageTransform.Microsoft.Shadow(direction=140,color=#666666,strength=3);
+	cursor: default;
+}
+
+.MonthYearFastNav_Office2007 td
+{
+	vertical-align: middle;
+}
+
+.MonthYearFastNav_Office2007 td.selected_Office2007
+{
+	background: #ffe7a2;
+	color: black;
+	text-align: center;
+}
+
+.MonthYearFastNav_Office2007 td.bottom_Office2007
+{
+	text-align: right;
+	padding-left: 9px;
+}
+
+.MonthYearFastNav_Office2007 td input
+{
+	background: #daeaff;
+	border: solid 1px #5d8cc9;
+	font: normal 8pt Tahoma;
+	color: black;
+	float: left;
+	width: auto;
+	margin-right: 1px;
+}
+
+.radCalDefault_Office2007 a,
+.radCalHover_Office2007 a,
+.radCalWeekendDefault_Office2007 a, 
+.radCalWeekendHover_Office2007 a
+{
+	background: white;
+	border: solid 1px white;
+	text-align: right;
+	width: 15px;
+	height: 13px;
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+
+.radCalToday_Office2007 a
+{
+	background: white;
+	border: solid 1px #bb5503;
+	font-weight: bold;
+}
+
+.radCalTodaySelected_Office2007 a
+{
+	background: #fbe694;
+	border: solid 1px #bb5503;
+	font-weight: bold;
+}
+
+.radCalTodaySelected_Office2007
+{
+	background: #fbe694 !important;
+}
+
+.radCalSelect_Office2007 a,
+.radCalWeekendSelect_Office2007 a
+{
+	background: #fbe694;
+	border: solid 1px #fbe694;
+}
+
+.radCalSelect_Office2007,
+.radCalWeekendSelect_Office2007
+{
+	background: #fbe694 !important;
+}
+
+.radPopupImage_Office2007 img
+{
+	vertical-align: middle;
+	_vertical-align: top; /* IE fix */	
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: -1px; /* IE margins fix */
+	_margin-top: 0px; 
+	border-width: 0px;
+}
+
+.radDisabled_Office2007 img
+{
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}

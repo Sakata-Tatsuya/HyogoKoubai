@@ -84,7 +84,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_NounyuuBasho WHERE BashoCode = @BashoCode";
-            da.SelectCommand.Parameters.Add("@BashoCode", BashoCode);
+            da.SelectCommand.Parameters.AddWithValue("@BashoCode", BashoCode);
             m2mKoubaiDataSet.M_NounyuuBashoDataTable dt = new m2mKoubaiDataSet.M_NounyuuBashoDataTable();
             da.Fill(dt);
             if (1 == dt.Rows.Count)
@@ -132,7 +132,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_NounyuuBasho WHERE BashoCode = @BashoCode";
-            da.SelectCommand.Parameters.Add("@BashoCode", BashoCode);
+            da.SelectCommand.Parameters.AddWithValue("@BashoCode", BashoCode);
             da.UpdateCommand = (new SqlCommandBuilder(da)).GetUpdateCommand();
             m2mKoubaiDataSet.M_NounyuuBashoDataTable dt = new m2mKoubaiDataSet.M_NounyuuBashoDataTable();
             da.Fill(dt);
@@ -162,7 +162,7 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_NounyuuBasho WHERE BashoCode = @BashoCode";
-            da.SelectCommand.Parameters.Add("@BashoCode", BashoCode);
+            da.SelectCommand.Parameters.AddWithValue("@BashoCode", BashoCode);
             da.DeleteCommand = (new SqlCommandBuilder(da)).GetDeleteCommand();
             m2mKoubaiDataSet.M_NounyuuBashoDataTable dt = new m2mKoubaiDataSet.M_NounyuuBashoDataTable();
             da.Fill(dt);

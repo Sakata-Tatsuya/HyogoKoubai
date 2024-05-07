@@ -24,6 +24,15 @@ namespace m2mKoubai.Order
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// RadScriptManager1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadScriptManager RadScriptManager1;
+
+        /// <summary>
         /// Tab コントロール。
         /// </summary>
         /// <remarks>
@@ -123,15 +132,6 @@ namespace m2mKoubai.Order
         protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnT;
 
         /// <summary>
-        /// SC コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::Telerik.WebControls.RadCalendar SC;
-
-        /// <summary>
         /// HidChkID コントロール。
         /// </summary>
         /// <remarks>
@@ -165,6 +165,6 @@ namespace m2mKoubai.Order
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::Telerik.WebControls.RadAjaxManager Ram;
+        protected global::Telerik.Web.UI.RadAjaxManager Ram;
     }
 }

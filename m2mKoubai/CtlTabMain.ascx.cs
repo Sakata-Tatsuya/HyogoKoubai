@@ -136,7 +136,7 @@ namespace m2mKoubai
                 Tab.Tabs[(int)MainMenu.Kenshu_Jyouhou].SelectedIndex = (int)value;
             }
         }
-        // 発注入力のサブメニュー 追加 09/07/24
+        // 発注入力のサブメニュー
         public Hacchu_Nyuuryoku Hacchu_NyuuryokuMenu
         {
             get

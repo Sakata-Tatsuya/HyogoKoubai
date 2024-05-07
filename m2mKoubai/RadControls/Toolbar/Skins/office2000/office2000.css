@@ -1,0 +1,268 @@
+/* Microsoft Office 2000 Toolbar Skin Stylesheet */
+/* normal button */
+.office2000_radbutton_normal 
+{
+	background-color: #e1e1e1;
+	border: solid 1px #e1e1e1;
+	cursor: default;
+}
+
+.office2000_radbutton_hover
+{
+	background-color: #e1e1e1;	
+	border-right: solid 1px #808080;
+	border-bottom: solid 1px #808080;
+	border-left: solid 1px #fff;
+	border-top: solid 1px #fff;
+	cursor: default;
+}
+.office2000_radbutton_disabled
+{
+	background-color: transparent;
+	cursor: default;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);/* IE */
+	-moz-opacity: .40;/* Mozilla */
+	cursor: no-drop;
+	margin-right: 2px;
+}
+.office2000_radbutton_mousedown
+{
+	background-color: #e1e1e1;	
+	border-right: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	border-left: solid 1px #808080;
+	border-top: solid 1px #808080;
+	cursor: default;
+}
+/* end normal button */
+
+/* toggle button */
+.office2000_radtbutton_normal 
+{
+	background-color: #e1e1e1;
+	border: solid 1px #e1e1e1;
+	cursor: default;
+}
+
+.office2000_radtbutton_hover
+{
+	background-color: #e1e1e1;	
+	border-right: solid 1px #808080;
+	border-bottom: solid 1px #808080;
+	border-left: solid 1px #fff;
+	border-top: solid 1px #fff;
+	cursor: default;
+}
+
+.office2000_radtbutton_toggled, .office2000_radtbutton_hover_toggled
+{
+	background-color: #e1e1e1;	
+	border-right: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	border-left: solid 1px #808080;
+	border-top: solid 1px #808080;
+	cursor: default;
+}
+
+.office2000_radtbutton_disabled
+{
+	background-color: transparent;
+	border: none;
+	cursor: default;
+}
+
+.office2000_radtbutton_mousedown
+{
+	background-color: #e1e1e1;	
+	border-right: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	border-left: solid 1px #808080;
+	border-top: solid 1px #808080;
+	cursor: default;
+}
+/* end toggle button */
+
+/* horizontal toobar */
+.office2000_radtoolbar_horizontal
+{
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	background-color: #e1e1e1;
+	border-bottom: solid 1px #808080;
+	border-top: solid 1px #fff;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+/* end horizontal toobar */
+
+/* vertical toobar */
+.office2000_radtoolbar_vertical
+{
+	font-size: 10pt;
+	font-family: Verdana;
+	border-collapse: collapse;
+	background-color: #e1e1e1;
+	border-right: solid 1px #808080;
+	border-left: solid 1px #fff;
+	padding-left: 1px;
+	padding-right: 1px;
+}	
+/* end vertical toobar */
+
+/* horizonatal toolbar grips */
+/* left */
+.office2000_radtoolbar_left
+{
+	background-image: url(Img/toolbarLeft.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	width: 6px;
+	height: 28px;	
+}
+/* right */
+.office2000_radtoolbar_right
+{
+	border-right: solid 1px #808080;
+	background-image: url(Img/toolbarRight.gif);
+	background-repeat: no-repeat;
+	width: 7px;
+	height: 28px;
+}
+/* end horizonatal toolbar grips */
+
+/* vertical toolbar grips */
+/* top */
+.office2000_radtoolbar_top
+{
+	background-image: url(Img/toolbarLeftV.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	height: 7px;
+}
+/* bottom */
+.office2000_radtoolbar_bot
+{
+	background-image: url(Img/toolbarRightV.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	height: 7px;
+}
+/* end vertical toolbar grips */
+/* separators */
+/* horizontal */
+.office2000_radseparator_h
+{
+	background-image: url(Img/separator_h.gif);
+	background-color: transparent;
+	background-repeat: repeat-y;
+	width: 2px;
+	height: 20px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-left:2px;
+	margin-right:1px;
+}
+/* vertical */
+.office2000_radseparator_v
+{
+	background-image: url(Img/separator_v.gif);
+	background-repeat: repeat-x;
+	height: 2px;
+	font-size: 2px;
+	width: 22px;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+/* end separators */
+
+/* margins fix */
+.office2000_radbutton_normal IMG, .office2000_radbutton_hover IMG, .office2000_radbutton_normal SPAN, .office2000_radbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+
+.office2000_radtbutton_mousedown IMG, .office2000_radtbutton_mousedown SPAN, .office2000_radtbutton_toggled IMG, .office2000_radtbutton_hover_toggled IMG
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+
+.office2000_radtbutton_normal IMG, .office2000_radtbutton_hover IMG, .office2000_radtbutton_normal SPAN, .office2000_radtbutton_hover SPAN
+{
+	margin-top: 1px;
+}
+.office2000_radbutton_mousedown IMG, .office2000_radbutton_mousedown SPAN
+{
+	margin-top: 2px;
+	margin-left: 3px;
+}
+.office2000_radbutton_disabled IMG, .office2000_radbutton_disabled SPAN
+{
+	margin-top: 1px;
+	margin-left: 2px;
+}
+/* end margins fix */
+
+/* buttons with text and image */
+/* normal */
+.office2000_radbutton_text_normal, .office2000_radtbutton_text_normal
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	background-color: #e1e1e1;
+	border: solid 1px #e1e1e1;
+	cursor: default;
+	padding-left: 2px;
+	padding-left: 2px;
+}
+/* hover */
+.office2000_radbutton_text_hover, .office2000_radtbutton_text_hover
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	border-right: solid 1px #808080;
+	border-bottom: solid 1px #808080;
+	border-left: solid 1px #fff;
+	border-top: solid 1px #fff;
+	cursor: default;
+	padding-left: 2px;
+	padding-left: 2px;
+}
+/* mousedown */
+.office2000_radbutton_text_mousedown, .office2000_radtbutton_text_mousedown, .office2000_radtbutton_text_toggled, .office2000_radtbutton_text_hover_toggled
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	border-right: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	border-left: solid 1px #808080;
+	border-top: solid 1px #808080;
+	cursor: default;
+	padding-left: 2px;
+	padding-left: 2px;
+}
+.office2000_radbutton_text_normal SPAN, .office2000_radbutton_text_hover SPAN, .office2000_radbutton_text_mousedown SPAN, .office2000_radtbutton_text_hover SPAN, .office2000_radtbutton_text_normal SPAN, .office2000_radtbutton_text_mousedown SPAN, .office2000_radtbutton_text_toggled SPAN, .office2000_radtbutton_text_hover_toggled SPAN
+{
+	margin-top: 2px;
+	display: inline-block;
+	float: left;
+}
+.office2000_radbutton_text_normal IMG, .office2000_radbutton_text_hover IMG, .office2000_radbutton_text_mousedown IMG, .office2000_radtbutton_text_hover IMG, .office2000_radtbutton_text_normal IMG, .office2000_radtbutton_text_mousedown IMG, .office2000_radtbutton_text_toggled IMG, .office2000_radtbutton_text_hover_toggled IMG
+{
+	margin-top: 2px;
+	display: inline-block;
+	float: left;
+}
+
+.office2000_radbutton_text_disabled SPAN
+{
+	display: inline-block;
+	margin-top: 3px;
+	font-size: 11px;
+	color: #808080;
+	cursor: default;
+}

@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="KenshuInfoShukeiForm.aspx.cs" Inherits="m2mKoubai.Kenshu.KenshuInfoShukeiForm" %>
 
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
-<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Src="../CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc2" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc3" %>
@@ -18,11 +17,11 @@
     }   
     function AjaxRequest(command_name, arg)
 	{
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		
+        <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
 	}
 	 function Reload()
     {        
-        AjaxRequest('reload', '');    
+        AjaxRequest('reload', '');
     }
     function Kensaku()
     {
@@ -41,26 +40,25 @@
  
     function OnRequestStart(sender, args)
 	{
-        $("Img1").style.display = '';		
+        document.getElementById("Img1").style.display = '';
 	}
 	function OnResponseEnd(sender, args)
-    {    
-        $('Img1').style.display = 'none';
+    {
+        document.getElementById('Img1').style.display = 'none';
     }
-    // 追加 09/07/22
     function Check()
     {
-        var TbxKanjyouKamokuCode = $('TbxKanjyouKamokuCode');
+        var TbxKanjyouKamokuCode = document.getElementById('TbxKanjyouKamokuCode');
         if (!CheckNumber(TbxKanjyouKamokuCode,'勘定科目コード'))
         {
             return false;
         }
-        var TbxHiyouKamokuCode = $('TbxHiyouKamokuCode');
+        var TbxHiyouKamokuCode = document.getElementById('TbxHiyouKamokuCode');
         if (!CheckNumber(TbxHiyouKamokuCode,'費用科目コード'))
         {
             return false;
         }
-        var TbxHojyoKamokuNo = $('TbxHojyoKamokuNo');
+        var TbxHojyoKamokuNo = document.getElementById('TbxHojyoKamokuNo');
         if (!CheckNumber(TbxHojyoKamokuNo,'補助科目No'))
         {
             return false;
@@ -68,7 +66,6 @@
         
         return true;
     }
-    // 追加 09/07/22
     function CheckNumber(tbx,str)
     { 
         if (tbx.value.match(/[^0-9]/) != null)
@@ -85,6 +82,16 @@
 </head>
 <body class="bg0">
     <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
+                </asp:ScriptReference>
+            </Scripts>
+        </telerik:RadScriptManager>
     <div>
         <uc1:CtlTabMain ID="Tab" runat="server" />
     </div>
@@ -229,11 +236,11 @@
             </td>
         </tr>
     </table>
-    <radA:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+    <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
         <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-    </radA:RadAjaxManager>
-    <radCln:RadCalendar ID="SC" runat="server" Skin="Web20">
-    </radCln:RadCalendar>
+    </telerik:RadAjaxManager>
+    <telerik:RadCalendar ID="SC" runat="server" Skin="Web20">
+    </telerik:RadCalendar>
     </form>
 </body>
 </html>

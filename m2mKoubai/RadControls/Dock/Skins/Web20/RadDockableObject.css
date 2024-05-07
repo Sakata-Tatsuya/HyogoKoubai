@@ -1,0 +1,103 @@
+/* r.a.d.dock Web 2.0 skin */
+
+.RadDockingZone
+{
+	background: white;
+	border: solid 1px #6788be;
+	font: normal 10px Verdana, Arial, Sanserif;
+	padding: 4px;
+}
+
+.RadDockableObjectFixed
+{
+	border: solid 1px #6788be;
+	background: white;
+}
+
+.RadDockableObjectResizeable
+{
+	border: solid 2px #6788be;
+	background: white;
+}
+
+/* titlebar start */
+.RadDockableObjectTitleBarLeft, 
+.RadDockableObjectTitleBarRight
+{
+	display: none;
+}
+
+.RadDockableObjectTitle
+{
+	background: #c5d6ed url('img/titleBarBg.gif') repeat-x;
+	padding-left: 8px;
+	text-align: left;
+}
+
+/* titlebar text */
+.RadDockableObjectTitleBar
+{
+	height: 29px;
+	color: white;
+	font: bold 12px Arial, Verdana, Sanserif;
+	border-top: solid 1px #cfd8e4;
+	text-align: left;
+}
+
+/* command button table cell */
+.RadDockableObjectCommandButton
+{
+	width: 11px;
+	height: 11px;
+	background: #c5d6ed url('img/titleBarBg.gif') repeat-x;
+}
+
+/* button image */
+.RadDockableObjectCommandButton img
+{
+	width: 11px;
+	height: 11px;
+	margin-right: 3px; /* buttons to button offeset */
+}
+/* titlebar end */
+
+/* horizontal grip */
+.RadDockableObjectHorizontalGrip
+{
+	height: 4px;
+	background: #666;
+	font-size: 1px;
+	line-height: 1px;
+}
+
+/* vertical grip */
+.RadDockableObjectVerticalGrip
+{
+	width: 4px;
+	background: #666;
+	font-size: 1px;
+}
+
+/* content of the dock */
+.RadDockableObjectInnerContainer
+{
+	border-top: solid 1px #6788be;
+	vertical-align: top;
+	padding: 8px;
+	font: normal 10px Arial, Verdana, Sans-serif;
+	text-align: left;
+}
+
+.RadDragHelper
+{
+	background: orange;
+}
+
+.RadDragHelperTooltip
+{
+	border: solid 1px #333;
+	padding: 2px;
+	background: #dadada;
+	color: black;
+	font: normal 10px Verdana, Arial, Sans-Serif;
+}

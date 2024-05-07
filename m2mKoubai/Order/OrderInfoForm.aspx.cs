@@ -3,16 +3,15 @@ using System.Data;
 using System.Configuration;
 using System.Collections;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using Telerik.Web.UI;
 using m2mKoubaiDAL;
 
 namespace m2mKoubai.Order
 {
-    public partial class OrderInfoForm : HonyakuPage
+    public partial class OrderInfoForm : System.Web.UI.Page
     {
         private const int G_CELL_I = 0;
         private const int G_CELL_CANCEL = 1;
@@ -376,8 +375,7 @@ namespace m2mKoubai.Order
                 }
 
                 // î≠íçNO                
-                (e.Row.FindControl("LitHacchuuNo") as Literal).Text =
-                    Utility.LinkToHacchuuNo(key.ToString(), dr.HacchuuNo);
+                (e.Row.FindControl("LitHacchuuNo") as Literal).Text = Utility.LinkToHacchuuNo(key.ToString(), dr.HacchuuNo);
                 // î≠íçì˙
                 (e.Row.FindControl("LitHacchuuBi") as Literal).Text = dr.HacchuuBi.ToString("yy/MM/dd");
                 // î≠íçíSìñé“ÉRÅ[Éh                
@@ -433,8 +431,7 @@ namespace m2mKoubai.Order
                 e.Row.Cells[G_CELL_NOUNYUU_BASHO].Text = dr.BashoMei;
                 // î[ä˙ïœçX
                 DataView dvNouki = this.m_dvNoukiHenkou;
-                dvNouki.RowFilter =
-                    string.Format("Year = '{0}' AND HacchuuNo = '{1}' AND JigyoushoKubun = '{2}'", dr.Year, dr.HacchuuNo, dr.JigyoushoKubun);
+                dvNouki.RowFilter = string.Format("Year = '{0}' AND HacchuuNo = '{1}' AND JigyoushoKubun = '{2}'", dr.Year, dr.HacchuuNo, dr.JigyoushoKubun);
 
                 NoukiHenkouInfo infoNoki = null;
                 // ï€ë∂ópî[ä˙
@@ -473,8 +470,7 @@ namespace m2mKoubai.Order
 
 
                 // âÒìöî[ä˙
-                this.m_dvNoukiKaitou.RowFilter =
-                    string.Format("Year = '{0}' AND HacchuuNo = '{1}' AND JigyoushoKubun = '{2}' ", dr.Year, dr.HacchuuNo, dr.JigyoushoKubun);
+                this.m_dvNoukiKaitou.RowFilter = string.Format("Year = '{0}' AND HacchuuNo = '{1}' AND JigyoushoKubun = '{2}' ", dr.Year, dr.HacchuuNo, dr.JigyoushoKubun);
 
                 NoukiKaitouInfo info = null;
                 // î[ä˙âÒìöÇ™è≥îFçœÇÃèÍçá                
@@ -494,8 +490,7 @@ namespace m2mKoubai.Order
                 {
                     int nSuuryou = 0;
                     bool b = false;
-                    m2mKoubaiDataSet.T_NoukiKaitouDataTable dtKaitou =
-                        NoukiKaitouClass.getT_NoukiKaitouDataTable(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun, dr.KaitouNo, Global.GetConnection());
+                    m2mKoubaiDataSet.T_NoukiKaitouDataTable dtKaitou = NoukiKaitouClass.getT_NoukiKaitouDataTable(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun, dr.KaitouNo, Global.GetConnection());
                     for (int i = 0; i < dtKaitou.Rows.Count; i++)
                     {
                         nSuuryou += dtKaitou[i].Suuryou;
@@ -524,8 +519,7 @@ namespace m2mKoubai.Order
                 // î[ïiì˙
                 if (!dr.IsNouhinNoNull())
                 {
-                    m2mKoubaiDataSet.T_NouhinDataTable dt =
-                        NouhinClass_N.getT_NouhinDataTable(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun, Global.GetConnection());
+                    m2mKoubaiDataSet.T_NouhinDataTable dt = NouhinClass_N.getT_NouhinDataTable(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun, Global.GetConnection());
                     string strNouhinbi = "";
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
@@ -895,7 +889,7 @@ namespace m2mKoubai.Order
 
         }
 
-        protected void Ram_AjaxRequest(object sender, Telerik.WebControls.AjaxRequestEventArgs e)
+        protected void Ram_AjaxRequest(object sender, Telerik.Web.UI.AjaxRequestEventArgs e)
         {
             this.Ram.AjaxSettings.Clear();
 
@@ -914,7 +908,7 @@ namespace m2mKoubai.Order
             string Suuryou = "";
 
             // î[ä˙âÒìöNo
-           // int nKaitouNo = 0;
+            // int nKaitouNo = 0;
             // î[ä˙ïœçXNo
             int nHenkouNo = 0;
             //

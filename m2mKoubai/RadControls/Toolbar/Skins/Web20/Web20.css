@@ -1,0 +1,249 @@
+/* WebBlue Toolbar Skin Stylesheet */
+
+.web20_radtoolbar_horizontal
+{
+	background: #d6e2f3 url('img/toolbarBgH.gif') repeat-x;
+	border-collapse: collapse;
+	border-top: solid 1px #6788be;
+	border-bottom: solid 1px #6788be;
+	height: 48px;
+}
+
+.web20_radtoolbar_horizontal span
+{
+	font: normal 10px Verdana, Arial, Sans-serif;
+	line-height: 18px;
+	display: block;
+}
+
+.web20_radtoolbar_horizontal img
+{
+	float: left;
+	margin-left: 3px;
+	margin-top: 2px;
+}
+
+.web20_radbutton_normal 
+{
+	background: transparent;
+	cursor: default;
+	height: 24px !important;
+	width: 25px !important;
+}
+
+.web20_radbutton_hover,
+.web20_radtbutton_hover
+{
+	background: transparent url('img/btnHoverBg.gif') no-repeat;
+	cursor: default;
+	height: 24px !important;
+	width: 25px !important;
+}
+
+.web20_radbutton_disabled
+{
+	background: transparent;
+	border: 0px;
+	cursor: no-drop;
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=100,finishX=100,startY=100,finishY=100);
+	-moz-opacity: .40;
+	height: 24px !important;
+	width: 25px !important;
+}
+
+.web20_radtbutton_normal 
+{
+	background: transparent;
+	cursor: default;
+	height: 24px !important;
+	width: 25px !important;
+}
+
+.web20_radtbutton_toggled,
+.web20_radtbutton_hover_toggled,
+.web20_radbutton_mousedown,
+.web20_radtbutton_mousedown
+{
+	cursor: default;
+	height: 24px !important;
+	width: 25px !important;
+	background: #dddee0 url('img/ButtonClickedBg.gif') no-repeat;
+}
+
+.web20_radtbutton_disabled
+{
+	background: transparent;
+	border: none;
+	cursor: no-drop;
+	height: 24px !important;
+	width: 25px !important;
+}
+
+/* vertical toobar */
+
+.web20_radtoolbar_vertical
+{
+	background: #c2d3ec url('img/toolbarBgV.gif') repeat-y;
+	font: normal 11px Verdana, Arial, Sans-serif;
+	border-collapse: collapse;
+	border-left: solid 1px #6788be;
+	border-right: solid 1px #6788be;
+	border-top: 0px;
+	border-bottom: 0px;
+	vertical-align: top;
+	text-align: center;
+	width: 50px !important;
+}	
+
+.web20_radtoolbar_vertical .web20_radbutton_normal,
+.web20_radtoolbar_vertical .web20_radtbutton_normal,
+.web20_radtoolbar_vertical .web20_radbutton_disabled
+{
+	background: none;
+	width: 24px !important;
+	height: 25px !important;
+}
+
+.web20_radtoolbar_vertical .web20_radbutton_hover,
+.web20_radtoolbar_vertical .web20_radtbutton_hover
+{
+	background: url('img/btnHoverBgV.gif') no-repeat;
+	width: 24px !important;
+	height: 25px !important;
+}
+
+.web20_radtoolbar_vertical .web20_radtbutton_toggled,
+.web20_radtoolbar_vertical .web20_radtbutton_hover_toggled,
+.web20_radtoolbar_vertical .web20_radbutton_mousedown,
+.web20_radtoolbar_vertical .web20_radtbutton_mousedown
+{
+	cursor: default;
+	background: url('img/ButtonClickedBgV.gif') no-repeat;
+	width: 24px !important;
+	height: 25px !important;
+}
+
+.web20_radtoolbar_vertical .web20_radbutton_text_normal,
+.web20_radtoolbar_vertical .web20_radtbutton_text_normal
+{
+	display: none !important;
+}
+
+/* horizonatal toolbar grips */
+.web20_radtoolbar_left
+{
+	background: url('img/toolbarLeft.gif') no-repeat;
+	width: 23px !important;
+	height: 50px !important;
+}
+
+.web20_radtoolbar_right
+{
+	background: url('img/toolbarRight.gif') no-repeat;
+	width: 23px !important;
+	height: 50px !important;
+}
+
+/* vertical toolbar grips */
+.web20_radtoolbar_top
+{
+	background: url('img/toolbarLeftV.gif') no-repeat;
+	height: 23px;
+	width: 50px;
+}
+
+.web20_radtoolbar_bot
+{
+	background: url('img/toolbarRightV.gif') no-repeat;
+	height: 23px;
+	width: 50px;
+}
+
+/* separators */
+.web20_radseparator_v
+{
+	width: 48px;
+	height: 4px;
+	padding: 2px 0px;
+	background: transparent url('img/separator_v.gif') no-repeat center;
+}
+
+.web20_radseparator_h
+{
+	width: 4px;
+	height: 48px;
+	padding: 0px 2px;
+	background: transparent url('img/separator_h.gif') no-repeat center;
+}
+
+/* margins fix */
+.web20_radtbutton_mousedown img, 
+.web20_radtbutton_toggled img, 
+.web20_radtbutton_hover_toggled img,
+.web20_radbutton_mousedown img, 
+.web20_radtbutton_text_mousedown img,
+.web20_radtbutton_text_toggled img,
+.web20_radtbutton_text_hover_toggled img
+{
+	margin-left: 4px;
+	margin-top: 3px;
+	padding-left: 1px; /* Mozilla FF fix */
+}
+
+
+.web20_radtbutton_mousedown span, 
+.web20_radbutton_mousedown span,
+.web20_radbutton_text_mousedown span
+{
+	padding-top: 2px;
+}
+
+/* text and image buttons begin */
+
+.web20_radbutton_text_normal span,
+.web20_radbutton_text_hover span,
+.web20_radbutton_text_mousedown span
+{
+	display: inline-block;
+}
+
+.web20_radtbutton_text_normal,
+.web20_radbutton_text_normal
+{
+	color: #4d4d4d;
+	height: 24px !important;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+.web20_radtbutton_text_hover,
+.web20_radbutton_text_hover,
+.web20_radbutton_text_mousedown
+{
+	background: url('img/TextButtonBg.gif') repeat-x;
+	color: #4d4d4d;
+	cursor: default;
+	height: 24px !important;
+	border-left: solid 1px #6788be;
+	border-right: solid 1px #6788be;
+}
+
+.web20_radtbutton_text_mousedown,
+.web20_radtbutton_text_toggled,
+.web20_radtbutton_text_hover_toggled,
+.web20_radbutton_text_mousedown
+{
+	background: url('img/TextButtonBgClicked.gif') repeat-x;
+	color: black;
+	cursor: default;
+	height: 24px !important;
+	border-left: solid 1px #597603;
+	border-right: solid 1px #597603;
+}
+
+.web20_radbutton_text_disabled span, .web20_radtbutton_text_disabled span
+{
+	height: 20px !important;
+	color: #808080;
+	cursor: no-drop;
+}

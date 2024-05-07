@@ -2,7 +2,7 @@
 <%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>
 <%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
 
 <!DOCTYPE html>
@@ -17,32 +17,32 @@
         return document.getElementById(id);
      }
      function OnRequestStart()
-     {            
-        $('Img1').style.display = '';
-     }           
+     {
+        document.getElementById('Img1').style.display = '';
+     }
      function OnResponseEnd()
-     {            
-        $('Img1').style.display = 'none';
+     {
+        document.getElementById('Img1').style.display = 'none';
      }
      
      function Koushin()
      {
-        AjaxRequest('koushin', '');    
+        AjaxRequest('koushin', '');
      }
      
      function AjaxRequest(command_name, arg)
      {
- 	     <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		
+ 	     <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
 	 }
 	 
 	 // "更新しますか？"メッセージ
 	 function Koushin()
-	 {	         
+	 {
 	    if (confirm("更新しますか？"))
 	    {
-	        //$('BtnKoushin').click();
+	        //document.getElementById('BtnKoushin').click();
 	        AjaxRequest('koushin', '');
-	    }        
+	    }
      }
      
   </script>  
@@ -139,9 +139,9 @@
         </table>    
     </div>
         <br />
-        <radA:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
-        <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </radA:RadAjaxManager>
+        <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+            <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
+        </telerik:RadAjaxManager>
     </form>
 </body>
 </html>

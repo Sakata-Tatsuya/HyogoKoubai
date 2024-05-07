@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="KenshuInfoForm.aspx.cs" Inherits="m2mKoubai.Kenshu.KenshuInfoForm" %>
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
-<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 
 <%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc2" %>
@@ -23,14 +22,14 @@
 	}
 	 function Reload()
     {        
-        AjaxRequest('reload', '');    
+        AjaxRequest('reload', '');
     }
     function Kensaku()
     {
         if(!Check())
             return;
 	    AjaxRequest('kensaku', '');
-    }   
+    }
     function RowChange()
     {
 	    AjaxRequest('row', '');
@@ -45,19 +44,19 @@
     }    
 	function HacchuuNo(key, hacchuuNo)
     {
-        $('HidKey').value = key +'\t'+ '';
-        NewForm.action = "../Order/OrderShousaiForm.aspx";
+        document.getElementById('HidKey').value = key +'\t'+ '';
+        NewForm.action = "../Order/OrderShousaiForm";
         NewForm.target = "_hacchuu"; 
 	    OpenWinPost2("_hacchuu",500,500);               
         NewForm.submit();               
     }    
     function Print()
     {       
-        var chkIdAry = $('HidChkID').value.split(',');        
+        var chkIdAry = document.getElementById('HidChkID').value.split(',');        
         var hidPrintKey = ''
         for(var i = 0; i < chkIdAry.length; i++)
         {
-            var chk = $(chkIdAry[i]);
+            var chk = document.getElementById(chkIdAry[i]);
            
             if(chk.checked)
             {
@@ -72,12 +71,11 @@
             return false;
         }   
     
-        $('HidKey').value = hidPrintKey;	
-        NewForm.action = "../Denpyou/JyuryousyoForm.aspx";
-        NewForm.target = "_hacchuusho"; 
-	    OpenWinPost2("_hacchuusho",800,600);               
-        NewForm.submit();            
-        
+        document.getElementById('HidKey').value = hidPrintKey;
+        NewForm.action = "../Denpyou/JyuryousyoForm";
+        NewForm.target = "_hacchuusho";
+	    OpenWinPost2("_hacchuusho",800,600);
+        NewForm.submit();
     }
   
     var win = null;
@@ -96,22 +94,22 @@
     } 
 	 function ChkAll(bool)
     {
-        var idAry = $('HidChkID').value.split(',');
+        var idAry = document.getElementById('HidChkID').value.split(',');
       
         for(var i = 0; i < idAry.length; i++)
-        {    
-            var chk = $(idAry[i]);
+        {
+            var chk = document.getElementById(idAry[i]);
             chk.checked = bool;
         }
-    }	
+    }
 	
     function OnRequestStart(sender, args)
 	{
-        $("Img1").style.display = '';		
+        document.getElementById("Img1").style.display = '';		
 	}
 	function OnResponseEnd(sender, args)
     {    
-        $('Img1').style.display = 'none';
+        document.getElementById('Img1').style.display = 'none';
     }  
    
     function KeyCodeCheck()
@@ -124,20 +122,19 @@
             return false;
     }
     
-    // 追加 09/07/22
     function Check()
     {
-        var TbxKanjyouKamokuCode = $('TbxKanjyouKamokuCode');
+        var TbxKanjyouKamokuCode = document.getElementById('TbxKanjyouKamokuCode');
         if (!CheckNumber(TbxKanjyouKamokuCode,'勘定科目コード'))
         {
             return false;
         }
-        var TbxHiyouKamokuCode = $('TbxHiyouKamokuCode');
+        var TbxHiyouKamokuCode = document.getElementById('TbxHiyouKamokuCode');
         if (!CheckNumber(TbxHiyouKamokuCode,'費用科目コード'))
         {
             return false;
         }
-        var TbxHojyoKamokuNo = $('TbxHojyoKamokuNo');
+        var TbxHojyoKamokuNo = document.getElementById('TbxHojyoKamokuNo');
         if (!CheckNumber(TbxHojyoKamokuNo,'補助科目No'))
         {
             return false;
@@ -145,8 +142,8 @@
         
         return true;
     }
-    // 追加 09/07/22
-    function CheckNumber(tbx,str)
+
+         function CheckNumber(tbx, str)
     { 
         if (tbx.value.match(/[^0-9]/) != null)
         {
@@ -157,11 +154,21 @@
         return true;
     }
    
-  </script>
+     </script>
    
 </head>
 <body class="bg0">
     <form id="form1" runat="server" >
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
+                </asp:ScriptReference>
+            </Scripts>
+        </telerik:RadScriptManager>
     <div>
         <uc1:CtlTabMain ID="Tab" runat="server" />
       </div>
@@ -336,11 +343,11 @@
             </tr>
         </table>
         
-        <radCln:RadCalendar ID="SC" runat="server" Skin="Web20">
-        </radCln:RadCalendar>
-        <radA:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+        <telerik:RadCalendar ID="SC" runat="server" Skin="Web20">
+        </telerik:RadCalendar>
+        <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
          <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </radA:RadAjaxManager>    
+        </telerik:RadAjaxManager>    
     </form>
      <form id="NewForm" method="post" name="NewForm" >
             <input id="HidKey" runat="server" type="hidden" /></form>

@@ -1,0 +1,156 @@
+/* Telerik RadCalendar stylish skin */
+
+.calendarWrapper_Stylish
+{
+	background: #e0ded4 url('Img/calendarBg.gif') repeat-x;
+	border: solid 1px #6a797b !important;
+	border-top: 0px !important;
+	cursor: default;
+	filter: progid:DXImageTransform.Microsoft.dropShadow( Color=b4bcbd,offX=3,offY=3,positive=true); /* IE */
+	font: normal 12px Arial, Verdana, Sans-serif;
+	color: #686868;
+	width: 280px;
+}
+
+.TableLayout_Stylish td
+{
+	width: 35px !important;
+	height: 32px !important;
+	text-align: center;
+	cursor: default;
+	background-repeat: no-repeat;
+	border-bottom: solid 1px #e1ddd4;
+	color: #7f7f7f;
+	font: normal 11px Arial, Verdana, Sans-Serif;
+}
+
+.TableLayout_Stylish td a
+{
+	color: #7f7f7f;
+	cursor: default;
+	text-decoration: none;
+}
+
+.radCalDefault_Stylish,
+.radCalWeekendDefault_Stylish
+{
+	background: #f2f1e7;
+	cursor: default;
+}
+
+.radCalToday_Stylish,
+.radCalTodaySelected_Stylish
+{
+	background: #f2f1e7 url('Img/TodayBg.gif');
+}
+
+.radCalHover_Stylish,
+.radCalWeekendHover_Stylish
+{
+	background: #f2f1e7 url('Img/hoverBg.gif');
+}
+
+.radCalSelect_Stylish,
+.radCalWeekendSelect_Stylish
+{
+	background: #f2f1e7 url(Img/selectBg.gif);
+}
+
+.otherMonth_Stylish
+{
+	color: #cfcecb !important;
+	border-bottom: solid 1px #e1ddd4;
+	background: #f2f1e7;
+}
+
+.otherMonth_Stylish a
+{
+	color: #cfcecb !important;
+	/*border-bottom: solid 1px #e1ddd4;*/
+	background: #f2f1e7;
+	text-decoration: none !important;
+}
+
+.outOfRange_Stylish
+{
+	background: #f2f1e7;
+	color: #cfcecb !important;
+	border-bottom: solid 1px #e1ddd4;
+}
+
+.titlebar_Stylish
+{
+	color: #d9d9d9;
+	font-weight: bold;
+	font-size: 12px;
+	background-color: transparent;
+}
+
+.DaysOfWeek_Stylish
+{
+	color: black !important;
+	font-weight: bold !important;
+	line-height 32px !important;
+	_line-height: 34px !important;
+}
+
+.MonthYearFastNav_Stylish
+{
+	border: solid 1px #6a797b;
+	background: #f2f1e7;
+	font: normal 10px Arial, Verdana, Sans-serif;
+	color:	black;
+	border-collapse: collapse;
+	filter: progid:DXImageTransform.Microsoft.Shadow(direction=140,color=#666666,strength=3);
+}
+
+.MonthYearFastNav_Stylish td
+{
+	text-align: center;
+	vertical-align: middle;
+	border-bottom: 1px solid #6a797b;
+	cursor: hand;
+	padding: 4px;
+}
+
+.MonthYearFastNav_Stylish td.selected_Stylish
+{
+	background-color: #6a797b;
+	color: white;
+}
+
+.MonthYearFastNav_Stylish td.bottom_Stylish
+{
+	text-align: center;
+}
+
+.MonthYearFastNav_Stylish td input
+{
+	background: transparent url(Img/MonthYearFastNavBtnBg.gif) repeat-x;
+	font: normal 10px Arial, Verdana, Sans-serif;
+	color: #000000;
+	border-top: solid 1px #6a797b;
+	border-left: solid 1px #6a797b;
+	border-right: solid 1px #6a797b;
+	border-bottom: solid 1px #6a797b;
+	float: left;
+	margin-right: 1px;
+}
+
+.radPopupImage_Stylish img
+{
+	vertical-align: middle;
+	_vertical-align: top; /* IE fix */	
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: -1px; /* IE margins fix */
+	_margin-top: 0px; 
+	border-width: 0px;
+}
+
+.radDisabled_Stylish img
+{
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}

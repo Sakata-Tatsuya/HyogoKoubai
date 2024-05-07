@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PassChangeForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.PassChangeForm" %>
 <%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>
-<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" >
@@ -10,11 +10,11 @@
     
     <script type="text/javascript">
     
-   function Load()
-   {
-       $("TbxPass").focus();
-   }
-   function $(id)
+    function Load()
+    {
+        document.getElementById("TbxPass").focus();
+    }
+    function $(id)
     {
         return document.getElementById(id);
     }    
@@ -25,8 +25,8 @@
     function OnRequestStart(sender, args)
     {
         var img1 = document.getElementById("Img1");
-        img1.style.display = "";    		
-    }	
+        img1.style.display = "";
+    }
 	function OnResponseEnd(sender, args)
 	{
         var img1 = document.getElementById("Img1");
@@ -34,7 +34,7 @@
 	}
 	function Check()
 	{   
-	    var tbxPass = $('TbxPass');
+	    var tbxPass = document.getElementById('TbxPass');
 	    if(tbxPass.value == "")
 	    {
 	        alert("パスワードを入力して下さい");
@@ -52,7 +52,7 @@
 	   　   tbxPass.focus();
 	        return;
 	   　}
-	    var tbxPass2 = $("TbxPass2");
+	    var tbxPass2 = document.getElementById("TbxPass2");
 	    if(tbxPass2.value == "")
 	    {
 	        alert("確認用パスワードを入力して下さい");
@@ -78,7 +78,7 @@
 	    function HankakuChk(tbxId, objName)
         {
             var count = 0;
-            var val = $(tbxId).value;
+            var val = document.getElementById(tbxId).value;
            
             for( var i = 0; i < val.length; i++ )
             {
@@ -136,9 +136,9 @@
                     <input id="BtnT" runat="server" type="button" value="変更登録" class="mt20 bg98" /></td>
             </tr>
         </table>    
-        <rada:radajaxmanager id="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+        <telerik:radajaxmanager id="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </rada:radajaxmanager>
+        </telerik:radajaxmanager>
     </form>
 </body>
 </html>

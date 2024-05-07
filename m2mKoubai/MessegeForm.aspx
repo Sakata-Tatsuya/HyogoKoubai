@@ -9,14 +9,14 @@
     function $(id)
     {
         return document.getElementById(id);
-    }      
+    }
     function Close() 
-    {               
-        window.close();       
-    }             
+    {
+        window.close();
+    }
     function Touroku()
     {
-        var msg = $("TbxMsg").value;
+        var msg = document.getElementById("TbxMsg").value;
         if (msg == "")
         {
             alert("メッセージを入力して下さい");
@@ -27,19 +27,19 @@
             alert("メッセージは100文字以内で入力して下さい");
             return;
         }
-        if (confirm($('BtnT').value+"しますか？"))
+        if (confirm(document.getElementById('BtnT').value+"しますか？"))
         {          
-            $('BtnReg').click();
+            document.getElementById('BtnReg').click();
         }
     }   
     function Clear()
     {
-        $('TbxMsg').value = "";
-        $('TbxMsg').focus();
+        document.getElementById('TbxMsg').value = "";
+        document.getElementById('TbxMsg').focus();
     } 
     function OnLoad(loadFlg)
     {           
-        $('TbxMsg').focus();
+        document.getElementById('TbxMsg').focus();
         if (window.opener != null) 
         {        
             if (loadFlg == 1) 

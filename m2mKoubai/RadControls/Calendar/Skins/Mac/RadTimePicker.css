@@ -1,0 +1,72 @@
+.radTimeTableCss_Mac caption
+{
+    display: none;
+}
+
+.radTimeTableCss_Mac 
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	border: solid 1px #e6e6e6;
+	border-collapse: collapse;
+	background: white;
+	cursor: pointer;
+	cursor: default;
+}
+
+.radTimeTableCss_Mac a
+{
+	display: block;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #4c4c4c;
+	line-height: 21px;
+	background: #e6e6e6;
+	padding: 0 2px;
+}
+
+.radTimeOverCss_Mac a
+{
+	background-color: #9e9e9e;
+	color: white;
+}
+
+.radradHeaderCss_Mac
+{
+	font-size: 11px;
+	font-weight: normal;
+	color: black;
+	height: 14px;
+	background: white url('Img/titleBg.gif') repeat-x;
+	border-bottom: solid 1px #e6e6e6;
+}
+
+.radItemCss_Mac a,
+.radAlternatingItemCss_Mac
+{
+    /**/
+}
+
+.radItemCss_Mac a:hover,
+.radAlternatingItemCss_Mac a:hover
+{	
+	/**/
+}
+
+.radPopupImage_Mac img
+{
+	vertical-align: middle;
+	_vertical-align: top; /* IE fix */	
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: -1px; /* IE margins fix */
+	_margin-top: 0px; 
+	border-width: 0px;
+}
+
+.radDisabled_Mac img
+{
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}

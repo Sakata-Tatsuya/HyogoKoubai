@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using Telerik.Web.UI;
 using m2mKoubaiDAL;
 
 namespace m2mKoubai.Order
@@ -201,14 +202,13 @@ namespace m2mKoubai.Order
                 // 発注No
                 //e.Row.Cells[G_CELL_HACCHUU_NO].Text = VsHacchuuNo.ToString();
                 //VsHacchuuNo++;
-                Label lblOrderNo = e.Row.Cells[G_CELL_HACCHU_NO_SHIIRE].FindControl("LblOrderNo") as Label;
+                Label lblOrderNo = e.Row.FindControl("LblOrderNo") as Label;
                 lblOrderNo.Text = VsHacchuuNo.ToString("0000000");
                 VsHacchuuNo++;
 
                 // 納期
-                Telerik.WebControls.RadDatePicker rdp = 
-                    e.Row.Cells[G_CELL_NOUKI_BASHO].FindControl("RdpNouki") as Telerik.WebControls.RadDatePicker;
-                rdp.SharedCalendar = this.SC;
+                RadDatePicker rdp = e.Row.FindControl("RdpNouki") as RadDatePicker;
+                //rdp.SharedCalendar = this.SC;
                 //rdp.SelectedDate = "";
                 if (HidNoukiID.Value != "") this.HidNoukiID.Value += ",";
                 HidNoukiID.Value += rdp.ClientID + "_dateInput_text";
@@ -218,7 +218,7 @@ namespace m2mKoubai.Order
                 {
                     _dtNounyuBasho = NounyuuBashoClass.getM_NounyuuBashoDataTable(Global.GetConnection());
                 }
-                DropDownList ddlBasho = e.Row.Cells[G_CELL_NOUKI_BASHO].FindControl("DdlBasho") as DropDownList;
+                DropDownList ddlBasho = e.Row.FindControl("DdlBasho") as DropDownList;
                 ddlBasho.Items.Add("---");
                 //bool bSelect = false;
                 for (int i = 0; i < _dtNounyuBasho.Rows.Count; i++)
@@ -231,7 +231,7 @@ namespace m2mKoubai.Order
                 }
 
                 // 備考
-                TextBox tbxBikou = e.Row.Cells[G_CELL_BIKOU].FindControl("TbxBikou") as TextBox;
+                TextBox tbxBikou = e.Row.FindControl("TbxBikou") as TextBox;
                 if (dr != null)
                 {
                     tbxBikou.Text = dr.Bikou;
@@ -242,7 +242,7 @@ namespace m2mKoubai.Order
                 //tbxBikou.Attributes.Add("style", "OVERFLOW: hidden;");
 
                 // 仕入先
-                DropDownList ddlShiire = e.Row.Cells[G_CELL_HACCHU_NO_SHIIRE].FindControl("DdlShiire") as DropDownList;
+                DropDownList ddlShiire = e.Row.FindControl("DdlShiire") as DropDownList;
                 if (!bSetShiireFlg)
                 {                
                     if (_dtShiire == null)
@@ -318,7 +318,7 @@ namespace m2mKoubai.Order
                 if (ddlKubun.SelectedIndex > 0)
                 {
                     // 区分が選択されている場合のみ
-                    DropDownList ddlBuhinMei = e.Row.Cells[G_CELL_BUHIN_KUBUN_MEI].FindControl("DdlBuhin") as DropDownList;
+                    DropDownList ddlBuhinMei = e.Row.FindControl("DdlBuhin") as DropDownList;
                     ddlBuhinMei.Attributes["onchange"] = string.Format("BuhinChange('{0}');", nRowNo);
                     // 部品プルダウンの作成
                     ListSet.SetddlBuhin_KubunBetsu(ddlBuhinMei, ddlShiire.SelectedValue, ddlKubun.SelectedValue);
@@ -333,10 +333,10 @@ namespace m2mKoubai.Order
                             BuhinDataSet_S.V_BuhinInfoRow drBuhinInfo =
                                 BuhinClass_S.getV_BuhinInfoRow(dr.BuhinCode, Global.GetConnection());
                             // ロット数
-                            Label lblLot = e.Row.Cells[G_CELL_LOT_TANKA].FindControl("LblLot") as Label;
+                            Label lblLot = e.Row.FindControl("LblLot") as Label;
                             if (drBuhinInfo.Lot != 0)
                                 lblLot.Text = drBuhinInfo.Lot.ToString();
-                            // 仮単価   追加 09/07/28
+                            // 仮単価
                             HtmlInputCheckBox chkKariTanka = e.Row.FindControl("ChkKariTanka") as HtmlInputCheckBox;
                             if (dr.KariTankaFlg == "0")
                             {
@@ -348,20 +348,20 @@ namespace m2mKoubai.Order
                             }
 
                             // 単価
-                            TextBox tbxTanka = e.Row.Cells[G_CELL_LOT_TANKA].FindControl("TbxTanka") as TextBox;
+                            TextBox tbxTanka = e.Row.FindControl("TbxTanka") as TextBox;
                             tbxTanka.Text = drBuhinInfo.Tanka.ToString("#,##0.00"); 
 
                             // 数量
-                            TextBox tbxSuu = e.Row.Cells[G_CELL_SUURYOU].FindControl("TbxSuu") as TextBox;
+                            TextBox tbxSuu = e.Row.FindControl("TbxSuu") as TextBox;
                             tbxSuu.Text = dr.Suuryou;
                             // 単位
-                            Label lblTani = e.Row.Cells[G_CELL_TANI].FindControl("LblTani") as Label;
+                            Label lblTani = e.Row.FindControl("LblTani") as Label;
                             lblTani.Text = drBuhinInfo.Tani;
 
                             if (drBuhinInfo.LT_Suuji != 0 && drBuhinInfo.LT_Tani != 0)
                             {
                                 // リードタイム                                
-                                Label lblLT = e.Row.Cells[G_CELL_TANI].FindControl("LblLT") as Label;
+                                Label lblLT = e.Row.FindControl("LblLT") as Label;
                                 lblLT.Text = drBuhinInfo.LT_Suuji + AppCommon.LT_Tani(drBuhinInfo.LT_Tani);
 
                                 // 納期
@@ -372,7 +372,7 @@ namespace m2mKoubai.Order
                         else if (dr.BuhinCode != "")
                         {
                             // ロット数
-                            Label lblLot = e.Row.Cells[G_CELL_LOT_TANKA].FindControl("LblLot") as Label;
+                            Label lblLot = e.Row.FindControl("LblLot") as Label;
                             lblLot.Text = dr.Lot;
                             // 仮単価   追加 09/07/28
                             HtmlInputCheckBox chkKariTanka = e.Row.FindControl("ChkKariTanka") as HtmlInputCheckBox;
@@ -390,18 +390,18 @@ namespace m2mKoubai.Order
                             //TextBox tbxTanka = e.Row.Cells[G_CELL_LOT_TANKA].FindControl("TextBox") as Label;
                             //tbxTanka.Text = dr.Tanka;
 
-                            TextBox tbxTanka = e.Row.Cells[G_CELL_LOT_TANKA].FindControl("TbxTanka") as TextBox;
+                            TextBox tbxTanka = e.Row.FindControl("TbxTanka") as TextBox;
                             tbxTanka.Text = dr.Tanka;
                            
                             // 数量
-                            TextBox tbxSuu = e.Row.Cells[G_CELL_SUURYOU].FindControl("TbxSuu") as TextBox;
+                            TextBox tbxSuu = e.Row.FindControl("TbxSuu") as TextBox;
                             tbxSuu.Text = dr.Suuryou;                     
                             // 単位
-                            Label lblTani = e.Row.Cells[G_CELL_TANI].FindControl("LblTani") as Label;
+                            Label lblTani = e.Row.FindControl("LblTani") as Label;
                             lblTani.Text = dr.Tani;
 
                             // リードタイム                                
-                            Label lblLT = e.Row.Cells[G_CELL_TANI].FindControl("LblLT") as Label;
+                            Label lblLT = e.Row.FindControl("LblLT") as Label;
                             lblLT.Text = dr.LT;
 
                             // 納期
@@ -474,12 +474,12 @@ namespace m2mKoubai.Order
             else if (e.Row.RowType == DataControlRowType.Header)
             {
                 // 削除チェック
-                HtmlInputCheckBox chkH = e.Row.Cells[G_CELL_SAKUJO].FindControl("ChkH") as HtmlInputCheckBox;
+                HtmlInputCheckBox chkH = e.Row.FindControl("ChkH") as HtmlInputCheckBox;
                 chkH.Attributes["onclick"] = "DelChk(this.checked)";
             }
         }        
 
-        protected void Ram_AjaxRequest(object sender, Telerik.WebControls.AjaxRequestEventArgs e)
+        protected void Ram_AjaxRequest(object sender, Telerik.Web.UI.AjaxRequestEventArgs e)
         {
             this.Ram.AjaxSettings.Clear();
 
