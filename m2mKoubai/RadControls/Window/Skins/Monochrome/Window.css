@@ -88,7 +88,7 @@ iframe.RadWContentFrame
 	height: 100%;
 	vertical-align: middle;
 	text-align: center;	
-	font: normal 11px Verdana, Arial, Tahoma, Sans-Serif;
+	font: normal 11px Verdana, Arial, Meiryo UI, Sans-Serif;
 	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=99); /* IE */
 }
 

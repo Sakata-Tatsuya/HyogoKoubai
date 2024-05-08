@@ -196,8 +196,7 @@ namespace m2mKoubai
         /// <param name="nBuhinKubun"></param>
         public static void SetddlBuhin_KubunBetsu(DropDownList ddl, string strShiiresakiCode, string strKubun)
         {
-            BuhinDataSet_S.V_BuhinCodeMeiDataTable dt = 
-                BuhinClass_S.getV_BuhinCodeMeiDataTable(strShiiresakiCode, strKubun, Global.GetConnection());
+            BuhinDataSet_S.V_BuhinCodeMeiDataTable dt = BuhinClass_S.getV_BuhinCodeMeiDataTable(strShiiresakiCode, strKubun, Global.GetConnection());
             ddl.Items.Clear();
             ddl.Items.Add(new ListItem("---", ""));
             for (int i = 0; i < dt.Rows.Count; i++)

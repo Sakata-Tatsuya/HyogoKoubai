@@ -44,7 +44,7 @@ Parameters provided to the template
 		<style>
 				body
 				{
-					font: normal 11px Verdana, Tahoma, Arial, Sans-serif;
+					font: normal 11px Verdana, Meiryo UI, Arial, Sans-serif;
 					overflow: hidden;
 					background: #fdfdf8;	
 				}
@@ -55,7 +55,7 @@ Parameters provided to the template
 					width: 91px;
 					height: 22px;
 					color: #a0a287;
-					font: normal 11px Verdana, Tahoma, Arial, Sans-serif;
+					font: normal 11px Verdana, Meiryo UI, Arial, Sans-serif;
 				}
 				.FixedDiv
 				{	
@@ -100,7 +100,7 @@ Parameters provided to the template
 			<style>
 			body
 			{
-				font: normal 11px Verdana, Tahoma, Arial, Sans-serif;			
+				font: normal 11px Verdana, Meiryo UI, Arial, Sans-serif;			
 				overflow: hidden;
 				background: #fdfdf8;	
 			}
@@ -111,7 +111,7 @@ Parameters provided to the template
 				width: 91px;
 				height: 22px;
 				color: #a0a287;
-				font: normal 11px Verdana, Tahoma, Arial, Sans-serif;
+				font: normal 11px Verdana, Meiryo UI, Arial, Sans-serif;
 				margin: 2px;			
 			}
 			.FixedDiv
@@ -132,7 +132,7 @@ Parameters provided to the template
 			}	
 			.promptTxtBox
 			{
-				font: normal 11px Verdana, Tahoma, Arial, Sans-serif;	
+				font: normal 11px Verdana, Meiryo UI, Arial, Sans-serif;	
 				margin-top: 5px;
 				border: solid 1px #d7df32;
 				width: 183px;
@@ -172,7 +172,7 @@ Parameters provided to the template
 			<style>
 			body
 			{
-				font: normal 11px Verdana, Tahoma, Arial, Sans-serif;	
+				font: normal 11px Verdana, Meiryo UI, Arial, Sans-serif;	
 				overflow: hidden;
 				background: #fdfdf8;	
 			}
@@ -183,7 +183,7 @@ Parameters provided to the template
 				width: 91px;
 				height: 22px;
 				color: #a0a287;
-				font: normal 11px Verdana, Tahoma, Arial, Sans-serif;
+				font: normal 11px Verdana, Meiryo UI, Arial, Sans-serif;
 				margin: 2px;			
 			}
 			.FixedDiv

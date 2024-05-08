@@ -163,7 +163,7 @@ iframe.RadWContentFrame
 {
 	text-align: left;
 	height: 21px;
-	font-family: Verdana, Arial, Tahoma;
+	font-family: Verdana, Arial, Meiryo UI;
 	font-size: medium; /* make sure you always set a value */
 	color: #fff;
 	background: #c4c4c4 url('CssImg/RadWWrapperHeaderCenter.png') repeat-x bottom;

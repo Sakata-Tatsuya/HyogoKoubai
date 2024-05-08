@@ -72,8 +72,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static BuhinDataSet_S.V_BuhinKubunDataTable
-            getV_BuhinKubunDataTable(string strShiireCode, SqlConnection sqlConn)
+        public static BuhinDataSet_S.V_BuhinKubunDataTable getV_BuhinKubunDataTable(string strShiireCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -93,15 +92,14 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static BuhinDataSet_S.V_BuhinCodeMeiDataTable
-            getV_BuhinCodeMeiDataTable(string strShiiresakiCode, string strKubun, SqlConnection sqlConn)
+        public static BuhinDataSet_S.V_BuhinCodeMeiDataTable getV_BuhinCodeMeiDataTable(string strShiiresakiCode, string strKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
             "SELECT          BuhinCode, BuhinMei "
             + "FROM            M_Buhin "
-            + "WHERE           (BuhinKubun = @BuhinKubun) AND (ShiiresakiCode1 = @ShiiresakiCode) OR "
-            + "(BuhinKubun = @BuhinKubun) AND (ShiiresakiCode2 = @ShiiresakiCode)";            
+            + "WHERE           (BuhinKubun = @BuhinKubun AND ShiiresakiCode1 = @ShiiresakiCode) OR "
+            + "(BuhinKubun = @BuhinKubun AND ShiiresakiCode2 = @ShiiresakiCode)";            
             da.SelectCommand.Parameters.AddWithValue("@BuhinKubun", strKubun);
             da.SelectCommand.Parameters.AddWithValue("@ShiiresakiCode", strShiiresakiCode);            
             BuhinDataSet_S.V_BuhinCodeMeiDataTable dt = new BuhinDataSet_S.V_BuhinCodeMeiDataTable();

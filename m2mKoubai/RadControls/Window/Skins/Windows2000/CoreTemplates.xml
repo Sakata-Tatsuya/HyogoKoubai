@@ -44,7 +44,7 @@ Parameters provided to the template
 		body
 		{
 			background: #d4d0c8;				
-			font: normal 12px Tahoma;
+			font: normal 12px Meiryo UI;
 			overflow: hidden;
 		}
 		
@@ -53,12 +53,12 @@ Parameters provided to the template
 			width: 80px;
 			height: 21px;	
 			margin: 2px;
-			font: normal 12px Tahoma;
+			font: normal 12px Meiryo UI;
 		}
 		
 		.FixedDiv
 		{
-			font: normal 12px Tahoma;
+			font: normal 12px Meiryo UI;
 			margin: 3px;	
 			color: black;
 			text-align: center;
@@ -86,7 +86,7 @@ Parameters provided to the template
 			body
 			{
 				background: #d4d0c8;				
-				font: normal 12px Tahoma;
+				font: normal 12px Meiryo UI;
 				overflow: hidden;
 			}
 			
@@ -99,7 +99,7 @@ Parameters provided to the template
 			
 			.FixedDiv
 			{
-				font: normal 12px Tahoma;
+				font: normal 12px Meiryo UI;
 				margin: 3px;
 				color: black;
 				text-align: center;
@@ -133,7 +133,7 @@ Parameters provided to the template
 			body
 			{
 				background: #d4d0c8;				
-				font: normal 12px Tahoma;
+				font: normal 12px Meiryo UI;
 				overflow: hidden;
 			}
 			
@@ -142,12 +142,12 @@ Parameters provided to the template
 				width: 80px;
 				height: 21px;
 				margin: 2px;
-				font: normal 12px Tahoma;		
+				font: normal 12px Meiryo UI;		
 			}
 			
 			.FixedDiv
 			{
-				font: normal 12px Tahoma;
+				font: normal 12px Meiryo UI;
 				margin: 3px;
 				color: black;
 				text-align: center;

@@ -66,7 +66,7 @@
         }
         function CreateMeisai(bSakujo, bTouroku)
         {
-            var meisai = '';            
+            var meisai = '';
             //var bErr = false;
             var noukiAry = document.getElementById('HidNoukiID').value.split(',');
             
@@ -158,15 +158,15 @@
 //                        return '';
 //                    }
                     else if (!CheckDecimal(tbxTanka.value))
-                    {      
-                        tbxTanka.focus();        
+                    {
+                        tbxTanka.focus();
                         return '';
                     }
                     if (suu == '')
                     {
                         alert('数量を入力して下さい');
                         return '';
-                    } 
+                    }
                     else if(suu == '0')
                     {
                         alert('数量を0以上で入力して下さい');
@@ -181,13 +181,13 @@
                     {
                         alert('納期を入力して下さい');
                         return '';
-                    } 
+                    }
                     else
-                    {                  
-                        if (NengappiCheck(nouki) == -1)   
+                    {
+                        if (NengappiCheck(nouki) == -1)
                         {
                             return '';
-                        }                  
+                        }
                     }
                     if (bashoCode == '')
                     {
@@ -200,10 +200,10 @@
                         tbxBikou.focus();
                         return '';
                     }
-                }           
-                if (meisai != '') meisai += '\t';             
+                }
+                if (meisai != '') meisai += '\t';
                 meisai += shiireCode +'|'+ buhinKubun +'|'+ buhinCode +'|'+ lot +'|'+ tanka +'|'+ suu +'|'+ tani +'|'+ leadTime +'|'+ nouki +'|'+ bashoCode +'|'+ bikou + '|' + kariTankaFlg;
-            }        
+            }
             if (bTouroku && meisai == '')
             {
                 alert('発注内容を入力して下さい');
@@ -211,25 +211,26 @@
             }
             return meisai; 
         }
+
         function CheckDecimal(deci)
-	    {	
+	    {
 	        if (deci == '')
 	        {
 	            return true;
 	        }
 	        else
-	        {	  
+	        {
 	            if (deci.match( /[^0-9.,]/ ) != null)
 	            {
 	                alert('単価の入力値が正しくありません');
 	                return false;
-	            }                	        
+	            }
 	            var deciAry = deci.split('.');
 	            if (deciAry.length > 2)
 	            {
 	                alert('小数点は1つだけ入力可能です');
 	                return false;
-	            }        
+	            }
 	            if (deciAry.length == 2 && (deciAry[0].length == 0 || deciAry[1].length == 0))
 	            {
 	                alert('単価の入力値が正しくありません');
@@ -249,19 +250,19 @@
 //	            {
 //	                alert('単価は0以上で入力して下さい');
 //	                return false;
-//	            }      	             
+//	            }
 		        return true;
 		    }
 	    }
         // 年月日チェック(true = retunr日付, false = return -1)
 	    function NengappiCheck(nengappi)
-	    {	 
-	        if (nengappi.length == 0)	
+	    {
+	        if (nengappi.length == 0)
 	        {
 	            alert("日付を入力して下さい");
                 return -1;     
             }
-                    
+            
             var nen = nengappi.match(/(\d{1,4})\/(\d{1,2})\/(\d{1,2})/);
             if (nen == null)
             {
@@ -468,14 +469,10 @@
                             <HeaderTemplate>
                                 <table class="col" frame="void" width="100%">
                                     <tr>
-                                        <td class="tc nw s1">
-                                            発注No
-                                        </td>
+                                        <td class="tc nw s1">発注No</td>
                                     </tr>
                                     <tr>
-                                        <td class="tc nw">
-                                            仕入先
-                                        </td>
+                                        <td class="tc nw">仕入先</td>
                                     </tr>
                                 </table>
                             </HeaderTemplate>
@@ -488,8 +485,8 @@
                                     </tr>
                                     <tr>
                                         <td class="tl hei25">
-                                            <asp:DropDownList ID="DdlShiire" runat="server">
-                                            </asp:DropDownList>
+                                            <asp:DropDownList ID="DdlShiire" runat="server"></asp:DropDownList>
+<%--                                            <asp:DropDownList ID="DdlShiire" runat="server" OnSelectedIndexChanged="DdlShiire_SelectedIndexChanged"></asp:DropDownList>--%>
                                         </td>
                                     </tr>
                                 </table>
@@ -583,6 +580,20 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
+                            <HeaderTemplate>
+                                <table class="col" frame="void" width="100%">
+                                    <tr>
+                                        <td class="tc s1">
+                                            納期
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tc">
+                                            納入場所
+                                        </td>
+                                    </tr>
+                                </table>
+                            </HeaderTemplate>
                             <ItemTemplate>
                                 <table align="center" class="col" frame="void" width="100%">
                                     <tr>
@@ -604,20 +615,6 @@
                                 </table>
                             </ItemTemplate>
                             <ItemStyle CssClass="tc" />
-                            <HeaderTemplate>
-                                <table class="col" frame="void" width="100%">
-                                    <tr>
-                                        <td class="tc s1">
-                                            納期
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tc">
-                                            納入場所
-                                        </td>
-                                    </tr>
-                                </table>
-                            </HeaderTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="備考（200文字以内）">
                             <ItemTemplate>
@@ -661,5 +658,5 @@
         <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
     </telerik:RadAjaxManager>
     </form>
-</body>
+<%--</body>--%>
 </html>

@@ -26,7 +26,7 @@
 
 .MasterTable_Brick
 {
-	border:1px !important;
+	border:0px !important;
 	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
 }
 .GridHeader_Brick

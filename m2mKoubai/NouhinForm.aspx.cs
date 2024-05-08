@@ -53,16 +53,10 @@ namespace m2mKoubai
                 DdlYear.Items.Add(nYear.ToString());
                 // 今年を選択する
                 DdlYear.SelectedValue = dtNow.Year.ToString();
-
-
-
                 //ListSet.SetYear(DdlYear);
                 // 最初は非表示
                 this.ShowTblMain(false);
 
-
-                ///2013/05 納期手動修正機能追加
-                ///
                 this.RdpDay.SelectedDate = DateTime.Today;
 
             }

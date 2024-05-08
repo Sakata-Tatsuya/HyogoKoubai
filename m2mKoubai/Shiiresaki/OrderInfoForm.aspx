@@ -154,28 +154,28 @@
        }
     }
     function Reload()
-    {        
-        AjaxRequest('reload', '');    
+    {
+        AjaxRequest('reload', '');
     }
     function Kensaku()
     {
 	    AjaxRequest('kensaku', '');
-    }   
+    }
     function RowChange()
     {
 	    AjaxRequest('row', '');
-    }   
+    }
     function PageChange(pageIndex)
     {
 	    AjaxRequest('page', pageIndex);
-    }   
+    }
     function OnBuhin()
     {
         AjaxRequest('ddlBuhin', '');
     }
     function Shounin(strKey)
     {
-        if (confirm('承認しますか？'))            
+        if (confirm('承認しますか？'))
         {
             AjaxRequest('shounin', strKey);
         }
@@ -185,9 +185,9 @@
         document.getElementById("Img1").style.display = '';		
 	}
 	function OnResponseEnd(sender, args)
-    { 
+    {
         var cmd = args.EventArgument.substring(0, args.EventArgument.indexOf(":"));
-        var param = args.EventArgument.substring(args.EventArgument.indexOf(":") + 1);  
+        var param = args.EventArgument.substring(args.EventArgument.indexOf(":") + 1);
         switch(cmd)
         {
             case "nyuryoku_open":
@@ -200,11 +200,11 @@
                 {
                     alert('error');
                     return;
-                }      
+                }
                 
                 for(var i = 0; i < cn_array.length; i++)
                 {
-                    var index = GetIndex(cn_array[i]);	               
+                    var index = GetIndex(cn_array[i]);
                     g.rows(index + 1).cells(<%=cell_index %>).innerHTML = div.children[i].innerHTML;
                 }     
                 div.innerHTML = '';
@@ -284,9 +284,9 @@
 	        if (hidData.value == "") return [];   
 	        	
 	        var arrayKey = hidDataKey.value.split(separatorKey);
-	        var arrayData = hidData.value.split(separatorData);     
+	        var arrayData = hidData.value.split(separatorData);
 	       
-	        var index = -1;	    
+	        var index = -1;
 	        for(var i = 0; i < arrayKey.length; i++) 
 	        {  
 		        if (key == arrayKey[i]) 
@@ -312,7 +312,7 @@
             
             document.getElementById("Img1").style.display = '';    
            
-            <%=Ram.ClientID%>.AjaxRequest('nyuryoku_open' + ':' + cn_jk);            
+            <%=Ram.ClientID%>.AjaxRequest('nyuryoku_open' + ':' + cn_jk);
         }
         
         
@@ -322,19 +322,19 @@
             var g = document.getElementById('G');
            
             for (var i = 1; i < g.rows.length; i++)
-            {  
+            {
                 var btn = g.rows.item(i).cells.item(nBtnCell).lastChild;
-                btn.visible = true;                
-            }    
-                           
+                btn.visible = true;
+            }
+            
             AjaxRequest('nyuryoku_close', cn);
         }
         function AjaxRequest(command_name, arg)
 	    {
-		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		   
+		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
 	    }
 	    function NKM_Touroku(btn, cn_jk,_nk,_su,_kn)
-	    {	    
+	    {
 	        NKC_REG(cn_jk);
 	    }
 	    function NKC_REG(cnjk_arg)
@@ -343,7 +343,7 @@
 	        
 	        if (null == cnjk_arg)
 	        {
-	            nkd_array = GetDataArray2('KaitouNoukiData');            
+	            nkd_array = GetDataArray2('KaitouNoukiData');
 	        }
 	        else
 	        {

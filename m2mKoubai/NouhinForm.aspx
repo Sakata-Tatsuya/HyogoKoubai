@@ -20,7 +20,7 @@
         if(tbx != null)
         {
             tbx.focus();
-        } 
+        }
     }
     function AjaxRequest(command_name, arg)
     {
@@ -34,7 +34,7 @@
             alert("発注Noを入力してください");
             tbx.focus();
             return;
-        }        
+        }
         if(!CheckSuu(tbx, '発注No'))
         {
             return;
