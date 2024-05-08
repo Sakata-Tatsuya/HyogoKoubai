@@ -12,7 +12,7 @@ using m2mKoubaiDAL;
 
 namespace m2mKoubai.Shiiresaki
 {
-    public partial class OrderInfoForm : Core.Web.ServerViewStatePage
+    public partial class OrderInfoForm : System.Web.UI.Page
     {
         private const int G_CELL_HACCHUUSYO = 0;
         private const int G_CELL_NOUHINPYOU = 1;

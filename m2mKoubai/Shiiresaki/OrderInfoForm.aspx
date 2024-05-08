@@ -19,7 +19,7 @@
     }   
     function AjaxRequest(command_name, arg)
 	{
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
+        <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
 	}
 	function HacchuuNo(key, hacchuuNo)
     {
@@ -59,7 +59,7 @@
                 return false;
             }
             document.getElementById('HidKey').value = hidPrintKey;
-            NewForm.action = "../Denpyou/HacchuushoForm.aspx";
+            NewForm.action = "../Denpyou/HacchuushoForm";
             NewForm.target = "_hacchuusho";
             OpenWinPost("_hacchuusho",800,600,',menubar=yes');
         }
@@ -182,19 +182,19 @@
     }
     function OnRequestStart(sender, args)
 	{
-        document.getElementById("Img1").style.display = '';		
+        document.getElementById("Img1").style.display = '';
 	}
 	function OnResponseEnd(sender, args)
     {
+        document.getElementById('Img1').style.display = 'none';
         var cmd = args.EventArgument.substring(0, args.EventArgument.indexOf(":"));
         var param = args.EventArgument.substring(args.EventArgument.indexOf(":") + 1);
         switch(cmd)
         {
             case "nyuryoku_open":
-                
                 var g = document.getElementById('G');
-                var cn_array = param.split('\t');	                
-                var div = document.getElementById('DivNoukiKaitou');          
+                var cn_array = param.split('\t');
+                var div = document.getElementById('DivNoukiKaitou');
                 
                 if(div.children.length != cn_array.length)
                 {
@@ -205,8 +205,8 @@
                 for(var i = 0; i < cn_array.length; i++)
                 {
                     var index = GetIndex(cn_array[i]);
-                    g.rows(index + 1).cells(<%=cell_index %>).innerHTML = div.children[i].innerHTML;
-                }     
+                    g.rows[index + 1].cells[<%=cell_index %>].innerHTML = div.children[i].innerHTML;
+                }
                 div.innerHTML = '';
                 break;
             
@@ -218,9 +218,8 @@
                
                 var cn_array = param.split("\t");
                 
-                var hid_current_array = document.getElementById('TbxKaitouNouki').value.split("\t"); 
-                var hid_current_array2 = document.getElementById('TbxShiteiNouki').value.split("\t"); 
-                
+                var hid_current_array = document.getElementById('TbxKaitouNouki').value.split("\t");
+                var hid_current_array2 = document.getElementById('TbxShiteiNouki').value.split("\t");
               
                 if(hid_current_array.length != cn_array.length)
                 {
@@ -231,33 +230,26 @@
                 for(var i = 0; i < cn_array.length; i++)
                 {
                     var index = GetIndex(cn_array[i]);
-                    g.rows(index + 1).cells(<%=cell_index %>).innerHTML = hid_current_array[i] + "<br>" + hid_current_array2[i];  
-                    
-                } 
-               
+                    g.rows[index + 1].cells[<%=cell_index %>].innerHTML = hid_current_array[i] + "<br>" + hid_current_array2[i];
+                }
                 break;
+
             case "nyuryoku_add_row":
             case "nyuryoku_del_row":
                 var g = document.getElementById('G');
                 var div = document.getElementById('DivNoukiKaitou');
                 var index = GetIndex(param);
-                g.rows(index + 1).cells(<%=cell_index %>).innerHTML = div.innerHTML;
+                g.rows[index + 1].cells[<%=cell_index %>].innerHTML = div.innerHTML;
                 div.innerHTML = '';
                 break;
            case "nouki_kaitou_reg":
            case "shiteinouki_reg":
-                break;     
-                      
+                break;
+        
         }
-        
-          document.getElementById('Img1').style.display = 'none';
-        
-        
-    }  
+    }
 
-  
-　　
-      function GetIndex(cn)
+        function GetIndex(cn)
 	    {
 		    var a = GetDataArray('C');  // key 'C'に紐づくデータは「注文番号_情報区分コード」のCSV形式データ
 		   
@@ -280,8 +272,8 @@
         // Keyに対応するデータを配列として返す
         function Core_GetDataArray(key, hidDataKey, hidData, separatorKey, separatorData, bErrorNotFoundKey)
         {
-            if (null == hidData) return [];	        
-	        if (hidData.value == "") return [];   
+            if (null == hidData) return [];
+	        if (hidData.value == "") return [];
 	        	
 	        var arrayKey = hidDataKey.value.split(separatorKey);
 	        var arrayData = hidData.value.split(separatorData);
@@ -306,19 +298,15 @@
 	        return arrayData[index].split(",");
         }
 
-       
         function YN(cn_jk)
         {
-            
-            document.getElementById("Img1").style.display = '';    
-           
+            document.getElementById("Img1").style.display = '';
             <%=Ram.ClientID%>.AjaxRequest('nyuryoku_open' + ':' + cn_jk);
         }
         
-        
         function NKM_Close(cn)
         {
-           var nBtnCell = <%=cell_index %>;
+            var nBtnCell = <%=cell_index %>;
             var g = document.getElementById('G');
            
             for (var i = 1; i < g.rows.length; i++)
@@ -399,7 +387,7 @@
                     {
                          alert("納期を入力してください");
                          return;
-                    }                 
+                    }
                     if('' == s)
                     {
                          alert("数量を入力してください");
@@ -986,11 +974,25 @@
                     <input id="HidChkID_G" runat="server" type="hidden" />
                     </td>                   
             </tr>
-            <tr><td><div id="DivNoukiKaitou" runat="server"></div></td></tr>
+            <tr>
+                <td>
+                    <div id="DivNoukiKaitou" runat="server"></div>
+                </td>
+            </tr>
         </table>
      
         <telerik:RadCalendar ID="SC" runat="server" Skin="Web20">
         </telerik:RadCalendar>
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
+                </asp:ScriptReference>
+            </Scripts>
+        </telerik:RadScriptManager>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>    

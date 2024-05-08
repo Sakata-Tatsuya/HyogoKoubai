@@ -156,7 +156,7 @@
                     for(var i = 0; i < cn_array.length; i++)
                     {
                         var index = GetIndex(cn_array[i]);
-                        g.rows[index + 1].cells[<%=cell_index %>].innerHTML = hid_current_array[i];  
+                        g.rows[index + 1].cells[<%=cell_index %>].innerHTML = hid_current_array[i];
                     }
                    
                     break;
