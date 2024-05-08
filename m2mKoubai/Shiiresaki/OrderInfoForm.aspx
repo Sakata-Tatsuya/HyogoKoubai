@@ -301,7 +301,7 @@
         function YN(cn_jk)
         {
             document.getElementById("Img1").style.display = '';
-            <%=Ram.ClientID%>.AjaxRequest('nyuryoku_open' + ':' + cn_jk);
+            <%=Ram.ClientID%>.AjaxRequest('nyuryoku_open',cn_jk);
         }
         
         function NKM_Close(cn)
@@ -317,11 +317,8 @@
             
             AjaxRequest('nyuryoku_close', cn);
         }
-        function AjaxRequest(command_name, arg)
-	    {
-		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
-	    }
-	    function NKM_Touroku(btn, cn_jk,_nk,_su,_kn)
+
+      function NKM_Touroku(btn, cn_jk, _nk, _su, _kn)
 	    {
 	        NKC_REG(cn_jk);
 	    }
