@@ -17,7 +17,7 @@ namespace m2mKoubaiDAL
         private static string WhereText(KensakuParam k, SqlCommand cmd)
         {
             Core.Sql.WhereGenerator w = new Core.Sql.WhereGenerator();
-            string str = "";
+            //string str = "";
             // éñã∆èäÉRÅ[Éh
             if (k._Code != "")
                 w.Add(string.Format("T_KaishaInfo.KaishaID = '{0}'", k._Code));

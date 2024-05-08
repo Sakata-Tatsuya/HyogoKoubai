@@ -50,6 +50,80 @@ namespace m2mKoubaiDAL
             public int _JigyoushoKubun = 0;
         }
 
+        public class ChumonMeisai
+        {
+            public bool ChkI
+            {
+                get;
+                set;
+            }
+            public string strHacchuuNo
+            {
+                get;
+                set;
+            }
+            public string strShiiresakiCode
+            {
+                get;
+                set;
+            }
+            public string strBuhinKubun
+            {
+                get;
+                set;
+            }
+            public string strBuhinCode
+            {
+                get;
+                set;
+            }
+            public string strLot
+            {
+                get;
+                set;
+            }
+            public bool ChkKariTanka
+            {
+                get;
+                set;
+            }
+            public string strTanka
+            {
+                get;
+                set;
+            }
+            public string strSuuryou
+            {
+                get;
+                set;
+            }
+            public string strTani
+            {
+                get;
+                set;
+            }
+            public string strLT_Suuji
+            {
+                get;
+                set;
+            }
+            public string strNouki
+            {
+                get;
+                set;
+            }
+            public string strNounyuuBashoCode
+            {
+                get;
+                set;
+            }
+            public string strBikou
+            {
+                get;
+                set;
+            }
+        }
+
 
         // ”­’‚ÌåƒL[
         public class ChumonKey

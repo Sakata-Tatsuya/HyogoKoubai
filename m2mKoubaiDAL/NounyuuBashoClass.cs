@@ -18,7 +18,7 @@ namespace m2mKoubaiDAL
         private static string WhereText(KensakuParam k, SqlCommand cmd)
         {
             Core.Sql.WhereGenerator w = new Core.Sql.WhereGenerator();
-            string str = "";
+            //string str = "";
 
             //
             if (k._BashoCode != "")

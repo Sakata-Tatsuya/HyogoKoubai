@@ -13,21 +13,17 @@ using m2mKoubaiDAL;
 
 namespace m2mKoubai.Order
 {
-    public partial class OrderInputForm : Core.Web.ServerViewStatePage
+    public partial class OrderInputForm : System.Web.UI.Page
     {
         private const int G_CELL_SAKUJO = 0;
         private const int G_CELL_HACCHU_NO_SHIIRE = 1;
-        //private const int G_CELL_SHIIRE = 2;
         private const int G_CELL_BUHIN_KUBUN_MEI = 2;
-        //private const int G_CELL_BUHIN_Mei = 4;
         private const int G_CELL_LOT_TANKA = 3;
         private const int G_CELL_SUURYOU = 4;
         private const int G_CELL_TANI = 5;
         private const int G_CELL_LT = 6;
         private const int G_CELL_NOUKI_BASHO = 7; 
         private const int G_CELL_BIKOU = 8;
-
-        //private const int MAX_HACCHUU_ROW = 5;
 
         // 選択が変更された行No
         private int _RowNo = -1;
@@ -53,7 +49,7 @@ namespace m2mKoubai.Order
                 string str = Convert.ToString(this.ViewState["VsRowCnt"]);
                 if (str == null || str == "")
                 {
-                    // 最初は五行
+                    // 最初は5行
                     return 5;
                 }
                 else
@@ -66,8 +62,6 @@ namespace m2mKoubai.Order
                 this.ViewState["VsRowCnt"] = value;
             }
         }
-
-
 
         private int VsHacchuuNo
         {

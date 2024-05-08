@@ -31,9 +31,7 @@ namespace m2mKoubaiDAL
             {                
                 return (int.Parse(dt.Rows[0]["HacchuuNo"].ToString()));
             }
-
         }
-
 
         /// <summary>
         /// î≠íçìoò^

@@ -1,8 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInputForm.aspx.cs" Inherits="m2mKoubai.Order.OrderInputForm" %>
 
-<%@ Register Assembly="RadInput.Net2" Namespace="Telerik.WebControls" TagPrefix="radI" %>
+<%--<%@ Register Assembly="RadInput.Net2" Namespace="Telerik.WebControls" TagPrefix="radI" %>--%>
 <%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
-<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
+<%--<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>--%>
 <%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <!DOCTYPE html>
@@ -249,7 +249,7 @@
                 alert('発注内容を入力して下さい');
                 return '';
             }
-            return meisai; 
+            return meisai;
         }
 
         function CheckDecimal(deci)
@@ -335,7 +335,7 @@
                 monthChk = 12;
             else
                 monthChk--;
-                        
+            
             day = FormatMonthDay(day);
             // 日の判定
             if (!(day >= 1 && day <= yy[monthChk])) {
@@ -351,7 +351,7 @@
             return (year + "/" + month + "/" + day);
         }
         function FormatMonthDay(monthDay)
-        {   
+        {
             var str = monthDay.toString();
             if (str.length == 1)
             {
@@ -372,7 +372,7 @@
 	            return false;
 	        }
 	        return true;
-	    }	
+	    }
         function DelChk(bool)
         {
             var idAry = document.getElementById('HidChkID').value.split(',');
@@ -394,7 +394,7 @@
             AjaxRequest('BuhinChange', meisai);
         }
         function Touroku()
-        { 
+        {
             var meisai = CreateMeisai(false, true);
             /*
             if (meisai == '')
