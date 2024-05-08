@@ -111,8 +111,7 @@
             NewForm.target = "_hacchuusho";
             OpenWinPost("_hacchuusho",500,600,',menubar=yes');
         }
-        NewForm.submit();                    
-           
+        NewForm.submit();
      }
  
     var win = null;
@@ -128,14 +127,14 @@
         var idAry = document.getElementById('HidChkID_H').value.split(',');
       
         for(var i = 0; i < idAry.length; i++)
-       {         
+       {
            var chk = document.getElementById(idAry[i]);
            chk.checked = bool;
        }
     }
     function ChkAll_N(bool)
-    {      
-        var idAry = document.getElementById('HidChkID_N').value.split(',');    
+    {
+        var idAry = document.getElementById('HidChkID_N').value.split(',');
        
         for(var i = 0; i < idAry.length; i++)
         {
@@ -145,10 +144,10 @@
        }
     }
     function ChkAll_G(bool)
-    {      
-        var idAry = document.getElementById('HidChkID_G').value.split(',');       
+    {
+        var idAry = document.getElementById('HidChkID_G').value.split(',');
         for(var i = 0; i < idAry.length; i++)
-       {          
+       {
            var chk = document.getElementById(idAry[i]);
            chk.checked = bool;
        }
@@ -254,18 +253,18 @@
 		    var a = GetDataArray('C');  // key 'C'に紐づくデータは「注文番号_情報区分コード」のCSV形式データ
 		   
 		    for (var i = 0; i < a.length; i++) 
-		    {		    
+		    {
 			    if (cn == a[i]) 
 			        return i;
 		    }
 		    return -1;
 	    }
-	   function GetDataArray(key)
-	   {	  
-	         return Core_GetDataArray(key,document.getElementById('HidDataKey'), document.getElementById('HidData'), ',', ':', true);
-	   }
+        function GetDataArray(key)
+        {
+ 	        return Core_GetDataArray(key,document.getElementById('HidDataKey'), document.getElementById('HidData'), ',', ':', true);
+        }
 	    function GetDataArray2(key)
-	    {	 	       
+	    {
 		    return Core_GetDataArray(key, document.getElementById('HidDataKey'), document.getElementById('HidData'),',', ':', false);
 	    }	
 
