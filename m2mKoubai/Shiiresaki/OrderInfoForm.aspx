@@ -960,19 +960,18 @@
                 </td>
             </tr>
             <tr>
-                <td >                          
-                     <input id="HidDataKey" runat="server" type="hidden" />
+                <td>
+                    <input id="HidDataKey" runat="server" type="hidden" />
                     <input id="HidData" runat="server" type="hidden" />
                     <input id="HidHenkouNouki" runat="server" type="hidden"  />
                     <asp:TextBox ID="TbxKaitouNouki" runat="server" CssClass="none"></asp:TextBox>
                     <asp:TextBox ID="TbxShiteiNouki" runat="server" CssClass="none"></asp:TextBox>
                     <input id="HidKaitouNouki" runat="server" type="hidden"  />
                     <input id="HidKaitouNoukiArg" runat="server" type="hidden" />
-                   
                     <input id="HidChkID_H" runat="server" type="hidden" />
                     <input id="HidChkID_N" runat="server" type="hidden" />
                     <input id="HidChkID_G" runat="server" type="hidden" />
-                    </td>                   
+                </td>
             </tr>
             <tr>
                 <td>
