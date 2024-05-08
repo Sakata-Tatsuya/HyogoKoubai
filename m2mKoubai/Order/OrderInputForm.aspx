@@ -16,11 +16,17 @@
         {
             return document.getElementById(id);
         }
-        function OnRequestStart() { document.getElementById('Img1').style.display = ''; }
-        function OnResponseEnd() { document.getElementById('Img1').style.display = 'none'; }
+        function OnRequestStart()
+        {
+            //document.getElementById("Img1").style.display = '';
+        }
+        function OnResponseEnd()
+        {
+            //document.getElementById("Img1").style.display = 'none';
+        }
         function AjaxRequest(command_name, arg)
         {
-		    <%=Ram.ClientID %>.AjaxRequest(command_name + ':' + arg);
+            <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
         }
         function RowClear()
         {         
@@ -78,60 +84,94 @@
                 {
                     continue;
                 }
-                
-                var tbl3 = grid.rows.item(i).cells.item(1).firstChild;
-	            var ddlShiire = tbl3.rows.item(1).cells.item(0).firstChild;
+                var cel3 = grid.rows.item(i).cells.item(1).children;
+                var tbl3 = cel3.item(0);
+                //var tbl3 = grid.rows.item(i).cells.item(1).firstChild;
+                //var ddlShiire = tbl3.rows.item(1).cells.item(0).firstChild;
+
+                let ddlShiire = tbl3.rows.item(1).cells.item(0).firstChild.nextSibling;
                 if (ddlShiire.length == 0 || ddlShiire.selectedIndex == 0)
                 {
                     continue;
                 }
                 var shiireCode = ddlShiire.options[ddlShiire.selectedIndex].value;
-                var tbl0 = grid.rows.item(i).cells.item(2).firstChild;
-	            var ddlKubun = tbl0.rows.item(0).cells.item(0).firstChild;
+
+                var cel0 = grid.rows.item(i).cells.item(2).children;
+                var tbl0 = cel0.item(0);
+                //var tbl0 = grid.rows.item(i).cells.item(2).firstChild;
+	            //var ddlKubun = tbl0.rows.item(0).cells.item(0).firstChild;
+                let ddlKubun = tbl0.rows.item(0).cells.item(0).firstChild.nextSibling;
 	            var buhinKubun = '';
                 if (ddlKubun.length > 0 && ddlKubun.selectedIndex > 0)
                 {
                     buhinKubun = ddlKubun.options[ddlKubun.selectedIndex].value;
                 }
-	            var ddlBuhin = tbl0.rows.item(1).cells.item(0).firstChild;
+                console.log('buhinKubun' + buhinKubun);
+
+                //var ddlBuhin = tbl0.rows.item(1).cells.item(0).firstChild;
+                let ddlBuhin = tbl0.rows.item(1).cells.item(0).firstChild.nextSibling;
                 var buhinCode = '';
                 if (ddlBuhin.length > 0 && ddlBuhin.selectedIndex > 0)
                 {
                     buhinCode = ddlBuhin.options[ddlBuhin.selectedIndex].value;
                 }
+                console.log('buhinCode' + buhinCode);
                 
-                var tbl1 = grid.rows.item(i).cells.item(3).firstChild;
-	            var lblLot = tbl1.rows.item(0).cells.item(0).firstChild;
+                var cel1 = grid.rows.item(i).cells.item(3).children;
+                var tbl1 = cel1.item(0);
+                //var tbl1 = grid.rows.item(i).cells.item(3).firstChild;
+	            //var lblLot = tbl1.rows.item(0).cells.item(0).firstChild;
+                let lblLot = tbl1.rows.item(0).cells.item(0).firstChild.nextSibling;
 	            var lot = lblLot.innerText;
+                console.log('lot' + lot);
 	            
 	            var chkKariTanka = tbl1.rows.item(1).cells.item(0).childNodes.item(1);
+                console.log('chkKariTanka' + chkKariTanka);
                 var kariTankaFlg;
                 if (chkKariTanka.checked) { kariTankaFlg = "0"; }
                 else { kariTankaFlg = "1"; }
-                
-	            var tbxTanka = tbl1.rows.item(1).cells.item(0).childNodes.item(3);
+                console.log('kariTankaFlg' + kariTankaFlg);
+
+                var tbxTanka = tbl1.rows.item(1).cells.item(0).childNodes.item(3);
 	            var tanka = tbxTanka.value;
+                console.log('tanka' + tanka);
 
                 var tbxSuu = grid.rows.item(i).cells.item(4).firstChild;
+                console.log('tbxSuu' + tbxSuu);
+                console.log(tbxSuu.value);
                 var suu = tbxSuu.value;
-                
+                console.log('suu' + suu);
+
                 var lblTani = grid.rows.item(i).cells.item(5).firstChild;
                 var tani = lblTani.innerText;
+                console.log('tani' + tani);
                 
                 var lblLT = grid.rows.item(i).cells.item(6).firstChild;
                 var leadTime = lblLT.innerText;
+                console.log('leadTime' + leadTime);
                 
-                var tbl2 = grid.rows.item(i).cells.item(7).firstChild;
-	            var rdpNouki = noukiAry[i-1];
+                var cel2 = grid.rows.item(i).cells.item(7).children;
+                var tbl2 = cel2.item(0);
+                //var tbl2 = grid.rows.item(i).cells.item(7).firstChild;
+                console.log('noukiAry' + noukiAry);
+ 	            var rdpNouki = noukiAry[i-1];
+                console.log('rdpNouki ID' + rdpNouki);
 	            var nouki = document.getElementById(rdpNouki).value;
-	            var ddlBasho = tbl2.rows.item(1).cells.item(0).firstChild;
+                console.log('nouki' + nouki);
+	            //var ddlBasho = tbl2.rows.item(1).cells.item(0).firstChild;
+                let ddlBasho = tbl2.rows.item(1).cells.item(0).firstChild.nextSibling;
+
                 var bashoCode = '';
                 if (ddlBasho.length > 0 && ddlBasho.selectedIndex > 0)
                 {
                     bashoCode = ddlBasho.options[ddlBasho.selectedIndex].value;
                 }
+                console.log('bashoCode' + bashoCode);
+
                 var tbxBikou = grid.rows.item(i).cells.item(8).firstChild;
                 var bikou = tbxBikou.value;
+                console.log('bikou' + bikou);
+
                 if (bTouroku)
                 {
                     if (buhinKubun == '')

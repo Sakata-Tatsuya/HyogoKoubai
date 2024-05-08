@@ -211,7 +211,7 @@ namespace m2mKoubai.Order
                 //rdp.SharedCalendar = this.SC;
                 //rdp.SelectedDate = "";
                 if (HidNoukiID.Value != "") this.HidNoukiID.Value += ",";
-                HidNoukiID.Value += rdp.ClientID + "_dateInput_text";
+                HidNoukiID.Value += rdp.ClientID + "_dateInput";
 
                 // ”[“üêŠ
                 if (_dtNounyuBasho == null)
