@@ -301,7 +301,7 @@
         function YN(cn_jk)
         {
             document.getElementById("Img1").style.display = '';
-            <%=Ram.ClientID%>.AjaxRequest('nyuryoku_open',cn_jk);
+            AjaxRequest('nyuryoku_open',cn_jk);
         }
         
         function NKM_Close(cn)
