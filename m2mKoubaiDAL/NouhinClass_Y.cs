@@ -1,7 +1,14 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Text;
+using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using Core;
+using Core.Sql;
 
 namespace m2mKoubaiDAL
 {
@@ -26,6 +33,29 @@ namespace m2mKoubaiDAL
             }
             return w.WhereText;
         }
+        public static void getYAE_M_TorihikisakiDataTable(string Year, string strText, int nKubun, int nStartIndex, int nCount,
+            SqlConnection sqlConn, out NouhinDataSet_N.V_NouhinDataTable dt, ref int nTotal)
+        {
+            Core.Sql.RowNumberInfo info = new Core.Sql.RowNumberInfo();
+            info.nStartNumber = nStartIndex + 1;
+            info.nEndNumber = nStartIndex + nCount;
+            info.strOverText = "HacchuuNo ";
+
+            SqlCommand cmd = new SqlCommand("", sqlConn);
+            cmd.CommandText = "SELECT * FROM V_Nouhin ";
+            cmd.CommandText += " WHERE Year = @Year AND JigyoushoKubun = @JigyoushoKubun ";
+            if (strText.Trim() != "")
+            {
+                cmd.CommandText += " AND HacchuuNo LIKE @h ";
+                cmd.Parameters.AddWithValue("@h", "%" + strText + "%");
+            }
+            cmd.Parameters.AddWithValue("@Year", Year);
+            cmd.Parameters.AddWithValue("@JigyoushoKubun", nKubun);
+
+            dt = new NouhinDataSet_N.V_NouhinDataTable();
+            info.LoadData(cmd, sqlConn, dt, ref nTotal);
+        }
+
 
         /// <summary>
         /// 注文Noによって、注文データを取得
@@ -34,8 +64,7 @@ namespace m2mKoubaiDAL
         /// <param name="sqlConn"></param>
         /// <returns></returns>
         /// 修正 09/07/23 (LEFT OUTER JOIN)
-        public static NouhinDataSet_N.V_NouhinRow
-            getV_NouhinRow(string Year, string HacchuuNo, int nKubun, SqlConnection sqlConn)
+        public static NouhinDataSet_N.V_NouhinRow getV_NouhinRow(string Year, string HacchuuNo, int nKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -44,7 +73,7 @@ namespace m2mKoubaiDAL
             + "dbo.T_Chumon.BuhinCode, dbo.T_Chumon.BuhinKubun, dbo.T_Chumon.Suuryou,  "
             + "dbo.T_Chumon.Tanka, dbo.M_Buhin.Tani,  "
             + "dbo.M_NounyuuBasho.BashoMei, dbo.T_Chumon.Kingaku, "
-            + "dbo.T_Chumon.Zeiritu , "  // 増税対応
+            + "dbo.T_Chumon.Zeiritu , "
                     + "(SELECT TOP (1) HenkouNo "
                     + "FROM dbo.T_NoukiHenkou "
                     + "WHERE (Year = dbo.T_Chumon.Year) AND (HacchuuNo = dbo.T_Chumon.HacchuuNo) AND (JigyoushoKubun = T_Chumon.JigyoushoKubun) "
@@ -71,8 +100,6 @@ namespace m2mKoubaiDAL
             + "dbo.M_Buhin ON dbo.T_Chumon.BuhinCode = dbo.M_Buhin.BuhinCode "
             + "WHERE                   (dbo.T_Chumon.Year = @Year) AND (dbo.T_Chumon.HacchuuNo = @HacchuuNo) AND "
             + "(dbo.T_Chumon.CancelBi IS NULL) AND (dbo.T_Chumon.JigyoushoKubun = @JigyoushoKubun) ";
-
-
 
             da.SelectCommand.Parameters.AddWithValue("@Year", Year);
             da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", HacchuuNo);

@@ -52,78 +52,26 @@ namespace m2mKoubaiDAL
 
         public class ChumonMeisai
         {
-            public bool ChkI
-            {
-                get;
-                set;
-            }
-            public string strHacchuuNo
-            {
-                get;
-                set;
-            }
-            public string strShiiresakiCode
-            {
-                get;
-                set;
-            }
-            public string strBuhinKubun
-            {
-                get;
-                set;
-            }
-            public string strBuhinCode
-            {
-                get;
-                set;
-            }
-            public string strLot
-            {
-                get;
-                set;
-            }
-            public bool ChkKariTanka
-            {
-                get;
-                set;
-            }
-            public string strTanka
-            {
-                get;
-                set;
-            }
-            public string strSuuryou
-            {
-                get;
-                set;
-            }
-            public string strTani
-            {
-                get;
-                set;
-            }
-            public string strLT_Suuji
-            {
-                get;
-                set;
-            }
-            public string strNouki
-            {
-                get;
-                set;
-            }
-            public string strNounyuuBashoCode
-            {
-                get;
-                set;
-            }
-            public string strBikou
-            {
-                get;
-                set;
-            }
+            public bool ChkI { get; set; }
+            public string strYear { get; set; }
+            public string strHacchuuNo { get; set; }
+            public string strShiiresakiCode { get; set; }
+            public string strShiiresakiItem { get; set; }
+            public string strBuhinKubun { get; set; }
+            public string strBuhinCode { get; set; }
+            public string strBuhinItem { get; set; }
+            public string strLot { get; set; }
+            public bool ChkKaritankaFlg { get; set; }
+            public string strTanka { get; set; }
+            public string strSuryo { get; set; }
+            public string strKingaku { get; set; }
+            public string strZeiritu { get; set; }
+            public string strTani { get; set; }
+            public string strLT { get; set; }
+            public string strNouki { get; set; }
+            public string strNounyuuBashoCode { get; set; }
+            public string strBikou { get; set; }
         }
-
 
         // ”­’‚ÌåƒL[
         public class ChumonKey
@@ -1195,6 +1143,7 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+
 
 
 

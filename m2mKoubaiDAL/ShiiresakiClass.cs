@@ -85,8 +85,7 @@ namespace m2mKoubaiDAL
             return dt;
         }
 
-        public static m2mKoubaiDataSet.M_ShiiresakiDataTable
-            getM_ShiiresakiDataTable(string nShiiresakiCode, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_ShiiresakiDataTable getM_ShiiresakiDataTable(string nShiiresakiCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki";
@@ -104,6 +103,31 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+        public static void getM_ShiiresakiDataTable(string strText, bool bFirstMatch, int nStartIndex, int nCount,
+            SqlConnection sqlConn, out ShiiresakiDataSet.M_ShiiresakiDataTable dt, ref int nTotal)
+        {
+            Core.Sql.RowNumberInfo info = new Core.Sql.RowNumberInfo();
+            info.nStartNumber = nStartIndex + 1;
+            info.nEndNumber = nStartIndex + nCount;
+            info.strOverText = "ORDER BY BuhinCode ";
+
+            SqlCommand cmd = new SqlCommand("", sqlConn);
+            cmd.CommandText = "SELECT * FROM M_Shiiresaki ";
+            if (strText.Trim() != "")
+            {
+                cmd.CommandText += "WHERE ShiiresakiCode LIKE @ShiiresakiCode ";
+                if (bFirstMatch){
+                    cmd.Parameters.AddWithValue("@ShiiresakiCode", strText + "%");
+                }
+                else { 
+                    cmd.Parameters.AddWithValue("@ShiiresakiCode", "%" + strText + "%");
+                }
+            }
+
+            dt = new ShiiresakiDataSet.M_ShiiresakiDataTable();
+            info.LoadData(cmd, sqlConn, dt, ref nTotal);
+        }
+
 
         public static m2mKoubaiDataSet.M_ShiiresakiRow
            GetV_SHiiresakiRow(string ShiiresakiCode, SqlConnection sqlConn)
@@ -245,8 +269,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ShiiresakiDataSet_S.V_ShiiresakiDataTable
-            getV_ShiiresakiDataTable(SqlConnection sqlConn)
+        public static ShiiresakiDataSet_S.V_ShiiresakiDataTable getV_ShiiresakiDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             //da.SelectCommand.CommandText = "SELECT ShiiresakiCode, ShiiresakiMei FROM M_Shiiresaki";
@@ -266,6 +289,9 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+
+
+
 
         /// <summary>
         /// ÉçÉOÉCÉìIDÇ…ÇÊÇ¡ÇƒÅAâÔé–èÓïÒÇéÊìæ

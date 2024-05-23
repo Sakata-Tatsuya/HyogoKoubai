@@ -75,13 +75,22 @@ namespace m2mKoubaiDAL
         public static BuhinDataSet_S.V_BuhinKubunDataTable getV_BuhinKubunDataTable(string strShiireCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
-            da.SelectCommand.CommandText =
-            "SELECT DISTINCT TOP (100) PERCENT BuhinKubun "
-            + "FROM            M_Buhin "
-            + "WHERE           (ShiiresakiCode1 = @ShiiresakiCode) OR "
-            + "(ShiiresakiCode2 = @ShiiresakiCode) "
-            + "ORDER BY     BuhinKubun ";
-            da.SelectCommand.Parameters.AddWithValue("@ShiiresakiCode", strShiireCode);
+            if (strShiireCode != string.Empty) 
+            {
+                da.SelectCommand.CommandText =
+                "SELECT DISTINCT TOP (100) PERCENT BuhinKubun "
+                + "FROM            M_Buhin "
+                + "WHERE           (ShiiresakiCode1 = @ShiiresakiCode) OR "
+                + "(ShiiresakiCode2 = @ShiiresakiCode) "
+                + "ORDER BY     BuhinKubun ";
+                da.SelectCommand.Parameters.AddWithValue("@ShiiresakiCode", strShiireCode);
+            }
+            else 
+            {
+                da.SelectCommand.CommandText = "SELECT DISTINCT TOP (100) PERCENT BuhinKubun FROM M_Buhin"
+                + "ORDER BY     BuhinKubun ";
+            }
+
             BuhinDataSet_S.V_BuhinKubunDataTable dt = new BuhinDataSet_S.V_BuhinKubunDataTable();
             da.Fill(dt);
             return dt;

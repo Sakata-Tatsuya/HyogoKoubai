@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using Core;
 
 namespace m2mKoubaiDAL
 {
@@ -39,8 +40,7 @@ namespace m2mKoubaiDAL
         /// <param name="dtOrder"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            T_Chumon_Insert(ChumonDataSet_S.V_OrderInputDataTable dtOrder, string strLoginID, int nKubun, int Zeiritu, SqlConnection sqlConn)
+        public static LibError T_Chumon_Insert(ChumonDataSet_S.V_OrderInputDataTable dtOrder, string strLoginID, int nKubun, int Zeiritu, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_Chumon";
@@ -111,6 +111,68 @@ namespace m2mKoubaiDAL
                 sqlConn.Close();
             }
         }
-  
+
+        public static LibError T_Chumon_Insert(m2mKoubaiDataSet.T_ChumonDataTable dtOrder, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = "SELECT * FROM T_Chumon";
+            da.InsertCommand = (new SqlCommandBuilder(da)).GetInsertCommand();
+            m2mKoubaiDataSet.T_ChumonDataTable dt = new m2mKoubaiDataSet.T_ChumonDataTable();
+
+            DateTime date = DateTime.Now;
+            int nOrderNo = ChumonClass_S.GetMaxHacchuuNo(sqlConn);
+            nOrderNo = nOrderNo + 1;
+
+            SqlTransaction sqlTran = null;
+            try
+            {
+                sqlConn.Open();
+                sqlTran = sqlConn.BeginTransaction();
+                da.InsertCommand.Transaction = sqlTran;
+
+                for (int i = 0; i < dtOrder.Rows.Count; i++)
+                {
+                    m2mKoubaiDataSet.T_ChumonRow drNew = dt.NewT_ChumonRow();
+                    nOrderNo++;
+
+                    drNew.ItemArray = dtOrder[i].ItemArray;
+                    drNew.HacchuuNo = nOrderNo.ToString("0000000");
+                    drNew.Nouki = dtOrder[i].Nouki.Replace("/", "");
+                    dt.Rows.Add(drNew);
+                }
+                da.Update(dt);
+                sqlTran.Commit();
+                return null;
+            }
+            catch (Exception e)
+            {
+                if (sqlTran != null)
+                    sqlTran.Rollback();
+                return new LibError(e);
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

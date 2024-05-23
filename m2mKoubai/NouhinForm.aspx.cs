@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
+using Telerik.Web.UI;
 
 namespace m2mKoubai
 {
@@ -129,13 +130,8 @@ namespace m2mKoubai
                 return;
             }
 
-            // string strYear = 
             // 注文Noによって、注文データを取得
-            NouhinDataSet_N.V_NouhinRow dr =
-                NouhinClass_Y.getV_NouhinRow(DdlYear.SelectedValue.Substring(2, 2), strHacchuNoZeroume, SessionManager.JigyoushoKubun, Global.GetConnection());
-
-
-            // 変更 09/07/28
+            NouhinDataSet_N.V_NouhinRow dr = NouhinClass_Y.getV_NouhinRow(DdlYear.SelectedValue.Substring(2, 2), strHacchuNoZeroume, SessionManager.JigyoushoKubun, Global.GetConnection());
 
             if (dr == null)
             {
@@ -193,7 +189,7 @@ namespace m2mKoubai
             // 単価            
             LblTanka.Text = "\\" + dr.Tanka.ToString("#,##0.#0");
             // 注文金額
-            decimal dKingaku_Round = Math.Round(dr.Kingaku, 0, MidpointRounding.AwayFromZero);
+            decimal dKingaku_Round = Math.Round((decimal)dr.Kingaku, 0, MidpointRounding.AwayFromZero);
             LblChumonKingaku.Text = Convert.ToString(string.Format("{0:C}", dKingaku_Round));
             // 増税対応
             if (!this.bTourokuKanryou)
@@ -269,13 +265,11 @@ namespace m2mKoubai
                     this.ShowMsg(err.Message, true);
                 }                
             }
-            // 修正 09/07/23
             if (nZanSuu != 0 && dr.KannouFlg == false)
             {
                 this.TbxNouhinsuu.Visible = true;
                 this.LitMsg.Text = "";
             }
-            // 追加 09/07/23
             if (dr.KannouFlg == true)
             {
                 this.TbxNouhinsuu.Visible = false;
@@ -326,12 +320,8 @@ namespace m2mKoubai
                 this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TbxHacchuNo);
                 this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TblList);
             }
-            // 修正 09/07/24
             else if (strCmd == "Nouhin")
             {
-
-                ///2013/05 納期の手動変更機能追加
-                ///
                 /*
                  ・カレンダーは1カ月以上前は選択不可。
 　                （手入力して登録しようとすると、エラーメッセージを表示する。）
@@ -506,5 +496,42 @@ namespace m2mKoubai
 
             LblZeigaku.Text = Convert.ToString(string.Format("{0:C}", dZeigaku));
         }
+
+        protected void RcbHacchuNo_ItemsRequested(object o, RadComboBoxItemsRequestedEventArgs e)
+        {
+            RadComboBox rcb = o as RadComboBox;
+
+            rcb.Items.Clear();
+            string strText = e.Text.Trim();
+
+            rcb.Height = Unit.Pixel(180);
+
+            int itemOffset = e.NumberOfItems;
+            int endOffset = itemOffset + 20;
+
+            int nTotal = 0;
+            NouhinDataSet_N.V_NouhinDataTable dt = null;
+
+            try
+            {
+                NouhinClass_Y.getYAE_M_TorihikisakiDataTable(DdlYear.SelectedValue.Substring(2, 2), strText, SessionManager.JigyoushoKubun, itemOffset, 20, Global.GetConnection(), out dt, ref nTotal);
+            }
+            catch (Exception ex)
+            {
+                e.Message = ex.Message;
+                return;
+            }
+            for (int i = 0; i < dt.Count; i++)
+            {
+                rcb.Items.Add(new RadComboBoxItem(dt[i].HacchuuNo, dt[i].HacchuuNo));
+            }
+
+            e.Message = String.Format("Items <b>1</b>-<b>{0}</b> out of <b>{1}</b>",
+                endOffset.ToString(), nTotal.ToString());
+        }
+
+
+
+
     }
 }

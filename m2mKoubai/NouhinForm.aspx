@@ -167,6 +167,11 @@
                 </td>
                 <td>
                     <input id="TbxHacchuNo" runat="server" type="text" maxlength="7" class="w100 tr" />&nbsp;
+<%--                    <telerik:RadComboBox ID="RcbHacchuNo" runat="server" AllowCustomText="True" EnableLoadOnDemand="True"
+                        Height="180px" MarkFirstMatch="True" NoWrap="True" ShowMoreResultsBox="True" ShowToggleImage="False"
+                        AutoPostBack="True" EnableVirtualScrolling="false" Skin="Simple" Width="100px"
+                        OnItemsRequested="RcbHacchuNo_ItemsRequested">
+                    </telerik:RadComboBox>--%>
                 </td>
             </tr>
         </table>
@@ -281,73 +286,12 @@
                                     </td>
                                 </tr>
                             </table>
-                            <%--                                <table  border="1" bordercolor="#000000" class="col def11 tc" width="100%">
-                                    <tr>
-                                        <td class="bg3">
-                                            発注No</td>
-                                        <td class="bg3 tc">
-                                            仕入先コード</td>
-                                        <td class="bg3 tc">
-                                            仕入先名</td>
-                                        <td class="bg3 tc">
-                                            納期</td>
-                                        <td class="bg3 tc">
-                                            回答納期</td>
-                                        <td class="bg3 tc">
-                                            納入場所</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg1">
-                                            <asp:Label ID="LblHacchuuNo" runat="server"></asp:Label></td>
-                                        <td class="bg1">
-                                            <asp:Label ID="LblShiireCode" runat="server"></asp:Label></td>
-                                        <td class="bg1 col ">
-                                            <asp:Label ID="LblShiireMei" runat="server"></asp:Label></td>
-                                        <td class="bg1 tc">
-                                            <asp:Label ID="LblNouki" runat="server"></asp:Label></td>
-                                        <td class="bg1 tc">
-                                            <asp:Label ID="LblKaitouNouki" runat="server"></asp:Label></td>
-                                        <td class="bg1">
-                                            <asp:Label ID="LblBasho" runat="server"></asp:Label></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg3 tc">
-                                            品目グループ</td>
-                                        <td class="bg3 tc">
-                                            品目コード</td>
-                                        <td class="bg3 tc">
-                                            品名</td>
-                                        <td class="bg3 tc">
-                                            単価</td>
-                                        <td class="bg3 tc">
-                                            注文金額</td>
-                                        <td class="bg3 tc">
-                                            単位</td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td class="bg1 tc">
-                                            <asp:Label ID="LblBuhinGroup" runat="server"></asp:Label></td>
-                                        <td class="bg1 tc">
-                                            <asp:Label ID="LblBuhinCode" runat="server"></asp:Label></td>
-                                        <td class="bg1 tc">
-                                            <asp:Label ID="LblBuhinMei" runat="server"></asp:Label></td>
-                                        <td class="bg1 tr">
-                                            <asp:Label ID="LblTanka" runat="server"></asp:Label></td>
-                                        <td class="bg1 tr" nowrap="noWrap">
-                                            <asp:Label ID="LblChumonKingaku" runat="server"></asp:Label></td>
-                                        <td class="bg1 tc">
-                                            <asp:Label ID="LblTani" runat="server"></asp:Label></td>
-                                    </tr>
-                                </table>--%>
-                </table>
-            </td>
-        </tr>
+                       </td>
+                    </tr>
         <tr>
             <td class="tr">
                 <table border="1" bordercolor="#000000" class="col def11" width="420px">
                     <tr>
-                        <%--2013/05/13 納品日追加--%>
                         <td class="bg3 tc" width="50px">
                             税率
                         </td>
@@ -379,10 +323,8 @@
                         </td>
                         <td class="bg1 nw">
                             <radCln:RadDatePicker ID="RdpDay" runat="server">
-                                <DateInput Width="80px" Font-Size="10pt">
-                                </DateInput>
-                                <Calendar ID="Cal1" runat="server">
-                                </Calendar>
+                                <DateInput Width="80px" Font-Size="10pt"></DateInput>
+                                <Calendar ID="Cal1" runat="server"></Calendar>
                             </radCln:RadDatePicker>
                         </td>
                         <td class="bg1 tr">
@@ -400,13 +342,15 @@
             </td>
         </tr>
         <tr>
-            <td class="tr">
+            <td class="tl">
                 <input id="BtnKN" runat="server" type="button" value="注文を完納にする" class="bg6" />
                 <input id="BtnNK" runat="server" type="button" value="納品確定" class="bg6" />
             </td>
         </tr>
+                </table>
+            </td>
+        </tr>
     </table>
-    </td> </tr> </table>
 
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
         <Scripts>

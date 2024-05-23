@@ -95,9 +95,9 @@ namespace m2mKoubai.Order
 
             //this.BtnI.Visible = b;
             this.BtnI.Attributes["onclick"] = "Print(); return false;";
-            
-                
-            
+
+
+
             //Img
             this.Img1.Style.Add("display", "none");
 
@@ -108,8 +108,8 @@ namespace m2mKoubai.Order
             // 行数変更
             this.DdlRow.Attributes["onchange"] = "RowChange(); return false;";
             // ----- カレンダー -----
-            CtlHacchuubi.SharedCalendar = CtlNouki.SharedCalendar = CtlKNouki.SharedCalendar = CtlNouhinbi.SharedCalendar = this.SC;         
-               
+            CtlHacchuubi.SharedCalendar = CtlNouki.SharedCalendar = CtlKNouki.SharedCalendar = CtlNouhinbi.SharedCalendar = this.SC;
+
         }
 
 
@@ -222,7 +222,7 @@ namespace m2mKoubai.Order
 
         // GridView表示
         private void ShowTblMain(bool b)
-        {            
+        {
             G.Visible = b;
             TblRow.Visible = b;
             this.BtnI.Visible = b;
@@ -241,7 +241,7 @@ namespace m2mKoubai.Order
             // 納品状況
             ListSet.SetDdlNouhinJyoukyou(DdlNJyoukyou);
             // 部品区分
-            ListSet.SetDdlBuhinKubun_C(DdlBuhinKubun,null);
+            ListSet.SetDdlBuhinKubun_C(DdlBuhinKubun, null);
             // 部品
             this.DdlBuhinKubun.Attributes["onchange"] = "OnBuhin(); return false";
             // 発注担当者
@@ -328,14 +328,14 @@ namespace m2mKoubai.Order
             k._Cancelbi = int.Parse(DdlCancel.SelectedValue);
             if (k._Cancelbi == 0)
                 b = true;
-          
-            
+
+
             // メッセージ
             k._Msg = int.Parse(DdlMsg.SelectedValue);
             return k;
         }
 
-        
+
         protected void G_RowDataBound(object sender, GridViewRowEventArgs e)
         {
 
@@ -409,7 +409,7 @@ namespace m2mKoubai.Order
                 decimal dKingaku_Round = Math.Round(dr.Kingaku, 0, MidpointRounding.AwayFromZero);
 
                 // decimal Kingaku = Math.Floor(dr.Suuryou * dr.Tanka);
-               // (e.Row.FindControl("LitChumonKingaku") as Literal).Text = "\\" + dr.Kingaku.ToString("#,##");
+                // (e.Row.FindControl("LitChumonKingaku") as Literal).Text = "\\" + dr.Kingaku.ToString("#,##");
                 // 注文金額   変更 09/07/28
                 if (!dr.KaritankaFlg)
                 {
@@ -563,7 +563,7 @@ namespace m2mKoubai.Order
             info.strNoukiHenkouHtml += string.Format(
                    "<a href=\"javascript:void(0);\" onclick=\"YN('{0}_{1}_{2}');\"><font color =\"blue\">{3}</font></a>",
                     dr.Year, dr.HacchuuNo, dr.JigyoushoKubun, "入力欄表示");
-            
+
             strNouki = dr.Nouki;
 
         }
@@ -949,9 +949,9 @@ namespace m2mKoubai.Order
                     strYear = strChumonKey[0];
                     strHacchuuNo = strChumonKey[1];
                     nKubun = int.Parse(strChumonKey[2]);
-                    
-                    
-                    err = NoukiKaitouClass.T_NoukiKaitou_Update(strYear, strHacchuuNo,nKubun, strChumonKey[3], 
+
+
+                    err = NoukiKaitouClass.T_NoukiKaitou_Update(strYear, strHacchuuNo, nKubun, strChumonKey[3],
                                                 int.Parse(strChumonKey[4]), SessionManager.LoginID, Global.GetConnection());
                     if (err != null)
                     {
@@ -993,13 +993,13 @@ namespace m2mKoubai.Order
                         {
                             nHenkouNo = 0;
                             strNouki = dr.Nouki;
-                           
+
                         }
-                      
+
                         Suuryou = Convert.ToString(dr.Suuryou);
 
-                      m2mKoubaiDataSet.T_NoukiHenkouDataTable dt =
-                            NoukiHenkouClass.getT_NoukiHenkouDataTable(strYear, strHacchuuNo, nKubun, nHenkouNo, Global.GetConnection());
+                        m2mKoubaiDataSet.T_NoukiHenkouDataTable dt =
+                              NoukiHenkouClass.getT_NoukiHenkouDataTable(strYear, strHacchuuNo, nKubun, nHenkouNo, Global.GetConnection());
 
                         NoukiHenkouDataSet.HenkouNoukiDataTable dtNoukiHenkou =
                         new NoukiHenkouDataSet.HenkouNoukiDataTable();
@@ -1202,7 +1202,7 @@ namespace m2mKoubai.Order
                         // 注文番号、情報区分をもとに納期、数量を更新する
                         err = NoukiHenkouClass.T_NoukiHenkou_Update
                             (strYear, strHacchuuNo, nKubun, NoukiHenkouTbl, nHenkouNo, Global.GetConnection());
-                        
+
                         // 更新エラーチェック
                         if (err != null)
                         {
@@ -1214,7 +1214,7 @@ namespace m2mKoubai.Order
                         else
                         {
                             // 主キーによって、メール送信に必要データ取得
-                            
+
                             ChumonDataSet.V_MailInfoDataTable dtMail =
                                 ChumonClass.getV_MailInfoDataTable(strYear, strHacchuuNo, nKubun, Global.GetConnection());
                             // 全て仕入先担当者にメール送信する
@@ -1269,12 +1269,12 @@ namespace m2mKoubai.Order
             {
                 switch (i % 3)
                 {
-                    case 0:                    
-                     if (splitKNData[i].Length != 8)
-                         splitKNData[i] = Utility.FormatToyyyyMMdd(splitKNData[i]);
-                       
-                     arrayNouki.Add(splitKNData[i]);
-                     break;
+                    case 0:
+                        if (splitKNData[i].Length != 8)
+                            splitKNData[i] = Utility.FormatToyyyyMMdd(splitKNData[i]);
+
+                        arrayNouki.Add(splitKNData[i]);
+                        break;
                     case 1:
                         arraySuuryou.Add(splitKNData[i]);
                         break;
@@ -1322,7 +1322,7 @@ namespace m2mKoubai.Order
                 return true;
             else
                 return false;
-           
+
         }
         // 納期が正しい値かどうかチェック
         private bool NoukiCheck(Hashtable KaitouNoukiTbl)
@@ -1339,12 +1339,12 @@ namespace m2mKoubai.Order
             return true;
         }
         private bool CheckDayFormat(string yyMMdd)
-        {         
+        {
             // 文字数チェック
             if (yyMMdd.Length != 8)
                 return false;
             else
-                return true;          
+                return true;
         }
         // 送信メール情報
         private MailClass.MailParam GetMailParam(ChumonDataSet.V_MailInfoRow dr)

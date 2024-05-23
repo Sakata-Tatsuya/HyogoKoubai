@@ -134,8 +134,7 @@ namespace m2mKoubaiDAL
         /// <param name="BuhinCode"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_BuhinRow
-            getM_BuhinRow(string BuhinCode, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_BuhinRow getM_BuhinRow(string BuhinCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Buhin WHERE BuhinCode = @BuhinCode";
@@ -155,8 +154,7 @@ namespace m2mKoubaiDAL
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            M_Buhin_Insert(m2mKoubaiDataSet.M_BuhinRow dr, SqlConnection sqlConn)
+        public static LibError M_Buhin_Insert(m2mKoubaiDataSet.M_BuhinRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Buhin";
@@ -202,8 +200,7 @@ namespace m2mKoubaiDAL
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            M_Buhin_Update(string BuhinCode, m2mKoubaiDataSet.M_BuhinRow dr, SqlConnection sqlConn)
+        public static LibError M_Buhin_Update(string BuhinCode, m2mKoubaiDataSet.M_BuhinRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Buhin WHERE BuhinCode = @BuhinCode";
@@ -273,13 +270,35 @@ namespace m2mKoubaiDAL
         /// NewRow
         /// </summary>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_BuhinRow
-            newM_BuhinRow()
+        public static m2mKoubaiDataSet.M_BuhinRow newM_BuhinRow()
         {
             return new m2mKoubaiDataSet.M_BuhinDataTable().NewM_BuhinRow();
         }
+        public static void getM_BuhinDataTable(string strText, string strShiiresakiCode, string strBuhinKubun, bool bFirstMatch, int nStartIndex, int nCount,
+            SqlConnection sqlConn, out m2mKoubaiDataSet.M_BuhinDataTable dt, ref int nTotal)
+        {
+            Core.Sql.RowNumberInfo info = new Core.Sql.RowNumberInfo();
+            info.nStartNumber = nStartIndex + 1;
+            info.nEndNumber = nStartIndex + nCount;
+            info.strOverText = "ORDER BY BuhinCode ";
+
+            SqlCommand cmd = new SqlCommand("", sqlConn);
+            cmd.CommandText = "SELECT * FROM M_Buhin WHERE (ShiiresakiCode1 LIKE @ShiiresakiCode OR ShiiresakiCode2 LIKE @ShiiresakiCode) AND BuhinKubun LIKE @BuhinKubun ";
+            if (strText.Trim() != "")
+            {
+                cmd.CommandText += " AND BuhinCode LIKE @h OR BuhinName LIKE @h ";
+            }
+            cmd.Parameters.AddWithValue("@ShiiresakiCode", strShiiresakiCode + "%");
+            cmd.Parameters.AddWithValue("@BuhinKubun", strBuhinKubun + "%");
+            if (bFirstMatch)
+                cmd.Parameters.AddWithValue("@h", strText + "%");
+            else
+                cmd.Parameters.AddWithValue("@h", "%" + strText + "%");
+
+            dt = new m2mKoubaiDataSet.M_BuhinDataTable();
+            info.LoadData(cmd, sqlConn, dt, ref nTotal);
+        }
 
 
-       
     }
 }

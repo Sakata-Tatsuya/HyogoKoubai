@@ -11,17 +11,8 @@ namespace m2mKoubai.Order
 {
 
 
-    public partial class OrderInputForm
+    public partial class OrderInputFormBk
     {
-
-        /// <summary>
-        /// RSM コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadScriptBlock RSM;
 
         /// <summary>
         /// form1 コントロール。
@@ -78,13 +69,13 @@ namespace m2mKoubai.Order
         protected global::System.Web.UI.HtmlControls.HtmlImage Img1;
 
         /// <summary>
-        /// BtnDel コントロール。
+        /// BtnS コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnDel;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnS;
 
         /// <summary>
         /// BtnClear コントロール。
@@ -93,7 +84,7 @@ namespace m2mKoubai.Order
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnClear;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnClear;
 
         /// <summary>
         /// DdlTax コントロール。
@@ -120,7 +111,7 @@ namespace m2mKoubai.Order
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAdd;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnAdd;
 
         /// <summary>
         /// LblOK コントロール。
@@ -138,7 +129,7 @@ namespace m2mKoubai.Order
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnT;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnT;
 
         /// <summary>
         /// HidChkID コントロール。

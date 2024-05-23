@@ -1,6 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInputForm.aspx.cs" Inherits="m2mKoubai.Order.OrderInputForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInputFormBk.aspx.cs" Inherits="m2mKoubai.Order.OrderInputFormBk" %>
 
-<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%--<%@ Register Assembly="RadInput.Net2" Namespace="Telerik.WebControls" TagPrefix="radI" %>--%>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
+<%--<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>--%>
 <%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <!DOCTYPE html>
@@ -9,7 +11,6 @@
     <title>発注入力</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
 
-    <telerik:RadScriptBlock ID="RSM" runat="server">
     <script type="text/javascript">
         function $(id)
         {
@@ -48,19 +49,19 @@
                 return;
             }
             document.getElementById('HidArgs').value = nDelCnt;
-            ////var meisai = CreateMeisai(true, false);
-            ////if (confirm("入力内容を削除しますか？"))
-            ////{
-            ////    for (var i = 0; i < chkIDAry.length; i++)
-            ////    {
-            ////        var chk = document.getElementById(chkIDAry[i]);
-            ////        if (chk.checked)
-            ////        {
-            ////            chk.checked = false;
-            ////        }
-            ////    }
-            ////    AjaxRequest('RowClear', meisai);
-            ////}
+            var meisai = CreateMeisai(true, false);
+            if (confirm("入力内容を削除しますか？"))
+            {
+                for (var i = 0; i < chkIDAry.length; i++)
+                {
+                    var chk = document.getElementById(chkIDAry[i]);
+                    if (chk.checked)
+                    {
+                        chk.checked = false;
+                    }
+                }
+                AjaxRequest('RowClear', meisai);
+            }
         }
         function AllClear()
         {
@@ -105,6 +106,7 @@
                 {
                     buhinKubun = ddlKubun.options[ddlKubun.selectedIndex].value;
                 }
+                console.log('buhinKubun' + buhinKubun);
 
                 //var ddlBuhin = tbl0.rows.item(1).cells.item(0).firstChild;
                 let ddlBuhin = tbl0.rows.item(1).cells.item(0).firstChild.nextSibling;
@@ -113,6 +115,7 @@
                 {
                     buhinCode = ddlBuhin.options[ddlBuhin.selectedIndex].value;
                 }
+                console.log('buhinCode' + buhinCode);
                 
                 var cel1 = grid.rows.item(i).cells.item(3).children;
                 var tbl1 = cel1.item(0);
@@ -120,29 +123,41 @@
 	            //var lblLot = tbl1.rows.item(0).cells.item(0).firstChild;
                 let lblLot = tbl1.rows.item(0).cells.item(0).firstChild.nextSibling;
 	            var lot = lblLot.innerText;
+                console.log('lot' + lot);
 	            
 	            var chkKariTanka = tbl1.rows.item(1).cells.item(0).childNodes.item(1);
+                console.log('chkKariTanka' + chkKariTanka);
                 var kariTankaFlg;
                 if (chkKariTanka.checked) { kariTankaFlg = "0"; }
                 else { kariTankaFlg = "1"; }
+                console.log('kariTankaFlg' + kariTankaFlg);
 
                 var tbxTanka = tbl1.rows.item(1).cells.item(0).childNodes.item(3);
 	            var tanka = tbxTanka.value;
+                console.log('tanka' + tanka);
 
                 var tbxSuu = grid.rows.item(i).cells.item(4).firstChild;
+                console.log('tbxSuu' + tbxSuu);
+                console.log(tbxSuu.value);
                 var suu = tbxSuu.value;
+                console.log('suu' + suu);
 
                 var lblTani = grid.rows.item(i).cells.item(5).firstChild;
                 var tani = lblTani.innerText;
+                console.log('tani' + tani);
                 
                 var lblLT = grid.rows.item(i).cells.item(6).firstChild;
                 var leadTime = lblLT.innerText;
+                console.log('leadTime' + leadTime);
                 
                 var cel2 = grid.rows.item(i).cells.item(7).children;
                 var tbl2 = cel2.item(0);
                 //var tbl2 = grid.rows.item(i).cells.item(7).firstChild;
+                console.log('noukiAry' + noukiAry);
  	            var rdpNouki = noukiAry[i-1];
+                console.log('rdpNouki ID' + rdpNouki);
 	            var nouki = document.getElementById(rdpNouki).value;
+                console.log('nouki' + nouki);
 	            //var ddlBasho = tbl2.rows.item(1).cells.item(0).firstChild;
                 let ddlBasho = tbl2.rows.item(1).cells.item(0).firstChild.nextSibling;
 
@@ -151,9 +166,11 @@
                 {
                     bashoCode = ddlBasho.options[ddlBasho.selectedIndex].value;
                 }
+                console.log('bashoCode' + bashoCode);
 
                 var tbxBikou = grid.rows.item(i).cells.item(8).firstChild;
                 var bikou = tbxBikou.value;
+                console.log('bikou' + bikou);
 
                 if (bTouroku)
                 {
@@ -365,20 +382,36 @@
                 chk.checked = bool;
             }
         }
+        function ShiireChange()
+        {
+            var meisai = CreateMeisai(false, false);
+            AjaxRequest('ShiireChange', meisai);
+        }
+        function BuhinChange(rowNo)
+        {
+            document.getElementById('HidArgs').value = rowNo;
+            var meisai = CreateMeisai(false, false);
+            AjaxRequest('BuhinChange', meisai);
+        }
         function Touroku()
         {
-        ////    var meisai = CreateMeisai(false, true);
-        ////    /*
-        ////    if (meisai == '')
-        ////    {
-        ////        alert('発注内容を入力して下さい');
-        ////        return;
-        ////    } 
-        ////    */      
-        ////    if (meisai != '' && confirm('上記の内容で発注しますか？'))
-        ////    {
-        ////        AjaxRequest('Touroku', meisai);
-        ////    }
+            var meisai = CreateMeisai(false, true);
+            /*
+            if (meisai == '')
+            {
+                alert('発注内容を入力して下さい');
+                return;
+            } 
+            */      
+            if (meisai != '' && confirm('上記の内容で発注しますか？'))
+            {
+                AjaxRequest('Touroku', meisai);
+            }
+        }
+        function AddRow()
+        {
+            var meisai = CreateMeisai(false, false);
+            AjaxRequest('AddRow', meisai);
         }
         /*
         function Reload()
@@ -386,9 +419,13 @@
 	        AjaxRequest('Reload', meisai);
         }
         */
+        function KubunChange()
+        {
+            var meisai = CreateMeisai(false, false);
+            AjaxRequest('KubunChange', meisai);
+        }
 
     </script>
-    </telerik:RadScriptBlock>
 
 </head>
 <body class="bg0">
@@ -427,12 +464,10 @@
                             <table style="border-collapse:collapse;">
                                 <tr>
                                     <td style="padding:0 0 0 0">
-<%--                                        <input id="BtnS" runat="server" type="button" value="チェックした行を削除する" class="bg6" />--%>
-                                        <asp:Button ID="BtnDel" runat="server" Text="チェックした行を削除する" OnClick="BtnDel_Click" />
+                                        <input id="BtnS" runat="server" type="button" value="チェックした行を削除する" class="bg6" />
                                     </td>
                                     <td style="padding:0 0 0 0">
-<%--                                        <input id="BtnClearO" runat="server" type="button" value="入力した内容を全て削除する" class="bg6" />--%>
-                                        <asp:Button ID="BtnClear" runat="server" Text="入力内容を全てクリアする" OnClick="BtnClear_Click" />
+                                        <input id="BtnClear" runat="server" type="button" value="入力した内容を全て削除する" class="bg6" />
                                     </td>
                                     <td style="padding:0 0 0 0">
                                         <table>
@@ -485,16 +520,13 @@
                                 <table class="col" frame="void" width="100%">
                                     <tr>
                                         <td class="tl s3 hei25">
-                                            <asp:Label ID="LblHacchuuNo" runat="server" CssClass="def12"></asp:Label>
+                                            <asp:Label ID="LblOrderNo" runat="server" CssClass="def12"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="tl hei25">
-                                            <telerik:RadComboBox ID="RcbShiiresaki" runat="server" AllowCustomText="True" EnableLoadOnDemand="True"
-                                                Height="180px" MarkFirstMatch="True" NoWrap="True" ShowMoreResultsBox="True" ShowToggleImage="False"
-                                                AutoPostBack="True" EnableVirtualScrolling="false" Skin="Simple" Width="200px"
-                                                OnItemsRequested="RcbShiiresaki_ItemsRequested">
-                                            </telerik:RadComboBox>
+                                            <asp:DropDownList ID="DdlShiire" runat="server"></asp:DropDownList>
+<%--                                            <asp:DropDownList ID="DdlShiire" runat="server" OnSelectedIndexChanged="DdlShiire_SelectedIndexChanged"></asp:DropDownList>--%>
                                         </td>
                                     </tr>
                                 </table>
@@ -502,6 +534,22 @@
                             <ItemStyle CssClass="tc" />
                         </asp:TemplateField>
                         <asp:TemplateField>
+                            <ItemTemplate>
+                                <table align="center" class="col" frame="void" width="100%">
+                                    <tr>
+                                        <td class="nw s3 hei25">
+                                            <asp:DropDownList ID="DdlKubun" runat="server">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nw hei25">
+                                            <asp:DropDownList ID="DdlBuhin" runat="server">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </ItemTemplate>
                             <HeaderStyle CssClass="nw" />
                             <HeaderTemplate>
                                 <table class="col" frame="void" width="100%">
@@ -517,41 +565,8 @@
                                     </tr>
                                 </table>
                             </HeaderTemplate>
-                            <ItemTemplate>
-                                <table align="center" class="col" frame="void" width="100%">
-                                    <tr>
-                                        <td class="nw s3 hei25">
-                                            <asp:DropDownList ID="DdlBuhinKubun" runat="server">
-                                            </asp:DropDownList>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="nw hei25">
-                                            <telerik:RadComboBox ID="RcbBuhin" runat="server" AllowCustomText="True" EnableLoadOnDemand="True"
-                                                Height="180px" MarkFirstMatch="True" NoWrap="True" ShowMoreResultsBox="True" ShowToggleImage="False"
-                                                AutoPostBack="True" EnableVirtualScrolling="false" Skin="Simple" Width="200px"
-                                                OnItemsRequested="RcbBuhin_ItemsRequested">
-                                            </telerik:RadComboBox>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
-                            <HeaderTemplate>
-                                <table class="col" frame="void" width="100%">
-                                    <tr>
-                                        <td class="tc nw s1">
-                                            ロット数
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tc nw">
-                                            単価
-                                        </td>
-                                    </tr>
-                                </table>
-                            </HeaderTemplate>
                             <ItemTemplate>
                                 <table align="center" class="col" frame="void" width="100%">
                                     <tr>
@@ -567,12 +582,26 @@
                                     </tr>
                                 </table>
                             </ItemTemplate>
+                            <HeaderTemplate>
+                                <table class="col" frame="void" width="100%">
+                                    <tr>
+                                        <td class="tc nw s1">
+                                            ロット数
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tc nw">
+                                            単価
+                                        </td>
+                                    </tr>
+                                </table>
+                            </HeaderTemplate>
                             <ItemStyle CssClass="nw" />
                             <HeaderStyle CssClass="nw" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="数量">
                             <ItemTemplate>
-                                <asp:TextBox ID="TbxSuryo" runat="server" CssClass="tr" MaxLength="8" Width="60px"></asp:TextBox>
+                                <asp:TextBox ID="TbxSuu" runat="server" CssClass="tr" MaxLength="8" Width="60px"></asp:TextBox>
                             </ItemTemplate>
                             <ItemStyle CssClass="tc" />
                         </asp:TemplateField>
@@ -641,8 +670,8 @@
             </td>
         </tr>
         <tr>
-            <td class="tl">
-                <asp:Button ID="BtnAdd" runat="server" Text="行を追加する" OnClick="BtnAdd_Click" />
+            <td class="tr">
+                <input id="BtnAdd" runat="server" type="button" value="行を追加する" class="bg6" />
             </td>
         </tr>
         <tr>
@@ -652,7 +681,7 @@
         </tr>
         <tr>
             <td class="tc">
-                <asp:Button ID="BtnT" runat="server" BackColor="aqua" Text="上記の内容で発注する" OnClick="BtnT_Click" />
+                <input id="BtnT" runat="server" type="button" value="上記の内容で発注する" class="b bg6" />
             </td>
         </tr>
         <tr>

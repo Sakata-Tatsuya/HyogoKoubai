@@ -352,6 +352,7 @@
     <Content Include="NouhinForm.aspx" />
     <Content Include="Order\MultiOrderInputForm.aspx" />
     <Content Include="Order\OrderInfoForm.aspx" />
+    <Content Include="Order\OrderInputFormBk.aspx" />
     <Content Include="Order\OrderInputForm.aspx" />
     <Content Include="Order\OrderShousaiForm.aspx" />
     <Content Include="PassChangeForm.aspx" />
@@ -9845,6 +9846,13 @@
     </Compile>
     <Compile Include="Order\OrderInfoForm.aspx.designer.cs">
       <DependentUpon>OrderInfoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderInputFormBk.aspx.cs">
+      <DependentUpon>OrderInputFormBk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order\OrderInputFormBk.aspx.designer.cs">
+      <DependentUpon>OrderInputFormBk.aspx</DependentUpon>
     </Compile>
     <Compile Include="Order\OrderInputForm.aspx.cs">
       <DependentUpon>OrderInputForm.aspx</DependentUpon>

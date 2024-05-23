@@ -4,18 +4,16 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="m2mKoubaiConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="m2mKoubaiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.m2mKoubaiConnectionString" Provider="System.Data.SqlClient">
-          </Connection>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="m2mKoubaiConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="m2mKoubaiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.m2mKoubaiConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_Nouhinsho_HeaderTableAdapter" GeneratorDataComponentClassName="V_Nouhinsho_HeaderTableAdapter" Name="V_Nouhinsho_Header" UserDataComponentName="V_Nouhinsho_HeaderTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="m2mKoubaiConnectionString (Settings)" DbObjectName="m2mKoubai.dbo.V_Nouhinsho_Header" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="m2mKoubaiConnectionString (Settings)" DbObjectName="m2mKoubai.dbo.V_Nouhinsho_Header" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT LoginID, ShiiresakiMei, YubinBangou, Address, Tel, Fax, EigyouSho, KaishaMei, YuubinY, AddressY, TelY, FaxY FROM dbo.V_Nouhinsho_Header</CommandText>
-                    <Parameters>
-                    </Parameters>
+                    <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
@@ -34,99 +32,279 @@
               <Mapping SourceColumn="TelY" DataSetColumn="TelY" />
               <Mapping SourceColumn="FaxY" DataSetColumn="FaxY" />
             </Mappings>
-            <Sources>
-            </Sources>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="M_ShiiresakiTableAdapter" GeneratorDataComponentClassName="M_ShiiresakiTableAdapter" Name="M_Shiiresaki" UserDataComponentName="M_ShiiresakiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="m2mKoubaiConnectionString (Settings)" DbObjectName="m2mKoubai2.dbo.M_Shiiresaki" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[M_Shiiresaki] WHERE (([ShiiresakiCode] = @Original_ShiiresakiCode) AND ([ShiiresakiMei] = @Original_ShiiresakiMei) AND ([YubinBangou] = @Original_YubinBangou) AND ([Address] = @Original_Address) AND ([Tel] = @Original_Tel) AND ([Fax] = @Original_Fax) AND ([ShiharaiShimebi] = @Original_ShiharaiShimebi) AND ([ShiharaiYoteibi] = @Original_ShiharaiYoteibi) AND ([KensyukoukaiFlg] = @Original_KensyukoukaiFlg) AND ([SaisokuMailFlg] = @Original_SaisokuMailFlg) AND ([KousinKyokaFlg] = @Original_KousinKyokaFlg) AND ([KouzaMeigi] = @Original_KouzaMeigi) AND ([KinyuuKikanMei] = @Original_KinyuuKikanMei) AND ([KouzaBangou] = @Original_KouzaBangou))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ShiiresakiCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ShiiresakiCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ShiiresakiMei" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ShiiresakiMei" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_YubinBangou" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YubinBangou" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Tel" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Tel" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Fax" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Fax" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ShiharaiShimebi" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShiharaiShimebi" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ShiharaiYoteibi" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShiharaiYoteibi" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_KensyukoukaiFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="KensyukoukaiFlg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_SaisokuMailFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="SaisokuMailFlg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_KousinKyokaFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="KousinKyokaFlg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KouzaMeigi" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KouzaMeigi" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KinyuuKikanMei" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KinyuuKikanMei" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KouzaBangou" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KouzaBangou" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[M_Shiiresaki] ([ShiiresakiCode], [ShiiresakiMei], [YubinBangou], [Address], [Tel], [Fax], [ShiharaiShimebi], [ShiharaiYoteibi], [KensyukoukaiFlg], [SaisokuMailFlg], [KousinKyokaFlg], [KouzaMeigi], [KinyuuKikanMei], [KouzaBangou]) VALUES (@ShiiresakiCode, @ShiiresakiMei, @YubinBangou, @Address, @Tel, @Fax, @ShiharaiShimebi, @ShiharaiYoteibi, @KensyukoukaiFlg, @SaisokuMailFlg, @KousinKyokaFlg, @KouzaMeigi, @KinyuuKikanMei, @KouzaBangou);
+SELECT ShiiresakiCode, ShiiresakiMei, YubinBangou, Address, Tel, Fax, ShiharaiShimebi, ShiharaiYoteibi, KensyukoukaiFlg, SaisokuMailFlg, KousinKyokaFlg, KouzaMeigi, KinyuuKikanMei, KouzaBangou FROM M_Shiiresaki WHERE (ShiiresakiCode = @ShiiresakiCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ShiiresakiCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ShiiresakiCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ShiiresakiMei" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ShiiresakiMei" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@YubinBangou" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YubinBangou" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Tel" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Tel" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Fax" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Fax" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ShiharaiShimebi" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShiharaiShimebi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ShiharaiYoteibi" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShiharaiYoteibi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@KensyukoukaiFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="KensyukoukaiFlg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@SaisokuMailFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="SaisokuMailFlg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@KousinKyokaFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="KousinKyokaFlg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KouzaMeigi" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KouzaMeigi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KinyuuKikanMei" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KinyuuKikanMei" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KouzaBangou" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KouzaBangou" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ShiiresakiCode, ShiiresakiMei, YubinBangou, Address, Tel, Fax, ShiharaiShimebi, ShiharaiYoteibi, KensyukoukaiFlg, SaisokuMailFlg, KousinKyokaFlg, KouzaMeigi, KinyuuKikanMei, KouzaBangou FROM dbo.M_Shiiresaki</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[M_Shiiresaki] SET [ShiiresakiCode] = @ShiiresakiCode, [ShiiresakiMei] = @ShiiresakiMei, [YubinBangou] = @YubinBangou, [Address] = @Address, [Tel] = @Tel, [Fax] = @Fax, [ShiharaiShimebi] = @ShiharaiShimebi, [ShiharaiYoteibi] = @ShiharaiYoteibi, [KensyukoukaiFlg] = @KensyukoukaiFlg, [SaisokuMailFlg] = @SaisokuMailFlg, [KousinKyokaFlg] = @KousinKyokaFlg, [KouzaMeigi] = @KouzaMeigi, [KinyuuKikanMei] = @KinyuuKikanMei, [KouzaBangou] = @KouzaBangou WHERE (([ShiiresakiCode] = @Original_ShiiresakiCode) AND ([ShiiresakiMei] = @Original_ShiiresakiMei) AND ([YubinBangou] = @Original_YubinBangou) AND ([Address] = @Original_Address) AND ([Tel] = @Original_Tel) AND ([Fax] = @Original_Fax) AND ([ShiharaiShimebi] = @Original_ShiharaiShimebi) AND ([ShiharaiYoteibi] = @Original_ShiharaiYoteibi) AND ([KensyukoukaiFlg] = @Original_KensyukoukaiFlg) AND ([SaisokuMailFlg] = @Original_SaisokuMailFlg) AND ([KousinKyokaFlg] = @Original_KousinKyokaFlg) AND ([KouzaMeigi] = @Original_KouzaMeigi) AND ([KinyuuKikanMei] = @Original_KinyuuKikanMei) AND ([KouzaBangou] = @Original_KouzaBangou));
+SELECT ShiiresakiCode, ShiiresakiMei, YubinBangou, Address, Tel, Fax, ShiharaiShimebi, ShiharaiYoteibi, KensyukoukaiFlg, SaisokuMailFlg, KousinKyokaFlg, KouzaMeigi, KinyuuKikanMei, KouzaBangou FROM M_Shiiresaki WHERE (ShiiresakiCode = @ShiiresakiCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ShiiresakiCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ShiiresakiCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ShiiresakiMei" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ShiiresakiMei" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@YubinBangou" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YubinBangou" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Tel" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Tel" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Fax" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Fax" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ShiharaiShimebi" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShiharaiShimebi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ShiharaiYoteibi" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShiharaiYoteibi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@KensyukoukaiFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="KensyukoukaiFlg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@SaisokuMailFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="SaisokuMailFlg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@KousinKyokaFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="KousinKyokaFlg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KouzaMeigi" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KouzaMeigi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KinyuuKikanMei" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KinyuuKikanMei" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KouzaBangou" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KouzaBangou" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ShiiresakiCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ShiiresakiCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ShiiresakiMei" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ShiiresakiMei" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_YubinBangou" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YubinBangou" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Tel" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Tel" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Fax" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Fax" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ShiharaiShimebi" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShiharaiShimebi" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ShiharaiYoteibi" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShiharaiYoteibi" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_KensyukoukaiFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="KensyukoukaiFlg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_SaisokuMailFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="SaisokuMailFlg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_KousinKyokaFlg" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="KousinKyokaFlg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KouzaMeigi" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KouzaMeigi" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KinyuuKikanMei" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KinyuuKikanMei" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KouzaBangou" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KouzaBangou" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ShiiresakiCode" DataSetColumn="ShiiresakiCode" />
+              <Mapping SourceColumn="ShiiresakiMei" DataSetColumn="ShiiresakiMei" />
+              <Mapping SourceColumn="YubinBangou" DataSetColumn="YubinBangou" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Tel" DataSetColumn="Tel" />
+              <Mapping SourceColumn="Fax" DataSetColumn="Fax" />
+              <Mapping SourceColumn="ShiharaiShimebi" DataSetColumn="ShiharaiShimebi" />
+              <Mapping SourceColumn="ShiharaiYoteibi" DataSetColumn="ShiharaiYoteibi" />
+              <Mapping SourceColumn="KensyukoukaiFlg" DataSetColumn="KensyukoukaiFlg" />
+              <Mapping SourceColumn="SaisokuMailFlg" DataSetColumn="SaisokuMailFlg" />
+              <Mapping SourceColumn="KousinKyokaFlg" DataSetColumn="KousinKyokaFlg" />
+              <Mapping SourceColumn="KouzaMeigi" DataSetColumn="KouzaMeigi" />
+              <Mapping SourceColumn="KinyuuKikanMei" DataSetColumn="KinyuuKikanMei" />
+              <Mapping SourceColumn="KouzaBangou" DataSetColumn="KouzaBangou" />
+            </Mappings>
+            <Sources />
           </TableAdapter>
         </Tables>
-        <Sources>
-        </Sources>
+        <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
   <xs:element name="ShiiresakiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ShiiresakiDataSet" msprop:Generator_DataSetName="ShiiresakiDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="V_Nouhinsho_Header" msprop:Generator_UserTableName="V_Nouhinsho_Header" msprop:Generator_RowDeletedName="V_Nouhinsho_HeaderRowDeleted" msprop:Generator_TableClassName="V_Nouhinsho_HeaderDataTable" msprop:Generator_RowChangedName="V_Nouhinsho_HeaderRowChanged" msprop:Generator_RowClassName="V_Nouhinsho_HeaderRow" msprop:Generator_RowChangingName="V_Nouhinsho_HeaderRowChanging" msprop:Generator_RowEvArgName="V_Nouhinsho_HeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="V_Nouhinsho_HeaderRowChangeEventHandler" msprop:Generator_TablePropName="V_Nouhinsho_Header" msprop:Generator_TableVarName="tableV_Nouhinsho_Header" msprop:Generator_RowDeletingName="V_Nouhinsho_HeaderRowDeleting">
+        <xs:element name="V_Nouhinsho_Header" msprop:Generator_RowEvHandlerName="V_Nouhinsho_HeaderRowChangeEventHandler" msprop:Generator_RowDeletedName="V_Nouhinsho_HeaderRowDeleted" msprop:Generator_RowDeletingName="V_Nouhinsho_HeaderRowDeleting" msprop:Generator_RowEvArgName="V_Nouhinsho_HeaderRowChangeEvent" msprop:Generator_RowChangedName="V_Nouhinsho_HeaderRowChanged" msprop:Generator_RowChangingName="V_Nouhinsho_HeaderRowChanging" msprop:Generator_UserTableName="V_Nouhinsho_Header" msprop:Generator_TableClassName="V_Nouhinsho_HeaderDataTable" msprop:Generator_RowClassName="V_Nouhinsho_HeaderRow" msprop:Generator_TablePropName="V_Nouhinsho_Header" msprop:Generator_TableVarName="tableV_Nouhinsho_Header">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="LoginID" msprop:Generator_UserColumnName="LoginID" msprop:Generator_ColumnPropNameInRow="LoginID" msprop:Generator_ColumnVarNameInTable="columnLoginID" msprop:Generator_ColumnPropNameInTable="LoginIDColumn">
+              <xs:element name="LoginID" msprop:Generator_ColumnPropNameInTable="LoginIDColumn" msprop:Generator_ColumnPropNameInRow="LoginID" msprop:Generator_UserColumnName="LoginID" msprop:Generator_ColumnVarNameInTable="columnLoginID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ShiiresakiMei" msprop:Generator_UserColumnName="ShiiresakiMei" msprop:Generator_ColumnPropNameInRow="ShiiresakiMei" msprop:Generator_ColumnVarNameInTable="columnShiiresakiMei" msprop:Generator_ColumnPropNameInTable="ShiiresakiMeiColumn" minOccurs="0">
+              <xs:element name="ShiiresakiMei" msprop:Generator_ColumnPropNameInTable="ShiiresakiMeiColumn" msprop:Generator_ColumnPropNameInRow="ShiiresakiMei" msprop:Generator_UserColumnName="ShiiresakiMei" msprop:Generator_ColumnVarNameInTable="columnShiiresakiMei" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="YubinBangou" msprop:Generator_UserColumnName="YubinBangou" msprop:Generator_ColumnPropNameInRow="YubinBangou" msprop:Generator_ColumnVarNameInTable="columnYubinBangou" msprop:Generator_ColumnPropNameInTable="YubinBangouColumn" minOccurs="0">
+              <xs:element name="YubinBangou" msprop:Generator_ColumnPropNameInTable="YubinBangouColumn" msprop:Generator_ColumnPropNameInRow="YubinBangou" msprop:Generator_UserColumnName="YubinBangou" msprop:Generator_ColumnVarNameInTable="columnYubinBangou" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Address" msprop:Generator_UserColumnName="Address" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInTable="AddressColumn" minOccurs="0">
+              <xs:element name="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_UserColumnName="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Tel" msprop:Generator_UserColumnName="Tel" msprop:Generator_ColumnPropNameInRow="Tel" msprop:Generator_ColumnVarNameInTable="columnTel" msprop:Generator_ColumnPropNameInTable="TelColumn" minOccurs="0">
+              <xs:element name="Tel" msprop:Generator_ColumnPropNameInTable="TelColumn" msprop:Generator_ColumnPropNameInRow="Tel" msprop:Generator_UserColumnName="Tel" msprop:Generator_ColumnVarNameInTable="columnTel" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Fax" msprop:Generator_UserColumnName="Fax" msprop:Generator_ColumnPropNameInRow="Fax" msprop:Generator_ColumnVarNameInTable="columnFax" msprop:Generator_ColumnPropNameInTable="FaxColumn" minOccurs="0">
+              <xs:element name="Fax" msprop:Generator_ColumnPropNameInTable="FaxColumn" msprop:Generator_ColumnPropNameInRow="Fax" msprop:Generator_UserColumnName="Fax" msprop:Generator_ColumnVarNameInTable="columnFax" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="EigyouSho" msprop:Generator_UserColumnName="EigyouSho" msprop:Generator_ColumnPropNameInRow="EigyouSho" msprop:Generator_ColumnVarNameInTable="columnEigyouSho" msprop:Generator_ColumnPropNameInTable="EigyouShoColumn" minOccurs="0">
+              <xs:element name="EigyouSho" msprop:Generator_ColumnPropNameInTable="EigyouShoColumn" msprop:Generator_ColumnPropNameInRow="EigyouSho" msprop:Generator_UserColumnName="EigyouSho" msprop:Generator_ColumnVarNameInTable="columnEigyouSho" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="KaishaMei" msprop:Generator_UserColumnName="KaishaMei" msprop:Generator_ColumnPropNameInRow="KaishaMei" msprop:Generator_ColumnVarNameInTable="columnKaishaMei" msprop:Generator_ColumnPropNameInTable="KaishaMeiColumn" minOccurs="0">
+              <xs:element name="KaishaMei" msprop:Generator_ColumnPropNameInTable="KaishaMeiColumn" msprop:Generator_ColumnPropNameInRow="KaishaMei" msprop:Generator_UserColumnName="KaishaMei" msprop:Generator_ColumnVarNameInTable="columnKaishaMei" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="YuubinY" msprop:Generator_UserColumnName="YuubinY" msprop:Generator_ColumnPropNameInRow="YuubinY" msprop:Generator_ColumnVarNameInTable="columnYuubinY" msprop:Generator_ColumnPropNameInTable="YuubinYColumn" minOccurs="0">
+              <xs:element name="YuubinY" msprop:Generator_ColumnPropNameInTable="YuubinYColumn" msprop:Generator_ColumnPropNameInRow="YuubinY" msprop:Generator_UserColumnName="YuubinY" msprop:Generator_ColumnVarNameInTable="columnYuubinY" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="AddressY" msprop:Generator_UserColumnName="AddressY" msprop:Generator_ColumnPropNameInRow="AddressY" msprop:Generator_ColumnVarNameInTable="columnAddressY" msprop:Generator_ColumnPropNameInTable="AddressYColumn" minOccurs="0">
+              <xs:element name="AddressY" msprop:Generator_ColumnPropNameInTable="AddressYColumn" msprop:Generator_ColumnPropNameInRow="AddressY" msprop:Generator_UserColumnName="AddressY" msprop:Generator_ColumnVarNameInTable="columnAddressY" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TelY" msprop:Generator_UserColumnName="TelY" msprop:Generator_ColumnPropNameInRow="TelY" msprop:Generator_ColumnVarNameInTable="columnTelY" msprop:Generator_ColumnPropNameInTable="TelYColumn" minOccurs="0">
+              <xs:element name="TelY" msprop:Generator_ColumnPropNameInTable="TelYColumn" msprop:Generator_ColumnPropNameInRow="TelY" msprop:Generator_UserColumnName="TelY" msprop:Generator_ColumnVarNameInTable="columnTelY" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FaxY" msprop:Generator_UserColumnName="FaxY" msprop:Generator_ColumnPropNameInRow="FaxY" msprop:Generator_ColumnVarNameInTable="columnFaxY" msprop:Generator_ColumnPropNameInTable="FaxYColumn" minOccurs="0">
+              <xs:element name="FaxY" msprop:Generator_ColumnPropNameInTable="FaxYColumn" msprop:Generator_ColumnPropNameInRow="FaxY" msprop:Generator_UserColumnName="FaxY" msprop:Generator_ColumnVarNameInTable="columnFaxY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="M_Shiiresaki" msprop:Generator_RowEvHandlerName="M_ShiiresakiRowChangeEventHandler" msprop:Generator_RowDeletedName="M_ShiiresakiRowDeleted" msprop:Generator_RowDeletingName="M_ShiiresakiRowDeleting" msprop:Generator_RowEvArgName="M_ShiiresakiRowChangeEvent" msprop:Generator_TablePropName="M_Shiiresaki" msprop:Generator_RowChangedName="M_ShiiresakiRowChanged" msprop:Generator_RowChangingName="M_ShiiresakiRowChanging" msprop:Generator_TableClassName="M_ShiiresakiDataTable" msprop:Generator_RowClassName="M_ShiiresakiRow" msprop:Generator_TableVarName="tableM_Shiiresaki" msprop:Generator_UserTableName="M_Shiiresaki">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ShiiresakiCode" msprop:Generator_ColumnPropNameInRow="ShiiresakiCode" msprop:Generator_ColumnPropNameInTable="ShiiresakiCodeColumn" msprop:Generator_ColumnVarNameInTable="columnShiiresakiCode" msprop:Generator_UserColumnName="ShiiresakiCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShiiresakiMei" msprop:Generator_ColumnPropNameInRow="ShiiresakiMei" msprop:Generator_ColumnPropNameInTable="ShiiresakiMeiColumn" msprop:Generator_ColumnVarNameInTable="columnShiiresakiMei" msprop:Generator_UserColumnName="ShiiresakiMei">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="YubinBangou" msprop:Generator_ColumnPropNameInRow="YubinBangou" msprop:Generator_ColumnPropNameInTable="YubinBangouColumn" msprop:Generator_ColumnVarNameInTable="columnYubinBangou" msprop:Generator_UserColumnName="YubinBangou">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_UserColumnName="Address">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tel" msprop:Generator_ColumnPropNameInRow="Tel" msprop:Generator_ColumnPropNameInTable="TelColumn" msprop:Generator_ColumnVarNameInTable="columnTel" msprop:Generator_UserColumnName="Tel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fax" msprop:Generator_ColumnPropNameInRow="Fax" msprop:Generator_ColumnPropNameInTable="FaxColumn" msprop:Generator_ColumnVarNameInTable="columnFax" msprop:Generator_UserColumnName="Fax">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShiharaiShimebi" msprop:Generator_ColumnPropNameInRow="ShiharaiShimebi" msprop:Generator_ColumnPropNameInTable="ShiharaiShimebiColumn" msprop:Generator_ColumnVarNameInTable="columnShiharaiShimebi" msprop:Generator_UserColumnName="ShiharaiShimebi" type="xs:int" />
+              <xs:element name="ShiharaiYoteibi" msprop:Generator_ColumnPropNameInRow="ShiharaiYoteibi" msprop:Generator_ColumnPropNameInTable="ShiharaiYoteibiColumn" msprop:Generator_ColumnVarNameInTable="columnShiharaiYoteibi" msprop:Generator_UserColumnName="ShiharaiYoteibi" type="xs:int" />
+              <xs:element name="KensyukoukaiFlg" msprop:Generator_ColumnPropNameInRow="KensyukoukaiFlg" msprop:Generator_ColumnPropNameInTable="KensyukoukaiFlgColumn" msprop:Generator_ColumnVarNameInTable="columnKensyukoukaiFlg" msprop:Generator_UserColumnName="KensyukoukaiFlg" type="xs:boolean" />
+              <xs:element name="SaisokuMailFlg" msprop:Generator_ColumnPropNameInRow="SaisokuMailFlg" msprop:Generator_ColumnPropNameInTable="SaisokuMailFlgColumn" msprop:Generator_ColumnVarNameInTable="columnSaisokuMailFlg" msprop:Generator_UserColumnName="SaisokuMailFlg" type="xs:boolean" />
+              <xs:element name="KousinKyokaFlg" msprop:Generator_ColumnPropNameInRow="KousinKyokaFlg" msprop:Generator_ColumnPropNameInTable="KousinKyokaFlgColumn" msprop:Generator_ColumnVarNameInTable="columnKousinKyokaFlg" msprop:Generator_UserColumnName="KousinKyokaFlg" type="xs:boolean" />
+              <xs:element name="KouzaMeigi" msprop:Generator_ColumnPropNameInRow="KouzaMeigi" msprop:Generator_ColumnPropNameInTable="KouzaMeigiColumn" msprop:Generator_ColumnVarNameInTable="columnKouzaMeigi" msprop:Generator_UserColumnName="KouzaMeigi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KinyuuKikanMei" msprop:Generator_ColumnPropNameInRow="KinyuuKikanMei" msprop:Generator_ColumnPropNameInTable="KinyuuKikanMeiColumn" msprop:Generator_ColumnVarNameInTable="columnKinyuuKikanMei" msprop:Generator_UserColumnName="KinyuuKikanMei">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KouzaBangou" msprop:Generator_ColumnPropNameInRow="KouzaBangou" msprop:Generator_ColumnPropNameInTable="KouzaBangouColumn" msprop:Generator_ColumnVarNameInTable="columnKouzaBangou" msprop:Generator_UserColumnName="KouzaBangou">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
@@ -141,6 +319,10 @@
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:V_Nouhinsho_Header" />
       <xs:field xpath="mstns:LoginID" />
+    </xs:unique>
+    <xs:unique name="M_Shiiresaki_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:M_Shiiresaki" />
+      <xs:field xpath="mstns:ShiiresakiCode" />
     </xs:unique>
   </xs:element>
 </xs:schema>
