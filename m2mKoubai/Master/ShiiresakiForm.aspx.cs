@@ -23,7 +23,6 @@ namespace m2mKoubai.Master
         private const int GV_CELL_ADDRESS = 5;
         private const int GV_CELL_TEL = 6;
         private const int GV_CELL_FAX = 7;
-        //private const int GV_CELL_FURIKOMISAKI = 8;
         private const int GV_CELL_KOUZAMEIGI = 8;
         private const int GV_CELL_KINYUUKIKAN_MEI = 9;
         private const int GV_CELL_KOUZABANGOU = 10;
@@ -32,6 +31,8 @@ namespace m2mKoubai.Master
         private const int GV_CELL_KENSYUU_JYOUHOU_KOUKAI = 13;
         private const int GV_CELL_NOUKIKAITOU_SAISOKU_MAIL = 14;
         private const int GV_CELL_SHIIRESAKI_KOUSHINKYOKA = 15;
+        private const int GV_CELL_INVOICEFLAG = 16;
+        private const int GV_CELL_INVOICENO = 17;
 
         Core.Collection.StringCollections m_objStringCols = new Core.Collection.StringCollections();
 
@@ -129,8 +130,7 @@ namespace m2mKoubai.Master
             Common.CtlMyPager pagerTop = (Common.CtlMyPager)FindControl("Pt");
             Common.CtlMyPager pagerBottom = (Common.CtlMyPager)FindControl("Pb");
 
-            m2mKoubaiDataSet.M_ShiiresakiDataTable dtShiiresaki =
-               ShiiresakiClass.getM_ShiiresakiDataTable(this.GetKensakuParam(), Global.GetConnection());
+            m2mKoubaiDataSet.M_ShiiresakiDataTable dtShiiresaki = ShiiresakiClass.getM_ShiiresakiDataTable(this.GetKensakuParam(), Global.GetConnection());
 
             this.ShowMsg(dtShiiresaki.Rows.Count + "件", false);
             if (dtShiiresaki.Rows.Count == 0)
@@ -178,7 +178,6 @@ namespace m2mKoubai.Master
             pagerBottom.Create(nPageCount);
             pagerTop.CurrentPageIndex = pagerBottom.CurrentPageIndex = G.PageIndex;
 
-
             G.DataSource = dv;
             G.DataBind();
             this.ShowT_Gv(true);
@@ -200,11 +199,6 @@ namespace m2mKoubai.Master
             {
                 k._Code = this.DdlCode.SelectedValue;
             }
-            // 取引先名
-            //if (DdlName.SelectedIndex > 0)
-            //{
-            //    k._Name = this.DdlName.SelectedValue;
-            //}
             return k;
         }
 
@@ -245,8 +239,7 @@ namespace m2mKoubai.Master
 
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                m2mKoubaiDataSet.M_ShiiresakiRow dr =
-                ((DataRowView)e.Row.DataItem).Row as m2mKoubaiDataSet.M_ShiiresakiRow;
+                m2mKoubaiDataSet.M_ShiiresakiRow dr = ((DataRowView)e.Row.DataItem).Row as m2mKoubaiDataSet.M_ShiiresakiRow;
               
                 // 削除
                 HtmlInputCheckBox chk = e.Row.FindControl("ChkI") as HtmlInputCheckBox;
@@ -260,13 +253,11 @@ namespace m2mKoubai.Master
                 this.HidThisID.Value += chk.Value;
                 // 更新ボタン
                 HtmlInputButton btn = e.Row.FindControl("BtnK") as HtmlInputButton;
-                btn.Attributes["onclick"] =
-                    string.Format("Update('{0}'); return false; ", chk.Value);
+                btn.Attributes["onclick"] = string.Format("Update('{0}'); return false; ", chk.Value);
 
-
-                // 仕入先コード           
+                // 仕入先コード
                 e.Row.Cells[GV_CELL_SHIIRESAKI_CODE].Text = dr.ShiiresakiCode;
-                // 仕入先名             
+                // 仕入先名
                 e.Row.Cells[GV_CELL_SHIIRESAKI_MEI].Text = dr.ShiiresakiMei.ToString();
                 // 郵便番号
                 e.Row.Cells[GV_CELL_YUBIN_BANGOU].Text = dr.YubinBangou;
@@ -274,17 +265,15 @@ namespace m2mKoubai.Master
                 e.Row.Cells[GV_CELL_ADDRESS].Text = dr.Address.ToString();
                 // 電話番号
                 e.Row.Cells[GV_CELL_TEL].Text = dr.Tel;
-                // FAX           
+                // FAX
                 e.Row.Cells[GV_CELL_FAX].Text = dr.Fax;
-                // 振込先
-                //e.Row.Cells[GV_CELL_FURIKOMISAKI].Text = dr.FurikomiSaki;
                 // 口座名義
                 e.Row.Cells[GV_CELL_KOUZAMEIGI].Text = dr.KouzaMeigi;
                 // 金融機関名
                 e.Row.Cells[GV_CELL_KINYUUKIKAN_MEI].Text = dr.KinyuuKikanMei;
                 // 口座番号
                 e.Row.Cells[GV_CELL_KOUZABANGOU].Text = dr.KouzaBangou;
-                // 支払締日             
+                // 支払締日
                 e.Row.Cells[GV_CELL_SHIHARAI_SHIMEBI].Text = AppCommon.ShiharaiShimebi(dr.ShiharaiShimebi);
                 // 支払予定日
                 e.Row.Cells[GV_CELL_SHIHARAI_YOTEIBI].Text = AppCommon.ShiharaiYoteibi(dr.ShiharaiYoteibi);
@@ -314,9 +303,20 @@ namespace m2mKoubai.Master
                 else
                 {
                     e.Row.Cells[GV_CELL_SHIIRESAKI_KOUSHINKYOKA].Text = "";
-                }      
-            }
-        }
+                }
+                // 適格請求書発行事業者
+                if (dr.InvoiceRegFlg)
+                {
+                    e.Row.Cells[GV_CELL_INVOICEFLAG].Text = "○";
+                }
+                else
+                {
+                    e.Row.Cells[GV_CELL_INVOICEFLAG].Text = "";
+                }
+                e.Row.Cells[GV_CELL_INVOICENO].Text = dr.InvoiceRegNo;
+
+    }
+}
 
         protected void Ram_AjaxRequest(object sender, Telerik.Web.UI.AjaxRequestEventArgs e)
         {

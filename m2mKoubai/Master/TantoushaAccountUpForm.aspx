@@ -236,7 +236,7 @@
                     <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label></td>
             </tr>
             <tr>
-                <td align="right">
+                <td align="left">
                     <input id="BtnC" runat="server" class="w80 bg6" onclick="Close()" type="button" value="閉じる" /></td>
             </tr>
             <tr>
@@ -304,7 +304,7 @@
                 </td>
             </tr>
             <tr>
-                <td align="center">
+                <td align="left">
                     <table id="TblBtn" runat="server">
                         <tr>
                             <td>

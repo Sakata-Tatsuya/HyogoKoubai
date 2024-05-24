@@ -175,8 +175,7 @@ namespace m2mKoubaiDAL
             }
         }
 
-        public static m2mKoubaiDataSet.M_ShiiresakiRow
-            getM_ShiiresakiRow(string ShiiresakiCode, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_ShiiresakiRow getM_ShiiresakiRow(string ShiiresakiCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki WHERE ShiiresakiCode = @ShiiresakiCode";
@@ -189,8 +188,7 @@ namespace m2mKoubaiDAL
                 return null;
         }
 
-        public static LibError
-            M_Shiiresaki_Insert(m2mKoubaiDataSet.M_ShiiresakiRow dr, SqlConnection sqlConn)
+        public static LibError M_Shiiresaki_Insert(m2mKoubaiDataSet.M_ShiiresakiRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki";
@@ -199,22 +197,23 @@ namespace m2mKoubaiDAL
             m2mKoubaiDataSet.M_ShiiresakiRow drNew = dt.NewM_ShiiresakiRow();
             try
             {
-                //drNew.ItemArray = dr.ItemArray;
-                drNew.ShiiresakiCode = dr.ShiiresakiCode;
-                drNew.ShiiresakiMei = dr.ShiiresakiMei;
-                drNew.YubinBangou = dr.YubinBangou;
-                drNew.Address = dr.Address;
-                drNew.Tel = dr.Tel;
-                drNew.Fax = dr.Fax;
-                //drNew.FurikomiSaki = dr.FurikomiSaki;
-                drNew.KouzaMeigi = dr.KouzaMeigi;
-                drNew.KinyuuKikanMei = dr.KinyuuKikanMei;
-                drNew.KouzaBangou = dr.KouzaBangou;
-                drNew.ShiharaiShimebi = dr.ShiharaiShimebi;
-                drNew.ShiharaiYoteibi = dr.ShiharaiYoteibi;
-                drNew.KensyukoukaiFlg = dr.KensyukoukaiFlg;
-                drNew.SaisokuMailFlg = dr.SaisokuMailFlg;
-                drNew.KousinKyokaFlg = dr.KousinKyokaFlg;
+                drNew.ItemArray = dr.ItemArray;
+                //drNew.ShiiresakiCode = dr.ShiiresakiCode;
+                //drNew.ShiiresakiMei = dr.ShiiresakiMei;
+                //drNew.YubinBangou = dr.YubinBangou;
+                //drNew.Address = dr.Address;
+                //drNew.Tel = dr.Tel;
+                //drNew.Fax = dr.Fax;
+                //drNew.KouzaMeigi = dr.KouzaMeigi;
+                //drNew.KinyuuKikanMei = dr.KinyuuKikanMei;
+                //drNew.KouzaBangou = dr.KouzaBangou;
+                //drNew.ShiharaiShimebi = dr.ShiharaiShimebi;
+                //drNew.ShiharaiYoteibi = dr.ShiharaiYoteibi;
+                //drNew.KensyukoukaiFlg = dr.KensyukoukaiFlg;
+                //drNew.SaisokuMailFlg = dr.SaisokuMailFlg;
+                //drNew.KousinKyokaFlg = dr.KousinKyokaFlg;
+                //drNew.InvoiceRegFlg = dr.InvoiceRegFlg;
+                //drNew.InvoiceRegNo = dr.InvoiceRegNo;
                 dt.Rows.Add(drNew);
                 da.Update(dt);
                 return null;
@@ -226,8 +225,7 @@ namespace m2mKoubaiDAL
 
         }
 
-        public static LibError
-            M_Shiiresaki_Update(string ShiiresakiCode, m2mKoubaiDataSet.M_ShiiresakiRow dr, SqlConnection sqlConn)
+        public static LibError M_Shiiresaki_Update(string ShiiresakiCode, m2mKoubaiDataSet.M_ShiiresakiRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki WHERE ShiiresakiCode = @ShiiresakiCode";
@@ -240,21 +238,22 @@ namespace m2mKoubaiDAL
             try
             {
                 m2mKoubaiDataSet.M_ShiiresakiRow drThis = (m2mKoubaiDataSet.M_ShiiresakiRow)dt.Rows[0];
-                //drNew.ItemArray = dr.ItemArray;
-                drThis.ShiiresakiMei = dr.ShiiresakiMei;
-                drThis.YubinBangou = dr.YubinBangou;
-                drThis.Address = dr.Address;
-                drThis.Tel = dr.Tel;
-                drThis.Fax = dr.Fax;
-               // drThis.FurikomiSaki = dr.FurikomiSaki;
-                drThis.KouzaMeigi = dr.KouzaMeigi;
-                drThis.KinyuuKikanMei = dr.KinyuuKikanMei;
-                drThis.KouzaBangou = dr.KouzaBangou;
-                drThis.ShiharaiShimebi = dr.ShiharaiShimebi;
-                drThis.ShiharaiYoteibi = dr.ShiharaiYoteibi;
-                drThis.KensyukoukaiFlg = dr.KensyukoukaiFlg;
-                drThis.SaisokuMailFlg = dr.SaisokuMailFlg;
-                drThis.KousinKyokaFlg = dr.KousinKyokaFlg;
+                drThis.ItemArray = dr.ItemArray;
+                //drThis.ShiiresakiMei = dr.ShiiresakiMei;
+                //drThis.YubinBangou = dr.YubinBangou;
+                //drThis.Address = dr.Address;
+                //drThis.Tel = dr.Tel;
+                //drThis.Fax = dr.Fax;
+                //drThis.KouzaMeigi = dr.KouzaMeigi;
+                //drThis.KinyuuKikanMei = dr.KinyuuKikanMei;
+                //drThis.KouzaBangou = dr.KouzaBangou;
+                //drThis.ShiharaiShimebi = dr.ShiharaiShimebi;
+                //drThis.ShiharaiYoteibi = dr.ShiharaiYoteibi;
+                //drThis.KensyukoukaiFlg = dr.KensyukoukaiFlg;
+                //drThis.SaisokuMailFlg = dr.SaisokuMailFlg;
+                //drThis.KousinKyokaFlg = dr.KousinKyokaFlg;
+                //drThis.InvoiceRegFlg = dr.InvoiceRegFlg;
+                //drThis.InvoiceRegNo = dr.InvoiceRegNo;
                 da.Update(dt);
                 return null;
             }

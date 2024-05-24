@@ -10,10 +10,13 @@
     <title>社内アカウント</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
        <script type="text/javascript">
-        function $(id)
-        {
-            return document.getElementById(id);
-        }
+           function $(id)
+           {
+                return document.getElementById(id);
+           }
+           function AjaxRequest(command_name, arg) {
+                <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+           }
         function Update(key)
         {
             var win = window.open
@@ -74,10 +77,6 @@
         {
             AjaxRequest('page', pageIndex);
         }
-        function AjaxRequest(command_name, arg)
-	    {
-		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
-	    }
 	    function Kensaku()
         {
 	        AjaxRequest('kensaku', '');
@@ -91,7 +90,7 @@
 	        AjaxRequest('row', '');
         }
     
-     </script> 
+       </script> 
 </head>
 <body class="bg0">
     <form id="form1" runat="server">

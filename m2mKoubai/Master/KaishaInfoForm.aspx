@@ -10,16 +10,20 @@
     <title>会社情報</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
-     function $(id)
-     {
-        return document.getElementById(id);
-     }
-     function Shinki()
-     {
-        var win = window.open
-        ("KaishaInfoUpForm","_brank","width=550px,height=350px,location=no,resizable=yes,scrollbars=yes");
-        win.focus();
-     }
+        function $(id)
+        {
+            return document.getElementById(id);
+        }
+        function AjaxRequest(command_name, arg)
+        {
+            <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+        }
+        function Shinki()
+        {
+            var win = window.open
+            ("KaishaInfoUpForm","_brank","width=550px,height=350px,location=no,resizable=yes,scrollbars=yes");
+            win.focus();
+        }
      function Update(key)
      {
         var win = window.open
@@ -75,10 +79,6 @@
      {
         AjaxRequest('page', pageIndex);
      }
-     function AjaxRequest(command_name, arg)
-     {
- 	     <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
-	 }
 	 function Kensaku()
 	 {
 	    AjaxRequest('kensaku', '');
@@ -129,7 +129,7 @@
                             <td width="50%">
                                 <uc2:ctlmypager id="Pt" runat="server"></uc2:ctlmypager>
                             </td>
-                            <td class="tr">
+                            <td class="tl">
                                 <table id="TblRow" runat="server" class="def9">
                                     <tr>
                                         <td>
@@ -191,6 +191,10 @@
                             </asp:BoundField>
                             <asp:BoundField HeaderText="E-Mail">
                             </asp:BoundField>
+                            <asp:BoundField HeaderText="適格請求書発行事業者" >
+                                <ItemStyle CssClass="tc" />
+                            </asp:BoundField>
+                            <asp:BoundField HeaderText="登録番号" />
                         </Columns>
                        <HeaderStyle CssClass="bg3" />
                          <RowStyle CssClass="bg1" />
@@ -216,7 +220,7 @@
             </Scripts>
         </telerik:RadScriptManager>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
-            <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
+            <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>
     </form>
 </body>

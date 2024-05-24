@@ -552,9 +552,8 @@ namespace m2mKoubai.Shiiresaki
                 {
                     int nSuuryou = 0;
                     bool b = false;
-                    m2mKoubaiDataSet.T_NoukiKaitouDataTable dtKaitou =
-                        NoukiKaitouClass.getT_NoukiKaitouDataTable(dr.Year, dr.HacchuuNo,
-                                                                    dr.JigyoushoKubun, dr.KaitouNo, Global.GetConnection());
+                    m2mKoubaiDataSet.T_NoukiKaitouDataTable dtKaitou = NoukiKaitouClass.getT_NoukiKaitouDataTable(dr.Year, dr.HacchuuNo,
+                                                                                           dr.JigyoushoKubun, dr.KaitouNo, Global.GetConnection());
                     for (int i = 0; i < dtKaitou.Rows.Count; i++)
                     {
                         nSuuryou += dtKaitou[i].Suuryou;
@@ -565,7 +564,6 @@ namespace m2mKoubai.Shiiresaki
                             if (dtKaitou[i].Nouki > int.Parse(strNoukiAry[j].ToString()))
                             {
                                 b = true;
-
                             }
                             else
                             {
@@ -726,10 +724,8 @@ namespace m2mKoubai.Shiiresaki
                     strNoukiAry[0] = strNouki1;
 
                 }
-
                 // ïœçXî[ä˙
                 info.strNoukiHenkouHtml = Utility.ToInnerRowsHTML_NoLine(strNoukiAry);
-
             }
             strNouki = str;
 
@@ -744,8 +740,6 @@ namespace m2mKoubai.Shiiresaki
                     info.strNoukiHenkouHtml +=
                         string.Format("<input type=button class='f8' onclick=Shounin('{0}_{1}_{2}_{3}'); return false;  value={4} />",
                         dr.Year, dr.HacchuuNo, dr.JigyoushoKubun, dr.HenkouNo, "è≥îF");
-
-
                 }
             }
         }

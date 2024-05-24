@@ -161,6 +161,13 @@ namespace m2mKoubai.Master
                 this.RbtnKyoka.Checked = true;
             else
                 this.RbtnKyokaNashi.Checked = true;
+            // 適格請求書発行事業者
+            if (drShiiresaki.InvoiceRegFlg)
+            { this.RbtSumi.Checked = true; }
+            else
+            { this.RbtMi.Checked = true; }
+            // 適格請求書発行事業者番号
+            this.TbxInvoiceNo.Text = drShiiresaki.InvoiceRegNo;
         }
 
         // 登録、更新ボタン表示
@@ -202,7 +209,6 @@ namespace m2mKoubai.Master
             // FAX
             dr.Fax = this.TbxFax.Text;
             // 振込先
-           // dr.FurikomiSaki = this.TbxFurikomisaki.Text;
             // 口座名義
             dr.KouzaMeigi = this.TbxKouzameigi.Text;
             // 金融機関名
@@ -211,7 +217,6 @@ namespace m2mKoubai.Master
             dr.KouzaBangou = this.TbxKouzaBangou.Text;
             // 支払締日
             dr.ShiharaiShimebi = int.Parse(DdlShimebi.SelectedValue);
-                //AppCommon.ShiharaiShimebiUp(DdlShimebi.SelectedValue);
             // 支払予定日
             dr.ShiharaiYoteibi = AppCommon.ShiharaiYoteibiUp(DdlYotebi1.SelectedValue + DdlYotebi2.SelectedValue);
             //検収情報詳細
@@ -241,6 +246,13 @@ namespace m2mKoubai.Master
             {
                 dr.KousinKyokaFlg = false;
             }
+            // 適格請求書発行事業者
+            if (this.RbtSumi.Checked)
+            { dr.InvoiceRegFlg = true; }
+            else
+            { dr.InvoiceRegFlg = false; }
+            // 適格請求書発行事業者番号
+            dr.InvoiceRegNo = this.TbxInvoiceNo.Text;
 
             return dr;
         }
@@ -285,7 +297,7 @@ namespace m2mKoubai.Master
             m2mKoubaiDataSet.M_ShiiresakiRow dr1 = this.CreateRow(false);
             if (dr1 == null)
                 return;
-
+            dr1.ShiiresakiCode = VsShiiresakiCode;
             LibError err1 = ShiiresakiClass.M_Shiiresaki_Update(VsShiiresakiCode, dr1, Global.GetConnection());
             if (err1 != null)
             {

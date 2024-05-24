@@ -8,36 +8,30 @@
                   <Columns>
                     <asp:TemplateField HeaderText="”[Šú">
                         <ItemTemplate>
-                            <asp:TextBox ID="TbxN" runat="server" MaxLength="6" Width="60px" ></asp:TextBox><br />
-                            <asp:TextBox ID="TbxKTNo" CssClass="tr" runat="server" MaxLength="14" Width="60px" >
-                            </asp:TextBox>
+                            <asp:TextBox ID="TbxN" runat="server" MaxLength="6" Width="60px" ></asp:TextBox>
+                            <br />
+                            <asp:TextBox ID="TbxKTNo" CssClass="tr" runat="server" MaxLength="14" Width="60px" ></asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="”—Ê">
                         <FooterTemplate>
-                            <asp:TextBox ID="TbxSum" runat="server" Width="60px"  MaxLength="14" BorderStyle="none"
-                            ReadOnly="True"></asp:TextBox>
+                            <asp:TextBox ID="TbxSum" runat="server" Width="60px" MaxLength="14" BorderStyle="none" ReadOnly="True"></asp:TextBox>
                         </FooterTemplate>
                         <ItemTemplate >
                             <asp:TextBox ID="TbxS" runat="server" Width="60px" Style="ime-mode: inactive" MaxLength="14" CssClass="tr">
                             </asp:TextBox>
                         </ItemTemplate>
-                       
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="íœ">
-                    <ItemTemplate>
-                            <asp:HyperLink ID="L" runat="server" ImageUrl="~/img/Close.gif"
-                                ToolTip="íœ"></asp:HyperLink>
+                        <ItemTemplate>
+                            <asp:HyperLink ID="L" runat="server" ImageUrl="~/img/Close.gif" ToolTip="íœ"></asp:HyperLink>
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                         <HeaderStyle Wrap="False" />
-                       
                     </asp:TemplateField>
                 </Columns>
-                 <HeaderStyle  BackColor="#ffff99" />
-                
+                 <HeaderStyle BackColor="#ffff99" />
             </asp:GridView>
-        
         </td>
     </tr>
     <tr  >

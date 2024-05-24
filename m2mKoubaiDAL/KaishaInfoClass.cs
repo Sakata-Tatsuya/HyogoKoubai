@@ -30,8 +30,7 @@ namespace m2mKoubaiDAL
         /// <param name="JigyoushoKubun"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.T_KaishaInfoDataTable
-            getT_KaishaInfoDataTable( SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_KaishaInfoDataTable getT_KaishaInfoDataTable( SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_KaishaInfo ";
@@ -82,9 +81,7 @@ namespace m2mKoubaiDAL
         /// <param name="JigyoushoKubun"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.T_KaishaInfoDataTable
-            //getT_KaishaInfoDataTable(int JigyoushoKubun, SqlConnection sqlConn)
-            getT_KaishaInfoDataTable(KensakuParam k, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_KaishaInfoDataTable getT_KaishaInfoDataTable(KensakuParam k, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             //da.SelectCommand.CommandText = "SELECT * FROM T_KaishaInfo WHERE KaishaID = @KaishaID";
@@ -94,11 +91,9 @@ namespace m2mKoubaiDAL
             {
                 da.SelectCommand.CommandText += "WHERE " + strWhere;
             }
-            //da.SelectCommand.Parameters.Add("@KaishaID", JigyoushoKubun);            
             m2mKoubaiDataSet.T_KaishaInfoDataTable dt = new m2mKoubaiDataSet.T_KaishaInfoDataTable();
             da.Fill(dt);
             return dt;
-
         }
 
         public static m2mKoubaiDataSet.T_KaishaInfoRow 
@@ -201,16 +196,10 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LoginDataSet.V_Jigyousho_CountDataTable
-            getV_Jigyousho_CountDataTable(KensakuParam k, SqlConnection sqlConn)
+        public static LoginDataSet.V_Jigyousho_CountDataTable getV_Jigyousho_CountDataTable(KensakuParam k, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            /* "SELECT          COUNT(*) AS Count, dbo.M_Login.JigyoushoKubun, dbo.T_KaishaInfo.KaishaID "
-            + "FROM            dbo.M_Login RIGHT OUTER JOIN dbo.T_KaishaInfo ON "
-            + "dbo.M_Login.JigyoushoKubun = dbo.T_KaishaInfo.KaishaID "
-            + "GROUP BY     dbo.M_Login.JigyoushoKubun, dbo.T_KaishaInfo.KaishaID ";
-            */
             "SELECT DISTINCT  "
             + "dbo.T_KaishaInfo.KaishaID, COUNT(*) AS Count, dbo.T_KaishaInfo.KaishaMei,  "
             + "dbo.T_KaishaInfo.EigyouSho, dbo.T_KaishaInfo.Address, dbo.T_KaishaInfo.Yuubin,  "
@@ -235,6 +224,7 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+
 
 
     }

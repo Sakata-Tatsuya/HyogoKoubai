@@ -17,13 +17,14 @@ namespace m2mKoubai.Master
         private const int G_CELL_DELETE = 0;
         private const int G_CELL_SHUUSEI = 1;
         private const int G_CELL_KAISHAID = 2;
-       // private const int G_CELL_KAISHAMEI = 3; //更新: 09-08-19 呉
         private const int G_CELL_JIGYOUSHOMEI = 3;
         private const int G_CELL_JUSHO = 4;
         private const int G_CELL_YUUBIN = 5;
         private const int G_CELL_TEL = 6;
         private const int G_CELL_FAX = 7;
         private const int G_CELL_EMAIL = 8;
+        private const int G_CELL_INVOICEFLAG = 9;
+        private const int G_CELL_INVOICENO = 10;
 
         private int VsKaishaID
         {
@@ -154,11 +155,8 @@ namespace m2mKoubai.Master
             Common.CtlMyPager pagerBottom = (Common.CtlMyPager)FindControl("Pb");
 
             // データ取得
-            //m2mKoubaiDataSet.T_KaishaInfoDataTable dtKaisha =
-            //    KaishaInfoClass.getT_KaishaInfoDataTable(this.GetKensakuParam(), Global.GetConnection());
-            // 変更（09-08-03　呉）
-            LoginDataSet.V_Jigyousho_CountDataTable dt =
-                KaishaInfoClass.getV_Jigyousho_CountDataTable(this.GetKensakuParam(), Global.GetConnection());
+            //LoginDataSet.V_Jigyousho_CountDataTable dt = KaishaInfoClass.getV_Jigyousho_CountDataTable(this.GetKensakuParam(), Global.GetConnection());
+            m2mKoubaiDataSet.T_KaishaInfoDataTable dt = KaishaInfoClass.getT_KaishaInfoDataTable(this.GetKensakuParam(), Global.GetConnection());
 
             this.ShowMsg(dt.Rows.Count + "件", false);
             if (dt.Rows.Count == 0)
@@ -248,55 +246,44 @@ namespace m2mKoubai.Master
             // データ行
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                //m2mKoubaiDataSet.T_KaishaInfoRow dr =
-                  //  ((DataRowView)e.Row.DataItem).Row as m2mKoubaiDataSet.T_KaishaInfoRow;
-
                 // 担当者の件数
-                LoginDataSet.V_Jigyousho_CountRow dr =
-                   ((DataRowView)e.Row.DataItem).Row as LoginDataSet.V_Jigyousho_CountRow;
+                m2mKoubaiDataSet.T_KaishaInfoRow dr = ((DataRowView)e.Row.DataItem).Row as m2mKoubaiDataSet.T_KaishaInfoRow;
 
                 // 削除
-                HtmlInputCheckBox chk = e.Row.FindControl("ChkI") as HtmlInputCheckBox;               
-                // 事業所に1人でも担当者がいる場合チェックボックスを外しておきたい    
-                /*
-                if (dtT.Rows.Count == 0)
-                {
+                HtmlInputCheckBox chk = e.Row.FindControl("ChkI") as HtmlInputCheckBox;
+                //if (dr.Count > 1)
+                //{
+                //    // 削除用チェックボックスを非表示
+                //    chk.Visible = false;
+                //}
+                //else
+                //{
+                //    // 削除用チェックボックスを表示
+                //    chk.Visible = true;                    
 
-                    chk.Visible = true;
-                }
-                else
-                {
-                    chk.Visible = false;
-                    e.Row.Cells[G_CELL_DELETE].CssClass = "hei30";
-                }
-                */
-                // 変更（09-08-03　呉）
-                if (dr.Count > 1)
-                {
-                    // 削除用チェックボックスを非表示
-                    chk.Visible = false;
-                }
-                else
-                {
-                    // 削除用チェックボックスを表示
-                    chk.Visible = true;                    
-                   
-                    // chkID
-                    if (HidChkID.Value != "") this.HidChkID.Value += ",";
-                    this.HidChkID.Value += chk.ClientID;
-                    // 主キー
-                    chk.Value = dr.KaishaID.ToString();
+                //    // chkID
+                //    if (HidChkID.Value != "") this.HidChkID.Value += ",";
+                //    this.HidChkID.Value += chk.ClientID;
+                //    // 主キー
+                //    chk.Value = dr.KaishaID.ToString();
 
-                    if (HidThisID.Value != "") this.HidThisID.Value += ",";
-                    this.HidThisID.Value += chk.Value;
-                }
-             
-                
+                //    if (HidThisID.Value != "") this.HidThisID.Value += ",";
+                //    this.HidThisID.Value += chk.Value;
+                //}
+                //    chk.Visible = true;                    
+
+                // chkID
+                if (HidChkID.Value != "") this.HidChkID.Value += ",";
+                this.HidChkID.Value += chk.ClientID;
+                // 主キー
+                chk.Value = dr.KaishaID.ToString();
+
+                if (HidThisID.Value != "") this.HidThisID.Value += ",";
+                this.HidThisID.Value += chk.Value;
+
                 // 更新
                 HtmlInputButton btn = e.Row.FindControl("BtnK") as HtmlInputButton;
-                // 変更（09-08-19　呉）
-                btn.Attributes["onclick"] =
-                    string.Format("Update('{0}'); return false; ", dr.KaishaID);
+                btn.Attributes["onclick"] = string.Format("Update('{0}'); return false; ", dr.KaishaID);
                 /*
                 // 他の事業所の更新はできないようにボタンを隠しておく
                 if (dr.KaishaID == SessionManager.JigyoushoKubun)
@@ -313,10 +300,6 @@ namespace m2mKoubai.Master
                 e.Row.Cells[G_CELL_SHUUSEI].CssClass = "hei30 tc";
                 // 事業所コード
                 e.Row.Cells[G_CELL_KAISHAID].Text = dr.KaishaID.ToString();
-                /* //更新: 09-08-19 呉
-                // 会社名
-                e.Row.Cells[G_CELL_KAISHAMEI].Text = dr.KaishaMei;
-                */ 
                 // 事業所名
                 e.Row.Cells[G_CELL_JIGYOUSHOMEI].Text = dr.EigyouSho;
                 // 住所
@@ -329,6 +312,16 @@ namespace m2mKoubai.Master
                 e.Row.Cells[G_CELL_FAX].Text = dr.Fax;
                 // E-Mail
                 e.Row.Cells[G_CELL_EMAIL].Text = dr.Mail;
+                // 適格請求書発行事業者
+                if (dr.InvoiceRegFlg)
+                {
+                    e.Row.Cells[G_CELL_INVOICEFLAG].Text = "○";
+                }
+                else
+                {
+                    e.Row.Cells[G_CELL_INVOICEFLAG].Text = "";
+                }
+                e.Row.Cells[G_CELL_INVOICENO].Text = dr.InvoiceRegNo;
             }
         }
 

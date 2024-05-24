@@ -121,7 +121,6 @@ namespace m2mKoubaiDAL
 
             DateTime date = DateTime.Now;
             int nOrderNo = ChumonClass_S.GetMaxHacchuuNo(sqlConn);
-            nOrderNo = nOrderNo + 1;
 
             SqlTransaction sqlTran = null;
             try

@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShiiresakiUpForm.aspx.cs" Inherits="m2mKoubai.Master.ShiiresakiUpForm" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
@@ -13,27 +12,26 @@
             }
     
             function OnLoad(loadFlg)
-            {       
+            {
                 if (window.opener != null) 
-                {        
+                {
                     if (loadFlg == 1) 
-                    {            
+                    {
                         window.opener.Reload();
                     }
                 }
-            }   
+            }
             function Touroku()
-            {       
+            {
                 if (!TourokuChk(true))
-                    return; 
-                       
+                    return;
                 if (confirm("登録しますか？"))
-                {            
+                {
                     document.getElementById('BtnTouroku').click();
-                }                                           
-            }  
+                }
+            }
             function TourokuChk(bool)
-            {  
+            {
                 if(bool)
                 {
                     var TbxShiireCode = document.getElementById('TbxShiireCode');
@@ -50,7 +48,7 @@
                     alert("仕入先名を入力してください");
                     TbxShiireName.focus();
                     return;
-                } 
+                }
                 var TbxYuubin = document.getElementById('TbxYuubin');
                 if(TbxYuubin.value == "")
                 {
@@ -91,59 +89,58 @@
                     return;
                 }
                 return true;
-            }        
+            }
             function Koushin()
-            {       
+            {
                 if (!TourokuChk(false))
                     return; 
                 if (confirm("更新しますか？"))
-                {                         
+                {
                     document.getElementById('BtnKoushin').click();
-                }                               
-            }  
+                }
+            }
             function Close() 
-            {           
+            {
                 window.close();
                 if (window.opener != null) 
-                {                     
-                    window.opener.Reload();                 
-                }                         
-            }   
+                {
+                    window.opener.Reload();
+                }
+            }
             function OnRequestStart()
-            {            
+            {
                 document.getElementById('Img1').style.display = '';
-            }           
+            }
             function OnResponseEnd()
-            {            
+            {
                 document.getElementById('Img1').style.display = 'none';
-            }  
+            }
             function KeyCodeCheck()
-            {       
-                var kc = event.keyCode;                    
+            {
+                var kc = event.keyCode;
                 if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-                    kc == 46 || kc == 8 || kc == 13 || kc == 9)         
-                    return true;                 
-                else          
-                    return false;         
-            }    
+                    kc == 46 || kc == 8 || kc == 13 || kc == 9)
+                    return true;
+                else
+                    return false;
+            }
             function HankakuChk(tbxId, objName)
-            {      
+            {
                 var count = 0;
-                var val = tbxId.value;   
-                   
+                var val = tbxId.value;
                 for( var i = 0; i < val.length; i++ )
                 {
                     var s = val.substring(i, i + 1);
                     var c = s.charCodeAt(0);
                     if (c < 256 || (c >= 0xff61 && c <= 0xff9f)){}
                     else
-                    {     
-                        alert(objName + 'は半角英数字のみで入力して下さい');                       
+                    {
+                        alert(objName + 'は半角英数字のみで入力して下さい');
                         return false;
-                    }                 
-                }          
-                return true; 
-            }            
+                    }
+                }
+                return true;
+            }
 		</script>
 </head>
 <body onload="OnLoad(<%=loadFlg %>);" class="bg0">
@@ -155,7 +152,7 @@
                     <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label></td>
             </tr>
             <tr>
-                <td align="right" class="tr">
+                <td align="right" class="tl">
                     <input id="BtnC" runat="server" class="w80 bg6" type="button" value="閉じる" onclick="Close()"/></td>
             </tr>
             <tr>
@@ -230,8 +227,7 @@
                                     <asp:ListItem Value="3">15日</asp:ListItem>
                                     <asp:ListItem Value="4">20日</asp:ListItem>
                                     <asp:ListItem Value="5">25日</asp:ListItem>
-                                     <asp:ListItem Value="0">末日</asp:ListItem>
-                                    
+                                    <asp:ListItem Value="0">末日</asp:ListItem>
                                 </asp:DropDownList>
                                 </td>
                         </tr>
@@ -252,7 +248,7 @@
                                     <asp:ListItem Value="3">15日</asp:ListItem>
                                     <asp:ListItem Value="4">20日</asp:ListItem>
                                     <asp:ListItem Value="5">25日</asp:ListItem>
-                                     <asp:ListItem Value="0">末日</asp:ListItem>                                  
+                                    <asp:ListItem Value="0">末日</asp:ListItem>                                  
                                 </asp:DropDownList></td>
                         </tr>
                         <tr>
@@ -277,13 +273,26 @@
                             <td colspan="1">
                                 <asp:RadioButton ID="RbtnKyoka" runat="server" Checked="True" GroupName="Kyoka" Text="許可する" />
                                 <asp:RadioButton ID="RbtnKyokaNashi" runat="server" GroupName="Kyoka" Text="許可しない" /></td>
-                           
+                        </tr>
+                        <tr>
+                            <td class="bg4">
+                                適格請求書発行事業者</td>
+                            <td colspan="1">
+                                <asp:RadioButton ID="RbtSumi" runat="server" Checked="True" GroupName="Invoice" Text="登録済" />
+                                <asp:RadioButton ID="RbtMi" runat="server" GroupName="Invoice" Text="未登録" /></td>
+                        </tr>
+                        <tr>
+                            <td class="bg4">
+                                事業者番号</td>
+                            <td colspan="1">
+                                <asp:TextBox  ID="TbxInvoiceNo" runat="server" MaxLength="13" Width="250px" ></asp:TextBox>
+                            </td>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr>
-                <td align="center">
+                <td align="left">
                     <table id="TblBtn" runat="server">
                         <tr>
                             <td>

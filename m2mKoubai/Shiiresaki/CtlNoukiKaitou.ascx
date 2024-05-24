@@ -1,42 +1,36 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CtlNoukiKaitou.ascx.cs" Inherits="m2mKoubai.Shiiresaki.CtlNoukiKaitou" %>
 <table runat="server" id="T" border="0" cellpadding="2" cellspacing="0" bordercolor="#000000" class="col" frame="void" >
     <tr>
-        <td nowrap="nowrap" >
+        <td nowrap="nowrap">
             <asp:GridView  ID="G" runat="server" AutoGenerateColumns="False" BackColor="White" 
-            CssClass="def tl@"  ShowFooter="True" OnRowDataBound="G_RowDataBound" Width="180px" BorderColor="White" >
+            CssClass="def tl@"  ShowFooter="True" OnRowDataBound="G_RowDataBound" Width="180px">
                   <Columns>
                     <asp:TemplateField HeaderText="”[Šú">
                         <ItemTemplate>
-                            <asp:TextBox ID="TbxN" runat="server" MaxLength="6" Width="60px" ></asp:TextBox><br />
-                            <asp:TextBox ID="TbxKTNo" CssClass="tr" runat="server" MaxLength="14" Width="60px" >
-                            </asp:TextBox>
-                        </ItemTemplate>                       
+                            <asp:TextBox ID="TbxN" runat="server" MaxLength="6" Width="60px" ></asp:TextBox>
+                            <br />
+                            <asp:TextBox ID="TbxKTNo" CssClass="tr" runat="server" MaxLength="14" Width="60px" ></asp:TextBox>
+                        </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="”—Ê">
                         <FooterTemplate>
-                            <asp:TextBox ID="TbxSum" runat="server" Width="60px"  MaxLength="14" BorderStyle="none"
-                            ReadOnly="True"></asp:TextBox>
+                            <asp:TextBox ID="TbxSum" runat="server" Width="60px" MaxLength="14" BorderStyle="none" ReadOnly="True"></asp:TextBox>
                         </FooterTemplate>
                         <ItemTemplate >
                             <asp:TextBox ID="TbxS" runat="server" Width="60px" Style="ime-mode: inactive" MaxLength="14" CssClass="tr">
                             </asp:TextBox>
                         </ItemTemplate>
-                       
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="íœ">
                     <ItemTemplate>
-                            <asp:HyperLink ID="L" runat="server" ImageUrl="~/img/Close.gif"
-                                ToolTip="íœ"></asp:HyperLink>
+                            <asp:HyperLink ID="L" runat="server" ImageUrl="~/img/Close.gif" ToolTip="íœ"></asp:HyperLink>
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                         <HeaderStyle Wrap="False" />
-                       
                     </asp:TemplateField>
                 </Columns>
                 <HeaderStyle  BackColor="#FFFF99" />
-                
             </asp:GridView>
-        
         </td>
     </tr>
     <tr  >

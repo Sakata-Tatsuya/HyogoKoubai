@@ -15,6 +15,9 @@
         {
             return document.getElementById(id);
         }
+         function AjaxRequest(command_name, arg) {
+            <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+         }
         function Update(key)
         {
             var win = window.open
@@ -75,10 +78,6 @@
         {
             AjaxRequest('page', pageIndex);
         }
-        function AjaxRequest(command_name, arg)
-	    {
-		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		
-	    }
 	    function Kensaku()
         {
             AjaxRequest('kensaku', '');
@@ -131,12 +130,11 @@
                             <td>
                                 <uc2:CtlMyPager ID="Pt" runat="server" />
                             </td>
-                            <td align="right">
-                                <table id="TblRow" runat="server" align="right" class="def9">
+                            <td align="left">
+                                <table id="TblRow" runat="server" align="left" class="def9">
                                     <tr>
                                         <td>
-            <input id="BtnS" runat="server" size="20" type="button" value="チェックしたデータを削除する" class="bg6" /></td>
-                                        
+                                            <input id="BtnS" runat="server" size="20" type="button" value="チェックしたデータを削除する" class="bg6" /></td>
                                         <td>
                                             <asp:DropDownList ID="DdlRow" runat="server">
                                                 <asp:ListItem>10</asp:ListItem>
@@ -214,7 +212,7 @@
             </Scripts>
         </telerik:RadScriptManager>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
-            <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
+            <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>
         </div>
     </form>

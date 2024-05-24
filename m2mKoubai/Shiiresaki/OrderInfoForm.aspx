@@ -1,13 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInfoForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.OrderInfoForm" ValidateRequest="false" %>
 <%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc4" %>
-<%@ Register Src="../Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
-<%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
+<%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
+<%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register Assembly="Core" namespace="Core.Web" tagprefix="cc1" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>発注情報</title>
@@ -16,30 +15,30 @@
     function $(id)
     {
         return document.getElementById(id);
-    }   
+    }
     function AjaxRequest(command_name, arg)
-	{
+    {
         <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
-	}
-	function HacchuuNo(key, hacchuuNo)
+    }
+    function HacchuuNo(key, hacchuuNo)
     {
         document.getElementById('HidKey').value = key +'\t'+ hacchuuNo;
         NewForm.action = "OrderShousaiForm";
         NewForm.target = "_hacchuu";
-	    OpenWinPost("_hacchuu",500,500,'');
+        OpenWinPost("_hacchuu",500,500,'');
         NewForm.submit();
     }
-     function Msg(key)
-     {
-	    document.getElementById('HidKey').value = key;
+    function Msg(key)
+    {
+        document.getElementById('HidKey').value = key;
         NewForm.action = "MessegeForm";
         NewForm.target = "_msg";
-	    OpenWinPost("_msg",700,500,'');
+        OpenWinPost("_msg",700,500,'');
         NewForm.submit();
-     }
+    }
      
-     function Print(strName)
-     {
+    function Print(strName)
+    {
         if(strName == "発注書")
         {
             var chkIdAry = document.getElementById('HidChkID_H').value.split(',');
@@ -112,18 +111,18 @@
             OpenWinPost("_hacchuusho",500,600,',menubar=yes');
         }
         NewForm.submit();
-     }
- 
+    }
+
     var win = null;
     function OpenWinPost(target,w,h, ect)
     {
         win = window.open
             ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes" + ect);
 	    win.focus();
-    } 
+    }
    
     function ChkAll_H(bool)
-    {      
+    {
         var idAry = document.getElementById('HidChkID_H').value.split(',');
       
         for(var i = 0; i < idAry.length; i++)
@@ -138,19 +137,18 @@
        
         for(var i = 0; i < idAry.length; i++)
         {
-           
            var chk = document.getElementById(idAry[i]);
            chk.checked = bool;
-       }
+        }
     }
     function ChkAll_G(bool)
     {
         var idAry = document.getElementById('HidChkID_G').value.split(',');
         for(var i = 0; i < idAry.length; i++)
-       {
+        {
            var chk = document.getElementById(idAry[i]);
            chk.checked = bool;
-       }
+        }
     }
     function Reload()
     {
@@ -266,7 +264,7 @@
 	    function GetDataArray2(key)
 	    {
 		    return Core_GetDataArray(key, document.getElementById('HidDataKey'), document.getElementById('HidData'),',', ':', false);
-	    }	
+	    }
 
         // Keyに対応するデータを配列として返す
         function Core_GetDataArray(key, hidDataKey, hidData, separatorKey, separatorData, bErrorNotFoundKey)
@@ -408,8 +406,8 @@
 		        if (!confirm('登録しますか？'))
 			        return false;
 	        }
-    			
-	        var hid_arg = document.getElementById('HidKaitouNoukiArg');
+
+            var hid_arg = document.getElementById('HidKaitouNoukiArg');
 	        hid_arg.value = data_array.join("|");
     	    
 	        AjaxRequest('nouki_kaitou_reg', cn_tab_array.join("\t"));
@@ -799,30 +797,30 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
+                                <HeaderTemplate>
+                                    <table class="tc col" width="100%" frame="void">
+                                        <tr>
+                                            <td class="s1">品目コード</td>
+                                        </tr>
+                                        <tr>
+                                            <td>品目名</td>
+                                        </tr>
+                                    </table>
+                                </HeaderTemplate>
                                 <ItemTemplate>
                                    <table class="col" width="100%" frame="void">
                                         <tr>
                                             <td class="s2">
-                                                <asp:Literal ID="LitCode" runat="server"></asp:Literal></td>
+                                                <asp:Literal ID="LitCode" runat="server"></asp:Literal>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:Literal ID="LitName" runat="server"></asp:Literal></td>
+                                                <asp:Literal ID="LitName" runat="server"></asp:Literal>
+                                            </td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
-                                <HeaderTemplate>
-                                    <table class="tc col" width="100%" frame="void">
-                                        <tr>
-                                            <td class="s1">
-                                                品目コード</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                品目名</td>
-                                        </tr>
-                                    </table>
-                                </HeaderTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <HeaderTemplate>
@@ -840,17 +838,19 @@
                                 <ItemTemplate><table class="tr col" width="100%" frame="void">
                                     <tr>
                                         <td class="s2" width="50%">
-                                            <asp:Literal ID="LitSuuryou" runat="server"></asp:Literal></td>
+                                            <asp:Literal ID="LitSuuryou" runat="server"></asp:Literal>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td width="50%">
-                                            <asp:Literal ID="LitTanka" runat="server"></asp:Literal></td>
+                                            <asp:Literal ID="LitTanka" runat="server"></asp:Literal>
+                                        </td>
                                     </tr>
                                 </table>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
-                                                            <HeaderTemplate>
+                                <HeaderTemplate>
                                     <table class="tc col" width="100%" frame="void">
                                         <tr>
                                             <td width="50%" class="s1">
@@ -865,16 +865,16 @@
                                 <ItemTemplate><table class="tr col" width="100%" frame="void">
                                     <tr>
                                         <td width="50%" class="s2">
-                                            <asp:Literal ID="LitChumonKingaku" runat="server"></asp:Literal></td>
+                                            <asp:Literal ID="LitChumonKingaku" runat="server"></asp:Literal>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td width="50%">
-                                            <asp:Literal ID="LitZeigaku" runat="server"></asp:Literal></td>
+                                            <asp:Literal ID="LitZeigaku" runat="server"></asp:Literal>
+                                        </td>
                                     </tr>
                                 </table>
                                 </ItemTemplate>
-                            
-                            
                             </asp:TemplateField>
                             <asp:BoundField HeaderText="単位" />
                             <asp:TemplateField HeaderText="納入場所">

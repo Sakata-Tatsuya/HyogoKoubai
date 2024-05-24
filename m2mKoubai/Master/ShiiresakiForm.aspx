@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShiiresakiForm.aspx.cs" Inherits="m2mKoubai.Master.ShiiresakiForm" %>
 
 <%@ Register Src="../CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 
 <!DOCTYPE html>
@@ -11,11 +10,13 @@
     <title>仕入先</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript">
-        
-        
         function $(id)
         {
             return document.getElementById(id);
+        }
+        function AjaxRequest(command_name, arg)
+        {
+            <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
         }
         function Update(key)
         {
@@ -77,10 +78,6 @@
         {
             AjaxRequest('page', pageIndex);
         }
-        function AjaxRequest(command_name, arg)
-	    {
-		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
-	    }
 	    function Kensaku()
         {
 	        AjaxRequest('kensaku', '');
@@ -143,7 +140,7 @@
                                 <table class="def9">
                                     <tr>
                                         <td>
-                    <input id="BtnS" runat="server" size="20" type="button" value="チェックしたデータを削除する" class="bg6" /></td>
+                                            <input id="BtnS" runat="server" size="20" type="button" value="チェックしたデータを削除する" class="bg6" /></td>
                                         <td style="height: 26px">
                                             &nbsp;<asp:DropDownList ID="DdlRow" runat="server">
                                                 <asp:ListItem>10</asp:ListItem>
@@ -207,6 +204,10 @@
                             <asp:BoundField HeaderText="仕入先情報更新許可" >
                                 <ItemStyle CssClass="tc" />
                             </asp:BoundField>
+                            <asp:BoundField HeaderText="適格請求書発行事業者" >
+                                <ItemStyle CssClass="tc" />
+                            </asp:BoundField>
+                            <asp:BoundField HeaderText="登録番号" />
                         </Columns>
                         <HeaderStyle CssClass="bg3" />
                          <RowStyle CssClass="bg1" />
@@ -232,9 +233,9 @@
                 </asp:ScriptReference>
             </Scripts>
         </telerik:RadScriptManager>
-        <telerik:radajaxmanager id="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
+        <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </telerik:radajaxmanager>
+        </telerik:RadAjaxManager>
     </form>
 </body>
 </html>

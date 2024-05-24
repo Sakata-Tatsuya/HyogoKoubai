@@ -80,8 +80,8 @@
                     <asp:Label ID="LblMsg" runat="server"></asp:Label></td>
             </tr>
             <tr>
-                <td align="right">
-                                <input id="BtnC" runat="server" class="w80 bg6"  type="button" value="閉じる" /></td>
+                <td align="left">
+                    <input id="BtnC" runat="server" class="w80 bg6"  type="button" value="閉じる" /></td>
             </tr>
             <tr>
                 <td>
@@ -99,14 +99,15 @@
                                 メッセージ<br />
                                 </td>
                             <td>
-                                <asp:TextBox ID="TbxMsg" runat="server" CssClass="def10" Rows="11" TextMode="MultiLine"
-                                    Width="350px"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxMsg" runat="server" CssClass="def10" Rows="11" TextMode="MultiLine" Width="350px">
+                                </asp:TextBox>
+                            </td>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr>
-                <td align="center">
+                <td align="left">
                     <table id="TblBtn" runat="server">
                         <tr>
                             <td>
