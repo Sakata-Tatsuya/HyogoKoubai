@@ -10,18 +10,20 @@
     <title>納入場所</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
-        function $(id)
-        {
+        function $(id) {
             return document.getElementById(id);
+        }
+        function AjaxRequest(command_name, arg) {
+            <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
         }
         function Update(key)
         {
             var win = window.open
             ("NounyuBashoUpForm?key="+key,"_brank","width=500px,height=200px,location=no,resizable=yes,scrollbars=yes");
-	        win.focus();	
-        }  
+	        win.focus();
+        }
     	function Shinki()
-		{			    			    	      		    
+		{
 		    var win = window.open
             ("NounyuBashoUpForm","_brank","width=500px,height=200px,location=no,resizable=yes,scrollbars=yes");
 		    win.focus();
@@ -74,10 +76,6 @@
         {
             AjaxRequest('page', pageIndex);
         }    
-        function AjaxRequest(command_name, arg)
-	    {
-		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
-	    }
 	    function Kensaku()
         {
 	        AjaxRequest('kensaku', '');
@@ -100,7 +98,7 @@
                 return false;
         }
     
-     </script> 
+    </script> 
 </head>
 <body class="bg0">
     <form id="form1" runat="server">    

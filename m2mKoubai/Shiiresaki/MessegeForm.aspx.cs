@@ -12,7 +12,7 @@ using m2mKoubaiDAL;
 using System.Drawing;
 namespace m2mKoubai.Shiiresaki
 {
-    public partial class MessegeForm : Core.Web.ServerViewStatePage
+    public partial class MessegeForm : System.Web.UI.Page
     {
         private const int G_CELL_DATE = 0;
         private const int G_CELL_MSG = 1;

@@ -14,7 +14,7 @@ using m2mKoubaiDAL;
 
 namespace m2mKoubai
 {
-    public partial class MessegeForm : Core.Web.ServerViewStatePage
+    public partial class MessegeForm : System.Web.UI.Page
     {
         private const int G_CELL_DATE = 0;
         private const int G_CELL_MSG = 1;

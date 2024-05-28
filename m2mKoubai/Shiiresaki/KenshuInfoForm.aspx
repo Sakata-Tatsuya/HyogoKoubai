@@ -13,14 +13,12 @@
     <title>検収情報</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />   
      <script type="text/javascript">
-    function $(id)
-    {
-        return document.getElementById(id);
-    }   
-    function AjaxRequest(command_name, arg)
-	{
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
-	}
+     function $(id) {
+         return document.getElementById(id);
+     }
+     function AjaxRequest(command_name, arg) {
+        <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+     }
 	 function Reload()
     {
         AjaxRequest('reload', '');
@@ -33,19 +31,19 @@
             return;
         }
 	    AjaxRequest('kensaku', '');
-    }   
+    }
     function RowChange()
     {
 	    AjaxRequest('row', '');
-    }   
+    }
     function PageChange(pageIndex)
     {
 	    AjaxRequest('page', pageIndex);
-    }   
+    }
     function OnBuhin()
     {
         AjaxRequest('ddlBuhin', '');
-    }    
+    }
 	function HacchuuNo(key, hacchuuNo)
     {
         document.getElementById('HidKey').value = key +'\t'+ hacchuuNo;
@@ -53,9 +51,9 @@
         NewForm.target = "_hacchuu"; 
 	    OpenWinPost("_hacchuu",500,500);
         NewForm.submit();
-    }    
+    }
     function Print()
-    {       
+    {
         var chkIdAry = document.getElementById('HidChkID').value.split(',');
         var hidPrintKey = ''
         for(var i = 0; i < chkIdAry.length; i++)
@@ -81,7 +79,7 @@
         NewForm.submit();
     }
     function Kenshu(key)
-    {     
+    {
         document.getElementById('HidKey').value = key;
         NewForm.action = "../Denpyou/KenshuMeisaihyoForm";
         NewForm.target = "_hacchuusho";
@@ -114,13 +112,13 @@
         {
             alert("チェックを入れてください");
             return false;
-        }   
+        }
     
         document.getElementById('HidKey').value = hidPrintKey;
         NewForm.action = "../Denpyou/JyuryousyoForm";
-        NewForm.target = "_hacchuusho"; 
+        NewForm.target = "_hacchuusho";
 	    OpenWinPost2("_hacchuusho",800,600);
-        NewForm.submit();     
+        NewForm.submit();
     }
     var win = null;
     function OpenWinPost(target,w,h)
@@ -141,20 +139,20 @@
         var idAry = document.getElementById('HidChkID').value.split(',');
       
         for(var i = 0; i < idAry.length; i++)
-        {    
+        {
             var chk = document.getElementById(idAry[i]);
             chk.checked = bool;
         }
-    }	
+    }
 	
     function OnRequestStart(sender, args)
 	{
         document.getElementById("Img1").style.display = '';		
 	}
 	function OnResponseEnd(sender, args)
-    {    
+    {
         document.getElementById('Img1').style.display = 'none';
-    }  
+    }
    
     function KeyCodeCheck()
     {
@@ -166,7 +164,7 @@
             return false;
     }
    
-  </script>
+     </script>
 </head>
 <body class="bg99">
     <form id="form1" runat="server">

@@ -165,27 +165,26 @@ namespace m2mKoubaiDAL
 
 
         /// <summary>
-        /// 検収データを取得// 修正 09/07/22
+        /// 検収データを取得
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static KenshuDataSet.V_KenshuDataTable
-            getV_KenshuDataTable(KensakuParam k, SqlConnection sqlConn)
+        public static KenshuDataSet.V_KenshuDataTable getV_KenshuDataTable(KensakuParam k, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-              "SELECT                  T_Nouhin.Year, T_Nouhin.HacchuuNo, T_Nouhin.NouhinNo, T_Nouhin.Suuryou AS NouhinSuuryou, "
+              "SELECT T_Nouhin.Year, T_Nouhin.HacchuuNo, T_Nouhin.NouhinNo, T_Nouhin.Suuryou AS NouhinSuuryou, "
             + "T_Chumon.ShiiresakiCode, T_Chumon.BuhinKubun, T_Chumon.BuhinCode, T_Chumon.Tanka, "
             + "T_Chumon.Suuryou AS ChumonSuuryou, M_NounyuuBasho.BashoMei, M_Buhin.BuhinMei, M_Buhin.Tani, "
             + "T_Nouhin.NouhinBi, T_Chumon.HacchuuBi, M_Shiiresaki.ShiiresakiMei, T_Chumon.Kingaku, "
             + "M_Buhin.KanjyouKamokuCode, M_Buhin.HiyouKamokuCode, M_Buhin.HojyoKamokuNo, T_Nouhin.JigyoushoKubun "
-            + "FROM                     T_Nouhin INNER JOIN "
-            + "T_Chumon ON T_Nouhin.Year = T_Chumon.Year AND T_Nouhin.HacchuuNo = T_Chumon.HacchuuNo AND "
-            + "T_Nouhin.JigyoushoKubun = T_Chumon.JigyoushoKubun INNER JOIN "
-            + "M_NounyuuBasho ON T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode INNER JOIN "
-            + "M_Buhin ON T_Chumon.BuhinCode = M_Buhin.BuhinCode INNER JOIN "
-            + "M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
-            + "WHERE                   (T_Chumon.CancelBi IS NULL) ";
+            + "FROM T_Nouhin "
+            + "INNER JOIN T_Chumon ON T_Nouhin.Year = T_Chumon.Year AND T_Nouhin.HacchuuNo = T_Chumon.HacchuuNo AND "
+            + "T_Nouhin.JigyoushoKubun = T_Chumon.JigyoushoKubun "
+            + "INNER JOIN M_NounyuuBasho ON T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode "
+            + "INNER JOIN M_Buhin ON T_Chumon.BuhinCode = M_Buhin.BuhinCode "
+            + "INNER JOIN M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
+            + "WHERE (T_Chumon.CancelBi IS NULL) ";
 
             // WHERE
             string strW = WhereText(k, da.SelectCommand);
@@ -194,18 +193,17 @@ namespace m2mKoubaiDAL
                 da.SelectCommand.CommandText += "AND " + strW;
             }
 
-            da.SelectCommand.CommandText += " ORDER BY        T_Chumon.Year  DESC,  T_Chumon.HacchuuNo DESC ";
+            da.SelectCommand.CommandText += " ORDER BY T_Chumon.Year DESC, T_Chumon.HacchuuNo DESC ";
             KenshuDataSet.V_KenshuDataTable dt = new KenshuDataSet.V_KenshuDataTable();
             da.Fill(dt);
             return dt;
         }
         /// <summary>
-        /// 検収データを取得// 修正 09/07/22
+        /// 検収データを取得
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static KenshuDataSet.V_KenshuDataTable
-            getV_Kenshu2DataTable(KensakuParam k, SqlConnection sqlConn)
+        public static KenshuDataSet.V_KenshuDataTable getV_Kenshu2DataTable(KensakuParam k, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =

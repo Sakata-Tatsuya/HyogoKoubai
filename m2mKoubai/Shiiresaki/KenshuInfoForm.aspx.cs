@@ -12,7 +12,7 @@ using m2mKoubaiDAL;
 
 namespace m2mKoubai.Shiiresaki
 {
-    public partial class KenshuInfoForm : Core.Web.ServerViewStatePage
+    public partial class KenshuInfoForm : System.Web.UI.Page
     {
         private int VsCurrentPageIndex
         {
@@ -162,8 +162,7 @@ namespace m2mKoubai.Shiiresaki
             }
             HidKeyKen.Value = k._NouhinYearMonth;
             //
-            KenshuDataSet.V_KenshuDataTable dt =
-                KenshuClass.getV_KenshuDataTable(k, Global.GetConnection());
+            KenshuDataSet.V_KenshuDataTable dt = KenshuClass.getV_KenshuDataTable(k, Global.GetConnection());
 
             this.ShowMsg(dt.Rows.Count + "åè", false);
             if (dt.Rows.Count == 0)
@@ -349,9 +348,7 @@ namespace m2mKoubai.Shiiresaki
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {        
-                KenshuDataSet.V_KenshuRow dr =
-                  ((DataRowView)e.Row.DataItem).Row as KenshuDataSet.V_KenshuRow;
-             
+                KenshuDataSet.V_KenshuRow dr = ((DataRowView)e.Row.DataItem).Row as KenshuDataSet.V_KenshuRow;
                 ChumonClass.ChumonKey key = new ChumonClass.ChumonKey(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun);               
 
                 // î≠íçNO              

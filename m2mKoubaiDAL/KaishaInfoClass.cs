@@ -154,6 +154,8 @@ namespace m2mKoubaiDAL
                 drThis.Tel = dr.Tel;
                 drThis.Fax = dr.Fax;
                 drThis.Mail = dr.Mail;
+                drThis.InvoiceRegFlg = dr.InvoiceRegFlg;
+                drThis.InvoiceRegNo = dr.InvoiceRegNo;
                 da.Update(dt);
                 return null;
             }

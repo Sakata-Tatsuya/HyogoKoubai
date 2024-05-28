@@ -12,7 +12,7 @@ using m2mKoubaiDAL;
 
 namespace m2mKoubai.Master
 {
-    public partial class KaishaInfoForm : Core.Web.ServerViewStatePage
+    public partial class KaishaInfoForm : System.Web.UI.Page
     {
         private const int G_CELL_DELETE = 0;
         private const int G_CELL_SHUUSEI = 1;

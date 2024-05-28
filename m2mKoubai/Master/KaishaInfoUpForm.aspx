@@ -85,7 +85,7 @@
               alert("電話番号を入力してください")
               TbxTel.focus();
               return;
-          }                                               
+          }
       }
       return true;           
   }
@@ -100,22 +100,17 @@
   }
   function KeyCodeCheck()
   {       
-      var kc = event.keyCode;                    
+      var kc = event.keyCode;
       if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-          kc == 46 || kc == 8 || kc == 13 || kc == 9)         
-          return true;                 
-      else          
-          return false;         
-  }         
+          kc == 46 || kc == 8 || kc == 13 || kc == 9)
+          return true;
+      else
+          return false;
+  }
   function Close()
   {
       window.close();
   }
-  
-   
-      
-
-  
   </script>
 </head>
 <body class="bg0" onload="OnLoad(<%=loadFlg%>)">
@@ -127,7 +122,7 @@
                     <asp:Label ID="LblMsg" runat="server"></asp:Label></td>
             </tr>
             <tr>
-                <td align="right">
+                <td align="left">
                     <input id="BtnC" runat="server" class="w80 bg6" onclick="Close()" type="button" value="閉じる" /></td>
             </tr>
             <tr>
@@ -175,8 +170,21 @@
                                 E-Mail</td>
                             <td colspan="1" class="hei20" >
                                 <asp:TextBox ID="TbxMail" runat="server" Width="350px" MaxLength="50" Height="15px"></asp:TextBox></td>
-                           
                         </tr>                        
+                        <tr>
+                            <td class="bg4">
+                                適格請求書発行事業者</td>
+                            <td>
+                                <asp:RadioButton ID="RbtSumi" runat="server" Checked="True" GroupName="Invoice" Text="登録済" />
+                                <asp:RadioButton ID="RbtMi" runat="server" GroupName="Invoice" Text="未登録" /></td>
+                        </tr>
+                        <tr>
+                            <td class="bg4">
+                                事業者番号</td>
+                            <td>
+                                <asp:TextBox  ID="TbxInvoiceNo" runat="server" MaxLength="14" Width="250px" ></asp:TextBox>
+                            </td>
+                        </tr>
                         
                     </table>
                 </td>

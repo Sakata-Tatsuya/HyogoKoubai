@@ -13,7 +13,7 @@ using m2mKoubaiDAL;
 
 namespace m2mKoubai.Master
 {
-    public partial class LoginMsgForm : Core.Web.ServerViewStatePage
+    public partial class LoginMsgForm : System.Web.UI.Page
     {
         private const int G_CELL_SAKUJO = 0;
         private const int G_CELL_KOUSHIN = 1;

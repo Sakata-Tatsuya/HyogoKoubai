@@ -102,8 +102,7 @@ namespace m2mKoubai.Master
         // 更新
         private void Koushin()
         {
-            m2mKoubaiDataSet.T_KaishaInfoRow dr =
-                KaishaInfoClass.getT_KaishaInfoRow(int.Parse(VsCode), Global.GetConnection());
+            m2mKoubaiDataSet.T_KaishaInfoRow dr = KaishaInfoClass.getT_KaishaInfoRow(int.Parse(VsCode), Global.GetConnection());
             if (dr == null)
             {
                 this.ShowTblMain(false);
@@ -127,6 +126,13 @@ namespace m2mKoubai.Master
             TbxFax.Text = dr.Fax;
             // E-Mail
             TbxMail.Text = dr.Mail;
+            // 適格請求書発行事業者
+            if (dr.InvoiceRegFlg)
+            { this.RbtSumi.Checked = true; }
+            else
+            { this.RbtMi.Checked = true; }
+            // 適格請求書発行事業者番号
+            this.TbxInvoiceNo.Text = dr.InvoiceRegNo;
 
             this.ShinkiTouroku(false);
             this.ShowTblMain(true);
@@ -159,7 +165,6 @@ namespace m2mKoubai.Master
 
         // Row作成
         private m2mKoubaiDataSet.T_KaishaInfoRow CreateRow(bool bShinki)
-        //private m2mKoubaiDataSet.T_KaishaInfoRow CreateRow()
         {
             m2mKoubaiDataSet.T_KaishaInfoRow dr = KaishaInfoClass.newT_KaishaInfoRow();
 
@@ -174,13 +179,8 @@ namespace m2mKoubai.Master
                 // 更新
                 dr.KaishaID = Convert.ToInt32(LitCode.Text);
             }
-            /*
             // 会社名
-            dr.KaishaMei = LitKaisha.Text;
-            */ 
-            // 会社名
-            dr.KaishaMei = "ヨドコウ興産株式会社";
-
+            dr.KaishaMei = "";
            
             // 事業所名
             dr.EigyouSho = this.TbxEigyousho.Text;
@@ -194,6 +194,13 @@ namespace m2mKoubai.Master
             dr.Fax = this.TbxFax.Text;
             // E-Mail
             dr.Mail = this.TbxMail.Text;
+            // 適格請求書発行事業者
+            if (this.RbtSumi.Checked)
+            { dr.InvoiceRegFlg = true; }
+            else
+            { dr.InvoiceRegFlg = false; }
+            // 適格請求書発行事業者番号
+            dr.InvoiceRegNo = this.TbxInvoiceNo.Text;
 
             return dr;
         }
@@ -201,8 +208,7 @@ namespace m2mKoubai.Master
         private bool TourokuCheck(m2mKoubaiDataSet.T_KaishaInfoRow dr)
         {
             // データ重複チェック
-            m2mKoubaiDataSet.T_KaishaInfoRow drChk =
-                KaishaInfoClass.getT_KaishaInfoRow(dr.KaishaID, Global.GetConnection());
+            m2mKoubaiDataSet.T_KaishaInfoRow drChk = KaishaInfoClass.getT_KaishaInfoRow(dr.KaishaID, Global.GetConnection());
             if (drChk != null)
             {
                 this.ShowMsg("データが重複しています", true);

@@ -12,7 +12,7 @@ using m2mKoubaiDAL;
 
 namespace m2mKoubai.Order
 {
-    public partial class MultiOrderInputForm : Core.Web.ServerViewStatePage
+    public partial class MultiOrderInputForm : System.Web.UI.Page
     {
         private const int G_CELL_SAKUJO = 0;
         private const int G_CELL_HACCHU_NO_SHIIRE = 1;

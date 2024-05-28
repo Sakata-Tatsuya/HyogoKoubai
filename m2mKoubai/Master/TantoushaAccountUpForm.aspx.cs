@@ -11,7 +11,7 @@ using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
 namespace m2mKoubai.Master
 {
-    public partial class TantoushaAccountUpForm : Core.Web.ServerViewStatePage
+    public partial class TantoushaAccountUpForm : System.Web.UI.Page
     {
         // LoginID
         private string VsLoginID

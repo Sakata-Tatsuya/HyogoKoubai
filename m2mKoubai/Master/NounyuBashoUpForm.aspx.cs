@@ -103,8 +103,7 @@ namespace m2mKoubai.Master
         // çXêV
         private void Koushin()
         {
-            m2mKoubaiDataSet.M_NounyuuBashoRow dr =
-                NounyuuBashoClass.getM_NounyuuBashoRow(VsCode, Global.GetConnection());
+            m2mKoubaiDataSet.M_NounyuuBashoRow dr = NounyuuBashoClass.getM_NounyuuBashoRow(VsCode, Global.GetConnection());
             if (dr == null)
             {
                 this.ShowTblMain(false);
@@ -117,8 +116,7 @@ namespace m2mKoubai.Master
            // TbxCode.Text = dr.NounyuuBashoCode;
             LitCode.Text = dr.BashoCode;
             // î[ì¸èÍèäñº
-            TbxName.Text = dr.BashoMei;          
-
+            TbxName.Text = dr.BashoMei;
 
             this.ShinkiTouroku(false);
             this.ShowTblMain(true);

@@ -13,7 +13,7 @@ using System.Drawing;
 
 namespace m2mKoubai.Shiiresaki
 {
-    public partial class KaishaInfoForm : Core.Web.ServerViewStatePage
+    public partial class KaishaInfoForm : System.Web.UI.Page
     {
 
 

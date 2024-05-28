@@ -166,9 +166,10 @@
             <tr>
                 <td align="left" width="50%">
                     <asp:Label ID="LblMsg" runat="server" CssClass="b" ForeColor="Red"></asp:Label></td>
-                <td align="right" class="hei30">
-                   <input id="BtnCancel" runat="server" type="button" value="キャンセル" class="bg6" />
-                    <input id="BtnC" runat="server" class="w80 bg6" type="button" value="閉じる" onclick="window.close();" /></td>
+                <td align="left" class="hei30">
+                    <input id="BtnCancel" runat="server" type="button" value="キャンセル" class="bg6" />
+                    <input id="BtnC" runat="server" class="w80 bg6" type="button" value="閉じる" onclick="window.close();" />
+                </td>
             </tr>
             <tr>
                 

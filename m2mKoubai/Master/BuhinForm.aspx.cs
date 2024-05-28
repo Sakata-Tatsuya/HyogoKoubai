@@ -11,7 +11,7 @@ using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
 namespace m2mKoubai.Master
 {
-    public partial class BuhinForm : Core.Web.ServerViewStatePage
+    public partial class BuhinForm : System.Web.UI.Page
     {
         private const int G_CELL_SAKUJO = 0;
         private const int G_CELL_KOUSHIN = 1;

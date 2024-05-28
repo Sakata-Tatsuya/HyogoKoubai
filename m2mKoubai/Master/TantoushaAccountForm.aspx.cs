@@ -11,7 +11,7 @@ using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
 namespace m2mKoubai.Master
 {
-    public partial class TantoushaAccountForm : Core.Web.ServerViewStatePage
+    public partial class TantoushaAccountForm : System.Web.UI.Page
     {
         private const int G_CELL_DELETE = 0;
         private const int G_CELL_SHUUSEI = 1;

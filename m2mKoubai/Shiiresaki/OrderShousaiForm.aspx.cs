@@ -13,7 +13,7 @@ using System.Drawing;
 
 namespace m2mKoubai.Shiiresaki
 {
-    public partial class OrderShousaiForm : Core.Web.ServerViewStatePage
+    public partial class OrderShousaiForm : System.Web.UI.Page
     {   /// <summary>
         /// éÂÉLÅ[1
         /// </summary>

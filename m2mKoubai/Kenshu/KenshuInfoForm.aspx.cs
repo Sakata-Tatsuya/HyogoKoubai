@@ -26,8 +26,6 @@ namespace m2mKoubai.Kenshu
                 this.ViewState["page_index"] = value;
             }
         }
-
-
        // private const int G_CELL_I = 0;
         private const int G_CELL_NO = 0;
         private const int G_CELL_SHIIRE_CODE = 1;
@@ -42,7 +40,6 @@ namespace m2mKoubai.Kenshu
         private const int G_CELL_NOUNYUU_BASHO = 10;
         private const int G_CELL_UKEIREBI = 11;
         private const int G_CELL_NYUKA_SUURYOU = 12;
-
 
         protected void Page_Load(object sender, EventArgs e)
         {

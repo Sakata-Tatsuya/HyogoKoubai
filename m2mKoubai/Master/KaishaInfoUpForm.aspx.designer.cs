@@ -123,6 +123,33 @@ namespace m2mKoubai.Master
         protected global::System.Web.UI.WebControls.TextBox TbxMail;
 
         /// <summary>
+        /// RbtSumi コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RbtSumi;
+
+        /// <summary>
+        /// RbtMi コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RbtMi;
+
+        /// <summary>
+        /// TbxInvoiceNo コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TbxInvoiceNo;
+
+        /// <summary>
         /// TblBtn コントロール。
         /// </summary>
         /// <remarks>

@@ -14,27 +14,26 @@
     }
     
     function OnLoad(loadFlg)
-    {    
+    {
         if (window.opener != null) 
-        {        
+        {
             if (loadFlg == 1) 
-            {            
+            {
                 window.opener.Reload();
             }
         }
-    }   
+    }
     function Touroku()
     {       
         if (!TourokuChk(true))
-            return; 
-                       
+            return;
         if (confirm("登録しますか？"))
-        {            
+        {
             document.getElementById('BtnTS').click();
-        }                                           
-    }  
+        }
+    }
     function TourokuChk(bool)
-    {  
+    {
         if(bool)
         {
             var tbxCode = document.getElementById('TbxCode');
@@ -58,19 +57,17 @@
             tbxName.focus();
             return;
         }
-        
-       
         return true;
-    }        
+    }
     function Koushin()
-    {       
+    {
         if (!TourokuChk(false))
-            return; 
+            return;
         if (confirm("更新しますか？"))
-        {                         
+        {
             document.getElementById('BtnKS').click();
-        }                               
-    }  
+        }
+    }
     function Close() 
     {           
         window.close();         
@@ -95,25 +92,22 @@
      function HankakuChk(tbxId, objName)
         {      
             var count = 0;
-            var val = tbxId.value;   
-           
+            var val = tbxId.value;
             for( var i = 0; i < val.length; i++ )
             {
                 var s = val.substring(i, i + 1);
                 var c = s.charCodeAt(0);
                 if (c < 256 || (c >= 0xff61 && c <= 0xff9f))
-                {                           
+                {
                 }
                 else
-                {     
+                {
                     alert(objName + 'は半角英数字のみで入力して下さい');     
-                                   
                     return false;
-                }                 
+                }
             }
-                 
-            return true; 
-        }            
+            return true;
+        }
     </script>
 </head>
 <body class="bg0" onload="OnLoad(<%=loadFlg%>)">
@@ -125,7 +119,7 @@
                     <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label></td>
             </tr>
             <tr>
-                <td align="right">
+                <td align="left">
                     <input id="BtnC" runat="server" class="w80 bg6" type="button" value="閉じる" /></td>
             </tr>
             <tr>
@@ -152,14 +146,17 @@
                         <tr>
                             <td >
                                 <input id="BtnT" runat="server" class="w80 bg6" type="button" value="登録" />
-                                <input id="BtnK" runat="server" class="w80 bg6" type="button" value="更新" /></td>
+                                <input id="BtnK" runat="server" class="w80 bg6" type="button" value="更新" />
+                            </td>
                         </tr>
                     </table>
                 </td>
             </tr>
         </table>
         <asp:Button ID="BtnTS" runat="server" OnClick="BtnTS_Click" />
-        <asp:Button ID="BtnKS" runat="server" OnClick="BtnKS_Click" /></div>
+        <asp:Button ID="BtnKS" runat="server" OnClick="BtnKS_Click" />
+
+    </div>
     </form>
 </body>
 </html>

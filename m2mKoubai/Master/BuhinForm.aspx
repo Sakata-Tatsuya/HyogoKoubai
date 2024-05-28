@@ -11,22 +11,12 @@
     <title>資材</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
      <script type="text/javascript">
-        function $(id)
-        {
+        function $(id) {
             return document.getElementById(id);
         }
-        function Update(key)
-        {
-            var win = window.open
-            ("BuhinUpForm?key="+key,"_brank","width=600px,height=500px,location=no,resizable=yes,scrollbars=yes");
-	        win.focus();
+        function AjaxRequest(command_name, arg) {
+           <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
         }
-    	function Shinki()
-		{
-		    var win = window.open
-            ("BuhinUpForm","_brank","width=600px,height=500px,location=no,resizable=yes,scrollbars=yes");
-		    win.focus();
-		}
 		function Delete()
         {
             var chkIDAry = document.getElementById('HidChkID').value.split(',');
@@ -63,33 +53,14 @@
                 chk.checked = bool;
             }
         }
-	    function OnRequestStart()
-        {
+        function OnRequestStart() {
             document.getElementById('Img1').style.display = '';
         }
-        function OnResponseEnd()
-        {
+        function OnResponseEnd() {
             document.getElementById('Img1').style.display = 'none';
         }
-        function PageChange(pageIndex)
-        {
+        function PageChange(pageIndex) {
             AjaxRequest('page', pageIndex);
-        }
-        function AjaxRequest(command_name, arg)
-	    {
-		    <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
-	    }
-	    function Kensaku()
-        {
-	        AjaxRequest('kensaku', '');
-        }
-        function Row()
-        {
-	        AjaxRequest('row', '');
-        }
-        function Reload()
-        {
-	        AjaxRequest('Reload', '');
         }
      </script> 
 </head>

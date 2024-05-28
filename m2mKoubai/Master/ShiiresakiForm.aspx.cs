@@ -13,7 +13,7 @@ using m2mKoubaiDAL;
 
 namespace m2mKoubai.Master
 {
-    public partial class ShiiresakiForm : Core.Web.ServerViewStatePage
+    public partial class ShiiresakiForm : System.Web.UI.Page
     {
         private const int GV_CELL_CHK = 0;
         private const int GV_CELL_KOUSIN = 1;
