@@ -11,7 +11,7 @@ using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
 namespace m2mKoubai.Denpyou
 {
-    public partial class KenshuMeisaihyoForm : Core.Web.ServerViewStatePage
+    public partial class KenshuMeisaihyoForm : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

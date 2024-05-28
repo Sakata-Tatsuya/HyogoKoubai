@@ -13,7 +13,7 @@ using System.Globalization;
 
 namespace m2mKoubai.Denpyou
 {
-    public partial class HacchuushoForm : Core.Web.ServerViewStatePage
+    public partial class HacchuushoForm : System.Web.UI.Page
     {
         byte bKubun = 0;
         protected void Page_Load(object sender, EventArgs e)

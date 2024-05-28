@@ -11,7 +11,7 @@ using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
 namespace m2mKoubai.Denpyou
 {
-    public partial class NouhinsyoForm : Core.Web.ServerViewStatePage
+    public partial class NouhinsyoForm : System.Web.UI.Page
     {
         
         protected void Page_Load(object sender, EventArgs e)
