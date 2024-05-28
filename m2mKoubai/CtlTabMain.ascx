@@ -37,7 +37,7 @@
                 </radTS:Tab>
             </Tabs>
         </radTS:Tab>
-        <radTS:Tab ID="Tab15" runat="server" Text="Ž‘Þ" NavigateUrl="~/Master/BuhinForm.aspx" Font-Bold="True"></radTS:Tab>
+        <radTS:Tab ID="Tab15" runat="server" Text="•”Þ" NavigateUrl="~/Master/BuhinForm.aspx" Font-Bold="True"></radTS:Tab>
         <radTS:Tab ID="Tab16" runat="server" Text="ƒƒbƒZ[ƒW“o˜^"  NavigateUrl="~/Master/LoginMsgForm.aspx" Font-Bold="True"></radTS:Tab>
         <radTS:Tab ID="Tab17" runat="server" NavigateUrl="~/Master/NounyuBashoForm.aspx" Text="”[“üêŠ" Font-Bold="True">
         </radTS:Tab>

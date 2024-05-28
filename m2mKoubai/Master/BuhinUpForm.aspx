@@ -1,10 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BuhinUpForm.aspx.cs" Inherits="m2mKoubai.Master.BuhinUpForm" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>資材登録</title>
+    <title>部材登録</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
     function $(id)
@@ -13,44 +12,43 @@
     }
     
     function OnLoad(loadFlg)
-    {    
+    {
         if (window.opener != null) 
-        {        
+        {
             if (loadFlg == 1) 
-            {            
+            {
                 window.opener.Reload();
             }
         }
-    }   
+    }
     function Touroku()
-    {       
+    {
         if (!TourokuChk(true))
-            return; 
-                       
+            return;
         if (confirm("登録しますか？"))
-        {            
+        {
             document.getElementById('BtnTS').click();
-        }                                           
-    }  
+        }
+    }
     function TourokuChk(bool)
-    {  
+    {
         var tbxKubun = document.getElementById('TbxKubun');
         if(tbxKubun.value == "")
         {
             alert("品目グループを入力してください");
             tbxKubun.focus();
             return false;
-        }             
+        }
         if(bool)
-        {      
+        {
             var tbxCode = document.getElementById('TbxCode');
             if(tbxCode.value == "")
             {
                 alert("品目コードを入力してください");
                 tbxCode.focus();
                 return false;
-            }           
-        }     
+            }
+        }
         var tbxName = document.getElementById('TbxHinmei');
         if(tbxName.value == "")
         {
@@ -62,9 +60,9 @@
         var tbxTanka = document.getElementById('TbxTanka');
         if(tbxTanka.value != "" && !CheckDecimal(tbxTanka.value))
         {
-            tbxTanka.focus();            
+            tbxTanka.focus();
             return false;
-        }      
+        }
         
         var tbxTani = document.getElementById('TbxTani');
         if(tbxTani.value == "")
@@ -72,68 +70,68 @@
             alert("単位を入力してください");
             tbxTani.focus();
             return false;
-        }   
+        }
         // ロット
         var tbxLot = document.getElementById('TbxLot');
         if(tbxLot.value != "" && !CheckSuu(tbxLot,'ロット'))
         {
             return false;
-        }       
+        }
         var tbxLeadTime = document.getElementById('TbxLeadTime');
         if (document.getElementById('DdlLeadTime').selectedIndex > 0 && tbxLeadTime.value == "")
         {
             alert("リードタイムを入力をしてください");
             tbxLeadTime.focus();
             return false;
-        }       
+        }
         if (tbxLeadTime.value != "" && document.getElementById('DdlLeadTime').selectedIndex == 0)
         {
-             alert("リードタイムの単位を選択してしてください");             
+            alert("リードタイムの単位を選択してしてください");
             return false;
-        }   
-        // 仕入先        
+        }
+        // 仕入先
         if (document.getElementById('DdlShiire1').selectedIndex == 0)
         {
-            alert("仕入先1を選択して下さい");            
+            alert("仕入先1を選択して下さい");
             return false;
-        }      
+        }
         if (document.getElementById('DdlShiire1').selectedIndex == document.getElementById('DdlShiire2').selectedIndex)
         {
-            alert("仕入先1と仕入先2は違う仕入先を選択して下さい");            
+            alert("仕入先1と仕入先2は違う仕入先を選択して下さい");
             return false;
-        }              
+        }
         return true;
-    }  
+    }
     function CheckDecimal(deci)
-    {      	  
+    {
         if (deci.match( /[^0-9.]/ ) != null)
         {
-            alert('単価の入力値が正しくありません');	            
+            alert('単価の入力値が正しくありません');
             return false;
-        }                	        
+        }
         var deciAry = deci.split('.');
         if (deciAry.length > 2)
         {
             alert('小数点は1つだけ入力可能です');
             return false;
-        }        
+        }
         if (deciAry.length == 2 && (deciAry[0].length == 0 || deciAry[1].length == 0))
         {
-            alert('単価の入力値が正しくありません');	            
+            alert('単価の入力値が正しくありません');
             return false;
-        }  	   
+        }
         if (deciAry.length < 3 && deciAry[0].length > 8)
         {
             alert('単価の整数部は8桁以内で入力して下さい');
-            return false;	           
-        }	        
+            return false;
+        }
         if (deciAry.length == 2 && deciAry[1].length > 2)
         {
             alert('単価の小数部は2桁以内で入力して下さい');
             return false;
-        }       	             
-        return true;	    
-    }     
+        }
+        return true;
+    }
     // 数値チェック
     function CheckSuu(tbx,str)
     {
@@ -144,59 +142,56 @@
             return false;
         }
         return true;
-    }	     
+    }
     function Koushin()
-    {  
+    {
         if (!TourokuChk(false))
-            return;     
+            return;
         if (confirm("更新しますか？"))
-        {                         
+        {
             document.getElementById('BtnKS').click();
-        }                               
-    }  
+        }
+    }
     function Close() 
-    {           
-        window.close();         
-    }   
+    {
+        window.close();
+    }
     function OnRequestStart()
-    {            
+    {
         document.getElementById('Img1').style.display = '';
-    }           
+    }
     function OnResponseEnd()
-    {            
+    {
         document.getElementById('Img1').style.display = 'none';
-    }  
+    }
      function KeyCodeCheck()
-    {       
-        var kc = event.keyCode;                    
+    {
+        var kc = event.keyCode;
         if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-            kc == 46 || kc == 8 || kc == 13 || kc == 9)         
-            return true;                 
-        else          
-            return false;         
-    }    
+            kc == 46 || kc == 8 || kc == 13 || kc == 9)
+            return true;
+        else
+            return false;
+    }
      function HankakuChk(tbxId, objName)
-        {      
-            var count = 0;
-            var val = tbxId.value;   
-           
-            for( var i = 0; i < val.length; i++ )
-            {
-                var s = val.substring(i, i + 1);
-                var c = s.charCodeAt(0);
-                if (c < 256 || (c >= 0xff61 && c <= 0xff9f))
-                {                           
-                }
-                else
-                {     
-                    alert(objName + 'は半角英数字のみで入力して下さい');     
-                                   
-                    return false;
-                }                 
-            }
-                 
-            return true; 
-        }            
+     {
+         var count = 0;
+         var val = tbxId.value;
+         for( var i = 0; i < val.length; i++ )
+         {
+             var s = val.substring(i, i + 1);
+             var c = s.charCodeAt(0);
+             if (c < 256 || (c >= 0xff61 && c <= 0xff9f))
+             {
+             }
+             else
+             {
+                 alert(objName + 'は半角英数字のみで入力して下さい');
+                 return false;
+             }
+         }
+         return true;
+     }
     </script>
 </head>
 <body class="bg0" onload="OnLoad(<%=loadFlg%>)">

@@ -8,7 +8,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-    <title>資材</title>
+    <title>部材</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
      <script type="text/javascript">
         function $(id) {
@@ -104,7 +104,7 @@
                                 <uc2:CtlMyPager ID="Pt" runat="server" />
                             </td>
                             <td align="left">
-                                <table id="TblRow" runat="server" align="right" class="def9" cellpadding="0" cellspacing="0">
+                                <table id="TblRow" runat="server" align="left" class="def9" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td>
                                             <input id="BtnS" runat="server" size="20" type="button" value="チェックしたデータを削除する" class="bg6" /></td>
