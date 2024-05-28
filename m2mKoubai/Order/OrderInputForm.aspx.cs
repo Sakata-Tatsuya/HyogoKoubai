@@ -32,7 +32,7 @@ namespace m2mKoubai.Order
         //private int _RowNo = -1;
 
         // “ü—Í‚µ‚Ä‚µ‚½’•¶î•ñ
-        private ChumonDataSet_S.V_OrderInputDataTable _dtOrder = null;
+        //private ChumonDataSet_S.V_OrderInputDataTable _dtOrder = null;
         // d“üæ
         //private ShiiresakiDataSet_S.V_ShiiresakiDataTable _dtShiire = null;
         // •”•i‹æ•ª
@@ -212,8 +212,8 @@ namespace m2mKoubai.Order
             G.DataBind();
         }
 
-        bool bSetShiireFlg = false;
-        int nRowNo = 0;
+        //bool bSetShiireFlg = false;
+        //int nRowNo = 0;
         protected void G_RowDataBound(object sender, GridViewRowEventArgs e)
         {            
             if (e.Row.RowType == DataControlRowType.DataRow)

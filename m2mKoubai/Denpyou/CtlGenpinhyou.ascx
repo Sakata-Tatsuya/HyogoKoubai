@@ -4,7 +4,6 @@
     <tr>
         <td colspan="2" class="def14 b tc" height="30" width="300" nowrap="noWrap">
             Œ»•i•[</td>
-       
     </tr>
     <tr>
         <td height="25" class="tl" nowrap="noWrap">

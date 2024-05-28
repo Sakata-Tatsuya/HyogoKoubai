@@ -1,10 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MultiOrderInputForm.aspx.cs" Inherits="m2mKoubai.Order.MultiOrderInputForm" %>
 
-<%@ Register Assembly="RadInput.Net2" Namespace="Telerik.WebControls" TagPrefix="radI" %>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
-<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
+
+<%--<%@ Register Assembly="RadInput.Net2" Namespace="Telerik.WebControls" TagPrefix="radI" %>--%>
+<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 
 <!DOCTYPE html>
 
@@ -17,319 +18,6 @@
         {
             return document.getElementById(id);
         }
-        function RowClear()
-        {
-            var chkIDAry = document.getElementById('HidChkID').value.split(',');
-            var bChecked = false;
-            var nDelCnt = 0;
-            for (var i = 0; i < chkIDAry.length; i++)
-            {
-                var chk = document.getElementById(chkIDAry[i]);
-                if (chk.checked)
-                {
-                    bChecked = true;
-                    //break;
-                    nDelCnt++;
-                }
-            }
-            if (nDelCnt == 0)
-            {
-                alert('チェックを入れて下さい');
-                return;
-            }
-            document.getElementById('HidArgs').value = nDelCnt;
-            var meisai = CreateMeisai(true, false);
-            if (confirm("入力内容を削除しますか？"))
-            {
-                for (var i = 0; i < chkIDAry.length; i++)
-                {
-                    var chk = document.getElementById(chkIDAry[i]);
-                    if (chk.checked)
-                    {
-                        chk.checked = false;
-                    }
-                }
-                AjaxRequest('RowClear', meisai);
-            }
-        }
-        function AllClear()
-        {
-            if (confirm("入力した内容を全て削除しますか？"))
-            {
-                AjaxRequest('AllClear', '');
-            }
-        }
-        function CreateMeisai(bSakujo, bTouroku)
-        {
-            var meisai = '';
-            //var bErr = false;
-            var noukiAry = document.getElementById('HidNoukiID').value.split(',');
-            var grid = document.getElementById('G');
-            for (var i = 1; i < grid.rows.length; i++)
-            {
-                var chkKan = grid.rows.item(i).cells.item(0).firstChild;
-                if (bSakujo && chkKan.checked)
-                {
-                    continue;
-                }
-                
-//                var tbl3 = grid.rows.item(i).cells.item(1).firstChild;	     
-                var ddlShiire = document.getElementById('DdlShiire');
-                if (ddlShiire.length == 0 || ddlShiire.selectedIndex == 0)
-                {
-                    break;
-                }
-                var shiireCode = ddlShiire.options[ddlShiire.selectedIndex].value;
-                var tbl0 = grid.rows.item(i).cells.item(2).firstChild;
-	            var ddlKubun = tbl0.rows.item(0).cells.item(0).firstChild;
-	            var buhinKubun = '';
-                if (ddlKubun.length > 0 && ddlKubun.selectedIndex > 0)
-                {
-                    buhinKubun = ddlKubun.options[ddlKubun.selectedIndex].value;
-                }
-                else
-                {
-                    continue;
-                }
-	            var ddlBuhin = tbl0.rows.item(1).cells.item(0).firstChild;
-                var buhinCode = '';
-                if (ddlBuhin.length > 0 && ddlBuhin.selectedIndex > 0)
-                {
-                    buhinCode = ddlBuhin.options[ddlBuhin.selectedIndex].value;
-                }
-                     
-                var tbl1 = grid.rows.item(i).cells.item(3).firstChild;
-	            var lblLot = tbl1.rows.item(0).cells.item(0).firstChild;
-	            var lot = lblLot.innerText;
-	            
-                var chkKariTanka = tbl1.rows.item(1).cells.item(0).childNodes.item(1);
-                var kariTankaFlg;
-                if (chkKariTanka.checked) { kariTankaFlg = "0"; }
-                else { kariTankaFlg = "1"; }
-                
-	            var tbxTanka = tbl1.rows.item(1).cells.item(0).childNodes.item(3);
-	            var tanka = tbxTanka.value;
-
-                var tbxSuu = grid.rows.item(i).cells.item(4).firstChild;
-                var suu = tbxSuu.value;
-
-                var lblTani = grid.rows.item(i).cells.item(5).firstChild;
-                var tani = lblTani.innerText;
-
-                var lblLT = grid.rows.item(i).cells.item(6).firstChild;
-                var leadTime = lblLT.innerText;
-
-                var tbl2 = grid.rows.item(i).cells.item(7).firstChild;
-	            var rdpNouki = noukiAry[i-1];
-	            var nouki = document.getElementById(rdpNouki).value;
-	            var ddlBasho = tbl2.rows.item(1).cells.item(0).firstChild;
-                var bashoCode = '';
-                if (ddlBasho.length > 0 && ddlBasho.selectedIndex > 0)
-                {
-                    bashoCode = ddlBasho.options[ddlBasho.selectedIndex].value;
-                }
-                var tbxBikou = grid.rows.item(i).cells.item(8).firstChild;
-                var bikou = tbxBikou.value;
-                if (bTouroku)
-                {
-                    if (buhinKubun == '')
-                    {
-                        alert('品目グループを選択して下さい');
-                        return '';
-                    } 
-                    if (buhinCode == '')
-                    {
-                        alert('品目を選択して下さい');
-                        return '';
-                    }
-
-                    if (tbxTanka.value == '')
-                    {
-                        alert('単価を入力して下さい');
-                        tbxTanka.focus();
-                        return '';
-                    }
-//                    else if (tbxTanka.value == '0')
-//                    {
-//                        alert('単価は0以上で入力して下さい');
-//                        tbxTanka.focus();
-//                        return '';
-//                    }
-                    else if (!CheckDecimal(tbxTanka.value))
-                    {
-                        tbxTanka.focus();
-                        return '';
-                    }
-                  
-                    if (suu == '')
-                    {
-                        alert('数量を入力して下さい');
-                        return '';
-                    }                    　
-                    else if(suu == '0')
-                    {
-                        alert('数量を0以上で入力して下さい');
-                        return '';
-                    }
-                    else if (!CheckSuu(tbxSuu, '数量'))
-                    {
-                        tbxSuu.focus();
-                        return '';
-                    }
-                    if (nouki == '')
-                    {
-                        alert('納期を入力して下さい');
-                        return '';
-                    }
-                    else
-                    {
-                        if (NengappiCheck(nouki) == -1)
-                        {
-                            return '';
-                        }
-                    }
-                    if (bashoCode == '')
-                    {
-                        alert('納品場所を選択して下さい');
-                        return '';
-                    } 
-                    if (bikou.length > 200)
-                    {
-                        alert('備考は200文字以内で入力して下さい');
-                        tbxBikou.focus();
-                        return '';
-                    }
-                }
-                if (meisai != '') meisai += '\t';
-                meisai += shiireCode +'|'+ buhinKubun +'|'+ buhinCode +'|'+ lot +'|'+ tanka +'|'+ suu +'|'+ tani +'|'+ leadTime +'|'+ nouki +'|'+ bashoCode +'|'+ bikou + '|' + kariTankaFlg;
-            }        
-            if (bTouroku && meisai == '')
-            {
-                alert('発注内容を入力して下さい');
-                return '';
-            }
-            return meisai; 
-        }
-        function CheckDecimal(deci)
-	    {	
-	        if (deci == '')
-	        {
-	            return true;
-	        }
-	        else
-	        {
-	            if (deci.match( /[^0-9.,]/ ) != null)
-	            {
-	                alert('単価の入力値が正しくありません');
-	                return false;
-	            }
-	            var deciAry = deci.split('.');
-	            if (deciAry.length > 2)
-	            {
-	                alert('小数点は1つだけ入力可能です');
-	                return false;
-	            }
-	            if (deciAry.length == 2 && (deciAry[0].length == 0 || deciAry[1].length == 0))
-	            {
-	                alert('単価の入力値が正しくありません');
-	                return false;
-	            }
-	            if (deciAry.length < 3 && deciAry[0].length > 8)
-	            {
-	                alert('単価の整数部は8桁以内で入力して下さい');
-	                return false;
-	            }
-	            if (deciAry.length == 2 && deciAry[1].length > 2)
-	            {
-	                alert('単価の小数部は2桁以内で入力して下さい');
-	                return false;
-	            }
-//	            if (deciAry.length == 2 && parseInt(deciAry[0]) == 0 && parseInt(deciAry[1]) == 0)
-//	            {
-//	                alert('単価は0以上で入力して下さい');
-//	                return false;
-//	            }
-		        return true;
-		    }
-	    }
-        // 年月日チェック(true = retunr日付, false = return -1)
-	    function NengappiCheck(nengappi)
-	    {	 
-	        if (nengappi.length == 0)	
-	        {
-	            alert("日付を入力して下さい");	                   
-                return -1;     
-            }
-                    
-            var nen = nengappi.match(/(\d{1,4})\/(\d{1,2})\/(\d{1,2})/);
-            if (nen == null)
-            {
-                alert("日付を正しく入力して下さい");
-                return -1;
-            }
-            var dt = new Date();
-            var year = nen[1];
-            var month = nen[2];
-            var day = nen[3];         		        
-            // 年の判定
-            if (year < dt.getFullYear() - 1)
-            {
-                alert("西暦を正しく入力して下さい"); 
-                return -1;
-            }
-
-            month = FormatMonthDay(month);     
-            // 月の判定
-            if (!(month >= 1 && month <= 12))
-            {
-                alert("月を正しく入力して下さい");
-                return -1;
-            }
-            var yy = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 29);
-            var monthChk = month;
-            // 閏年の判定
-            if (((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) && month == 2)
-                monthChk = 12;
-            else
-                monthChk--;
-
-            day = FormatMonthDay(day);
-            // 日の判定
-            if (!(day >= 1 && day <= yy[monthChk])) {
-                alert("日付を正しく入力して下さい");
-                return -1;
-            }
-            // 今日より前の日付はエラー
-            if (dt.getFullYear() + FormatMonthDay(dt.getMonth()+1) + FormatMonthDay(dt.getDate()) > year + month + day)
-            {
-                alert('本日以降の日付を入力して下さい');
-                return -1;
-            }
-            return (year + "/" + month + "/" + day);
-        }
-        function FormatMonthDay(monthDay)
-        {
-            var str = monthDay.toString();
-            if (str.length == 1)
-            {
-                return "0" + str;
-            }
-            else
-            {
-                return str;
-            }
-        }
-        // 数値チェック
-        function CheckSuu(tbx,str)
-	    {
-	        if (tbx.value.match(/[^0-9]/) != null)
-	        {
-	            alert(str+"は半角数字のみで入力して下さい");
-	            tbx.focus();
-	            return false;
-	        }
-	        return true;
-	    }
         function DelChk(bool)
         { 
             var idAry = document.getElementById('HidChkID').value.split(',');
@@ -339,54 +27,17 @@
                 chk.checked = bool;
             }
         }
-        function ShiireChange()
-        {
-            var meisai = CreateMeisai(false, false);
-            AjaxRequest('ShiireChange', meisai);
-        }
-        function BuhinChange(rowNo)
-        {
-            document.getElementById('HidArgs').value = rowNo;
-            var meisai = CreateMeisai(false, false);
-            AjaxRequest('BuhinChange', meisai);
-        }
-        function Touroku()
-        { 
-            var meisai = CreateMeisai(false, true);
-            /*
-            if (meisai == '')
-            {
-                alert('発注内容を入力して下さい');
-                return;
-            } 
-            */      
-            if (meisai != '' && confirm('上記の内容で発注しますか？'))
-            {
-                AjaxRequest('Touroku', meisai);
-            }
-        }
-        function AddRow()
-        {
-            var meisai = CreateMeisai(false, false);
-            AjaxRequest('AddRow', meisai);
-        }
         /*
         function Reload()
         {
 	        AjaxRequest('Reload', meisai);
         }
         */
-        function KubunChange()
-        {
-            var meisai = CreateMeisai(false, false);
-            AjaxRequest('KubunChange', meisai);
-        }
         function OnRequestStart() { document.getElementById('Img1').style.display = '';}
         function OnResponseEnd() { document.getElementById('Img1').style.display = 'none';}
-        function AjaxRequest(command_name, arg)
-	    {
-		    <%=Ram.ClientID %>.AjaxRequest(command_name + ':' + arg);	
-	    }
+        function AjaxRequest(command_name, arg) {
+            <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+        }
        
     </script>
 </head>
@@ -409,7 +60,17 @@
             <tr>
                 <td>
                     <table class="col tc" bordercolor="#000000" border="1" frame="box">
-                        <tbody><tr><td class="bg3 b f10">仕入先 </td></tr><tr><td class="bg8"><asp:DropDownList id="DdlShiire" runat="server"></asp:DropDownList></td></tr></tbody>
+                        <tbody>
+                            <tr>
+                                <td class="bg3 b f10">仕入先 </td>
+                            </tr>
+                            <tr>
+                                <td class="bg8">
+                                    <asp:DropDownList id="DdlShiiresaki" runat="server" AutoPostBack="True" onselectedindexchanged="DdlShiiresaki_SelectedIndexChanged">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                     <table width="100%">
                         <tr>
@@ -417,10 +78,10 @@
                             <table style="border-collapse:collapse;">
                                 <tr>
                                     <td style="padding:0 0 0 0">
-                                        <input id="BtnS" runat="server" type="button" value="チェックした行を削除する" class="bg6" />
+                                        <asp:Button ID="BtnDel" runat="server" Text="チェックした行を削除する" OnClick="BtnDel_Click" />
                                     </td>
                                     <td style="padding:0 0 0 0">
-                                        <input id="BtnClear" runat="server" type="button" value="入力した内容を全て削除する" class="bg6" />
+                                        <asp:Button ID="BtnClear" runat="server" Text="入力内容を全てクリアする" OnClick="BtnClear_Click" />
                                     </td>
                                     <td style="padding:0 0 0 0">
                                         <table>
@@ -439,8 +100,7 @@
                                     </td>
                                 </tr>
                             </table>
-                                
-                                </td>
+                            </td>
                         </tr>
                     </table>
                     <asp:GridView ID="G" runat="server" AutoGenerateColumns="False" Width="100%" CssClass="def9" OnRowDataBound="G_RowDataBound">
@@ -461,25 +121,11 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="発注No">
                                 <ItemTemplate>
-                                    <asp:Label ID="LblOrderNo" runat="server" CssClass="def12"></asp:Label>
+                                    <asp:Label ID="LblHacchuuNo" runat="server" CssClass="def12"></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="tc" />
                             </asp:TemplateField>
                             <asp:TemplateField>
-                                <ItemTemplate><table align="center" class="col" frame="void" width="100%">
-                                    <tr>
-                                        <td class="nw s3">
-                                    <asp:DropDownList ID="DdlKubun" runat="server">
-                                    </asp:DropDownList></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="nw">
-                                    <asp:DropDownList ID="DdlBuhin" runat="server">
-                                    </asp:DropDownList></td>
-                                    </tr>
-                                </table>
-                                </ItemTemplate>
-                                <HeaderStyle CssClass="nw" />
                                 <HeaderTemplate>
                                     <table class="col" frame="void" width="100%">
                                         <tr>
@@ -492,6 +138,28 @@
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
+                                <ItemTemplate><table align="center" class="col" frame="void" width="100%">
+                                    <tr>
+                                        <td class="nw s3">
+                                            <telerik:RadComboBox ID="RcbBuhinKubun" runat="server" AllowCustomText="True" EnableLoadOnDemand="True"
+                                                Height="180px" MarkFirstMatch="True" NoWrap="True" ShowMoreResultsBox="True" ShowToggleImage="False"
+                                                AutoPostBack="True" EnableVirtualScrolling="false" Skin="Simple" Width="60px"
+                                                OnItemsRequested="RcbBuhinKubun_ItemsRequested">
+                                            </telerik:RadComboBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nw">
+                                            <telerik:RadComboBox ID="RcbBuhin" runat="server" AllowCustomText="True" EnableLoadOnDemand="True"
+                                                Height="180px" MarkFirstMatch="True" NoWrap="True" ShowMoreResultsBox="True" ShowToggleImage="False"
+                                                AutoPostBack="True" EnableVirtualScrolling="false" Skin="Simple" Width="200px"
+                                                OnItemsRequested="RcbBuhin_ItemsRequested">
+                                            </telerik:RadComboBox>
+                                        </td>
+                                    </tr>
+                                </table>
+                                </ItemTemplate>
+                                <HeaderStyle CssClass="nw" />
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
@@ -526,7 +194,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="数量">
                                 <ItemTemplate>
-                                    <asp:TextBox ID="TbxSuu" runat="server" CssClass="tr" MaxLength="8" Width="60px"></asp:TextBox>
+                                    <asp:TextBox ID="TbxSuryo" runat="server" CssClass="tr" MaxLength="8" Width="60px"></asp:TextBox>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="tc" />
                             </asp:TemplateField>
@@ -545,14 +213,29 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
+                                <HeaderTemplate>
+                                   <table class="col" frame="void" width="100%">
+                                       <tr>
+                                           <td class="tc s1">
+                                               納期</td>
+                                       </tr>
+                                       <tr>
+                                           <td class="tc">
+                                               納入場所</td>
+                                       </tr>
+                                   </table>
+                               </HeaderTemplate>
                                 <ItemTemplate>
                                     <table align="center" class="col" frame="void" width="100%">
                                         <tr>
                                             <td class="tc s3">
-                                                <radCln:RadDatePicker ID="RdpNouki" runat="server">
-                                                <DateInput Width="80px" Font-Size="11pt" ></DateInput>
-                                                </radCln:RadDatePicker>
-                                            </td>
+                                                <telerik:RadDatePicker id="RdpNouki" ToolTip="" MinDate="1950-01-01" Runat="server" Width="100px">
+                                                   <Calendar Runat="server" ShowRowHeaders="False"></Calendar>
+                                                   <DateInput Runat="server" DisplayDateFormat="yyyy/MM/dd" LabelCssClass="radLabelCss_Default" Width="80px"
+                                                    DateFormat ="yyyy/MM/dd" Font-Size="9pt" RangeValidation="Immediate" DisplayPromptChar="_" PromptChar=" ">
+                                                   </DateInput>
+                                                </telerik:RadDatePicker>
+                                              </td>
                                         </tr>
                                         <tr>
                                             <td class="tc">
@@ -562,18 +245,6 @@
                                     </table>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="tc" />
-                                <HeaderTemplate>
-                                    <table class="col" frame="void" width="100%">
-                                        <tr>
-                                            <td class="tc s1">
-                                                納期</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="tc">
-                                                納入場所</td>
-                                        </tr>
-                                    </table>
-                                </HeaderTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="備考（200文字以内）">
                                 <ItemTemplate>
@@ -586,12 +257,12 @@
                          <HeaderStyle BorderStyle="None" CssClass="bg3" />
                         <AlternatingRowStyle CssClass="bg2" />
                     </asp:GridView>
-                  
                 </td>
             </tr>
             <tr>
-                <td class="tr">
-                    <input id="BtnAdd" runat="server" type="button" value="行を追加する" class="bg6" /></td>
+                <td class="tl">
+                    <asp:Button ID="BtnAdd" runat="server" Text="行を追加する" OnClick="BtnAdd_Click" />
+                </td>
             </tr>
             <tr>
                 <td class="tc">
@@ -599,11 +270,12 @@
             </tr>
             <tr>
                 <td class="tc">
-                    <input id="BtnT" runat="server" type="button" value="上記の内容で発注する" class="b bg6" /></td>
+                    <asp:Button ID="BtnT" runat="server" BackColor="aqua" Text="上記の内容で発注する" OnClick="BtnT_Click" />
+                </td>
             </tr>
             <tr>
                 <td>
-                    <radcln:radcalendar id="SC" runat="server" Skin="Web20"></radCln:radcalendar>
+<%--                    <radcln:radcalendar id="SC" runat="server" Skin="Web20"></radCln:radcalendar>--%>
                     <input id="HidChkID" runat="server" type="hidden" />
                     <input id="HidArgs" runat="server" type="hidden" />
                     <input id="HidNoukiID" runat="server" type="hidden" />

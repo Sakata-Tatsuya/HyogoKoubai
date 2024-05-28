@@ -60,22 +60,22 @@ namespace m2mKoubai.Order
         protected global::System.Web.UI.HtmlControls.HtmlImage Img1;
 
         /// <summary>
-        /// DdlShiire コントロール。
+        /// DdlShiiresaki コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlShiire;
+        protected global::System.Web.UI.WebControls.DropDownList DdlShiiresaki;
 
         /// <summary>
-        /// BtnS コントロール。
+        /// BtnDel コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnS;
+        protected global::System.Web.UI.WebControls.Button BtnDel;
 
         /// <summary>
         /// BtnClear コントロール。
@@ -84,7 +84,7 @@ namespace m2mKoubai.Order
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnClear;
+        protected global::System.Web.UI.WebControls.Button BtnClear;
 
         /// <summary>
         /// DdlTax コントロール。
@@ -111,7 +111,7 @@ namespace m2mKoubai.Order
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnAdd;
+        protected global::System.Web.UI.WebControls.Button BtnAdd;
 
         /// <summary>
         /// LblOK コントロール。
@@ -129,16 +129,7 @@ namespace m2mKoubai.Order
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnT;
-
-        /// <summary>
-        /// SC コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::Telerik.WebControls.RadCalendar SC;
+        protected global::System.Web.UI.WebControls.Button BtnT;
 
         /// <summary>
         /// HidChkID コントロール。

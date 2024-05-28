@@ -23,13 +23,9 @@ namespace m2mKoubai.Master
         private const int G_CELL_LOT = 7;
         private const int G_CELL_LT = 8;
         private const int G_CELL_SHIIRE = 9;
-
         private const int G_CELL_Kamoku = 10;
         private const int G_CELL_Hiyou = 11;
         private const int G_CELL_Hojyo = 12;
-        
-
-        
 
         private int VsCurrentPageIndex
         {
