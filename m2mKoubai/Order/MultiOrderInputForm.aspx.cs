@@ -662,55 +662,6 @@ namespace m2mKoubai.Order
             }
         }
 
-        private bool SetOrderData(string strDataAry)
-        {
-            //_dtOrder = new ChumonDataSet_S.V_OrderInputDataTable();
-            //string[] strRowAry = strDataAry.Split('\t');
-            //for (int i = 0; i < strRowAry.Length; i++)
-            //{
-            //    string[] strItemAry = strRowAry[i].Split('|');
-            //    if (strItemAry.Length != _dtOrder.Columns.Count)
-            //    {
-            //        // 列数チェック
-            //        return false;
-            //    }
-            //    ChumonDataSet_S.V_OrderInputRow dr = _dtOrder.NewV_OrderInputRow();
-            //    // 注文のキー
-            //    //dr.Year = strItemAry[0].Split('_')[0];
-            //    //dr.Year = DateTime.Now.ToString("yy");
-            //    //dr.HacchuuNo = strItemAry[0].Split('_')[1];                
-            //    // 仕入先コード
-            //    dr.ShiiresakiCode = strItemAry[0];
-            //    // 部品区分
-            //    dr.BuhinKubun = strItemAry[1];
-            //    // 部品コード
-            //    dr.BuhinCode = strItemAry[2];
-            //    // ロット
-            //    dr.Lot = strItemAry[3];
-            //    // 単価                
-            //    dr.Tanka = strItemAry[4];
-            //    // 数量
-            //    dr.Suuryou = strItemAry[5];
-            //    // 単位
-            //    dr.Tani = strItemAry[6];
-            //    // リードタイム
-            //    dr.LT = strItemAry[7];
-            //    // 納期
-            //    dr.Nouki = strItemAry[8];
-            //    // 納入場所コード
-            //    dr.NounyuuBashoCode = strItemAry[9];
-            //    // 備考
-            //    dr.Bikou = strItemAry[10];
-
-            //    // 仮単価   追加 09/07/28
-            //    dr.KariTankaFlg = strItemAry[11];
-
-
-            //    _dtOrder.AddV_OrderInputRow(dr);
-            //}
-            return true;
-        }
-
         private MailClass.MailParam GetMailParam(ChumonDataSet.V_MailInfoRow dr)
         {
 
@@ -741,7 +692,7 @@ namespace m2mKoubai.Order
             {
                 ChumonClass.ChumonMeisai mi = lst[i];
 
-                if (mi.strBuhinCode.Length == 0 && mi.strShiiresakiCode.Length == 0)
+                if (mi.strBuhinCode.Length == 0)
                     continue;
 
                 decTanka = decSuryo = decKingaku = 0;
@@ -824,8 +775,10 @@ namespace m2mKoubai.Order
 
             for (int i = 0; i < lst.Count; i++)
             {
-                m2mKoubaiDataSet.T_ChumonRow dr = dt.NewT_ChumonRow();
                 ChumonClass.ChumonMeisai mi = lst[i];
+                if (mi.strBuhinCode.Length == 0)
+                    continue;
+                m2mKoubaiDataSet.T_ChumonRow dr = dt.NewT_ChumonRow();
 
                 dr.Year = mi.strYear;
                 dr.HacchuuNo = mi.strHacchuuNo;

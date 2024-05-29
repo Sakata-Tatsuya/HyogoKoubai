@@ -88,9 +88,11 @@
                     <table width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                             <td>
-                                <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label></td>
+                                <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label>
+                            </td>
                             <td width="50%" class="hei20">
-                                <img id="Img1" runat="server" src="../Img/Load.gif" /></td>
+                                <img id="Img1" runat="server" src="../Img/Load.gif" />
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -173,12 +175,10 @@
                                 <HeaderTemplate>
                                     <table class="tc col" frame="void" width="100%">
                                         <tr>
-                                            <td class="s1">
-                                                仕入先1</td>
+                                            <td class="s1">仕入先1</td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                仕入先2</td>
+                                            <td>仕入先2</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -186,11 +186,13 @@
                                     <table class="col" frame="void" width="100%">
                                         <tr>
                                             <td class="s2">
-                                                <asp:Literal ID="LitShiire1" runat="server"></asp:Literal></td>
+                                                <asp:Literal ID="LitShiire1" runat="server"></asp:Literal>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:Literal ID="LitShiire2" runat="server"></asp:Literal></td>
+                                                <asp:Literal ID="LitShiire2" runat="server"></asp:Literal>
+                                            </td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
@@ -200,11 +202,13 @@
                                     <table class="tc col" frame="void" width="100%">
                                         <tr>
                                             <td class="s1">
-                                                勘定科目コード</td>
+                                                勘定科目コード
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                資産勘定科目名</td>
+                                                資産勘定科目名
+                                            </td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -212,11 +216,13 @@
                                     <table class="col" frame="void" width="100%">
                                         <tr>
                                             <td class="s2">
-                                                <asp:Literal ID="LitKamokuCode" runat="server"></asp:Literal></td>
+                                                <asp:Literal ID="LitKamokuCode" runat="server"></asp:Literal>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:Literal ID="LitKamokuMei" runat="server"></asp:Literal></td>
+                                                <asp:Literal ID="LitKamokuMei" runat="server"></asp:Literal>
+                                            </td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
@@ -226,11 +232,13 @@
                                     <table  class="tc col" frame="void" width="100%">
                                         <tr>
                                             <td class="s1">
-                                                費用勘定科目コード</td>
+                                                費用勘定科目コード
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                勘定科目名</td>
+                                                勘定科目名
+                                            </td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -238,11 +246,13 @@
                                     <table class="col" frame="void" width="100%">
                                         <tr>
                                             <td class="s2">
-                                                <asp:Literal ID="LitHiyouCode" runat="server"></asp:Literal></td>
+                                                <asp:Literal ID="LitHiyouCode" runat="server"></asp:Literal>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:Literal ID="LitHiyouMei" runat="server"></asp:Literal></td>
+                                                <asp:Literal ID="LitHiyouMei" runat="server"></asp:Literal>
+                                            </td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
@@ -252,11 +262,13 @@
                                     <table class="tc col" frame="void" width="100%">
                                         <tr>
                                             <td class="s1">
-                                                補助勘定科目No.</td>
+                                                補助勘定科目No
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                補助勘定科目名</td>
+                                                補助勘定科目名
+                                            </td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -285,7 +297,8 @@
             <tr>
                 <td>
                     <input id="HidChkID" runat="server" type="hidden" />
-                    <input id="HidThisID" runat="server" type="hidden" /></td>
+                    <input id="HidThisID" runat="server" type="hidden" />
+                </td>
             </tr>
         </table>
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
