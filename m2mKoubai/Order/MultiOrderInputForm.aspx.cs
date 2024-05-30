@@ -133,13 +133,16 @@ namespace m2mKoubai.Order
                 VsJigyoushoKubun = SessionManager.JigyoushoKubun;
                 VsHacchuuNo = 0;
                 // ëùê≈ëŒâû
+                this.DdlTax.SelectedValue = "8";
                 if (DateTime.Today >= new DateTime(2019, 10, 1))
                 {
                     this.DdlTax.SelectedValue = "10";
+                    VsKeigenZeirituFlg = false;
                 }
                 else
                 {
                     this.DdlTax.SelectedValue = "8";
+                    VsKeigenZeirituFlg = true;
                 }
                 lst = InitHacchu_Meisai(VsRowCnt);
 
@@ -323,7 +326,6 @@ namespace m2mKoubai.Order
         {
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
             VsZeiritu = DdlTax.SelectedValue;
-            VsKeigenZeirituFlg = false;//temp
             VsShiiresaki = DdlShiiresaki.SelectedValue;
 
             // ç≈êVÇÃî≠íçî‘çÜéÊìæ
@@ -426,7 +428,6 @@ namespace m2mKoubai.Order
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
 
             VsZeiritu = DdlTax.SelectedValue;
-            VsKeigenZeirituFlg = false;//temp
             VsShiiresaki = DdlShiiresaki.SelectedValue;
 
             int i = 0;
