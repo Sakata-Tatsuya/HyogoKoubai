@@ -176,7 +176,7 @@ namespace m2mKoubaiDAL
                     drChumonThis.Suuryou = dt[i].Suuryou;
                     // ‘Å‘Î‰ ‹àŠz‚ÍØ‚èÌ‚Ä‚Å‚Í‚È‚­lÌŒÜ“ü‚É•ÏX
                     //drChumonThis.Kingaku = (int)Math.Floor(dt[i].Tanka * dt[i].Suuryou);
-                    drChumonThis.Kingaku = Math.Round(dt[i].Tanka * dt[i].Suuryou, 2);
+                    drChumonThis.Kingaku = (int)Math.Round(dt[i].Tanka * dt[i].Suuryou, 2);
                     drChumonThis.Nouki = dt[i].Nouki;
                     drChumonThis.NounyuuBashoCode = dt[i].NounyuuBashoCode;
                     drChumonThis.Bikou = dt[i].Bikou;

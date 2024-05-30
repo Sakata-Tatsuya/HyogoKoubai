@@ -65,6 +65,7 @@ namespace m2mKoubaiDAL
             public string strTanka { get; set; }
             public string strSuryo { get; set; }
             public string strKingaku { get; set; }
+            public bool KeigenZeirituFlg { get; set; }
             public string strZeiritu { get; set; }
             public string strTani { get; set; }
             public string strLT { get; set; }

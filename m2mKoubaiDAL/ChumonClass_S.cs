@@ -74,7 +74,7 @@ namespace m2mKoubaiDAL
                     drNew.Tanka = decimal.Parse(dtOrder[i].Tanka);
                     drNew.Suuryou = int.Parse(dtOrder[i].Suuryou.Replace(",",""));
                     // 増税対応（注文金額＝「注文単価×注文数量」　※DB上は小数2桁まで保持。画面上は小数部は四捨五入）
-                    drNew.Kingaku = Math.Round(drNew.Tanka * drNew.Suuryou, 2);
+                    drNew.Kingaku = (int)Math.Round(drNew.Tanka * drNew.Suuryou, 2);
                     drNew.Zeiritu = Zeiritu;
                     drNew.Nouki = dtOrder[i].Nouki.Replace("/","");
                     drNew.NounyuuBashoCode = dtOrder[i].NounyuuBashoCode;

@@ -18,28 +18,6 @@ namespace m2mKoubai.Order
 {
     public partial class OrderInputForm : System.Web.UI.Page
     {
-        //private const int G_CELL_SAKUJO = 0;
-        //private const int G_CELL_HACCHU_NO_SHIIRE = 1;
-        //private const int G_CELL_BUHIN_KUBUN_MEI = 2;
-        //private const int G_CELL_LOT_TANKA = 3;
-        //private const int G_CELL_SUURYOU = 4;
-        //private const int G_CELL_TANI = 5;
-        //private const int G_CELL_LT = 6;
-        //private const int G_CELL_NOUKI_BASHO = 7; 
-        //private const int G_CELL_BIKOU = 8;
-
-        //// 選択が変更された行No
-        //private int _RowNo = -1;
-
-        // 入力してした注文情報
-        //private ChumonDataSet_S.V_OrderInputDataTable _dtOrder = null;
-        // 仕入先
-        //private ShiiresakiDataSet_S.V_ShiiresakiDataTable _dtShiire = null;
-        // 部品区分
-        //private BuhinDataSet_S.V_BuhinKubunDataTable _dtKubun = null;
-        // 納入場所
-        //private m2mKoubaiDataSet.M_NounyuuBashoDataTable _dtNounyuBasho = null;
-
         private int VsRowCnt
         {
             get
@@ -82,6 +60,17 @@ namespace m2mKoubai.Order
             set
             {
                 this.ViewState["VsZeiritu"] = value;
+            }
+        }
+        private bool VsKeigenZeirituFlg
+        {
+            get
+            {
+                return (bool)(ViewState["VsKeigenZeirituFlg"] ?? false);
+            }
+            set
+            {
+                this.ViewState["VsKeigenZeirituFlg"] = value;
             }
         }
         private string VsYaer
@@ -322,6 +311,7 @@ namespace m2mKoubai.Order
         {
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
             VsZeiritu = DdlTax.SelectedValue;
+            VsKeigenZeirituFlg = false;//temp
 
             // 最新の発注番号取得
             int MaxHacchuuNo = ChumonClass_S.GetMaxHacchuuNo(Global.GetConnection());
@@ -423,6 +413,7 @@ namespace m2mKoubai.Order
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
 
             VsZeiritu = DdlTax.SelectedValue;
+            VsKeigenZeirituFlg = false;//temp
 
             int i = 0;
             try
@@ -485,6 +476,7 @@ namespace m2mKoubai.Order
             decKingaku = decTanka * decSuryo;
             m.strKingaku = decKingaku.ToString("0");
             m.strZeiritu = VsZeiritu;
+            m.KeigenZeirituFlg = VsKeigenZeirituFlg;
             m.strTani=LblTani.Text;
             m.strLT=LblLT.Text;
             DateTime.TryParse(RdpNouki.SelectedDate.ToString(), out dtTemp);
@@ -865,7 +857,7 @@ namespace m2mKoubai.Order
                 decKingaku = decTanka * decSuryo;
                 dr.Tanka = decTanka;
                 dr.Suuryou = (int)decSuryo;
-                dr.Kingaku = decKingaku;
+                dr.Kingaku = (int)decKingaku;
                 intTemp = 0;
                 int.TryParse(mi.strZeiritu, out intTemp);
                 dr.Zeiritu = intTemp;
@@ -878,6 +870,7 @@ namespace m2mKoubai.Order
                 dr.HacchushaID = VsUserID;
                 dr.KannouFlg = false;
                 dr.KaritankaFlg = false;
+                dr.KeigenZeirituFlg = VsKeigenZeirituFlg;
 
                 dt.AddT_ChumonRow(dr);
             }

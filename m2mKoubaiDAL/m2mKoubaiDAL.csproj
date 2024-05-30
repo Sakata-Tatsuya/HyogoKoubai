@@ -63,9 +63,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\m2mKoubai\dll\Core.Web.dll</HintPath>
     </Reference>
-    <Reference Include="m2mKoubai">
-      <HintPath>..\m2mKoubai\bin\m2mKoubai.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />

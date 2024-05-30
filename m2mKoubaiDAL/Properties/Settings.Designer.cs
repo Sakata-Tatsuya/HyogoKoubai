@@ -12,7 +12,7 @@ namespace m2mKoubaiDAL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -37,72 +37,11 @@ namespace m2mKoubaiDAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PC-SAITO;Initial Catalog=m2mKoubai;Integrated Security=True")]
-        public string m2mKoubaiConnectionString1 {
-            get {
-                return ((string)(this["m2mKoubaiConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MATSUDA-PC;Persist Security Info=True;User ID=m2mKoubai007;Password=m" +
-            "2mKoubaiqwerty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.206;Initial Catalog=m2mKoubai2;User ID=sa;Password=sa@db;En" +
+            "crypt=False")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SEKI-PC;Initial Catalog=m2mKoubai;Integrated Security=True")]
-        public string m2mKoubaiConnectionString2 {
-            get {
-                return ((string)(this["m2mKoubaiConnectionString2"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PC-D390;Initial Catalog=YodokoKousan;Integrated Security=True")]
-        public string YodokoKousanConnectionString {
-            get {
-                return ((string)(this["YodokoKousanConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PC-SAITO;Initial Catalog=YodokoKousan;Integrated Security=True")]
-        public string YodokoKousanConnectionString1 {
-            get {
-                return ((string)(this["YodokoKousanConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SEKI-PC;Initial Catalog=YodokoKousan;Integrated Security=True")]
-        public string YodokoKousanConnectionString2 {
-            get {
-                return ((string)(this["YodokoKousanConnectionString2"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.88;Initial Catalog=YodokoTest;User ID=YodokoKousan007;Passw" +
-            "ord=YodokoKousanqwerty")]
-        public string YodokoTestConnectionString {
-            get {
-                return ((string)(this["YodokoTestConnectionString"]));
             }
         }
     }

@@ -59,6 +59,17 @@ namespace m2mKoubai.Order
                 this.ViewState["VsZeiritu"] = value;
             }
         }
+        private bool VsKeigenZeirituFlg
+        {
+            get
+            {
+                return (bool)(ViewState["VsKeigenZeirituFlg"] ?? false);
+            }
+            set
+            {
+                this.ViewState["VsKeigenZeirituFlg"] = value;
+            }
+        }
         private string VsYaer
         {
             get
@@ -312,6 +323,7 @@ namespace m2mKoubai.Order
         {
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
             VsZeiritu = DdlTax.SelectedValue;
+            VsKeigenZeirituFlg = false;//temp
             VsShiiresaki = DdlShiiresaki.SelectedValue;
 
             // ç≈êVÇÃî≠íçî‘çÜéÊìæ
@@ -414,6 +426,7 @@ namespace m2mKoubai.Order
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
 
             VsZeiritu = DdlTax.SelectedValue;
+            VsKeigenZeirituFlg = false;//temp
             VsShiiresaki = DdlShiiresaki.SelectedValue;
 
             int i = 0;
@@ -474,6 +487,8 @@ namespace m2mKoubai.Order
             decKingaku = decTanka * decSuryo;
             m.strKingaku = decKingaku.ToString("0");
             m.strZeiritu = VsZeiritu;
+            m.KeigenZeirituFlg = VsKeigenZeirituFlg;
+            m.ChkKaritankaFlg = Convert.ToBoolean(VsKeigenZeirituFlg);
             m.strTani = LblTani.Text;
             m.strLT = LblLT.Text;
             DateTime.TryParse(RdpNouki.SelectedDate.ToString(), out dtTemp);
@@ -792,7 +807,7 @@ namespace m2mKoubai.Order
                 decKingaku = decTanka * decSuryo;
                 dr.Tanka = decTanka;
                 dr.Suuryou = (int)decSuryo;
-                dr.Kingaku = decKingaku;
+                dr.Kingaku = (int)decKingaku;
                 intTemp = 0;
                 int.TryParse(mi.strZeiritu, out intTemp);
                 dr.Zeiritu = intTemp;
@@ -805,6 +820,7 @@ namespace m2mKoubai.Order
                 dr.HacchushaID = VsUserID;
                 dr.KannouFlg = false;
                 dr.KaritankaFlg = false;
+                dr.KeigenZeirituFlg = VsKeigenZeirituFlg;
 
                 dt.AddT_ChumonRow(dr);
             }
