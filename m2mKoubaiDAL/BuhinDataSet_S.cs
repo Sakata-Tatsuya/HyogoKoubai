@@ -2,7 +2,7 @@
 {
 
 
-    partial class BuhinDataSet
+    partial class BuhinDataSet_S
     {
     }
 }

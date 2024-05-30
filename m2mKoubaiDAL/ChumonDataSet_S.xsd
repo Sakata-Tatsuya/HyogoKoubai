@@ -4,20 +4,16 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="m2mKoubaiConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="m2mKoubaiConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.m2mKoubaiConnectionString1" Provider="System.Data.SqlClient">
-          </Connection>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SqlClient">
-          </Connection>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="m2mKoubaiConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="m2mKoubaiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.m2mKoubaiDAL.Properties.Settings.GlobalReference.Default.m2mKoubaiConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_OrderInputTableAdapter" GeneratorDataComponentClassName="V_OrderInputTableAdapter" Name="V_OrderInput" UserDataComponentName="V_OrderInputTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="m2mKoubai2.dbo.V_OrderInput" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT ShiiresakiCode, BuhinKubun, BuhinCode, Tanka, Suuryou, Nouki, NounyuuBashoCode, Bikou, Tani, Lot, LT_Suuji FROM V_OrderInput</CommandText>
-                    <Parameters>
-                    </Parameters>
+                    <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
@@ -33,75 +29,73 @@
               <Mapping SourceColumn="Tani" DataSetColumn="Tani" />
               <Mapping SourceColumn="Lot" DataSetColumn="Lot" />
             </Mappings>
-            <Sources>
-            </Sources>
+            <Sources />
           </TableAdapter>
         </Tables>
-        <Sources>
-        </Sources>
+        <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
   <xs:element name="ChumonDataSet_S" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ChumonDataSet_S" msprop:Generator_DataSetName="ChumonDataSet_S">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="V_OrderInput" msprop:Generator_UserTableName="V_OrderInput" msprop:Generator_RowDeletedName="V_OrderInputRowDeleted" msprop:Generator_RowChangedName="V_OrderInputRowChanged" msprop:Generator_RowClassName="V_OrderInputRow" msprop:Generator_RowChangingName="V_OrderInputRowChanging" msprop:Generator_RowEvArgName="V_OrderInputRowChangeEvent" msprop:Generator_RowEvHandlerName="V_OrderInputRowChangeEventHandler" msprop:Generator_TableClassName="V_OrderInputDataTable" msprop:Generator_TableVarName="tableV_OrderInput" msprop:Generator_RowDeletingName="V_OrderInputRowDeleting" msprop:Generator_TablePropName="V_OrderInput">
+        <xs:element name="V_OrderInput" msprop:Generator_RowEvHandlerName="V_OrderInputRowChangeEventHandler" msprop:Generator_RowDeletedName="V_OrderInputRowDeleted" msprop:Generator_RowDeletingName="V_OrderInputRowDeleting" msprop:Generator_RowEvArgName="V_OrderInputRowChangeEvent" msprop:Generator_RowChangedName="V_OrderInputRowChanged" msprop:Generator_TablePropName="V_OrderInput" msprop:Generator_UserTableName="V_OrderInput" msprop:Generator_RowChangingName="V_OrderInputRowChanging" msprop:Generator_RowClassName="V_OrderInputRow" msprop:Generator_TableClassName="V_OrderInputDataTable" msprop:Generator_TableVarName="tableV_OrderInput">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ShiiresakiCode" msprop:Generator_UserColumnName="ShiiresakiCode" msprop:Generator_ColumnPropNameInRow="ShiiresakiCode" msprop:Generator_ColumnVarNameInTable="columnShiiresakiCode" msprop:Generator_ColumnPropNameInTable="ShiiresakiCodeColumn" minOccurs="0">
+              <xs:element name="ShiiresakiCode" msprop:Generator_ColumnPropNameInTable="ShiiresakiCodeColumn" msprop:Generator_ColumnPropNameInRow="ShiiresakiCode" msprop:Generator_UserColumnName="ShiiresakiCode" msprop:Generator_ColumnVarNameInTable="columnShiiresakiCode" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BuhinKubun" msprop:Generator_UserColumnName="BuhinKubun" msprop:Generator_ColumnPropNameInRow="BuhinKubun" msprop:Generator_ColumnVarNameInTable="columnBuhinKubun" msprop:Generator_ColumnPropNameInTable="BuhinKubunColumn" minOccurs="0">
+              <xs:element name="BuhinKubun" msprop:Generator_ColumnPropNameInTable="BuhinKubunColumn" msprop:Generator_ColumnPropNameInRow="BuhinKubun" msprop:Generator_UserColumnName="BuhinKubun" msprop:Generator_ColumnVarNameInTable="columnBuhinKubun" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BuhinCode" msprop:Generator_UserColumnName="BuhinCode" msprop:Generator_ColumnPropNameInRow="BuhinCode" msprop:Generator_ColumnVarNameInTable="columnBuhinCode" msprop:Generator_ColumnPropNameInTable="BuhinCodeColumn" minOccurs="0">
+              <xs:element name="BuhinCode" msprop:Generator_ColumnPropNameInTable="BuhinCodeColumn" msprop:Generator_ColumnPropNameInRow="BuhinCode" msprop:Generator_UserColumnName="BuhinCode" msprop:Generator_ColumnVarNameInTable="columnBuhinCode" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Tanka" msprop:Generator_UserColumnName="Tanka" msprop:Generator_ColumnPropNameInRow="Tanka" msprop:Generator_ColumnVarNameInTable="columnTanka" msprop:Generator_ColumnPropNameInTable="TankaColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="Suuryou" msprop:Generator_UserColumnName="Suuryou" msprop:Generator_ColumnPropNameInRow="Suuryou" msprop:Generator_ColumnVarNameInTable="columnSuuryou" msprop:Generator_ColumnPropNameInTable="SuuryouColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="Nouki" msprop:Generator_UserColumnName="Nouki" msprop:Generator_ColumnPropNameInRow="Nouki" msprop:Generator_ColumnVarNameInTable="columnNouki" msprop:Generator_ColumnPropNameInTable="NoukiColumn" minOccurs="0">
+              <xs:element name="Tanka" msprop:Generator_ColumnPropNameInTable="TankaColumn" msprop:Generator_ColumnPropNameInRow="Tanka" msprop:Generator_UserColumnName="Tanka" msprop:Generator_ColumnVarNameInTable="columnTanka" type="xs:string" minOccurs="0" />
+              <xs:element name="Suuryou" msprop:Generator_ColumnPropNameInTable="SuuryouColumn" msprop:Generator_ColumnPropNameInRow="Suuryou" msprop:Generator_UserColumnName="Suuryou" msprop:Generator_ColumnVarNameInTable="columnSuuryou" type="xs:string" minOccurs="0" />
+              <xs:element name="Nouki" msprop:Generator_ColumnPropNameInTable="NoukiColumn" msprop:Generator_ColumnPropNameInRow="Nouki" msprop:Generator_UserColumnName="Nouki" msprop:Generator_ColumnVarNameInTable="columnNouki" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NounyuuBashoCode" msprop:Generator_UserColumnName="NounyuuBashoCode" msprop:Generator_ColumnPropNameInRow="NounyuuBashoCode" msprop:Generator_ColumnVarNameInTable="columnNounyuuBashoCode" msprop:Generator_ColumnPropNameInTable="NounyuuBashoCodeColumn" minOccurs="0">
+              <xs:element name="NounyuuBashoCode" msprop:Generator_ColumnPropNameInTable="NounyuuBashoCodeColumn" msprop:Generator_ColumnPropNameInRow="NounyuuBashoCode" msprop:Generator_UserColumnName="NounyuuBashoCode" msprop:Generator_ColumnVarNameInTable="columnNounyuuBashoCode" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Bikou" msprop:Generator_UserColumnName="Bikou" msprop:Generator_ColumnPropNameInRow="Bikou" msprop:Generator_ColumnVarNameInTable="columnBikou" msprop:Generator_ColumnPropNameInTable="BikouColumn" minOccurs="0">
+              <xs:element name="Bikou" msprop:Generator_ColumnPropNameInTable="BikouColumn" msprop:Generator_ColumnPropNameInRow="Bikou" msprop:Generator_UserColumnName="Bikou" msprop:Generator_ColumnVarNameInTable="columnBikou" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Tani" msprop:Generator_UserColumnName="Tani" msprop:Generator_ColumnPropNameInRow="Tani" msprop:Generator_ColumnVarNameInTable="columnTani" msprop:Generator_ColumnPropNameInTable="TaniColumn" minOccurs="0">
+              <xs:element name="Tani" msprop:Generator_ColumnPropNameInTable="TaniColumn" msprop:Generator_ColumnPropNameInRow="Tani" msprop:Generator_UserColumnName="Tani" msprop:Generator_ColumnVarNameInTable="columnTani" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Lot" msprop:Generator_UserColumnName="Lot" msprop:Generator_ColumnPropNameInRow="Lot" msprop:Generator_ColumnVarNameInTable="columnLot" msprop:Generator_ColumnPropNameInTable="LotColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="LT" msprop:Generator_UserColumnName="LT" msprop:Generator_ColumnPropNameInRow="LT" msprop:Generator_ColumnVarNameInTable="columnLT" msprop:Generator_ColumnPropNameInTable="LTColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="KariTankaFlg" msprop:Generator_UserColumnName="KariTankaFlg" msprop:Generator_ColumnPropNameInRow="KariTankaFlg" msprop:Generator_ColumnVarNameInTable="columnKariTankaFlg" msprop:Generator_ColumnPropNameInTable="KariTankaFlgColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Lot" msprop:Generator_ColumnPropNameInTable="LotColumn" msprop:Generator_ColumnPropNameInRow="Lot" msprop:Generator_UserColumnName="Lot" msprop:Generator_ColumnVarNameInTable="columnLot" type="xs:string" minOccurs="0" />
+              <xs:element name="LT" msprop:Generator_ColumnPropNameInTable="LTColumn" msprop:Generator_ColumnPropNameInRow="LT" msprop:Generator_UserColumnName="LT" msprop:Generator_ColumnVarNameInTable="columnLT" type="xs:string" minOccurs="0" />
+              <xs:element name="KariTankaFlg" msprop:Generator_ColumnPropNameInTable="KariTankaFlgColumn" msprop:Generator_ColumnPropNameInRow="KariTankaFlg" msprop:Generator_UserColumnName="KariTankaFlg" msprop:Generator_ColumnVarNameInTable="columnKariTankaFlg" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

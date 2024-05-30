@@ -80,6 +80,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BuhinDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BuhinDataSet_S.cs">
+      <DependentUpon>BuhinDataSet_S.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BuhinDataSet_S.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -195,11 +198,6 @@
     <Compile Include="Type.cs" />
     <Compile Include="UploadClass.cs" />
     <Compile Include="m2mKoubaiDataSet.cs">
-      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="m2mKoubaiDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
@@ -370,7 +368,6 @@
     <None Include="m2mKoubaiDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>m2mKoubaiDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="m2mKoubaiDataSet.xss">
       <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
