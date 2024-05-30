@@ -374,8 +374,7 @@ namespace m2mKoubaiDAL
         /// <param name="k"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_Chumon_JyouhouDataTable
-             getV_Chumon_JyouhouDataTable(KensakuParam k, SqlConnection sqlConn)
+        public static ChumonDataSet.V_Chumon_JyouhouDataTable getV_Chumon_JyouhouDataTable(KensakuParam k, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -386,49 +385,50 @@ namespace m2mKoubaiDAL
             + "dbo.T_Chumon.Kingaku, dbo.T_Chumon.NounyuuBashoCode, dbo.M_NounyuuBasho.BashoMei, dbo.T_Chumon.Nouki, "
             + "T_Chumon.Zeiritu,"
             + "dbo.T_Chumon.CancelBi, dbo.T_Chumon.JigyoushoKubun, T_Chumon.KariTankaFlg, dbo.M_Login.TantoushaCode, "
-                //  + "dbo.T_Chumon.DataDLFlg, dbo.T_Chumon.HacchushoInsatsuFlg, "
+                        + "ISNULL((SELECT TOP (1) UserKubun "
+                        + "FROM    T_ChumonMsg "
+                        + "WHERE   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
+                        + "ORDER BY MsgID DESC),'') AS UserKubun, "
 
+                        + "ISNULL((SELECT TOP (1) OpenedFlg "
+                        + "FROM    T_ChumonMsg AS T_ChumonMsg_1 "
+                        + "WHERE   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
+                        + "ORDER BY MsgID DESC),0) AS OpenedFlg, "
 
-                        + "(SELECT                  TOP (1) UserKubun "
-                        + "FROM                      T_ChumonMsg "
-                        + "WHERE                   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-                        + "ORDER BY           MsgID DESC) AS UserKubun, "
+                        + "ISNULL((SELECT TOP (1) HenkouNo "
+                        + "FROM     T_NoukiHenkou AS T_NoukiHenkou_1 "
+                        + "WHERE    ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
+                        + "ORDER BY HenkouNo DESC),0) AS HenkouNo, "
 
-                        + "(SELECT                  TOP (1) OpenedFlg "
-                        + "FROM                      T_ChumonMsg AS T_ChumonMsg_1 "
-                        + "WHERE                   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-                        + "ORDER BY           MsgID DESC) AS OpenedFlg, "
+                        + "ISNULL((SELECT TOP (1) ShouninFlg "
+                        + "FROM     T_NoukiHenkou AS T_NoukiHenkou_1 "
+                        + "WHERE    ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
+                        + "ORDER BY HenkouNo DESC),0) AS HenkouShouninFlg, "
 
-                        + "(SELECT                  TOP (1) HenkouNo "
-                        + "FROM                      T_NoukiHenkou AS T_NoukiHenkou_1 "
-                        + "WHERE                   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-                        + "ORDER BY           HenkouNo DESC) AS HenkouNo, "
+                        + "ISNULL((SELECT TOP (1) KaitouNo "
+                        + "FROM     T_NoukiKaitou AS T_NoukiKaitou_1  "
+                        + "WHERE    ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  "
+                        + "ORDER BY KaitouNo DESC),0) AS KaitouNo, "
 
-                        + "(SELECT                  TOP (1) ShouninFlg "
-                        + "FROM                      T_NoukiHenkou AS T_NoukiHenkou_1 "
-                        + "WHERE                   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-                        + "ORDER BY           HenkouNo DESC) AS HenkouShouninFlg, "
+                        + "ISNULL((SELECT TOP (1) ShouninFlg "
+                        + "FROM     T_NoukiKaitou AS T_NoukiKaitou_1 "
+                        + "WHERE    ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  "
+                        + "ORDER BY KaitouNo DESC),0) AS KaitouShouninFlg, "
 
-                        + "(SELECT                  TOP (1) KaitouNo "
-                        + "FROM                      T_NoukiKaitou AS T_NoukiKaitou_1  "
-                        + "WHERE                   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  "
-                        + "ORDER BY           KaitouNo DESC) AS KaitouNo, "
+                        + "ISNULL((SELECT TOP (1) NouhinNo "
+                        + "FROM     T_Nouhin  AS T_Nouhin_1 "
+                        + "WHERE    ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  "
+                        + "ORDER BY NouhinNo DESC),0) AS NouhinNo, "
 
-                        + "(SELECT                  TOP (1) ShouninFlg "
-                        + "FROM                      T_NoukiKaitou AS T_NoukiKaitou_1 "
-                        + "WHERE                   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  "
-                        + "ORDER BY           KaitouNo DESC) AS KaitouShouninFlg, "
+                        + "(SELECT TOP(1) NouhinBi "
+                        + "FROM    T_Nouhin AS T_Nouhin_1 "
+                        + "WHERE   ( T_Chumon.Year = Year ) AND( T_Chumon.HacchuuNo = HacchuuNo ) "
+                        + "ORDER BY NouhinNo DESC) AS NouhinBi, "
 
-                        + "(SELECT                  TOP (1) NouhinNo "
-                        + "FROM                      T_Nouhin  AS T_Nouhin_1 "
-                        + "WHERE                   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  "
-                        + "ORDER BY           NouhinNo DESC) AS NouhinNo, "
-
-                        + "(SELECT                  SUM(Suuryou) AS NouhinSuuryou "
-                        + "FROM                      T_Nouhin AS T_Nouhin_1 "
-                        + "WHERE                   (Year =  T_Chumon.Year) AND (HacchuuNo =  T_Chumon.HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) ) AS NouhinSuuryou "
-
-
+                        + "ISNULL((SELECT SUM(Suuryou) AS NouhinSuuryou "
+                        + "FROM    T_Nouhin AS T_Nouhin_1 "
+                        + "WHERE   (Year =  T_Chumon.Year) AND (HacchuuNo =  T_Chumon.HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) ),0) AS NouhinSuuryou, "
+            + "dbo.T_Chumon.KeigenZeirituFlg "
         + "FROM dbo.T_Chumon INNER JOIN "
         + "dbo.M_Login ON dbo.T_Chumon.HacchushaID = dbo.M_Login.LoginID INNER JOIN "
         + "dbo.M_Shiiresaki ON dbo.T_Chumon.ShiiresakiCode = dbo.M_Shiiresaki.ShiiresakiCode INNER JOIN "
@@ -441,7 +441,6 @@ namespace m2mKoubaiDAL
         + "dbo.T_Chumon.Year = dbo.T_NoukiHenkou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiHenkou.HacchuuNo LEFT OUTER JOIN "
         + "dbo.T_NoukiKaitou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiKaitou.JigyoushoKubun AND  "
         + "dbo.T_Chumon.Year = dbo.T_NoukiKaitou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiKaitou.HacchuuNo ";
-
             // WHERE
             string strW = WhereText(k, da.SelectCommand);
             if (strW != "")
@@ -449,7 +448,7 @@ namespace m2mKoubaiDAL
                 da.SelectCommand.CommandText += "WHERE " + strW;
             }
 
-            da.SelectCommand.CommandText += " ORDER BY    T_Chumon.Year DESC, T_Chumon.HacchuuNo DESC ";
+            da.SelectCommand.CommandText += " ORDER BY T_Chumon.Year DESC, T_Chumon.HacchuuNo DESC ";
             ChumonDataSet.V_Chumon_JyouhouDataTable dt = new ChumonDataSet.V_Chumon_JyouhouDataTable();
             da.Fill(dt);
             return dt;
@@ -461,8 +460,7 @@ namespace m2mKoubaiDAL
         /// <param name="k"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_Chumon_JyouhouRow
-             getV_Chumon_JyouhouRow(string strYear, string strHacchuuNo, int nJigyoushoKubun, SqlConnection sqlConn)
+        public static ChumonDataSet.V_Chumon_JyouhouRow getV_Chumon_JyouhouRow(string strYear, string strHacchuuNo, int nJigyoushoKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -472,8 +470,6 @@ namespace m2mKoubaiDAL
                 + "dbo.T_Chumon.BuhinCode, dbo.M_Buhin.BuhinMei, dbo.T_Chumon.Suuryou, dbo.T_Chumon.Tanka, dbo.M_Buhin.Tani,"
                 + "dbo.T_Chumon.Kingaku, dbo.T_Chumon.NounyuuBashoCode, dbo.M_NounyuuBasho.BashoMei, dbo.T_Chumon.Nouki, "
                 + "dbo.T_Chumon.CancelBi, dbo.T_Chumon.JigyoushoKubun, T_Chumon.KariTankaFlg, dbo.M_Login.TantoushaCode, "
-                //  + "dbo.T_Chumon.DataDLFlg, dbo.T_Chumon.HacchushoInsatsuFlg, "
-
                         + "(SELECT                  TOP (1) UserKubun "
                         + "FROM                      T_ChumonMsg "
                         + "WHERE                   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "

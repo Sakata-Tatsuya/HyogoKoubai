@@ -415,6 +415,7 @@ namespace m2mKoubai.Order
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
 
             VsZeiritu = DdlTax.SelectedValue;
+            VsKeigenZeirituFlg = Utility.GetKeigenZeirituFlg(DateTime.Today, VsZeiritu);
 
             int i = 0;
             try

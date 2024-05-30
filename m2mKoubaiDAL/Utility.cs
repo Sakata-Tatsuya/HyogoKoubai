@@ -1162,18 +1162,6 @@ namespace m2mKoubaiDAL
             return (stTarget.Length == iSplitCharSum);
         }
 
-        public static bool GetKeigenZeirituFlg(DateTime chkDate,string strZeiritu)
-        {
-            if (chkDate >= new DateTime(2019, 10, 1))
-            {
-                if (strZeiritu == "8") 
-                {
-                    return true;
-                }
-            }
-            //else if (chkDate >= new DateTime(
-            return false;
-        }
 
 
 

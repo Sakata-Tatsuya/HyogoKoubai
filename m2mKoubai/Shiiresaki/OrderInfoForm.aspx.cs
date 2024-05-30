@@ -455,8 +455,6 @@ namespace m2mKoubai.Shiiresaki
                 // 数量
                 (e.Row.FindControl("LitSuuryou") as Literal).Text = dr.Suuryou.ToString("#,##0");
                 // 単価
-                // (e.Row.FindControl("LitTanka") as Literal).Text = "\\" + dr.Tanka.ToString("#,##0.#0");
-                // 単価   変更 09/07/28
                 if (!dr.KaritankaFlg)
                 {
                     (e.Row.FindControl("LitTanka") as Literal).Text = "\\" + dr.Tanka.ToString("#,##0.#0");
@@ -468,23 +466,17 @@ namespace m2mKoubai.Shiiresaki
                 }
 
                 // 注文金額
-                // 増税対応
-                decimal dKingaku_Round = Math.Round(dr.Kingaku, 0, MidpointRounding.AwayFromZero);
-
-              //  (e.Row.FindControl("LitChumonKingaku") as Literal).Text = "\\" +dr.Kingaku.ToString("#,##");
-                // 注文金額   変更 09/07/28
                 if (!dr.KaritankaFlg)
                 {
-                    (e.Row.FindControl("LitChumonKingaku") as Literal).Text = "\\" + dKingaku_Round.ToString("#,##0");
+                    (e.Row.FindControl("LitChumonKingaku") as Literal).Text = "\\" + dr.Kingaku.ToString("#,##0");
                 }
                 else
                 {
                     (e.Row.FindControl("LitChumonKingaku") as Literal).Text =
-                        string.Format("<font color =\"red\">{0}</font>", "\\" + dKingaku_Round.ToString("#,##0"));
+                        string.Format("<font color =\"red\">{0}</font>", "\\" + dr.Kingaku.ToString("#,##0"));
                 }
 
-                // 増税対応
-                decimal Zeigaku = Math.Round(dKingaku_Round * dr.Zeiritu / 100, 0, MidpointRounding.AwayFromZero);
+                decimal Zeigaku = Math.Round((decimal)dr.Kingaku * dr.Zeiritu / 100, 0, MidpointRounding.AwayFromZero);
                 (e.Row.FindControl("LitZeigaku") as Literal).Text = "\\" + Zeigaku.ToString("#,##0");
 
                 // 単位

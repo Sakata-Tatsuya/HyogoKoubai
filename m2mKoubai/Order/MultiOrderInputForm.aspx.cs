@@ -133,7 +133,7 @@ namespace m2mKoubai.Order
                 VsJigyoushoKubun = SessionManager.JigyoushoKubun;
                 VsHacchuuNo = 0;
                 // ‘Å‘Î‰
-                this.DdlTax.SelectedValue = "8";
+                VsKeigenZeirituFlg = false;
                 if (DateTime.Today >= new DateTime(2019, 10, 1))
                 {
                     this.DdlTax.SelectedValue = "10";
@@ -326,6 +326,7 @@ namespace m2mKoubai.Order
         {
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
             VsZeiritu = DdlTax.SelectedValue;
+            VsKeigenZeirituFlg = Utility.GetKeigenZeirituFlg(DateTime.Today, VsZeiritu);
             VsShiiresaki = DdlShiiresaki.SelectedValue;
 
             // ÅV‚Ì”­’”Ô†æ“¾
@@ -428,6 +429,7 @@ namespace m2mKoubai.Order
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
 
             VsZeiritu = DdlTax.SelectedValue;
+            VsKeigenZeirituFlg = Utility.GetKeigenZeirituFlg(DateTime.Today, VsZeiritu);
             VsShiiresaki = DdlShiiresaki.SelectedValue;
 
             int i = 0;

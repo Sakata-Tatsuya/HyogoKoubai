@@ -92,7 +92,7 @@
                                                 <td>
                                                     <asp:DropDownList ID="DdlTax" runat="server">
                                                         <asp:ListItem Value="8">8%</asp:ListItem>
-                                                        <asp:ListItem Value="10">10%</asp:ListItem>
+                                                        <asp:ListItem Selected="True" Value="10">10%</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
                                             </tr>

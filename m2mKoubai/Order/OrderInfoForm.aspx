@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInfoForm.aspx.cs" Inherits="m2mKoubai.Order.OrderInfoForm" ValidateRequest="false" %>
 
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
@@ -623,20 +624,6 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
-                            <ItemTemplate>
-                                <table class="col" width="100%" frame="void">
-                                    <tr>
-                                        <td class="s2">
-                                            <asp:Literal ID="LitCode" runat="server"></asp:Literal>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:Literal ID="LitName" runat="server"></asp:Literal>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </ItemTemplate>
                             <HeaderTemplate>
                                 <table class="tc col" width="100%" frame="void">
                                     <tr>
@@ -651,6 +638,20 @@
                                     </tr>
                                 </table>
                             </HeaderTemplate>
+                            <ItemTemplate>
+                                <table class="col" width="100%" frame="void">
+                                    <tr>
+                                        <td class="s2">
+                                            <asp:Literal ID="LitCode" runat="server"></asp:Literal>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Literal ID="LitName" runat="server"></asp:Literal>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>

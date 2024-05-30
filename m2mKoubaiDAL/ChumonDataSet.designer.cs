@@ -48,11 +48,11 @@ namespace m2mKoubaiDAL {
         
         private V_Chumon_MeisaiDataTable tableV_Chumon_Meisai;
         
+        private V_Chumon_JyouhouDataTable tableV_Chumon_Jyouhou;
+        
         private V_Jyuryosho_MeisaiDataTable tableV_Jyuryosho_Meisai;
         
         private V_Nouhinsho_MeisaiDataTable tableV_Nouhinsho_Meisai;
-        
-        private V_Chumon_JyouhouDataTable tableV_Chumon_Jyouhou;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -118,14 +118,14 @@ namespace m2mKoubaiDAL {
                 if ((ds.Tables["V_Chumon_Meisai"] != null)) {
                     base.Tables.Add(new V_Chumon_MeisaiDataTable(ds.Tables["V_Chumon_Meisai"]));
                 }
+                if ((ds.Tables["V_Chumon_Jyouhou"] != null)) {
+                    base.Tables.Add(new V_Chumon_JyouhouDataTable(ds.Tables["V_Chumon_Jyouhou"]));
+                }
                 if ((ds.Tables["V_Jyuryosho_Meisai"] != null)) {
                     base.Tables.Add(new V_Jyuryosho_MeisaiDataTable(ds.Tables["V_Jyuryosho_Meisai"]));
                 }
                 if ((ds.Tables["V_Nouhinsho_Meisai"] != null)) {
                     base.Tables.Add(new V_Nouhinsho_MeisaiDataTable(ds.Tables["V_Nouhinsho_Meisai"]));
-                }
-                if ((ds.Tables["V_Chumon_Jyouhou"] != null)) {
-                    base.Tables.Add(new V_Chumon_JyouhouDataTable(ds.Tables["V_Chumon_Jyouhou"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -269,6 +269,16 @@ namespace m2mKoubaiDAL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public V_Chumon_JyouhouDataTable V_Chumon_Jyouhou {
+            get {
+                return this.tableV_Chumon_Jyouhou;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public V_Jyuryosho_MeisaiDataTable V_Jyuryosho_Meisai {
             get {
                 return this.tableV_Jyuryosho_Meisai;
@@ -282,16 +292,6 @@ namespace m2mKoubaiDAL {
         public V_Nouhinsho_MeisaiDataTable V_Nouhinsho_Meisai {
             get {
                 return this.tableV_Nouhinsho_Meisai;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public V_Chumon_JyouhouDataTable V_Chumon_Jyouhou {
-            get {
-                return this.tableV_Chumon_Jyouhou;
             }
         }
         
@@ -398,14 +398,14 @@ namespace m2mKoubaiDAL {
                 if ((ds.Tables["V_Chumon_Meisai"] != null)) {
                     base.Tables.Add(new V_Chumon_MeisaiDataTable(ds.Tables["V_Chumon_Meisai"]));
                 }
+                if ((ds.Tables["V_Chumon_Jyouhou"] != null)) {
+                    base.Tables.Add(new V_Chumon_JyouhouDataTable(ds.Tables["V_Chumon_Jyouhou"]));
+                }
                 if ((ds.Tables["V_Jyuryosho_Meisai"] != null)) {
                     base.Tables.Add(new V_Jyuryosho_MeisaiDataTable(ds.Tables["V_Jyuryosho_Meisai"]));
                 }
                 if ((ds.Tables["V_Nouhinsho_Meisai"] != null)) {
                     base.Tables.Add(new V_Nouhinsho_MeisaiDataTable(ds.Tables["V_Nouhinsho_Meisai"]));
-                }
-                if ((ds.Tables["V_Chumon_Jyouhou"] != null)) {
-                    base.Tables.Add(new V_Chumon_JyouhouDataTable(ds.Tables["V_Chumon_Jyouhou"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -512,6 +512,12 @@ namespace m2mKoubaiDAL {
                     this.tableV_Chumon_Meisai.InitVars();
                 }
             }
+            this.tableV_Chumon_Jyouhou = ((V_Chumon_JyouhouDataTable)(base.Tables["V_Chumon_Jyouhou"]));
+            if ((initTable == true)) {
+                if ((this.tableV_Chumon_Jyouhou != null)) {
+                    this.tableV_Chumon_Jyouhou.InitVars();
+                }
+            }
             this.tableV_Jyuryosho_Meisai = ((V_Jyuryosho_MeisaiDataTable)(base.Tables["V_Jyuryosho_Meisai"]));
             if ((initTable == true)) {
                 if ((this.tableV_Jyuryosho_Meisai != null)) {
@@ -522,12 +528,6 @@ namespace m2mKoubaiDAL {
             if ((initTable == true)) {
                 if ((this.tableV_Nouhinsho_Meisai != null)) {
                     this.tableV_Nouhinsho_Meisai.InitVars();
-                }
-            }
-            this.tableV_Chumon_Jyouhou = ((V_Chumon_JyouhouDataTable)(base.Tables["V_Chumon_Jyouhou"]));
-            if ((initTable == true)) {
-                if ((this.tableV_Chumon_Jyouhou != null)) {
-                    this.tableV_Chumon_Jyouhou.InitVars();
                 }
             }
         }
@@ -564,12 +564,12 @@ namespace m2mKoubaiDAL {
             base.Tables.Add(this.tableV_Chumon_NoukiKaitou);
             this.tableV_Chumon_Meisai = new V_Chumon_MeisaiDataTable();
             base.Tables.Add(this.tableV_Chumon_Meisai);
+            this.tableV_Chumon_Jyouhou = new V_Chumon_JyouhouDataTable();
+            base.Tables.Add(this.tableV_Chumon_Jyouhou);
             this.tableV_Jyuryosho_Meisai = new V_Jyuryosho_MeisaiDataTable();
             base.Tables.Add(this.tableV_Jyuryosho_Meisai);
             this.tableV_Nouhinsho_Meisai = new V_Nouhinsho_MeisaiDataTable();
             base.Tables.Add(this.tableV_Nouhinsho_Meisai);
-            this.tableV_Chumon_Jyouhou = new V_Chumon_JyouhouDataTable();
-            base.Tables.Add(this.tableV_Chumon_Jyouhou);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -646,6 +646,12 @@ namespace m2mKoubaiDAL {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeV_Chumon_Jyouhou() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeV_Jyuryosho_Meisai() {
             return false;
         }
@@ -653,12 +659,6 @@ namespace m2mKoubaiDAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeV_Nouhinsho_Meisai() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeV_Chumon_Jyouhou() {
             return false;
         }
         
@@ -754,13 +754,13 @@ namespace m2mKoubaiDAL {
         public delegate void V_Chumon_MeisaiRowChangeEventHandler(object sender, V_Chumon_MeisaiRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void V_Chumon_JyouhouRowChangeEventHandler(object sender, V_Chumon_JyouhouRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void V_Jyuryosho_MeisaiRowChangeEventHandler(object sender, V_Jyuryosho_MeisaiRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void V_Nouhinsho_MeisaiRowChangeEventHandler(object sender, V_Nouhinsho_MeisaiRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void V_Chumon_JyouhouRowChangeEventHandler(object sender, V_Chumon_JyouhouRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -5096,6 +5096,770 @@ namespace m2mKoubaiDAL {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class V_Chumon_JyouhouDataTable : global::System.Data.TypedTableBase<V_Chumon_JyouhouRow> {
+            
+            private global::System.Data.DataColumn columnYear;
+            
+            private global::System.Data.DataColumn columnHacchuuNo;
+            
+            private global::System.Data.DataColumn columnHacchuuBi;
+            
+            private global::System.Data.DataColumn columnHacchushaID;
+            
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnShiiresakiCode;
+            
+            private global::System.Data.DataColumn columnShiiresakiMei;
+            
+            private global::System.Data.DataColumn columnBuhinKubun;
+            
+            private global::System.Data.DataColumn columnBuhinCode;
+            
+            private global::System.Data.DataColumn columnBuhinMei;
+            
+            private global::System.Data.DataColumn columnSuuryou;
+            
+            private global::System.Data.DataColumn columnTanka;
+            
+            private global::System.Data.DataColumn columnTani;
+            
+            private global::System.Data.DataColumn columnKingaku;
+            
+            private global::System.Data.DataColumn columnNounyuuBashoCode;
+            
+            private global::System.Data.DataColumn columnBashoMei;
+            
+            private global::System.Data.DataColumn columnNouki;
+            
+            private global::System.Data.DataColumn columnZeiritu;
+            
+            private global::System.Data.DataColumn columnCancelBi;
+            
+            private global::System.Data.DataColumn columnJigyoushoKubun;
+            
+            private global::System.Data.DataColumn columnKaritankaFlg;
+            
+            private global::System.Data.DataColumn columnTantoushaCode;
+            
+            private global::System.Data.DataColumn columnUserKubun;
+            
+            private global::System.Data.DataColumn columnOpenedFlg;
+            
+            private global::System.Data.DataColumn columnHenkouNo;
+            
+            private global::System.Data.DataColumn columnHenkouShouninFlg;
+            
+            private global::System.Data.DataColumn columnKaitouNo;
+            
+            private global::System.Data.DataColumn columnKaitouShouninFlg;
+            
+            private global::System.Data.DataColumn columnNouhinNo;
+            
+            private global::System.Data.DataColumn columnNouhinBi;
+            
+            private global::System.Data.DataColumn columnNouhinSuuryou;
+            
+            private global::System.Data.DataColumn columnKeigenZeirituFlg;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Chumon_JyouhouDataTable() {
+                this.TableName = "V_Chumon_Jyouhou";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_Chumon_JyouhouDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected V_Chumon_JyouhouDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn YearColumn {
+                get {
+                    return this.columnYear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn HacchuuNoColumn {
+                get {
+                    return this.columnHacchuuNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn HacchuuBiColumn {
+                get {
+                    return this.columnHacchuuBi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn HacchushaIDColumn {
+                get {
+                    return this.columnHacchushaID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ShiiresakiCodeColumn {
+                get {
+                    return this.columnShiiresakiCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ShiiresakiMeiColumn {
+                get {
+                    return this.columnShiiresakiMei;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BuhinKubunColumn {
+                get {
+                    return this.columnBuhinKubun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BuhinCodeColumn {
+                get {
+                    return this.columnBuhinCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BuhinMeiColumn {
+                get {
+                    return this.columnBuhinMei;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SuuryouColumn {
+                get {
+                    return this.columnSuuryou;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TankaColumn {
+                get {
+                    return this.columnTanka;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TaniColumn {
+                get {
+                    return this.columnTani;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KingakuColumn {
+                get {
+                    return this.columnKingaku;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NounyuuBashoCodeColumn {
+                get {
+                    return this.columnNounyuuBashoCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BashoMeiColumn {
+                get {
+                    return this.columnBashoMei;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NoukiColumn {
+                get {
+                    return this.columnNouki;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ZeirituColumn {
+                get {
+                    return this.columnZeiritu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CancelBiColumn {
+                get {
+                    return this.columnCancelBi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn JigyoushoKubunColumn {
+                get {
+                    return this.columnJigyoushoKubun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KaritankaFlgColumn {
+                get {
+                    return this.columnKaritankaFlg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TantoushaCodeColumn {
+                get {
+                    return this.columnTantoushaCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UserKubunColumn {
+                get {
+                    return this.columnUserKubun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OpenedFlgColumn {
+                get {
+                    return this.columnOpenedFlg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn HenkouNoColumn {
+                get {
+                    return this.columnHenkouNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn HenkouShouninFlgColumn {
+                get {
+                    return this.columnHenkouShouninFlg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KaitouNoColumn {
+                get {
+                    return this.columnKaitouNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KaitouShouninFlgColumn {
+                get {
+                    return this.columnKaitouShouninFlg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NouhinNoColumn {
+                get {
+                    return this.columnNouhinNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NouhinBiColumn {
+                get {
+                    return this.columnNouhinBi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NouhinSuuryouColumn {
+                get {
+                    return this.columnNouhinSuuryou;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KeigenZeirituFlgColumn {
+                get {
+                    return this.columnKeigenZeirituFlg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Chumon_JyouhouRow this[int index] {
+                get {
+                    return ((V_Chumon_JyouhouRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_Chumon_JyouhouRowChangeEventHandler V_Chumon_JyouhouRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_Chumon_JyouhouRowChangeEventHandler V_Chumon_JyouhouRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_Chumon_JyouhouRowChangeEventHandler V_Chumon_JyouhouRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_Chumon_JyouhouRowChangeEventHandler V_Chumon_JyouhouRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddV_Chumon_JyouhouRow(V_Chumon_JyouhouRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Chumon_JyouhouRow AddV_Chumon_JyouhouRow(
+                        string Year, 
+                        string HacchuuNo, 
+                        System.DateTime HacchuuBi, 
+                        string HacchushaID, 
+                        string Name, 
+                        string ShiiresakiCode, 
+                        string ShiiresakiMei, 
+                        string BuhinKubun, 
+                        string BuhinCode, 
+                        string BuhinMei, 
+                        int Suuryou, 
+                        decimal Tanka, 
+                        string Tani, 
+                        int Kingaku, 
+                        string NounyuuBashoCode, 
+                        string BashoMei, 
+                        string Nouki, 
+                        int Zeiritu, 
+                        System.DateTime CancelBi, 
+                        int JigyoushoKubun, 
+                        bool KaritankaFlg, 
+                        string TantoushaCode, 
+                        byte UserKubun, 
+                        bool OpenedFlg, 
+                        int HenkouNo, 
+                        bool HenkouShouninFlg, 
+                        int KaitouNo, 
+                        bool KaitouShouninFlg, 
+                        int NouhinNo, 
+                        System.DateTime NouhinBi, 
+                        int NouhinSuuryou, 
+                        bool KeigenZeirituFlg) {
+                V_Chumon_JyouhouRow rowV_Chumon_JyouhouRow = ((V_Chumon_JyouhouRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Year,
+                        HacchuuNo,
+                        HacchuuBi,
+                        HacchushaID,
+                        Name,
+                        ShiiresakiCode,
+                        ShiiresakiMei,
+                        BuhinKubun,
+                        BuhinCode,
+                        BuhinMei,
+                        Suuryou,
+                        Tanka,
+                        Tani,
+                        Kingaku,
+                        NounyuuBashoCode,
+                        BashoMei,
+                        Nouki,
+                        Zeiritu,
+                        CancelBi,
+                        JigyoushoKubun,
+                        KaritankaFlg,
+                        TantoushaCode,
+                        UserKubun,
+                        OpenedFlg,
+                        HenkouNo,
+                        HenkouShouninFlg,
+                        KaitouNo,
+                        KaitouShouninFlg,
+                        NouhinNo,
+                        NouhinBi,
+                        NouhinSuuryou,
+                        KeigenZeirituFlg};
+                rowV_Chumon_JyouhouRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowV_Chumon_JyouhouRow);
+                return rowV_Chumon_JyouhouRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                V_Chumon_JyouhouDataTable cln = ((V_Chumon_JyouhouDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new V_Chumon_JyouhouDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnYear = base.Columns["Year"];
+                this.columnHacchuuNo = base.Columns["HacchuuNo"];
+                this.columnHacchuuBi = base.Columns["HacchuuBi"];
+                this.columnHacchushaID = base.Columns["HacchushaID"];
+                this.columnName = base.Columns["Name"];
+                this.columnShiiresakiCode = base.Columns["ShiiresakiCode"];
+                this.columnShiiresakiMei = base.Columns["ShiiresakiMei"];
+                this.columnBuhinKubun = base.Columns["BuhinKubun"];
+                this.columnBuhinCode = base.Columns["BuhinCode"];
+                this.columnBuhinMei = base.Columns["BuhinMei"];
+                this.columnSuuryou = base.Columns["Suuryou"];
+                this.columnTanka = base.Columns["Tanka"];
+                this.columnTani = base.Columns["Tani"];
+                this.columnKingaku = base.Columns["Kingaku"];
+                this.columnNounyuuBashoCode = base.Columns["NounyuuBashoCode"];
+                this.columnBashoMei = base.Columns["BashoMei"];
+                this.columnNouki = base.Columns["Nouki"];
+                this.columnZeiritu = base.Columns["Zeiritu"];
+                this.columnCancelBi = base.Columns["CancelBi"];
+                this.columnJigyoushoKubun = base.Columns["JigyoushoKubun"];
+                this.columnKaritankaFlg = base.Columns["KaritankaFlg"];
+                this.columnTantoushaCode = base.Columns["TantoushaCode"];
+                this.columnUserKubun = base.Columns["UserKubun"];
+                this.columnOpenedFlg = base.Columns["OpenedFlg"];
+                this.columnHenkouNo = base.Columns["HenkouNo"];
+                this.columnHenkouShouninFlg = base.Columns["HenkouShouninFlg"];
+                this.columnKaitouNo = base.Columns["KaitouNo"];
+                this.columnKaitouShouninFlg = base.Columns["KaitouShouninFlg"];
+                this.columnNouhinNo = base.Columns["NouhinNo"];
+                this.columnNouhinBi = base.Columns["NouhinBi"];
+                this.columnNouhinSuuryou = base.Columns["NouhinSuuryou"];
+                this.columnKeigenZeirituFlg = base.Columns["KeigenZeirituFlg"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnYear);
+                this.columnHacchuuNo = new global::System.Data.DataColumn("HacchuuNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHacchuuNo);
+                this.columnHacchuuBi = new global::System.Data.DataColumn("HacchuuBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHacchuuBi);
+                this.columnHacchushaID = new global::System.Data.DataColumn("HacchushaID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHacchushaID);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnShiiresakiCode = new global::System.Data.DataColumn("ShiiresakiCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShiiresakiCode);
+                this.columnShiiresakiMei = new global::System.Data.DataColumn("ShiiresakiMei", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShiiresakiMei);
+                this.columnBuhinKubun = new global::System.Data.DataColumn("BuhinKubun", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBuhinKubun);
+                this.columnBuhinCode = new global::System.Data.DataColumn("BuhinCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBuhinCode);
+                this.columnBuhinMei = new global::System.Data.DataColumn("BuhinMei", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBuhinMei);
+                this.columnSuuryou = new global::System.Data.DataColumn("Suuryou", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSuuryou);
+                this.columnTanka = new global::System.Data.DataColumn("Tanka", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTanka);
+                this.columnTani = new global::System.Data.DataColumn("Tani", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTani);
+                this.columnKingaku = new global::System.Data.DataColumn("Kingaku", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKingaku);
+                this.columnNounyuuBashoCode = new global::System.Data.DataColumn("NounyuuBashoCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNounyuuBashoCode);
+                this.columnBashoMei = new global::System.Data.DataColumn("BashoMei", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBashoMei);
+                this.columnNouki = new global::System.Data.DataColumn("Nouki", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNouki);
+                this.columnZeiritu = new global::System.Data.DataColumn("Zeiritu", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZeiritu);
+                this.columnCancelBi = new global::System.Data.DataColumn("CancelBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCancelBi);
+                this.columnJigyoushoKubun = new global::System.Data.DataColumn("JigyoushoKubun", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJigyoushoKubun);
+                this.columnKaritankaFlg = new global::System.Data.DataColumn("KaritankaFlg", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKaritankaFlg);
+                this.columnTantoushaCode = new global::System.Data.DataColumn("TantoushaCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTantoushaCode);
+                this.columnUserKubun = new global::System.Data.DataColumn("UserKubun", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserKubun);
+                this.columnOpenedFlg = new global::System.Data.DataColumn("OpenedFlg", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOpenedFlg);
+                this.columnHenkouNo = new global::System.Data.DataColumn("HenkouNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHenkouNo);
+                this.columnHenkouShouninFlg = new global::System.Data.DataColumn("HenkouShouninFlg", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHenkouShouninFlg);
+                this.columnKaitouNo = new global::System.Data.DataColumn("KaitouNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKaitouNo);
+                this.columnKaitouShouninFlg = new global::System.Data.DataColumn("KaitouShouninFlg", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKaitouShouninFlg);
+                this.columnNouhinNo = new global::System.Data.DataColumn("NouhinNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNouhinNo);
+                this.columnNouhinBi = new global::System.Data.DataColumn("NouhinBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNouhinBi);
+                this.columnNouhinSuuryou = new global::System.Data.DataColumn("NouhinSuuryou", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNouhinSuuryou);
+                this.columnKeigenZeirituFlg = new global::System.Data.DataColumn("KeigenZeirituFlg", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKeigenZeirituFlg);
+                this.columnYear.AllowDBNull = false;
+                this.columnYear.MaxLength = 2;
+                this.columnHacchuuNo.AllowDBNull = false;
+                this.columnHacchuuNo.MaxLength = 7;
+                this.columnHacchuuBi.AllowDBNull = false;
+                this.columnHacchushaID.AllowDBNull = false;
+                this.columnHacchushaID.MaxLength = 20;
+                this.columnName.AllowDBNull = false;
+                this.columnName.MaxLength = 20;
+                this.columnShiiresakiCode.AllowDBNull = false;
+                this.columnShiiresakiCode.MaxLength = 10;
+                this.columnShiiresakiMei.AllowDBNull = false;
+                this.columnShiiresakiMei.MaxLength = 30;
+                this.columnBuhinKubun.AllowDBNull = false;
+                this.columnBuhinKubun.MaxLength = 2;
+                this.columnBuhinCode.AllowDBNull = false;
+                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinMei.AllowDBNull = false;
+                this.columnBuhinMei.MaxLength = 50;
+                this.columnSuuryou.AllowDBNull = false;
+                this.columnTanka.AllowDBNull = false;
+                this.columnTani.AllowDBNull = false;
+                this.columnTani.MaxLength = 5;
+                this.columnKingaku.AllowDBNull = false;
+                this.columnNounyuuBashoCode.AllowDBNull = false;
+                this.columnNounyuuBashoCode.MaxLength = 20;
+                this.columnBashoMei.AllowDBNull = false;
+                this.columnBashoMei.MaxLength = 50;
+                this.columnNouki.AllowDBNull = false;
+                this.columnNouki.MaxLength = 8;
+                this.columnJigyoushoKubun.AllowDBNull = false;
+                this.columnKaritankaFlg.AllowDBNull = false;
+                this.columnKaritankaFlg.DefaultValue = ((bool)(false));
+                this.columnTantoushaCode.AllowDBNull = false;
+                this.columnTantoushaCode.MaxLength = 20;
+                this.columnUserKubun.ReadOnly = true;
+                this.columnOpenedFlg.ReadOnly = true;
+                this.columnOpenedFlg.DefaultValue = ((bool)(false));
+                this.columnHenkouNo.ReadOnly = true;
+                this.columnHenkouShouninFlg.ReadOnly = true;
+                this.columnKaitouNo.ReadOnly = true;
+                this.columnKaitouNo.DefaultValue = ((int)(0));
+                this.columnKaitouShouninFlg.ReadOnly = true;
+                this.columnKaitouShouninFlg.DefaultValue = ((bool)(false));
+                this.columnNouhinNo.ReadOnly = true;
+                this.columnNouhinNo.DefaultValue = ((int)(0));
+                this.columnNouhinBi.ReadOnly = true;
+                this.columnNouhinSuuryou.ReadOnly = true;
+                this.columnNouhinSuuryou.DefaultValue = ((int)(0));
+                this.columnKeigenZeirituFlg.AllowDBNull = false;
+                this.columnKeigenZeirituFlg.DefaultValue = ((bool)(false));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Chumon_JyouhouRow NewV_Chumon_JyouhouRow() {
+                return ((V_Chumon_JyouhouRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new V_Chumon_JyouhouRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(V_Chumon_JyouhouRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.V_Chumon_JyouhouRowChanged != null)) {
+                    this.V_Chumon_JyouhouRowChanged(this, new V_Chumon_JyouhouRowChangeEvent(((V_Chumon_JyouhouRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.V_Chumon_JyouhouRowChanging != null)) {
+                    this.V_Chumon_JyouhouRowChanging(this, new V_Chumon_JyouhouRowChangeEvent(((V_Chumon_JyouhouRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.V_Chumon_JyouhouRowDeleted != null)) {
+                    this.V_Chumon_JyouhouRowDeleted(this, new V_Chumon_JyouhouRowChangeEvent(((V_Chumon_JyouhouRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.V_Chumon_JyouhouRowDeleting != null)) {
+                    this.V_Chumon_JyouhouRowDeleting(this, new V_Chumon_JyouhouRowChangeEvent(((V_Chumon_JyouhouRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveV_Chumon_JyouhouRow(V_Chumon_JyouhouRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ChumonDataSet ds = new ChumonDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "V_Chumon_JyouhouDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class V_Jyuryosho_MeisaiDataTable : global::System.Data.TypedTableBase<V_Jyuryosho_MeisaiRow> {
             
             private global::System.Data.DataColumn columnHacchuuNo;
@@ -5813,744 +6577,6 @@ namespace m2mKoubaiDAL {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "V_Nouhinsho_MeisaiDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class V_Chumon_JyouhouDataTable : global::System.Data.TypedTableBase<V_Chumon_JyouhouRow> {
-            
-            private global::System.Data.DataColumn columnYear;
-            
-            private global::System.Data.DataColumn columnHacchuuNo;
-            
-            private global::System.Data.DataColumn columnHacchuuBi;
-            
-            private global::System.Data.DataColumn columnHacchushaID;
-            
-            private global::System.Data.DataColumn columnName;
-            
-            private global::System.Data.DataColumn columnShiiresakiCode;
-            
-            private global::System.Data.DataColumn columnShiiresakiMei;
-            
-            private global::System.Data.DataColumn columnBuhinKubun;
-            
-            private global::System.Data.DataColumn columnBuhinCode;
-            
-            private global::System.Data.DataColumn columnBuhinMei;
-            
-            private global::System.Data.DataColumn columnSuuryou;
-            
-            private global::System.Data.DataColumn columnTanka;
-            
-            private global::System.Data.DataColumn columnTani;
-            
-            private global::System.Data.DataColumn columnKingaku;
-            
-            private global::System.Data.DataColumn columnNounyuuBashoCode;
-            
-            private global::System.Data.DataColumn columnBashoMei;
-            
-            private global::System.Data.DataColumn columnNouki;
-            
-            private global::System.Data.DataColumn columnCancelBi;
-            
-            private global::System.Data.DataColumn columnJigyoushoKubun;
-            
-            private global::System.Data.DataColumn columnKaritankaFlg;
-            
-            private global::System.Data.DataColumn columnTantoushaCode;
-            
-            private global::System.Data.DataColumn columnUserKubun;
-            
-            private global::System.Data.DataColumn columnOpenedFlg;
-            
-            private global::System.Data.DataColumn columnHenkouNo;
-            
-            private global::System.Data.DataColumn columnHenkouShouninFlg;
-            
-            private global::System.Data.DataColumn columnKaitouNo;
-            
-            private global::System.Data.DataColumn columnKaitouShouninFlg;
-            
-            private global::System.Data.DataColumn columnNouhinNo;
-            
-            private global::System.Data.DataColumn columnNouhinSuuryou;
-            
-            private global::System.Data.DataColumn columnZeiritu;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Chumon_JyouhouDataTable() {
-                this.TableName = "V_Chumon_Jyouhou";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal V_Chumon_JyouhouDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected V_Chumon_JyouhouDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn YearColumn {
-                get {
-                    return this.columnYear;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn HacchuuNoColumn {
-                get {
-                    return this.columnHacchuuNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn HacchuuBiColumn {
-                get {
-                    return this.columnHacchuuBi;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn HacchushaIDColumn {
-                get {
-                    return this.columnHacchushaID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
-                get {
-                    return this.columnName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShiiresakiCodeColumn {
-                get {
-                    return this.columnShiiresakiCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShiiresakiMeiColumn {
-                get {
-                    return this.columnShiiresakiMei;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BuhinKubunColumn {
-                get {
-                    return this.columnBuhinKubun;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BuhinCodeColumn {
-                get {
-                    return this.columnBuhinCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BuhinMeiColumn {
-                get {
-                    return this.columnBuhinMei;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn SuuryouColumn {
-                get {
-                    return this.columnSuuryou;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TankaColumn {
-                get {
-                    return this.columnTanka;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TaniColumn {
-                get {
-                    return this.columnTani;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn KingakuColumn {
-                get {
-                    return this.columnKingaku;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NounyuuBashoCodeColumn {
-                get {
-                    return this.columnNounyuuBashoCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BashoMeiColumn {
-                get {
-                    return this.columnBashoMei;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NoukiColumn {
-                get {
-                    return this.columnNouki;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CancelBiColumn {
-                get {
-                    return this.columnCancelBi;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn JigyoushoKubunColumn {
-                get {
-                    return this.columnJigyoushoKubun;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn KaritankaFlgColumn {
-                get {
-                    return this.columnKaritankaFlg;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TantoushaCodeColumn {
-                get {
-                    return this.columnTantoushaCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn UserKubunColumn {
-                get {
-                    return this.columnUserKubun;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn OpenedFlgColumn {
-                get {
-                    return this.columnOpenedFlg;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn HenkouNoColumn {
-                get {
-                    return this.columnHenkouNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn HenkouShouninFlgColumn {
-                get {
-                    return this.columnHenkouShouninFlg;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn KaitouNoColumn {
-                get {
-                    return this.columnKaitouNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn KaitouShouninFlgColumn {
-                get {
-                    return this.columnKaitouShouninFlg;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NouhinNoColumn {
-                get {
-                    return this.columnNouhinNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NouhinSuuryouColumn {
-                get {
-                    return this.columnNouhinSuuryou;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ZeirituColumn {
-                get {
-                    return this.columnZeiritu;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Chumon_JyouhouRow this[int index] {
-                get {
-                    return ((V_Chumon_JyouhouRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event V_Chumon_JyouhouRowChangeEventHandler V_Chumon_JyouhouRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event V_Chumon_JyouhouRowChangeEventHandler V_Chumon_JyouhouRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event V_Chumon_JyouhouRowChangeEventHandler V_Chumon_JyouhouRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event V_Chumon_JyouhouRowChangeEventHandler V_Chumon_JyouhouRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddV_Chumon_JyouhouRow(V_Chumon_JyouhouRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Chumon_JyouhouRow AddV_Chumon_JyouhouRow(
-                        string Year, 
-                        string HacchuuNo, 
-                        System.DateTime HacchuuBi, 
-                        string HacchushaID, 
-                        string Name, 
-                        string ShiiresakiCode, 
-                        string ShiiresakiMei, 
-                        string BuhinKubun, 
-                        string BuhinCode, 
-                        string BuhinMei, 
-                        int Suuryou, 
-                        decimal Tanka, 
-                        string Tani, 
-                        decimal Kingaku, 
-                        string NounyuuBashoCode, 
-                        string BashoMei, 
-                        string Nouki, 
-                        System.DateTime CancelBi, 
-                        int JigyoushoKubun, 
-                        bool KaritankaFlg, 
-                        string TantoushaCode, 
-                        byte UserKubun, 
-                        bool OpenedFlg, 
-                        int HenkouNo, 
-                        bool HenkouShouninFlg, 
-                        int KaitouNo, 
-                        bool KaitouShouninFlg, 
-                        int NouhinNo, 
-                        int NouhinSuuryou, 
-                        int Zeiritu) {
-                V_Chumon_JyouhouRow rowV_Chumon_JyouhouRow = ((V_Chumon_JyouhouRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        Year,
-                        HacchuuNo,
-                        HacchuuBi,
-                        HacchushaID,
-                        Name,
-                        ShiiresakiCode,
-                        ShiiresakiMei,
-                        BuhinKubun,
-                        BuhinCode,
-                        BuhinMei,
-                        Suuryou,
-                        Tanka,
-                        Tani,
-                        Kingaku,
-                        NounyuuBashoCode,
-                        BashoMei,
-                        Nouki,
-                        CancelBi,
-                        JigyoushoKubun,
-                        KaritankaFlg,
-                        TantoushaCode,
-                        UserKubun,
-                        OpenedFlg,
-                        HenkouNo,
-                        HenkouShouninFlg,
-                        KaitouNo,
-                        KaitouShouninFlg,
-                        NouhinNo,
-                        NouhinSuuryou,
-                        Zeiritu};
-                rowV_Chumon_JyouhouRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowV_Chumon_JyouhouRow);
-                return rowV_Chumon_JyouhouRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Chumon_JyouhouRow FindByYearHacchuuNoJigyoushoKubun(string Year, string HacchuuNo, int JigyoushoKubun) {
-                return ((V_Chumon_JyouhouRow)(this.Rows.Find(new object[] {
-                            Year,
-                            HacchuuNo,
-                            JigyoushoKubun})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                V_Chumon_JyouhouDataTable cln = ((V_Chumon_JyouhouDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new V_Chumon_JyouhouDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnYear = base.Columns["Year"];
-                this.columnHacchuuNo = base.Columns["HacchuuNo"];
-                this.columnHacchuuBi = base.Columns["HacchuuBi"];
-                this.columnHacchushaID = base.Columns["HacchushaID"];
-                this.columnName = base.Columns["Name"];
-                this.columnShiiresakiCode = base.Columns["ShiiresakiCode"];
-                this.columnShiiresakiMei = base.Columns["ShiiresakiMei"];
-                this.columnBuhinKubun = base.Columns["BuhinKubun"];
-                this.columnBuhinCode = base.Columns["BuhinCode"];
-                this.columnBuhinMei = base.Columns["BuhinMei"];
-                this.columnSuuryou = base.Columns["Suuryou"];
-                this.columnTanka = base.Columns["Tanka"];
-                this.columnTani = base.Columns["Tani"];
-                this.columnKingaku = base.Columns["Kingaku"];
-                this.columnNounyuuBashoCode = base.Columns["NounyuuBashoCode"];
-                this.columnBashoMei = base.Columns["BashoMei"];
-                this.columnNouki = base.Columns["Nouki"];
-                this.columnCancelBi = base.Columns["CancelBi"];
-                this.columnJigyoushoKubun = base.Columns["JigyoushoKubun"];
-                this.columnKaritankaFlg = base.Columns["KaritankaFlg"];
-                this.columnTantoushaCode = base.Columns["TantoushaCode"];
-                this.columnUserKubun = base.Columns["UserKubun"];
-                this.columnOpenedFlg = base.Columns["OpenedFlg"];
-                this.columnHenkouNo = base.Columns["HenkouNo"];
-                this.columnHenkouShouninFlg = base.Columns["HenkouShouninFlg"];
-                this.columnKaitouNo = base.Columns["KaitouNo"];
-                this.columnKaitouShouninFlg = base.Columns["KaitouShouninFlg"];
-                this.columnNouhinNo = base.Columns["NouhinNo"];
-                this.columnNouhinSuuryou = base.Columns["NouhinSuuryou"];
-                this.columnZeiritu = base.Columns["Zeiritu"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnYear);
-                this.columnHacchuuNo = new global::System.Data.DataColumn("HacchuuNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHacchuuNo);
-                this.columnHacchuuBi = new global::System.Data.DataColumn("HacchuuBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHacchuuBi);
-                this.columnHacchushaID = new global::System.Data.DataColumn("HacchushaID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHacchushaID);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
-                this.columnShiiresakiCode = new global::System.Data.DataColumn("ShiiresakiCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShiiresakiCode);
-                this.columnShiiresakiMei = new global::System.Data.DataColumn("ShiiresakiMei", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShiiresakiMei);
-                this.columnBuhinKubun = new global::System.Data.DataColumn("BuhinKubun", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBuhinKubun);
-                this.columnBuhinCode = new global::System.Data.DataColumn("BuhinCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBuhinCode);
-                this.columnBuhinMei = new global::System.Data.DataColumn("BuhinMei", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBuhinMei);
-                this.columnSuuryou = new global::System.Data.DataColumn("Suuryou", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSuuryou);
-                this.columnTanka = new global::System.Data.DataColumn("Tanka", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTanka);
-                this.columnTani = new global::System.Data.DataColumn("Tani", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTani);
-                this.columnKingaku = new global::System.Data.DataColumn("Kingaku", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKingaku);
-                this.columnNounyuuBashoCode = new global::System.Data.DataColumn("NounyuuBashoCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNounyuuBashoCode);
-                this.columnBashoMei = new global::System.Data.DataColumn("BashoMei", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBashoMei);
-                this.columnNouki = new global::System.Data.DataColumn("Nouki", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNouki);
-                this.columnCancelBi = new global::System.Data.DataColumn("CancelBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCancelBi);
-                this.columnJigyoushoKubun = new global::System.Data.DataColumn("JigyoushoKubun", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnJigyoushoKubun);
-                this.columnKaritankaFlg = new global::System.Data.DataColumn("KaritankaFlg", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKaritankaFlg);
-                this.columnTantoushaCode = new global::System.Data.DataColumn("TantoushaCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTantoushaCode);
-                this.columnUserKubun = new global::System.Data.DataColumn("UserKubun", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserKubun);
-                this.columnOpenedFlg = new global::System.Data.DataColumn("OpenedFlg", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOpenedFlg);
-                this.columnHenkouNo = new global::System.Data.DataColumn("HenkouNo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHenkouNo);
-                this.columnHenkouShouninFlg = new global::System.Data.DataColumn("HenkouShouninFlg", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHenkouShouninFlg);
-                this.columnKaitouNo = new global::System.Data.DataColumn("KaitouNo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKaitouNo);
-                this.columnKaitouShouninFlg = new global::System.Data.DataColumn("KaitouShouninFlg", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKaitouShouninFlg);
-                this.columnNouhinNo = new global::System.Data.DataColumn("NouhinNo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNouhinNo);
-                this.columnNouhinSuuryou = new global::System.Data.DataColumn("NouhinSuuryou", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNouhinSuuryou);
-                this.columnZeiritu = new global::System.Data.DataColumn("Zeiritu", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnZeiritu);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnYear,
-                                this.columnHacchuuNo,
-                                this.columnJigyoushoKubun}, true));
-                this.columnYear.AllowDBNull = false;
-                this.columnYear.MaxLength = 2;
-                this.columnHacchuuNo.AllowDBNull = false;
-                this.columnHacchuuNo.MaxLength = 7;
-                this.columnHacchuuBi.AllowDBNull = false;
-                this.columnHacchushaID.AllowDBNull = false;
-                this.columnHacchushaID.MaxLength = 20;
-                this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 20;
-                this.columnShiiresakiCode.AllowDBNull = false;
-                this.columnShiiresakiCode.MaxLength = 10;
-                this.columnShiiresakiMei.AllowDBNull = false;
-                this.columnShiiresakiMei.MaxLength = 30;
-                this.columnBuhinKubun.AllowDBNull = false;
-                this.columnBuhinKubun.MaxLength = 5;
-                this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
-                this.columnBuhinMei.AllowDBNull = false;
-                this.columnBuhinMei.MaxLength = 50;
-                this.columnSuuryou.AllowDBNull = false;
-                this.columnTanka.AllowDBNull = false;
-                this.columnTani.AllowDBNull = false;
-                this.columnTani.MaxLength = 5;
-                this.columnKingaku.AllowDBNull = false;
-                this.columnNounyuuBashoCode.AllowDBNull = false;
-                this.columnNounyuuBashoCode.MaxLength = 20;
-                this.columnBashoMei.AllowDBNull = false;
-                this.columnBashoMei.MaxLength = 50;
-                this.columnNouki.AllowDBNull = false;
-                this.columnNouki.MaxLength = 8;
-                this.columnJigyoushoKubun.AllowDBNull = false;
-                this.columnKaritankaFlg.AllowDBNull = false;
-                this.columnTantoushaCode.AllowDBNull = false;
-                this.columnTantoushaCode.MaxLength = 20;
-                this.columnUserKubun.ReadOnly = true;
-                this.columnOpenedFlg.ReadOnly = true;
-                this.columnHenkouNo.ReadOnly = true;
-                this.columnHenkouShouninFlg.ReadOnly = true;
-                this.columnKaitouNo.ReadOnly = true;
-                this.columnKaitouShouninFlg.ReadOnly = true;
-                this.columnNouhinNo.ReadOnly = true;
-                this.columnNouhinSuuryou.ReadOnly = true;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Chumon_JyouhouRow NewV_Chumon_JyouhouRow() {
-                return ((V_Chumon_JyouhouRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new V_Chumon_JyouhouRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(V_Chumon_JyouhouRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.V_Chumon_JyouhouRowChanged != null)) {
-                    this.V_Chumon_JyouhouRowChanged(this, new V_Chumon_JyouhouRowChangeEvent(((V_Chumon_JyouhouRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.V_Chumon_JyouhouRowChanging != null)) {
-                    this.V_Chumon_JyouhouRowChanging(this, new V_Chumon_JyouhouRowChangeEvent(((V_Chumon_JyouhouRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.V_Chumon_JyouhouRowDeleted != null)) {
-                    this.V_Chumon_JyouhouRowDeleted(this, new V_Chumon_JyouhouRowChangeEvent(((V_Chumon_JyouhouRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.V_Chumon_JyouhouRowDeleting != null)) {
-                    this.V_Chumon_JyouhouRowDeleting(this, new V_Chumon_JyouhouRowChangeEvent(((V_Chumon_JyouhouRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveV_Chumon_JyouhouRow(V_Chumon_JyouhouRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ChumonDataSet ds = new ChumonDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "V_Chumon_JyouhouDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -7905,6 +7931,560 @@ namespace m2mKoubaiDAL {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class V_Chumon_JyouhouRow : global::System.Data.DataRow {
+            
+            private V_Chumon_JyouhouDataTable tableV_Chumon_Jyouhou;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_Chumon_JyouhouRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableV_Chumon_Jyouhou = ((V_Chumon_JyouhouDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Year {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.YearColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.YearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string HacchuuNo {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.HacchuuNoColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.HacchuuNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime HacchuuBi {
+                get {
+                    return ((global::System.DateTime)(this[this.tableV_Chumon_Jyouhou.HacchuuBiColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.HacchuuBiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string HacchushaID {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.HacchushaIDColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.HacchushaIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Name {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.NameColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ShiiresakiCode {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.ShiiresakiCodeColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.ShiiresakiCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ShiiresakiMei {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.ShiiresakiMeiColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.ShiiresakiMeiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BuhinKubun {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.BuhinKubunColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.BuhinKubunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BuhinCode {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.BuhinCodeColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.BuhinCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BuhinMei {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.BuhinMeiColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.BuhinMeiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Suuryou {
+                get {
+                    return ((int)(this[this.tableV_Chumon_Jyouhou.SuuryouColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.SuuryouColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Tanka {
+                get {
+                    return ((decimal)(this[this.tableV_Chumon_Jyouhou.TankaColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.TankaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Tani {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.TaniColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.TaniColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kingaku {
+                get {
+                    return ((int)(this[this.tableV_Chumon_Jyouhou.KingakuColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.KingakuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NounyuuBashoCode {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.NounyuuBashoCodeColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.NounyuuBashoCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BashoMei {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.BashoMeiColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.BashoMeiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Nouki {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.NoukiColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.NoukiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Zeiritu {
+                get {
+                    try {
+                        return ((int)(this[this.tableV_Chumon_Jyouhou.ZeirituColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'Zeiritu\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.ZeirituColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime CancelBi {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableV_Chumon_Jyouhou.CancelBiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'CancelBi\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.CancelBiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int JigyoushoKubun {
+                get {
+                    return ((int)(this[this.tableV_Chumon_Jyouhou.JigyoushoKubunColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.JigyoushoKubunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool KaritankaFlg {
+                get {
+                    return ((bool)(this[this.tableV_Chumon_Jyouhou.KaritankaFlgColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.KaritankaFlgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TantoushaCode {
+                get {
+                    return ((string)(this[this.tableV_Chumon_Jyouhou.TantoushaCodeColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.TantoushaCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public byte UserKubun {
+                get {
+                    try {
+                        return ((byte)(this[this.tableV_Chumon_Jyouhou.UserKubunColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'UserKubun\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.UserKubunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool OpenedFlg {
+                get {
+                    try {
+                        return ((bool)(this[this.tableV_Chumon_Jyouhou.OpenedFlgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'OpenedFlg\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.OpenedFlgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int HenkouNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableV_Chumon_Jyouhou.HenkouNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'HenkouNo\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.HenkouNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool HenkouShouninFlg {
+                get {
+                    try {
+                        return ((bool)(this[this.tableV_Chumon_Jyouhou.HenkouShouninFlgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'HenkouShouninFlg\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.HenkouShouninFlgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int KaitouNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableV_Chumon_Jyouhou.KaitouNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'KaitouNo\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.KaitouNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool KaitouShouninFlg {
+                get {
+                    try {
+                        return ((bool)(this[this.tableV_Chumon_Jyouhou.KaitouShouninFlgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'KaitouShouninFlg\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.KaitouShouninFlgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int NouhinNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableV_Chumon_Jyouhou.NouhinNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'NouhinNo\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.NouhinNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime NouhinBi {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableV_Chumon_Jyouhou.NouhinBiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'NouhinBi\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.NouhinBiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int NouhinSuuryou {
+                get {
+                    try {
+                        return ((int)(this[this.tableV_Chumon_Jyouhou.NouhinSuuryouColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'NouhinSuuryou\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.NouhinSuuryouColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool KeigenZeirituFlg {
+                get {
+                    return ((bool)(this[this.tableV_Chumon_Jyouhou.KeigenZeirituFlgColumn]));
+                }
+                set {
+                    this[this.tableV_Chumon_Jyouhou.KeigenZeirituFlgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsZeirituNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.ZeirituColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetZeirituNull() {
+                this[this.tableV_Chumon_Jyouhou.ZeirituColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCancelBiNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.CancelBiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCancelBiNull() {
+                this[this.tableV_Chumon_Jyouhou.CancelBiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUserKubunNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.UserKubunColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUserKubunNull() {
+                this[this.tableV_Chumon_Jyouhou.UserKubunColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOpenedFlgNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.OpenedFlgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOpenedFlgNull() {
+                this[this.tableV_Chumon_Jyouhou.OpenedFlgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsHenkouNoNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.HenkouNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetHenkouNoNull() {
+                this[this.tableV_Chumon_Jyouhou.HenkouNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsHenkouShouninFlgNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.HenkouShouninFlgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetHenkouShouninFlgNull() {
+                this[this.tableV_Chumon_Jyouhou.HenkouShouninFlgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKaitouNoNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.KaitouNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKaitouNoNull() {
+                this[this.tableV_Chumon_Jyouhou.KaitouNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKaitouShouninFlgNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.KaitouShouninFlgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKaitouShouninFlgNull() {
+                this[this.tableV_Chumon_Jyouhou.KaitouShouninFlgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNouhinNoNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.NouhinNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNouhinNoNull() {
+                this[this.tableV_Chumon_Jyouhou.NouhinNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNouhinBiNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.NouhinBiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNouhinBiNull() {
+                this[this.tableV_Chumon_Jyouhou.NouhinBiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNouhinSuuryouNull() {
+                return this.IsNull(this.tableV_Chumon_Jyouhou.NouhinSuuryouColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNouhinSuuryouNull() {
+                this[this.tableV_Chumon_Jyouhou.NouhinSuuryouColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class V_Jyuryosho_MeisaiRow : global::System.Data.DataRow {
             
             private V_Jyuryosho_MeisaiDataTable tableV_Jyuryosho_Meisai;
@@ -8521,521 +9101,6 @@ namespace m2mKoubaiDAL {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class V_Chumon_JyouhouRow : global::System.Data.DataRow {
-            
-            private V_Chumon_JyouhouDataTable tableV_Chumon_Jyouhou;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal V_Chumon_JyouhouRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableV_Chumon_Jyouhou = ((V_Chumon_JyouhouDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Year {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.YearColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.YearColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string HacchuuNo {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.HacchuuNoColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.HacchuuNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime HacchuuBi {
-                get {
-                    return ((global::System.DateTime)(this[this.tableV_Chumon_Jyouhou.HacchuuBiColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.HacchuuBiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string HacchushaID {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.HacchushaIDColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.HacchushaIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Name {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.NameColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ShiiresakiCode {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.ShiiresakiCodeColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.ShiiresakiCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ShiiresakiMei {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.ShiiresakiMeiColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.ShiiresakiMeiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string BuhinKubun {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.BuhinKubunColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.BuhinKubunColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string BuhinCode {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.BuhinCodeColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.BuhinCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string BuhinMei {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.BuhinMeiColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.BuhinMeiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Suuryou {
-                get {
-                    return ((int)(this[this.tableV_Chumon_Jyouhou.SuuryouColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.SuuryouColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal Tanka {
-                get {
-                    return ((decimal)(this[this.tableV_Chumon_Jyouhou.TankaColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.TankaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Tani {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.TaniColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.TaniColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal Kingaku {
-                get {
-                    return ((decimal)(this[this.tableV_Chumon_Jyouhou.KingakuColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.KingakuColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string NounyuuBashoCode {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.NounyuuBashoCodeColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.NounyuuBashoCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string BashoMei {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.BashoMeiColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.BashoMeiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Nouki {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.NoukiColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.NoukiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime CancelBi {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableV_Chumon_Jyouhou.CancelBiColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'CancelBi\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.CancelBiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int JigyoushoKubun {
-                get {
-                    return ((int)(this[this.tableV_Chumon_Jyouhou.JigyoushoKubunColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.JigyoushoKubunColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool KaritankaFlg {
-                get {
-                    return ((bool)(this[this.tableV_Chumon_Jyouhou.KaritankaFlgColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.KaritankaFlgColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string TantoushaCode {
-                get {
-                    return ((string)(this[this.tableV_Chumon_Jyouhou.TantoushaCodeColumn]));
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.TantoushaCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public byte UserKubun {
-                get {
-                    try {
-                        return ((byte)(this[this.tableV_Chumon_Jyouhou.UserKubunColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'UserKubun\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.UserKubunColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool OpenedFlg {
-                get {
-                    try {
-                        return ((bool)(this[this.tableV_Chumon_Jyouhou.OpenedFlgColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'OpenedFlg\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.OpenedFlgColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int HenkouNo {
-                get {
-                    try {
-                        return ((int)(this[this.tableV_Chumon_Jyouhou.HenkouNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'HenkouNo\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.HenkouNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool HenkouShouninFlg {
-                get {
-                    try {
-                        return ((bool)(this[this.tableV_Chumon_Jyouhou.HenkouShouninFlgColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'HenkouShouninFlg\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.HenkouShouninFlgColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int KaitouNo {
-                get {
-                    try {
-                        return ((int)(this[this.tableV_Chumon_Jyouhou.KaitouNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'KaitouNo\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.KaitouNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool KaitouShouninFlg {
-                get {
-                    try {
-                        return ((bool)(this[this.tableV_Chumon_Jyouhou.KaitouShouninFlgColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'KaitouShouninFlg\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.KaitouShouninFlgColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int NouhinNo {
-                get {
-                    try {
-                        return ((int)(this[this.tableV_Chumon_Jyouhou.NouhinNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'NouhinNo\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.NouhinNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int NouhinSuuryou {
-                get {
-                    try {
-                        return ((int)(this[this.tableV_Chumon_Jyouhou.NouhinSuuryouColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'NouhinSuuryou\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.NouhinSuuryouColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Zeiritu {
-                get {
-                    try {
-                        return ((int)(this[this.tableV_Chumon_Jyouhou.ZeirituColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'V_Chumon_Jyouhou\' にある列 \'Zeiritu\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Chumon_Jyouhou.ZeirituColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCancelBiNull() {
-                return this.IsNull(this.tableV_Chumon_Jyouhou.CancelBiColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCancelBiNull() {
-                this[this.tableV_Chumon_Jyouhou.CancelBiColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsUserKubunNull() {
-                return this.IsNull(this.tableV_Chumon_Jyouhou.UserKubunColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetUserKubunNull() {
-                this[this.tableV_Chumon_Jyouhou.UserKubunColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsOpenedFlgNull() {
-                return this.IsNull(this.tableV_Chumon_Jyouhou.OpenedFlgColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetOpenedFlgNull() {
-                this[this.tableV_Chumon_Jyouhou.OpenedFlgColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsHenkouNoNull() {
-                return this.IsNull(this.tableV_Chumon_Jyouhou.HenkouNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetHenkouNoNull() {
-                this[this.tableV_Chumon_Jyouhou.HenkouNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsHenkouShouninFlgNull() {
-                return this.IsNull(this.tableV_Chumon_Jyouhou.HenkouShouninFlgColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetHenkouShouninFlgNull() {
-                this[this.tableV_Chumon_Jyouhou.HenkouShouninFlgColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKaitouNoNull() {
-                return this.IsNull(this.tableV_Chumon_Jyouhou.KaitouNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKaitouNoNull() {
-                this[this.tableV_Chumon_Jyouhou.KaitouNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKaitouShouninFlgNull() {
-                return this.IsNull(this.tableV_Chumon_Jyouhou.KaitouShouninFlgColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKaitouShouninFlgNull() {
-                this[this.tableV_Chumon_Jyouhou.KaitouShouninFlgColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNouhinNoNull() {
-                return this.IsNull(this.tableV_Chumon_Jyouhou.NouhinNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNouhinNoNull() {
-                this[this.tableV_Chumon_Jyouhou.NouhinNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNouhinSuuryouNull() {
-                return this.IsNull(this.tableV_Chumon_Jyouhou.NouhinSuuryouColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNouhinSuuryouNull() {
-                this[this.tableV_Chumon_Jyouhou.NouhinSuuryouColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsZeirituNull() {
-                return this.IsNull(this.tableV_Chumon_Jyouhou.ZeirituColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetZeirituNull() {
-                this[this.tableV_Chumon_Jyouhou.ZeirituColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -9447,6 +9512,40 @@ namespace m2mKoubaiDAL {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class V_Chumon_JyouhouRowChangeEvent : global::System.EventArgs {
+            
+            private V_Chumon_JyouhouRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Chumon_JyouhouRowChangeEvent(V_Chumon_JyouhouRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Chumon_JyouhouRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public class V_Jyuryosho_MeisaiRowChangeEvent : global::System.EventArgs {
             
             private V_Jyuryosho_MeisaiRow eventRow;
@@ -9497,40 +9596,6 @@ namespace m2mKoubaiDAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public V_Nouhinsho_MeisaiRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class V_Chumon_JyouhouRowChangeEvent : global::System.EventArgs {
-            
-            private V_Chumon_JyouhouRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Chumon_JyouhouRowChangeEvent(V_Chumon_JyouhouRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Chumon_JyouhouRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -11298,6 +11363,176 @@ namespace m2mKoubaiDAL.ChumonDataSetTableAdapters {
         public virtual ChumonDataSet.V_Chumon_MeisaiDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             ChumonDataSet.V_Chumon_MeisaiDataTable dataTable = new ChumonDataSet.V_Chumon_MeisaiDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class V_Chumon_JyouhouTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public V_Chumon_JyouhouTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "V_Chumon_Jyouhou";
+            tableMapping.ColumnMappings.Add("Year", "Year");
+            tableMapping.ColumnMappings.Add("HacchuuNo", "HacchuuNo");
+            tableMapping.ColumnMappings.Add("HacchuuBi", "HacchuuBi");
+            tableMapping.ColumnMappings.Add("HacchushaID", "HacchushaID");
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("ShiiresakiCode", "ShiiresakiCode");
+            tableMapping.ColumnMappings.Add("ShiiresakiMei", "ShiiresakiMei");
+            tableMapping.ColumnMappings.Add("BuhinKubun", "BuhinKubun");
+            tableMapping.ColumnMappings.Add("BuhinCode", "BuhinCode");
+            tableMapping.ColumnMappings.Add("BuhinMei", "BuhinMei");
+            tableMapping.ColumnMappings.Add("Suuryou", "Suuryou");
+            tableMapping.ColumnMappings.Add("Tanka", "Tanka");
+            tableMapping.ColumnMappings.Add("Tani", "Tani");
+            tableMapping.ColumnMappings.Add("Kingaku", "Kingaku");
+            tableMapping.ColumnMappings.Add("NounyuuBashoCode", "NounyuuBashoCode");
+            tableMapping.ColumnMappings.Add("BashoMei", "BashoMei");
+            tableMapping.ColumnMappings.Add("Nouki", "Nouki");
+            tableMapping.ColumnMappings.Add("Zeiritu", "Zeiritu");
+            tableMapping.ColumnMappings.Add("CancelBi", "CancelBi");
+            tableMapping.ColumnMappings.Add("JigyoushoKubun", "JigyoushoKubun");
+            tableMapping.ColumnMappings.Add("KaritankaFlg", "KaritankaFlg");
+            tableMapping.ColumnMappings.Add("TantoushaCode", "TantoushaCode");
+            tableMapping.ColumnMappings.Add("UserKubun", "UserKubun");
+            tableMapping.ColumnMappings.Add("OpenedFlg", "OpenedFlg");
+            tableMapping.ColumnMappings.Add("HenkouNo", "HenkouNo");
+            tableMapping.ColumnMappings.Add("HenkouShouninFlg", "HenkouShouninFlg");
+            tableMapping.ColumnMappings.Add("KaitouNo", "KaitouNo");
+            tableMapping.ColumnMappings.Add("KaitouShouninFlg", "KaitouShouninFlg");
+            tableMapping.ColumnMappings.Add("NouhinNo", "NouhinNo");
+            tableMapping.ColumnMappings.Add("NouhinBi", "NouhinBi");
+            tableMapping.ColumnMappings.Add("NouhinSuuryou", "NouhinSuuryou");
+            tableMapping.ColumnMappings.Add("KeigenZeirituFlg", "KeigenZeirituFlg");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::m2mKoubaiDAL.Properties.Settings.Default.m2mKoubaiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT * FROM V_Chumon_Jyouhou";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ChumonDataSet.V_Chumon_JyouhouDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ChumonDataSet.V_Chumon_JyouhouDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            ChumonDataSet.V_Chumon_JyouhouDataTable dataTable = new ChumonDataSet.V_Chumon_JyouhouDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

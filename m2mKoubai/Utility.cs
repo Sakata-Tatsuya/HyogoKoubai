@@ -146,6 +146,18 @@ namespace m2mKoubai
             else
                 return strBanggou.Substring(0, 2) + "-" + strBanggou.Substring(2, 4) + "-" + strBanggou.Substring(6, 4); 
         }
+        public static bool GetKeigenZeirituFlg(DateTime chkDate, string strZeiritu)
+        {
+            if (chkDate >= new DateTime(2019, 10, 1))
+            {
+                if (strZeiritu == "8")
+                {
+                    return true;
+                }
+            }
+            //else if (chkDate >= new DateTime(
+            return false;
+        }
 
     }
 }

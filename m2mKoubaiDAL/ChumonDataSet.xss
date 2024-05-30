@@ -17,10 +17,10 @@
     <Shape ID="DesignTable:V_Chumon_Mail" ZOrder="6" X="691" Y="589" Height="215" Width="218" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="172" />
     <Shape ID="DesignTable:V_MailInfo" ZOrder="5" X="131" Y="636" Height="245" Width="191" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="202" />
     <Shape ID="DesignTable:V_Chumon_NoukiKaitou" ZOrder="4" X="400" Y="602" Height="215" Width="261" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="172" />
-    <Shape ID="DesignTable:V_Chumon_Meisai" ZOrder="1" X="660" Y="36" Height="245" Width="231" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="202" />
+    <Shape ID="DesignTable:V_Chumon_Meisai" ZOrder="2" X="660" Y="36" Height="245" Width="231" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="202" />
     <Shape ID="DesignTable:V_Jyuryosho_Meisai" ZOrder="10" X="960" Y="13" Height="175" Width="171" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="171" />
     <Shape ID="DesignTable:V_Nouhinsho_Meisai" ZOrder="9" X="707" Y="364" Height="190" Width="171" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="20" SplitterPosition="186" />
-    <Shape ID="DesignTable:V_Chumon_Jyouhou" ZOrder="2" X="346" Y="41" Height="205" Width="170" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="201" />
+    <Shape ID="DesignTable:V_Chumon_Jyouhou" ZOrder="1" X="396" Y="41" Height="305" Width="255" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors />
 </DiagramLayout>
