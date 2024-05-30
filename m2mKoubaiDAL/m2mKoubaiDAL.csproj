@@ -112,6 +112,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ChumonMsgDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="m2mKoubaiDataSet.cs">
+      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="m2mKoubaiDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DownloadClass.cs" />
     <Compile Include="DownloadDataSet.cs">
       <DependentUpon>DownloadDataSet.xsd</DependentUpon>
@@ -197,9 +205,6 @@
     </Compile>
     <Compile Include="Type.cs" />
     <Compile Include="UploadClass.cs" />
-    <Compile Include="m2mKoubaiDataSet.cs">
-      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +263,17 @@
     </None>
     <None Include="ChumonMsgDataSet.xss">
       <DependentUpon>ChumonMsgDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="m2mKoubaiDataSet.xsc">
+      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="m2mKoubaiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>m2mKoubaiDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="m2mKoubaiDataSet.xss">
+      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
     </None>
     <None Include="DownloadDataSet.xsc">
       <DependentUpon>DownloadDataSet.xsd</DependentUpon>
@@ -361,16 +377,6 @@
     </None>
     <None Include="ShiiresakiDataSet_S.xss">
       <DependentUpon>ShiiresakiDataSet_S.xsd</DependentUpon>
-    </None>
-    <None Include="m2mKoubaiDataSet.xsc">
-      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="m2mKoubaiDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-    </None>
-    <None Include="m2mKoubaiDataSet.xss">
-      <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
