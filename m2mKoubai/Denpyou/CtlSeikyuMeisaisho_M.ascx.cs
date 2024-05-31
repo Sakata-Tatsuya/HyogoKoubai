@@ -26,7 +26,6 @@ namespace m2mKoubai.Denpyou
            
         }
         int nGoukei = 0;
-       // public void Create(m2mKoubaiDAL.KenshuDataSet.V_KenshuRow[] drAry)
         public void Create(KenshuDataSet.V_KenshuBindRow[] drAry)
         {
             G.DataSource = drAry;
@@ -39,9 +38,7 @@ namespace m2mKoubai.Denpyou
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-
-                KenshuDataSet.V_KenshuBindRow dr =
-                    e.Row.DataItem as KenshuDataSet.V_KenshuBindRow;
+                KenshuDataSet.V_KenshuBindRow dr = e.Row.DataItem as KenshuDataSet.V_KenshuBindRow;
 
                 // 発注No
                 if (!dr.IsHacchuuNoNull())
@@ -54,10 +51,17 @@ namespace m2mKoubai.Denpyou
                 // 部品名
                 if (!dr.IsBuhinMeiNull())
                 {
-                    e.Row.Cells[G_CELL_HINMEI].Text = dr.BuhinMei;
+                    if (dr.KeigenZeirituFlg)
+                    {
+                        e.Row.Cells[G_CELL_HINMEI].Text = "* " + dr.BuhinMei;
+                    }
+                    else 
+                    {
+                        e.Row.Cells[G_CELL_HINMEI].Text = "　" + dr.BuhinMei;
+                    }
                 }
                 // 行の高さ設定
-                e.Row.Cells[G_CELL_HINMEI].CssClass = "hei30";
+                e.Row.Cells[G_CELL_HINMEI].CssClass = "tl hei30";
 
                 // 数量
                 if (!dr.IsSuuryouNull())
@@ -71,8 +75,6 @@ namespace m2mKoubai.Denpyou
                 // 金額
                 if (!dr.IsChumonSuuryouNull())
                 {
-                    // 増税対応　切り捨てではなく四捨五入に変更
-                    //nGoukei = (int)Math.Floor(dr.Suuryou * dr.Tanka);
                     nGoukei = (int)Math.Round(dr.Suuryou * dr.Tanka, 0, MidpointRounding.AwayFromZero);
                     e.Row.Cells[G_CELL_KINGAKU].Text = string.Format("\\{0:#,##0}", nGoukei);
                 }

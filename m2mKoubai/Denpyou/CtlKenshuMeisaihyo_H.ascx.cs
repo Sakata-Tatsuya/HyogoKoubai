@@ -31,15 +31,15 @@ namespace m2mKoubai.Denpyou
             }
             */
             // ヨドコウ会社郵便番号
-            LitYuubinY.Text = Utility.FormatYuubin(drShiire.YuubinY);
+            LitYuubinY.Text = Utility.FormatYuubin(drShiire.YubinH);
             // ヨドコウ会社住所
-            LitJyushoY.Text = drShiire.AddressY;
+            LitJyushoY.Text = drShiire.AddressH;
             // ヨドコウ会社名
             LitKaishaMeiY.Text = drShiire.KaishaMei + " " + drShiire.EigyouSho;
             // ヨドコウ興産株式会社電話番号
-            LitTelY.Text = Utility.FormatBanggo(drShiire.TelY);
+            LitTelY.Text = Utility.FormatBanggo(drShiire.TelH);
             // ヨドコウ興産FAX
-            LitFaxY.Text = Utility.FormatBanggo(drShiire.FaxY);
+            LitFaxY.Text = Utility.FormatBanggo(drShiire.FaxH);
 
             LitDate.Text = Utility.FormatFromyyyyMM(strkey);
 

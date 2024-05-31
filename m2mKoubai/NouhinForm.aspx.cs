@@ -18,7 +18,6 @@ namespace m2mKoubai
         //前月一日
         DateTime minDate = new DateTime(DateTime.Today.AddMonths(-1).Year, DateTime.Today.AddMonths(-1).Month, 1);
 
-
         // 現在表示されている発注No
         private string VsInfo
         {
@@ -57,9 +56,7 @@ namespace m2mKoubai
                 //ListSet.SetYear(DdlYear);
                 // 最初は非表示
                 this.ShowTblMain(false);
-
                 this.RdpDay.SelectedDate = DateTime.Today;
-
             }
 
         }
@@ -79,10 +76,9 @@ namespace m2mKoubai
             this.BtnCK.Attributes["onclick"] = "Check(); return false;";
             // クリア
             this.BtnC.Attributes["onclick"] = string.Format("Clear('{0}'); return false;", TblList.ClientID);
-                //"Clear(); return false;";
             // 納品確定
             this.BtnNK.Attributes["onclick"] = "Nouhin(); return false;";
-            // 完納  追加 09/07/23
+            // 完納
             this.BtnKN.Attributes["onclick"] = "Kannou(); return false;";
             // Img
             this.Img1.Style.Add("display", "none");
@@ -95,11 +91,8 @@ namespace m2mKoubai
             // 数字のみ入力可
             this.SetNumOnly();
 
-
-            ///2013/05 納期の手動変更機能追加
-            ///
             /*
-             ・カレンダーは1カ月以上前は選択不可。
+            ・カレンダーは1カ月以上前は選択不可。
              （手入力して登録しようとすると、エラーメッセージを表示する。）
             ・カレンダーは未来日での選択は不可。
              （手入力して登録しようとすると、エラーメッセージを表示する。）
@@ -112,7 +105,6 @@ namespace m2mKoubai
         private void SetNumOnly()
         {
             AppCommon.NumOnly(TbxNouhinsuu);
-            // AppCommon.NumOnly(TbxHacchuNo);
         }
         private void Create()
         {
@@ -175,7 +167,7 @@ namespace m2mKoubai
             this.LblBuhinGroup.Text = dr.BuhinKubun;
             // コード
             this.LblBuhinCode.Text = dr.BuhinCode;
-            // 品名  修正 09/07/23
+            // 品名
             if (!dr.IsBuhinMeiNull())
             {
                 this.LblBuhinMei.Text = dr.BuhinMei;
@@ -191,15 +183,13 @@ namespace m2mKoubai
             // 注文金額
             decimal dKingaku_Round = Math.Round((decimal)dr.Kingaku, 0, MidpointRounding.AwayFromZero);
             LblChumonKingaku.Text = Convert.ToString(string.Format("{0:C}", dKingaku_Round));
-            // 増税対応
+
             if (!this.bTourokuKanryou)
             {
                 this.DdlTax.SelectedValue = dr.Zeiritu.ToString();
                 this.Create_Zeigaku(dKingaku_Round);
             }
-
-
-            // 単位  修正 09/07/23
+            // 単位
             if (!dr.IsTaniNull())
             {
                 LblTani.Text = dr.Tani;
@@ -222,7 +212,6 @@ namespace m2mKoubai
                 }
             }
             LblNouki.Text = Utility.FormatFromyyyyMMdd(dr.Nouki);
-
             // 回答納期
             string strKaitou = "";
             if (!dr.IsKaitouNoNull())
@@ -246,7 +235,7 @@ namespace m2mKoubai
             // 納入残数
             int nZanSuu = dr.Suuryou - nNouhinSuuryou;
             TbxNouhinsuu.Text = nZanSuu.ToString();
-            // 修正 09/07/23
+
             if (nZanSuu == 0 && dr.KannouFlg == false)
             {
                 dr.KannouFlg = true;
@@ -346,7 +335,6 @@ namespace m2mKoubai
                     return;
                 }
 
-
                 string[] strkey = VsInfo.Split('_');
 
                 m2mKoubaiDataSet.T_NouhinRow drN = this.CreateRow();
@@ -373,10 +361,8 @@ namespace m2mKoubai
 
                 this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TblList);
             }
-            // 追加 09/07/23
             else if (strCmd == "Kannou")
             {
-                ///2013/05 納期の手動変更機能追加
                 ///
                 if (this.RdpDay.SelectedDate == null)
                 {
@@ -435,37 +421,26 @@ namespace m2mKoubai
         {
             string[] strkey = VsInfo.Split('_');
             // NewRow
-            m2mKoubaiDataSet.T_NouhinRow dr =
-               NouhinClass_Y.newT_NouhinRow();
+            m2mKoubaiDataSet.T_NouhinRow dr = NouhinClass_Y.newT_NouhinRow();
 
             dr.Year = strkey[0];
             dr.HacchuuNo = strkey[1];
             dr.JigyoushoKubun = int.Parse(strkey[2]);
             dr.NouhinNo = int.Parse(strkey[3]) + 1;
-            //dr.NouhinBi = DateTime.Now;
-           // dr.Suuryou = int.Parse(TbxNouhinsuu.Text);
             dr.Suuryou = int.Parse(TbxNouhinsuu.Text );
-
-
-            ///2013/05 納期の手動変更機能追加
-            ///
             dr.NouhinBi = this.RdpDay.SelectedDate.Value;
-
             dr.Zeiritu = Convert.ToInt32(this.DdlTax.SelectedValue);
-
+            dr.KeigenZeirituFlg = Utility.GetKeigenZeirituFlg(dr.NouhinBi,DdlTax.SelectedValue);
 
             return dr;
 
         }
 
-        // 追加 09/07/23
         private m2mKoubaiDataSet.T_ChumonRow UpdateCreateRow()
         {
             string[] strkey = VsInfo.Split('_');
             // NewRow
-            m2mKoubaiDataSet.T_ChumonRow dr =
-                ChumonClass.getT_ChumonRow(strkey[0], strkey[1], int.Parse(strkey[2]), Global.GetConnection());
-
+            m2mKoubaiDataSet.T_ChumonRow dr = ChumonClass.getT_ChumonRow(strkey[0], strkey[1], int.Parse(strkey[2]), Global.GetConnection());
             dr.KannouFlg = true;
 
             return dr;

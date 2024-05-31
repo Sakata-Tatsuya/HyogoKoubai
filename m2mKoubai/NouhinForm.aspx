@@ -1,8 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NouhinForm.aspx.cs" Inherits="m2mKoubai.NouhinForm" %>
 
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register Src="CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
-<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
+<%--<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>--%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -48,7 +48,6 @@
         tbx.value = "";
         document.getElementById(tbl).style.display = "none"; 
         tbx.focus();
-        //AjaxRequest('Clear', '');
     }
     
     function Nouhin()
@@ -167,11 +166,6 @@
                 </td>
                 <td>
                     <input id="TbxHacchuNo" runat="server" type="text" maxlength="7" class="w100 tr" />&nbsp;
-<%--                    <telerik:RadComboBox ID="RcbHacchuNo" runat="server" AllowCustomText="True" EnableLoadOnDemand="True"
-                        Height="180px" MarkFirstMatch="True" NoWrap="True" ShowMoreResultsBox="True" ShowToggleImage="False"
-                        AutoPostBack="True" EnableVirtualScrolling="false" Skin="Simple" Width="100px"
-                        OnItemsRequested="RcbHacchuNo_ItemsRequested">
-                    </telerik:RadComboBox>--%>
                 </td>
             </tr>
         </table>
@@ -322,10 +316,12 @@
                             </table>
                         </td>
                         <td class="bg1 nw">
-                            <radCln:RadDatePicker ID="RdpDay" runat="server">
-                                <DateInput Width="80px" Font-Size="10pt"></DateInput>
-                                <Calendar ID="Cal1" runat="server"></Calendar>
-                            </radCln:RadDatePicker>
+                            <telerik:RadDatePicker id="RdpDay" ToolTip="" MinDate="1950-01-01" Runat="server" Width="100px">
+                                 <Calendar Runat="server" ShowRowHeaders="False"></Calendar>
+                                 <DateInput Runat="server" DisplayDateFormat="yyyy/MM/dd" LabelCssClass="radLabelCss_Default" Width="80px"
+                                  DateFormat="yyyy/MM/dd" Font-Size="9pt" RangeValidation="Immediate" DisplayPromptChar="_" PromptChar=" ">
+                                 </DateInput>
+                            </telerik:RadDatePicker>
                         </td>
                         <td class="bg1 tr">
                             <asp:Label ID="LblSuuryou" runat="server" Height="19px"></asp:Label>

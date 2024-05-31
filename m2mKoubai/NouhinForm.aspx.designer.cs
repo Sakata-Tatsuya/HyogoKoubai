@@ -246,7 +246,7 @@ namespace m2mKoubai
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::Telerik.WebControls.RadDatePicker RdpDay;
+        protected global::Telerik.Web.UI.RadDatePicker RdpDay;
 
         /// <summary>
         /// LblSuuryou コントロール。

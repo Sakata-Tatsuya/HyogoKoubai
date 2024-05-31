@@ -42,9 +42,7 @@ namespace m2mKoubai.Denpyou
 
         private void Create(string strKey)
         {
-
-            m2mKoubaiDataSet.M_ShiiresakiRow drShiire =
-             ShiiresakiClass.getM_ShiiresakiRow(SessionManager.KaishaCode, Global.GetConnection());
+            m2mKoubaiDataSet.M_ShiiresakiRow drShiire = ShiiresakiClass.getM_ShiiresakiRow(SessionManager.KaishaCode, Global.GetConnection());
             if (drShiire == null)
             {
                 ShowMsg(AppCommon.NO_DATA, true);
@@ -56,8 +54,7 @@ namespace m2mKoubai.Denpyou
             int nYear = int.Parse(strKey.Substring(0, 4));
             int nMonth = int.Parse(strKey.Substring(4, 2));
 
-            AppCommon.CreateKikan(nYear, nMonth,
-                drShiire.ShiharaiShimebi, ref nFrom, ref nTo);
+            AppCommon.CreateKikan(nYear, nMonth, drShiire.ShiharaiShimebi, ref nFrom, ref nTo);
             // 条件
             KenshuClass.KensakuParam k = this.GetKensakuParam(nFrom, nTo);
             if (k == null)
@@ -66,9 +63,7 @@ namespace m2mKoubai.Denpyou
                 return;
             }
 
-            KenshuDataSet.V_KenshuDataTable dt =
-              KenshuClass.getV_Kenshu2DataTable(k, Global.GetConnection());
-
+            KenshuDataSet.V_Kenshu2DataTable dt = KenshuClass.getV_Kenshu2DataTable(k, Global.GetConnection());
 
             if (dt.Rows.Count == 0)
             {
@@ -95,8 +90,7 @@ namespace m2mKoubai.Denpyou
 
                 CtlSeikyusho ctlSeikyu = LoadControl("CtlSeikyusho.ascx") as CtlSeikyusho;
 
-                ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader =
-                  ShiiresakiClass.getV_Nouhinsho_HeaderRow(SessionManager.LoginID, int.Parse(aryKubun[nKubunCnt].ToString()), Global.GetConnection());
+                ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader = ShiiresakiClass.getV_Nouhinsho_HeaderRow(SessionManager.LoginID, int.Parse(aryKubun[nKubunCnt].ToString()), Global.GetConnection());
 
                 CtlSeikyuMeisaisho_H ctlHeader = LoadControl("CtlSeikyuMeisaisho_H.ascx") as CtlSeikyuMeisaisho_H;
 
@@ -132,15 +126,13 @@ namespace m2mKoubai.Denpyou
                 }
 
                 // G DataBind
-                KenshuDataSet.V_KenshuBindDataTable dtBind =
-                 new KenshuDataSet.V_KenshuBindDataTable();
+                KenshuDataSet.V_KenshuBindDataTable dtBind = new KenshuDataSet.V_KenshuBindDataTable();
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     if (dt[i].JigyoushoKubun.ToString() == aryKubun[nKubunCnt].ToString())
                     {
-                        KenshuDataSet.V_KenshuBindRow drBind =
-                            dtBind.NewV_KenshuBindRow();
+                        KenshuDataSet.V_KenshuBindRow drBind = dtBind.NewV_KenshuBindRow();
                         drBind.Year = dt[i].Year;
                         drBind.HacchuuBi = dt[i].HacchuuBi;
                         drBind.HacchuuNo = dt[i].HacchuuNo;
@@ -155,15 +147,13 @@ namespace m2mKoubai.Denpyou
                         drBind.Tani = dt[i].Tani;
                         drBind.BashoMei = dt[i].BashoMei;
                         drBind.NouhinBi = dt[i].NouhinBi;
+                        drBind.NouhinBi = dt[i].NouhinBi;
+                        drBind.KeigenZeirituFlg = dt[i].KeigenZeirituFlg;
 
                         dtBind.AddV_KenshuBindRow(drBind);
 
-                        // 増税対応 小数切り捨てではなく四捨五入に変更
-                        //nGoukei += (int)Math.Floor(drBind.Tanka * drBind.Suuryou);
-
                         decimal dGoukei = Math.Round(drBind.Tanka * drBind.Suuryou, 0, MidpointRounding.AwayFromZero);
                         int Zeiritu = dt[i].Zeiritu;
-                        //decimal ZeiGaku = Math.Round((dGoukei * Zeiritu) / 100, 0, MidpointRounding.AwayFromZero);
                         decimal ZeiGaku = dGoukei * Zeiritu / 100;
 
                         nGoukei += dGoukei;
@@ -171,16 +161,11 @@ namespace m2mKoubai.Denpyou
                     }
                 }
 
-                /* 2014/04/07 石岡
+                /* 
                  * 消費税合計の計算を明細毎の消費税額を
                  * 合算した後に四捨五入するよう変更
                  */ 
                 nGoukei_Tax = Math.Round(nGoukei_Tax, 0, MidpointRounding.AwayFromZero);
-
-                //// 消費税率
-                //decimal dZeiRitsu = (decimal.Parse(Global.ShouhiZei) / 100);
-                //// 消費税
-                //int nShohizei = (int)Math.Floor(nGoukei * dZeiRitsu);
 
                 ctlSeikyu.SetGoukei((int)nGoukei, (int)nGoukei_Tax);
 
@@ -232,8 +217,7 @@ namespace m2mKoubai.Denpyou
                         }
                     }
 
-                    KenshuDataSet.V_KenshuBindRow[] drAry =
-                        new KenshuDataSet.V_KenshuBindRow[ary.Count];
+                    KenshuDataSet.V_KenshuBindRow[] drAry = new KenshuDataSet.V_KenshuBindRow[ary.Count];
 
                     nNowRowCount += drAry.Length;
                     ary.CopyTo(drAry);
@@ -251,14 +235,6 @@ namespace m2mKoubai.Denpyou
                     }
                     else if (nKubunCnt == nPageCount - 1)
                     {
-                        //合計テーブル
-                        // フッター
-                        // 消費税
-                        // 消費税率
-                        //dZeiRitsu = (decimal.Parse(Global.ShouhiZei) / 100);
-                        // 消費税
-                        //nShohizei = (int)Math.Floor(nGoukei * dZeiRitsu);
-
                         CtlJyuryousho_F ctlFooter = LoadControl("CtlJyuryousho_F.ascx") as CtlJyuryousho_F;
                         ctlFooter.Create((int)nGoukei, (int)nGoukei_Tax);
                         this.T.Rows[0].Cells[0].Controls.Add(ctlA4);
@@ -270,14 +246,6 @@ namespace m2mKoubai.Denpyou
                     }
                     else
                     {
-                        //合計テーブル
-                        // フッター
-                        // 消費税
-                        // 消費税率
-                        //dZeiRitsu = (decimal.Parse(Global.ShouhiZei) / 100);
-                        //// 消費税
-                        //nShohizei = (int)Math.Floor(nGoukei * dZeiRitsu);
-
                         CtlJyuryousho_F ctlFooter = LoadControl("CtlJyuryousho_F.ascx") as CtlJyuryousho_F;
                         ctlFooter.Create((int)nGoukei, (int)nGoukei_Tax);
                         this.T.Rows[0].Cells[0].Controls.Add(ctlA4);

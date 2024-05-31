@@ -147,7 +147,7 @@
 	
     function OnRequestStart(sender, args)
 	{
-        document.getElementById("Img1").style.display = '';		
+        document.getElementById("Img1").style.display = '';
 	}
 	function OnResponseEnd(sender, args)
     {

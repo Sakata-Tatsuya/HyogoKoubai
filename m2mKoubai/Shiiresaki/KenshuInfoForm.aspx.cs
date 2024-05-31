@@ -29,7 +29,6 @@ namespace m2mKoubai.Shiiresaki
         }
 
 
-      //  private const int G_CELL_I = 0;
         private const int G_CELL_NO = 0;
         private const int G_CELL_BUHIN_KUBUN = 1;
         private const int G_CELL_BUHIN_CODE = 2;

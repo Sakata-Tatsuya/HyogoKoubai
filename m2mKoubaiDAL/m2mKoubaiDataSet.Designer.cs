@@ -46,11 +46,11 @@ namespace m2mKoubaiDAL {
         
         private T_NoukiKaitouDataTable tableT_NoukiKaitou;
         
-        private T_NouhinDataTable tableT_Nouhin;
-        
         private M_BuhinUploadDataTable tableM_BuhinUpload;
         
         private T_ChumonUploadDataTable tableT_ChumonUpload;
+        
+        private T_NouhinDataTable tableT_Nouhin;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -113,14 +113,14 @@ namespace m2mKoubaiDAL {
                 if ((ds.Tables["T_NoukiKaitou"] != null)) {
                     base.Tables.Add(new T_NoukiKaitouDataTable(ds.Tables["T_NoukiKaitou"]));
                 }
-                if ((ds.Tables["T_Nouhin"] != null)) {
-                    base.Tables.Add(new T_NouhinDataTable(ds.Tables["T_Nouhin"]));
-                }
                 if ((ds.Tables["M_BuhinUpload"] != null)) {
                     base.Tables.Add(new M_BuhinUploadDataTable(ds.Tables["M_BuhinUpload"]));
                 }
                 if ((ds.Tables["T_ChumonUpload"] != null)) {
                     base.Tables.Add(new T_ChumonUploadDataTable(ds.Tables["T_ChumonUpload"]));
+                }
+                if ((ds.Tables["T_Nouhin"] != null)) {
+                    base.Tables.Add(new T_NouhinDataTable(ds.Tables["T_Nouhin"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -254,16 +254,6 @@ namespace m2mKoubaiDAL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public T_NouhinDataTable T_Nouhin {
-            get {
-                return this.tableT_Nouhin;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public M_BuhinUploadDataTable M_BuhinUpload {
             get {
                 return this.tableM_BuhinUpload;
@@ -277,6 +267,16 @@ namespace m2mKoubaiDAL {
         public T_ChumonUploadDataTable T_ChumonUpload {
             get {
                 return this.tableT_ChumonUpload;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public T_NouhinDataTable T_Nouhin {
+            get {
+                return this.tableT_Nouhin;
             }
         }
         
@@ -380,14 +380,14 @@ namespace m2mKoubaiDAL {
                 if ((ds.Tables["T_NoukiKaitou"] != null)) {
                     base.Tables.Add(new T_NoukiKaitouDataTable(ds.Tables["T_NoukiKaitou"]));
                 }
-                if ((ds.Tables["T_Nouhin"] != null)) {
-                    base.Tables.Add(new T_NouhinDataTable(ds.Tables["T_Nouhin"]));
-                }
                 if ((ds.Tables["M_BuhinUpload"] != null)) {
                     base.Tables.Add(new M_BuhinUploadDataTable(ds.Tables["M_BuhinUpload"]));
                 }
                 if ((ds.Tables["T_ChumonUpload"] != null)) {
                     base.Tables.Add(new T_ChumonUploadDataTable(ds.Tables["T_ChumonUpload"]));
+                }
+                if ((ds.Tables["T_Nouhin"] != null)) {
+                    base.Tables.Add(new T_NouhinDataTable(ds.Tables["T_Nouhin"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -488,12 +488,6 @@ namespace m2mKoubaiDAL {
                     this.tableT_NoukiKaitou.InitVars();
                 }
             }
-            this.tableT_Nouhin = ((T_NouhinDataTable)(base.Tables["T_Nouhin"]));
-            if ((initTable == true)) {
-                if ((this.tableT_Nouhin != null)) {
-                    this.tableT_Nouhin.InitVars();
-                }
-            }
             this.tableM_BuhinUpload = ((M_BuhinUploadDataTable)(base.Tables["M_BuhinUpload"]));
             if ((initTable == true)) {
                 if ((this.tableM_BuhinUpload != null)) {
@@ -504,6 +498,12 @@ namespace m2mKoubaiDAL {
             if ((initTable == true)) {
                 if ((this.tableT_ChumonUpload != null)) {
                     this.tableT_ChumonUpload.InitVars();
+                }
+            }
+            this.tableT_Nouhin = ((T_NouhinDataTable)(base.Tables["T_Nouhin"]));
+            if ((initTable == true)) {
+                if ((this.tableT_Nouhin != null)) {
+                    this.tableT_Nouhin.InitVars();
                 }
             }
         }
@@ -538,12 +538,12 @@ namespace m2mKoubaiDAL {
             base.Tables.Add(this.tableT_NoukiHenkou);
             this.tableT_NoukiKaitou = new T_NoukiKaitouDataTable();
             base.Tables.Add(this.tableT_NoukiKaitou);
-            this.tableT_Nouhin = new T_NouhinDataTable();
-            base.Tables.Add(this.tableT_Nouhin);
             this.tableM_BuhinUpload = new M_BuhinUploadDataTable();
             base.Tables.Add(this.tableM_BuhinUpload);
             this.tableT_ChumonUpload = new T_ChumonUploadDataTable();
             base.Tables.Add(this.tableT_ChumonUpload);
+            this.tableT_Nouhin = new T_NouhinDataTable();
+            base.Tables.Add(this.tableT_Nouhin);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -614,12 +614,6 @@ namespace m2mKoubaiDAL {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeT_Nouhin() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeM_BuhinUpload() {
             return false;
         }
@@ -627,6 +621,12 @@ namespace m2mKoubaiDAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeT_ChumonUpload() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeT_Nouhin() {
             return false;
         }
         
@@ -719,13 +719,13 @@ namespace m2mKoubaiDAL {
         public delegate void T_NoukiKaitouRowChangeEventHandler(object sender, T_NoukiKaitouRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void T_NouhinRowChangeEventHandler(object sender, T_NouhinRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void M_BuhinUploadRowChangeEventHandler(object sender, M_BuhinUploadRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void T_ChumonUploadRowChangeEventHandler(object sender, T_ChumonUploadRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void T_NouhinRowChangeEventHandler(object sender, T_NouhinRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -5239,403 +5239,6 @@ namespace m2mKoubaiDAL {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class T_NouhinDataTable : global::System.Data.TypedTableBase<T_NouhinRow> {
-            
-            private global::System.Data.DataColumn columnYear;
-            
-            private global::System.Data.DataColumn columnHacchuuNo;
-            
-            private global::System.Data.DataColumn columnJigyoushoKubun;
-            
-            private global::System.Data.DataColumn columnNouhinNo;
-            
-            private global::System.Data.DataColumn columnNouhinBi;
-            
-            private global::System.Data.DataColumn columnTanka;
-            
-            private global::System.Data.DataColumn columnSuuryou;
-            
-            private global::System.Data.DataColumn columnZeiritu;
-            
-            private global::System.Data.DataColumn columnTourokuBi;
-            
-            private global::System.Data.DataColumn columnTourokuUser;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public T_NouhinDataTable() {
-                this.TableName = "T_Nouhin";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal T_NouhinDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected T_NouhinDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn YearColumn {
-                get {
-                    return this.columnYear;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn HacchuuNoColumn {
-                get {
-                    return this.columnHacchuuNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn JigyoushoKubunColumn {
-                get {
-                    return this.columnJigyoushoKubun;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NouhinNoColumn {
-                get {
-                    return this.columnNouhinNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NouhinBiColumn {
-                get {
-                    return this.columnNouhinBi;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TankaColumn {
-                get {
-                    return this.columnTanka;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn SuuryouColumn {
-                get {
-                    return this.columnSuuryou;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ZeirituColumn {
-                get {
-                    return this.columnZeiritu;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TourokuBiColumn {
-                get {
-                    return this.columnTourokuBi;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TourokuUserColumn {
-                get {
-                    return this.columnTourokuUser;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public T_NouhinRow this[int index] {
-                get {
-                    return ((T_NouhinRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event T_NouhinRowChangeEventHandler T_NouhinRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event T_NouhinRowChangeEventHandler T_NouhinRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event T_NouhinRowChangeEventHandler T_NouhinRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event T_NouhinRowChangeEventHandler T_NouhinRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddT_NouhinRow(T_NouhinRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public T_NouhinRow AddT_NouhinRow(string Year, string HacchuuNo, int JigyoushoKubun, int NouhinNo, System.DateTime NouhinBi, decimal Tanka, int Suuryou, int Zeiritu, System.DateTime TourokuBi, string TourokuUser) {
-                T_NouhinRow rowT_NouhinRow = ((T_NouhinRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        Year,
-                        HacchuuNo,
-                        JigyoushoKubun,
-                        NouhinNo,
-                        NouhinBi,
-                        Tanka,
-                        Suuryou,
-                        Zeiritu,
-                        TourokuBi,
-                        TourokuUser};
-                rowT_NouhinRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowT_NouhinRow);
-                return rowT_NouhinRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public T_NouhinRow FindByYearHacchuuNoJigyoushoKubunNouhinNo(string Year, string HacchuuNo, int JigyoushoKubun, int NouhinNo) {
-                return ((T_NouhinRow)(this.Rows.Find(new object[] {
-                            Year,
-                            HacchuuNo,
-                            JigyoushoKubun,
-                            NouhinNo})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                T_NouhinDataTable cln = ((T_NouhinDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new T_NouhinDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnYear = base.Columns["Year"];
-                this.columnHacchuuNo = base.Columns["HacchuuNo"];
-                this.columnJigyoushoKubun = base.Columns["JigyoushoKubun"];
-                this.columnNouhinNo = base.Columns["NouhinNo"];
-                this.columnNouhinBi = base.Columns["NouhinBi"];
-                this.columnTanka = base.Columns["Tanka"];
-                this.columnSuuryou = base.Columns["Suuryou"];
-                this.columnZeiritu = base.Columns["Zeiritu"];
-                this.columnTourokuBi = base.Columns["TourokuBi"];
-                this.columnTourokuUser = base.Columns["TourokuUser"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnYear);
-                this.columnHacchuuNo = new global::System.Data.DataColumn("HacchuuNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHacchuuNo);
-                this.columnJigyoushoKubun = new global::System.Data.DataColumn("JigyoushoKubun", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnJigyoushoKubun);
-                this.columnNouhinNo = new global::System.Data.DataColumn("NouhinNo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNouhinNo);
-                this.columnNouhinBi = new global::System.Data.DataColumn("NouhinBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNouhinBi);
-                this.columnTanka = new global::System.Data.DataColumn("Tanka", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTanka);
-                this.columnSuuryou = new global::System.Data.DataColumn("Suuryou", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSuuryou);
-                this.columnZeiritu = new global::System.Data.DataColumn("Zeiritu", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnZeiritu);
-                this.columnTourokuBi = new global::System.Data.DataColumn("TourokuBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTourokuBi);
-                this.columnTourokuUser = new global::System.Data.DataColumn("TourokuUser", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTourokuUser);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnYear,
-                                this.columnHacchuuNo,
-                                this.columnJigyoushoKubun,
-                                this.columnNouhinNo}, true));
-                this.columnYear.AllowDBNull = false;
-                this.columnYear.MaxLength = 2;
-                this.columnHacchuuNo.AllowDBNull = false;
-                this.columnHacchuuNo.MaxLength = 7;
-                this.columnJigyoushoKubun.AllowDBNull = false;
-                this.columnNouhinNo.AllowDBNull = false;
-                this.columnNouhinBi.AllowDBNull = false;
-                this.columnSuuryou.AllowDBNull = false;
-                this.columnTourokuUser.MaxLength = 20;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public T_NouhinRow NewT_NouhinRow() {
-                return ((T_NouhinRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new T_NouhinRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(T_NouhinRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.T_NouhinRowChanged != null)) {
-                    this.T_NouhinRowChanged(this, new T_NouhinRowChangeEvent(((T_NouhinRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.T_NouhinRowChanging != null)) {
-                    this.T_NouhinRowChanging(this, new T_NouhinRowChangeEvent(((T_NouhinRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.T_NouhinRowDeleted != null)) {
-                    this.T_NouhinRowDeleted(this, new T_NouhinRowChangeEvent(((T_NouhinRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.T_NouhinRowDeleting != null)) {
-                    this.T_NouhinRowDeleting(this, new T_NouhinRowChangeEvent(((T_NouhinRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveT_NouhinRow(T_NouhinRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                m2mKoubaiDataSet ds = new m2mKoubaiDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "T_NouhinDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class M_BuhinUploadDataTable : global::System.Data.TypedTableBase<M_BuhinUploadRow> {
             
             private global::System.Data.DataColumn columnNo;
@@ -6582,6 +6185,418 @@ namespace m2mKoubaiDAL {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "T_ChumonUploadDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class T_NouhinDataTable : global::System.Data.TypedTableBase<T_NouhinRow> {
+            
+            private global::System.Data.DataColumn columnYear;
+            
+            private global::System.Data.DataColumn columnHacchuuNo;
+            
+            private global::System.Data.DataColumn columnJigyoushoKubun;
+            
+            private global::System.Data.DataColumn columnNouhinNo;
+            
+            private global::System.Data.DataColumn columnNouhinBi;
+            
+            private global::System.Data.DataColumn columnTanka;
+            
+            private global::System.Data.DataColumn columnSuuryou;
+            
+            private global::System.Data.DataColumn columnZeiritu;
+            
+            private global::System.Data.DataColumn columnTourokuBi;
+            
+            private global::System.Data.DataColumn columnTourokuUser;
+            
+            private global::System.Data.DataColumn columnKeigenZeirituFlg;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public T_NouhinDataTable() {
+                this.TableName = "T_Nouhin";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal T_NouhinDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected T_NouhinDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn YearColumn {
+                get {
+                    return this.columnYear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn HacchuuNoColumn {
+                get {
+                    return this.columnHacchuuNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn JigyoushoKubunColumn {
+                get {
+                    return this.columnJigyoushoKubun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NouhinNoColumn {
+                get {
+                    return this.columnNouhinNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NouhinBiColumn {
+                get {
+                    return this.columnNouhinBi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TankaColumn {
+                get {
+                    return this.columnTanka;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SuuryouColumn {
+                get {
+                    return this.columnSuuryou;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ZeirituColumn {
+                get {
+                    return this.columnZeiritu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TourokuBiColumn {
+                get {
+                    return this.columnTourokuBi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TourokuUserColumn {
+                get {
+                    return this.columnTourokuUser;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KeigenZeirituFlgColumn {
+                get {
+                    return this.columnKeigenZeirituFlg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public T_NouhinRow this[int index] {
+                get {
+                    return ((T_NouhinRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event T_NouhinRowChangeEventHandler T_NouhinRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event T_NouhinRowChangeEventHandler T_NouhinRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event T_NouhinRowChangeEventHandler T_NouhinRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event T_NouhinRowChangeEventHandler T_NouhinRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddT_NouhinRow(T_NouhinRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public T_NouhinRow AddT_NouhinRow(string Year, string HacchuuNo, int JigyoushoKubun, int NouhinNo, System.DateTime NouhinBi, decimal Tanka, int Suuryou, int Zeiritu, System.DateTime TourokuBi, string TourokuUser, bool KeigenZeirituFlg) {
+                T_NouhinRow rowT_NouhinRow = ((T_NouhinRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Year,
+                        HacchuuNo,
+                        JigyoushoKubun,
+                        NouhinNo,
+                        NouhinBi,
+                        Tanka,
+                        Suuryou,
+                        Zeiritu,
+                        TourokuBi,
+                        TourokuUser,
+                        KeigenZeirituFlg};
+                rowT_NouhinRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowT_NouhinRow);
+                return rowT_NouhinRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public T_NouhinRow FindByYearHacchuuNoJigyoushoKubunNouhinNo(string Year, string HacchuuNo, int JigyoushoKubun, int NouhinNo) {
+                return ((T_NouhinRow)(this.Rows.Find(new object[] {
+                            Year,
+                            HacchuuNo,
+                            JigyoushoKubun,
+                            NouhinNo})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                T_NouhinDataTable cln = ((T_NouhinDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new T_NouhinDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnYear = base.Columns["Year"];
+                this.columnHacchuuNo = base.Columns["HacchuuNo"];
+                this.columnJigyoushoKubun = base.Columns["JigyoushoKubun"];
+                this.columnNouhinNo = base.Columns["NouhinNo"];
+                this.columnNouhinBi = base.Columns["NouhinBi"];
+                this.columnTanka = base.Columns["Tanka"];
+                this.columnSuuryou = base.Columns["Suuryou"];
+                this.columnZeiritu = base.Columns["Zeiritu"];
+                this.columnTourokuBi = base.Columns["TourokuBi"];
+                this.columnTourokuUser = base.Columns["TourokuUser"];
+                this.columnKeigenZeirituFlg = base.Columns["KeigenZeirituFlg"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnYear);
+                this.columnHacchuuNo = new global::System.Data.DataColumn("HacchuuNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHacchuuNo);
+                this.columnJigyoushoKubun = new global::System.Data.DataColumn("JigyoushoKubun", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJigyoushoKubun);
+                this.columnNouhinNo = new global::System.Data.DataColumn("NouhinNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNouhinNo);
+                this.columnNouhinBi = new global::System.Data.DataColumn("NouhinBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNouhinBi);
+                this.columnTanka = new global::System.Data.DataColumn("Tanka", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTanka);
+                this.columnSuuryou = new global::System.Data.DataColumn("Suuryou", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSuuryou);
+                this.columnZeiritu = new global::System.Data.DataColumn("Zeiritu", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZeiritu);
+                this.columnTourokuBi = new global::System.Data.DataColumn("TourokuBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTourokuBi);
+                this.columnTourokuUser = new global::System.Data.DataColumn("TourokuUser", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTourokuUser);
+                this.columnKeigenZeirituFlg = new global::System.Data.DataColumn("KeigenZeirituFlg", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKeigenZeirituFlg);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnYear,
+                                this.columnHacchuuNo,
+                                this.columnJigyoushoKubun,
+                                this.columnNouhinNo}, true));
+                this.columnYear.AllowDBNull = false;
+                this.columnYear.MaxLength = 2;
+                this.columnHacchuuNo.AllowDBNull = false;
+                this.columnHacchuuNo.MaxLength = 7;
+                this.columnJigyoushoKubun.AllowDBNull = false;
+                this.columnNouhinNo.AllowDBNull = false;
+                this.columnNouhinBi.AllowDBNull = false;
+                this.columnSuuryou.AllowDBNull = false;
+                this.columnTourokuUser.MaxLength = 20;
+                this.columnKeigenZeirituFlg.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public T_NouhinRow NewT_NouhinRow() {
+                return ((T_NouhinRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new T_NouhinRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(T_NouhinRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.T_NouhinRowChanged != null)) {
+                    this.T_NouhinRowChanged(this, new T_NouhinRowChangeEvent(((T_NouhinRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.T_NouhinRowChanging != null)) {
+                    this.T_NouhinRowChanging(this, new T_NouhinRowChangeEvent(((T_NouhinRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.T_NouhinRowDeleted != null)) {
+                    this.T_NouhinRowDeleted(this, new T_NouhinRowChangeEvent(((T_NouhinRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.T_NouhinRowDeleting != null)) {
+                    this.T_NouhinRowDeleting(this, new T_NouhinRowChangeEvent(((T_NouhinRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveT_NouhinRow(T_NouhinRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                m2mKoubaiDataSet ds = new m2mKoubaiDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "T_NouhinDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -8259,199 +8274,6 @@ namespace m2mKoubaiDAL {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class T_NouhinRow : global::System.Data.DataRow {
-            
-            private T_NouhinDataTable tableT_Nouhin;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal T_NouhinRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableT_Nouhin = ((T_NouhinDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Year {
-                get {
-                    return ((string)(this[this.tableT_Nouhin.YearColumn]));
-                }
-                set {
-                    this[this.tableT_Nouhin.YearColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string HacchuuNo {
-                get {
-                    return ((string)(this[this.tableT_Nouhin.HacchuuNoColumn]));
-                }
-                set {
-                    this[this.tableT_Nouhin.HacchuuNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int JigyoushoKubun {
-                get {
-                    return ((int)(this[this.tableT_Nouhin.JigyoushoKubunColumn]));
-                }
-                set {
-                    this[this.tableT_Nouhin.JigyoushoKubunColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int NouhinNo {
-                get {
-                    return ((int)(this[this.tableT_Nouhin.NouhinNoColumn]));
-                }
-                set {
-                    this[this.tableT_Nouhin.NouhinNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime NouhinBi {
-                get {
-                    return ((global::System.DateTime)(this[this.tableT_Nouhin.NouhinBiColumn]));
-                }
-                set {
-                    this[this.tableT_Nouhin.NouhinBiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal Tanka {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableT_Nouhin.TankaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'T_Nouhin\' にある列 \'Tanka\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableT_Nouhin.TankaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Suuryou {
-                get {
-                    return ((int)(this[this.tableT_Nouhin.SuuryouColumn]));
-                }
-                set {
-                    this[this.tableT_Nouhin.SuuryouColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Zeiritu {
-                get {
-                    try {
-                        return ((int)(this[this.tableT_Nouhin.ZeirituColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'T_Nouhin\' にある列 \'Zeiritu\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableT_Nouhin.ZeirituColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime TourokuBi {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableT_Nouhin.TourokuBiColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'T_Nouhin\' にある列 \'TourokuBi\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableT_Nouhin.TourokuBiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string TourokuUser {
-                get {
-                    try {
-                        return ((string)(this[this.tableT_Nouhin.TourokuUserColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'T_Nouhin\' にある列 \'TourokuUser\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableT_Nouhin.TourokuUserColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTankaNull() {
-                return this.IsNull(this.tableT_Nouhin.TankaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTankaNull() {
-                this[this.tableT_Nouhin.TankaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsZeirituNull() {
-                return this.IsNull(this.tableT_Nouhin.ZeirituColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetZeirituNull() {
-                this[this.tableT_Nouhin.ZeirituColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTourokuBiNull() {
-                return this.IsNull(this.tableT_Nouhin.TourokuBiColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTourokuBiNull() {
-                this[this.tableT_Nouhin.TourokuBiColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTourokuUserNull() {
-                return this.IsNull(this.tableT_Nouhin.TourokuUserColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTourokuUserNull() {
-                this[this.tableT_Nouhin.TourokuUserColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class M_BuhinUploadRow : global::System.Data.DataRow {
             
             private M_BuhinUploadDataTable tableM_BuhinUpload;
@@ -8817,6 +8639,210 @@ namespace m2mKoubaiDAL {
                 set {
                     this[this.tableT_ChumonUpload.TourokuBiColumn] = value;
                 }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class T_NouhinRow : global::System.Data.DataRow {
+            
+            private T_NouhinDataTable tableT_Nouhin;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal T_NouhinRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableT_Nouhin = ((T_NouhinDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Year {
+                get {
+                    return ((string)(this[this.tableT_Nouhin.YearColumn]));
+                }
+                set {
+                    this[this.tableT_Nouhin.YearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string HacchuuNo {
+                get {
+                    return ((string)(this[this.tableT_Nouhin.HacchuuNoColumn]));
+                }
+                set {
+                    this[this.tableT_Nouhin.HacchuuNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int JigyoushoKubun {
+                get {
+                    return ((int)(this[this.tableT_Nouhin.JigyoushoKubunColumn]));
+                }
+                set {
+                    this[this.tableT_Nouhin.JigyoushoKubunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int NouhinNo {
+                get {
+                    return ((int)(this[this.tableT_Nouhin.NouhinNoColumn]));
+                }
+                set {
+                    this[this.tableT_Nouhin.NouhinNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime NouhinBi {
+                get {
+                    return ((global::System.DateTime)(this[this.tableT_Nouhin.NouhinBiColumn]));
+                }
+                set {
+                    this[this.tableT_Nouhin.NouhinBiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Tanka {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableT_Nouhin.TankaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'T_Nouhin\' にある列 \'Tanka\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableT_Nouhin.TankaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Suuryou {
+                get {
+                    return ((int)(this[this.tableT_Nouhin.SuuryouColumn]));
+                }
+                set {
+                    this[this.tableT_Nouhin.SuuryouColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Zeiritu {
+                get {
+                    try {
+                        return ((int)(this[this.tableT_Nouhin.ZeirituColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'T_Nouhin\' にある列 \'Zeiritu\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableT_Nouhin.ZeirituColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime TourokuBi {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableT_Nouhin.TourokuBiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'T_Nouhin\' にある列 \'TourokuBi\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableT_Nouhin.TourokuBiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TourokuUser {
+                get {
+                    try {
+                        return ((string)(this[this.tableT_Nouhin.TourokuUserColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'T_Nouhin\' にある列 \'TourokuUser\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableT_Nouhin.TourokuUserColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool KeigenZeirituFlg {
+                get {
+                    return ((bool)(this[this.tableT_Nouhin.KeigenZeirituFlgColumn]));
+                }
+                set {
+                    this[this.tableT_Nouhin.KeigenZeirituFlgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTankaNull() {
+                return this.IsNull(this.tableT_Nouhin.TankaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTankaNull() {
+                this[this.tableT_Nouhin.TankaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsZeirituNull() {
+                return this.IsNull(this.tableT_Nouhin.ZeirituColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetZeirituNull() {
+                this[this.tableT_Nouhin.ZeirituColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTourokuBiNull() {
+                return this.IsNull(this.tableT_Nouhin.TourokuBiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTourokuBiNull() {
+                this[this.tableT_Nouhin.TourokuBiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTourokuUserNull() {
+                return this.IsNull(this.tableT_Nouhin.TourokuUserColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTourokuUserNull() {
+                this[this.tableT_Nouhin.TourokuUserColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9198,40 +9224,6 @@ namespace m2mKoubaiDAL {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class T_NouhinRowChangeEvent : global::System.EventArgs {
-            
-            private T_NouhinRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public T_NouhinRowChangeEvent(T_NouhinRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public T_NouhinRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public class M_BuhinUploadRowChangeEvent : global::System.EventArgs {
             
             private M_BuhinUploadRow eventRow;
@@ -9282,6 +9274,40 @@ namespace m2mKoubaiDAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public T_ChumonUploadRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class T_NouhinRowChangeEvent : global::System.EventArgs {
+            
+            private T_NouhinRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public T_NouhinRowChangeEvent(T_NouhinRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public T_NouhinRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -15340,556 +15366,6 @@ SELECT Year, HacchuuNo, JigyoushoKubun, RowNo, KaitouNo, Nouki, Suuryou, Touroku
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class T_NouhinTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public T_NouhinTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "T_Nouhin";
-            tableMapping.ColumnMappings.Add("Year", "Year");
-            tableMapping.ColumnMappings.Add("HacchuuNo", "HacchuuNo");
-            tableMapping.ColumnMappings.Add("JigyoushoKubun", "JigyoushoKubun");
-            tableMapping.ColumnMappings.Add("NouhinNo", "NouhinNo");
-            tableMapping.ColumnMappings.Add("NouhinBi", "NouhinBi");
-            tableMapping.ColumnMappings.Add("Tanka", "Tanka");
-            tableMapping.ColumnMappings.Add("Suuryou", "Suuryou");
-            tableMapping.ColumnMappings.Add("Zeiritu", "Zeiritu");
-            tableMapping.ColumnMappings.Add("TourokuBi", "TourokuBi");
-            tableMapping.ColumnMappings.Add("TourokuUser", "TourokuUser");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [T_Nouhin] WHERE (([Year] = @Original_Year) AND ([HacchuuNo] = @Original_HacchuuNo) AND ([JigyoushoKubun] = @Original_JigyoushoKubun) AND ([NouhinNo] = @Original_NouhinNo) AND ([NouhinBi] = @Original_NouhinBi) AND ((@IsNull_Tanka = 1 AND [Tanka] IS NULL) OR ([Tanka] = @Original_Tanka)) AND ([Suuryou] = @Original_Suuryou) AND ((@IsNull_Zeiritu = 1 AND [Zeiritu] IS NULL) OR ([Zeiritu] = @Original_Zeiritu)) AND ((@IsNull_TourokuBi = 1 AND [TourokuBi] IS NULL) OR ([TourokuBi] = @Original_TourokuBi)) AND ((@IsNull_TourokuUser = 1 AND [TourokuUser] IS NULL) OR ([TourokuUser] = @Original_TourokuUser)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HacchuuNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HacchuuNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JigyoushoKubun", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JigyoushoKubun", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NouhinNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NouhinBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinBi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Tanka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tanka", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tanka", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Tanka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Suuryou", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suuryou", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TourokuBi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TourokuBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TourokuUser", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [T_Nouhin] ([Year], [HacchuuNo], [JigyoushoKubun], [NouhinNo], [NouhinBi], [Tanka], [Suuryou], [Zeiritu], [TourokuBi], [TourokuUser]) VALUES (@Year, @HacchuuNo, @JigyoushoKubun, @NouhinNo, @NouhinBi, @Tanka, @Suuryou, @Zeiritu, @TourokuBi, @TourokuUser);
-SELECT Year, HacchuuNo, JigyoushoKubun, NouhinNo, NouhinBi, Tanka, Suuryou, Zeiritu, TourokuBi, TourokuUser FROM T_Nouhin WHERE (HacchuuNo = @HacchuuNo) AND (JigyoushoKubun = @JigyoushoKubun) AND (NouhinNo = @NouhinNo) AND (Year = @Year)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HacchuuNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HacchuuNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JigyoushoKubun", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JigyoushoKubun", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NouhinNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NouhinBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinBi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tanka", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Tanka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Suuryou", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suuryou", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TourokuBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [T_Nouhin] SET [Year] = @Year, [HacchuuNo] = @HacchuuNo, [JigyoushoKubun] = @JigyoushoKubun, [NouhinNo] = @NouhinNo, [NouhinBi] = @NouhinBi, [Tanka] = @Tanka, [Suuryou] = @Suuryou, [Zeiritu] = @Zeiritu, [TourokuBi] = @TourokuBi, [TourokuUser] = @TourokuUser WHERE (([Year] = @Original_Year) AND ([HacchuuNo] = @Original_HacchuuNo) AND ([JigyoushoKubun] = @Original_JigyoushoKubun) AND ([NouhinNo] = @Original_NouhinNo) AND ([NouhinBi] = @Original_NouhinBi) AND ((@IsNull_Tanka = 1 AND [Tanka] IS NULL) OR ([Tanka] = @Original_Tanka)) AND ([Suuryou] = @Original_Suuryou) AND ((@IsNull_Zeiritu = 1 AND [Zeiritu] IS NULL) OR ([Zeiritu] = @Original_Zeiritu)) AND ((@IsNull_TourokuBi = 1 AND [TourokuBi] IS NULL) OR ([TourokuBi] = @Original_TourokuBi)) AND ((@IsNull_TourokuUser = 1 AND [TourokuUser] IS NULL) OR ([TourokuUser] = @Original_TourokuUser)));
-SELECT Year, HacchuuNo, JigyoushoKubun, NouhinNo, NouhinBi, Tanka, Suuryou, Zeiritu, TourokuBi, TourokuUser FROM T_Nouhin WHERE (HacchuuNo = @HacchuuNo) AND (JigyoushoKubun = @JigyoushoKubun) AND (NouhinNo = @NouhinNo) AND (Year = @Year)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HacchuuNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HacchuuNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JigyoushoKubun", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JigyoushoKubun", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NouhinNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NouhinBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinBi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tanka", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Tanka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Suuryou", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suuryou", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TourokuBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HacchuuNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HacchuuNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JigyoushoKubun", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JigyoushoKubun", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NouhinNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NouhinBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinBi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Tanka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tanka", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tanka", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Tanka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Suuryou", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suuryou", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TourokuBi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TourokuBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TourokuUser", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::m2mKoubaiDAL.Properties.Settings.Default.m2mKoubaiConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM T_Nouhin";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(m2mKoubaiDataSet.T_NouhinDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual m2mKoubaiDataSet.T_NouhinDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            m2mKoubaiDataSet.T_NouhinDataTable dataTable = new m2mKoubaiDataSet.T_NouhinDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(m2mKoubaiDataSet.T_NouhinDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(m2mKoubaiDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "T_Nouhin");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Year, string Original_HacchuuNo, int Original_JigyoushoKubun, int Original_NouhinNo, System.DateTime Original_NouhinBi, global::System.Nullable<decimal> Original_Tanka, int Original_Suuryou, global::System.Nullable<int> Original_Zeiritu, global::System.Nullable<global::System.DateTime> Original_TourokuBi, string Original_TourokuUser) {
-            if ((Original_Year == null)) {
-                throw new global::System.ArgumentNullException("Original_Year");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Year));
-            }
-            if ((Original_HacchuuNo == null)) {
-                throw new global::System.ArgumentNullException("Original_HacchuuNo");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_HacchuuNo));
-            }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_JigyoushoKubun));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_NouhinNo));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_NouhinBi));
-            if ((Original_Tanka.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Tanka.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_Suuryou));
-            if ((Original_Zeiritu.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_Zeiritu.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TourokuBi.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(Original_TourokuBi.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TourokuUser == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_TourokuUser));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Year, string HacchuuNo, int JigyoushoKubun, int NouhinNo, System.DateTime NouhinBi, global::System.Nullable<decimal> Tanka, int Suuryou, global::System.Nullable<int> Zeiritu, global::System.Nullable<global::System.DateTime> TourokuBi, string TourokuUser) {
-            if ((Year == null)) {
-                throw new global::System.ArgumentNullException("Year");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Year));
-            }
-            if ((HacchuuNo == null)) {
-                throw new global::System.ArgumentNullException("HacchuuNo");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(HacchuuNo));
-            }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(JigyoushoKubun));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(NouhinNo));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(NouhinBi));
-            if ((Tanka.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Tanka.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Suuryou));
-            if ((Zeiritu.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Zeiritu.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((TourokuBi.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(TourokuBi.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((TourokuUser == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(TourokuUser));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Year, 
-                    string HacchuuNo, 
-                    int JigyoushoKubun, 
-                    int NouhinNo, 
-                    System.DateTime NouhinBi, 
-                    global::System.Nullable<decimal> Tanka, 
-                    int Suuryou, 
-                    global::System.Nullable<int> Zeiritu, 
-                    global::System.Nullable<global::System.DateTime> TourokuBi, 
-                    string TourokuUser, 
-                    string Original_Year, 
-                    string Original_HacchuuNo, 
-                    int Original_JigyoushoKubun, 
-                    int Original_NouhinNo, 
-                    System.DateTime Original_NouhinBi, 
-                    global::System.Nullable<decimal> Original_Tanka, 
-                    int Original_Suuryou, 
-                    global::System.Nullable<int> Original_Zeiritu, 
-                    global::System.Nullable<global::System.DateTime> Original_TourokuBi, 
-                    string Original_TourokuUser) {
-            if ((Year == null)) {
-                throw new global::System.ArgumentNullException("Year");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Year));
-            }
-            if ((HacchuuNo == null)) {
-                throw new global::System.ArgumentNullException("HacchuuNo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(HacchuuNo));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(JigyoushoKubun));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(NouhinNo));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(NouhinBi));
-            if ((Tanka.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Tanka.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Suuryou));
-            if ((Zeiritu.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Zeiritu.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((TourokuBi.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(TourokuBi.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((TourokuUser == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(TourokuUser));
-            }
-            if ((Original_Year == null)) {
-                throw new global::System.ArgumentNullException("Original_Year");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Year));
-            }
-            if ((Original_HacchuuNo == null)) {
-                throw new global::System.ArgumentNullException("Original_HacchuuNo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_HacchuuNo));
-            }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_JigyoushoKubun));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_NouhinNo));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_NouhinBi));
-            if ((Original_Tanka.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_Tanka.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Suuryou));
-            if ((Original_Zeiritu.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Zeiritu.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TourokuBi.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_TourokuBi.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TourokuUser == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_TourokuUser));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    System.DateTime NouhinBi, 
-                    global::System.Nullable<decimal> Tanka, 
-                    int Suuryou, 
-                    global::System.Nullable<int> Zeiritu, 
-                    global::System.Nullable<global::System.DateTime> TourokuBi, 
-                    string TourokuUser, 
-                    string Original_Year, 
-                    string Original_HacchuuNo, 
-                    int Original_JigyoushoKubun, 
-                    int Original_NouhinNo, 
-                    System.DateTime Original_NouhinBi, 
-                    global::System.Nullable<decimal> Original_Tanka, 
-                    int Original_Suuryou, 
-                    global::System.Nullable<int> Original_Zeiritu, 
-                    global::System.Nullable<global::System.DateTime> Original_TourokuBi, 
-                    string Original_TourokuUser) {
-            return this.Update(Original_Year, Original_HacchuuNo, Original_JigyoushoKubun, Original_NouhinNo, NouhinBi, Tanka, Suuryou, Zeiritu, TourokuBi, TourokuUser, Original_Year, Original_HacchuuNo, Original_JigyoushoKubun, Original_NouhinNo, Original_NouhinBi, Original_Tanka, Original_Suuryou, Original_Zeiritu, Original_TourokuBi, Original_TourokuUser);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class M_BuhinUploadTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -17196,6 +16672,569 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class T_NouhinTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public T_NouhinTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "T_Nouhin";
+            tableMapping.ColumnMappings.Add("Year", "Year");
+            tableMapping.ColumnMappings.Add("HacchuuNo", "HacchuuNo");
+            tableMapping.ColumnMappings.Add("JigyoushoKubun", "JigyoushoKubun");
+            tableMapping.ColumnMappings.Add("NouhinNo", "NouhinNo");
+            tableMapping.ColumnMappings.Add("NouhinBi", "NouhinBi");
+            tableMapping.ColumnMappings.Add("Tanka", "Tanka");
+            tableMapping.ColumnMappings.Add("Suuryou", "Suuryou");
+            tableMapping.ColumnMappings.Add("Zeiritu", "Zeiritu");
+            tableMapping.ColumnMappings.Add("TourokuBi", "TourokuBi");
+            tableMapping.ColumnMappings.Add("TourokuUser", "TourokuUser");
+            tableMapping.ColumnMappings.Add("KeigenZeirituFlg", "KeigenZeirituFlg");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [T_Nouhin] WHERE (([Year] = @Original_Year) AND ([HacchuuNo] = @Original_HacchuuNo) AND ([JigyoushoKubun] = @Original_JigyoushoKubun) AND ([NouhinNo] = @Original_NouhinNo) AND ([NouhinBi] = @Original_NouhinBi) AND ((@IsNull_Tanka = 1 AND [Tanka] IS NULL) OR ([Tanka] = @Original_Tanka)) AND ([Suuryou] = @Original_Suuryou) AND ((@IsNull_Zeiritu = 1 AND [Zeiritu] IS NULL) OR ([Zeiritu] = @Original_Zeiritu)) AND ((@IsNull_TourokuBi = 1 AND [TourokuBi] IS NULL) OR ([TourokuBi] = @Original_TourokuBi)) AND ((@IsNull_TourokuUser = 1 AND [TourokuUser] IS NULL) OR ([TourokuUser] = @Original_TourokuUser)) AND ([KeigenZeirituFlg] = @Original_KeigenZeirituFlg))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HacchuuNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HacchuuNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JigyoushoKubun", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JigyoushoKubun", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NouhinNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NouhinBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinBi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Tanka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tanka", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tanka", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Tanka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Suuryou", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suuryou", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TourokuBi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TourokuBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TourokuUser", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KeigenZeirituFlg", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeigenZeirituFlg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [T_Nouhin] ([Year], [HacchuuNo], [JigyoushoKubun], [NouhinNo], [NouhinBi], [Tanka], [Suuryou], [Zeiritu], [TourokuBi], [TourokuUser], [KeigenZeirituFlg]) VALUES (@Year, @HacchuuNo, @JigyoushoKubun, @NouhinNo, @NouhinBi, @Tanka, @Suuryou, @Zeiritu, @TourokuBi, @TourokuUser, @KeigenZeirituFlg);
+SELECT Year, HacchuuNo, JigyoushoKubun, NouhinNo, NouhinBi, Tanka, Suuryou, Zeiritu, TourokuBi, TourokuUser, KeigenZeirituFlg FROM T_Nouhin WHERE (HacchuuNo = @HacchuuNo) AND (JigyoushoKubun = @JigyoushoKubun) AND (NouhinNo = @NouhinNo) AND (Year = @Year)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HacchuuNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HacchuuNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JigyoushoKubun", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JigyoushoKubun", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NouhinNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NouhinBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinBi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tanka", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Tanka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Suuryou", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suuryou", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TourokuBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KeigenZeirituFlg", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeigenZeirituFlg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [T_Nouhin] SET [Year] = @Year, [HacchuuNo] = @HacchuuNo, [JigyoushoKubun] = @JigyoushoKubun, [NouhinNo] = @NouhinNo, [NouhinBi] = @NouhinBi, [Tanka] = @Tanka, [Suuryou] = @Suuryou, [Zeiritu] = @Zeiritu, [TourokuBi] = @TourokuBi, [TourokuUser] = @TourokuUser, [KeigenZeirituFlg] = @KeigenZeirituFlg WHERE (([Year] = @Original_Year) AND ([HacchuuNo] = @Original_HacchuuNo) AND ([JigyoushoKubun] = @Original_JigyoushoKubun) AND ([NouhinNo] = @Original_NouhinNo) AND ([NouhinBi] = @Original_NouhinBi) AND ((@IsNull_Tanka = 1 AND [Tanka] IS NULL) OR ([Tanka] = @Original_Tanka)) AND ([Suuryou] = @Original_Suuryou) AND ((@IsNull_Zeiritu = 1 AND [Zeiritu] IS NULL) OR ([Zeiritu] = @Original_Zeiritu)) AND ((@IsNull_TourokuBi = 1 AND [TourokuBi] IS NULL) OR ([TourokuBi] = @Original_TourokuBi)) AND ((@IsNull_TourokuUser = 1 AND [TourokuUser] IS NULL) OR ([TourokuUser] = @Original_TourokuUser)) AND ([KeigenZeirituFlg] = @Original_KeigenZeirituFlg));
+SELECT Year, HacchuuNo, JigyoushoKubun, NouhinNo, NouhinBi, Tanka, Suuryou, Zeiritu, TourokuBi, TourokuUser, KeigenZeirituFlg FROM T_Nouhin WHERE (HacchuuNo = @HacchuuNo) AND (JigyoushoKubun = @JigyoushoKubun) AND (NouhinNo = @NouhinNo) AND (Year = @Year)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HacchuuNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HacchuuNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JigyoushoKubun", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JigyoushoKubun", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NouhinNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NouhinBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinBi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tanka", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Tanka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Suuryou", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suuryou", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TourokuBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KeigenZeirituFlg", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeigenZeirituFlg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HacchuuNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HacchuuNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JigyoushoKubun", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JigyoushoKubun", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NouhinNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NouhinBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NouhinBi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Tanka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tanka", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tanka", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Tanka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Suuryou", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suuryou", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Zeiritu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zeiritu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TourokuBi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TourokuBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuBi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TourokuUser", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KeigenZeirituFlg", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeigenZeirituFlg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::m2mKoubaiDAL.Properties.Settings.Default.m2mKoubaiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT * FROM T_Nouhin";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(m2mKoubaiDataSet.T_NouhinDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual m2mKoubaiDataSet.T_NouhinDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            m2mKoubaiDataSet.T_NouhinDataTable dataTable = new m2mKoubaiDataSet.T_NouhinDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(m2mKoubaiDataSet.T_NouhinDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(m2mKoubaiDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "T_Nouhin");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_Year, string Original_HacchuuNo, int Original_JigyoushoKubun, int Original_NouhinNo, System.DateTime Original_NouhinBi, global::System.Nullable<decimal> Original_Tanka, int Original_Suuryou, global::System.Nullable<int> Original_Zeiritu, global::System.Nullable<global::System.DateTime> Original_TourokuBi, string Original_TourokuUser, bool Original_KeigenZeirituFlg) {
+            if ((Original_Year == null)) {
+                throw new global::System.ArgumentNullException("Original_Year");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Year));
+            }
+            if ((Original_HacchuuNo == null)) {
+                throw new global::System.ArgumentNullException("Original_HacchuuNo");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_HacchuuNo));
+            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_JigyoushoKubun));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_NouhinNo));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_NouhinBi));
+            if ((Original_Tanka.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Tanka.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_Suuryou));
+            if ((Original_Zeiritu.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_Zeiritu.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TourokuBi.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(Original_TourokuBi.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TourokuUser == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_TourokuUser));
+            }
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((bool)(Original_KeigenZeirituFlg));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string Year, string HacchuuNo, int JigyoushoKubun, int NouhinNo, System.DateTime NouhinBi, global::System.Nullable<decimal> Tanka, int Suuryou, global::System.Nullable<int> Zeiritu, global::System.Nullable<global::System.DateTime> TourokuBi, string TourokuUser, bool KeigenZeirituFlg) {
+            if ((Year == null)) {
+                throw new global::System.ArgumentNullException("Year");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Year));
+            }
+            if ((HacchuuNo == null)) {
+                throw new global::System.ArgumentNullException("HacchuuNo");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(HacchuuNo));
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(JigyoushoKubun));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(NouhinNo));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(NouhinBi));
+            if ((Tanka.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Tanka.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Suuryou));
+            if ((Zeiritu.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Zeiritu.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((TourokuBi.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(TourokuBi.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((TourokuUser == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(TourokuUser));
+            }
+            this.Adapter.InsertCommand.Parameters[10].Value = ((bool)(KeigenZeirituFlg));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Year, 
+                    string HacchuuNo, 
+                    int JigyoushoKubun, 
+                    int NouhinNo, 
+                    System.DateTime NouhinBi, 
+                    global::System.Nullable<decimal> Tanka, 
+                    int Suuryou, 
+                    global::System.Nullable<int> Zeiritu, 
+                    global::System.Nullable<global::System.DateTime> TourokuBi, 
+                    string TourokuUser, 
+                    bool KeigenZeirituFlg, 
+                    string Original_Year, 
+                    string Original_HacchuuNo, 
+                    int Original_JigyoushoKubun, 
+                    int Original_NouhinNo, 
+                    System.DateTime Original_NouhinBi, 
+                    global::System.Nullable<decimal> Original_Tanka, 
+                    int Original_Suuryou, 
+                    global::System.Nullable<int> Original_Zeiritu, 
+                    global::System.Nullable<global::System.DateTime> Original_TourokuBi, 
+                    string Original_TourokuUser, 
+                    bool Original_KeigenZeirituFlg) {
+            if ((Year == null)) {
+                throw new global::System.ArgumentNullException("Year");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Year));
+            }
+            if ((HacchuuNo == null)) {
+                throw new global::System.ArgumentNullException("HacchuuNo");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(HacchuuNo));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(JigyoushoKubun));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(NouhinNo));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(NouhinBi));
+            if ((Tanka.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Tanka.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Suuryou));
+            if ((Zeiritu.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Zeiritu.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((TourokuBi.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(TourokuBi.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((TourokuUser == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(TourokuUser));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((bool)(KeigenZeirituFlg));
+            if ((Original_Year == null)) {
+                throw new global::System.ArgumentNullException("Original_Year");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Year));
+            }
+            if ((Original_HacchuuNo == null)) {
+                throw new global::System.ArgumentNullException("Original_HacchuuNo");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_HacchuuNo));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_JigyoushoKubun));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_NouhinNo));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_NouhinBi));
+            if ((Original_Tanka.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_Tanka.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Suuryou));
+            if ((Original_Zeiritu.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_Zeiritu.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TourokuBi.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_TourokuBi.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TourokuUser == null)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_TourokuUser));
+            }
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((bool)(Original_KeigenZeirituFlg));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    System.DateTime NouhinBi, 
+                    global::System.Nullable<decimal> Tanka, 
+                    int Suuryou, 
+                    global::System.Nullable<int> Zeiritu, 
+                    global::System.Nullable<global::System.DateTime> TourokuBi, 
+                    string TourokuUser, 
+                    bool KeigenZeirituFlg, 
+                    string Original_Year, 
+                    string Original_HacchuuNo, 
+                    int Original_JigyoushoKubun, 
+                    int Original_NouhinNo, 
+                    System.DateTime Original_NouhinBi, 
+                    global::System.Nullable<decimal> Original_Tanka, 
+                    int Original_Suuryou, 
+                    global::System.Nullable<int> Original_Zeiritu, 
+                    global::System.Nullable<global::System.DateTime> Original_TourokuBi, 
+                    string Original_TourokuUser, 
+                    bool Original_KeigenZeirituFlg) {
+            return this.Update(Original_Year, Original_HacchuuNo, Original_JigyoushoKubun, Original_NouhinNo, NouhinBi, Tanka, Suuryou, Zeiritu, TourokuBi, TourokuUser, KeigenZeirituFlg, Original_Year, Original_HacchuuNo, Original_JigyoushoKubun, Original_NouhinNo, Original_NouhinBi, Original_Tanka, Original_Suuryou, Original_Zeiritu, Original_TourokuBi, Original_TourokuUser, Original_KeigenZeirituFlg);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -17229,11 +17268,11 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
         
         private T_NoukiKaitouTableAdapter _t_NoukiKaitouTableAdapter;
         
-        private T_NouhinTableAdapter _t_NouhinTableAdapter;
-        
         private M_BuhinUploadTableAdapter _m_BuhinUploadTableAdapter;
         
         private T_ChumonUploadTableAdapter _t_ChumonUploadTableAdapter;
+        
+        private T_NouhinTableAdapter _t_NouhinTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -17409,20 +17448,6 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public T_NouhinTableAdapter T_NouhinTableAdapter {
-            get {
-                return this._t_NouhinTableAdapter;
-            }
-            set {
-                this._t_NouhinTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public M_BuhinUploadTableAdapter M_BuhinUploadTableAdapter {
             get {
                 return this._m_BuhinUploadTableAdapter;
@@ -17443,6 +17468,20 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
             }
             set {
                 this._t_ChumonUploadTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public T_NouhinTableAdapter T_NouhinTableAdapter {
+            get {
+                return this._t_NouhinTableAdapter;
+            }
+            set {
+                this._t_NouhinTableAdapter = value;
             }
         }
         
@@ -17509,10 +17548,6 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                             && (this._t_NoukiKaitouTableAdapter.Connection != null))) {
                     return this._t_NoukiKaitouTableAdapter.Connection;
                 }
-                if (((this._t_NouhinTableAdapter != null) 
-                            && (this._t_NouhinTableAdapter.Connection != null))) {
-                    return this._t_NouhinTableAdapter.Connection;
-                }
                 if (((this._m_BuhinUploadTableAdapter != null) 
                             && (this._m_BuhinUploadTableAdapter.Connection != null))) {
                     return this._m_BuhinUploadTableAdapter.Connection;
@@ -17520,6 +17555,10 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                 if (((this._t_ChumonUploadTableAdapter != null) 
                             && (this._t_ChumonUploadTableAdapter.Connection != null))) {
                     return this._t_ChumonUploadTableAdapter.Connection;
+                }
+                if (((this._t_NouhinTableAdapter != null) 
+                            && (this._t_NouhinTableAdapter.Connection != null))) {
+                    return this._t_NouhinTableAdapter.Connection;
                 }
                 return null;
             }
@@ -17567,13 +17606,13 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                 if ((this._t_NoukiKaitouTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._t_NouhinTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._m_BuhinUploadTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._t_ChumonUploadTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._t_NouhinTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -17686,15 +17725,6 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._t_NouhinTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.T_Nouhin.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._t_NouhinTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._m_BuhinUploadTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.M_BuhinUpload.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -17710,6 +17740,15 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._t_ChumonUploadTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._t_NouhinTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.T_Nouhin.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._t_NouhinTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -17811,14 +17850,6 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._t_NouhinTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.T_Nouhin.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._t_NouhinTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._m_BuhinUploadTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.M_BuhinUpload.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -17835,6 +17866,14 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._t_NouhinTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.T_Nouhin.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._t_NouhinTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -17845,6 +17884,14 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(m2mKoubaiDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._t_NouhinTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.T_Nouhin.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._t_NouhinTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._t_ChumonUploadTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.T_ChumonUpload.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -17858,14 +17905,6 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._m_BuhinUploadTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._t_NouhinTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.T_Nouhin.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._t_NouhinTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -18040,16 +18079,16 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                         && (this.MatchTableAdapterConnection(this._t_NoukiKaitouTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("TableAdapterManager で管理されるすべての TableAdapter は同一の接続文字列を使用する必要があります。");
             }
-            if (((this._t_NouhinTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._t_NouhinTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("TableAdapterManager で管理されるすべての TableAdapter は同一の接続文字列を使用する必要があります。");
-            }
             if (((this._m_BuhinUploadTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._m_BuhinUploadTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("TableAdapterManager で管理されるすべての TableAdapter は同一の接続文字列を使用する必要があります。");
             }
             if (((this._t_ChumonUploadTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._t_ChumonUploadTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("TableAdapterManager で管理されるすべての TableAdapter は同一の接続文字列を使用する必要があります。");
+            }
+            if (((this._t_NouhinTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._t_NouhinTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("TableAdapterManager で管理されるすべての TableAdapter は同一の接続文字列を使用する必要があります。");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
@@ -18182,15 +18221,6 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                         adaptersWithAcceptChangesDuringUpdate.Add(this._t_NoukiKaitouTableAdapter.Adapter);
                     }
                 }
-                if ((this._t_NouhinTableAdapter != null)) {
-                    revertConnections.Add(this._t_NouhinTableAdapter, this._t_NouhinTableAdapter.Connection);
-                    this._t_NouhinTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._t_NouhinTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._t_NouhinTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._t_NouhinTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._t_NouhinTableAdapter.Adapter);
-                    }
-                }
                 if ((this._m_BuhinUploadTableAdapter != null)) {
                     revertConnections.Add(this._m_BuhinUploadTableAdapter, this._m_BuhinUploadTableAdapter.Connection);
                     this._m_BuhinUploadTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -18207,6 +18237,15 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                     if (this._t_ChumonUploadTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._t_ChumonUploadTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._t_ChumonUploadTableAdapter.Adapter);
+                    }
+                }
+                if ((this._t_NouhinTableAdapter != null)) {
+                    revertConnections.Add(this._t_NouhinTableAdapter, this._t_NouhinTableAdapter.Connection);
+                    this._t_NouhinTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._t_NouhinTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._t_NouhinTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._t_NouhinTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._t_NouhinTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -18311,10 +18350,6 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                     this._t_NoukiKaitouTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._t_NoukiKaitouTableAdapter]));
                     this._t_NoukiKaitouTableAdapter.Transaction = null;
                 }
-                if ((this._t_NouhinTableAdapter != null)) {
-                    this._t_NouhinTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._t_NouhinTableAdapter]));
-                    this._t_NouhinTableAdapter.Transaction = null;
-                }
                 if ((this._m_BuhinUploadTableAdapter != null)) {
                     this._m_BuhinUploadTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._m_BuhinUploadTableAdapter]));
                     this._m_BuhinUploadTableAdapter.Transaction = null;
@@ -18322,6 +18357,10 @@ SELECT No, Year, HacchuuNo, JigyoushoKubun, ShiiresakiCode, BuhinCode, Tanka, Su
                 if ((this._t_ChumonUploadTableAdapter != null)) {
                     this._t_ChumonUploadTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._t_ChumonUploadTableAdapter]));
                     this._t_ChumonUploadTableAdapter.Transaction = null;
+                }
+                if ((this._t_NouhinTableAdapter != null)) {
+                    this._t_NouhinTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._t_NouhinTableAdapter]));
+                    this._t_NouhinTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

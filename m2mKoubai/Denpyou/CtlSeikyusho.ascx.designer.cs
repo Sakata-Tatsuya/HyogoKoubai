@@ -42,22 +42,31 @@ namespace m2mKoubai.Denpyou
         protected global::System.Web.UI.WebControls.Literal LitShiiresakiMei;
 
         /// <summary>
-        /// LitYuubin コントロール。
+        /// LitInvoiceRegNo コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LitYuubin;
+        protected global::System.Web.UI.WebControls.Literal LitInvoiceRegNo;
 
         /// <summary>
-        /// LitJyusho コントロール。
+        /// LitYubinBangou コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LitJyusho;
+        protected global::System.Web.UI.WebControls.Literal LitYubinBangou;
+
+        /// <summary>
+        /// LitAddress コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LitAddress;
 
         /// <summary>
         /// LitTel コントロール。

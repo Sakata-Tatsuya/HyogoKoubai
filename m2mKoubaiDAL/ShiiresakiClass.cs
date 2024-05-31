@@ -298,20 +298,11 @@ namespace m2mKoubaiDAL
         /// <param name="strLoginID"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ShiiresakiDataSet.V_Nouhinsho_HeaderRow
-            getV_Nouhinsho_HeaderRow(string strLoginID, int nKubun, SqlConnection sqlConn)
+        public static ShiiresakiDataSet.V_Nouhinsho_HeaderRow getV_Nouhinsho_HeaderRow(string strLoginID, int nKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
-            da.SelectCommand.CommandText =
-            "SELECT DISTINCT "
-            + "M_Login.LoginID, M_Shiiresaki.ShiiresakiMei, M_Shiiresaki.YubinBangou, M_Shiiresaki.Address, M_Shiiresaki.Tel, "
-            + "M_Shiiresaki.Fax, T_KaishaInfo.EigyouSho, T_KaishaInfo.KaishaMei, T_KaishaInfo.Yuubin AS YuubinY, "
-            + "T_KaishaInfo.Address AS AddressY, T_KaishaInfo.Tel AS TelY, T_KaishaInfo.Fax AS FaxY "
-            + "FROM                     T_Chumon INNER JOIN "
-            + "M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode INNER JOIN "
-            + "T_KaishaInfo ON T_Chumon.JigyoushoKubun = T_KaishaInfo.KaishaID RIGHT OUTER JOIN "
-            + "M_Login ON M_Shiiresaki.ShiiresakiCode = M_Login.KaishaCode "
-            + "WHERE                   (M_Login.LoginID = @LoginID) AND (dbo.T_KaishaInfo.KaishaID = @Kubun)";
+            da.SelectCommand.CommandText = "SELECT * FROM V_Nouhinsho_Header "
+            + "WHERE (LoginID = @LoginID) AND (KaishaID = @Kubun)";
             da.SelectCommand.Parameters.AddWithValue("@LoginID", strLoginID);
             da.SelectCommand.Parameters.AddWithValue("@Kubun", nKubun);
             ShiiresakiDataSet.V_Nouhinsho_HeaderDataTable dt = new ShiiresakiDataSet.V_Nouhinsho_HeaderDataTable();

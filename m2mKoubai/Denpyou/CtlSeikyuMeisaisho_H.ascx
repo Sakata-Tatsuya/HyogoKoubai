@@ -25,7 +25,7 @@
                         <table class="def13">
                             <tr>
                                 <td nowrap="noWrap">
-                                    〒<asp:Literal ID="LitYuubinY" runat="server"></asp:Literal></td>
+                                    〒<asp:Literal ID="LitYubinH" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td>
@@ -33,20 +33,20 @@
                             </tr>
                             <tr>
                                 <td nowrap="noWrap">
-                                    <asp:Literal ID="LitJyushoY" runat="server"></asp:Literal></td>
+                                    <asp:Literal ID="LitAddressH" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
-                                                <asp:Literal ID="LitKaishaMeiY" runat="server"></asp:Literal>
-                                                御中</td>
+                                    <asp:Literal ID="LitKaishaMei" runat="server"></asp:Literal>
+                                    御中</td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
-                                                TEL：<asp:Literal ID="LitTelY" runat="server"></asp:Literal></td>
+                                    TEL：<asp:Literal ID="LitTelH" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
-                                                FAX：<asp:Literal ID="LitFaxY" runat="server"></asp:Literal></td>
+                                    FAX：<asp:Literal ID="LitFaxH" runat="server"></asp:Literal></td>
                             </tr>
                         </table>
                     </td>
@@ -65,20 +65,24 @@
                                     <asp:Literal ID="LitShiiresakiMei" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
-                                <td nowrap="noWrap">
-                                    〒<asp:Literal ID="LitYuubin" runat="server"></asp:Literal></td>
+                                <td nowrap="nowrap">
+                                    登録番号：<asp:Literal ID="LitInvoiceRegNo" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td nowrap="noWrap">
-                                    <asp:Literal ID="LitJyusho" runat="server"></asp:Literal></td>
+                                    〒<asp:Literal ID="LitYubinBangou" runat="server"></asp:Literal></td>
+                            </tr>
+                            <tr>
+                                <td nowrap="noWrap">
+                                    <asp:Literal ID="LitAddress" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
-                                                TEL：<asp:Literal ID="LitTel" runat="server"></asp:Literal></td>
+                                    TEL：<asp:Literal ID="LitTel" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td>
-                                                FAX：<asp:Literal ID="LitFax" runat="server"></asp:Literal></td>
+                                    FAX：<asp:Literal ID="LitFax" runat="server"></asp:Literal></td>
                             </tr>
                         </table>
                     </td>

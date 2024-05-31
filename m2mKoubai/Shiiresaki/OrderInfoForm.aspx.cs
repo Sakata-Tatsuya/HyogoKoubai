@@ -370,7 +370,6 @@ namespace m2mKoubai.Shiiresaki
         {
             if (e.Row.RowType == DataControlRowType.Header)
             {
-                // DL_ChkAll               
                 HtmlInputCheckBox chkH_H = e.Row.FindControl("ChkH_H") as HtmlInputCheckBox;
                 HtmlInputCheckBox chkH_N = e.Row.FindControl("ChkH_N") as HtmlInputCheckBox;
                 HtmlInputCheckBox chkH_G = e.Row.FindControl("ChkH_G") as HtmlInputCheckBox;
@@ -437,48 +436,55 @@ namespace m2mKoubai.Shiiresaki
                     e.Row.Cells[G_CELL_CANCEL].ForeColor = System.Drawing.Color.Red;
                 }
 
-                // 発注NO
-                //e.Row.Cells[G_CELL_NO].Text = dr.HacchuuNo;
-                (e.Row.FindControl("LitHacchuuNo") as Literal).Text =
-                    Utility.LinkToHacchuuNo(key.ToString(), dr.HacchuuNo);
-                // 発注日
-                (e.Row.FindControl("LitHacchuuBi") as Literal).Text = dr.HacchuuBi.ToString("yy/MM/dd");
-                // 発注担当者コード                
-                (e.Row.FindControl("LitHacchuuTantoushaCode") as Literal).Text = dr.TantoushaCode;
-                // 発注担当者名
-                (e.Row.FindControl("LitHacchuuTantoushaMei") as Literal).Text = dr.Name;
+                Literal LitHacchuuNo = e.Row.FindControl("LitHacchuuNo") as Literal;
+                Literal LitHacchuuBi = e.Row.FindControl("LitHacchuuBi") as Literal;
+                Literal LitHacchuuTantoushaCode = e.Row.FindControl("LitHacchuuTantoushaCode") as Literal;
+                Literal LitHacchuuTantoushaMei = e.Row.FindControl("LitHacchuuTantoushaMei") as Literal;
+                //Literal LitShiireCode = e.Row.FindControl("LitShiireCode") as Literal;
+                //Literal LitShiireName = e.Row.FindControl("LitShiireName") as Literal;
+                Literal LitCode = e.Row.FindControl("LitCode") as Literal;
+                Literal LitName = e.Row.FindControl("LitName") as Literal;
+                Literal LitSuuryou = e.Row.FindControl("LitSuuryou") as Literal;
+                Literal LitTanka = e.Row.FindControl("LitTanka") as Literal;
+                Literal LitChumonKingaku = e.Row.FindControl("LitChumonKingaku") as Literal;
+                Literal LitZeigaku = e.Row.FindControl("LitZeigaku") as Literal;
+                Label LblNouki = e.Row.FindControl("LblNouki") as Label;
+                HtmlInputButton btnM = e.Row.FindControl("BM") as HtmlInputButton;
 
+                // 発注NO
+                LitHacchuuNo.Text = Utility.LinkToHacchuuNo(key.ToString(), dr.HacchuuNo);
+                // 発注日
+                LitHacchuuBi.Text = dr.HacchuuBi.ToString("yy/MM/dd");
+                // 発注担当者コード                
+                LitHacchuuTantoushaCode.Text = dr.TantoushaCode;
+                // 発注担当者名
+                LitHacchuuTantoushaMei.Text = dr.Name;
                 // 部品コード
-                (e.Row.FindControl("LitCode") as Literal).Text = dr.BuhinKubun + dr.BuhinCode;
+                LitCode.Text = dr.BuhinKubun + dr.BuhinCode;
                 // 部品目名
-                (e.Row.FindControl("LitName") as Literal).Text = dr.BuhinMei;
+                LitName.Text = dr.BuhinMei;
                 // 数量
-                (e.Row.FindControl("LitSuuryou") as Literal).Text = dr.Suuryou.ToString("#,##0");
+                LitSuuryou.Text = dr.Suuryou.ToString("#,##0");
                 // 単価
                 if (!dr.KaritankaFlg)
                 {
-                    (e.Row.FindControl("LitTanka") as Literal).Text = "\\" + dr.Tanka.ToString("#,##0.#0");
+                    LitTanka.Text = "\\" + dr.Tanka.ToString("#,##0.#0");
                 }
                 else
                 {
-                    (e.Row.FindControl("LitTanka") as Literal).Text =
-                        string.Format("<font color =\"red\">{0}</font>", "(仮) \\" + dr.Tanka.ToString("#,##0.#0"));
+                    LitTanka.Text = string.Format("<font color =\"red\">{0}</font>", "(仮) \\" + dr.Tanka.ToString("#,##0.#0"));
                 }
-
                 // 注文金額
                 if (!dr.KaritankaFlg)
                 {
-                    (e.Row.FindControl("LitChumonKingaku") as Literal).Text = "\\" + dr.Kingaku.ToString("#,##0");
+                    LitChumonKingaku.Text = "\\" + dr.Kingaku.ToString("#,##0");
                 }
                 else
                 {
-                    (e.Row.FindControl("LitChumonKingaku") as Literal).Text =
-                        string.Format("<font color =\"red\">{0}</font>", "\\" + dr.Kingaku.ToString("#,##0"));
+                    LitChumonKingaku.Text = string.Format("<font color =\"red\">{0}</font>", "\\" + dr.Kingaku.ToString("#,##0"));
                 }
-
                 decimal Zeigaku = Math.Round((decimal)dr.Kingaku * dr.Zeiritu / 100, 0, MidpointRounding.AwayFromZero);
-                (e.Row.FindControl("LitZeigaku") as Literal).Text = "\\" + Zeigaku.ToString("#,##0");
-
+                LitZeigaku.Text = "\\" + Zeigaku.ToString("#,##0");
                 // 単位
                 e.Row.Cells[G_CELL_TANI].Text = dr.Tani;
                 // 納入場所
@@ -508,8 +514,6 @@ namespace m2mKoubai.Shiiresaki
 
                 e.Row.Cells[G_CELL_NOUKI_HENKOU].Text = infoNoki.strNoukiHenkouHtml;
 
-
-
                 // 回答納期
                 // 納期回答のすべてデータ取得
                 DataView dvKaitouNouki = this.m_dvKaitouNouki;
@@ -517,7 +521,6 @@ namespace m2mKoubai.Shiiresaki
                 dvKaitouNouki.RowFilter =
                     string.Format("Year = '{0}' AND HacchuuNo = '{1}' AND JigyoushoKubun = '{2}' ",
                                 dr.Year, dr.HacchuuNo, dr.JigyoushoKubun);
-
 
                 NoukiKaitouInfo infoKaitou = null;             
 
@@ -544,8 +547,8 @@ namespace m2mKoubai.Shiiresaki
                 {
                     int nSuuryou = 0;
                     bool b = false;
-                    m2mKoubaiDataSet.T_NoukiKaitouDataTable dtKaitou = NoukiKaitouClass.getT_NoukiKaitouDataTable(dr.Year, dr.HacchuuNo,
-                                                                                           dr.JigyoushoKubun, dr.KaitouNo, Global.GetConnection());
+                    m2mKoubaiDataSet.T_NoukiKaitouDataTable dtKaitou = NoukiKaitouClass.getT_NoukiKaitouDataTable(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun, dr.KaitouNo, Global.GetConnection());
+
                     for (int i = 0; i < dtKaitou.Rows.Count; i++)
                     {
                         nSuuryou += dtKaitou[i].Suuryou;
@@ -553,7 +556,10 @@ namespace m2mKoubai.Shiiresaki
                         string[] strNoukiAry = strNoukiHenkou.Split(',');
                         for (int j = 0; j < strNoukiAry.Length; j++)
                         {
-                            if (dtKaitou[i].Nouki > int.Parse(strNoukiAry[j].ToString()))
+                            int ChkNouki = 0;
+                            int.TryParse(strNoukiAry[j].ToString(), out ChkNouki);
+
+                            if (dtKaitou[i].Nouki > ChkNouki)
                             {
                                 b = true;
                             }
@@ -570,7 +576,6 @@ namespace m2mKoubai.Shiiresaki
 
                     }
                 }
-
 
                 // 注文指示No、納期コントロールID、数量コントロールID
                 this.m_objStringCols["KaitouNoukiData"].Add(
@@ -599,9 +604,7 @@ namespace m2mKoubai.Shiiresaki
                     e.Row.Cells[G_CELL_NOUHINBI].Text = strNouhinbi;
                 }
 
-
                 // メッセージ
-                HtmlInputButton btnM = e.Row.FindControl("BM") as HtmlInputButton;
                 btnM.Attributes["onclick"] = string.Format("Msg('{0}');", key.ToString());
 
                 if (!dr.IsOpenedFlgNull())

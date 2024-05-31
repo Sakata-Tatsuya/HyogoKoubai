@@ -18,11 +18,15 @@
                 </tr>
                 <tr>
                     <td nowrap="noWrap">
-                        Åß<asp:Literal ID="LitYuubin" runat="server"></asp:Literal></td>
+                        ìoò^î‘çÜÅ@<asp:Literal ID="LitInvoiceRegNo" runat="server"></asp:Literal></td>
                 </tr>
                 <tr>
                     <td nowrap="noWrap">
-                        <asp:Literal ID="LitJyusho" runat="server"></asp:Literal></td>
+                        Åß<asp:Literal ID="LitYubinBangou" runat="server"></asp:Literal></td>
+                </tr>
+                <tr>
+                    <td nowrap="noWrap">
+                        <asp:Literal ID="LitAddress" runat="server"></asp:Literal></td>
                 </tr>
                 <tr>
                     <td class="hei50" valign="top">
@@ -67,14 +71,6 @@
     </tr>
     <tr>
         <td align="center" class="hei150" valign="bottom">
-            <%--<table class="def14">
-                <tr>
-                    <td class="tl nw" height="40">
-                        Ç≤êøãÅã‡äzÅi<asp:Literal ID="LitMonth2" runat="server"></asp:Literal>Åj</td>
-                    <td class="tr nw" nowrap="noWrap" width="200">
-                        <asp:Literal ID="LitKingaku" runat="server"></asp:Literal></td>
-                </tr>
-            </table>--%>
             <table class="def14" border="2" style="border-color:Black">
                 <tr><td style="border:0"><br /></td></tr>
                 <tr>

@@ -68,8 +68,7 @@ namespace m2mKoubai.Denpyou
             }
 
             // 
-            KenshuDataSet.V_KenshuDataTable dt =
-              KenshuClass.getV_Kenshu2DataTable(k, Global.GetConnection());
+            KenshuDataSet.V_Kenshu2DataTable dt = KenshuClass.getV_Kenshu2DataTable(k, Global.GetConnection());
 
            
             // éñã∆èäîzóÒ
@@ -90,8 +89,7 @@ namespace m2mKoubai.Denpyou
                 nGoukei_Tax = 0;
 
                 // ÉwÉbÉ_
-                ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader =
-                   ShiiresakiClass.getV_Nouhinsho_HeaderRow
+                ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader = ShiiresakiClass.getV_Nouhinsho_HeaderRow
                    (SessionManager.LoginID, int.Parse(aryKubun[nKubunCnt].ToString()), Global.GetConnection());
 
                 CtlKenshuMeisaihyo_H ctlHeader = LoadControl("CtlKenshuMeisaihyo_H.ascx") as CtlKenshuMeisaihyo_H;
@@ -100,8 +98,7 @@ namespace m2mKoubai.Denpyou
                 this.T.Rows[0].Cells[0].Controls.Add(ctlHeader);
 
                 // G DataBind
-                KenshuDataSet.V_KenshuBindDataTable dtBind =
-                 new KenshuDataSet.V_KenshuBindDataTable();
+                KenshuDataSet.V_KenshuBindDataTable dtBind = new KenshuDataSet.V_KenshuBindDataTable();
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {

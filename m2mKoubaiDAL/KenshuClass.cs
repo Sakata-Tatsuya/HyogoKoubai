@@ -12,59 +12,36 @@ namespace m2mKoubaiDAL
         /// </summary>
         public class KensakuParam
         {
-
             // 発注No
             public string _HacchuNo = "";
             // 仕入先
             public string _SCode = "";
             // 納入場所
             public string _NBasho = "";
-            // 納期回答状況
-            //public int _NkJyoukyou = -1;
-            // 納品状況
-            //public int _NHJyoukyou = -1;
             // 部品区分
             public string _Kubun = "";
             // 部品
             public string _BuhinCode = "";
             // 発注担当者
             public string _TantoushaCode = "";
-            // 納期
-            //public Core.Type.NengappiKikan _Nouki = null;
-            // 納品日
-            //public Core.Type.NengappiKikan _NouhinBi = null;
-
             // 納品年月
             public string _NouhinYearMonth = "";
             // 開始年月日   
             public string _FromDate = "";
             // 終了年月日
             public string _ToDate = "";
-            // 納品月
-            //public string _NouhinMonth = "";
-
-            // 発注日
-            //public Core.Type.NengappiKikan _Hacchuubi = null;
-            // 回答納期
-            //public Core.Type.NengappiKikan _KaitouNouki = null;
-
             // 受入日
             public Core.Type.NengappiKikan _UkeireBi = null;
             // 支払締日
             public int _Shimebi = -1;
-
-
-            // 勘定科目コード 09/07/22追加
+            // 勘定科目コード
             public int _KanjyouKamokuCode = -1;
-
-            // 費用科目コード 09/07/22追加
+            // 費用科目コード
             public int _HiyouKamokuCode = -1;
-
-            // 補助科目No 09/07/22追加
+            // 補助科目No
             public int _HojyoKamokuNo = -1;
             // 事業所区分
             public int _JigyoushoKubun = 0;
-
         }
 
 
@@ -86,16 +63,6 @@ namespace m2mKoubaiDAL
                        k._FromDate, k._ToDate));
             }
 
-            if (k._HacchuNo != "")
-            {
-                w.Add(string.Format("T_Chumon.HacchuuNo LIKE '{0}%'", k._HacchuNo));
-            }
-            // 納品年
-            if (k._HacchuNo != "")
-            {
-                w.Add(string.Format("T_Chumon.HacchuuNo LIKE '{0}%'", k._HacchuNo));
-            }
-
             // 発注No
             if (k._HacchuNo != "")
             {
@@ -111,7 +78,6 @@ namespace m2mKoubaiDAL
             {
                 w.Add(string.Format("T_Chumon.NounyuuBashoCode = '{0}'", k._NBasho));
             }
-         
 
             // 部品区分
             if (k._Kubun != "")
@@ -136,7 +102,7 @@ namespace m2mKoubaiDAL
                 
                 w.Add(Core.Type.NengappiKikan.GenerateSQL(k._UkeireBi, false, "(convert(varchar,T_Nouhin.NouhinBi,112))"));
             }
-            // 以下3項目追加 09/07/22
+
             if (k._KanjyouKamokuCode != -1)
             {
                 w.Add(string.Format("M_Buhin.KanjyouKamokuCode = {0}", k._KanjyouKamokuCode));
@@ -159,6 +125,61 @@ namespace m2mKoubaiDAL
             return w.WhereText;
         }
 
+        private static string WhereText2(KensakuParam k, SqlCommand cmd)
+        {
+            Core.Sql.WhereGenerator w = new Core.Sql.WhereGenerator();
+
+            // 納品年
+            if (k._FromDate != "" && k._ToDate != "")
+            {
+                w.Add(string.Format
+                       ("(convert(varchar,NouhinBi,112) >= {0} AND convert(varchar,NouhinBi,112) <= {1}) ",
+                       k._FromDate, k._ToDate));
+            }
+            // 発注No
+            if (k._HacchuNo != "")
+            {
+                w.Add(string.Format("HacchuuNo LIKE '{0}%'", k._HacchuNo));
+            }
+            // 仕入先コード
+            if (k._SCode != "")
+            {
+                w.Add(string.Format("ShiiresakiCode = '{0}'", k._SCode));
+            }
+            // 納入場所
+            if (k._NBasho != "")
+            {
+                w.Add(string.Format("NounyuuBashoCode = '{0}'", k._NBasho));
+            }
+            // 部品区分
+            if (k._Kubun != "")
+            {
+                w.Add(string.Format("BuhinKubun = '{0}'", k._Kubun));
+            }
+            // 部品
+            if (k._BuhinCode != "")
+            {
+                w.Add(string.Format("BuhinCode = '{0}'", k._BuhinCode));
+            }
+            // 発注担当者
+            if (k._TantoushaCode != "")
+            {
+                w.Add(string.Format("HacchushaID = '{0}'", k._TantoushaCode));
+            }
+
+            // 受入日
+            if (k._UkeireBi != null)
+            {
+
+                w.Add(Core.Type.NengappiKikan.GenerateSQL(k._UkeireBi, false, "(convert(varchar,NouhinBi,112))"));
+            }
+            // 事業所区分
+            if (k._JigyoushoKubun != 0)
+            {
+                w.Add(string.Format("JigyoushoKubun = '{0}'", k._JigyoushoKubun));
+            }
+            return w.WhereText;
+        }
 
 
 
@@ -203,37 +224,68 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static KenshuDataSet.V_KenshuDataTable getV_Kenshu2DataTable(KensakuParam k, SqlConnection sqlConn)
+        //public static KenshuDataSet.V_KenshuDataTable getV_Kenshu2DataTable(KensakuParam k, SqlConnection sqlConn)
+        //{
+        //    SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+        //    da.SelectCommand.CommandText =
+        //      "SELECT                  T_Nouhin.Year, T_Nouhin.HacchuuNo, T_Nouhin.NouhinNo, T_Nouhin.Suuryou AS NouhinSuuryou, "
+        //    + "T_Chumon.ShiiresakiCode, T_Chumon.BuhinKubun, T_Chumon.BuhinCode, T_Chumon.Tanka, "
+        //    + "T_Chumon.Suuryou AS ChumonSuuryou, M_NounyuuBasho.BashoMei, M_Buhin.BuhinMei, M_Buhin.Tani, "
+        //    + "T_Nouhin.NouhinBi, T_Chumon.HacchuuBi, M_Shiiresaki.ShiiresakiMei, T_Chumon.Kingaku, "
+        //    + "M_Buhin.KanjyouKamokuCode, M_Buhin.HiyouKamokuCode, M_Buhin.HojyoKamokuNo, T_Nouhin.JigyoushoKubun "
+        //    + ", T_Nouhin.Zeiritu "  // 増税対応
+        //    + "FROM                     T_Nouhin INNER JOIN "
+        //    + "T_Chumon ON T_Nouhin.Year = T_Chumon.Year AND T_Nouhin.HacchuuNo = T_Chumon.HacchuuNo AND "
+        //    + "T_Nouhin.JigyoushoKubun = T_Chumon.JigyoushoKubun INNER JOIN "
+        //    + "M_NounyuuBasho ON T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode INNER JOIN "
+        //    + "M_Buhin ON T_Chumon.BuhinCode = M_Buhin.BuhinCode INNER JOIN "
+        //    + "M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
+        //    + "WHERE                   (T_Chumon.CancelBi IS NULL) ";
+
+        //    // WHERE
+        //    string strW = WhereText(k, da.SelectCommand);
+        //    if (strW != "")
+        //    {
+        //        da.SelectCommand.CommandText += "AND " + strW;
+        //    }
+
+        //    da.SelectCommand.CommandText += " ORDER BY         T_Nouhin.JigyoushoKubun ";
+        //    KenshuDataSet.V_KenshuDataTable dt = new KenshuDataSet.V_KenshuDataTable();
+        //    da.Fill(dt);
+        //    return dt;
+        //}
+
+        /// <summary>
+        /// 検収データを取得
+        /// </summary>
+        /// <param name="sqlConn"></param>
+        /// <returns></returns>
+        public static KenshuDataSet.V_Kenshu2DataTable getV_Kenshu2DataTable(KensakuParam k, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
-            da.SelectCommand.CommandText =
-              "SELECT                  T_Nouhin.Year, T_Nouhin.HacchuuNo, T_Nouhin.NouhinNo, T_Nouhin.Suuryou AS NouhinSuuryou, "
-            + "T_Chumon.ShiiresakiCode, T_Chumon.BuhinKubun, T_Chumon.BuhinCode, T_Chumon.Tanka, "
-            + "T_Chumon.Suuryou AS ChumonSuuryou, M_NounyuuBasho.BashoMei, M_Buhin.BuhinMei, M_Buhin.Tani, "
-            + "T_Nouhin.NouhinBi, T_Chumon.HacchuuBi, M_Shiiresaki.ShiiresakiMei, T_Chumon.Kingaku, "
-            + "M_Buhin.KanjyouKamokuCode, M_Buhin.HiyouKamokuCode, M_Buhin.HojyoKamokuNo, T_Nouhin.JigyoushoKubun "
-            + ", T_Nouhin.Zeiritu "  // 増税対応
-            + "FROM                     T_Nouhin INNER JOIN "
-            + "T_Chumon ON T_Nouhin.Year = T_Chumon.Year AND T_Nouhin.HacchuuNo = T_Chumon.HacchuuNo AND "
-            + "T_Nouhin.JigyoushoKubun = T_Chumon.JigyoushoKubun INNER JOIN "
-            + "M_NounyuuBasho ON T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode INNER JOIN "
-            + "M_Buhin ON T_Chumon.BuhinCode = M_Buhin.BuhinCode INNER JOIN "
-            + "M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
-            + "WHERE                   (T_Chumon.CancelBi IS NULL) ";
-
+            da.SelectCommand.CommandText = "SELECT * FROM V_Kenshu2 ";
             // WHERE
-            string strW = WhereText(k, da.SelectCommand);
+            string strW = WhereText2(k, da.SelectCommand);
             if (strW != "")
             {
-                da.SelectCommand.CommandText += "AND " + strW;
+                da.SelectCommand.CommandText += "WHERE " + strW;
             }
 
-            da.SelectCommand.CommandText += " ORDER BY         T_Nouhin.JigyoushoKubun ";
-            KenshuDataSet.V_KenshuDataTable dt = new KenshuDataSet.V_KenshuDataTable();
+            da.SelectCommand.CommandText += " ORDER BY JigyoushoKubun ";
+            KenshuDataSet.V_Kenshu2DataTable dt = new KenshuDataSet.V_Kenshu2DataTable();
             da.Fill(dt);
             return dt;
         }
-       
+
+
+
+
+
+
+
+
+
+
         /// <summary>
         /// 検収データを取得
         /// </summary>

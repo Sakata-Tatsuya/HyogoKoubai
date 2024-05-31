@@ -22,45 +22,30 @@ namespace m2mKoubai.Denpyou
 
         public void Create(ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader,m2mKoubaiDataSet.M_ShiiresakiRow drShiire )
         {
-            /*
-            // ヨドコウ興産会社情報取得
-            m2mKoubaiDataSet.T_KaishaInfoRow drKaisha =
-                KaishaInfoClass.getT_KaishaInfoRow(Global.GetConnection());
-            if (drKaisha == null)
-            {
-                return;
-            }*/
-
-            // ヨドコウ会社郵便番号
-            LitYuubinY.Text = Utility.FormatYuubin(drHeader.YuubinY);
-            // ヨドコウ会社住所
-            LitJyushoY.Text = drHeader.AddressY;
-            // ヨドコウ会社名
-            LitKaishaMeiY.Text = drHeader.KaishaMei + " " + drHeader.EigyouSho;
-            // ヨドコウ興産株式会社電話番号
-            LitTelY.Text = Utility.FormatBanggo(drHeader.TelY);
-            // ヨドコウ興産FAX
-            LitFaxY.Text = Utility.FormatBanggo(drHeader.FaxY);          
-
+            // 発注会社郵便番号
+            LitYubinH.Text = Utility.FormatYuubin(drHeader.YubinH);
+            // 発注会社住所
+            LitAddressH.Text = drHeader.AddressH;
+            // 発注会社名
+            LitKaishaMei.Text = drHeader.KaishaMei + " " + drHeader.EigyouSho;
+            // 発注会社電話番号
+            LitTelH.Text = Utility.FormatBanggo(drHeader.TelH);
+            // 発注会社FAX
+            LitFaxH.Text = Utility.FormatBanggo(drHeader.FaxH);          
             // 日付
             LitDate.Text = DateTime.Today.ToString("yyyy年MM月dd日");
-            /*
-            CultureInfo culture = new CultureInfo("ja-JP", true);
-            culture.DateTimeFormat.Calendar = new JapaneseCalendar();
-            DateTime target = DateTime.Today;
-            string result = target.ToString("ggyy年M月d日", culture);
-            LitDate.Text = result;
-            */ 
             // 仕入先名
-            LitShiiresakiMei.Text = drShiire.ShiiresakiMei;
-            // ゆびん番号
-            LitYuubin.Text = Utility.FormatYuubin(drShiire.YubinBangou);
+            LitShiiresakiMei.Text = drHeader.ShiiresakiMei;
+            // 登録番号
+            LitInvoiceRegNo.Text = drHeader.InvoiceRegNo;
+            // 郵便番号
+            LitYubinBangou.Text = Utility.FormatYuubin(drHeader.YubinBangou);
             // 住所
-            LitJyusho.Text = drShiire.Address;
+            LitAddress.Text = drHeader.Address;
             // TEL
-            LitTel.Text = Utility.FormatBanggo(drShiire.Tel);
+            LitTel.Text = Utility.FormatBanggo(drHeader.Tel);
             // FAX
-            LitFax.Text = Utility.FormatBanggo(drShiire.Fax);
+            LitFax.Text = Utility.FormatBanggo(drHeader.Fax);
           
         }
     }
