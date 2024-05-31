@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PassChangeForm.aspx.cs" Inherits="m2mKoubai.PassChangeForm" %>
 
 <%@ Register Src="CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 
 <!DOCTYPE html>
 
@@ -11,95 +10,82 @@
     <link href="MainStyle.css" rel="stylesheet" type="text/css" />    
     
     <script type="text/javascript">
-    
-   function Load()
-   {
-       document.getElementById("TbxPass").focus();
-   }
-   function $(id)
-    {
-        return document.getElementById(id);
-    }    
-    function AjaxRequest(command_name, arg)
-	{	    
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		
-	}
-    function OnRequestStart(sender, args)
-    {
-        var img1 = document.getElementById("Img1");            
-        img1.style.display = "";    		
-    }	
-	function OnResponseEnd(sender, args)
-	{
-        var img1 = document.getElementById("Img1");            
-        img1.style.display = "none";	            
-	}
+        function Load()
+        {
+            document.getElementById("TbxPass").focus();
+        }
+        function $(id)
+        {
+            return document.getElementById(id);
+        }
+        function AjaxRequest(command_name, arg) {
+        <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+        }
+        function OnRequestStart(sender, args)
+        {
+            var img1 = document.getElementById("Img1");
+            img1.style.display = "";
+        }
+        function OnResponseEnd(sender, args)
+        {
+            var img1 = document.getElementById("Img1");
+            img1.style.display = "none";
+        }
 	function Check()
-	{   
-	    var tbxPass = document.getElementById('TbxPass');	  
+	{
+	    var tbxPass = document.getElementById('TbxPass');
 	    if(tbxPass.value == "")
 	    {
-	        alert("パスワードを入力して下さい");	      
+	        alert("パスワードを入力して下さい");
 	        tbxPass.focus();
 	        return;
-	    }  
+	    }
 	    if(tbxPass.value.length < 8)
 	    {
-	        alert("パスワードは8文字以上で入力して下さい");	      
+	        alert("パスワードは8文字以上で入力して下さい");
 	        tbxPass.focus();
 	        return;
 	    }
-	   　if(!HankakuChk('TbxPass', "パスワード"))
-	   　{
-	   　   tbxPass.focus();
-	        return;
-	   　}
-	    var tbxPass2 = document.getElementById("TbxPass2");
-	    if(tbxPass2.value == "")
-	    {
-	        alert("確認用パスワードを入力して下さい");	     
-	        tbxPass2.focus(); 
-	        return;	    
-	    }
-	    if(tbxPass.value != tbxPass2.value)
-	    {
-	        alert("確認用パスワードが間違っています");
-	        tbxPass2.focus();	        
-	        return;
-	    }
-	   if(!HankakuChk('TbxPass2', "パスワード"))
-	   　{
-	   　   tbxPass.focus();
-	        return;
-	   　}
-	    if(confirm("変更しますか？"))
-	    {	 	        
-	        AjaxRequest("henkou","");
-	    }
-	}
-	    function HankakuChk(tbxId, objName)
-        {      
+        if (!HankakuChk('TbxPass', "パスワード")) {
+            tbxPass.focus();
+            return;
+        }
+        var tbxPass2 = document.getElementById("TbxPass2");
+        if (tbxPass2.value == "") {
+            alert("確認用パスワードを入力して下さい");
+            tbxPass2.focus();
+            return;
+        }
+        if (tbxPass.value != tbxPass2.value) {
+            alert("確認用パスワードが間違っています");
+            tbxPass2.focus();
+            return;
+        }
+        if (!HankakuChk('TbxPass2', "パスワード")) {
+            tbxPass.focus();
+            return;
+        }
+        if (confirm("変更しますか？")) {
+            AjaxRequest("henkou", "");
+        }
+    }
+        function HankakuChk(tbxId, objName) {
             var count = 0;
-            var val = document.getElementById(tbxId).value;   
-           
-            for( var i = 0; i < val.length; i++ )
-            {
+            var val = document.getElementById(tbxId).value;
+
+            for (var i = 0; i < val.length; i++) {
                 var s = val.substring(i, i + 1);
                 var c = s.charCodeAt(0);
-                if (c < 256 || (c >= 0xff61 && c <= 0xff9f))
-                {                           
+                if (c < 256 || (c >= 0xff61 && c <= 0xff9f)) {
                 }
-                else
-                {     
-                    alert(objName + 'は半角英数字のみで入力して下さい');     
-                                   
+                else {
+                    alert(objName + 'は半角英数字のみで入力して下さい');
                     return false;
-                }                 
+                }
             }
-                 
-            return true; 
+            return true;
         }
-   </script>
+    </script>
 
 </head>
 <body onload="Load();" class="bg0">
@@ -108,7 +94,7 @@
         <uc1:CtlTabMain ID="Tab" runat="server" />
         <br />
        </div>
-        <table align="center" id="TblList" runat="server" cellpadding="0" cellspacing="0">
+        <table align="left" id="TblList" runat="server" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="tc hei20">
                     <asp:Label ID="LblMsg" runat="server" CssClass="b def9"></asp:Label></td>

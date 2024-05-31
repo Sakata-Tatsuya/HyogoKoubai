@@ -118,9 +118,7 @@ namespace m2mKoubaiDAL
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        /// // C³ 09/07/24 T_Chumon‚ÌXVˆ—‚ğ’Ç‰Á  ÄC³09/11/11
-        public static LibError
-            T_Nouhin_Insert_T_Chumon_Update
+        public static LibError T_Nouhin_Insert_T_Chumon_Update
             (m2mKoubaiDataSet.T_NouhinRow drNouhin, m2mKoubaiDataSet.T_ChumonRow drChumon,
             string Year, string HacchuuNo, int nKubun, int nRowNo, bool kannouFlg, string TourokuUser, SqlConnection sqlConn)
         {
@@ -176,7 +174,8 @@ namespace m2mKoubaiDAL
                     drNew.Zeiritu = drNouhin.Zeiritu;
                     drNew.TourokuBi = DateTime.Now;
                     drNew.TourokuUser = TourokuUser;
-                    
+                    drNew.KeigenZeirituFlg = drNouhin.KeigenZeirituFlg;
+
                     dtN.Rows.Add(drNew);
                     daN.Update(dtN);
                 }

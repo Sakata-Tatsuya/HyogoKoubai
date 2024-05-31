@@ -916,20 +916,21 @@
                                 <ItemStyle CssClass="tc" />
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="納期回答">
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" CssClass="tc" />
                                 <ItemTemplate>
                                     <table>
                                         <tr>
-                                            <td>
+                                            <td class="tc">
                                                 <asp:Label ID="LblNyuryoku" runat="server"></asp:Label>
-                                                </td>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <input id="BtnSN" runat="server" type="button" value="指定納期" class="f8" /></td>
+                                            <td class="tc">
+                                                <input id="BtnSN" runat="server" type="button" value="指定納期" class="f8" />
+                                            </td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False"/>
                                 <HeaderStyle Wrap="False" />
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="納品日">

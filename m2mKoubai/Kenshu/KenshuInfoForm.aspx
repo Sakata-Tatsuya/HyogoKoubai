@@ -1,6 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="KenshuInfoForm.aspx.cs" Inherits="m2mKoubai.Kenshu.KenshuInfoForm" %>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
-
 <%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc2" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc3" %>
@@ -15,11 +13,10 @@
     function $(id)
     {
         return document.getElementById(id);
-    }   
-    function AjaxRequest(command_name, arg)
-	{
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);		
-	}
+    }
+        function AjaxRequest(command_name, arg) {
+           <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+        }
 	 function Reload()
     {        
         AjaxRequest('reload', '');
@@ -33,25 +30,25 @@
     function RowChange()
     {
 	    AjaxRequest('row', '');
-    }   
+    }
     function PageChange(pageIndex)
     {
 	    AjaxRequest('page', pageIndex);
-    }   
+    }
     function OnBuhin()
     {
         AjaxRequest('ddlBuhin', '');
-    }    
+    }
 	function HacchuuNo(key, hacchuuNo)
     {
         document.getElementById('HidKey').value = key +'\t'+ '';
         NewForm.action = "../Order/OrderShousaiForm";
-        NewForm.target = "_hacchuu"; 
-	    OpenWinPost2("_hacchuu",500,500);               
-        NewForm.submit();               
-    }    
+        NewForm.target = "_hacchuu";
+	    OpenWinPost2("_hacchuu",500,500);
+        NewForm.submit();
+    }
     function Print()
-    {       
+    {
         var chkIdAry = document.getElementById('HidChkID').value.split(',');        
         var hidPrintKey = ''
         for(var i = 0; i < chkIdAry.length; i++)
@@ -62,7 +59,6 @@
             {
                 if(hidPrintKey != "") hidPrintKey += "_";
                 hidPrintKey += chk.value;
-               
             }
         }
         if(hidPrintKey == "")
@@ -91,7 +87,7 @@
         win = window.open
             ("",target,"width="+w+"px,height="+h+"px,menubar=yes,location=no,resizable=yes,scrollbars=yes");            
 	    win.focus();
-    } 
+    }
 	 function ChkAll(bool)
     {
         var idAry = document.getElementById('HidChkID').value.split(',');
@@ -108,9 +104,9 @@
         document.getElementById("Img1").style.display = '';		
 	}
 	function OnResponseEnd(sender, args)
-    {    
+    {
         document.getElementById('Img1').style.display = 'none';
-    }  
+    }
    
     function KeyCodeCheck()
     {
@@ -118,7 +114,7 @@
         if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
         kc == 46 || kc == 8 || kc == 13 || kc == 9)
             return true; 
-        else 
+        else
             return false;
     }
     

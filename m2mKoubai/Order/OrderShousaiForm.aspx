@@ -10,7 +10,7 @@
         function $(id)
         {
             return document.getElementById(id);
-        }   
+        }
 
         function Cancel()
         {
@@ -162,7 +162,6 @@
                 <td align="center" colspan="2" width="50%" class="hei20">
                     <asp:Label ID="LblErrMsg" runat="server" CssClass="b"></asp:Label></td>
             </tr>
-           
             <tr>
                 <td align="left" width="50%">
                     <asp:Label ID="LblMsg" runat="server" CssClass="b" ForeColor="Red"></asp:Label></td>
@@ -172,7 +171,6 @@
                 </td>
             </tr>
             <tr>
-                
                 <td align="right" colspan="2">
                     <table id="TblMain" runat="server" border="1" bordercolor="#000000" class="col tl bg1 def12">
                         <tr>

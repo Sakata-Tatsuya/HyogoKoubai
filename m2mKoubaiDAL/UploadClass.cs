@@ -126,6 +126,7 @@ namespace m2mKoubaiDAL
                 daChumon.SelectCommand.Transaction = daChumon.InsertCommand.Transaction = sqlTran;
                 cmdBuhinKubun.Transaction = sqlTran;
                 daUpload.SelectCommand.Transaction = daUpload.InsertCommand.Transaction = sqlTran;
+                DateTime dtTemp = DateTime.Now;
 
                 // ■発注番号を取得
                 object objMaxHacchuuNo = cmdMaxHacchuuNo.ExecuteScalar();
@@ -175,7 +176,6 @@ namespace m2mKoubaiDAL
                     drChumonThis.Tanka = dt[i].Tanka;
                     drChumonThis.Suuryou = dt[i].Suuryou;
                     // 増税対応 金額は切り捨てではなく四捨五入に変更
-                    //drChumonThis.Kingaku = (int)Math.Floor(dt[i].Tanka * dt[i].Suuryou);
                     drChumonThis.Kingaku = (int)Math.Round(dt[i].Tanka * dt[i].Suuryou, 2);
                     drChumonThis.Nouki = dt[i].Nouki;
                     drChumonThis.NounyuuBashoCode = dt[i].NounyuuBashoCode;
@@ -185,6 +185,10 @@ namespace m2mKoubaiDAL
                     drChumonThis.KannouFlg = dt[i].KannouFlg;
                     drChumonThis.KaritankaFlg = dt[i].KaritankaFlg;
                     drChumonThis.Zeiritu = dt[i].Zeiritu;
+                    dtTemp = DateTime.Now;
+                    DateTime.TryParse(dt[i].Nouki.ToString(), out dtTemp);
+                    drChumonThis.KeigenZeirituFlg = Utility.GetKeigenZeirituFlg(dtTemp, dt[i].Zeiritu.ToString());
+
                     dtChumonThis.AddT_ChumonRow(drChumonThis);
 
                     // ■ファイルデータをDBに保存

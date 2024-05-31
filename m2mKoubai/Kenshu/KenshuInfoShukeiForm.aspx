@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="KenshuInfoShukeiForm.aspx.cs" Inherits="m2mKoubai.Kenshu.KenshuInfoShukeiForm" %>
 
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Src="../CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc2" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc3" %>
@@ -14,13 +13,13 @@
     function $(id)
     {
         return document.getElementById(id);
-    }   
+    }
     function AjaxRequest(command_name, arg)
 	{
         <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
 	}
 	 function Reload()
-    {        
+    {
         AjaxRequest('reload', '');
     }
     function Kensaku()
@@ -28,15 +27,15 @@
         if(!Check())
             return;
 	    AjaxRequest('kensaku', '');
-    }   
+    }
     function RowChange()
     {
 	    AjaxRequest('row', '');
-    }   
+    }
     function PageChange(pageIndex)
     {
 	    AjaxRequest('page', pageIndex);
-    }   
+    }
  
     function OnRequestStart(sender, args)
 	{
@@ -147,7 +146,7 @@
         </tr>
     </table>
     <br />
-    <table id="TblList" runat="server" align="center" class="def9">
+    <table id="TblList" runat="server" align="left" class="def9">
         <tr>
             <td>
                 <table class="def14 col" border="1" bordercolor="#000000" align="center" frame="box"

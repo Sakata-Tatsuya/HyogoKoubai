@@ -101,7 +101,6 @@ namespace m2mKoubai.Kenshu
             ListSet.SetDdlBuhinKubun_K(DdlBuhinKubun);
             // 部品
             this.DdlBuhinKubun.Attributes["onchange"] = "OnBuhin(); return false";
-
         }
 
         private void Create()
@@ -120,8 +119,7 @@ namespace m2mKoubai.Kenshu
 
             }
             // 全ての検収情報データ取得
-            KenshuDataSet.V_KenshuDataTable dt =
-                KenshuClass.getV_KenshuDataTable(k, Global.GetConnection());
+            KenshuDataSet.V_KenshuDataTable dt = KenshuClass.getV_KenshuDataTable(k, Global.GetConnection());
 
             
 
@@ -172,8 +170,6 @@ namespace m2mKoubai.Kenshu
             G.DataSource = dt;
             G.DataBind();
             G.EnableViewState = false;
-
-          
         }
 
         private KenshuClass.KensakuParam GetKensakuParam()
@@ -208,24 +204,24 @@ namespace m2mKoubai.Kenshu
                 k._UkeireBi = ctlUkeirebi.GetNengappiKikan();
             }
 
-            // 勘定科目コード 09/07/22追加
+            // 勘定科目コード
             if (TbxKanjyouKamokuCode.Text != "")
             {
                 k._KanjyouKamokuCode = int.Parse(TbxKanjyouKamokuCode.Text);
             }
 
-            // 費用科目コード 09/07/22追加
+            // 費用科目コード
             if (TbxHiyouKamokuCode.Text != "")
             {
                 k._HiyouKamokuCode = int.Parse(TbxHiyouKamokuCode.Text);
             }
 
-            // 補助科目No 09/07/22追加
+            // 補助科目No
             if (TbxHojyoKamokuNo.Text != "")
             {
                 k._HojyoKamokuNo = int.Parse(TbxHojyoKamokuNo.Text);
             }
-            // 事業所区分（追加09-07-29 呉）
+            // 事業所区分
             k._JigyoushoKubun = SessionManager.JigyoushoKubun;
             return k;
         }

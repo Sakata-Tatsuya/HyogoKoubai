@@ -113,6 +113,7 @@ namespace m2mKoubai.Upload
                     dr.KannouFlg = false;
                     dr.KaritankaFlg = false;
                     dr.Zeiritu = Convert.ToInt32(this.DdlTax.SelectedValue);
+                    dr.KeigenZeirituFlg = false; // ダミー　本当の値はDB登録直前に取得する
                     dt.AddT_ChumonRow(dr);
 
                     rowNo++;
