@@ -26,15 +26,14 @@ namespace m2mKoubaiDAL
     public enum UserKubun : byte
     {
         Owner = 1,      // ”­’Œ³
-        Yodoko = 1,     // Yodoko
         Shiiresaki = 2, // d“üæ
     }
 
-    public enum JigyoushoKubun : int
-    {
-        Himeji = 1, // •P˜H
-        Osaka = 2,  // ‘åã
-    }
+    //public enum JigyoushoKubun : int
+    //{
+    //    Himeji = 1, // •P˜H
+    //    Osaka = 2,  // ‘åã
+    //}
     
     public class KanrishaKubun
     {

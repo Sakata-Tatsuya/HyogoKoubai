@@ -441,7 +441,7 @@ namespace m2mKoubaiDAL
         + "dbo.T_Chumon.Year = dbo.T_NoukiHenkou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiHenkou.HacchuuNo LEFT OUTER JOIN "
         + "dbo.T_NoukiKaitou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiKaitou.JigyoushoKubun AND  "
         + "dbo.T_Chumon.Year = dbo.T_NoukiKaitou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiKaitou.HacchuuNo ";
-            // WHERE
+            // WHERE 
             string strW = WhereText(k, da.SelectCommand);
             if (strW != "")
             {

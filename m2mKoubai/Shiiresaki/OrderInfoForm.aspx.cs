@@ -414,11 +414,8 @@ namespace m2mKoubai.Shiiresaki
                     HidChkID_N.Value += chkN.ClientID;
                 }
 
-               
-
                 if (HidChkID_G.Value != "") HidChkID_G.Value += ",";
                 HidChkID_G.Value += chkG.ClientID;
-
 
                 chkH.Value = key.ToString();
                 chkN.Value = key.ToString();
@@ -607,10 +604,17 @@ namespace m2mKoubai.Shiiresaki
 
                 if (!dr.IsOpenedFlgNull())
                 {
-                    if (dr.OpenedFlg)
+                    if (dr.OpenedFlg) { 
                         btnM.Value = "—š—ð";
-                    else
+                    }
+                    else if(dr.UserKubun != 0)
+                    { 
                         btnM.Value = BtnMsgText(dr.UserKubun);
+                    }
+                    else
+                    {
+                        btnM.Value = "-----";
+                    }
                 }
                 else
                 {

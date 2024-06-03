@@ -542,9 +542,17 @@ namespace m2mKoubai.Order
                 if (!dr.IsOpenedFlgNull())
                 {
                     if (dr.OpenedFlg)
+                    {
                         btnM.Value = "óöó";
-                    else
+                    }
+                    else if (dr.UserKubun != 0)
+                    {
                         btnM.Value = BtnMsgText(dr.UserKubun);
+                    }
+                    else
+                    {
+                        btnM.Value = "-----";
+                    }
                 }
                 else
                 {
@@ -555,8 +563,6 @@ namespace m2mKoubai.Order
             {
                 this.HidDataKey.Value = string.Join(",", this.m_objStringCols.Keys);
                 this.HidData.Value = this.m_objStringCols.ToArrayString(":", ",");
-
-
             }
         }
         //î[ä˙ïœçXñ≥
