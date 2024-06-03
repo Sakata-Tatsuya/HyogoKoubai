@@ -114,22 +114,13 @@ namespace m2mKoubai.Denpyou
         protected global::System.Web.UI.WebControls.Literal LitKingaku;
 
         /// <summary>
-        /// LitGoukei コントロール。
+        /// GZ コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LitGoukei;
-
-        /// <summary>
-        /// LitSyouhizei コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LitSyouhizei;
+        protected global::System.Web.UI.WebControls.GridView GZ;
 
         /// <summary>
         /// LitKouzamei コントロール。

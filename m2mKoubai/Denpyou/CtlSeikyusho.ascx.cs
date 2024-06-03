@@ -10,6 +10,8 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Globalization;
 using m2mKoubaiDAL;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace m2mKoubai.Denpyou
 {
@@ -49,15 +51,79 @@ namespace m2mKoubai.Denpyou
             LitKouzaBanggo.Text = drShiire.KouzaBangou;
 
         }
-
         public void SetGoukei(int nGoukei, int nShohizei)
         {
-            this.LitGoukei.Text = string.Format("\\{0:#,##0}", nGoukei);
-            this.LitSyouhizei.Text = string.Format("\\{0:#,##0}", nShohizei);
+            //this.LitGoukei.Text = string.Format("\\{0:#,##0}", nGoukei);
+            //this.LitSyouhizei.Text = string.Format("\\{0:#,##0}", nShohizei);
 
+            // Ç≤êøãÅã‡äz
+            int nSouGoukei = nGoukei + nShohizei;
+            LitKingaku.Text = string.Format("\\{0:#,##0}", nSouGoukei);
+        }
+
+        public void SetGoukei(List<KenshuClass.ZeirituShukei> lst)
+        {
+            int nGoukei = 0;
+            int nShohizei = 0;
+            for (int i = 0; i < lst.Count; i++)
+            {
+                nGoukei += lst[i].iKingaku;
+                nShohizei += lst[i].iZeigaku;
+            }
             // Ç≤êøãÅã‡äz
             int nSouGoukei = nGoukei + nShohizei; 
             LitKingaku.Text = string.Format("\\{0:#,##0}", nSouGoukei);
+            GZ.DataSource = lst;
+            GZ.DataBind();
+            GZ.BorderColor = Color.White;
+        }
+
+        protected void GZ_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                KenshuClass.ZeirituShukei mi = e.Row.DataItem as KenshuClass.ZeirituShukei;
+                Literal LitShubetu = e.Row.FindControl("LitShubetu") as Literal;
+                Literal LitKingaku = e.Row.FindControl("LitKingaku") as Literal;
+                Literal LitZeigaku = e.Row.FindControl("LitZeigaku") as Literal;
+                LitKingaku.Text = mi.iKingaku.ToString("#,##0");
+                LitZeigaku.Text = mi.iZeigaku.ToString("#,##0");
+                LitShubetu.Text = mi.iZeiritu.ToString("#0") + "%ëŒè€";
+                if (mi.bKeigenZeirituFlg)
+                {
+                    LitShubetu.Text += "(åyå∏ê≈ó¶)";
+                }
+
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
     }
-}

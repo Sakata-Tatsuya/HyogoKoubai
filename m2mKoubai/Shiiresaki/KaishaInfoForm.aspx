@@ -1,9 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="KaishaInfoForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.KaishaInfoForm" %>
 <%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>
-<%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
+<%--<%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
-<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
+<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>--%>
 
 <!DOCTYPE html>
 
@@ -11,48 +10,38 @@
 <head>
     <title>会社情報</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />   
-     <script type="text/javascript">
-     function $(id)
-     {
-        return document.getElementById(id);
-     }
-     function OnRequestStart()
-     {
-        document.getElementById('Img1').style.display = '';
-     }
-     function OnResponseEnd()
-     {
-        document.getElementById('Img1').style.display = 'none';
-     }
-     
-     function Koushin()
-     {
-        AjaxRequest('koushin', '');
-     }
-     
-     function AjaxRequest(command_name, arg)
-     {
- 	     <%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
-	 }
-	 
-	 // "更新しますか？"メッセージ
-	 function Koushin()
-	 {
-	    if (confirm("更新しますか？"))
-	    {
-	        //document.getElementById('BtnKoushin').click();
-	        AjaxRequest('koushin', '');
-	    }
-     }
-     
-  </script>  
-     </head>
+    <script type="text/javascript">
+         function $(id) {
+             return document.getElementById(id);
+         }
+         function OnRequestStart() {
+             document.getElementById('Img1').style.display = '';
+         }
+         function OnResponseEnd() {
+             document.getElementById('Img1').style.display = 'none';
+         }
+
+         function Koushin() {
+             AjaxRequest('koushin', '');
+         }
+         function AjaxRequest(command_name, arg) {
+               <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+         }
+         // "更新しますか？"メッセージ
+         function Koushin() {
+             if (confirm("更新しますか？")) {
+                 //document.getElementById('BtnKoushin').click();
+                 AjaxRequest('koushin', '');
+             }
+         }
+    </script>  
+</head>
 <body class="bg99">
     <form id="form1" runat="server">    
     <div>
     <uc1:CtlTabShiire ID="Tab" runat="server" />
         <br />
-        <table id="TblAll" runat="server" align="center" cellpadding="0" cellspacing="0" >
+        <table id="TblAll" runat="server" align="left" cellpadding="0" cellspacing="0" >
             <tr>
                 <td align="center" class="hei20">
                     <asp:Label ID="LblMsg" runat="server" CssClass="b def9"></asp:Label></td>

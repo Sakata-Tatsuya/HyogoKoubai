@@ -7,6 +7,14 @@ namespace m2mKoubaiDAL
 {
     public class KenshuClass
     {
+        public class ZeirituShukei
+        {
+            public int iZeiritu { get; set; }
+            public bool bKeigenZeirituFlg { get; set; }
+            public int iKingaku { get; set; }
+            public int iZeigaku { get; set; }
+        }
+
         /// <summary>
         /// ŒŸõğŒ
         /// </summary>

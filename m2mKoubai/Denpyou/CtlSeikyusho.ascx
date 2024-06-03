@@ -71,7 +71,7 @@
     </tr>
     <tr>
         <td align="center" class="hei150" valign="bottom">
-            <table class="def14" border="2" style="border-color:Black">
+            <table class="def14" border="1" style="border-color:Black">
                 <tr><td style="border:0"><br /></td></tr>
                 <tr>
                     <td style="border:0"></td>
@@ -81,12 +81,50 @@
                         <asp:Literal ID="LitKingaku" runat="server"></asp:Literal></td><td style="border:0"></td>
                 </tr>
                 <tr>
-                    <td style="border:0">（</td>
+                    <td style="border:0"></td>
+                    <td colspan="2" style="border:0">
+                        <asp:GridView id="GZ" runat="server" Width="100%" AutoGenerateColumns="False"  CssClass="f10" OnRowDataBound="GZ_RowDataBound">
+                            <Columns>
+                                <asp:TemplateField>
+                                    <HeaderTemplate>
+                                        <asp:Literal ID="TtlShubetu" runat="server" Text="　"></asp:Literal>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <asp:Literal ID="LitShubetu" runat="server"></asp:Literal>
+                                    </ItemTemplate>
+                                    <ItemStyle CssClass="tl" />
+                                </asp:TemplateField>
+
+                                <asp:TemplateField>
+                                    <HeaderTemplate>
+                                        <asp:Literal ID="TtlKingaku" runat="server" Text="　合計金額"></asp:Literal>
+                                    </HeaderTemplate>
+                                    <HeaderStyle CssClass="tr" />
+                                    <ItemTemplate>
+                                        <asp:Literal ID="LitKingaku" runat="server"></asp:Literal>
+                                    </ItemTemplate>
+                                    <ItemStyle CssClass="tr" />
+                                </asp:TemplateField>
+
+                                <asp:TemplateField>
+                                    <HeaderTemplate>
+                                        <asp:Literal ID="TtlZeigaku" runat="server" Text="　消費税額"></asp:Literal>
+                                    </HeaderTemplate>
+                                    <HeaderStyle CssClass="tr" />
+                                    <ItemTemplate>
+                                        <asp:Literal ID="LitZeigaku" runat="server"></asp:Literal>
+                                    </ItemTemplate>
+                                    <ItemStyle CssClass="tr" />
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </td>
+<%--                    <td style="border:0">（</td>
                     <td height="40" style="border:0">
                         合計金額：<span lang="ja">　</span><asp:Literal ID="LitGoukei" runat="server"></asp:Literal></td>
-                    <td style="width:30; border:0"><span lang="ja">　</span>＋<span lang="ja">　</span></td>
+                    <td style="width:30px; border:0"><span lang="ja">　</span>＋<span lang="ja">　</span></td>
                     <td height="40" style="border:0">
-                        消費税：<span lang="ja">　</span><asp:Literal ID="LitSyouhizei" runat="server"></asp:Literal></td><td style="border:0">）</td>
+                        消費税：<span lang="ja">　</span><asp:Literal ID="LitSyouhizei" runat="server"></asp:Literal></td><td style="border:0">）</td>--%>
                 </tr>
                 <tr><td style="border:0"><br /></td></tr>
             </table>

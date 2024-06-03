@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
+using System.Collections.Generic;
+using Telerik.Web.UI;
 namespace m2mKoubai.Denpyou
 {
     public partial class SeikyusyoForm : System.Web.UI.Page
@@ -125,6 +127,7 @@ namespace m2mKoubai.Denpyou
                     return;
                 }
 
+                List<KenshuClass.ZeirituShukei> lst = new List<KenshuClass.ZeirituShukei>();
                 // G DataBind
                 KenshuDataSet.V_KenshuBindDataTable dtBind = new KenshuDataSet.V_KenshuBindDataTable();
 
@@ -152,12 +155,40 @@ namespace m2mKoubai.Denpyou
 
                         dtBind.AddV_KenshuBindRow(drBind);
 
-                        decimal dGoukei = Math.Round(drBind.Tanka * drBind.Suuryou, 0, MidpointRounding.AwayFromZero);
-                        int Zeiritu = dt[i].Zeiritu;
-                        decimal ZeiGaku = dGoukei * Zeiritu / 100;
+                        bool IsUpdate = false;
+                        bool mKeigenZeirituFlg = dt[i].KeigenZeirituFlg;
+                        int mZeiritu = dt[i].Zeiritu;
+                        decimal mKingaku = Math.Round(drBind.Tanka * drBind.Suuryou, 0, MidpointRounding.AwayFromZero);
+                        decimal mZeigaku = mKingaku * mZeiritu / 100;
 
-                        nGoukei += dGoukei;
-                        nGoukei_Tax += ZeiGaku;
+                        if (lst.Count > 0)
+                        {
+                            for (int ix = 0; ix < lst.Count; ix++)
+                            {
+                                if (lst[ix].iZeiritu == mZeiritu && lst[ix].bKeigenZeirituFlg == mKeigenZeirituFlg)
+                                {
+                                    IsUpdate = true;
+                                    lst[ix].iKingaku += (int)mKingaku;
+                                    lst[ix].iZeigaku += (int)mZeigaku;
+                                }
+                            }
+                        }
+                        if(!IsUpdate)
+                        {
+                            KenshuClass.ZeirituShukei m = new KenshuClass.ZeirituShukei();
+                            m.iZeiritu = mZeiritu;
+                            m.bKeigenZeirituFlg = mKeigenZeirituFlg;
+                            m.iKingaku += (int)mKingaku;
+                            m.iZeigaku += (int)mZeigaku;
+                            lst.Add(m);
+                        }
+
+                        //decimal dGoukei = Math.Round(drBind.Tanka * drBind.Suuryou, 0, MidpointRounding.AwayFromZero);
+                        //int Zeiritu = dt[i].Zeiritu;
+                        //decimal ZeiGaku = dGoukei * Zeiritu / 100;
+
+                        //nGoukei += dGoukei;
+                        //nGoukei_Tax += ZeiGaku;
                     }
                 }
 
@@ -165,9 +196,15 @@ namespace m2mKoubai.Denpyou
                  * Á”ïÅ‡Œv‚ÌŒvŽZ‚ð–¾×–ˆ‚ÌÁ”ïÅŠz‚ð
                  * ‡ŽZ‚µ‚½Œã‚ÉŽlŽÌŒÜ“ü‚·‚é‚æ‚¤•ÏX
                  */ 
-                nGoukei_Tax = Math.Round(nGoukei_Tax, 0, MidpointRounding.AwayFromZero);
+                //nGoukei_Tax = Math.Round(nGoukei_Tax, 0, MidpointRounding.AwayFromZero);
 
-                ctlSeikyu.SetGoukei((int)nGoukei, (int)nGoukei_Tax);
+                for (int j = 0; j < lst.Count; j++)
+                {
+                    nGoukei += lst[j].iKingaku;
+                    nGoukei_Tax += lst[j].iZeigaku;
+                }
+                //ctlSeikyu.SetGoukei((int)nGoukei, (int)nGoukei_Tax);
+                ctlSeikyu.SetGoukei(lst);
 
                 //@‘s”
                 int nMaxRowsCount = dtBind.Rows.Count;

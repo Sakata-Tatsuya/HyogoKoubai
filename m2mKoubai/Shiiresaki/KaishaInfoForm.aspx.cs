@@ -15,13 +15,10 @@ namespace m2mKoubai.Shiiresaki
 {
     public partial class KaishaInfoForm : System.Web.UI.Page
     {
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
                 if (SessionManager.UserKubun != (byte)UserKubun.Shiiresaki)
                 {
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
@@ -30,7 +27,6 @@ namespace m2mKoubai.Shiiresaki
                 CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
                 tab.Menu = CtlTabShiire.MainMenu.Kaisha_Jyouhou;
                 CreateKoushin();
-
             }
         }
 
@@ -49,10 +45,7 @@ namespace m2mKoubai.Shiiresaki
         private void Form_PreRender(object sender, EventArgs e)
         {
             // 更新ボタン
-            //this.BtnK.Attributes["onclick"] = "Koushin(); return false; ";
             this.BtnK.Attributes["onclick"] = "Koushin(); return false;";
-            // 更新ボタン(submit)
-            //this.BtnKoushin.Style.Add("display", "none");
             // Img
             this.Img1.Style.Add("display", "none");
         }
@@ -69,7 +62,6 @@ namespace m2mKoubai.Shiiresaki
                  ShiiresakiClass.GetV_SHiiresakiRow(SessionManager.KaishaCode, Global.GetConnection());
 
             // 仕入先コード
-            //this.TbxShiireCode = drShiiresaki.ShiiresakiCode;
             this.LitCode.Text = drShiiresaki.ShiiresakiCode;
             // 仕入先名
             this.TbxShiireName.Text = drShiiresaki.ShiiresakiMei;
@@ -81,8 +73,6 @@ namespace m2mKoubai.Shiiresaki
             this.TbxTel.Text = drShiiresaki.Tel;
             // FAX
             this.TbxFax.Text = drShiiresaki.Fax;
-            // 振込先
-            //this.TbxFurikomisaki.Text = drShiiresaki.FurikomiSaki;
             // 口座名義
             this.TbxKouzameigi.Text = drShiiresaki.KouzaMeigi;
             // 金融機関名
@@ -96,8 +86,6 @@ namespace m2mKoubai.Shiiresaki
         {
             m2mKoubaiDataSet.M_ShiiresakiRow dr = ShiiresakiClass.newM_ShiiresakiRow();
 
-            // 仕入先コード
-            //dr.ShiiresakiCode = this.TbxShiireCode.Text;
             // 仕入先名
             dr.ShiiresakiMei = this.TbxShiireName.Text;
             // 郵便番号
@@ -108,8 +96,6 @@ namespace m2mKoubai.Shiiresaki
             dr.Tel = this.TbxTel.Text;
             // FAX
             dr.Fax = this.TbxFax.Text;
-            // 振込先
-            // dr.FurikomiSaki = this.TbxFurikomisaki.Text;
             // 口座名義
             dr.KouzaMeigi = this.TbxKouzameigi.Text;
             // 金融機関名

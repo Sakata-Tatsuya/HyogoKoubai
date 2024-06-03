@@ -330,13 +330,10 @@ namespace m2mKoubaiDAL
                 return 25;
             else 
                 return 31;
-           
         }
 
-
         // âÔé–èÓïÒçXêV
-        public static LibError
-            M_ShiiresakiInfo_Update(string ShiiresakiCode, m2mKoubaiDataSet.M_ShiiresakiRow dr, SqlConnection sqlConn)
+        public static LibError M_ShiiresakiInfo_Update(string ShiiresakiCode, m2mKoubaiDataSet.M_ShiiresakiRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki WHERE ShiiresakiCode = @ShiiresakiCode";
@@ -355,6 +352,9 @@ namespace m2mKoubaiDAL
                 drThis.Address = dr.Address;
                 drThis.Tel = dr.Tel;
                 drThis.Fax = dr.Fax;
+                drThis.KouzaMeigi = dr.KouzaMeigi;
+                drThis.KinyuuKikanMei = dr.KinyuuKikanMei;
+                drThis.KouzaBangou = dr.KouzaBangou;
                 da.Update(dt);
                 return null;
             }

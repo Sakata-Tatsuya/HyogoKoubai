@@ -54,8 +54,6 @@ namespace m2mKoubai.Shiiresaki
 
                 CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
                 tab.Menu = CtlTabShiire.MainMenu.Kensyu_Jyouhou;
-
-                       
                 
                 DateTime dtNow = DateTime.Now;                
                 int nYear = dtNow.Year;
@@ -105,34 +103,15 @@ namespace m2mKoubai.Shiiresaki
             this.BtnKI.Attributes["onclick"] = string.Format("Kenshu('{0}');", HidKeyKen.Value);
             // 請求書
             this.BtnSI.Attributes["onclick"] = string.Format("Seikyu('{0}');", HidKeyKen.Value);
-          
+         
             // 行数変更
             this.DdlRow.Attributes["onchange"] = "RowChange(); return false;";
-
-            // ----- カレンダー -----
-            //CtlUkeireBi.SharedCalendar = this.SC;
-
         }
-
-        /*
-        private void SetList()
-        {
-            // 仕入先
-            ListSet.SetDdlShiiresaki(DdlShiire);
-            // 部品区分
-            ListSet.SetDdlBuhinKubun_C(DdlBuhinKubun);
-            // 部品
-            this.DdlBuhinKubun.Attributes["onchange"] = "OnBuhin(); return false";
-
-        }
-        */
-
         private void Create()
         {
             // hidden
             this.HidChkID.Value = "";
             this.HidKey.Value = "";
-            
 
             Common.CtlMyPager pagerTop = (Common.CtlMyPager)FindControl("Pt");
             Common.CtlMyPager pagerBottom = (Common.CtlMyPager)FindControl("Pb");
@@ -160,7 +139,7 @@ namespace m2mKoubai.Shiiresaki
                 return;
             }
             HidKeyKen.Value = k._NouhinYearMonth;
-            //
+
             KenshuDataSet.V_KenshuDataTable dt = KenshuClass.getV_KenshuDataTable(k, Global.GetConnection());
 
             this.ShowMsg(dt.Rows.Count + "件", false);
@@ -218,39 +197,7 @@ namespace m2mKoubai.Shiiresaki
 
         private KenshuClass.KensakuParam GetKensakuParam(int nfrom, int nto)
         {
-
-
             KenshuClass.KensakuParam k = new KenshuClass.KensakuParam();
-            /*
-            // 発注No
-            if (TbxHacchuNo.Text != "")
-            {
-                k._HacchuNo = TbxHacchuNo.Text;
-            }
-            // 仕入先
-            if (DdlShiire.SelectedIndex > 0)
-            {
-                k._SCode = DdlShiire.SelectedValue;
-            }
-
-            // 部品区分
-            if (DdlBuhinKubun.SelectedIndex > 0)
-            {
-                k._Kubun = DdlBuhinKubun.SelectedValue;
-            }
-            // 部品
-            if (DdlBuhin.SelectedIndex > 0)
-            {
-                k._BuhinCode = DdlBuhin.SelectedValue;
-            }
-
-            // 受入日
-            Common.CtlNengappiFromTo ctlUkeirebi = FindControl("CtlUkeireBi") as Common.CtlNengappiFromTo;
-            if (ctlUkeirebi.KikanType != Core.Type.NengappiKikan.EnumKikanType.NONE)
-            {
-                k._UkeireBi = ctlUkeirebi.GetNengappiKikan();
-            }
-            */
             k._FromDate = nfrom.ToString();
             k._ToDate = nto.ToString();
             // 納品年月
