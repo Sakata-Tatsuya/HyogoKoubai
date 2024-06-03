@@ -387,8 +387,7 @@ namespace m2mKoubai.Shiiresaki
             }
             else if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                ChumonDataSet.V_Chumon_JyouhouRow dr =
-                    ((DataRowView)e.Row.DataItem).Row as ChumonDataSet.V_Chumon_JyouhouRow;
+                ChumonDataSet.V_Chumon_JyouhouRow dr = ((DataRowView)e.Row.DataItem).Row as ChumonDataSet.V_Chumon_JyouhouRow;
 
                 m_objStringCols["C"].Add(dr.Year + '_' + dr.HacchuuNo + '_' + dr.JigyoushoKubun);
 
@@ -404,7 +403,7 @@ namespace m2mKoubai.Shiiresaki
                 if (HidChkID_H.Value != "") HidChkID_H.Value += ",";
                 HidChkID_H.Value += chkH.ClientID;
 
-                // 仮単価の場合、納品書の印刷できない（変更　09/07/29 呉）
+                // 仮単価の場合、納品書の印刷できない
                 if (dr.KaritankaFlg)
                 {
                     chkN.Visible = false;
@@ -431,7 +430,6 @@ namespace m2mKoubai.Shiiresaki
                     chkH.Visible = false;
                     chkN.Visible = false;
                     chkG.Visible = false;
-
                     e.Row.Cells[G_CELL_CANCEL].Text = "キャン<br>セル";
                     e.Row.Cells[G_CELL_CANCEL].ForeColor = System.Drawing.Color.Red;
                 }
@@ -636,8 +634,7 @@ namespace m2mKoubai.Shiiresaki
             strNouki = dr.Nouki;
         }
         // 納期変更が未承認の場合
-        private void GetMiNoukiHenkouInfo(ChumonDataSet.V_Chumon_JyouhouRow dr, DataView dvHN, 
-                                            out NoukiHenkouInfo info, bool bCreateHenkou, out string strNouki)
+        private void GetMiNoukiHenkouInfo(ChumonDataSet.V_Chumon_JyouhouRow dr, DataView dvHN, out NoukiHenkouInfo info, bool bCreateHenkou, out string strNouki)
         {
             info = new NoukiHenkouInfo();
             string[] strNoukiAry = null;
@@ -721,6 +718,10 @@ namespace m2mKoubai.Shiiresaki
                 }
                 // 変更納期
                 info.strNoukiHenkouHtml = Utility.ToInnerRowsHTML_NoLine(strNoukiAry);
+            }
+            else 
+            {
+                str = dr.Nouki;
             }
             strNouki = str;
 

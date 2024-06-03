@@ -659,7 +659,7 @@
                                 <asp:DropDownList ID="DdlMsg" runat="server">
                                 </asp:DropDownList></td>
                             <td>
-                              <asp:DropDownList ID="DdlCancel" runat="server">
+                                <asp:DropDownList ID="DdlCancel" runat="server">
                                 </asp:DropDownList></td>
                         </tr>
                     </table>
