@@ -83,7 +83,7 @@
                                     <td style="padding:0 0 0 0">
                                         <asp:Button ID="BtnClear" runat="server" Text="入力内容を全てクリアする" OnClick="BtnClear_Click" />
                                     </td>
-                                    <td style="padding:0 0 0 0">
+<%--                                    <td style="padding:0 0 0 0">
                                         <table>
                                             <tr>
                                                 <td>
@@ -97,7 +97,7 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                    </td>
+                                    </td>--%>
                                 </tr>
                             </table>
                             </td>
@@ -191,6 +191,15 @@
                                 </HeaderTemplate>
                                 <ItemStyle CssClass="nw" />
                                 <HeaderStyle CssClass="nw" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="税率">
+                                <ItemTemplate>
+                                    <asp:DropDownList ID="DdlZeiritu" runat="server">
+                                        <asp:ListItem Value="8">8%</asp:ListItem>
+                                        <asp:ListItem Selected="True" Value="10">10%</asp:ListItem>
+                                    </asp:DropDownList>
+                                </ItemTemplate>
+                                <ItemStyle CssClass="tc" />
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="数量">
                                 <ItemTemplate>

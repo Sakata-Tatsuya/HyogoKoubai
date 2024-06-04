@@ -136,12 +136,14 @@ namespace m2mKoubai.Order
                 VsKeigenZeirituFlg = false;
                 if (DateTime.Today >= new DateTime(2019, 10, 1))
                 {
-                    this.DdlTax.SelectedValue = "10";
+                    //this.DdlTax.SelectedValue = "10";
+                    VsZeiritu = "10";
                     VsKeigenZeirituFlg = false;
                 }
                 else
                 {
-                    this.DdlTax.SelectedValue = "8";
+                    //this.DdlTax.SelectedValue = "8";
+                    VsZeiritu = "8";
                     VsKeigenZeirituFlg = true;
                 }
                 lst = InitHacchu_Meisai(VsRowCnt);
@@ -243,6 +245,7 @@ namespace m2mKoubai.Order
                 Label LblTani = e.Row.FindControl("LblTani") as Label;
                 Label LblLT = e.Row.FindControl("LblLT") as Label;
                 RadDatePicker RdpNouki = e.Row.FindControl("RdpNouki") as RadDatePicker;
+                DropDownList DdlZeiritu = e.Row.FindControl("DdlZeiritu") as DropDownList;
                 DropDownList DdlBasho = e.Row.FindControl("DdlBasho") as DropDownList;
                 TextBox TbxBikou = e.Row.FindControl("TbxBikou") as TextBox;
                 DateTime dtTemp = DateTime.Now;
@@ -263,6 +266,7 @@ namespace m2mKoubai.Order
                     RcbBuhinKubun.SelectedValue = mi.strBuhinKubun;
                     RcbBuhinKubun.Text = mi.strBuhinKubun;
                 }
+                DdlZeiritu.SelectedValue = mi.strZeiritu;
                 LblTani.Text = mi.strTani;
                 LblLT.Text = mi.strLT;
                 LblLot.Text = mi.strLot;
@@ -305,7 +309,6 @@ namespace m2mKoubai.Order
                     TbxTanka.Text = decTanka.ToString("#,###.###");
                     TbxSuryo.Text = decSuryo.ToString("#,###.###");
                 }
-
                 // ”[Šú
                 if (mi.strNouki != string.Empty)
                 {
@@ -331,7 +334,7 @@ namespace m2mKoubai.Order
         private List<ChumonClass.ChumonMeisai> InitHacchu_Meisai(int RowNum)
         {
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
-            VsZeiritu = DdlTax.SelectedValue;
+            //VsZeiritu = DdlTax.SelectedValue;
             VsKeigenZeirituFlg = Utility.GetKeigenZeirituFlg(DateTime.Today, VsZeiritu);
             VsShiiresaki = DdlShiiresaki.SelectedValue;
 
@@ -350,7 +353,7 @@ namespace m2mKoubai.Order
                 m.strTanka = String.Empty;
                 m.strSuryo = String.Empty;
                 m.strKingaku = String.Empty;
-                m.strZeiritu = "10";
+                m.strZeiritu = VsZeiritu;
                 m.strNouki = String.Empty;
                 m.strNounyuuBashoCode = String.Empty;
                 m.strBikou = String.Empty;
@@ -386,7 +389,7 @@ namespace m2mKoubai.Order
             mi.strTanka = String.Empty;
             mi.strSuryo = String.Empty;
             mi.strKingaku = String.Empty;
-            mi.strZeiritu = "10";
+            mi.strZeiritu = VsZeiritu;
             mi.strNouki = String.Empty;
             mi.strNounyuuBashoCode = String.Empty;
             mi.strBikou = String.Empty;
@@ -434,8 +437,8 @@ namespace m2mKoubai.Order
         {
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
 
-            VsZeiritu = DdlTax.SelectedValue;
-            VsKeigenZeirituFlg = Utility.GetKeigenZeirituFlg(DateTime.Today, VsZeiritu);
+            //VsZeiritu = DdlTax.SelectedValue;
+            //VsKeigenZeirituFlg = Utility.GetKeigenZeirituFlg(DateTime.Today, VsZeiritu);
             VsShiiresaki = DdlShiiresaki.SelectedValue;
 
             int i = 0;
@@ -476,6 +479,7 @@ namespace m2mKoubai.Order
             Label LblTani = item.FindControl("LblTani") as Label;
             Label LblLT = item.FindControl("LblLT") as Label;
             RadDatePicker RdpNouki = item.FindControl("RdpNouki") as RadDatePicker;
+            DropDownList DdlZeiritu = item.FindControl("DdlZeiritu") as DropDownList;
             DropDownList DdlBasho = item.FindControl("DdlBasho") as DropDownList;
             TextBox TbxBikou = item.FindControl("TbxBikou") as TextBox;
 
@@ -495,16 +499,20 @@ namespace m2mKoubai.Order
             decimal.TryParse(TbxSuryo.Text, out decSuryo);
             decKingaku = decTanka * decSuryo;
             m.strKingaku = decKingaku.ToString("0");
-            m.strZeiritu = VsZeiritu;
-            m.KeigenZeirituFlg = VsKeigenZeirituFlg;
-            m.ChkKaritankaFlg = Convert.ToBoolean(VsKeigenZeirituFlg);
+            m.strZeiritu = DdlZeiritu.SelectedValue;
             m.strTani = LblTani.Text;
             m.strLT = LblLT.Text;
             DateTime.TryParse(RdpNouki.SelectedDate.ToString(), out dtTemp);
             if (dtTemp > RdpNouki.MinDate && dtTemp < RdpNouki.MaxDate)
-            { m.strNouki = dtTemp.ToString("yyyy/MM/dd"); }
+            {
+                m.strNouki = dtTemp.ToString("yyyy/MM/dd");
+                m.KeigenZeirituFlg = Utility.GetKeigenZeirituFlg(dtTemp, m.strZeiritu);
+            }
             else
-            { m.strNouki = string.Empty; }
+            {
+                m.strNouki = string.Empty;
+                m.KeigenZeirituFlg = Utility.GetKeigenZeirituFlg(DateTime.Today, m.strZeiritu);
+            }
             m.strNounyuuBashoCode = DdlBasho.SelectedValue;
             m.strBikou = TbxBikou.Text;
 
@@ -823,13 +831,14 @@ namespace m2mKoubai.Order
                 dtTemp = DateTime.Now;
                 DateTime.TryParse(mi.strNouki, out dtTemp);
                 dr.Nouki = dtTemp.ToString("yyyyMMdd");
+                dr.KeigenZeirituFlg = Utility.GetKeigenZeirituFlg(dtTemp, mi.strZeiritu);
                 dr.NounyuuBashoCode = mi.strNounyuuBashoCode;
                 dr.Bikou = mi.strBikou;
                 dr.HacchuuBi = dtNow;
                 dr.HacchushaID = VsUserID;
                 dr.KannouFlg = false;
-                dr.KaritankaFlg = false;
-                dr.KeigenZeirituFlg = VsKeigenZeirituFlg;
+                dr.KaritankaFlg = mi.ChkKaritankaFlg;
+                dr.KeigenZeirituFlg = mi.KeigenZeirituFlg;
 
                 dt.AddT_ChumonRow(dr);
             }
