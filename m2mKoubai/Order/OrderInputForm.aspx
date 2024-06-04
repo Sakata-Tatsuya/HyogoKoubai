@@ -120,11 +120,9 @@
                             <table style="border-collapse:collapse;">
                                 <tr>
                                     <td style="padding:0 0 0 0">
-<%--                                        <input id="BtnS" runat="server" type="button" value="チェックした行を削除する" class="bg6" />--%>
                                         <asp:Button ID="BtnDel" runat="server" Text="チェックした行を削除する" OnClick="BtnDel_Click" />
                                     </td>
                                     <td style="padding:0 0 0 0">
-<%--                                        <input id="BtnClearO" runat="server" type="button" value="入力した内容を全て削除する" class="bg6" />--%>
                                         <asp:Button ID="BtnClear" runat="server" Text="入力内容を全てクリアする" OnClick="BtnClear_Click" />
                                     </td>
                                     <td style="padding:0 0 0 0">

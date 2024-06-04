@@ -2,7 +2,7 @@
 <%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc4" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
-<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
+<%--<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>--%>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register Assembly="Core" namespace="Core.Web" tagprefix="cc1" %>
 
@@ -90,7 +90,6 @@
         {
              var chkIdAry3 = document.getElementById('HidChkID_G').value.split(',');  
              var hidPrintKey = ''
-               
             for(var i = 0; i < chkIdAry3.length; i++)
             {
                 var chk3 = document.getElementById(chkIdAry3[i]);

@@ -103,8 +103,6 @@ namespace m2mKoubai.Master
             VsCurrentPageIndex = nNewPageIndex;
             this.Create();
         }
-
-
         // クリエート
         private void Create()
         {
@@ -114,11 +112,8 @@ namespace m2mKoubai.Master
 
             Common.CtlMyPager pagerTop = (Common.CtlMyPager)FindControl("Pt");
             Common.CtlMyPager pagerBottom = (Common.CtlMyPager)FindControl("Pb");
-
-
             // 部品データを取得する
-            BuhinDataSet.V_Buhin_MasterDataTable dt =
-                BuhinClass.getV_Buhin_MasterDataTable(this.GetKensakuParam(), Global.GetConnection());
+            BuhinDataSet.V_Buhin_MasterDataTable dt = BuhinClass.getV_Buhin_MasterDataTable(this.GetKensakuParam(), Global.GetConnection());
             
             this.ShowMsg(dt.Rows.Count + "件", false);
             if (dt.Rows.Count == 0)

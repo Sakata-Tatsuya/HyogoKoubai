@@ -266,7 +266,13 @@ namespace m2mKoubai.Order
                         LblLot.Text = drM.Lot.ToString("#,###");
                         LblTani.Text = drM.Tani;
                         if (drM.LT_Suuji > 0)
-                        { LblLT.Text = drM.LT_Suuji.ToString() + drM.LT_Tani; }
+                        { 
+                            LblLT.Text = drM.LT_Suuji.ToString() + AppCommon.LT_Tani(drM.LT_Tani);
+                            if (mi.strNouki == string.Empty)
+                            {
+                                RdpNouki.SelectedDate = AppCommon.GetNouki(drM.LT_Suuji, drM.LT_Tani);
+                            }
+                        }
                         else
                         { LblLT.Text = string.Empty; }
                     }
