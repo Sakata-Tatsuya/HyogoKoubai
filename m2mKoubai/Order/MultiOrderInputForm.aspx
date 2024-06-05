@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MultiOrderInputForm.aspx.cs" Inherits="m2mKoubai.Order.MultiOrderInputForm" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
+<%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
+<%--<%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>--%>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 
 <%--<%@ Register Assembly="RadInput.Net2" Namespace="Telerik.WebControls" TagPrefix="radI" %>--%>
@@ -43,7 +44,8 @@
 </head>
 <body class="bg0">
     <form id="form1" runat="server">    
-        <uc1:CtlTabMain ID="Tab" runat="server" />
+<%--        <uc1:CtlTabMain ID="Tab" runat="server" />--%>
+        <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
         <table id="TblMain" runat="server" width="100%" class="def9">
             <tr>
                 <td>
@@ -291,7 +293,7 @@
                 </td>
             </tr>
         </table>
-        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
                 </asp:ScriptReference>
@@ -300,7 +302,7 @@
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
                 </asp:ScriptReference>
             </Scripts>
-        </telerik:RadScriptManager>
+        </telerik:RadScriptManager>--%>
         <telerik:RadAjaxManager ID="Ram"  runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>

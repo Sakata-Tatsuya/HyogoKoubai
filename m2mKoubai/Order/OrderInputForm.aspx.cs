@@ -146,9 +146,9 @@ namespace m2mKoubai.Order
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
-                CtlTabMain tab = FindControl("Tab") as CtlTabMain;
-                tab.Menu = CtlTabMain.MainMenu.Hacchu_Nyuuryoku;
-                tab.Hacchu_NyuuryokuMenu = CtlTabMain.Hacchu_Nyuuryoku.Single;
+                //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
+                //tab.Menu = CtlTabMain.MainMenu.Hacchu_Nyuuryoku;
+                //tab.Hacchu_NyuuryokuMenu = CtlTabMain.Hacchu_Nyuuryoku.Single;
                 LblOK.Text = "";
                 ShowMsg("", false);
                 BtnT.Enabled = true;

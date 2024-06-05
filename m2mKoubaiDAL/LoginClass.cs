@@ -294,8 +294,7 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
-        public static m2mKoubaiDataSet.M_LoginRow
-            getM_LoginRow(string LoginID, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_LoginRow getM_LoginRow(string LoginID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE LoginID = @LoginID";

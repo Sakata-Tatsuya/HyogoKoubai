@@ -1,8 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="KaishaInfoForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.KaishaInfoForm" %>
-<%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>
-<%--<%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
-<%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
-<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>--%>
+
+<%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
+<%--<%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>--%>
 
 <!DOCTYPE html>
 
@@ -30,7 +29,6 @@
          // "更新しますか？"メッセージ
          function Koushin() {
              if (confirm("更新しますか？")) {
-                 //document.getElementById('BtnKoushin').click();
                  AjaxRequest('koushin', '');
              }
          }
@@ -39,7 +37,8 @@
 <body class="bg99">
     <form id="form1" runat="server">    
     <div>
-    <uc1:CtlTabShiire ID="Tab" runat="server" />
+        <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
+<%--        <uc1:CtlTabShiire ID="Tab" runat="server" />--%>
         <br />
         <table id="TblAll" runat="server" align="left" cellpadding="0" cellspacing="0" >
             <tr>
@@ -128,7 +127,7 @@
         </table>    
     </div>
         <br />
-        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
                 </asp:ScriptReference>
@@ -137,7 +136,7 @@
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
                 </asp:ScriptReference>
             </Scripts>
-        </telerik:RadScriptManager>
+        </telerik:RadScriptManager>--%>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>

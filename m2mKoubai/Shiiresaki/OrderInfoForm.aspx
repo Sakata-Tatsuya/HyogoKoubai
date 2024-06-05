@@ -1,9 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInfoForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.OrderInfoForm" ValidateRequest="false" %>
-<%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc4" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register TagPrefix="uc1" TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" %>
+<%--<%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc4" %>--%>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
-<%--<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>--%>
-<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register Assembly="Core" namespace="Core.Web" tagprefix="cc1" %>
 
 <!DOCTYPE html>
@@ -571,7 +571,8 @@
 </head>
 <body class="bg99">
     <form id="form1" runat="server">
-        <uc4:CtlTabShiire ID="Tab" runat="server" />
+<%--        <uc4:CtlTabShiire ID="Tab" runat="server" />--%>
+        <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
        
         <table border="1" bordercolor="#000000" class="col def9 mt5 bg1">
             <tr>
@@ -978,7 +979,7 @@
      
         <telerik:RadCalendar ID="SC" runat="server" Skin="Web20">
         </telerik:RadCalendar>
-        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
                 </asp:ScriptReference>
@@ -987,7 +988,7 @@
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
                 </asp:ScriptReference>
             </Scripts>
-        </telerik:RadScriptManager>
+        </telerik:RadScriptManager>--%>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>    

@@ -24,13 +24,13 @@ namespace m2mKoubai.Download
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// CtlTabMain1 コントロール。
+        /// M コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::m2mKoubai.CtlTabMain CtlTabMain1;
+        protected global::m2mKoubai.CtlMainMenu M;
 
         /// <summary>
         /// TabUpload コントロール。

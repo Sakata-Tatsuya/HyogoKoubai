@@ -62,8 +62,8 @@ namespace m2mKoubai.Order
                     return;
                 }
 
-                CtlTabMain tab = FindControl("Tab") as CtlTabMain;
-                tab.Menu = CtlTabMain.MainMenu.Hacchu_Jyouhou;
+                //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
+                //tab.Menu = CtlTabMain.MainMenu.Hacchu_Jyouhou;
 
                 // ŒŸõƒŠƒXƒgì¬
                 this.SetList();

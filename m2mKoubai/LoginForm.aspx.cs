@@ -56,11 +56,8 @@ namespace m2mKoubai
             {
                 if (_dt.Rows.Count > 0)
                 {
-                    m2mKoubaiDataSet.M_LoginMsgRow dr =
-                        (m2mKoubaiDataSet.M_LoginMsgRow)((DataRowView)e.Row.DataItem).Row;
+                    m2mKoubaiDataSet.M_LoginMsgRow dr = (m2mKoubaiDataSet.M_LoginMsgRow)((DataRowView)e.Row.DataItem).Row;
 
-                    //string date = dr.TourokuBi.ToString("yy/MM/dd<br/>HH:mm");
-                    //e.Row.Cells[G_CELL_DATE].Text = date;
                     e.Row.Cells[G_CELL_MESSAGE].Text = dr.Msg.Replace("\r\n", "<br>");
                 }
             }
@@ -81,7 +78,7 @@ namespace m2mKoubai
                 this.ShowErrMsg("パスワードを入力して下さい");
                 return;
             }
-            // 
+            //
             // 認証
             m2mKoubaiDataSet.M_LoginRow dr = LoginClass.getM_LoginRow(strId, strPass, Global.GetConnection());
 
@@ -95,8 +92,7 @@ namespace m2mKoubai
             if (dr.UserKubun == (byte)UserKubun.Shiiresaki)
             {         
                 // 会社情報を取得
-                LoginDataSet.V_Shiiresaki_FlgRow drShiire =
-                    LoginClass.getV_Shiiresaki_FlgRow(strId, strPass, Global.GetConnection());
+                LoginDataSet.V_Shiiresaki_FlgRow drShiire = LoginClass.getV_Shiiresaki_FlgRow(strId, strPass, Global.GetConnection());
                 // 会社情報が存在する場合
                 if (drShiire != null)
                 {

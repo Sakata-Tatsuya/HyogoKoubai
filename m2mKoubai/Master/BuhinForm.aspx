@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BuhinForm.aspx.cs" Inherits="m2mKoubai.Master.BuhinForm" %>
 
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
-<%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
+<%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
+<%--<%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>--%>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 
 <!DOCTYPE html>
@@ -63,6 +63,9 @@
                 chk.checked = bool;
             }
         }
+        function Kensaku() {
+            AjaxRequest('kensaku', '');
+        }
         function OnRequestStart() {
             document.getElementById('Img1').style.display = '';
         }
@@ -76,14 +79,16 @@
 </head>
 <body class="bg0">
     <form id="form1" runat="server">
-       <uc1:CtlTabMain id="Tab" runat="server"></uc1:CtlTabMain>   
+        <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
+<%--        <uc1:CtlTabMain id="Tab" runat="server"></uc1:CtlTabMain>--%>
         <input id="BtnNew" runat="server" type="button" value="新規登録" class="mt5 bg6" /><br />
         <table border="1" bordercolor="#000000" class="def9 col mt5 tc bg1">
             <tr>
                 <td class="bg3" >
                     品目</td>
                 <td rowspan="2">
-                    <input id="BtnK" runat="server" class="w60 bg6" type="button" value="検索" /></td>
+                    <input id="BtnK" runat="server" class="w60 bg6" type="button" value="検索" />
+                </td>
             </tr>
             <tr>
                 <td>
@@ -111,8 +116,7 @@
                 <td>
                     <table class="def" width="100%">
                         <tr>
-                            <td>
-                               
+                            <td width="20%">
                                 <uc2:CtlMyPager ID="Pt" runat="server" />
                             </td>
                             <td align="left">
@@ -311,7 +315,7 @@
                 </td>
             </tr>
         </table>
-        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
                 </asp:ScriptReference>
@@ -320,7 +324,7 @@
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
                 </asp:ScriptReference>
             </Scripts>
-        </telerik:RadScriptManager>
+        </telerik:RadScriptManager>--%>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
         <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>

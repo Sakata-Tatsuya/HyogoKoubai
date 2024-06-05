@@ -1,9 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="KenshuInfoForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.KenshuInfoForm" %>
 
-<%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>
+<%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
+<%--<%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>--%>
 <%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 <%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>
 
 <!DOCTYPE html>
@@ -169,40 +169,40 @@
 <body class="bg99">
     <form id="form1" runat="server">
     <div>
-        <uc1:CtlTabShiire ID="Tab" runat="server" />
-                    <table border="1" bordercolor="#000000" class="tc col bg1 def9 mt5">
-                        <tr class="bg3">
-                            <td >
-                                検収年月</td>
-                            <td style="width: 96px">
-                                発注元事業所</td>
-                            <td rowspan="2">
-                                <input id="BtnK" runat="server" class="w60 bg98" type="button" value="検索" /></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:DropDownList ID="DdlYear" runat="server">
-                                </asp:DropDownList>年<asp:DropDownList ID="DdlMonth" runat="server">
-                                    <asp:ListItem>---</asp:ListItem>
-                                    <asp:ListItem>1</asp:ListItem>
-                                    <asp:ListItem>2</asp:ListItem>
-                                    <asp:ListItem>3</asp:ListItem>
-                                    <asp:ListItem>4</asp:ListItem>
-                                    <asp:ListItem>5</asp:ListItem>
-                                    <asp:ListItem>6</asp:ListItem>
-                                    <asp:ListItem>7</asp:ListItem>
-                                    <asp:ListItem>8</asp:ListItem>
-                                    <asp:ListItem>9</asp:ListItem>
-                                    <asp:ListItem>10</asp:ListItem>
-                                    <asp:ListItem>11</asp:ListItem>
-                                    <asp:ListItem>12</asp:ListItem>
-                                </asp:DropDownList>月</td>
-                            <td >
-                                <asp:DropDownList ID="DdlJigyoshoKubun" runat="server">
-                                </asp:DropDownList></td>
-                            
-                        </tr>
-                    </table>
+<%--        <uc1:CtlTabShiire ID="Tab" runat="server" />--%>
+        <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
+        <table border="1" bordercolor="#000000" class="tc col bg1 def9 mt5">
+            <tr class="bg3">
+                <td>
+                    検収年月</td>
+                <td style="width: 96px">
+                    発注元事業所</td>
+                <td rowspan="2">
+                    <input id="BtnK" runat="server" class="w60 bg98" type="button" value="検索" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:DropDownList ID="DdlYear" runat="server">
+                        </asp:DropDownList>年<asp:DropDownList ID="DdlMonth" runat="server">
+                        <asp:ListItem>---</asp:ListItem>
+                        <asp:ListItem>1</asp:ListItem>
+                        <asp:ListItem>2</asp:ListItem>
+                        <asp:ListItem>3</asp:ListItem>
+                        <asp:ListItem>4</asp:ListItem>
+                        <asp:ListItem>5</asp:ListItem>
+                        <asp:ListItem>6</asp:ListItem>
+                        <asp:ListItem>7</asp:ListItem>
+                        <asp:ListItem>8</asp:ListItem>
+                        <asp:ListItem>9</asp:ListItem>
+                        <asp:ListItem>10</asp:ListItem>
+                        <asp:ListItem>11</asp:ListItem>
+                        <asp:ListItem>12</asp:ListItem>
+                    </asp:DropDownList>月</td>
+                <td >
+                    <asp:DropDownList ID="DdlJigyoshoKubun" runat="server">
+                    </asp:DropDownList></td>
+            </tr>
+        </table>
         <table id="TblList" runat="server" width="100%" class="def9">
             <tr>
                 <td>
@@ -319,7 +319,7 @@
         </table>
     
     </div>
-        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
                 </asp:ScriptReference>
@@ -328,7 +328,7 @@
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
                 </asp:ScriptReference>
             </Scripts>
-        </telerik:RadScriptManager>
+        </telerik:RadScriptManager>--%>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>    

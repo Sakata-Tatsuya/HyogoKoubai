@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MessegeForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.MessegeForm" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
@@ -10,11 +9,11 @@
     function $(id)
     {
         return document.getElementById(id);
-    }      
-    function Close() 
-    {               
-        window.close();       
-    }             
+    }
+    function Close()
+    {
+        window.close();
+    }
     function Touroku()
     {
         var msg = document.getElementById("TbxMsg").value;
@@ -29,26 +28,26 @@
             return;
         }
         if (confirm(document.getElementById('BtnT').value+"しますか？"))
-        {          
+        {
             document.getElementById('BtnReg').click();
         }
-    }   
+    }
     function Clear()
     {
         document.getElementById('TbxMsg').value = "";
         document.getElementById('TbxMsg').focus();
-    } 
+    }
     function OnLoad(loadFlg)
-    {           
+    {
         document.getElementById('TbxMsg').focus();
-        if (window.opener != null) 
-        {        
-            if (loadFlg == 1) 
-            {            
+        if (window.opener != null)
+        {
+            if (loadFlg == 1)
+            {
                 window.opener.Reload();
             }
         }
-    }    
+    }
     </script>
 </head>
 <body onload="OnLoad(<%=loadFlg%>)" class="bg99">
@@ -74,8 +73,8 @@
                             <td class="bg7 b">
                                 メッセージ</td>
                             <td nowrap="nowrap">
-                                <asp:TextBox ID="TbxMsg" runat="server" MaxLength="100" Rows="6" TextMode="MultiLine"
-                                    Width="350px"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxMsg" runat="server" MaxLength="100" Rows="6" TextMode="MultiLine" Width="350px"></asp:TextBox>
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -83,7 +82,8 @@
             <tr>
                 <td align="center">
                     <input id="BtnClear" runat="server" class="w80 bg98" type="button" value="クリア" />
-                    <input id="BtnT" runat="server" class="w80 bg98" type="button" value="登録" /></td>
+                    <input id="BtnT" runat="server" class="w80 bg98" type="button" value="登録" />
+                </td>
             </tr>
             <tr>
                 <td align="center">

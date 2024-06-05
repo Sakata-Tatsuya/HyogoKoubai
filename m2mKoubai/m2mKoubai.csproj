@@ -88,6 +88,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\RadInput.Net2.dll</HintPath>
     </Reference>
+    <Reference Include="RadMenu.Net2">
+      <HintPath>dll\RadMenu.Net2.dll</HintPath>
+    </Reference>
     <Reference Include="RadTabStrip.Net2, Version=3.5.2.0, Culture=neutral, PublicKeyToken=a87324b017ca21ce, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\RadTabStrip.Net2.dll</HintPath>
@@ -288,6 +291,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="CtlMainMenu.ascx" />
     <Content Include="Denpyou\CtlGenpinhyou.ascx" />
     <Content Include="Denpyou\CtlJyuryosho_M.ascx" />
     <Content Include="Denpyou\CtlJyuryousho_F.ascx" />
@@ -9534,6 +9538,13 @@
     </Compile>
     <Compile Include="Common\CtlNengappiFromTo.ascx.designer.cs">
       <DependentUpon>CtlNengappiFromTo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CtlMainMenu.ascx.cs">
+      <DependentUpon>CtlMainMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CtlMainMenu.ascx.designer.cs">
+      <DependentUpon>CtlMainMenu.ascx</DependentUpon>
     </Compile>
     <Compile Include="CtlNouki.ascx.cs">
       <DependentUpon>CtlNouki.ascx</DependentUpon>

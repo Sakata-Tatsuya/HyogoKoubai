@@ -64,10 +64,8 @@ namespace m2mKoubai.Shiiresaki
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
-
-
-                CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
-                tab.Menu = CtlTabShiire.MainMenu.Jyuchuu_Jyouhou;
+                //CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
+                //tab.Menu = CtlTabShiire.MainMenu.Jyuchuu_Jyouhou;
 
                 // ŒŸõƒŠƒXƒgì¬
                 this.SetList();

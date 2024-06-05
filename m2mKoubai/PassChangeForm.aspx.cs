@@ -18,9 +18,8 @@ namespace m2mKoubai
             
             if (!IsPostBack)
             {
-                
-                CtlTabMain tab = FindControl("Tab") as CtlTabMain;
-                tab.Menu = CtlTabMain.MainMenu.PassChange;
+                //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
+                //tab.Menu = CtlTabMain.MainMenu.PassChange;
             }
         }
         protected override void OnInit(EventArgs e)
@@ -41,8 +40,6 @@ namespace m2mKoubai
             this.Img1.Style.Add("display", "none");
             // 半角チェック
             this.Hankaku();
-
-            
         }
         private void Hankaku()
         {

@@ -28,7 +28,6 @@ namespace m2mKoubai.Shiiresaki
             }
         }
 
-
         private const int G_CELL_NO = 0;
         private const int G_CELL_BUHIN_KUBUN = 1;
         private const int G_CELL_BUHIN_CODE = 2;
@@ -41,7 +40,6 @@ namespace m2mKoubai.Shiiresaki
         private const int G_CELL_UKEIREBI = 9;
         private const int G_CELL_NYUKA_SUURYOU = 10;
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -52,8 +50,8 @@ namespace m2mKoubai.Shiiresaki
                     return;
                 }
 
-                CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
-                tab.Menu = CtlTabShiire.MainMenu.Kensyu_Jyouhou;
+                //CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
+                //tab.Menu = CtlTabShiire.MainMenu.Kensyu_Jyouhou;
                 
                 DateTime dtNow = DateTime.Now;                
                 int nYear = dtNow.Year;

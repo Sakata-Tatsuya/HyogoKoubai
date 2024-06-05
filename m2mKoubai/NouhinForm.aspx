@@ -1,10 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NouhinForm.aspx.cs" Inherits="m2mKoubai.NouhinForm" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ Register Src="CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
+<%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
+<%--<%@ Register Src="CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>--%>
 <%--<%@ Register Assembly="RadCalendar.Net2" Namespace="Telerik.WebControls" TagPrefix="radCln" %>--%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <title>納品</title>
     <link href="MainStyle.css" rel="stylesheet" type="text/css" />
@@ -144,7 +146,8 @@
 <body onload="Load();" class="bg0">
     <form id="form1" runat="server">
     <div>
-        <uc1:CtlTabMain ID="Tab" runat="server" />
+<%--        <uc1:CtlTabMain ID="Tab" runat="server" />--%>
+        <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
         <table class="col def9 mt5 bg1" border="1" bordercolor="#000000">
             <tr>
                 <td class="bg3 tc">
@@ -348,7 +351,7 @@
         </tr>
     </table>
 
-    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+<%--    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
         <Scripts>
             <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
             </asp:ScriptReference>
@@ -357,7 +360,7 @@
             <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
             </asp:ScriptReference>
         </Scripts>
-    </telerik:RadScriptManager>
+    </telerik:RadScriptManager>--%>
     <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
         <ClientEvents OnResponseEnd="OnResponseEnd" OnRequestStart="OnRequestStart" />
     </telerik:RadAjaxManager>

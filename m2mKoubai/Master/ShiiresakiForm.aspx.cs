@@ -65,9 +65,9 @@ namespace m2mKoubai.Master
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
-                CtlTabMain tab = FindControl("Tab") as CtlTabMain;
-                tab.Menu = CtlTabMain.MainMenu.Master;
-                tab.MasterMenu = CtlTabMain.Master.Shiiresaki;
+                //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
+                //tab.Menu = CtlTabMain.MainMenu.Master;
+                //tab.MasterMenu = CtlTabMain.Master.Shiiresaki;
 
                 this.DdlLoad();
                 this.Create();

@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NounyuBashoForm.aspx.cs" Inherits="m2mKoubai.Master.NounyuBashoForm" %>
 
-<%@ Register Src="../CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
+<%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
+<%--<%@ Register Src="../CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>--%>
 <%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <!DOCTYPE html>
 
@@ -102,8 +102,9 @@
 </head>
 <body class="bg0">
     <form id="form1" runat="server">    
-        <uc1:CtlTabMain ID="Tab" runat="server" />
-            <input id="BtnNew" runat="server" type="button" value="新規登録" class="mt5 bg6" />       
+<%--        <uc1:CtlTabMain ID="Tab" runat="server" />--%>
+        <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
+        <input id="BtnNew" runat="server" type="button" value="新規登録" class="mt5 bg6" />       
         <table border="1" bordercolor="#000000" class="def9 bg1 col mt5 tc">
             <tr>
                 <td class="bg3" style="width: 83px">
@@ -135,9 +136,9 @@
             </tr>
             <tr>
                 <td>
-                    <table width="100%">
+                    <table width="80%">
                         <tr>
-                            <td width="50%">
+                            <td width="20%">
                                 <uc2:ctlmypager id="Pt" runat="server"></uc2:ctlmypager>
                             </td>
                             <td class="tr">
@@ -206,7 +207,7 @@
                 </td>
             </tr>
         </table>
-        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
                 </asp:ScriptReference>
@@ -215,7 +216,7 @@
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
                 </asp:ScriptReference>
             </Scripts>
-        </telerik:RadScriptManager>
+        </telerik:RadScriptManager>--%>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>

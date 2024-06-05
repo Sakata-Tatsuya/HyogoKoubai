@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInputForm.aspx.cs" Inherits="m2mKoubai.Order.OrderInputForm" %>
 
+<%@ Register TagPrefix="uc1" TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
+<%--<%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>--%>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -86,7 +87,7 @@
 </head>
 <body class="bg0">
     <form id="form1" runat="server">
-        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
                 </asp:ScriptReference>
@@ -95,8 +96,9 @@
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
                 </asp:ScriptReference>
             </Scripts>
-        </telerik:RadScriptManager>
-    <uc1:CtlTabMain ID="Tab" runat="server" />
+        </telerik:RadScriptManager>--%>
+<%--    <uc1:CtlTabMain ID="Tab" runat="server" />--%>
+    <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
     <table id="TblMain" runat="server" width="100%" class="def9">
         <tr>
             <td>

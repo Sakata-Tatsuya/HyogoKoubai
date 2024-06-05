@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PassChangeForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.PassChangeForm" %>
-<%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
+
+<%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
+<%--<%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>--%>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" >
@@ -9,19 +10,17 @@
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
     
     <script type="text/javascript">
-    
-    function Load()
-    {
-        document.getElementById("TbxPass").focus();
-    }
-    function $(id)
-    {
-        return document.getElementById(id);
-    }    
-    function AjaxRequest(command_name, arg)
-	{	    
-		<%=Ram.ClientID%>.AjaxRequest(command_name + ':' + arg);
-	}
+        function Load()
+        {
+            document.getElementById("TbxPass").focus();
+        }
+        function $(id)
+        {
+            return document.getElementById(id);
+        }
+        function AjaxRequest(command_name, arg) {
+            <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+        }
     function OnRequestStart(sender, args)
     {
         var img1 = document.getElementById("Img1");
@@ -33,7 +32,7 @@
         img1.style.display = "none";
 	}
 	function Check()
-	{   
+	{
 	    var tbxPass = document.getElementById('TbxPass');
 	    if(tbxPass.value == "")
 	    {
@@ -90,19 +89,18 @@
                 else
                 {
                     alert(objName + 'は半角英数字のみで入力して下さい');
-                    
                     return false;
                 }
             }
-             
             return true; 
         }
-   </script>
+    </script>
 
 </head>
 <body  onload="Load();" class="bg99">
     <form id="form1" runat="server"> 
-        <uc1:CtlTabShiire ID="Tab" runat="server" />
+        <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
+<%--        <uc1:CtlTabShiire ID="Tab" runat="server" />--%>
         <br />
         <table align="center" id="TblList" runat="server" cellpadding="0" cellspacing="0">
             <tr>
@@ -136,7 +134,7 @@
                     <input id="BtnT" runat="server" type="button" value="変更登録" class="mt20 bg98" /></td>
             </tr>
         </table>
-        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
                 </asp:ScriptReference>
@@ -145,7 +143,7 @@
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
                 </asp:ScriptReference>
             </Scripts>
-        </telerik:RadScriptManager>
+        </telerik:RadScriptManager>--%>
         <telerik:radajaxmanager id="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:radajaxmanager>

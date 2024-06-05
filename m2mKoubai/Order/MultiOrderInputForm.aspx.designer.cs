@@ -24,13 +24,13 @@ namespace m2mKoubai.Order
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Tab コントロール。
+        /// M コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::m2mKoubai.CtlTabMain Tab;
+        protected global::m2mKoubai.CtlMainMenu M;
 
         /// <summary>
         /// TblMain コントロール。
@@ -148,15 +148,6 @@ namespace m2mKoubai.Order
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden HidNoukiID;
-
-        /// <summary>
-        /// RadScriptManager1 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadScriptManager RadScriptManager1;
 
         /// <summary>
         /// Ram コントロール。

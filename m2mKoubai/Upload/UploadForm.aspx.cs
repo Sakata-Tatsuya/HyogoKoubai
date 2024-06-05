@@ -17,7 +17,7 @@ namespace m2mKoubai.Upload
         {
             if (!this.IsPostBack)
             {
-                this.CtlTabMain1.Menu = CtlTabMain.MainMenu.Upload;
+                //this.CtlTabMain1.Menu = CtlTabMain.MainMenu.Upload;
                 this.TabUpload.SelectedIndex = 0;
 
                 this.Create();

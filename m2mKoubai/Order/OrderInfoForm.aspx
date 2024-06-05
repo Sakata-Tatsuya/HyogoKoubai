@@ -2,7 +2,8 @@
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
-<%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>
+<%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
+<%--<%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>--%>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <%@ Register Assembly="Core" namespace="Core.Web" tagprefix="cc1" %>
@@ -401,9 +402,9 @@
     </script>
 
 </head>
-<body class="bg0">
+<body bottommargin="0" leftmargin="4" topmargin="0" rightmargin="4">
     <form id="form1" runat="server">
-        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    <%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
                 </asp:ScriptReference>
@@ -412,8 +413,9 @@
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
                 </asp:ScriptReference>
             </Scripts>
-        </telerik:RadScriptManager>
-    <uc1:CtlTabMain ID="Tab" runat="server" />
+        </telerik:RadScriptManager>--%>
+<%--    <uc1:CtlTabMain ID="Tab" runat="server" />--%>
+    <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
     <table border="1" bordercolor="#000000" class="col def9 mt5 bg1">
         <tr>
             <td class="tl">

@@ -3,7 +3,8 @@
 <%@ Register Assembly="RadTabStrip.Net2" Namespace="Telerik.WebControls" TagPrefix="radTS" %>
 <%@ Register Src="CtlNonyuZanDownload.ascx" TagName="CtlNonyuZanDownload" TagPrefix="uc2" %>
 <%@ Register Src="CtlKenshuDownload.ascx" TagName="CtlKenshuDownload" TagPrefix="uc1" %>
-<%@ Register Src="../CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc3" %>
+<%--<%@ Register Src="../CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc3" %>--%>
+<%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc3" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,7 +14,8 @@
 </head>
 <body class="bg0">
     <form id="form1" runat="server">
-        <uc3:CtlTabMain ID="CtlTabMain1" runat="server" />
+<%--        <uc3:CtlTabMain ID="CtlTabMain1" runat="server" />--%>
+        <uc3:CtlMainMenu ID="M" runat="server"></uc3:CtlMainMenu>
         <radTS:RadTabStrip ID="TabUpload" runat="server" AutoPostBack="True" OnTabClick="TabUpload_TabClick"
             Skin="Office2007">
             <Tabs>

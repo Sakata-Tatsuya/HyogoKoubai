@@ -51,16 +51,14 @@ namespace m2mKoubai.Master
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
-                CtlTabMain tab = FindControl("Tab") as CtlTabMain;
-                tab.Menu = CtlTabMain.MainMenu.Master;
-                tab.MasterMenu = CtlTabMain.Master.Account;
-                tab.AccoutMenu = CtlTabMain.Account.Shanai;
+                //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
+                //tab.Menu = CtlTabMain.MainMenu.Master;
+                //tab.MasterMenu = CtlTabMain.Master.Account;
+                //tab.AccoutMenu = CtlTabMain.Account.Shanai;
 
                 // 最初は非表示
                 this.ShowTblMain(false);
-
                 this.SetList();
-
                 this.Create();
             }
             Common.CtlMyPager pagerTop = (Common.CtlMyPager)this.FindControl("Pt");
@@ -68,8 +66,6 @@ namespace m2mKoubai.Master
             pagerTop.OnPageIndexChanged += new Common.CtlMyPager.CtlMyPagerEventHandler(this.OnPageIndexChanged);
             pagerBottom.OnPageIndexChanged += new Common.CtlMyPager.CtlMyPagerEventHandler(this.OnPageIndexChanged);
             pagerTop.ClientEvent = pagerBottom.ClientEvent = "PageChange";
-
-
         }
 
         override protected void OnInit(EventArgs e)
@@ -115,13 +111,7 @@ namespace m2mKoubai.Master
             Common.CtlMyPager pagerTop = (Common.CtlMyPager)FindControl("Pt");
             Common.CtlMyPager pagerBottom = (Common.CtlMyPager)FindControl("Pb");
 
-
-            //データを取得する            
-            //m2mKoubaiDataSet.M_LoginDataTable dt =
-              //  LoginClass.getM_Login_ShanaiDataTable(this.GetKensakuParam(), bKubun, Global.GetConnection());
-
-            LoginDataSet.V_TantoushaAccountDataTable dt =
-                LoginClass.getV_TantoushaAccountDataTable(this.GetKensakuParam(), bKubun, Global.GetConnection());
+            LoginDataSet.V_TantoushaAccountDataTable dt = LoginClass.getV_TantoushaAccountDataTable(this.GetKensakuParam(), bKubun, Global.GetConnection());
 
             this.ShowMsg(dt.Rows.Count + "件", false);
             if (dt.Rows.Count == 0)
@@ -232,9 +222,7 @@ namespace m2mKoubai.Master
             }
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                LoginDataSet.V_TantoushaAccountRow dr =
-                     ((DataRowView)e.Row.DataItem).Row as LoginDataSet.V_TantoushaAccountRow;
-
+                LoginDataSet.V_TantoushaAccountRow dr = ((DataRowView)e.Row.DataItem).Row as LoginDataSet.V_TantoushaAccountRow;
 
                 // 削除
                 HtmlInputCheckBox chk = e.Row.FindControl("ChkI") as HtmlInputCheckBox;

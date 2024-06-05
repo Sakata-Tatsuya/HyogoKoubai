@@ -17,7 +17,6 @@ namespace m2mKoubai.Master
         private const int G_CELL_KOUSHIN = 1;
         private const int G_CELL_NOUNYUU_BASHO_CODE = 2;
         private const int G_CELL_NOUNYUU_BASHO_MEI = 3;
-       
 
         private int VsCurrentPageIndex
         {
@@ -43,9 +42,9 @@ namespace m2mKoubai.Master
                     return;
                 }
 
-                CtlTabMain tab = FindControl("Tab") as CtlTabMain;
-                tab.Menu = CtlTabMain.MainMenu.Master;
-                tab.MasterMenu = CtlTabMain.Master.NounyuBasho;
+                //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
+                //tab.Menu = CtlTabMain.MainMenu.Master;
+                //tab.MasterMenu = CtlTabMain.Master.NounyuBasho;
 
                 // ç≈èâÇÕîÒï\é¶
                 this.ShowTblMain(false);
@@ -58,7 +57,6 @@ namespace m2mKoubai.Master
             pagerBottom.OnPageIndexChanged += new Common.CtlMyPager.CtlMyPagerEventHandler(this.OnPageIndexChanged);
             pagerTop.ClientEvent = pagerBottom.ClientEvent = "PageChange";
         }
-           
    
         override protected void OnInit(EventArgs e)
         {

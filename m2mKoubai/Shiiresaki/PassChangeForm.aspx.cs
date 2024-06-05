@@ -15,7 +15,6 @@ namespace m2mKoubai.Shiiresaki
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 if (SessionManager.UserKubun != (byte)UserKubun.Shiiresaki)
@@ -23,12 +22,9 @@ namespace m2mKoubai.Shiiresaki
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, false);
                     return;
                 }
-
-                CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
-                tab.Menu = CtlTabShiire.MainMenu.PassChange;
-               
+                //CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
+                //tab.Menu = CtlTabShiire.MainMenu.PassChange;
             }
-            
         }
         protected override void OnInit(EventArgs e)
         {

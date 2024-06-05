@@ -17,7 +17,7 @@ namespace m2mKoubai.Download
         {
             if (!this.IsPostBack)
             {
-                this.CtlTabMain1.Menu = CtlTabMain.MainMenu.Download;
+                //this.CtlTabMain1.Menu = CtlTabMain.MainMenu.Download;
                 this.TabUpload.SelectedIndex = 0;
 
                 this.Create();

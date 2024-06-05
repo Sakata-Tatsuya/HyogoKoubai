@@ -11,313 +11,268 @@ namespace m2mKoubai
 {
 
 
-    public partial class NouhinForm
+    public partial class CtlMainMenu
     {
 
         /// <summary>
-        /// form1 コントロール。
+        /// SM コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::Telerik.Web.UI.RadScriptManager SM;
 
         /// <summary>
-        /// M コントロール。
+        /// RSM コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::m2mKoubai.CtlMainMenu M;
+        protected global::Telerik.Web.UI.RadScriptBlock RSM;
 
         /// <summary>
-        /// BtnCK コントロール。
+        /// T0 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnCK;
+        protected global::System.Web.UI.HtmlControls.HtmlTable T0;
 
         /// <summary>
-        /// BtnC コントロール。
+        /// LblSiteMei コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnC;
+        protected global::System.Web.UI.WebControls.Label LblSiteMei;
 
         /// <summary>
-        /// DdlYear コントロール。
+        /// N コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlYear;
+        protected global::Telerik.Web.UI.RadMenu N;
 
         /// <summary>
-        /// TbxHacchuNo コントロール。
+        /// RadMenuItemO1 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText TbxHacchuNo;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO1;
 
         /// <summary>
-        /// TblList コントロール。
+        /// RadMenuItemO2 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TblList;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO2;
 
         /// <summary>
-        /// TABLE1 コントロール。
+        /// RadMenuItemO21 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TABLE1;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO21;
 
         /// <summary>
-        /// LblMsg コントロール。
+        /// RadMenuItemO22 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMsg;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO22;
 
         /// <summary>
-        /// Img1 コントロール。
+        /// RadMenuItemO3 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage Img1;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO3;
 
         /// <summary>
-        /// TblMain コントロール。
+        /// RadMenuItemO4 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TblMain;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO4;
 
         /// <summary>
-        /// LblHacchuuNo コントロール。
+        /// RadMenuItemO5 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblHacchuuNo;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO5;
 
         /// <summary>
-        /// LblShiireCode コントロール。
+        /// RadMenuItemO6 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblShiireCode;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO6;
 
         /// <summary>
-        /// LblShiireMei コントロール。
+        /// RadMenuItemOM コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblShiireMei;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemOM;
 
         /// <summary>
-        /// LblNouki コントロール。
+        /// RadMenuItemOM1 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNouki;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemOM1;
 
         /// <summary>
-        /// LblKaitouNouki コントロール。
+        /// RadMenuItemOM2 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblKaitouNouki;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemOM2;
 
         /// <summary>
-        /// LblBasho コントロール。
+        /// RadMenuItemOM3 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblBasho;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemOM3;
 
         /// <summary>
-        /// LblBuhinGroup コントロール。
+        /// RadMenuItemOM4 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblBuhinGroup;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemOM4;
 
         /// <summary>
-        /// LblBuhinCode コントロール。
+        /// RadMenuItemOM5 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblBuhinCode;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemOM5;
 
         /// <summary>
-        /// LblBuhinMei コントロール。
+        /// RadMenuItemOM6 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblBuhinMei;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemOM6;
 
         /// <summary>
-        /// LblTanka コントロール。
+        /// RadMenuItemOM7 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTanka;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemOM7;
 
         /// <summary>
-        /// LblChumonKingaku コントロール。
+        /// RadMenuItemS1 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblChumonKingaku;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemS1;
 
         /// <summary>
-        /// LblZeigaku コントロール。
+        /// RadMenuItemS2 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblZeigaku;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemS2;
 
         /// <summary>
-        /// LblTani コントロール。
+        /// RadMenuItemSM1 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTani;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemSM1;
 
         /// <summary>
-        /// DdlTax コントロール。
+        /// RadMenuItemSM2 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlTax;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemSM2;
 
         /// <summary>
-        /// RdpDay コントロール。
+        /// RadMenuItemCOM コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDatePicker RdpDay;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemCOM;
 
         /// <summary>
-        /// LblSuuryou コントロール。
+        /// TblColor コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSuuryou;
+        protected global::System.Web.UI.HtmlControls.HtmlTable TblColor;
 
         /// <summary>
-        /// LblNouhinSumiSuu コントロール。
+        /// LblMenu コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNouhinSumiSuu;
+        protected global::System.Web.UI.WebControls.Label LblMenu;
 
         /// <summary>
-        /// TbxNouhinsuu コントロール。
+        /// LblLoginUser コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TbxNouhinsuu;
-
-        /// <summary>
-        /// LitMsg コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LitMsg;
-
-        /// <summary>
-        /// BtnKN コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnKN;
-
-        /// <summary>
-        /// BtnNK コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnNK;
-
-        /// <summary>
-        /// Ram コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxManager Ram;
-
-        /// <summary>
-        /// TextBox1 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Label LblLoginUser;
     }
 }

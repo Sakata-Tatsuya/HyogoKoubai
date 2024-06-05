@@ -60,9 +60,9 @@ namespace m2mKoubai.Master
                     return;
                 }
 
-                CtlTabMain tab = FindControl("Tab") as CtlTabMain;
-                tab.Menu = CtlTabMain.MainMenu.Master;
-                tab.MasterMenu = CtlTabMain.Master.KaishaJyouhou;
+                //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
+                //tab.Menu = CtlTabMain.MainMenu.Master;
+                //tab.MasterMenu = CtlTabMain.Master.KaishaJyouhou;
 
                 // Create
                 this.ShowTblMain(false);

@@ -24,13 +24,13 @@ namespace m2mKoubai.Shiiresaki
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Tab コントロール。
+        /// M コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::m2mKoubai.Shiiresaki.CtlTabShiire Tab;
+        protected global::m2mKoubai.CtlMainMenu M;
 
         /// <summary>
         /// TblList コントロール。
@@ -94,15 +94,6 @@ namespace m2mKoubai.Shiiresaki
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnT;
-
-        /// <summary>
-        /// RadScriptManager1 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadScriptManager RadScriptManager1;
 
         /// <summary>
         /// Ram コントロール。
