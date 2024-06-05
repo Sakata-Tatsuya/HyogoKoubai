@@ -673,7 +673,7 @@
                 <td>
                     <table  width="100%" cellpadding="0" cellspacing="0">
                         <tr>
-                            <td width="50%">
+                            <td width="40%">
                                 <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label></td>
                             <td class="hei20">
                                 <img id="Img1" runat="server" src="../Img/Load.gif" /></td>
@@ -689,7 +689,7 @@
                             <td nowrap="nowrap">
                                 <uc2:CtlMyPager ID="Pt" runat="server" />
                             </td>
-                            <td align="right">
+                            <td align="left">
                             </td>
                         </tr>
                         <tr>
@@ -704,15 +704,15 @@
                                     </tr>
                                 </table>
                             </td>
-                            <td align="right" >
+                            <td align="left" >
                                 <table id="TblRow" runat="server" class="def9">
                                     <tr>
-                                        <td align="right" nowrap="noWrap">
+                                        <td align="left" nowrap="noWrap">
                                             納期回答入力：
                                             <input id="BtnAH" runat="server" type="button" class="bg98 f9 w120 " value="納期回答入力欄を&#13;&#10;全て表示させる" />
                                             <input id="BtnAC" runat="server" type="button" class="f9 w120 bg98" value="納期回答入力欄を&#13;&#10;全て閉じる" />
                                             <input id="BtnAT" runat="server" type="button" class="f9 w150 bg98" value="表示されている入力欄を&#13;&#10;全て登録する"/></td>
-                                        <td align="right" nowrap="nowrap" valign="bottom">
+                                        <td align="left" nowrap="nowrap" valign="bottom">
                                             <asp:DropDownList ID="DdlRow" runat="server">
                                                 <asp:ListItem>10</asp:ListItem>
                                                 <asp:ListItem>20</asp:ListItem>
@@ -734,7 +734,7 @@
                     <asp:GridView ID="G" runat="server" AutoGenerateColumns="False" Width="100%" CssClass="def9" OnRowDataBound="G_RowDataBound">
                         <PagerSettings Visible="False" />
                         <Columns>
-                            <asp:TemplateField>                               
+                            <asp:TemplateField>
                                 <HeaderTemplate>
                                     <asp:Literal ID="LitChk_H" runat="server" Text="発注書<br>印刷"></asp:Literal><br />
                                     <input id="ChkH_H" runat="server" type="checkbox" />

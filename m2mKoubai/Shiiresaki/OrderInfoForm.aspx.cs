@@ -355,7 +355,6 @@ namespace m2mKoubai.Shiiresaki
             if (k._Cancelbi == 0)
                 b = true;
 
-            //
             if (DdlJigyoshoKubun.SelectedIndex > 0)
             {
                 k._JigyoushoKubun = int.Parse(DdlJigyoshoKubun.SelectedValue);
@@ -381,14 +380,11 @@ namespace m2mKoubai.Shiiresaki
                     chkH_N.Attributes["onclick"] = "ChkAll_N(this.checked)";
                     chkH_G.Attributes["onclick"] = "ChkAll_G(this.checked)";
                 }
-               
             }
             else if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 ChumonDataSet.V_Chumon_JyouhouRow dr = ((DataRowView)e.Row.DataItem).Row as ChumonDataSet.V_Chumon_JyouhouRow;
-
                 m_objStringCols["C"].Add(dr.Year + '_' + dr.HacchuuNo + '_' + dr.JigyoushoKubun);
-
                 ChumonClass.ChumonKey key = new ChumonClass.ChumonKey(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun);               
 
                 // î≠íçèëàÛç¸
