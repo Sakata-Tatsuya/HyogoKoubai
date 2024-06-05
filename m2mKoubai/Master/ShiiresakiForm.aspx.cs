@@ -65,6 +65,7 @@ namespace m2mKoubai.Master
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
+                M.MenuName = "マスタ管理 > 仕入先";
                 //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
                 //tab.Menu = CtlTabMain.MainMenu.Master;
                 //tab.MasterMenu = CtlTabMain.Master.Shiiresaki;

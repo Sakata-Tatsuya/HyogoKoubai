@@ -18,11 +18,10 @@
             <tr>
                 <td align="left">
                     <asp:Label ID="LblMsg" runat="server" CssClass="b" ForeColor="Red"></asp:Label></td>
-                <td align="right" class="hei30">
+                <td align="left" class="hei30">
                     <input id="BtnC" runat="server" class="w80 bg98" type="button" value="閉じる" onclick="window.close();" /></td>
             </tr>
             <tr>
-               
                 <td align="right" colspan="2">
                     <table id="TblMain" runat="server" border="1" bordercolor="#000000" class="col tl bg1 def12">
                         <tr>

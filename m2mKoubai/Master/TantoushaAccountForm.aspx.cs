@@ -51,6 +51,7 @@ namespace m2mKoubai.Master
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
+                M.MenuName = "ƒ}ƒXƒ^ŠÇ— > ’S“–Ò(Ğ“à)";
                 //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
                 //tab.Menu = CtlTabMain.MainMenu.Master;
                 //tab.MasterMenu = CtlTabMain.Master.Account;

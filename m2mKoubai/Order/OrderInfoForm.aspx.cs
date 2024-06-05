@@ -56,6 +56,7 @@ namespace m2mKoubai.Order
         {
             if (!IsPostBack)
             {
+                M.MenuName = "î≠íçèÓïÒ";
                 if (SessionManager.UserKubun != (byte)UserKubun.Owner)
                 {
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);

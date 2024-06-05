@@ -49,10 +49,10 @@ namespace m2mKoubai.Shiiresaki
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
-
+                M.MenuName = "ŒŸûî•ñ";
                 //CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
                 //tab.Menu = CtlTabShiire.MainMenu.Kensyu_Jyouhou;
-                
+
                 DateTime dtNow = DateTime.Now;                
                 int nYear = dtNow.Year;
                 // ¡”N

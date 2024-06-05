@@ -22,6 +22,7 @@ namespace m2mKoubai.Shiiresaki
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, false);
                     return;
                 }
+                M.MenuName = "パスワード変更";
                 //CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
                 //tab.Menu = CtlTabShiire.MainMenu.PassChange;
             }

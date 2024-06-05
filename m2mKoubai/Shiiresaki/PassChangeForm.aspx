@@ -102,7 +102,7 @@
         <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
 <%--        <uc1:CtlTabShiire ID="Tab" runat="server" />--%>
         <br />
-        <table align="center" id="TblList" runat="server" cellpadding="0" cellspacing="0">
+        <table align="left" id="TblList" runat="server" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="tc hei20">
                     &nbsp;<asp:Label ID="LblMsg" runat="server" CssClass="b def9"></asp:Label></td>

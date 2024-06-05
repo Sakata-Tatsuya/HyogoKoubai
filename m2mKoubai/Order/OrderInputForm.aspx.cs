@@ -120,6 +120,7 @@ namespace m2mKoubai.Order
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
             if (!IsPostBack)
             {
+                M.MenuName = "î≠íçì¸óÕ > å¬ï î≠íç";
                 lst = InitHacchu_Meisai(VsRowCnt);
                 VsYaer = DateTime.Now.ToString("yy");
                 VsUserID = SessionManager.LoginID;

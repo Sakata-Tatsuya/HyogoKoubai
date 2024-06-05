@@ -68,7 +68,7 @@
                             <telerik:RadMenuItem ID="RadMenuItemOM7" runat="server" Text="事業所情報" NavigateUrl="~/Master/KaishaInfoForm.aspx"></telerik:RadMenuItem>
                         </Items>
                     </telerik:RadMenuItem>
-                    <telerik:RadMenuItem ID="RadMenuItemS1" runat="server" Text="受注情報" NavigateUrl="~/Shiiresaki/OrderInfoForm.aspx" Selected="True"></telerik:RadMenuItem>
+                    <telerik:RadMenuItem ID="RadMenuItemS1" runat="server" Text="受注情報" NavigateUrl="~/Shiiresaki/OrderInfoForm.aspx"></telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemS2" runat="server" Text="検収情報" NavigateUrl="~/Shiiresaki/KenshuInfoForm.aspx"></telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemSM1" runat="server" Text="パスワード変更" NavigateUrl="~/Shiiresaki/PassChangeForm.aspx"></telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemSM2" runat="server" Text="会社情報" NavigateUrl="~/Shiiresaki/KaishaInfoForm.aspx"></telerik:RadMenuItem>

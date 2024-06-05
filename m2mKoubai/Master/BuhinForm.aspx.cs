@@ -51,6 +51,7 @@ namespace m2mKoubai.Master
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
+                M.MenuName = "マスタ管理 > 部品・材料";
                 //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
                 //tab.Menu = CtlTabMain.MainMenu.Master;
                 //tab.MasterMenu = CtlTabMain.Master.Buhin;

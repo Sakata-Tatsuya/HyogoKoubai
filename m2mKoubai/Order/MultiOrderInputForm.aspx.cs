@@ -128,6 +128,7 @@ namespace m2mKoubai.Order
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
             if (!IsPostBack)
             {
+                M.MenuName = "î≠íçì¸óÕ > ï°êîî≠íç";
                 VsYaer = DateTime.Now.ToString("yy");
                 VsUserID = SessionManager.LoginID;
                 VsJigyoushoKubun = SessionManager.JigyoushoKubun;

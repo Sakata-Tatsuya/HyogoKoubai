@@ -225,8 +225,8 @@
                             </td>
                             <td nowrap="noWrap">
                                 &nbsp;<input id="BtnKI" runat="server" type="button" value="検収明細表の&#13;&#10;印刷画面を表示する" class="bg98 w150" />
-                    <input id="BtnSI" runat="server" type="button" value="請求書の&#13;&#10;印刷画面を表示する" class="bg98 w150" /></td>
-                            <td align="right">
+                                <input id="BtnSI" runat="server" type="button" value="請求書の&#13;&#10;印刷画面を表示する" class="bg98 w150" /></td>
+                            <td align="left">
                                 <table class="def9" id="TblRow" runat="server">
                                     <tr>
                                         <td>

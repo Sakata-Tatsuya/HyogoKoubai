@@ -24,6 +24,7 @@ namespace m2mKoubai.Shiiresaki
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
+                M.MenuName = "‰ïĞî•ñ";
                 //CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
                 //tab.Menu = CtlTabShiire.MainMenu.Kaisha_Jyouhou;
                 CreateKoushin();

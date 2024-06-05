@@ -37,6 +37,7 @@ namespace m2mKoubai
                     HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
+                M.MenuName = "”[•i";
                 //// ƒ^ƒu
                 //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
                 //tab.Menu = CtlTabMain.MainMenu.Nouhin;

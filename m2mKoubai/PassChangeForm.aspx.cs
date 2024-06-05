@@ -18,6 +18,7 @@ namespace m2mKoubai
             
             if (!IsPostBack)
             {
+                M.MenuName = "パスワード変更";
                 //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
                 //tab.Menu = CtlTabMain.MainMenu.PassChange;
             }

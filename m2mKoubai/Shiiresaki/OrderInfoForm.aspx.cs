@@ -64,6 +64,7 @@ namespace m2mKoubai.Shiiresaki
                     System.Web.HttpContext.Current.Response.Redirect(Global.LoginPageURL, true);
                     return;
                 }
+                M.MenuName = "受注情報";
                 //CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
                 //tab.Menu = CtlTabShiire.MainMenu.Jyuchuu_Jyouhou;
 
@@ -139,23 +140,18 @@ namespace m2mKoubai.Shiiresaki
         // クリエート
         private void Create()
         {
-
             this.m_dtNoukiHenkou = NoukiHenkouClass.getT_NoukiHenkouDataTable(Global.GetConnection());
             this.m_dvNoukiHenkou = new DataView(this.m_dtNoukiHenkou);
             this.m_dvNoukiHenkou.Sort = "HenkouNo DESC ";
-
 
             this.m_dtKaitouNouki = NoukiKaitouClass.getT_NoukiKaitouDataTable(Global.GetConnection());
             this.m_dvKaitouNouki = new DataView(this.m_dtKaitouNouki);
             this.m_dvKaitouNouki.Sort = "KaitouNo DESC ";
 
-
             // Hid           
             this.HidChkID_N.Value = "";
             this.HidChkID_H.Value = "";
             this.HidChkID_G.Value = "";
-
-
 
             Common.CtlMyPager pagerTop = (Common.CtlMyPager)FindControl("Pt");
             Common.CtlMyPager pagerBottom = (Common.CtlMyPager)FindControl("Pb");
