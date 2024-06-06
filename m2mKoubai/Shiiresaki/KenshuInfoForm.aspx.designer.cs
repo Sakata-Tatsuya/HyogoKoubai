@@ -132,6 +132,15 @@ namespace m2mKoubai.Shiiresaki
         protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnSI;
 
         /// <summary>
+        /// BtnSP コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnSP;
+
+        /// <summary>
         /// TblRow コントロール。
         /// </summary>
         /// <remarks>
@@ -184,6 +193,15 @@ namespace m2mKoubai.Shiiresaki
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden HidKeyKen;
+
+        /// <summary>
+        /// HidFileID コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HidFileID;
 
         /// <summary>
         /// Ram コントロール。

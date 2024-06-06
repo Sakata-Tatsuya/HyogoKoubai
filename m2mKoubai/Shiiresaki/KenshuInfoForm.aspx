@@ -13,157 +13,164 @@
     <title>検収情報</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />   
      <script type="text/javascript">
-     function $(id) {
-         return document.getElementById(id);
-     }
-     function AjaxRequest(command_name, arg) {
-        <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
-     }
-	 function Reload()
-    {
-        AjaxRequest('reload', '');
-    }
-    function Kensaku()
-    {
-        if (document.getElementById('DdlMonth').selectedIndex == 0)
+         function $(id) {
+             return document.getElementById(id);
+         }
+         function AjaxRequest(command_name, arg) {
+            <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
+         }
+	     function Reload()
+         {
+             AjaxRequest('reload', '');
+         }
+         function Kensaku()
+         {
+             if (document.getElementById('DdlMonth').selectedIndex == 0)
+             {
+                 alert('検収月を選択して下さい');
+                 return;
+             }
+	         AjaxRequest('kensaku', '');
+         }
+         function RowChange()
+         {
+	         AjaxRequest('row', '');
+         }
+         function PageChange(pageIndex)
+         {
+     	    AjaxRequest('page', pageIndex);
+         }
+         function OnBuhin()
+         {
+             AjaxRequest('ddlBuhin', '');
+         }
+     	function HacchuuNo(key, hacchuuNo)
         {
-            alert('検収月を選択して下さい');
-            return;
+            document.getElementById('HidKey').value = key +'\t'+ hacchuuNo;
+            NewForm.action = "OrderShousaiForm";
+            NewForm.target = "_hacchuu";
+    	    OpenWinPost("_hacchuu",500,500);
+            NewForm.submit();
         }
-	    AjaxRequest('kensaku', '');
-    }
-    function RowChange()
-    {
-	    AjaxRequest('row', '');
-    }
-    function PageChange(pageIndex)
-    {
-	    AjaxRequest('page', pageIndex);
-    }
-    function OnBuhin()
-    {
-        AjaxRequest('ddlBuhin', '');
-    }
-	function HacchuuNo(key, hacchuuNo)
-    {
-        document.getElementById('HidKey').value = key +'\t'+ hacchuuNo;
-        NewForm.action = "OrderShousaiForm";
-        NewForm.target = "_hacchuu"; 
-	    OpenWinPost("_hacchuu",500,500);
-        NewForm.submit();
-    }
-    function Print()
-    {
-        var chkIdAry = document.getElementById('HidChkID').value.split(',');
-        var hidPrintKey = ''
-        for(var i = 0; i < chkIdAry.length; i++)
+        function Print()
         {
-            var chk = document.getElementById(chkIdAry[i]);
-           
-            if(chk.checked)
+            var chkIdAry = document.getElementById('HidChkID').value.split(',');
+            var hidPrintKey = ''
+            for(var i = 0; i < chkIdAry.length; i++)
             {
-                if(hidPrintKey != "") hidPrintKey += "_";
-                hidPrintKey += chk.value;
+                var chk = document.getElementById(chkIdAry[i]);
+                if(chk.checked)
+                {
+                    if(hidPrintKey != "") hidPrintKey += "_";
+                    hidPrintKey += chk.value;
+                }
             }
-        }
-        if(hidPrintKey == "")
-        {
-            alert("チェックを入れてください");
-            return false;
-        }
-    
-        document.getElementById('HidKey').value = hidPrintKey;
-        NewForm.action = "../Denpyou/JyuryousyoForm";
-        NewForm.target = "_hacchuusho";
-	    OpenWinPost2("_hacchuusho",800,600);
-        NewForm.submit();
-    }
-    function Kenshu(key)
-    {
-        document.getElementById('HidKey').value = key;
-        NewForm.action = "../Denpyou/KenshuMeisaihyoForm";
-        NewForm.target = "_hacchuusho";
-	    OpenWinPost2("_hacchuusho",800,600);
-        NewForm.submit();
-    }
-    function Seikyu(key)
-    {
-        document.getElementById('HidKey').value = key;
-        NewForm.action = "../Denpyou/SeikyusyoForm";
-        NewForm.target = "_hacchuusho";
-	    OpenWinPost2("_hacchuusho",800,600);
-        NewForm.submit();
-    }
-    function Jyuryou()
-    {
-        var chkIdAry = document.getElementById('HidChkID').value.split(',');
-        var hidPrintKey = ''
-        for(var i = 0; i < chkIdAry.length; i++)
-        {
-            var chk = document.getElementById(chkIdAry[i]);
-           
-            if(chk.checked)
+            if(hidPrintKey == "")
             {
-                if(hidPrintKey != "") hidPrintKey += "_";
-                hidPrintKey += chk.value;
+                alert("チェックを入れてください");
+                return false;
             }
-        }
-        if(hidPrintKey == "")
-        {
-            alert("チェックを入れてください");
-            return false;
-        }
     
-        document.getElementById('HidKey').value = hidPrintKey;
-        NewForm.action = "../Denpyou/JyuryousyoForm";
-        NewForm.target = "_hacchuusho";
-	    OpenWinPost2("_hacchuusho",800,600);
-        NewForm.submit();
-    }
-    var win = null;
-    function OpenWinPost(target,w,h)
-    {
-        win = window.open
-            ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes");
-	    win.focus();
-    }
+            document.getElementById('HidKey').value = hidPrintKey;
+            NewForm.action = "../Denpyou/JyuryousyoForm";
+            NewForm.target = "_hacchuusho";
+	        OpenWinPost2("_hacchuusho",800,600);
+            NewForm.submit();
+        }
+        function Kenshu(key)
+        {
+            document.getElementById('HidKey').value = key;
+            NewForm.action = "../Denpyou/KenshuMeisaihyoForm";
+            NewForm.target = "_hacchuusho";
+	        OpenWinPost2("_hacchuusho",800,600);
+            NewForm.submit();
+        }
+        function Seikyu(key)
+        {
+            document.getElementById('HidKey').value = key;
+            NewForm.action = "../Denpyou/SeikyusyoForm";
+            NewForm.target = "_hacchuusho";
+    	    OpenWinPost2("_hacchuusho",800,600);
+            NewForm.submit();
+        }
+        function Jyuryou()
+        {
+            var chkIdAry = document.getElementById('HidChkID').value.split(',');
+            var hidPrintKey = ''
+            for(var i = 0; i < chkIdAry.length; i++)
+            {
+                var chk = document.getElementById(chkIdAry[i]);
+           
+                if(chk.checked)
+                {
+                    if(hidPrintKey != "") hidPrintKey += "_";
+                    hidPrintKey += chk.value;
+                }
+            }
+            if(hidPrintKey == "")
+            {
+                alert("チェックを入れてください");
+                return false;
+            }
+    
+            document.getElementById('HidKey').value = hidPrintKey;
+            NewForm.action = "../Denpyou/JyuryousyoForm";
+            NewForm.target = "_hacchuusho";
+	        OpenWinPost2("_hacchuusho",800,600);
+            NewForm.submit();
+        }
+        var win = null;
+        function OpenWinPost(target,w,h)
+        {
+            win = window.open
+                ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes");
+	        win.focus();
+        }
      
-    function OpenWinPost2(target,w,h,etc)
-    {
-        win = window.open
-            ("",target,"width="+w+"px,height="+h+"px,menubar=yes,location=no,resizable=yes,scrollbars=yes");
-	    win.focus();
-    } 
-	function ChkAll(bool)
-    {
-        var idAry = document.getElementById('HidChkID').value.split(',');
-      
-        for(var i = 0; i < idAry.length; i++)
+        function OpenWinPost2(target,w,h,etc)
         {
-            var chk = document.getElementById(idAry[i]);
-            chk.checked = bool;
+            win = window.open
+                ("",target,"width="+w+"px,height="+h+"px,menubar=yes,location=no,resizable=yes,scrollbars=yes");
+    	    win.focus();
         }
-    }
+    	function ChkAll(bool)
+        {
+            var idAry = document.getElementById('HidChkID').value.split(',');
+      
+            for(var i = 0; i < idAry.length; i++)
+            {
+                var chk = document.getElementById(idAry[i]);
+                chk.checked = bool;
+            }
+        }
 	
-    function OnRequestStart(sender, args)
-	{
-        document.getElementById("Img1").style.display = '';
-	}
-	function OnResponseEnd(sender, args)
-    {
-        document.getElementById('Img1').style.display = 'none';
-    }
+        function OnRequestStart(sender, args)
+	    {
+            document.getElementById("Img1").style.display = '';
+    	}
+	    function OnResponseEnd(sender, args)
+        {
+            document.getElementById('Img1').style.display = 'none';
+        }
    
-    function KeyCodeCheck()
-    {
-        var kc = event.keyCode;
-        if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-        kc == 46 || kc == 8 || kc == 13 || kc == 9)
-            return true; 
-        else 
-            return false;
-    }
-   
+        function KeyCodeCheck()
+        {
+            var kc = event.keyCode;
+            if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) ||
+            kc == 46 || kc == 8 || kc == 13 || kc == 9)
+                return true;
+            else
+                return false;
+        }
+         function showpdf() {
+             var fileid = document.getElementById('HidFileID').value;
+             if (0 < fileid.length) {
+                 document.getElementById('HidFileID').value = '';
+                 var url = "/Common/FileView.aspx?FileKey=" + fileid;
+                 var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
+                 win.focus();
+             }
+         }   
      </script>
 </head>
 <body class="bg99">
@@ -178,7 +185,8 @@
                 <td style="width: 96px">
                     発注元事業所</td>
                 <td rowspan="2">
-                    <input id="BtnK" runat="server" class="w60 bg98" type="button" value="検索" /></td>
+                    <input id="BtnK" runat="server" class="w60 bg98" type="button" value="検索" />
+                </td>
             </tr>
             <tr>
                 <td>
@@ -225,7 +233,9 @@
                             </td>
                             <td nowrap="noWrap">
                                 &nbsp;<input id="BtnKI" runat="server" type="button" value="検収明細表の&#13;&#10;印刷画面を表示する" class="bg98 w150" />
-                                <input id="BtnSI" runat="server" type="button" value="請求書の&#13;&#10;印刷画面を表示する" class="bg98 w150" /></td>
+                                <input id="BtnSI" runat="server" type="button" value="請求書の&#13;&#10;印刷画面を表示する" class="bg98 w150" />
+                                <asp:Button ID="BtnSP" runat="server" Text="請求書印刷" OnClick="BtnSP_Click"/>
+                            </td>
                             <td align="left">
                                 <table class="def9" id="TblRow" runat="server">
                                     <tr>
@@ -314,7 +324,9 @@
             <tr>
                 <td>
                     <input id="HidChkID" runat="server" type="hidden" />
-                    <input id="HidKeyKen" runat="server" type="hidden" /></td>
+                    <input id="HidKeyKen" runat="server" type="hidden" />
+                    <asp:HiddenField ID="HidFileID" runat="server" />
+                </td>
             </tr>
         </table>
     

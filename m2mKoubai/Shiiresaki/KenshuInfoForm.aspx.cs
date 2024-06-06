@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
+using Core.Type;
 
 namespace m2mKoubai.Shiiresaki
 {
@@ -25,6 +26,17 @@ namespace m2mKoubai.Shiiresaki
             set
             {
                 this.ViewState["page_index"] = value;
+            }
+        }
+        private string VsNengetu
+        {
+            get
+            {
+                return Convert.ToString(this.ViewState["VsNengetu"]);
+            }
+            set
+            {
+                this.ViewState["VsNengetu"] = value;
             }
         }
 
@@ -127,7 +139,7 @@ namespace m2mKoubai.Shiiresaki
             int nMonth  = int.Parse(this.DdlMonth.SelectedValue);
             int nFromDate = 0;
             int nToDate = 0;
-
+            VsNengetu = nYear.ToString("0000") + nMonth.ToString("00");
             AppCommon.CreateKikan(nYear,nMonth, drShiire.ShiharaiShimebi, ref nFromDate, ref nToDate);
             KenshuClass.KensakuParam k = this.GetKensakuParam(nFromDate, nToDate);
             if (k == null)
@@ -184,6 +196,7 @@ namespace m2mKoubai.Shiiresaki
             pagerBottom.Create(nPageCount);
             pagerTop.CurrentPageIndex = pagerBottom.CurrentPageIndex = G.PageIndex;
 
+            Session["SeikyuShoDataTable"] = dt;
             G.DataSource = dt;
             G.DataBind();
             G.EnableViewState = false;
@@ -236,7 +249,7 @@ namespace m2mKoubai.Shiiresaki
             TblRow.Visible = b;
             this.BtnKI.Visible = b;
             this.BtnSI.Visible = b;
-           
+            this.BtnSP.Visible = b;
         }
 
         // ページチェンジ
@@ -329,8 +342,80 @@ namespace m2mKoubai.Shiiresaki
                 e.Row.Cells[G_CELL_NYUKA_SUURYOU].Text += dr.NouhinSuuryou.ToString("#,##0");
             }
         }
+        protected void BtnSP_Click(object sender, EventArgs e)
+        {
+                OutputInvoice();
+        }
+
+        protected void OutputInvoice()
+        {
+            //HiddenField HidFileID = form1.FindControl("HidFileID") as HiddenField;
+            KenshuDataSet.V_KenshuDataTable dt = Session["SeikyuShoDataTable"] as KenshuDataSet.V_KenshuDataTable;
+            if (dt != null) 
+            {
+                string strInvoiceID = @"INV" + SessionManager.KaishaCode + "_" + VsNengetu + "_" + DateTime.Now.ToString("yyyyMMddhhmmss") ;
+                string strFileName = @"請求書" + strInvoiceID + ".pdf";
+                string path = @"c:\temp\m2mKoubai\" + strFileName;
+                DateTime dtTourokuBi = DateTime.Now;
+                DateTime dtInsatuBi = DateTime.Now;
+                DateTime dtSoshinBi = DateTime.MinValue;
+
+                var PDF = CreatePDF.CreateInvoicePDF(SessionManager.LoginID, SessionManager.KaishaCode , dt);
+                bool isCange = false;
+
+                ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strInvoiceID, Global.GetConnection());
+                if (drB == null)
+                {
+                    isCange = true;
+                }
+
+                ShareDataSet.T_DocumentRow dr = new ShareDataSet.T_DocumentDataTable().NewT_DocumentRow();
+                dr.FileName = strFileName;
+                dr.ContentType = "application/pdf";
+                dr.FileSize = PDF.ToArray().Length;
+                dr.Data = PDF.ToArray();
+                dr.TourokuBi = dtTourokuBi;
+                dr.TourokuUser = SessionManager.LoginID;
+                dr.DataType = "請求書";
+                dr.SlipID = strInvoiceID;
+
+                if (!isCange)
+                {
+                    if (drB.Data != dr.Data) { isCange = true; }
+                }
+                int Ret = 0;
+                if (isCange)
+                {
+                    Ret = FilesClass.SaveDocument(dr, Global.GetConnection());
+                    //if (Ret > 0)
+                    //{
+                    //    FilesClass.Update_T_Invoice_FileID(VsInvoiceID, Ret, dtInsatuBi, dtSoshinBi, Global.GetConnection());
+                    //}
+                }
+                else
+                {
+                    Ret = drB.FileID;
+                }
+
+                if (Ret > 0)
+                {
+                    HidFileID.Value = Ret.ToString();
+                }
+            }
+        }
 
 
-       
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

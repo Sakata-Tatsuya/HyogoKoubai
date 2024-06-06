@@ -112,6 +112,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ChumonMsgDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FilesClass.cs" />
     <Compile Include="m2mKoubaiDataSet.cs">
       <DependentUpon>m2mKoubaiDataSet.xsd</DependentUpon>
     </Compile>
@@ -188,6 +189,11 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ShareDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShareDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ShiiresakiClass.cs" />
     <Compile Include="ShiiresakiDataSet.cs">
@@ -355,6 +361,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ShareDataSet.xsc">
+      <DependentUpon>ShareDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ShareDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ShareDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ShareDataSet.xss">
+      <DependentUpon>ShareDataSet.xsd</DependentUpon>
     </None>
     <None Include="ShiiresakiDataSet.xsc">
       <DependentUpon>ShiiresakiDataSet.xsd</DependentUpon>

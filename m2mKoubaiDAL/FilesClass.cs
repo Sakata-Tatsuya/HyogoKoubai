@@ -1,0 +1,145 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace m2mKoubaiDAL
+{
+    public class FilesClass
+    {
+        public class OptionData
+        {
+            public string FileName = "";
+            public string ContentType = "";
+            public int FileSize = 0;
+            public string DataType = "";
+            public string SlipID = "";
+        }
+        public static ShareDataSet.T_DocumentRow getT_DocumentRow(string FileID, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = @"SELECT * FROM T_Document
+                WHERE FileID = @FileID";
+            da.SelectCommand.Parameters.AddWithValue("@FileID", FileID);
+            ShareDataSet.T_DocumentDataTable dt = new ShareDataSet.T_DocumentDataTable();
+            da.Fill(dt);
+            if (1 == dt.Rows.Count)
+                return dt[0];
+            else
+                return null;
+        }
+        public static ShareDataSet.T_DocumentRow getLastT_DocumentRow(string SlipID, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = @"SELECT * FROM T_Document
+                WHERE SlipID = @SlipID ORDER BY FileID DESC ";
+            da.SelectCommand.Parameters.AddWithValue("@SlipID", SlipID);
+            ShareDataSet.T_DocumentDataTable dt = new ShareDataSet.T_DocumentDataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+                return dt[0];
+            else
+                return null;
+        }
+        public static int SaveDocument(ShareDataSet.T_DocumentRow drS, SqlConnection sqlConn)
+        {
+            int ReturnID = 0;
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = "SELECT * from T_Document ";
+            da.UpdateCommand = new SqlCommandBuilder(da).GetUpdateCommand();
+            da.InsertCommand = new SqlCommandBuilder(da).GetInsertCommand();
+            da.InsertCommand.CommandText += ";SELECT SCOPE_IDENTITY();";
+            string sql = @"SELECT MAX(FileID) FROM T_Document WHERE SlipID='" + drS.SlipID + "' ";
+            SqlCommand cmd = new SqlCommand(sql, sqlConn);
+
+            ShareDataSet.T_DocumentDataTable dt = new ShareDataSet.T_DocumentDataTable();
+            SqlTransaction sqlTran = null;
+
+            try
+            {
+                sqlConn.Open();
+                sqlTran = sqlConn.BeginTransaction();
+                da.SelectCommand.Transaction = da.UpdateCommand.Transaction = da.InsertCommand.Transaction = cmd.Transaction = sqlTran;
+                da.Fill(dt);
+
+                ShareDataSet.T_DocumentRow drnew = dt.NewT_DocumentRow();
+                for (int column = 0; column < dt.Columns.Count; column++)
+                {
+                    drnew[column] = drS[column];
+                }
+                dt.AddT_DocumentRow(drnew);
+                da.Update(dt);
+                sqlTran.Commit();
+                object id = cmd.ExecuteScalar();
+                if (!DBNull.Value.Equals(id))
+                {
+                    string insertId = id.ToString();
+                    int.TryParse(insertId, out ReturnID);
+                }
+                return ReturnID;
+            }
+            catch (Exception ex)
+            {
+                if (null != sqlTran)
+                    sqlTran.Rollback();
+                return ReturnID;
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+        public static int Update_T_Invoice_FileID(string strInvoiceID, int intFileID,DateTime DtInsatuBi,DateTime DtSoshinBi, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = "SELECT TOP(1) InvoiceID FROM T_Invoice WHERE InvoiceID = @InvoiceID ";
+            da.SelectCommand.Parameters.AddWithValue("@InvoiceID ", strInvoiceID);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            string strSql = "UPDATE T_Invoice SET FileID = " + intFileID;
+            if(DtInsatuBi > DateTime.MinValue) 
+            {
+                strSql += " , InsatuBi = '" + DtInsatuBi.ToString("yyyy-MM-dd hh:mm:ss") + "' ";
+            }
+            if (DtSoshinBi > DateTime.MinValue)
+            {
+                strSql += " , SoshinBi = '" + DtSoshinBi.ToString("yyyy-MM-dd hh:mm:ss") + "' ";
+            }
+            strSql += " WHERE InvoiceID  = '" + strInvoiceID + "' ";
+            SqlTransaction sqlTran = null;
+            try
+            {
+                sqlConn.Open();
+                sqlTran = sqlConn.BeginTransaction();
+
+                using (SqlCommand cmd = new SqlCommand(strSql, sqlConn, sqlTran))
+                    cmd.ExecuteNonQuery();
+                sqlTran.Commit();
+            }
+            catch (Exception e)
+            {
+                sqlTran.Rollback();
+                return -1;
+            }
+            return 0;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
