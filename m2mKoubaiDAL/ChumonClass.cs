@@ -652,18 +652,17 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_ChumonBuhinKubunDataTable
-            getV_ChumonBuhinKubunDataTable(string strKaisha, SqlConnection sqlConn)
+        public static ChumonDataSet.V_ChumonBuhinKubunDataTable getV_ChumonBuhinKubunDataTable(string strKaisha, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT     DISTINCT             TOP (100) PERCENT BuhinKubun "
-            + "FROM                     T_Chumon ";
+            "SELECT DISTINCT TOP (100) PERCENT BuhinKubun "
+            + "FROM T_Chumon ";
             if (strKaisha != null)
             {
-                da.SelectCommand.CommandText += "WHERE " + string.Format("T_Chumon.ShiiresakiCode = '{0}'", strKaisha);
+                da.SelectCommand.CommandText += "WHERE " + string.Format("T_Chumon.ShiiresakiCode = '{0}' ", strKaisha);
             }
-            da.SelectCommand.CommandText += "ORDER BY           BuhinKubun ";
+            da.SelectCommand.CommandText += "ORDER BY BuhinKubun ";
             ChumonDataSet.V_ChumonBuhinKubunDataTable dt = new ChumonDataSet.V_ChumonBuhinKubunDataTable();
             da.Fill(dt);
             return dt;
@@ -674,21 +673,50 @@ namespace m2mKoubaiDAL
         /// <param name="strKubun"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_ChumonBuhinDataTable
-            getV_ChumonBuhinDataTable(string strKubun, SqlConnection sqlConn)
+        public static ChumonDataSet.V_ChumonBuhinDataTable getV_ChumonBuhinDataTable(string strKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT         DISTINCT         TOP (100) PERCENT T_Chumon.BuhinCode, M_Buhin.BuhinMei, T_Chumon.BuhinKubun "
-            + "FROM                     T_Chumon INNER JOIN "
-            + "M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND T_Chumon.BuhinCode = M_Buhin.BuhinCode "
-            + "WHERE                   (T_Chumon.BuhinKubun = @kubun) AND (T_Chumon.CancelBi IS NULL) "
-            + "ORDER BY           T_Chumon.BuhinKubun, T_Chumon.BuhinCode ";
+            "SELECT DISTINCT TOP (100) PERCENT T_Chumon.BuhinCode, M_Buhin.BuhinMei, T_Chumon.BuhinKubun "
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND T_Chumon.BuhinCode = M_Buhin.BuhinCode "
+            + "WHERE (T_Chumon.BuhinKubun = @kubun) AND (T_Chumon.CancelBi IS NULL) "
+            + "ORDER BY T_Chumon.BuhinKubun, T_Chumon.BuhinCode ";
             da.SelectCommand.Parameters.AddWithValue("@kubun", strKubun);
             ChumonDataSet.V_ChumonBuhinDataTable dt = new ChumonDataSet.V_ChumonBuhinDataTable();
             da.Fill(dt);
             return dt;
         }
+        /// <summary>
+        /// 仕入先と部品区分によって、T_Chumonデーブルからすべて部品を取得
+        /// </summary>
+        /// <param name="strShiiresaki"></param>
+        /// <param name="strKubun"></param>
+        /// <param name="sqlConn"></param>
+        /// <returns></returns>
+        public static ChumonDataSet.V_ChumonBuhinDataTable getV_ChumonBuhinDataTable(string strShiiresaki, string strKubun, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText =
+            "SELECT DISTINCT TOP (100) PERCENT T_Chumon.BuhinCode, M_Buhin.BuhinMei, T_Chumon.BuhinKubun "
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND T_Chumon.BuhinCode = M_Buhin.BuhinCode "
+            + "WHERE (T_Chumon.BuhinKubun = @kubun) AND (T_Chumon.CancelBi IS NULL) ";
+            if (strShiiresaki.Length > 0) 
+            {
+                da.SelectCommand.CommandText += "AND (T_Chumon.ShiiresakiCode = @Shiire) ";
+            }
+            da.SelectCommand.CommandText += "ORDER BY T_Chumon.BuhinKubun, T_Chumon.BuhinCode ";
+            if (strShiiresaki.Length > 0)
+            {
+                da.SelectCommand.Parameters.AddWithValue("@Shiire", strShiiresaki);
+            }
+            da.SelectCommand.Parameters.AddWithValue("@kubun", strKubun);
+            ChumonDataSet.V_ChumonBuhinDataTable dt = new ChumonDataSet.V_ChumonBuhinDataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
         /// <summary>
         /// T_Chumonテーブルからすべての発注担当者を取得
         /// </summary>

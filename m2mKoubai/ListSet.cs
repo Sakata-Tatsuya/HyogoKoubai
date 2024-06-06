@@ -276,8 +276,7 @@ namespace m2mKoubai
             ddl.Items.Clear();
             ddl.Items.Add(new ListItem("---", "0"));
 
-            ChumonDataSet.V_ChumonBuhinKubunDataTable dt =
-                ChumonClass.getV_ChumonBuhinKubunDataTable(strKaisha, Global.GetConnection());
+            ChumonDataSet.V_ChumonBuhinKubunDataTable dt = ChumonClass.getV_ChumonBuhinKubunDataTable(strKaisha, Global.GetConnection());
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ddl.Items.Add(new ListItem(dt[i].BuhinKubun, dt[i].BuhinKubun));
@@ -293,8 +292,17 @@ namespace m2mKoubai
         {
             ddl.Items.Clear();
             ddl.Items.Add(new ListItem("---", "0"));
-            ChumonDataSet.V_ChumonBuhinDataTable dt =
-                ChumonClass.getV_ChumonBuhinDataTable(strKubun, Global.GetConnection());
+            ChumonDataSet.V_ChumonBuhinDataTable dt = ChumonClass.getV_ChumonBuhinDataTable(strKubun, Global.GetConnection());
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                ddl.Items.Add(new ListItem(dt[i].BuhinCode + ":" + dt[i].BuhinMei, dt[i].BuhinCode));
+            }
+        }
+        public static void SetDdlBuhin_C(string strShiire,string strKubun, DropDownList ddl)
+        {
+            ddl.Items.Clear();
+            ddl.Items.Add(new ListItem("---", "0"));
+            ChumonDataSet.V_ChumonBuhinDataTable dt = ChumonClass.getV_ChumonBuhinDataTable(strShiire, strKubun, Global.GetConnection());
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ddl.Items.Add(new ListItem(dt[i].BuhinCode + ":" + dt[i].BuhinMei, dt[i].BuhinCode));

@@ -101,13 +101,9 @@ namespace m2mKoubai.Shiiresaki
             BtnGenhinpyou.Visible = b;
 
             // àÛç¸
-            this.BtnHacchuusho.Attributes["onclick"] =
-                string.Format("Print('{0}')", "î≠íçèë");
-            this.BtnNouhinsho.Attributes["onclick"] =
-                string.Format("Print('{0}')", "î[ïièë");
-
-            this.BtnGenhinpyou.Attributes["onclick"] =
-                 string.Format("Print('{0}')", "åªïiï[");
+            this.BtnHacchuusho.Attributes["onclick"] = string.Format("Print('{0}')", "î≠íçèë");
+            this.BtnNouhinsho.Attributes["onclick"] = string.Format("Print('{0}')", "î[ïièë");
+            this.BtnGenhinpyou.Attributes["onclick"] = string.Format("Print('{0}')", "åªïiï[");
 
             //Img
             this.Img1.Style.Add("display", "none");
@@ -1029,7 +1025,7 @@ namespace m2mKoubai.Shiiresaki
                     break;
                 case "ddlBuhin":
 
-                    ListSet.SetDdlBuhin_C(this.DdlBuhinKubun.SelectedValue, this.DdlBuhin);
+                    ListSet.SetDdlBuhin_C(SessionManager.KaishaCode,DdlBuhinKubun.SelectedValue, DdlBuhin);
                     this.Ram.AjaxSettings.AddAjaxSetting(Ram, this.DdlBuhin);
                     break;
                 case "shounin":
@@ -1101,18 +1097,15 @@ namespace m2mKoubai.Shiiresaki
                         }               
 
                         // ç≈êVÇÃâÒìöNoÇÃ
-                        m2mKoubaiDataSet.T_NoukiKaitouDataTable dt =
-                            NoukiKaitouClass.getT_NoukiKaitouDataTable(strYear, strHacchuuNo, nKubun, nKaitouNo, Global.GetConnection());
+                        m2mKoubaiDataSet.T_NoukiKaitouDataTable dt = NoukiKaitouClass.getT_NoukiKaitouDataTable(strYear, strHacchuuNo, nKubun, nKaitouNo, Global.GetConnection());
 
-                        NoukiKaitouDataSet.KaitouNoukiDataTable dtKaitouNouki =
-                            new NoukiKaitouDataSet.KaitouNoukiDataTable();
+                        NoukiKaitouDataSet.KaitouNoukiDataTable dtKaitouNouki = new NoukiKaitouDataSet.KaitouNoukiDataTable();
 
                         if (0 < dt.Rows.Count)
                         {
                             for (int j = 0; j < dt.Rows.Count; j++)
                             {
-                                NoukiKaitouDataSet.KaitouNoukiRow drKaitouNouki =
-                                   (NoukiKaitouDataSet.KaitouNoukiRow)dtKaitouNouki.NewKaitouNoukiRow();
+                                NoukiKaitouDataSet.KaitouNoukiRow drKaitouNouki = (NoukiKaitouDataSet.KaitouNoukiRow)dtKaitouNouki.NewKaitouNoukiRow();
 
                                 drKaitouNouki.Year = strYear;
                                 drKaitouNouki.HacchuuNo = strHacchuuNo;
@@ -1133,8 +1126,7 @@ namespace m2mKoubai.Shiiresaki
                             string[] strSuuryouAry = Suuryou.Split('_');
                             for (int n = 0; n < strNoukiAry.Length; n++)
                             {
-                                NoukiKaitouDataSet.KaitouNoukiRow drKaitouNouki =
-                                     (NoukiKaitouDataSet.KaitouNoukiRow)dtKaitouNouki.NewKaitouNoukiRow();
+                                NoukiKaitouDataSet.KaitouNoukiRow drKaitouNouki = (NoukiKaitouDataSet.KaitouNoukiRow)dtKaitouNouki.NewKaitouNoukiRow();
 
                                 drKaitouNouki.Year = strYear;
                                 drKaitouNouki.HacchuuNo = strHacchuuNo;
@@ -1172,12 +1164,8 @@ namespace m2mKoubai.Shiiresaki
                         strYear = strChumonKey[0];
                         strHacchuuNo = strChumonKey[1];
                         nKubun = int.Parse(strChumonKey[2]);
-
-
-
                         // ç≈êVÇÃâÒìöNoéÊìæ
-                        ChumonDataSet.V_Chumon_JyouhouRow drChumon =
-                            ChumonClass.getV_Chumon_JyouhouRow(strYear, strHacchuuNo, nKubun, Global.GetConnection());
+                        ChumonDataSet.V_Chumon_JyouhouRow drChumon = ChumonClass.getV_Chumon_JyouhouRow(strYear, strHacchuuNo, nKubun, Global.GetConnection());
 
                         // âÒìöî[ä˙
                         this.m_dvKaitouNouki = new DataView(this.m_dtKaitouNouki);
@@ -1186,9 +1174,8 @@ namespace m2mKoubai.Shiiresaki
                         this.m_dvKaitouNouki.Sort = "KaitouNo DESC ";
 
                         DataView dvKaitouNouki = this.m_dvKaitouNouki;
-                        dvKaitouNouki.RowFilter =
-                              string.Format("Year = '{0}' AND HacchuuNo = '{1}' AND JigyoushoKubun = '{2}' ",
-                                            drChumon.Year, drChumon.HacchuuNo, drChumon.JigyoushoKubun);
+                        dvKaitouNouki.RowFilter = string.Format("Year = '{0}' AND HacchuuNo = '{1}' AND JigyoushoKubun = '{2}' ",
+                                                                 drChumon.Year, drChumon.HacchuuNo, drChumon.JigyoushoKubun);
 
                         NoukiKaitouInfo info = null;
                         this.GetMiKaitouNoukiInfo(drChumon, dvKaitouNouki, out info, true);
@@ -1263,9 +1250,7 @@ namespace m2mKoubai.Shiiresaki
                     nKubun = int.Parse(strChumonKey[2]);
 
                     // ç≈êVÇÃâÒìöNoéÊìæ
-                    ChumonDataSet.V_Chumon_JyouhouRow drChuumon1 =
-                        ChumonClass.getV_Chumon_JyouhouRow(strYear, strHacchuuNo,nKubun, Global.GetConnection());
-
+                    ChumonDataSet.V_Chumon_JyouhouRow drChuumon1 = ChumonClass.getV_Chumon_JyouhouRow(strYear, strHacchuuNo,nKubun, Global.GetConnection());
 
                     // âÒìöNo  
                     if (!drChuumon1.IsKaitouNoNull())
