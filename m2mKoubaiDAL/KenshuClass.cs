@@ -227,6 +227,7 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+
         /// <summary>
         /// ŒŸûƒf[ƒ^‚ğæ“¾
         /// </summary>

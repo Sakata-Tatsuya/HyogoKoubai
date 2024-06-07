@@ -302,9 +302,9 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM V_Nouhinsho_Header "
-            + "WHERE (LoginID = @LoginID) AND (KaishaID = @Kubun)";
+            + "WHERE (LoginID = @LoginID) ";
             da.SelectCommand.Parameters.AddWithValue("@LoginID", strLoginID);
-            da.SelectCommand.Parameters.AddWithValue("@Kubun", nKubun);
+            //da.SelectCommand.Parameters.AddWithValue("@Kubun", nKubun);
             ShiiresakiDataSet.V_Nouhinsho_HeaderDataTable dt = new ShiiresakiDataSet.V_Nouhinsho_HeaderDataTable();
             da.Fill(dt);
             if (1 == dt.Rows.Count)

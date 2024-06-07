@@ -80,7 +80,7 @@ namespace m2mKoubai.Shiiresaki
                 // åé
                 DdlMonth.SelectedIndex = dtNow.Month;
                 //
-                ListSet.SetDdlJigyoushoKubun(SessionManager.UserKubun, DdlJigyoshoKubun);
+                //ListSet.SetDdlJigyoushoKubun(SessionManager.UserKubun, DdlJigyoshoKubun);
                 
                 this.Create();
             }
@@ -150,7 +150,7 @@ namespace m2mKoubai.Shiiresaki
             }
             HidKeyKen.Value = k._NouhinYearMonth;
 
-            KenshuDataSet.V_KenshuDataTable dt = KenshuClass.getV_KenshuDataTable(k, Global.GetConnection());
+            KenshuDataSet.V_Kenshu2DataTable dt = KenshuClass.getV_Kenshu2DataTable(k, Global.GetConnection());
 
             this.ShowMsg(dt.Rows.Count + "åè", false);
             if (dt.Rows.Count == 0)
@@ -199,7 +199,7 @@ namespace m2mKoubai.Shiiresaki
             Session["SeikyuShoDataTable"] = dt;
             G.DataSource = dt;
             G.DataBind();
-            G.EnableViewState = false;
+            //G.EnableViewState = false;
 
             G.Attributes.Add("bordercolor", "#e1e1c8");
         }
@@ -214,10 +214,10 @@ namespace m2mKoubai.Shiiresaki
             // î[ïiîNåé
             k._NouhinYearMonth = this.DdlYear.SelectedValue + (int.Parse(this.DdlMonth.SelectedValue)).ToString("00");
             //
-            if (DdlJigyoshoKubun.SelectedIndex > 0)
-            {
-                k._JigyoushoKubun = int.Parse(DdlJigyoshoKubun.SelectedValue);
-            }
+            //if (DdlJigyoshoKubun.SelectedIndex > 0)
+            //{
+            //    k._JigyoushoKubun = int.Parse(DdlJigyoshoKubun.SelectedValue);
+            //}
             // édì¸êÊ
             k._SCode = SessionManager.KaishaCode;
 
@@ -305,7 +305,7 @@ namespace m2mKoubai.Shiiresaki
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {        
-                KenshuDataSet.V_KenshuRow dr = ((DataRowView)e.Row.DataItem).Row as KenshuDataSet.V_KenshuRow;
+                KenshuDataSet.V_Kenshu2Row dr = ((DataRowView)e.Row.DataItem).Row as KenshuDataSet.V_Kenshu2Row;
                 ChumonClass.ChumonKey key = new ChumonClass.ChumonKey(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun);               
 
                 // î≠íçNO              
@@ -344,23 +344,27 @@ namespace m2mKoubai.Shiiresaki
         }
         protected void BtnSP_Click(object sender, EventArgs e)
         {
-                OutputInvoice();
+            OutputInvoice();
+            //KenshuDataSet.V_KenshuDataTable dt = Session["SeikyuShoDataTable"] as KenshuDataSet.V_KenshuDataTable;
+            //G.DataSource = dt;
+            //G.DataBind();
         }
 
         protected void OutputInvoice()
         {
             //HiddenField HidFileID = form1.FindControl("HidFileID") as HiddenField;
-            KenshuDataSet.V_KenshuDataTable dt = Session["SeikyuShoDataTable"] as KenshuDataSet.V_KenshuDataTable;
+            KenshuDataSet.V_Kenshu2DataTable dt = Session["SeikyuShoDataTable"] as KenshuDataSet.V_Kenshu2DataTable;
             if (dt != null) 
             {
-                string strInvoiceID = @"INV" + SessionManager.KaishaCode + "_" + VsNengetu + "_" + DateTime.Now.ToString("yyyyMMddhhmmss") ;
-                string strFileName = @"êøãÅèë" + strInvoiceID + ".pdf";
+                int nMonth = int.Parse(this.DdlMonth.SelectedValue);
+                string strInvoiceID = @"INV" + SessionManager.KaishaCode + "_" + VsNengetu ;
+                string strFileName = @"êøãÅèë" + strInvoiceID + "_" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".pdf";
                 string path = @"c:\temp\m2mKoubai\" + strFileName;
                 DateTime dtTourokuBi = DateTime.Now;
                 DateTime dtInsatuBi = DateTime.Now;
                 DateTime dtSoshinBi = DateTime.MinValue;
 
-                var PDF = CreatePDF.CreateInvoicePDF(SessionManager.LoginID, SessionManager.KaishaCode , dt);
+                var PDF = CreatePDF.CreateInvoicePDF(SessionManager.LoginID, SessionManager.KaishaCode, nMonth, dt);
                 bool isCange = false;
 
                 ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strInvoiceID, Global.GetConnection());
@@ -375,6 +379,7 @@ namespace m2mKoubai.Shiiresaki
                 dr.FileSize = PDF.ToArray().Length;
                 dr.Data = PDF.ToArray();
                 dr.TourokuBi = dtTourokuBi;
+                dr.KaishaCode = SessionManager.KaishaCode;
                 dr.TourokuUser = SessionManager.LoginID;
                 dr.DataType = "êøãÅèë";
                 dr.SlipID = strInvoiceID;

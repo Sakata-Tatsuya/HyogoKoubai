@@ -19,6 +19,19 @@
          function AjaxRequest(command_name, arg) {
             <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
          }
+         function pageLoad() {
+             showpdf()
+         }
+         function showpdf() {
+             var fileid = document.getElementById('HidFileID').value;
+             console.log(fileid);
+             if (0 < fileid.length) {
+                 document.getElementById('HidFileID').value = '';
+                 var url = "/Common/FileView.aspx?FileKey=" + fileid;
+                 var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
+                 win.focus();
+             }
+         }   
 	     function Reload()
          {
              AjaxRequest('reload', '');
@@ -162,15 +175,6 @@
             else
                 return false;
         }
-         function showpdf() {
-             var fileid = document.getElementById('HidFileID').value;
-             if (0 < fileid.length) {
-                 document.getElementById('HidFileID').value = '';
-                 var url = "/Common/FileView.aspx?FileKey=" + fileid;
-                 var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
-                 win.focus();
-             }
-         }   
      </script>
 </head>
 <body class="bg99">
@@ -182,8 +186,8 @@
             <tr class="bg3">
                 <td>
                     検収年月</td>
-                <td style="width: 96px">
-                    発注元事業所</td>
+<%--                <td style="width: 96px">
+                    発注元事業所</td>--%>
                 <td rowspan="2">
                     <input id="BtnK" runat="server" class="w60 bg98" type="button" value="検索" />
                 </td>
@@ -206,9 +210,9 @@
                         <asp:ListItem>11</asp:ListItem>
                         <asp:ListItem>12</asp:ListItem>
                     </asp:DropDownList>月</td>
-                <td >
+<%--                <td >
                     <asp:DropDownList ID="DdlJigyoshoKubun" runat="server">
-                    </asp:DropDownList></td>
+                    </asp:DropDownList></td>--%>
             </tr>
         </table>
         <table id="TblList" runat="server" width="100%" class="def9">
@@ -234,7 +238,7 @@
                             <td nowrap="noWrap">
                                 &nbsp;<input id="BtnKI" runat="server" type="button" value="検収明細表の&#13;&#10;印刷画面を表示する" class="bg98 w150" />
                                 <input id="BtnSI" runat="server" type="button" value="請求書の&#13;&#10;印刷画面を表示する" class="bg98 w150" />
-                                <asp:Button ID="BtnSP" runat="server" Text="請求書印刷" OnClick="BtnSP_Click"/>
+                                <asp:Button ID="BtnSP" runat="server" Text="請求書の印刷画面を表示する" OnClick="BtnSP_Click"/>
                             </td>
                             <td align="left">
                                 <table class="def9" id="TblRow" runat="server">

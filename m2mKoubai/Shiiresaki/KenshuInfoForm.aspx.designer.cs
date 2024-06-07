@@ -60,15 +60,6 @@ namespace m2mKoubai.Shiiresaki
         protected global::System.Web.UI.WebControls.DropDownList DdlMonth;
 
         /// <summary>
-        /// DdlJigyoshoKubun コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlJigyoshoKubun;
-
-        /// <summary>
         /// TblList コントロール。
         /// </summary>
         /// <remarks>
