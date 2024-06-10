@@ -240,13 +240,22 @@ namespace m2mKoubai
         protected global::Telerik.Web.UI.RadMenuItem RadMenuItemSM2;
 
         /// <summary>
-        /// RadMenuItemCOM コントロール。
+        /// RadMenuItemC1 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemCOM;
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemC1;
+
+        /// <summary>
+        /// RadMenuItemC2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemC2;
 
         /// <summary>
         /// TblColor コントロール。

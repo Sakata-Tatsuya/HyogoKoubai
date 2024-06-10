@@ -94,6 +94,29 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_DocumentTableAdapter" GeneratorDataComponentClassName="V_DocumentTableAdapter" Name="V_Document" UserDataComponentName="V_DocumentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="m2mKoubaiConnectionString (Settings)" DbObjectName="m2mKoubai2.dbo.V_Document" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM V_Document</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FileID" DataSetColumn="FileID" />
+              <Mapping SourceColumn="FileName" DataSetColumn="FileName" />
+              <Mapping SourceColumn="DataType" DataSetColumn="DataType" />
+              <Mapping SourceColumn="SlipID" DataSetColumn="SlipID" />
+              <Mapping SourceColumn="KaishaCode" DataSetColumn="KaishaCode" />
+              <Mapping SourceColumn="KaishaMei" DataSetColumn="KaishaMei" />
+              <Mapping SourceColumn="TourokuBi" DataSetColumn="TourokuBi" />
+              <Mapping SourceColumn="TourokuUser" DataSetColumn="TourokuUser" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -102,38 +125,66 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
   <xs:element name="ShareDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ShareDataSet" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ShareDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="T_Document" msprop:Generator_RowEvHandlerName="T_DocumentRowChangeEventHandler" msprop:Generator_RowDeletedName="T_DocumentRowDeleted" msprop:Generator_RowDeletingName="T_DocumentRowDeleting" msprop:Generator_RowEvArgName="T_DocumentRowChangeEvent" msprop:Generator_TablePropName="T_Document" msprop:Generator_RowChangedName="T_DocumentRowChanged" msprop:Generator_RowChangingName="T_DocumentRowChanging" msprop:Generator_TableClassName="T_DocumentDataTable" msprop:Generator_RowClassName="T_DocumentRow" msprop:Generator_TableVarName="tableT_Document" msprop:Generator_UserTableName="T_Document">
+        <xs:element name="T_Document" msprop:Generator_RowClassName="T_DocumentRow" msprop:Generator_RowEvHandlerName="T_DocumentRowChangeEventHandler" msprop:Generator_RowDeletedName="T_DocumentRowDeleted" msprop:Generator_RowDeletingName="T_DocumentRowDeleting" msprop:Generator_RowEvArgName="T_DocumentRowChangeEvent" msprop:Generator_TablePropName="T_Document" msprop:Generator_RowChangedName="T_DocumentRowChanged" msprop:Generator_UserTableName="T_Document" msprop:Generator_RowChangingName="T_DocumentRowChanging" msprop:Generator_TableClassName="T_DocumentDataTable" msprop:Generator_TableVarName="tableT_Document">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="FileID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="FileID" msprop:Generator_ColumnPropNameInTable="FileIDColumn" msprop:Generator_ColumnVarNameInTable="columnFileID" msprop:Generator_UserColumnName="FileID" type="xs:int" />
-              <xs:element name="FileName" msprop:Generator_ColumnPropNameInRow="FileName" msprop:Generator_ColumnPropNameInTable="FileNameColumn" msprop:Generator_ColumnVarNameInTable="columnFileName" msprop:Generator_UserColumnName="FileName">
+              <xs:element name="FileID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="FileID" msprop:Generator_ColumnPropNameInTable="FileIDColumn" msprop:Generator_ColumnPropNameInRow="FileID" msprop:Generator_ColumnVarNameInTable="columnFileID" type="xs:int" />
+              <xs:element name="FileName" msprop:Generator_UserColumnName="FileName" msprop:Generator_ColumnPropNameInTable="FileNameColumn" msprop:Generator_ColumnPropNameInRow="FileName" msprop:Generator_ColumnVarNameInTable="columnFileName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="300" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ContentType" msprop:Generator_ColumnPropNameInRow="ContentType" msprop:Generator_ColumnPropNameInTable="ContentTypeColumn" msprop:Generator_ColumnVarNameInTable="columnContentType" msprop:Generator_UserColumnName="ContentType">
+              <xs:element name="ContentType" msprop:Generator_UserColumnName="ContentType" msprop:Generator_ColumnPropNameInTable="ContentTypeColumn" msprop:Generator_ColumnPropNameInRow="ContentType" msprop:Generator_ColumnVarNameInTable="columnContentType">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FileSize" msprop:Generator_ColumnPropNameInRow="FileSize" msprop:Generator_ColumnPropNameInTable="FileSizeColumn" msprop:Generator_ColumnVarNameInTable="columnFileSize" msprop:Generator_UserColumnName="FileSize" type="xs:int" />
-              <xs:element name="Data" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnPropNameInTable="DataColumn" msprop:Generator_ColumnVarNameInTable="columnData" msprop:Generator_UserColumnName="Data" type="xs:base64Binary" minOccurs="0" />
-              <xs:element name="TourokuBi" msprop:Generator_ColumnPropNameInRow="TourokuBi" msprop:Generator_ColumnPropNameInTable="TourokuBiColumn" msprop:Generator_ColumnVarNameInTable="columnTourokuBi" msprop:Generator_UserColumnName="TourokuBi" type="xs:dateTime" />
-              <xs:element name="KaishaCode" msprop:Generator_ColumnPropNameInRow="KaishaCode" msprop:Generator_ColumnPropNameInTable="KaishaCodeColumn" msprop:Generator_ColumnVarNameInTable="columnKaishaCode" msprop:Generator_UserColumnName="KaishaCode" default="" minOccurs="0">
+              <xs:element name="FileSize" msprop:Generator_UserColumnName="FileSize" msprop:Generator_ColumnPropNameInTable="FileSizeColumn" msprop:Generator_ColumnPropNameInRow="FileSize" msprop:Generator_ColumnVarNameInTable="columnFileSize" type="xs:int" />
+              <xs:element name="Data" msprop:Generator_UserColumnName="Data" msprop:Generator_ColumnPropNameInTable="DataColumn" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnVarNameInTable="columnData" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="TourokuBi" msprop:Generator_UserColumnName="TourokuBi" msprop:Generator_ColumnPropNameInTable="TourokuBiColumn" msprop:Generator_ColumnPropNameInRow="TourokuBi" msprop:Generator_ColumnVarNameInTable="columnTourokuBi" type="xs:dateTime" />
+              <xs:element name="KaishaCode" msprop:Generator_UserColumnName="KaishaCode" msprop:Generator_ColumnPropNameInTable="KaishaCodeColumn" msprop:Generator_ColumnPropNameInRow="KaishaCode" msprop:Generator_ColumnVarNameInTable="columnKaishaCode" default="" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TourokuUser" msprop:Generator_ColumnPropNameInRow="TourokuUser" msprop:Generator_ColumnPropNameInTable="TourokuUserColumn" msprop:Generator_ColumnVarNameInTable="columnTourokuUser" msprop:Generator_UserColumnName="TourokuUser">
+              <xs:element name="TourokuUser" msprop:Generator_UserColumnName="TourokuUser" msprop:Generator_ColumnPropNameInTable="TourokuUserColumn" msprop:Generator_ColumnPropNameInRow="TourokuUser" msprop:Generator_ColumnVarNameInTable="columnTourokuUser">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DataType" msprop:Generator_UserColumnName="DataType" msprop:Generator_ColumnPropNameInTable="DataTypeColumn" msprop:Generator_ColumnPropNameInRow="DataType" msprop:Generator_ColumnVarNameInTable="columnDataType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SlipID" msprop:Generator_UserColumnName="SlipID" msprop:Generator_ColumnPropNameInTable="SlipIDColumn" msprop:Generator_ColumnPropNameInRow="SlipID" msprop:Generator_ColumnVarNameInTable="columnSlipID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_Document" msprop:Generator_RowEvHandlerName="V_DocumentRowChangeEventHandler" msprop:Generator_RowDeletedName="V_DocumentRowDeleted" msprop:Generator_RowDeletingName="V_DocumentRowDeleting" msprop:Generator_RowEvArgName="V_DocumentRowChangeEvent" msprop:Generator_TablePropName="V_Document" msprop:Generator_RowChangedName="V_DocumentRowChanged" msprop:Generator_RowChangingName="V_DocumentRowChanging" msprop:Generator_TableClassName="V_DocumentDataTable" msprop:Generator_RowClassName="V_DocumentRow" msprop:Generator_TableVarName="tableV_Document" msprop:Generator_UserTableName="V_Document">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FileID" msprop:Generator_ColumnPropNameInRow="FileID" msprop:Generator_ColumnPropNameInTable="FileIDColumn" msprop:Generator_ColumnVarNameInTable="columnFileID" msprop:Generator_UserColumnName="FileID" type="xs:int" />
+              <xs:element name="FileName" msprop:Generator_ColumnPropNameInRow="FileName" msprop:Generator_ColumnPropNameInTable="FileNameColumn" msprop:Generator_ColumnVarNameInTable="columnFileName" msprop:Generator_UserColumnName="FileName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -151,6 +202,28 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="KaishaCode" msprop:Generator_ColumnPropNameInRow="KaishaCode" msprop:Generator_ColumnPropNameInTable="KaishaCodeColumn" msprop:Generator_ColumnVarNameInTable="columnKaishaCode" msprop:Generator_UserColumnName="KaishaCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KaishaMei" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="KaishaMei" msprop:Generator_ColumnPropNameInTable="KaishaMeiColumn" msprop:Generator_ColumnVarNameInTable="columnKaishaMei" msprop:Generator_UserColumnName="KaishaMei" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TourokuBi" msprop:Generator_ColumnPropNameInRow="TourokuBi" msprop:Generator_ColumnPropNameInTable="TourokuBiColumn" msprop:Generator_ColumnVarNameInTable="columnTourokuBi" msprop:Generator_UserColumnName="TourokuBi" type="xs:dateTime" />
+              <xs:element name="TourokuUser" msprop:Generator_ColumnPropNameInRow="TourokuUser" msprop:Generator_ColumnPropNameInTable="TourokuUserColumn" msprop:Generator_ColumnVarNameInTable="columnTourokuUser" msprop:Generator_UserColumnName="TourokuUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -158,6 +231,10 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:T_Document" />
+      <xs:field xpath="mstns:FileID" />
+    </xs:unique>
+    <xs:unique name="V_Document_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_Document" />
       <xs:field xpath="mstns:FileID" />
     </xs:unique>
   </xs:element>

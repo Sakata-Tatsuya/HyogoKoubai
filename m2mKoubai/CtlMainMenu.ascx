@@ -44,7 +44,7 @@
             <p>　</p>
         </td>
         <td>
-            <telerik:RadMenu ID="N" Font-Size="9pt" CollapseDelay="200" runat="server" Font-Bold="False" Skin="MetroTouch">
+            <telerik:RadMenu ID="N" Font-Size="9pt" CollapseDelay="200" runat="server" Font-Bold="False" Skin="MetroTouch" style="top: 0px; left: 0px">
                 <Items>
                     <telerik:RadMenuItem ID="RadMenuItemO1" runat="server" Text="発注情報" NavigateUrl="~/Order/OrderInfoForm.aspx"></telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemO2" runat="server" Text="発注入力">
@@ -72,7 +72,8 @@
                     <telerik:RadMenuItem ID="RadMenuItemS2" runat="server" Text="検収情報" NavigateUrl="~/Shiiresaki/KenshuInfoForm.aspx"></telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemSM1" runat="server" Text="パスワード変更" NavigateUrl="~/Shiiresaki/PassChangeForm.aspx"></telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemSM2" runat="server" Text="会社情報" NavigateUrl="~/Shiiresaki/KaishaInfoForm.aspx"></telerik:RadMenuItem>
-                    <telerik:RadMenuItem  ID="RadMenuItemCOM" runat="server" NavigateUrl="~/LoginForm.aspx" Text="ログアウト"></telerik:RadMenuItem>
+                    <telerik:RadMenuItem  ID="RadMenuItemC1" runat="server" NavigateUrl="~/ChoboListForm.aspx" Text="帳票管理"></telerik:RadMenuItem>
+                    <telerik:RadMenuItem  ID="RadMenuItemC2" runat="server" NavigateUrl="~/LoginForm.aspx" Text="ログアウト"></telerik:RadMenuItem>
                 </Items>
             </telerik:RadMenu>
         </td>

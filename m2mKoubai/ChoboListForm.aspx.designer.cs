@@ -7,11 +7,11 @@
 // </自動生成>
 //------------------------------------------------------------------------------
 
-namespace m2mKoubai.Shiiresaki
+namespace m2mKoubai
 {
 
 
-    public partial class KenshuInfoForm
+    public partial class ChoboListForm
     {
 
         /// <summary>
@@ -33,31 +33,40 @@ namespace m2mKoubai.Shiiresaki
         protected global::m2mKoubai.CtlMainMenu M;
 
         /// <summary>
-        /// BtnK コントロール。
+        /// DdlDataType コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnK;
+        protected global::System.Web.UI.WebControls.DropDownList DdlDataType;
 
         /// <summary>
-        /// DdlYear コントロール。
+        /// DdlKaisha コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlYear;
+        protected global::System.Web.UI.WebControls.DropDownList DdlKaisha;
 
         /// <summary>
-        /// DdlMonth コントロール。
+        /// CtlTourokuBi コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlMonth;
+        protected global::m2mKoubai.Common.CtlNengappiFromTo CtlTourokuBi;
+
+        /// <summary>
+        /// BtnKensaku コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnKensaku;
 
         /// <summary>
         /// TblList コントロール。
@@ -67,15 +76,6 @@ namespace m2mKoubai.Shiiresaki
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTable TblList;
-
-        /// <summary>
-        /// TABLE1 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TABLE1;
 
         /// <summary>
         /// LblMsg コントロール。
@@ -105,33 +105,6 @@ namespace m2mKoubai.Shiiresaki
         protected global::m2mKoubai.Common.CtlMyPager Pt;
 
         /// <summary>
-        /// BtnKI コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnKI;
-
-        /// <summary>
-        /// BtnSP コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSP;
-
-        /// <summary>
-        /// TblRow コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TblRow;
-
-        /// <summary>
         /// DdlRow コントロール。
         /// </summary>
         /// <remarks>
@@ -157,24 +130,6 @@ namespace m2mKoubai.Shiiresaki
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::m2mKoubai.Common.CtlMyPager Pb;
-
-        /// <summary>
-        /// HidChkID コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden HidChkID;
-
-        /// <summary>
-        /// HidKeyKen コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden HidKeyKen;
 
         /// <summary>
         /// HidFileID コントロール。

@@ -112,7 +112,7 @@ namespace m2mKoubai.Shiiresaki
             // ŒŸû–¾×            
             this.BtnKI.Attributes["onclick"] = string.Format("Kenshu('{0}');", HidKeyKen.Value);
             // ¿‹‘
-            this.BtnSI.Attributes["onclick"] = string.Format("Seikyu('{0}');", HidKeyKen.Value);
+            //this.BtnSI.Attributes["onclick"] = string.Format("Seikyu('{0}');", HidKeyKen.Value);
          
             // s”•ÏX
             this.DdlRow.Attributes["onchange"] = "RowChange(); return false;";
@@ -248,7 +248,7 @@ namespace m2mKoubai.Shiiresaki
             G.Visible = b;
             TblRow.Visible = b;
             this.BtnKI.Visible = b;
-            this.BtnSI.Visible = b;
+            //this.BtnSI.Visible = b;
             this.BtnSP.Visible = b;
         }
 

@@ -18,7 +18,47 @@ namespace m2mKoubaiDAL
             public string DataType = "";
             public string SlipID = "";
         }
-        public static ShareDataSet.T_DocumentRow getT_DocumentRow(string FileID, SqlConnection sqlConn)
+        public class KensakuParam
+        {
+            // ユーザー区分
+            public byte _userKubun = 0;
+            // 取引先
+            public string _KaishaCode = "";
+            // 帳票種別
+            public string _DataType = "";
+            // 発行日
+            public Core.Type.NengappiKikan _TourokuBi = null;
+        }
+
+        /// <summary>
+        /// T_Document用Where文を作成
+        /// </summary>
+        /// <param name="k"></param>
+        /// <param name="cmd"></param>
+        /// <returns></returns>
+        private static string WhereDocument(KensakuParam k, SqlCommand cmd)
+        {
+            Core.Sql.WhereGenerator w = new Core.Sql.WhereGenerator();
+            // 取引先コード
+            if (k._KaishaCode != "")
+            {
+                w.Add(string.Format("(KaishaCode = '{0}')", k._KaishaCode));
+            }
+            // 帳票種別
+            if (k._DataType != "")
+            {
+                w.Add(string.Format("DataType = '{0}'", k._DataType));
+            }
+            // 発行日
+            if (k._TourokuBi != null && k._TourokuBi.KikanTypeIsNotNone)
+            {
+                w.Add(Core.Type.NengappiKikan.GenerateSQL(k._TourokuBi, false, "(convert(varchar,TourokuBi,112))"));
+            }
+            return w.WhereText;
+        }
+
+
+    public static ShareDataSet.T_DocumentRow getT_DocumentRow(string FileID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = @"SELECT * FROM T_Document
@@ -127,8 +167,56 @@ namespace m2mKoubaiDAL
             return 0;
 
         }
+        public static ShareDataSet.V_DocumentDataTable getV_DocumentDataTable(KensakuParam k, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = "SELECT * FROM V_Document ";
+            // WHERE 
+            string strW = WhereDocument(k, da.SelectCommand);
+            if (strW != "")
+            {
+                da.SelectCommand.CommandText += "WHERE " + strW;
+            }
+            da.SelectCommand.CommandText += " ORDER BY FileID ";
+            ShareDataSet.V_DocumentDataTable dt = new ShareDataSet.V_DocumentDataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
+        /// <summary>
+        /// 検索用の値取得
+        /// </summary>
+        /// <param name="strKoumoku"></param>
+        /// <param name="strCode"></param>
+        /// <param name="sqlConn"></param>
+        /// <returns></returns>
+        public static DataTable getV_DocunemtColumnLoadDataTable(string strKoumoku, string strKaishaCode, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
 
+            da.SelectCommand.CommandText = string.Format(@"SELECT {0} FROM V_Document ", strKoumoku);
+
+            if (strKaishaCode != "") // 受注側ログインの場合
+            {
+                da.SelectCommand.CommandText += string.Format(@"
+                WHERE KaishaCode =  {0}
+                GROUP BY {1}
+                ORDER BY {1}
+                ", strKaishaCode, strKoumoku);
+            }
+            else
+            {
+                da.SelectCommand.CommandText += string.Format(@"
+                GROUP BY {0}
+                ORDER BY {0}
+                ", strKoumoku);
+            }
+
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+            return dt;
+        }
 
 
 

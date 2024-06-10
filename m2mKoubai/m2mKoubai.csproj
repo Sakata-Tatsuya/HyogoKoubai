@@ -365,6 +365,7 @@
     <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\Img\tabStripeOn.gif" />
     <Content Include="MyRadControls\TabStrip\Skins\ClassicBlue\styles.css" />
     <Content Include="NouhinForm.aspx" />
+    <Content Include="ChoboListForm.aspx" />
     <Content Include="Order\MultiOrderInputForm.aspx" />
     <Content Include="Order\OrderInfoForm.aspx" />
     <Content Include="Order\OrderInputForm.aspx" />
@@ -9861,6 +9862,13 @@
     </Compile>
     <Compile Include="NouhinForm.aspx.designer.cs">
       <DependentUpon>NouhinForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChoboListForm.aspx.cs">
+      <DependentUpon>ChoboListForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChoboListForm.aspx.designer.cs">
+      <DependentUpon>ChoboListForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Order\MultiOrderInputForm.aspx.cs">
       <DependentUpon>MultiOrderInputForm.aspx</DependentUpon>

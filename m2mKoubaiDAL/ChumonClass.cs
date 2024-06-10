@@ -168,44 +168,32 @@ namespace m2mKoubaiDAL
                          + "ORDER BY KaitouNo DESC) IS NULL)");
                 }
                 else
-                {/*
-                    w.Add("(((SELECT TOP 1 KaitouNo "
-                          + "FROM           T_NoukiKaitou "
-                          + "WHERE (T_Chumon.Year = Year) AND (T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-                          + "ORDER BY KaitouNo DESC) IS NOT NULL) AND "
-                          + "((SELECT                  TOP (1) ShouninFlg "
-                          + "FROM                      T_NoukiKaitou AS T_NoukiKaitou_1 "
-                          + "WHERE                   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  "
-                          + "ORDER BY           KaitouNo DESC) IS NULL))");
-
-                    */
-
-                    w.Add("  ((SELECT                  TOP (1) ShouninFlg "
-                    + " FROM                     dbo.T_NoukiKaitou AS T_NoukiKaitou_1 "
-                    + " WHERE                    (dbo.T_Chumon.Year = Year) AND (dbo.T_Chumon.HacchuuNo = HacchuuNo) AND "
+                {
+                    w.Add("  ((SELECT  TOP (1) ShouninFlg "
+                    + " FROM   dbo.T_NoukiKaitou AS T_NoukiKaitou_1 "
+                    + " WHERE (dbo.T_Chumon.Year = Year) AND (dbo.T_Chumon.HacchuuNo = HacchuuNo) AND "
                     + " (dbo.T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-                    + " ORDER BY            KaitouNo DESC) = 0) AND "
-                    + " ((SELECT                  TOP (1) KaitouNo "
-                    + " FROM                     dbo.T_NoukiKaitou AS T_NoukiKaitou_1 "
-                    + " WHERE                   (dbo.T_Chumon.Year = Year) AND (dbo.T_Chumon.HacchuuNo = HacchuuNo) AND "
+                    + " ORDER BY KaitouNo DESC) = 0) AND "
+                    + " ((SELECT TOP (1) KaitouNo "
+                    + " FROM   dbo.T_NoukiKaitou AS T_NoukiKaitou_1 "
+                    + " WHERE (dbo.T_Chumon.Year = Year) AND (dbo.T_Chumon.HacchuuNo = HacchuuNo) AND "
                     + " (dbo.T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-                    + " ORDER BY           KaitouNo DESC) IS NOT NULL) ");
+                    + " ORDER BY KaitouNo DESC) IS NOT NULL) ");
                 }
             }
             // ”[Šú•ÏX
             if (k._NhJyoukyou > 0)
             {
                 w.Add("((SELECT TOP (1) HenkouNo "
-                + "FROM                     dbo.T_NoukiHenkou AS T_NoukiHenkou_1 "
-                + "WHERE                    (dbo.T_Chumon.Year = Year) AND (dbo.T_Chumon.HacchuuNo = HacchuuNo) AND  "
+                + "FROM   dbo.T_NoukiHenkou AS T_NoukiHenkou_1 "
+                + "WHERE (dbo.T_Chumon.Year = Year) AND (dbo.T_Chumon.HacchuuNo = HacchuuNo) AND  "
                 + "(dbo.T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-                + "ORDER BY            HenkouNo DESC) >= 1) AND "
-                + "((SELECT                  TOP (1) ShouninFlg "
-                + "FROM                     dbo.T_NoukiHenkou AS T_NoukiHenkou_1 "
-                + "WHERE                   (dbo.T_Chumon.Year = Year) AND (dbo.T_Chumon.HacchuuNo = HacchuuNo) AND  "
+                + "ORDER BY HenkouNo DESC) >= 1) AND "
+                + "((SELECT TOP (1) ShouninFlg "
+                + "FROM   dbo.T_NoukiHenkou AS T_NoukiHenkou_1 "
+                + "WHERE (dbo.T_Chumon.Year = Year) AND (dbo.T_Chumon.HacchuuNo = HacchuuNo) AND  "
                 + "(dbo.T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-                + "ORDER BY           HenkouNo DESC) = 0) ");
-
+                + "ORDER BY HenkouNo DESC) = 0) ");
             }
             // ”[•ió‹µ
             if (k._NHJyoukyou > 0)
@@ -213,25 +201,10 @@ namespace m2mKoubaiDAL
                 // –¢Š®”[
                 if (k._NHJyoukyou == 1)
                 {
-                    /*
-                    w.Add("(((SELECT SUM(Suuryou) AS NouhinSuuryou "
-                       + "FROM T_Nouhin AS T_Nouhin "
-                       + "WHERE (T_Chumon.Year = Year) AND (T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)) <> "
-                       + "T_Chumon.Suuryou ) OR "
-                       + "((SELECT SUM(Suuryou) AS NouhinSuuryou "
-                       + "FROM T_Nouhin AS T_Nouhin_1 "
-                       + "WHERE (T_Chumon.Year = Year) AND (T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)) IS NULL ))");
-                    */
                     w.Add("T_Chumon.KannouFlg = 0 ");
                 }
                 else // Š®”[
                 {
-                    /*
-                    w.Add("((SELECT SUM(Suuryou) AS NouhinSuuryou "
-                      + "FROM T_Nouhin AS T_Nouhin_1 "
-                      + "WHERE (T_Chumon.Year = Year) AND (T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) ) =   "
-                      + "T_Chumon.Suuryou )");
-                    */
                     w.Add("T_Chumon.KannouFlg = 1 ");
                 }
             }
@@ -260,32 +233,27 @@ namespace m2mKoubaiDAL
             if (k._Nouki != null && k._Nouki.KikanTypeIsNotNone)
             {
                 w.Add(
-                "(((SELECT              TOP (1) HenkouNo "
-                    + "FROM                      T_NoukiHenkou AS T_NoukiHenkou_1 "
-                    + "WHERE                   ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-                    + "ORDER BY           HenkouNo DESC) IS NULL AND "
+                "(((SELECT TOP (1) HenkouNo "
+                    + "FROM  T_NoukiHenkou AS T_NoukiHenkou_1 "
+                    + "WHERE ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo)  AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) "
+                    + "ORDER BY HenkouNo DESC) IS NULL AND "
                  + k._Nouki.GenerateSQL("T_Chumon.Nouki", false) + ") OR ("
-                 + k._Nouki.GenerateSQL("(SELECT    Top(1)          Nouki "
-                    + "FROM                      T_NoukiHenkou AS T_NoukiHenkou_2 "
+                 + k._Nouki.GenerateSQL("(SELECT Top(1) Nouki "
+                    + "FROM  T_NoukiHenkou AS T_NoukiHenkou_2 "
                     + "WHERE ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  ORDER BY HenkouNo DESC)", false) + "))");
-                // + k._Nouki.GenerateSQL("T_NoukiHenkou.Nouki", false) + ")");        
-
             }
 
             // ‰ñ“š”[Šú            
             if (k._KaitouNouki != null && k._KaitouNouki.KikanTypeIsNotNone)
             {
-                w.Add(k._KaitouNouki.GenerateSQL("(SELECT    Top(1)          Nouki "
-                    + "FROM                      T_NoukiKaitou AS T_NoukiKaitou_2 "
+                w.Add(k._KaitouNouki.GenerateSQL("(SELECT Top(1) Nouki "
+                    + "FROM  T_NoukiKaitou AS T_NoukiKaitou_2 "
                     + "WHERE ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  ORDER BY KaitouNo DESC)", false));
-
-                //w.Add(k._KaitouNouki.GenerateSQL("T_NoukiKaitou.Nouki ", false));
 
             }
             // ”[•i“ú
             if (k._NouhinBi != null && k._NouhinBi.KikanTypeIsNotNone)
             {
-                // w.Add(k._NouhinBi.GenerateSQL("(convert(varchar,T_Nouhin.NouhinBi,112))", false));
                 w.Add(Core.Type.NengappiKikan.GenerateSQL(k._NouhinBi, false, "(convert(varchar,T_Nouhin.NouhinBi,112))"));
             }
             // ƒLƒƒƒ“ƒZƒ‹

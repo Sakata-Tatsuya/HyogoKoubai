@@ -435,9 +435,44 @@ namespace m2mKoubai
                 doc.Add(tbl);
             }
 
+
+            //明細表描画終了
+            tbl = new PdfPTable(2);
+            tbl.SetTotalWidth(new float[] { 100, 460 });
+            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+            tbl.AddCell(cell);
+            strTemp = "* 軽減税率対象";
+            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+            tbl.AddCell(cell);
+            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+            tbl.AddCell(cell);
+            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+            tbl.AddCell(cell);
+            doc.Add(tbl);
+
+            tbl = new PdfPTable(7);
+            tbl.SetTotalWidth(new float[] { 140, 60, 100, 60, 100, 60, 100 });
+            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+            tbl.AddCell(cell);
+            cell = new PdfPCell(new Paragraph("合計", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER};
+            tbl.AddCell(cell);
+            strTemp = string.Format("\\{0:#,##0}", nGoukei);
+            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+            tbl.AddCell(cell);
+            cell = new PdfPCell(new Paragraph("消費税", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+            tbl.AddCell(cell);
+            strTemp = string.Format("\\{0:#,##0}", nZeigaku);
+            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+            tbl.AddCell(cell);
+            cell = new PdfPCell(new Paragraph("総合計", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+            tbl.AddCell(cell);
+            strTemp = string.Format("\\{0:#,##0}", nSouGoukei);
+            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+            tbl.AddCell(cell);
+            doc.Add(tbl);
+
             //テキスト描画終了
             //pdfContentByte.EndText();
-
 
             doc.Close();
             return stream;
