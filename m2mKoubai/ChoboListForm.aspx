@@ -46,18 +46,6 @@
         function PageChange(pageIndex) {
             AjaxRequest('page', pageIndex);
         }
-        function Shounin(strKey) {
-            if (confirm('承認しますか？')) {
-                AjaxRequest('shounin', strKey);
-            }
-        }
-        function ChkAll(bool) {
-            var idAry = document.getElementById('HidChkID').value.split(',');
-            for (var i = 0; i < idAry.length; i++) {
-                var chk = document.getElementById(idAry[i]);
-                chk.checked = bool;
-            }
-        }
 
         function OnRequestStart(sender, args) {
             document.getElementById("Img1").style.display = '';
@@ -65,7 +53,6 @@
         function OnResponseEnd(sender, args) {
             document.getElementById('Img1').style.display = 'none';
         }
-
 
     </script>
 

@@ -154,7 +154,6 @@ namespace m2mKoubai
             G.DataSource = dt;
             G.DataBind();
             G.EnableViewState = false;
-
         }
         private int AloowPaging()
         {
