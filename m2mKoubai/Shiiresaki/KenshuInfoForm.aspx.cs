@@ -110,7 +110,7 @@ namespace m2mKoubai.Shiiresaki
             BtnK.Attributes["onclick"] = "Kensaku();";
 
             // åüé˚ñæç◊            
-            this.BtnKI.Attributes["onclick"] = string.Format("Kenshu('{0}');", HidKeyKen.Value);
+            //this.BtnKI.Attributes["onclick"] = string.Format("Kenshu('{0}');", HidKeyKen.Value);
             // êøãÅèë
             //this.BtnSI.Attributes["onclick"] = string.Format("Seikyu('{0}');", HidKeyKen.Value);
          
@@ -247,8 +247,9 @@ namespace m2mKoubai.Shiiresaki
         {
             G.Visible = b;
             TblRow.Visible = b;
-            this.BtnKI.Visible = b;
+            //this.BtnKI.Visible = b;
             //this.BtnSI.Visible = b;
+            this.BtnKP.Visible = b;
             this.BtnSP.Visible = b;
         }
 
@@ -349,6 +350,10 @@ namespace m2mKoubai.Shiiresaki
             //G.DataSource = dt;
             //G.DataBind();
         }
+        protected void BtnKP_Click(object sender, EventArgs e)
+        {
+            OutputAcceptance();
+        }
 
         protected void OutputInvoice()
         {
@@ -396,6 +401,61 @@ namespace m2mKoubai.Shiiresaki
                     //{
                     //    FilesClass.Update_T_Invoice_FileID(VsInvoiceID, Ret, dtInsatuBi, dtSoshinBi, Global.GetConnection());
                     //}
+                }
+                else
+                {
+                    Ret = drB.FileID;
+                }
+
+                if (Ret > 0)
+                {
+                    HidFileID.Value = Ret.ToString();
+                }
+            }
+        }
+        protected void OutputAcceptance()
+        {
+            //HiddenField HidFileID = form1.FindControl("HidFileID") as HiddenField;
+            KenshuDataSet.V_Kenshu2DataTable dt = Session["SeikyuShoDataTable"] as KenshuDataSet.V_Kenshu2DataTable;
+            if (dt != null)
+            {
+                //int nMonth = int.Parse(this.DdlMonth.SelectedValue);
+                int nMonth = int.Parse(VsNengetu);
+                string strAcceptanceID = @"ACC" + SessionManager.KaishaCode + "_" + VsNengetu;
+                string strFileName = @"åüé˚ñæç◊èë" + strAcceptanceID + "_" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".pdf";
+                string path = @"c:\temp\m2mKoubai\" + strFileName;
+                DateTime dtTourokuBi = DateTime.Now;
+                DateTime dtInsatuBi = DateTime.Now;
+                DateTime dtSoshinBi = DateTime.MinValue;
+
+                var PDF = CreatePDF.CreateAcceptancePDF(SessionManager.LoginID, SessionManager.KaishaCode, nMonth, dt);
+                bool isCange = false;
+
+                ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strAcceptanceID, Global.GetConnection());
+                if (drB == null)
+                {
+                    isCange = true;
+                }
+
+                ShareDataSet.T_DocumentRow dr = new ShareDataSet.T_DocumentDataTable().NewT_DocumentRow();
+                dr.FileName = strFileName;
+                dr.ContentType = "application/pdf";
+                dr.FileSize = PDF.ToArray().Length;
+                dr.Data = PDF.ToArray();
+                dr.TourokuBi = dtTourokuBi;
+                dr.KaishaCode = SessionManager.KaishaCode;
+                dr.TourokuUser = SessionManager.LoginID;
+                dr.DataType = "åüé˚ñæç◊èë";
+                dr.SlipID = strAcceptanceID;
+
+                if (!isCange)
+                {
+                    if (drB.Data != dr.Data) { isCange = true; }
+                }
+                int Ret = 0;
+                if (isCange)
+                {
+                    Ret = FilesClass.SaveDocument(dr, Global.GetConnection());
                 }
                 else
                 {

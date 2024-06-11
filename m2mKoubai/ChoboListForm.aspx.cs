@@ -193,9 +193,9 @@ namespace m2mKoubai
             // ユーザー区分
             k._userKubun = (byte)SessionManager.UserKubun;
             // 取引先
-            k._KaishaCode = "";
+            k._KaishaCode = DdlKaisha.SelectedValue;
             // 帳票種別
-            k._DataType = "";
+            k._DataType = DdlDataType.SelectedValue;
             // 発行日
             Common.CtlNengappiFromTo CtlTourokuBi = FindControl("CtlTourokuBi") as Common.CtlNengappiFromTo;
             if (CtlTourokuBi.KikanType != Core.Type.NengappiKikan.EnumKikanType.NONE)

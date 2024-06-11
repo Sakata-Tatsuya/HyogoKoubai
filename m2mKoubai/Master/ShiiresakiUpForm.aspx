@@ -221,7 +221,7 @@
                                 支払締日</td>
                             <td>
                                 <asp:DropDownList ID="DdlShimebi" runat="server">   
-                                <asp:ListItem Selected="True" Value="6">--</asp:ListItem>                                
+                                <asp:ListItem Selected="True" Value="6">--</asp:ListItem>
                                     <asp:ListItem Value="1">5日</asp:ListItem>
                                     <asp:ListItem Value="2">10日</asp:ListItem>
                                     <asp:ListItem Value="3">15日</asp:ListItem>
@@ -239,16 +239,15 @@
                                <asp:ListItem Selected="True" Value="0">--</asp:ListItem>
                                 <asp:ListItem Value="1">翌月</asp:ListItem>
                                     <asp:ListItem Value="2">翌翌月</asp:ListItem>
-                                   
                                 </asp:DropDownList>
-                                <asp:DropDownList ID="DdlYotebi2" runat="server">    
-                                 <asp:ListItem Selected="True" Value="6">--</asp:ListItem>                                
+                                <asp:DropDownList ID="DdlYotebi2" runat="server">
+                                 <asp:ListItem Selected="True" Value="6">--</asp:ListItem>
                                     <asp:ListItem Value="1">5日</asp:ListItem>
                                     <asp:ListItem Value="2">10日</asp:ListItem>
                                     <asp:ListItem Value="3">15日</asp:ListItem>
                                     <asp:ListItem Value="4">20日</asp:ListItem>
                                     <asp:ListItem Value="5">25日</asp:ListItem>
-                                    <asp:ListItem Value="0">末日</asp:ListItem>                                  
+                                    <asp:ListItem Value="0">末日</asp:ListItem>
                                 </asp:DropDownList></td>
                         </tr>
                         <tr>
@@ -285,7 +284,7 @@
                             <td class="bg4">
                                 事業者番号</td>
                             <td colspan="1">
-                                <asp:TextBox  ID="TbxInvoiceNo" runat="server" MaxLength="13" Width="250px" ></asp:TextBox>
+                                <asp:TextBox  ID="TbxInvoiceNo" runat="server" MaxLength="14" Width="250px" ></asp:TextBox>
                             </td>
                         </tr>
                     </table>

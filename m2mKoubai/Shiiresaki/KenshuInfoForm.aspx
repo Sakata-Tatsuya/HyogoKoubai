@@ -236,8 +236,9 @@
                                <uc2:CtlMyPager ID="Pt" runat="server" />
                             </td>
                             <td nowrap="noWrap">
-                                &nbsp;<input id="BtnKI" runat="server" type="button" value="検収明細表の&#13;&#10;印刷画面を表示する" class="bg98 w150" />
-z<%--                                <input id="BtnSI" runat="server" type="button" value="請求書の&#13;&#10;印刷画面を表示する" class="bg98 w150" />--%>
+<%--                                &nbsp;<input id="BtnKI" runat="server" type="button" value="検収明細表の&#13;&#10;印刷画面を表示する" class="bg98 w150" />--%>
+                                <asp:Button ID="BtnKP" runat="server" Text="検収明細表の印刷画面を表示する" OnClick="BtnKP_Click"/>
+<%--                                <input id="BtnSI" runat="server" type="button" value="請求書の&#13;&#10;印刷画面を表示する" class="bg98 w150" />--%>
                                 <asp:Button ID="BtnSP" runat="server" Text="請求書の印刷画面を表示する" OnClick="BtnSP_Click"/>
                             </td>
                             <td align="left">

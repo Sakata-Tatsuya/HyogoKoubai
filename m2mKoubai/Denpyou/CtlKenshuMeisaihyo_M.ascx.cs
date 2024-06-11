@@ -30,53 +30,17 @@ namespace m2mKoubai.Denpyou
         }
        
        public void Create(KenshuDataSet.V_KenshuBindRow[] drAry)
-      //  public void Create(KenshuDataSet.V_KenshuRow[] drAry)
         {
-         
-
             G.DataSource = drAry;
             G.DataBind();
             G.EnableViewState = false;
-
-
         }
         int nGoukei = 0;
-        //int nSouGoukei = 0;
         protected void G_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                /* KenshuDataSet.V_KenshuRow dr =
-                     e.Row.DataItem as KenshuDataSet.V_KenshuRow;
-
-                 // î≠íçNo
-                 e.Row.Cells[G_CELL_HACCHUU_NO].Text = dr.HacchuuNo;
-
-                 // ïîïiÉRÅ[Éh
-                 e.Row.Cells[G_CELL_BUHIN_CODE].Text = dr.BuhinCode;
-
-                 // ïîïiñ⁄ñº
-                 e.Row.Cells[G_CELL_HINMEI].Text = dr.BuhinMei;
-                 e.Row.Cells[G_CELL_HINMEI].CssClass = "hei30";
-              
-                 // êîó 
-                 e.Row.Cells[G_CELL_SUURYO].Text = dr.ChumonSuuryou.ToString("#,##0");
-                 // íPâø
-                 e.Row.Cells[G_CELL_TANKA].Text = string.Format("\\{0:#,##0.#0}", dr.Tanka);
-                 // ã‡äz
-                 //nGoukei = (int)Math.Floor(dr.Expr1 * dr.Tanka);
-                 e.Row.Cells[G_CELL_KINGAKU].Text = string.Format("\\{0:#,##0}", dr.Kingaku);
-                 nSouGoukei += nGoukei;
-                 // î[ì¸èÍèä
-                 e.Row.Cells[G_CELL_BASHO].Text = dr.BashoMei;
-                 // éÛì¸ì˙
-                 e.Row.Cells[G_CELL_UKEIREBI].Text = dr.NouhinBi.ToString("yy/MM/dd");
-                 // ì¸â◊êîó 
-                 e.Row.Cells[G_CELL_NYUKA_SUURYO].Text = dr.NouhinSuuryou.ToString("#,##0");
-                */
-
-                KenshuDataSet.V_KenshuBindRow dr =
-                    e.Row.DataItem as KenshuDataSet.V_KenshuBindRow;
+                KenshuDataSet.V_KenshuBindRow dr = e.Row.DataItem as KenshuDataSet.V_KenshuBindRow;
                   // î≠íçNo
                 if (!dr.IsHacchuuNoNull())
                       e.Row.Cells[G_CELL_HACCHUU_NO].Text = dr.HacchuuNo;
@@ -102,11 +66,8 @@ namespace m2mKoubai.Denpyou
                   // ã‡äz  
                   if (!dr.IsChumonSuuryouNull())
                   {
-                      // ëùê≈ëŒâû
-                      // nGoukei = (int)Math.Floor(dr.ChumonSuuryou * dr.Tanka);
                       nGoukei = (int)Math.Round(dr.ChumonSuuryou * dr.Tanka, 0, MidpointRounding.AwayFromZero);
                       e.Row.Cells[G_CELL_KINGAKU].Text = string.Format("\\{0:#,##0}", nGoukei);
-                      //nSouGoukei += nGoukei;
                   }
                   // î[ì¸èÍèä
                   if (!dr.IsBashoMeiNull())
@@ -117,7 +78,6 @@ namespace m2mKoubai.Denpyou
                   // ì¸â◊êîó               
                   if (!dr.IsSuuryouNull())
                       e.Row.Cells[G_CELL_NYUKA_SUURYO].Text = dr.Suuryou.ToString("#,##0");                             
-                 
                 
             }
           
