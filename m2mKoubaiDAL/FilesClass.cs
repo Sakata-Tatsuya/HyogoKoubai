@@ -28,6 +28,8 @@ namespace m2mKoubaiDAL
             public string _DataType = "";
             // 発行日
             public Core.Type.NengappiKikan _TourokuBi = null;
+            // 計上日
+            public Core.Type.NengappiKikan _KeijoBi = null;
         }
 
         /// <summary>
@@ -53,6 +55,11 @@ namespace m2mKoubaiDAL
             if (k._TourokuBi != null && k._TourokuBi.KikanTypeIsNotNone)
             {
                 w.Add(Core.Type.NengappiKikan.GenerateSQL(k._TourokuBi, false, "(convert(varchar,TourokuBi,112))"));
+            }
+            // 計上日
+            if (k._KeijoBi != null && k._KeijoBi.KikanTypeIsNotNone)
+            {
+                w.Add(Core.Type.NengappiKikan.GenerateSQL(k._KeijoBi, false, "(convert(varchar,KeijoBi,112))"));
             }
             return w.WhereText;
         }
@@ -177,7 +184,7 @@ namespace m2mKoubaiDAL
             {
                 da.SelectCommand.CommandText += "WHERE " + strW;
             }
-            da.SelectCommand.CommandText += " ORDER BY FileID ";
+            da.SelectCommand.CommandText += " ORDER BY KeijoBi DESC,FileID DESC ";
             ShareDataSet.V_DocumentDataTable dt = new ShareDataSet.V_DocumentDataTable();
             da.Fill(dt);
             return dt;

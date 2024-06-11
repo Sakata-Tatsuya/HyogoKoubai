@@ -13,21 +13,33 @@ using System.Web.Services.Description;
 using static Telerik.Web.UI.ComboBox.ComboBoxStyles;
 using Telerik.Web.Design;
 using Core.Type;
+using System.Collections;
 //using System.Drawing;
 
 namespace m2mKoubai
 {
     public class CreatePDF
     {
-        internal static MemoryStream CreateInvoicePDF(string sLoginID, string sKaishaCode,int nMonth, KenshuDataSet.V_Kenshu2DataTable dtD)
+        internal static MemoryStream CreateInvoicePDF(string sLoginID, string sKaishaCode,int nMonth, KenshuDataSet.V_Kenshu2DataTable dtK)
         {
             m2mKoubaiDataSet.M_ShiiresakiRow drShiire = ShiiresakiClass.getM_ShiiresakiRow(sKaishaCode, Global.GetConnection());
 
             //明細最大行数
             int MaxRow = 36;
-
             string strTemp=string.Empty;
 
+            // 事業所配列
+            ArrayList aryKubun = new ArrayList();
+            int nKubun = 0;
+            for (int i = 0; i < dtK.Rows.Count; i++)
+            {
+                if (dtK[i].JigyoushoKubun != nKubun)
+                {
+                    nKubun = dtK[i].JigyoushoKubun;
+                    aryKubun.Add(dtK[i].JigyoushoKubun);
+                }
+            }
+            //PDF の準備
             var doc = new Document(PageSize.A4);
             var stream = new MemoryStream();
             //ファイルの出力先を設定
@@ -48,7 +60,6 @@ namespace m2mKoubai
             //pdfContentByte.BeginText();
 
             Font font = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
-
             Font font08 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font08.Size = 8;
             Font font09 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
@@ -60,93 +71,107 @@ namespace m2mKoubai
             Font font14 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font14.Size = 14;
 
-            //表紙
-            //ヘッダー部分
-            ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader = ShiiresakiClass.getV_Nouhinsho_HeaderRow(sLoginID, 8, Global.GetConnection());
-
-            float w = doc.PageSize.Width / 2 + 100;
-            PdfPTable tbl = new PdfPTable(1);
-            strTemp = drHeader.KaishaMei + "御中";
-            PdfPCell cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
-
-            tbl = new PdfPTable(3);
-            tbl.SetTotalWidth(new float[] { 200, 140, 200 });
-            //1
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            strTemp = DateTime.Today.ToString("yyyy年MM月dd日");
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //2
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            strTemp = drHeader.ShiiresakiMei;
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //3
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            strTemp = "登録番号　" + drHeader.InvoiceRegNo;
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //4
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            strTemp = "〒" + Utility.FormatYuubin(drHeader.YubinBangou);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //5
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            strTemp = drHeader.Address;
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //6
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            strTemp = "TEL：" + Utility.FormatBanggo(drHeader.Tel) + " FAX："+ Utility.FormatBanggo(drHeader.Fax);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
-
-            tbl = new PdfPTable(1);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            strTemp = "拝啓 貴社益々ご清栄のこととお慶び申し上げます。";
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "さて、" + nMonth.ToString() + "月分の請求書を添付いたします。ご査收のほど宜しくお願いします。";
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "なお、お振込みは下記口座までお願いします。";
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "記";
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            doc.Add(tbl);
-
-            List<KenshuClass.ZeirituShukei> lst = new List<KenshuClass.ZeirituShukei>();
-
-            for (int i = 0; i < dtD.Rows.Count; i++)
+            //事業所単位にページ編集
+            for (int nKubunCnt = 0; nKubunCnt < aryKubun.Count; nKubunCnt++)
             {
-                bool IsUpdate = false;
-                bool mKeigenZeirituFlg = dtD[i].KeigenZeirituFlg;
-                int mZeiritu = dtD[i].Zeiritu;
+                string strJC = aryKubun[nKubunCnt].ToString();
+
+                DataRow[] drD = dtK.Select("JigyoushoKubun='" + strJC + "'");
+                KenshuDataSet.V_Kenshu2DataTable dtD = new KenshuDataSet.V_Kenshu2DataTable();
+                foreach (var drnew in drD)
+                {
+                    DataRow newrow = dtD.NewRow();
+                    newrow.ItemArray = drnew.ItemArray;
+                    dtD.Rows.Add(newrow);
+                }
+                //1事業所の編集開始
+                //表紙
+                //ヘッダー部分
+                ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader = ShiiresakiClass.getV_Nouhinsho_HeaderRow(sLoginID, dtD[0].JigyoushoKubun, Global.GetConnection());
+
+                //float w = doc.PageSize.Width / 2 + 100;
+                PdfPTable tbl = new PdfPTable(1);
+                strTemp = drHeader.KaishaMei + "御中";
+                PdfPCell cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                doc.Add(tbl);
+
+                tbl = new PdfPTable(3);
+                tbl.SetTotalWidth(new float[] { 200, 140, 200 });
+                //1
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                strTemp = DateTime.Today.ToString("yyyy年MM月dd日");
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //2
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                strTemp = drHeader.ShiiresakiMei;
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //3
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                strTemp = "登録番号　" + drHeader.InvoiceRegNo;
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //4
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                strTemp = "〒" + Utility.FormatYuubin(drHeader.YubinBangou);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //5
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                strTemp = drHeader.Address;
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //6
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                strTemp = "TEL：" + Utility.FormatBanggo(drHeader.Tel) + " FAX：" + Utility.FormatBanggo(drHeader.Fax);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                doc.Add(tbl);
+
+                tbl = new PdfPTable(1);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                strTemp = "拝啓 貴社益々ご清栄のこととお慶び申し上げます。";
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "さて、" + nMonth.ToString() + "月分の請求書を添付いたします。ご査收のほど宜しくお願いします。";
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "なお、お振込みは下記口座までお願いします。";
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "記";
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                doc.Add(tbl);
+
+                List<KenshuClass.ZeirituShukei> lst = new List<KenshuClass.ZeirituShukei>();
+
+                for (int i = 0; i < dtD.Rows.Count; i++)
+                {
+                    bool IsUpdate = false;
+                    bool mKeigenZeirituFlg = dtD[i].KeigenZeirituFlg;
+                    int mZeiritu = dtD[i].Zeiritu;
                     decimal mKingaku = Math.Round(dtD[i].Tanka * dtD[i].ChumonSuuryou, 0, MidpointRounding.AwayFromZero);
                     decimal mZeigaku = mKingaku * mZeiritu / 100;
 
@@ -171,305 +196,306 @@ namespace m2mKoubai
                         m.iZeigaku += (int)mZeigaku;
                         lst.Add(m);
                     }
-            }
-            int nGoukei = 0;
-            int nZeigaku = 0;
-            for (int j = 0; j < lst.Count; j++)
-            {
-                nGoukei += lst[j].iKingaku;
-                nZeigaku += lst[j].iZeigaku;
-            }
-            int nSouGoukei = nGoukei + nZeigaku;
-            tbl = new PdfPTable(3);
-            tbl.SetTotalWidth(new float[] { 240, 120, 120 });
-
-            strTemp = "御請求金額(" + nMonth.ToString() + "月度分)";
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = string.Format("\\{0:#,##0}", nSouGoukei);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-
-            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "合計金額";
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "消費税額";
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-
-            for (int j = 0; j < lst.Count; j++)
-            {
-                strTemp = lst[j].iZeiritu.ToString("#0") + "%対象";
-                if (lst[j].bKeigenZeirituFlg)
-                {
-                    strTemp += "(軽減税率)";
                 }
-                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                int nGoukei = 0;
+                int nZeigaku = 0;
+                for (int j = 0; j < lst.Count; j++)
+                {
+                    nGoukei += lst[j].iKingaku;
+                    nZeigaku += lst[j].iZeigaku;
+                }
+                int nSouGoukei = nGoukei + nZeigaku;
+                tbl = new PdfPTable(3);
+                tbl.SetTotalWidth(new float[] { 240, 120, 120 });
+
+                strTemp = "御請求金額(" + nMonth.ToString() + "月度分)";
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 tbl.AddCell(cell);
-                strTemp = lst[j].iKingaku.ToString("#,##0");
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = string.Format("\\{0:#,##0}", nSouGoukei);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+
+                cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "合計金額";
                 cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
                 tbl.AddCell(cell);
-                strTemp = lst[j].iZeigaku.ToString("#,##0");
+                strTemp = "消費税額";
                 cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
                 tbl.AddCell(cell);
-            }
-            doc.Add(tbl);
 
-            //振込先
-            tbl = new PdfPTable(1);
-            cell = new PdfPCell(new Paragraph("", font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "振　込　先";
-            cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
+                for (int j = 0; j < lst.Count; j++)
+                {
+                    strTemp = lst[j].iZeiritu.ToString("#0") + "%対象";
+                    if (lst[j].bKeigenZeirituFlg)
+                    {
+                        strTemp += "(軽減税率)";
+                    }
+                    cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                    tbl.AddCell(cell);
+                    strTemp = lst[j].iKingaku.ToString("#,##0");
+                    cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                    tbl.AddCell(cell);
+                    strTemp = lst[j].iZeigaku.ToString("#,##0");
+                    cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                    tbl.AddCell(cell);
+                }
+                doc.Add(tbl);
 
-            tbl = new PdfPTable(2);
-            tbl.SetTotalWidth(new float[] { 120, 240 });
+                //振込先
+                tbl = new PdfPTable(1);
+                cell = new PdfPCell(new Paragraph("", font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "振　込　先";
+                cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                doc.Add(tbl);
 
-            strTemp = "口座名義";
-            cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = drShiire.KouzaMeigi;
-            cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "金融機関名";
-            cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = drShiire.KinyuuKikanMei;
-            cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "口座番号";
-            cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = drShiire.KouzaBangou;
-            cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
+                tbl = new PdfPTable(2);
+                tbl.SetTotalWidth(new float[] { 120, 240 });
 
-            doc.NewPage();
+                strTemp = "口座名義";
+                cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = drShiire.KouzaMeigi;
+                cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "金融機関名";
+                cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = drShiire.KinyuuKikanMei;
+                cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "口座番号";
+                cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = drShiire.KouzaBangou;
+                cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                doc.Add(tbl);
 
-            tbl = new PdfPTable(2);
-            tbl.SetTotalWidth(new float[] { 100,460 });
-            strTemp = "請　求　書";
-            cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 24f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font14)) { FixedHeight = 24f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
+                doc.NewPage();
 
-            tbl = new PdfPTable(3);
-            tbl.SetTotalWidth(new float[] { 200, 140, 200 });
-            //1
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            strTemp = DateTime.Today.ToString("yyyy年MM月dd日");
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //2
-            strTemp = "〒" + Utility.FormatYuubin(drHeader.YubinH);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            //3
-            strTemp = drHeader.AddressH;
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = drHeader.ShiiresakiMei;
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //4
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "登録番号　" + drHeader.InvoiceRegNo;
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //5
-            strTemp = drHeader.KaishaMei + "御中";
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "〒" + Utility.FormatYuubin(drHeader.YubinBangou);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //6
-            strTemp = "TEL：" + Utility.FormatBanggo(drHeader.TelH);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = drHeader.Address;
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //7
-            strTemp = "FAX：" + Utility.FormatBanggo(drHeader.FaxH);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "TEL：" + Utility.FormatBanggo(drHeader.Tel) + " FAX：" + Utility.FormatBanggo(drHeader.Fax);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //8
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "FAX：" + Utility.FormatBanggo(drHeader.Fax);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
+                tbl = new PdfPTable(2);
+                tbl.SetTotalWidth(new float[] { 100, 460 });
+                strTemp = "請　求　書";
+                cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 24f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font14)) { FixedHeight = 24f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                doc.Add(tbl);
 
-            doc.Add(tbl);
+                tbl = new PdfPTable(3);
+                tbl.SetTotalWidth(new float[] { 200, 140, 200 });
+                //1
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                strTemp = DateTime.Today.ToString("yyyy年MM月dd日");
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //2
+                strTemp = "〒" + Utility.FormatYuubin(drHeader.YubinH);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                //3
+                strTemp = drHeader.AddressH;
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = drHeader.ShiiresakiMei;
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //4
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "登録番号　" + drHeader.InvoiceRegNo;
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //5
+                strTemp = drHeader.KaishaMei + "御中";
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "〒" + Utility.FormatYuubin(drHeader.YubinBangou);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //6
+                strTemp = "TEL：" + Utility.FormatBanggo(drHeader.TelH);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = drHeader.Address;
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //7
+                strTemp = "FAX：" + Utility.FormatBanggo(drHeader.FaxH);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "TEL：" + Utility.FormatBanggo(drHeader.Tel) + " FAX：" + Utility.FormatBanggo(drHeader.Fax);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //8
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "FAX：" + Utility.FormatBanggo(drHeader.Fax);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
 
-            tbl = new PdfPTable(2);
-            tbl.SetTotalWidth(new float[] { 100,460 });
-            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "毎度ありがとうございます下記の通り御請求申し上げます。";
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
+                doc.Add(tbl);
 
-            //明細
-            tbl = new PdfPTable(7);
-            tbl.SetTotalWidth(new float[] { 68, 82, 174, 42, 42, 64, 72 });
-            cell = new PdfPCell(new Paragraph("発注No", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("品目コード", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("品目名", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("単位", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("単価", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("金額", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
+                tbl = new PdfPTable(2);
+                tbl.SetTotalWidth(new float[] { 100, 460 });
+                cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "毎度ありがとうございます下記の通り御請求申し上げます。";
+                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                doc.Add(tbl);
 
-            //明細詳細
-            int LineCnt = 0;
-            for (int i = 0; i < dtD.Count; i++)
-            {
-                if (LineCnt >= MaxRow)
+                //明細
+                tbl = new PdfPTable(7);
+                tbl.SetTotalWidth(new float[] { 68, 82, 174, 42, 42, 64, 72 });
+                cell = new PdfPCell(new Paragraph("発注No", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("品目コード", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("品目名", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("単位", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("単価", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("金額", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+
+                //明細詳細
+                int LineCnt = 0;
+                for (int i = 0; i < dtD.Count; i++)
+                {
+                    if (LineCnt >= MaxRow)
+                    {
+                        doc.Add(tbl);
+                        doc.NewPage();
+                        LineCnt = 1;
+                        tbl = new PdfPTable(7);
+                        tbl.SetTotalWidth(new float[] { 68, 82, 174, 42, 42, 64, 72 });
+                        cell = new PdfPCell(new Paragraph("発注No", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("品目コード", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("品目名", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("単位", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("単価", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("金額", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                    }
+                    else
+                    {
+                        LineCnt++;
+                    }
+
+                    strTemp = dtD[i].HacchuuNo;
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    tbl.AddCell(cell);
+                    strTemp = dtD[i].BuhinCode;
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    tbl.AddCell(cell);
+                    if (dtD[i].KeigenZeirituFlg)
+                    {
+                        strTemp = "* " + dtD[i].BuhinMei;
+                    }
+                    else
+                    {
+                        strTemp = "　" + dtD[i].BuhinMei;
+                    }
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT };
+                    tbl.AddCell(cell);
+                    strTemp = dtD[i].ChumonSuuryou.ToString("#,##0");
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                    tbl.AddCell(cell);
+                    strTemp = dtD[i].Tani;
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    tbl.AddCell(cell);
+                    strTemp = string.Format("\\{0:#,##0.#0}", dtD[i].Tanka);
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                    tbl.AddCell(cell);
+                    strTemp = string.Format("\\{0:#,##0.#0}", dtD[i].Kingaku);
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                    tbl.AddCell(cell);
+                }
+
+                if (LineCnt <= MaxRow)
                 {
                     doc.Add(tbl);
-                    doc.NewPage();
-                    LineCnt = 1;
-                    tbl = new PdfPTable(7);
-                    tbl.SetTotalWidth(new float[] { 68, 82, 174, 42, 42, 64, 72 });
-                    cell = new PdfPCell(new Paragraph("発注No", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("品目コード", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("品目名", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("単位", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("単価", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("金額", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                }
-                else 
-                {
-                    LineCnt++;
                 }
 
-                strTemp = dtD[i].HacchuuNo;
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                //明細表描画終了
+                tbl = new PdfPTable(2);
+                tbl.SetTotalWidth(new float[] { 160, 400 });
+                cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 tbl.AddCell(cell);
-                strTemp = dtD[i].BuhinCode;
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                strTemp = "* 軽減税率対象";
+                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 tbl.AddCell(cell);
-                if (dtD[i].KeigenZeirituFlg)
-                {
-                    strTemp = "* " + dtD[i].BuhinMei;
-                }
-                else 
-                {
-                    strTemp = "　" + dtD[i].BuhinMei;
-                }
-                cell = new PdfPCell(new Paragraph(strTemp, font09)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT };
+                cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 tbl.AddCell(cell);
-                strTemp = dtD[i].ChumonSuuryou.ToString("#,##0");
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
                 tbl.AddCell(cell);
-                strTemp = dtD[i].Tani;
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                tbl.AddCell(cell);
-                strTemp = string.Format("\\{0:#,##0.#0}", dtD[i].Tanka);
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-                tbl.AddCell(cell);
-                strTemp = string.Format("\\{0:#,##0.#0}", dtD[i].Kingaku);
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-                tbl.AddCell(cell);
-            }
-
-            if (LineCnt <= MaxRow)
-            {
                 doc.Add(tbl);
+
+                tbl = new PdfPTable(7);
+                tbl.SetTotalWidth(new float[] { 140, 60, 100, 60, 100, 60, 100 });
+                cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("合計", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                strTemp = string.Format("\\{0:#,##0}", nGoukei);
+                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("消費税", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                strTemp = string.Format("\\{0:#,##0}", nZeigaku);
+                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("総合計", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                strTemp = string.Format("\\{0:#,##0}", nSouGoukei);
+                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                tbl.AddCell(cell);
+                doc.Add(tbl);
+                //1事業所の編集終了
             }
-
-            //明細表描画終了
-            tbl = new PdfPTable(2);
-            tbl.SetTotalWidth(new float[] { 100, 460 });
-            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "* 軽減税率対象";
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
-
-            tbl = new PdfPTable(7);
-            tbl.SetTotalWidth(new float[] { 140, 60, 100, 60, 100, 60, 100 });
-            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("合計", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER};
-            tbl.AddCell(cell);
-            strTemp = string.Format("\\{0:#,##0}", nGoukei);
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("消費税", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            strTemp = string.Format("\\{0:#,##0}", nZeigaku);
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("総合計", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            strTemp = string.Format("\\{0:#,##0}", nSouGoukei);
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
 
             //テキスト描画終了
             //pdfContentByte.EndText();
@@ -478,15 +504,25 @@ namespace m2mKoubai
             return stream;
         }
 
-        internal static MemoryStream CreateAcceptancePDF(string sLoginID, string sKaishaCode, int nMonth, KenshuDataSet.V_Kenshu2DataTable dtD)
+        internal static MemoryStream CreateAcceptancePDF(string sLoginID, string sKaishaCode, int nMonth, KenshuDataSet.V_Kenshu2DataTable dtK)
         {
             m2mKoubaiDataSet.M_ShiiresakiRow drShiire = ShiiresakiClass.getM_ShiiresakiRow(sKaishaCode, Global.GetConnection());
-
             //明細最大行数
             int MaxRow = 36;
-
             string strTemp = string.Empty;
 
+            // 事業所配列
+            ArrayList aryKubun = new ArrayList();
+            int nKubun = 0;
+            for (int i = 0; i < dtK.Rows.Count; i++)
+            {
+                if (dtK[i].JigyoushoKubun != nKubun)
+                {
+                    nKubun = dtK[i].JigyoushoKubun;
+                    aryKubun.Add(dtK[i].JigyoushoKubun);
+                }
+            }
+            //PDF の準備
             var doc = new Document(PageSize.A4);
             var stream = new MemoryStream();
             //ファイルの出力先を設定
@@ -503,9 +539,6 @@ namespace m2mKoubai
             //フォントとフォントサイズの指定
             pdfContentByte.SetFontAndSize(baseFont, fontSize);
 
-            //テキスト描画開始
-            //pdfContentByte.BeginText();
-
             Font font = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
 
             Font font08 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
@@ -519,265 +552,279 @@ namespace m2mKoubai
             Font font14 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font14.Size = 14;
 
-            //表紙
-            //ヘッダー部分
-            ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader = ShiiresakiClass.getV_Nouhinsho_HeaderRow(sLoginID, 8, Global.GetConnection());
-
-            float w = doc.PageSize.Width / 2 + 100;
-            PdfPTable tbl = new PdfPTable(1);
-            strTemp = drHeader.ShiiresakiMei + "御中";
-            PdfPCell cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = Utility.FormatFromyyyyMM(nMonth.ToString());
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
-
-            tbl = new PdfPTable(3);
-            tbl.SetTotalWidth(new float[] { 200, 140, 200 });
-            //1
-            strTemp = drHeader.ShiiresakiMei;
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "〒" + Utility.FormatYuubin(drHeader.YubinH);
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //2
-            strTemp = "〒" + Utility.FormatYuubin(drHeader.YubinBangou);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = drHeader.AddressH;
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //3
-            strTemp = drHeader.Address;
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = drHeader.KaishaMei;
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //4
-            strTemp = "TEL：" + Utility.FormatBanggo(drHeader.Tel);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "TEL：" + Utility.FormatBanggo(drHeader.TelH);
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            //5
-            strTemp = "FAX：" + Utility.FormatBanggo(drHeader.Fax);
-            cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "FAX：" + Utility.FormatBanggo(drHeader.FaxH);
-            cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-
-            doc.Add(tbl);
-
-            tbl = new PdfPTable(2);
-            tbl.SetTotalWidth(new float[] { 550, 10 });
-            strTemp = "下記の通り検収し、買い掛け金として貴口座に計上いたしましたのでご連絡申し上げます。";
-            cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 12f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 12f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-            tbl.AddCell(cell);
-
-            doc.Add(tbl);
-
-            List<KenshuClass.ZeirituShukei> lst = new List<KenshuClass.ZeirituShukei>();
-
-            for (int i = 0; i < dtD.Rows.Count; i++)
+            //事業所単位にページ編集
+            for (int nKubunCnt = 0; nKubunCnt < aryKubun.Count; nKubunCnt++)
             {
-                bool IsUpdate = false;
-                bool mKeigenZeirituFlg = dtD[i].KeigenZeirituFlg;
-                int mZeiritu = dtD[i].Zeiritu;
-                decimal mKingaku = Math.Round(dtD[i].Tanka * dtD[i].ChumonSuuryou, 0, MidpointRounding.AwayFromZero);
-                decimal mZeigaku = mKingaku * mZeiritu / 100;
+                string strJC = aryKubun[nKubunCnt].ToString();
 
-                if (lst.Count > 0)
+                DataRow[] drD = dtK.Select("JigyoushoKubun='" + strJC + "'");
+                KenshuDataSet.V_Kenshu2DataTable dtD = new KenshuDataSet.V_Kenshu2DataTable();
+                foreach (var drnew in drD)
                 {
-                    for (int ix = 0; ix < lst.Count; ix++)
+                    DataRow newrow = dtD.NewRow();
+                    newrow.ItemArray = drnew.ItemArray;
+                    dtD.Rows.Add(newrow);
+                }
+                //1事業所の編集開始
+                //表紙
+                //ヘッダー部分
+                ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader = ShiiresakiClass.getV_Nouhinsho_HeaderRow(sLoginID, dtD[0].JigyoushoKubun, Global.GetConnection());
+
+                //float w = doc.PageSize.Width / 2 + 100;
+                PdfPTable tbl = new PdfPTable(1);
+                strTemp = drHeader.ShiiresakiMei + "御中";
+                PdfPCell cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = Utility.FormatFromyyyyMM(nMonth.ToString());
+                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                doc.Add(tbl);
+
+                tbl = new PdfPTable(3);
+                tbl.SetTotalWidth(new float[] { 200, 140, 200 });
+                //1
+                strTemp = drHeader.ShiiresakiMei;
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "〒" + Utility.FormatYuubin(drHeader.YubinH);
+                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //2
+                strTemp = "〒" + Utility.FormatYuubin(drHeader.YubinBangou);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = drHeader.AddressH;
+                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //3
+                strTemp = drHeader.Address;
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = drHeader.KaishaMei;
+                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //4
+                strTemp = "TEL：" + Utility.FormatBanggo(drHeader.Tel);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "TEL：" + Utility.FormatBanggo(drHeader.TelH);
+                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                //5
+                strTemp = "FAX：" + Utility.FormatBanggo(drHeader.Fax);
+                cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                strTemp = "FAX：" + Utility.FormatBanggo(drHeader.FaxH);
+                cell = new PdfPCell(new Paragraph(strTemp, font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+
+                doc.Add(tbl);
+
+                tbl = new PdfPTable(2);
+                tbl.SetTotalWidth(new float[] { 550, 10 });
+                cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 12f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                strTemp = "下記の通り検収し、買い掛け金として貴口座に計上いたしましたのでご連絡申し上げます。";
+                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 12f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 12f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+                tbl.AddCell(cell);
+
+                doc.Add(tbl);
+
+                List<KenshuClass.ZeirituShukei> lst = new List<KenshuClass.ZeirituShukei>();
+
+                for (int i = 0; i < dtD.Rows.Count; i++)
+                {
+                    bool IsUpdate = false;
+                    bool mKeigenZeirituFlg = dtD[i].KeigenZeirituFlg;
+                    int mZeiritu = dtD[i].Zeiritu;
+                    decimal mKingaku = Math.Round(dtD[i].Tanka * dtD[i].ChumonSuuryou, 0, MidpointRounding.AwayFromZero);
+                    decimal mZeigaku = mKingaku * mZeiritu / 100;
+
+                    if (lst.Count > 0)
                     {
-                        if (lst[ix].iZeiritu == mZeiritu && lst[ix].bKeigenZeirituFlg == mKeigenZeirituFlg)
+                        for (int ix = 0; ix < lst.Count; ix++)
                         {
-                            IsUpdate = true;
-                            lst[ix].iKingaku += (int)mKingaku;
-                            lst[ix].iZeigaku += (int)mZeigaku;
+                            if (lst[ix].iZeiritu == mZeiritu && lst[ix].bKeigenZeirituFlg == mKeigenZeirituFlg)
+                            {
+                                IsUpdate = true;
+                                lst[ix].iKingaku += (int)mKingaku;
+                                lst[ix].iZeigaku += (int)mZeigaku;
+                            }
                         }
                     }
+                    if (!IsUpdate)
+                    {
+                        KenshuClass.ZeirituShukei m = new KenshuClass.ZeirituShukei();
+                        m.iZeiritu = mZeiritu;
+                        m.bKeigenZeirituFlg = mKeigenZeirituFlg;
+                        m.iKingaku += (int)mKingaku;
+                        m.iZeigaku += (int)mZeigaku;
+                        lst.Add(m);
+                    }
                 }
-                if (!IsUpdate)
+                int nGoukei = 0;
+                int nZeigaku = 0;
+                for (int j = 0; j < lst.Count; j++)
                 {
-                    KenshuClass.ZeirituShukei m = new KenshuClass.ZeirituShukei();
-                    m.iZeiritu = mZeiritu;
-                    m.bKeigenZeirituFlg = mKeigenZeirituFlg;
-                    m.iKingaku += (int)mKingaku;
-                    m.iZeigaku += (int)mZeigaku;
-                    lst.Add(m);
+                    nGoukei += lst[j].iKingaku;
+                    nZeigaku += lst[j].iZeigaku;
                 }
-            }
-            int nGoukei = 0;
-            int nZeigaku = 0;
-            for (int j = 0; j < lst.Count; j++)
-            {
-                nGoukei += lst[j].iKingaku;
-                nZeigaku += lst[j].iZeigaku;
-            }
-            int nSouGoukei = nGoukei + nZeigaku;
+                int nSouGoukei = nGoukei + nZeigaku;
 
-            //明細
-            tbl = new PdfPTable(9);
-            tbl.SetTotalWidth(new float[] { 47, 57, 112, 54, 48, 60, 54, 66, 54 });
-            cell = new PdfPCell(new Paragraph("発注No", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("品目コード", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("品目名", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("注文数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("単価", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("注文金額", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("納入場所", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("受入日", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("入荷数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
+                //明細
+                tbl = new PdfPTable(9);
+                tbl.SetTotalWidth(new float[] { 47, 57, 112, 54, 48, 60, 54, 66, 54 });
+                cell = new PdfPCell(new Paragraph("発注No", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("品目コード", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("品目名", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("注文数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("単価", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("注文金額", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("納入場所", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("受入日", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("入荷数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
 
-            int LineCnt = 0;
-            for (int i = 0; i < dtD.Count; i++)
-            {
-                if (LineCnt >= MaxRow)
+                int LineCnt = 0;
+                for (int i = 0; i < dtD.Count; i++)
+                {
+                    if (LineCnt >= MaxRow)
+                    {
+                        doc.Add(tbl);
+                        doc.NewPage();
+                        LineCnt = 1;
+                        tbl = new PdfPTable(9);
+                        tbl.SetTotalWidth(new float[] { 47, 57, 112, 54, 48, 60, 54, 66, 54 });
+                        cell = new PdfPCell(new Paragraph("発注No", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("品目ｺｰﾄﾞ", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("品目名", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("注文数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("単価", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("注文金額", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("納入場所", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("受入日", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                        cell = new PdfPCell(new Paragraph("入荷数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        tbl.AddCell(cell);
+                    }
+                    else
+                    {
+                        LineCnt++;
+                    }
+
+                    strTemp = dtD[i].HacchuuNo;
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    tbl.AddCell(cell);
+                    strTemp = dtD[i].BuhinCode;
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    tbl.AddCell(cell);
+                    if (dtD[i].KeigenZeirituFlg)
+                    {
+                        strTemp = "* " + dtD[i].BuhinMei;
+                    }
+                    else
+                    {
+                        strTemp = "　" + dtD[i].BuhinMei;
+                    }
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT };
+                    tbl.AddCell(cell);
+                    strTemp = dtD[i].ChumonSuuryou.ToString("#,##0");
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                    tbl.AddCell(cell);
+                    strTemp = string.Format("\\{0:#,##0.#0}", dtD[i].Tanka);
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                    tbl.AddCell(cell);
+                    strTemp = string.Format("\\{0:#,##0}", dtD[i].Kingaku);
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                    tbl.AddCell(cell);
+                    strTemp = dtD[i].BashoMei;
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    tbl.AddCell(cell);
+                    strTemp = dtD[i].NouhinBi.ToString("yyyy/MM/dd");
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    tbl.AddCell(cell);
+                    strTemp = dtD[i].NouhinSuuryou.ToString("#,##0");
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                    tbl.AddCell(cell);
+                }
+
+                if (LineCnt <= MaxRow)
                 {
                     doc.Add(tbl);
-                    doc.NewPage();
-                    LineCnt = 1;
-                    tbl = new PdfPTable(9);
-                    tbl.SetTotalWidth(new float[] { 47, 57, 112, 54, 48, 60, 54, 66, 54 });
-                    cell = new PdfPCell(new Paragraph("発注No", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("品目ｺｰﾄﾞ", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("品目名", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("注文数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("単価", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("注文金額", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("納入場所", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("受入日", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("入荷数量", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                    tbl.AddCell(cell);
-                }
-                else
-                {
-                    LineCnt++;
                 }
 
-                strTemp = dtD[i].HacchuuNo;
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                //明細表描画終了
+                tbl = new PdfPTable(2);
+                tbl.SetTotalWidth(new float[] { 110, 450 });
+                cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 tbl.AddCell(cell);
-                strTemp = dtD[i].BuhinCode;
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                strTemp = "* 軽減税率対象";
+                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 tbl.AddCell(cell);
-                if (dtD[i].KeigenZeirituFlg)
-                {
-                    strTemp = "* " + dtD[i].BuhinMei;
-                }
-                else
-                {
-                    strTemp = "　" + dtD[i].BuhinMei;
-                }
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT };
+                cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 tbl.AddCell(cell);
-                strTemp = dtD[i].ChumonSuuryou.ToString("#,##0");
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
                 tbl.AddCell(cell);
-                strTemp = string.Format("\\{0:#,##0.#0}", dtD[i].Tanka);
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-                tbl.AddCell(cell);
-                strTemp = string.Format("\\{0:#,##0}", dtD[i].Kingaku);
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-                tbl.AddCell(cell);
-                strTemp = dtD[i].BashoMei;
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                tbl.AddCell(cell);
-                strTemp = dtD[i].NouhinBi.ToString("yyyy/MM/dd");
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-                tbl.AddCell(cell);
-                strTemp = dtD[i].NouhinSuuryou.ToString("#,##0");
-                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-                tbl.AddCell(cell);
-            }
-
-            if (LineCnt <= MaxRow)
-            {
                 doc.Add(tbl);
+
+                tbl = new PdfPTable(7);
+                tbl.SetTotalWidth(new float[] { 140, 60, 100, 60, 100, 60, 100 });
+                cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("合計", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                strTemp = string.Format("\\{0:#,##0}", nGoukei);
+                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("消費税", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                strTemp = string.Format("\\{0:#,##0}", nZeigaku);
+                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                tbl.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("総合計", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                tbl.AddCell(cell);
+                strTemp = string.Format("\\{0:#,##0}", nSouGoukei);
+                cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
+                tbl.AddCell(cell);
+                doc.Add(tbl);
+
+                //1事業所の編集終了
             }
-
-            //明細表描画終了
-            tbl = new PdfPTable(2);
-            tbl.SetTotalWidth(new float[] { 100, 460 });
-            cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            strTemp = "* 軽減税率対象";
-            cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
-
-            tbl = new PdfPTable(7);
-            tbl.SetTotalWidth(new float[] { 140, 60, 100, 60, 100, 60, 100 });
-            cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("合計", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            strTemp = string.Format("\\{0:#,##0}", nGoukei);
-            cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("消費税", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            strTemp = string.Format("\\{0:#,##0}", nZeigaku);
-            cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-            tbl.AddCell(cell);
-            cell = new PdfPCell(new Paragraph("総合計", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
-            tbl.AddCell(cell);
-            strTemp = string.Format("\\{0:#,##0}", nSouGoukei);
-            cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
-            tbl.AddCell(cell);
-            doc.Add(tbl);
-
-            //テキスト描画終了
-            //pdfContentByte.EndText();
 
             doc.Close();
             return stream;
         }
-
-
 
         internal abstract class AbstractLineDash : ILineDash
         {

@@ -175,9 +175,6 @@ namespace m2mKoubai
             else
                 return "";
         }
-
-
-
         //x•¥’÷“ú
         public static string ShiharaiShimebi(int Shimebi)
         {
@@ -199,7 +196,6 @@ namespace m2mKoubai
                 default:
                     return "–¢Œˆ’è";
             }
-        
         }
 
         //x•¥—\’è“ú
@@ -234,9 +230,6 @@ namespace m2mKoubai
                 default:
                     return "–¢Œˆ’è";
             }
-
-        
-
         }
 
         public static int ShiharaiShimebiUp(string Shimebi)
@@ -333,26 +326,6 @@ namespace m2mKoubai
                 case 5:
                 case 11:
                     return "5";
-                /*
-                case 6:
-                    return "6";
-                    break;
-                case 7:
-                    return "7";
-                    break;
-                case 8:
-                    return "8";
-                    break;
-                case 9:
-                    return "9";
-                    break;
-                case 10:
-                    return "10";
-                    break;
-                case 11:
-                    return "11";
-                    break;
-                */ 
                 default:
                     return "6";
             }
@@ -488,8 +461,6 @@ namespace m2mKoubai
                
         }
 
-        
-
         // “¾ˆÓæ‚ÌY“ú‚É‚æ‚éŠúŠÔì¬
         public static void CreateKikan(int nYear, int nMonth, int nShimeBi, ref int nSNen, ref int nENen)
         {
@@ -515,12 +486,6 @@ namespace m2mKoubai
                 nDayAry = nDayAry5;
             else
                 nDayAry = nDayAry6;
-
-            /*
-            // ŠJn‚©‚çI—¹‚Ü‚Å‚Ì“ú•t 
-            int nUseYear = nYear;
-            int nUseMonth = nMonth;
-            */
 
             // 15“úA20“úA25“ú‚ªY“ú‚Ìê‡
             if (nShimeBi == (int)ShiiresakiClass.ShimeBi.JYUGO || nShimeBi == (int)ShiiresakiClass.ShimeBi.NIJYU ||
@@ -567,6 +532,14 @@ namespace m2mKoubai
                 nMonth = 1;
                 nYear += 1;
             }
+        }
+
+        // Œ––“úæ“¾
+        public static DateTime GetLastOfMonth(int nYear, int nMonth)
+        {
+            DateTime startOfMonth = new DateTime(nYear, nMonth, 1);
+            DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
+            return endOfMonth;
         }
 
         // ÀÛ‚Ég—p‚·‚é“ú‚ğ•Ô‚·

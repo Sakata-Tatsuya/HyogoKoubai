@@ -68,6 +68,7 @@
                         <td>帳票種別</td>
                         <td>取引先</td>
                         <td>発行日</td>
+                        <td>計上日</td>
                     </tr>
                     <tr>
                         <td>
@@ -78,6 +79,9 @@
                         </td>
                         <td>
                             <uc3:CtlNengappiFromTo ID="CtlTourokuBi" runat="server" />
+                        </td>
+                        <td>
+                            <uc3:CtlNengappiFromTo ID="CtlKeijoBi" runat="server" />
                         </td>
                     </tr>
                 </table>
@@ -136,6 +140,15 @@
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="LblDataType" runat="server"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="LblKeijoBiH" runat="server" Text="計上日"></asp:Label>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="LblKeijoBi" runat="server"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 

@@ -60,6 +60,15 @@ namespace m2mKoubai
         protected global::m2mKoubai.Common.CtlNengappiFromTo CtlTourokuBi;
 
         /// <summary>
+        /// CtlKeijoBi コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::m2mKoubai.Common.CtlNengappiFromTo CtlKeijoBi;
+
+        /// <summary>
         /// BtnKensaku コントロール。
         /// </summary>
         /// <remarks>

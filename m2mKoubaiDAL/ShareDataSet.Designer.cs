@@ -334,6 +334,8 @@ namespace m2mKoubaiDAL {
             
             private global::System.Data.DataColumn columnSlipID;
             
+            private global::System.Data.DataColumn columnKeijoBi;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public T_DocumentDataTable() {
@@ -449,6 +451,14 @@ namespace m2mKoubaiDAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KeijoBiColumn {
+                get {
+                    return this.columnKeijoBi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -484,7 +494,7 @@ namespace m2mKoubaiDAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public T_DocumentRow AddT_DocumentRow(string FileName, string ContentType, int FileSize, byte[] Data, System.DateTime TourokuBi, string KaishaCode, string TourokuUser, string DataType, string SlipID) {
+            public T_DocumentRow AddT_DocumentRow(string FileName, string ContentType, int FileSize, byte[] Data, System.DateTime TourokuBi, string KaishaCode, string TourokuUser, string DataType, string SlipID, System.DateTime KeijoBi) {
                 T_DocumentRow rowT_DocumentRow = ((T_DocumentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -496,7 +506,8 @@ namespace m2mKoubaiDAL {
                         KaishaCode,
                         TourokuUser,
                         DataType,
-                        SlipID};
+                        SlipID,
+                        KeijoBi};
                 rowT_DocumentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowT_DocumentRow);
                 return rowT_DocumentRow;
@@ -536,6 +547,7 @@ namespace m2mKoubaiDAL {
                 this.columnTourokuUser = base.Columns["TourokuUser"];
                 this.columnDataType = base.Columns["DataType"];
                 this.columnSlipID = base.Columns["SlipID"];
+                this.columnKeijoBi = base.Columns["KeijoBi"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,6 +573,8 @@ namespace m2mKoubaiDAL {
                 base.Columns.Add(this.columnDataType);
                 this.columnSlipID = new global::System.Data.DataColumn("SlipID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSlipID);
+                this.columnKeijoBi = new global::System.Data.DataColumn("KeijoBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKeijoBi);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnFileID}, true));
                 this.columnFileID.AutoIncrement = true;
@@ -575,7 +589,6 @@ namespace m2mKoubaiDAL {
                 this.columnContentType.MaxLength = 200;
                 this.columnFileSize.AllowDBNull = false;
                 this.columnTourokuBi.AllowDBNull = false;
-                this.columnKaishaCode.DefaultValue = ((string)(""));
                 this.columnKaishaCode.MaxLength = 50;
                 this.columnTourokuUser.AllowDBNull = false;
                 this.columnTourokuUser.MaxLength = 12;
@@ -732,6 +745,8 @@ namespace m2mKoubaiDAL {
             
             private global::System.Data.DataColumn columnTourokuUser;
             
+            private global::System.Data.DataColumn columnKeijoBi;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public V_DocumentDataTable() {
@@ -831,6 +846,14 @@ namespace m2mKoubaiDAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KeijoBiColumn {
+                get {
+                    return this.columnKeijoBi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -866,7 +889,7 @@ namespace m2mKoubaiDAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_DocumentRow AddV_DocumentRow(int FileID, string FileName, string DataType, string SlipID, string KaishaCode, string KaishaMei, System.DateTime TourokuBi, string TourokuUser) {
+            public V_DocumentRow AddV_DocumentRow(int FileID, string FileName, string DataType, string SlipID, string KaishaCode, string KaishaMei, System.DateTime TourokuBi, string TourokuUser, System.DateTime KeijoBi) {
                 V_DocumentRow rowV_DocumentRow = ((V_DocumentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FileID,
@@ -876,7 +899,8 @@ namespace m2mKoubaiDAL {
                         KaishaCode,
                         KaishaMei,
                         TourokuBi,
-                        TourokuUser};
+                        TourokuUser,
+                        KeijoBi};
                 rowV_DocumentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_DocumentRow);
                 return rowV_DocumentRow;
@@ -914,6 +938,7 @@ namespace m2mKoubaiDAL {
                 this.columnKaishaMei = base.Columns["KaishaMei"];
                 this.columnTourokuBi = base.Columns["TourokuBi"];
                 this.columnTourokuUser = base.Columns["TourokuUser"];
+                this.columnKeijoBi = base.Columns["KeijoBi"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -935,6 +960,8 @@ namespace m2mKoubaiDAL {
                 base.Columns.Add(this.columnTourokuBi);
                 this.columnTourokuUser = new global::System.Data.DataColumn("TourokuUser", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTourokuUser);
+                this.columnKeijoBi = new global::System.Data.DataColumn("KeijoBi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKeijoBi);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnFileID}, true));
                 this.columnFileID.AllowDBNull = false;
@@ -1213,6 +1240,22 @@ namespace m2mKoubaiDAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime KeijoBi {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableT_Document.KeijoBiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'T_Document\' にある列 \'KeijoBi\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableT_Document.KeijoBiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDataNull() {
                 return this.IsNull(this.tableT_Document.DataColumn);
             }
@@ -1233,6 +1276,18 @@ namespace m2mKoubaiDAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetKaishaCodeNull() {
                 this[this.tableT_Document.KaishaCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKeijoBiNull() {
+                return this.IsNull(this.tableT_Document.KeijoBiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKeijoBiNull() {
+                this[this.tableT_Document.KeijoBiColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1350,6 +1405,22 @@ namespace m2mKoubaiDAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime KeijoBi {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableV_Document.KeijoBiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_Document\' にある列 \'KeijoBi\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Document.KeijoBiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsKaishaCodeNull() {
                 return this.IsNull(this.tableV_Document.KaishaCodeColumn);
             }
@@ -1370,6 +1441,18 @@ namespace m2mKoubaiDAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetKaishaMeiNull() {
                 this[this.tableV_Document.KaishaMeiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKeijoBiNull() {
+                return this.IsNull(this.tableV_Document.KeijoBiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKeijoBiNull() {
+                this[this.tableV_Document.KeijoBiColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1576,10 +1659,11 @@ namespace m2mKoubaiDAL.ShareDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("TourokuUser", "TourokuUser");
             tableMapping.ColumnMappings.Add("DataType", "DataType");
             tableMapping.ColumnMappings.Add("SlipID", "SlipID");
+            tableMapping.ColumnMappings.Add("KeijoBi", "KeijoBi");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [T_Document] WHERE (([FileID] = @Original_FileID) AND ([FileName] = @Original_FileName) AND ([ContentType] = @Original_ContentType) AND ([FileSize] = @Original_FileSize) AND ([TourokuBi] = @Original_TourokuBi) AND ((@IsNull_KaishaCode = 1 AND [KaishaCode] IS NULL) OR ([KaishaCode] = @Original_KaishaCode)) AND ([TourokuUser] = @Original_TourokuUser) AND ([DataType] = @Original_DataType) AND ([SlipID] = @Original_SlipID))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [T_Document] WHERE (([FileID] = @Original_FileID) AND ([FileName] = @Original_FileName) AND ([ContentType] = @Original_ContentType) AND ([FileSize] = @Original_FileSize) AND ([TourokuBi] = @Original_TourokuBi) AND ((@IsNull_KaishaCode = 1 AND [KaishaCode] IS NULL) OR ([KaishaCode] = @Original_KaishaCode)) AND ([TourokuUser] = @Original_TourokuUser) AND ([DataType] = @Original_DataType) AND ([SlipID] = @Original_SlipID) AND ((@IsNull_KeijoBi = 1 AND [KeijoBi] IS NULL) OR ([KeijoBi] = @Original_KeijoBi)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FileName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1591,10 +1675,12 @@ namespace m2mKoubaiDAL.ShareDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SlipID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SlipID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_KeijoBi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeijoBi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KeijoBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeijoBi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [T_Document] ([FileName], [ContentType], [FileSize], [Data], [TourokuBi], [KaishaCode], [TourokuUser], [DataType], [SlipID]) VALUES (@FileName, @ContentType, @FileSize, @Data, @TourokuBi, @KaishaCode, @TourokuUser, @DataType, @SlipID);
-SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, TourokuUser, DataType, SlipID FROM T_Document WHERE (FileID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [T_Document] ([FileName], [ContentType], [FileSize], [Data], [TourokuBi], [KaishaCode], [TourokuUser], [DataType], [SlipID], [KeijoBi]) VALUES (@FileName, @ContentType, @FileSize, @Data, @TourokuBi, @KaishaCode, @TourokuUser, @DataType, @SlipID, @KeijoBi);
+SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, TourokuUser, DataType, SlipID, KeijoBi FROM T_Document WHERE (FileID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContentType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1605,10 +1691,11 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SlipID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SlipID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KeijoBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeijoBi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [T_Document] SET [FileName] = @FileName, [ContentType] = @ContentType, [FileSize] = @FileSize, [Data] = @Data, [TourokuBi] = @TourokuBi, [KaishaCode] = @KaishaCode, [TourokuUser] = @TourokuUser, [DataType] = @DataType, [SlipID] = @SlipID WHERE (([FileID] = @Original_FileID) AND ([FileName] = @Original_FileName) AND ([ContentType] = @Original_ContentType) AND ([FileSize] = @Original_FileSize) AND ([TourokuBi] = @Original_TourokuBi) AND ((@IsNull_KaishaCode = 1 AND [KaishaCode] IS NULL) OR ([KaishaCode] = @Original_KaishaCode)) AND ([TourokuUser] = @Original_TourokuUser) AND ([DataType] = @Original_DataType) AND ([SlipID] = @Original_SlipID));
-SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, TourokuUser, DataType, SlipID FROM T_Document WHERE (FileID = @FileID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [T_Document] SET [FileName] = @FileName, [ContentType] = @ContentType, [FileSize] = @FileSize, [Data] = @Data, [TourokuBi] = @TourokuBi, [KaishaCode] = @KaishaCode, [TourokuUser] = @TourokuUser, [DataType] = @DataType, [SlipID] = @SlipID, [KeijoBi] = @KeijoBi WHERE (([FileID] = @Original_FileID) AND ([FileName] = @Original_FileName) AND ([ContentType] = @Original_ContentType) AND ([FileSize] = @Original_FileSize) AND ([TourokuBi] = @Original_TourokuBi) AND ((@IsNull_KaishaCode = 1 AND [KaishaCode] IS NULL) OR ([KaishaCode] = @Original_KaishaCode)) AND ([TourokuUser] = @Original_TourokuUser) AND ([DataType] = @Original_DataType) AND ([SlipID] = @Original_SlipID) AND ((@IsNull_KeijoBi = 1 AND [KeijoBi] IS NULL) OR ([KeijoBi] = @Original_KeijoBi)));
+SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, TourokuUser, DataType, SlipID, KeijoBi FROM T_Document WHERE (FileID = @FileID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContentType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1619,6 +1706,7 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SlipID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SlipID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KeijoBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeijoBi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FileName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContentType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1629,6 +1717,8 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TourokuUser", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TourokuUser", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SlipID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SlipID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_KeijoBi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeijoBi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KeijoBi", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeijoBi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1706,7 +1796,7 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_FileID, string Original_FileName, string Original_ContentType, int Original_FileSize, System.DateTime Original_TourokuBi, string Original_KaishaCode, string Original_TourokuUser, string Original_DataType, string Original_SlipID) {
+        public virtual int Delete(int Original_FileID, string Original_FileName, string Original_ContentType, int Original_FileSize, System.DateTime Original_TourokuBi, string Original_KaishaCode, string Original_TourokuUser, string Original_DataType, string Original_SlipID, global::System.Nullable<global::System.DateTime> Original_KeijoBi) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_FileID));
             if ((Original_FileName == null)) {
                 throw new global::System.ArgumentNullException("Original_FileName");
@@ -1748,6 +1838,14 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_SlipID));
             }
+            if ((Original_KeijoBi.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(Original_KeijoBi.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1768,7 +1866,7 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string FileName, string ContentType, int FileSize, byte[] Data, System.DateTime TourokuBi, string KaishaCode, string TourokuUser, string DataType, string SlipID) {
+        public virtual int Insert(string FileName, string ContentType, int FileSize, byte[] Data, System.DateTime TourokuBi, string KaishaCode, string TourokuUser, string DataType, string SlipID, global::System.Nullable<global::System.DateTime> KeijoBi) {
             if ((FileName == null)) {
                 throw new global::System.ArgumentNullException("FileName");
             }
@@ -1813,6 +1911,12 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((string)(SlipID));
             }
+            if ((KeijoBi.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(KeijoBi.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1843,6 +1947,7 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
                     string TourokuUser, 
                     string DataType, 
                     string SlipID, 
+                    global::System.Nullable<global::System.DateTime> KeijoBi, 
                     int Original_FileID, 
                     string Original_FileName, 
                     string Original_ContentType, 
@@ -1852,6 +1957,7 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
                     string Original_TourokuUser, 
                     string Original_DataType, 
                     string Original_SlipID, 
+                    global::System.Nullable<global::System.DateTime> Original_KeijoBi, 
                     int FileID) {
             if ((FileName == null)) {
                 throw new global::System.ArgumentNullException("FileName");
@@ -1897,48 +2003,62 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(SlipID));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_FileID));
+            if ((KeijoBi.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(KeijoBi.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_FileID));
             if ((Original_FileName == null)) {
                 throw new global::System.ArgumentNullException("Original_FileName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_FileName));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_FileName));
             }
             if ((Original_ContentType == null)) {
                 throw new global::System.ArgumentNullException("Original_ContentType");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_ContentType));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_ContentType));
             }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_FileSize));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_TourokuBi));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_FileSize));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_TourokuBi));
             if ((Original_KaishaCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_KaishaCode));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_KaishaCode));
             }
             if ((Original_TourokuUser == null)) {
                 throw new global::System.ArgumentNullException("Original_TourokuUser");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_TourokuUser));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_TourokuUser));
             }
             if ((Original_DataType == null)) {
                 throw new global::System.ArgumentNullException("Original_DataType");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_DataType));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_DataType));
             }
             if ((Original_SlipID == null)) {
                 throw new global::System.ArgumentNullException("Original_SlipID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_SlipID));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_SlipID));
             }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(FileID));
+            if ((Original_KeijoBi.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_KeijoBi.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(FileID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1969,6 +2089,7 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
                     string TourokuUser, 
                     string DataType, 
                     string SlipID, 
+                    global::System.Nullable<global::System.DateTime> KeijoBi, 
                     int Original_FileID, 
                     string Original_FileName, 
                     string Original_ContentType, 
@@ -1977,8 +2098,9 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
                     string Original_KaishaCode, 
                     string Original_TourokuUser, 
                     string Original_DataType, 
-                    string Original_SlipID) {
-            return this.Update(FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, TourokuUser, DataType, SlipID, Original_FileID, Original_FileName, Original_ContentType, Original_FileSize, Original_TourokuBi, Original_KaishaCode, Original_TourokuUser, Original_DataType, Original_SlipID, Original_FileID);
+                    string Original_SlipID, 
+                    global::System.Nullable<global::System.DateTime> Original_KeijoBi) {
+            return this.Update(FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, TourokuUser, DataType, SlipID, KeijoBi, Original_FileID, Original_FileName, Original_ContentType, Original_FileSize, Original_TourokuBi, Original_KaishaCode, Original_TourokuUser, Original_DataType, Original_SlipID, Original_KeijoBi, Original_FileID);
         }
     }
     
@@ -2111,6 +2233,7 @@ SELECT FileID, FileName, ContentType, FileSize, Data, TourokuBi, KaishaCode, Tou
             tableMapping.ColumnMappings.Add("KaishaMei", "KaishaMei");
             tableMapping.ColumnMappings.Add("TourokuBi", "TourokuBi");
             tableMapping.ColumnMappings.Add("TourokuUser", "TourokuUser");
+            tableMapping.ColumnMappings.Add("KeijoBi", "KeijoBi");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

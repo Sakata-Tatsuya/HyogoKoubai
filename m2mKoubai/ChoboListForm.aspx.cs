@@ -196,6 +196,12 @@ namespace m2mKoubai
             k._KaishaCode = DdlKaisha.SelectedValue;
             // í†ï[éÌï 
             k._DataType = DdlDataType.SelectedValue;
+            // åvè„ì˙
+            Common.CtlNengappiFromTo CtlKeijoBi = FindControl("CtlKeijoBi") as Common.CtlNengappiFromTo;
+            if (CtlKeijoBi.KikanType != Core.Type.NengappiKikan.EnumKikanType.NONE)
+            {
+                k._KeijoBi = CtlKeijoBi.GetNengappiKikan();
+            }
             // î≠çsì˙
             Common.CtlNengappiFromTo CtlTourokuBi = FindControl("CtlTourokuBi") as Common.CtlNengappiFromTo;
             if (CtlTourokuBi.KikanType != Core.Type.NengappiKikan.EnumKikanType.NONE)
@@ -219,6 +225,7 @@ namespace m2mKoubai
             {
                 ShareDataSet.V_DocumentRow dr = ((DataRowView)e.Row.DataItem).Row as ShareDataSet.V_DocumentRow;
                 Label LblDataType = e.Row.FindControl("LblDataType") as Label;
+                Label LblKeijoBi = e.Row.FindControl("LblKeijoBi") as Label;
                 Label LblSlipID = e.Row.FindControl("LblSlipID") as Label;
                 Label LblKaisha = e.Row.FindControl("LblKaisha") as Label;
                 Label LblTourokuBi = e.Row.FindControl("LblTourokuBi") as Label;
@@ -226,6 +233,8 @@ namespace m2mKoubai
 
                 //í†ï[éÌï 
                 LblDataType.Text = dr.DataType;
+                //åvè„ì˙
+                LblKeijoBi.Text = dr.KeijoBi.ToString("yyyy/MM/dd");
                 //í†ï[î‘çÜ
                 LblSlipID.Text = dr.SlipID;
                 BtnDisp.CommandArgument = dr.FileID.ToString();

@@ -361,6 +361,7 @@ namespace m2mKoubai.Shiiresaki
             KenshuDataSet.V_Kenshu2DataTable dt = Session["SeikyuShoDataTable"] as KenshuDataSet.V_Kenshu2DataTable;
             if (dt != null) 
             {
+                int nYear = int.Parse(this.DdlYear.SelectedValue);
                 int nMonth = int.Parse(this.DdlMonth.SelectedValue);
                 string strInvoiceID = @"INV" + SessionManager.KaishaCode + "_" + VsNengetu ;
                 string strFileName = @"êøãÅèë" + strInvoiceID + "_" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".pdf";
@@ -388,6 +389,7 @@ namespace m2mKoubai.Shiiresaki
                 dr.TourokuUser = SessionManager.LoginID;
                 dr.DataType = "êøãÅèë";
                 dr.SlipID = strInvoiceID;
+                dr.KeijoBi = AppCommon.GetLastOfMonth(nYear, nMonth);
 
                 if (!isCange)
                 {
@@ -419,8 +421,9 @@ namespace m2mKoubai.Shiiresaki
             KenshuDataSet.V_Kenshu2DataTable dt = Session["SeikyuShoDataTable"] as KenshuDataSet.V_Kenshu2DataTable;
             if (dt != null)
             {
-                //int nMonth = int.Parse(this.DdlMonth.SelectedValue);
-                int nMonth = int.Parse(VsNengetu);
+                int nYear = int.Parse(this.DdlYear.SelectedValue);
+                int nMonth = int.Parse(this.DdlMonth.SelectedValue);
+                int nNenGetu = int.Parse(VsNengetu);
                 string strAcceptanceID = @"ACC" + SessionManager.KaishaCode + "_" + VsNengetu;
                 string strFileName = @"åüé˚ñæç◊èë" + strAcceptanceID + "_" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".pdf";
                 string path = @"c:\temp\m2mKoubai\" + strFileName;
@@ -428,7 +431,7 @@ namespace m2mKoubai.Shiiresaki
                 DateTime dtInsatuBi = DateTime.Now;
                 DateTime dtSoshinBi = DateTime.MinValue;
 
-                var PDF = CreatePDF.CreateAcceptancePDF(SessionManager.LoginID, SessionManager.KaishaCode, nMonth, dt);
+                var PDF = CreatePDF.CreateAcceptancePDF(SessionManager.LoginID, SessionManager.KaishaCode, nNenGetu, dt);
                 bool isCange = false;
 
                 ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strAcceptanceID, Global.GetConnection());
@@ -447,6 +450,7 @@ namespace m2mKoubai.Shiiresaki
                 dr.TourokuUser = SessionManager.LoginID;
                 dr.DataType = "åüé˚ñæç◊èë";
                 dr.SlipID = strAcceptanceID;
+                dr.KeijoBi = AppCommon.GetLastOfMonth(nYear, nMonth);
 
                 if (!isCange)
                 {
