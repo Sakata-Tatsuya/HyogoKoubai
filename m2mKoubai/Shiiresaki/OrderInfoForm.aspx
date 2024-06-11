@@ -699,8 +699,9 @@
                                     <tr>
                                         <td nowrap="nowrap">
                                             <input id="BtnHacchuusho" runat="server" type="button" class="w130 bg98 f9" value="チェックした発注書を&#13;&#10;印刷する"/>
-                                <input id="BtnNouhinsho" runat="server" type="button" class="w130 bg98 f9" value="チェックした納品書を&#13;&#10;印刷する" />
-                                <input id="BtnGenhinpyou" runat="server" type="button" class="w130 bg98 f9" value="チェックした現品票を&#13;&#10;印刷する" /></td>
+                                            <input id="BtnNouhinsho" runat="server" type="button" class="w130 bg98 f9" value="チェックした納品書を&#13;&#10;印刷する" />
+                                            <input id="BtnGenhinpyou" runat="server" type="button" class="w130 bg98 f9" value="チェックした現品票を&#13;&#10;印刷する" />
+                                        </td>
                                     </tr>
                                 </table>
                             </td>

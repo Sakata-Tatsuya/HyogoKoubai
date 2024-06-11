@@ -237,9 +237,9 @@
                             </td>
                             <td nowrap="noWrap">
 <%--                                &nbsp;<input id="BtnKI" runat="server" type="button" value="検収明細表の&#13;&#10;印刷画面を表示する" class="bg98 w150" />--%>
-                                <asp:Button ID="BtnKP" runat="server" Text="検収明細表の印刷画面を表示する" OnClick="BtnKP_Click"/>
+                                <asp:Button ID="BtnKP" runat="server" Text="検収明細表の印刷画面を表示する" OnClick="BtnKP_Click" class="bg98"/>
 <%--                                <input id="BtnSI" runat="server" type="button" value="請求書の&#13;&#10;印刷画面を表示する" class="bg98 w150" />--%>
-                                <asp:Button ID="BtnSP" runat="server" Text="請求書の印刷画面を表示する" OnClick="BtnSP_Click"/>
+                                <asp:Button ID="BtnSP" runat="server" Text="請求書の印刷画面を表示する" OnClick="BtnSP_Click" class="bg98"/>
                             </td>
                             <td align="left">
                                 <table class="def9" id="TblRow" runat="server">

@@ -112,7 +112,7 @@ namespace m2mKoubai.Shiiresaki
             BtnK.Attributes["onclick"] = "Kensaku();";
 
           
-            // 仮単価で登録されているデータは、納品書印刷できない（追加　09-07-31 呉）
+            // 仮単価で登録されているデータは、納品書印刷できない
             if (G.Rows.Count > 0 && this.HidChkID_N.Value == "")
             {
                 HtmlInputCheckBox chk =
@@ -1596,6 +1596,13 @@ namespace m2mKoubai.Shiiresaki
             else
                 return true;
         }
+
+
+
+
+
+
+
 
 
 
