@@ -40,13 +40,45 @@ namespace m2mKoubaiDAL
             }
             return w.WhereText;
         }
+        private static string WhereTextV(string key, SqlCommand cmd)
+        {
+            Core.Sql.WhereGenerator w = new Core.Sql.WhereGenerator();
 
-        public static HacchuDataSet_M.V_HacchuDataTable
-            getV_HacchuDataTable(string key, SqlConnection sqlConn)
+            //Key•ª‰ð 24,0001520,8_24,0001519,8_24,0001518,8 yy,HacchuNo,Bu
+            string[] strKeyAry = key.Split('_');
+
+            if (strKeyAry != null)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                for (int i = 0; i < strKeyAry.Length; i++)
+                {
+                    string[] keyAry = strKeyAry[i].Split(',');
+                    string year = keyAry[0];
+                    string hacchuuNo = keyAry[1];
+                    int nKubun = int.Parse(keyAry[2]);
+
+                    if (sb.Length > 0) sb.Append(" OR ");
+                    sb.Append("Year = @Year" + i);
+                    sb.Append(" AND ");
+                    sb.Append("HacchuuNo = @HacchuuNo" + i);
+                    sb.Append(" AND ");
+                    sb.Append("JigyoushoKubun = @JigyoushoKubun" + i);
+                    cmd.Parameters.AddWithValue("@Year" + i, year);
+                    cmd.Parameters.AddWithValue("@HacchuuNo" + i, hacchuuNo);
+                    cmd.Parameters.AddWithValue("@JigyoushoKubun" + i, nKubun);
+                }
+                if (sb.Length > 0)
+                    w.Add(sb.ToString());
+            }
+            return w.WhereText;
+        }
+
+        public static HacchuDataSet_M.V_HacchuDataTable getV_HacchuDataTable(string key, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-                "SELECT                  TOP (100) PERCENT T_Chumon.Year, T_Chumon.HacchuuNo, T_Chumon.ShiiresakiCode, T_Chumon.BuhinKubun, "
+                "SELECT  TOP (100) PERCENT T_Chumon.Year, T_Chumon.HacchuuNo, T_Chumon.ShiiresakiCode, T_Chumon.BuhinKubun, "
             + "T_Chumon.BuhinCode, T_Chumon.Tanka, T_Chumon.Suuryou, T_Chumon.Nouki, T_Chumon.NounyuuBashoCode, "
             + "T_Chumon.Bikou, T_Chumon.HacchuuBi, T_Chumon.HacchushaID, M_Buhin.Tani, M_Buhin.BuhinMei, "
             + "M_Shiiresaki.ShiiresakiMei, M_Login.Name, M_NounyuuBasho.BashoMei, T_Chumon.Kingaku, "
@@ -75,5 +107,40 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+        public static HacchuDataSet_M.V_Hacchu2DataTable getV_Hacchu2DataTable(string key, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = "SELECT * FROM V_Hacchu2 ";
+            // WHERE
+            string strW = WhereTextV(key, da.SelectCommand);
+            if (strW != "")
+            {
+                da.SelectCommand.CommandText += " WHERE " + strW;
+            }
+            // GROUP BY
+            // ORDER BY
+            da.SelectCommand.CommandText += " ORDER BY ShiiresakiCode, JigyoushoKubun, HacchuuNo ";
+            HacchuDataSet_M.V_Hacchu2DataTable dt = new HacchuDataSet_M.V_Hacchu2DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

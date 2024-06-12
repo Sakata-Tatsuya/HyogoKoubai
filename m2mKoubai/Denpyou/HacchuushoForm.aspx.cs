@@ -23,7 +23,7 @@ namespace m2mKoubai.Denpyou
                 // ユーザー区分確認
                 bKubun = SessionManager.UserKubun;
 
-                // ヨドコウ側、仕入先側のみ表示可
+                // 発注側、仕入先側のみ表示可
                 if (bKubun != (byte)UserKubun.Owner && bKubun != (byte)UserKubun.Shiiresaki)
                 {
                     HttpContext.Current.Response.Redirect(Global.LoginPageURL, false);
@@ -56,8 +56,7 @@ namespace m2mKoubai.Denpyou
         int cnt = 0;
         private void Create(string key)
         {
-            HacchuDataSet_M.V_HacchuDataTable dt =
-                         HacchuClass.getV_HacchuDataTable(key, Global.GetConnection());
+            HacchuDataSet_M.V_HacchuDataTable dt = HacchuClass.getV_HacchuDataTable(key, Global.GetConnection());
 
             if (dt.Rows.Count == 0)
             {

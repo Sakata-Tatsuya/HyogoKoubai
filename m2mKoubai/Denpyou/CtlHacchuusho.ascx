@@ -52,19 +52,19 @@
                                 <td class="f11">
                                 </td>
                                 <td class="f11" nowrap="noWrap">
-                                    <asp:Literal ID="LitKaishaMeiY" runat="server"></asp:Literal></td>
+                                    <asp:Literal ID="LitKaishaMeiH" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td class="f10" style="height: 13px">
                                 </td>
                                 <td class="f10" style="height: 13px">
-                                    TEL:<asp:Literal ID="LitTelY" runat="server"></asp:Literal></td>
+                                    TEL:<asp:Literal ID="LitTelH" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td class="f10">
                                 </td>
                                 <td class="f10">
-                                    FAX:<asp:Literal ID="LitFaxY" runat="server"></asp:Literal></td>
+                                    FAX:<asp:Literal ID="LitFaxH" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
                                 <td class="f11 hei25 tl " valign="bottom" nowrap="noWrap">

@@ -79,7 +79,7 @@ namespace m2mKoubaiDAL
         {
             private string _Year;// 年
             private string _HacchuuNo;   // 発注No
-            private int _JigyoushoKubun;  // 仕入先コード            
+            private int _JigyoushoKubun;  // 仕入先コード
 
             public ChumonKey(string strYear, string strHacchuuNo, int nJigyoushoKubun)
             {

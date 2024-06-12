@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
+using Core.Type;
+using iTextSharp.text;
 
 namespace m2mKoubai.Shiiresaki
 {
@@ -1572,7 +1574,6 @@ namespace m2mKoubai.Shiiresaki
                 return true;
             else
                 return false;
-           
         }
         // 納期が正しい値かどうかチェック
         private bool NoukiCheck(Hashtable KaitouNoukiTbl)
@@ -1596,12 +1597,131 @@ namespace m2mKoubai.Shiiresaki
             else
                 return true;
         }
+        protected void SetHidKey(string ChkDocType)
+        {
+            HiddenField HidKeyPDF = form1.FindControl("HidKeyPDF") as HiddenField;
+
+            string PrintKey = string.Empty;
+            string strName = string.Empty;
+            switch (ChkDocType)
+            {
+                case "H":
+                    strName = "発注書";
+                    break;
+                case "N":
+                    strName = "納品書";
+                    break;
+                case "G":
+                    strName = "現品票";
+                    break;
+            }
+
+            for (int i = 0; i < G.Rows.Count; i++)
+            {
+                HtmlInputCheckBox ChkH = G.Rows[i].FindControl("ChkH") as HtmlInputCheckBox;
+                HtmlInputCheckBox ChkN = G.Rows[i].FindControl("ChkN") as HtmlInputCheckBox;
+                HtmlInputCheckBox ChkG = G.Rows[i].FindControl("ChkG") as HtmlInputCheckBox;
+                switch (ChkDocType)
+                {
+                    case "H":
+                        if (ChkH.Checked)
+                        {
+                            if (PrintKey != "") PrintKey += "_";
+                            PrintKey += ChkH.Value;
+                        }
+                        break;
+                    case "N":
+                        if (ChkN.Checked)
+                        {
+                            if (PrintKey != "") PrintKey += "_";
+                            PrintKey += ChkN.Value;
+                        }
+                        break;
+                    case "G":
+                        if (ChkG.Checked)
+                        {
+                            if (PrintKey != "") PrintKey += "_";
+                            PrintKey += ChkG.Value;
+                        }
+                        break;
+                }
+            }
+            if (PrintKey == "")
+            {
+                this.ShowMsg(strName + "チェックを入れてください", true);
+                return;
+            }
+            HidKeyPDF.Value = PrintKey;
+            
+        }
+        protected void BtnHP_Click(object sender, EventArgs e)
+        {
+            SetHidKey("H");
+            OutputOrder();
+        }
 
 
+        protected void OutputOrder()
+        {
+            //HiddenField HidFileID = form1.FindControl("HidFileID") as HiddenField;
+            HiddenField HidKeyPDF = form1.FindControl("HidKeyPDF") as HiddenField;
+            string KeyPDF = HidKeyPDF.Value.ToString();
+            HacchuDataSet_M.V_Hacchu2DataTable dt = HacchuClass.getV_Hacchu2DataTable(KeyPDF, Global.GetConnection());
+            KenshuDataSet.V_Kenshu2DataTable dtK = new KenshuDataSet.V_Kenshu2DataTable();
 
+            if (dt != null)
+            {
+                DateTime dtNengappi = DateTime.Now;
 
+                //int nNenGetu = int.Parse(VsNengetu);
+                string strOrderID = @"ODR" + SessionManager.KaishaCode + "_" + dt[0].HacchuuNo;
+                string strFileName = @"発注書" + strOrderID + "_" + dtNengappi.ToString("yyyyMMddhhmmss") + ".pdf";
+                string path = @"c:\temp\m2mKoubai\" + strFileName;
+                DateTime dtTourokuBi = DateTime.Now;
+                DateTime dtInsatuBi = DateTime.Now;
+                DateTime dtSoshinBi = DateTime.MinValue;
 
+                var PDF = CreatePDF.CreateAcceptancePDF(SessionManager.LoginID, SessionManager.KaishaCode, 202403, dtK);
+                bool isCange = false;
 
+                ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strOrderID, Global.GetConnection());
+                if (drB == null)
+                {
+                    isCange = true;
+                }
+
+                ShareDataSet.T_DocumentRow dr = new ShareDataSet.T_DocumentDataTable().NewT_DocumentRow();
+                dr.FileName = strFileName;
+                dr.ContentType = "application/pdf";
+                dr.FileSize = PDF.ToArray().Length;
+                dr.Data = PDF.ToArray();
+                dr.TourokuBi = dtTourokuBi;
+                dr.KaishaCode = SessionManager.KaishaCode;
+                dr.TourokuUser = SessionManager.LoginID;
+                dr.DataType = "発注書";
+                dr.SlipID = strOrderID;
+                dr.KeijoBi = dtNengappi;
+
+                if (!isCange)
+                {
+                    if (drB.Data != dr.Data) { isCange = true; }
+                }
+                int Ret = 0;
+                if (isCange)
+                {
+                    Ret = FilesClass.SaveDocument(dr, Global.GetConnection());
+                }
+                else
+                {
+                    Ret = drB.FileID;
+                }
+
+                if (Ret > 0)
+                {
+                    HidFileID.Value = Ret.ToString();
+                }
+            }
+        }
 
 
 

@@ -18,15 +18,10 @@ namespace m2mKoubai.Denpyou
 
         private const int G_CELL_HACCHUUNO = 0;
         private const int G_CELL_CODE = 1;
-        // private const int G_CELL_HINMEI = 2;
         private const int G_CELL_SUURYOU = 2;
-
-        //private const int G_CELL_TANKA = 5;
         private const int G_CELL_GOUKEI = 3;
         private const int G_CELL_TANI = 4;
         private const int G_CELL_NOUKI = 5;
-        //private const int G_CELL_NOUNYUUBASHO = 8;
-        //private const int G_CELL_BIKOU = 9;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -70,11 +65,11 @@ namespace m2mKoubai.Denpyou
 
 
             // ヨドコウ会社名
-            LitKaishaMeiY.Text = drAry[0].KaishameiY + " " + drAry[0].Eigyousho;
+            LitKaishaMeiH.Text = drAry[0].KaishameiY + " " + drAry[0].Eigyousho;
             // ヨドコウ興産株式会社電話番号
-            LitTelY.Text = Utility.FormatBanggo(drAry[0].TelY);
+            LitTelH.Text = Utility.FormatBanggo(drAry[0].TelY);
             // ヨドコウ興産FAX
-            LitFaxY.Text = Utility.FormatBanggo(drAry[0].FaxY);
+            LitFaxH.Text = Utility.FormatBanggo(drAry[0].FaxY);
             ////発注担当者
             this.LitTantousha.Text = drAry[0].Name;
         }

@@ -91,7 +91,7 @@ namespace m2mKoubai
 
                 //float w = doc.PageSize.Width / 2 + 100;
                 PdfPTable tbl = new PdfPTable(1);
-                strTemp = drHeader.KaishaMei + "御中";
+                strTemp = drHeader.KaishaMei + " 御中";
                 PdfPCell cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 tbl.AddCell(cell);
                 doc.Add(tbl);
@@ -323,7 +323,7 @@ namespace m2mKoubai
                 cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
                 tbl.AddCell(cell);
                 //5
-                strTemp = drHeader.KaishaMei + "御中";
+                strTemp = drHeader.KaishaMei + " 御中";
                 cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 tbl.AddCell(cell);
                 cell = new PdfPCell(new Paragraph("", font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
@@ -572,7 +572,7 @@ namespace m2mKoubai
 
                 //float w = doc.PageSize.Width / 2 + 100;
                 PdfPTable tbl = new PdfPTable(1);
-                strTemp = drHeader.ShiiresakiMei + "御中";
+                strTemp = drHeader.ShiiresakiMei + " 御中";
                 PdfPCell cell = new PdfPCell(new Paragraph(strTemp, font14)) { FixedHeight = 20f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 tbl.AddCell(cell);
                 strTemp = Utility.FormatFromyyyyMM(nMonth.ToString());

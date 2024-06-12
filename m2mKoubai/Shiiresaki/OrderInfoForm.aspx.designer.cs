@@ -231,6 +231,15 @@ namespace m2mKoubai.Shiiresaki
         protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnHacchuusho;
 
         /// <summary>
+        /// BtnHP コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnHP;
+
+        /// <summary>
         /// BtnNouhinsho コントロール。
         /// </summary>
         /// <remarks>
@@ -400,6 +409,24 @@ namespace m2mKoubai.Shiiresaki
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden HidChkID_G;
+
+        /// <summary>
+        /// HidFileID コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HidFileID;
+
+        /// <summary>
+        /// HidKeyPDF コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HidKeyPDF;
 
         /// <summary>
         /// DivNoukiKaitou コントロール。

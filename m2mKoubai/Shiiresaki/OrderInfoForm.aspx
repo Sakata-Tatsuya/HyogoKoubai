@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderInfoForm.aspx.cs" Inherits="m2mKoubai.Shiiresaki.OrderInfoForm" ValidateRequest="false" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register TagPrefix="uc1" TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" %>
-<%--<%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc4" %>--%>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <%@ Register Assembly="Core" namespace="Core.Web" tagprefix="cc1" %>
@@ -20,6 +19,19 @@
     {
         <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
     }
+      function pageLoad() {
+          showpdf()
+      }
+      function showpdf() {
+          var fileid = document.getElementById('HidFileID').value;
+          console.log(fileid);
+          if (0 < fileid.length) {
+              document.getElementById('HidFileID').value = '';
+              var url = "/Common/FileView.aspx?FileKey=" + fileid;
+              var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
+              win.focus();
+          }
+      }   
     function HacchuuNo(key, hacchuuNo)
     {
         document.getElementById('HidKey').value = key +'\t'+ hacchuuNo;
@@ -510,7 +522,6 @@
 	    }
 	    if(0 == cn_array_not_open.length)
 	    {
-	        
 	        alert("全て表示しています");
 			return;
 	    }
@@ -542,7 +553,6 @@
 	{	    
 	    if (!confirm("指定納期で納期回答を登録しますか?"))
 	        return false;
-	        
 	    AjaxRequest('shiteinouki_reg', strKey);
 	}
 	
@@ -699,6 +709,7 @@
                                     <tr>
                                         <td nowrap="nowrap">
                                             <input id="BtnHacchuusho" runat="server" type="button" class="w130 bg98 f9" value="チェックした発注書を&#13;&#10;印刷する"/>
+                                            <asp:Button ID="BtnHP" runat="server" Text="チェックした発注書を&#13;&#10;印刷する" OnClick="BtnHP_Click" class="w130 bg98 f9"/>
                                             <input id="BtnNouhinsho" runat="server" type="button" class="w130 bg98 f9" value="チェックした納品書を&#13;&#10;印刷する" />
                                             <input id="BtnGenhinpyou" runat="server" type="button" class="w130 bg98 f9" value="チェックした現品票を&#13;&#10;印刷する" />
                                         </td>
@@ -969,6 +980,8 @@
                     <input id="HidChkID_H" runat="server" type="hidden" />
                     <input id="HidChkID_N" runat="server" type="hidden" />
                     <input id="HidChkID_G" runat="server" type="hidden" />
+                    <asp:HiddenField ID="HidFileID" runat="server" />
+                    <asp:HiddenField ID="HidKeyPDF" runat="server" />
                 </td>
             </tr>
             <tr>
@@ -993,7 +1006,7 @@
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>    
-    </form>        
+    </form>
     <form id="NewForm" method="post" name="NewForm" >
         <input id="HidKey" runat="server" type="hidden"/>
     </form>
