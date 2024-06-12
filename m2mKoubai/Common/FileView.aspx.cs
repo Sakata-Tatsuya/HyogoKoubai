@@ -39,9 +39,10 @@ namespace m2mKoubai.Common
 
                 if (dr != null)
                 {
+                    string strDispo = "inline;filename=\""+dr.FileName+"\"";
                     Response.Buffer = true;
                     Response.ContentType = dr.ContentType;
-                    Response.AppendHeader("Content-Disposition", "inline");
+                    Response.AppendHeader("Content-Disposition", strDispo);
                     Response.AppendHeader("Content-Transfer-Encoding", "base64");
                     Response.OutputStream.Write(dr.Data, 0, dr.Data.Length);
                 }
@@ -56,6 +57,8 @@ namespace m2mKoubai.Common
             {
                 Response.End();
             }
+
+
         }
 
         override protected void OnInit(EventArgs e)
