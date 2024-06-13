@@ -161,8 +161,7 @@ namespace m2mKoubai.Shiiresaki
                 return;
 
             }
-            ChumonDataSet.V_Chumon_JyouhouDataTable dt =
-                ChumonClass.getV_Chumon_JyouhouDataTable(k, Global.GetConnection());
+            ChumonDataSet.V_Chumon_JyouhouDataTable dt = ChumonClass.getV_Chumon_JyouhouDataTable(k, Global.GetConnection());
 
             this.ShowMsg(dt.Rows.Count + "åè", false);
             if (dt.Rows.Count == 0)
@@ -210,7 +209,7 @@ namespace m2mKoubai.Shiiresaki
 
             G.DataSource = dt;
             G.DataBind();
-            G.EnableViewState = false;
+            //G.EnableViewState = false;
 
             G.Attributes.Add("bordercolor", "#e1e1c8"); //
 
@@ -1659,15 +1658,12 @@ namespace m2mKoubai.Shiiresaki
             SetHidKey("H");
             OutputOrder();
         }
-
-
         protected void OutputOrder()
         {
             //HiddenField HidFileID = form1.FindControl("HidFileID") as HiddenField;
             HiddenField HidKeyPDF = form1.FindControl("HidKeyPDF") as HiddenField;
             string KeyPDF = HidKeyPDF.Value.ToString();
             HacchuDataSet_M.V_Hacchu2DataTable dt = HacchuClass.getV_Hacchu2DataTable(KeyPDF, Global.GetConnection());
-            KenshuDataSet.V_Kenshu2DataTable dtK = new KenshuDataSet.V_Kenshu2DataTable();
 
             if (dt != null)
             {
@@ -1681,7 +1677,7 @@ namespace m2mKoubai.Shiiresaki
                 DateTime dtInsatuBi = DateTime.Now;
                 DateTime dtSoshinBi = DateTime.MinValue;
 
-                var PDF = CreatePDF.CreateAcceptancePDF(SessionManager.LoginID, SessionManager.KaishaCode, 202403, dtK);
+                var PDF = CreatePDF.CreateOrderPDF(SessionManager.LoginID, dt);
                 bool isCange = false;
 
                 ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strOrderID, Global.GetConnection());

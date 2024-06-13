@@ -83,15 +83,13 @@ namespace m2mKoubai.Denpyou
                     cnt = 0;
 
                     // G_DataBind(表示用データ取得)
-                    HacchuDataSet_M.V_HacchuBindDataTable dtBind =
-                        new HacchuDataSet_M.V_HacchuBindDataTable();
+                    HacchuDataSet_M.V_HacchuBindDataTable dtBind = new HacchuDataSet_M.V_HacchuBindDataTable();
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         if (dt[i].ShiiresakiCode == aryShiire[nKubunCnt].ToString())
                         {
-                            HacchuDataSet_M.V_HacchuBindRow drBind =
-                            (HacchuDataSet_M.V_HacchuBindRow)dtBind.NewV_HacchuBindRow();
+                            HacchuDataSet_M.V_HacchuBindRow drBind = (HacchuDataSet_M.V_HacchuBindRow)dtBind.NewV_HacchuBindRow();
 
                             drBind.Year = dt[i].Year;
                             drBind.ShiiresakiCode = dt[i].ShiiresakiCode;
