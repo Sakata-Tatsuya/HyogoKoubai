@@ -23,45 +23,17 @@ namespace m2mKoubai.Denpyou
         public void Create(ShiiresakiDataSet.V_Nouhinsho_HeaderRow drHeader)
         {
             // 日付
-            /* CultureInfo culture = new CultureInfo("ja-JP", true);
-             culture.DateTimeFormat.Calendar = new JapaneseCalendar();
-             DateTime target = DateTime.Today;
-             string result = target.ToString("ggyy年M月d日", culture);
-             LitDate.Text = result;*/
-
             LitDate.Text = DateTime.Today.ToString("yyyy年MM月dd日");
-
-            /*
-            // ヨドコウ興産会社情報取得
-            m2mKoubaiDataSet.T_KaishaInfoRow drKaisha =
-                KaishaInfoClass.getT_KaishaInfoRow(Global.GetConnection());
-            if (drKaisha == null)
-            {
-                return;
-            }
-
-            // ヨドコウ会社郵便番号
-            LitYuubinY.Text = Utility.FormatYuubin(drKaisha.Yuubin);
-            // ヨドコウ会社住所
-            LitJyushoY.Text = drKaisha.Address;
-            // ヨドコウ会社名
-            LitKaishaMeiY.Text = drKaisha.KaishaMei;
-            // ヨドコウ興産株式会社電話番号
-            LitTelY.Text = Utility.FormatBanggo(drKaisha.Tel);
-            // ヨドコウ興産FAX
-            LitFaxY.Text = Utility.FormatBanggo(drKaisha.Fax);
-            */
-            // ヨドコウ会社郵便番号
+            // 発注会社郵便番号
             LitYuubinY.Text = Utility.FormatYuubin(drHeader.YubinH);
-            // ヨドコウ会社住所
+            // 発注会社住所
             LitJyushoY.Text = drHeader.AddressH;
-            // ヨドコウ会社名
+            // 発注会社名
             LitKaishaMeiY.Text = drHeader.KaishaMei + " " + drHeader.EigyouSho;
-            // ヨドコウ興産株式会社電話番号
+            // 発注会社電話番号
             LitTelY.Text = Utility.FormatBanggo(drHeader.TelH);
-            // ヨドコウ興産FAX
+            // 発注会社FAX
             LitFaxY.Text = Utility.FormatBanggo(drHeader.FaxH);
-
             // 会社名
             LitShiiresakiMei.Text = drHeader.ShiiresakiMei;
             // 〒

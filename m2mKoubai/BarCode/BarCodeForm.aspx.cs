@@ -79,8 +79,8 @@ namespace m2mKoubai.BarCode
                 bc.Unit = AdvBarCodeCtrl.Units.Pixel;
                 bc.Type = AdvBarCodeCtrl.Types.Code39;
                 bc.CheckCharMode = false;
-                bc.BarHeight = 30;
-                bc.BarWidth = 120;
+                bc.BarHeight = 20;
+                bc.BarWidth = 80;
                 bc.DrawMessage = false;
             }
 

@@ -61,14 +61,11 @@ namespace m2mKoubai.Denpyou
             this.LitShiireTEL.Text = Utility.FormatBanggo(drAry[0].Tel);
             // 仕入先FAX
             this.LitShiireFAX.Text = Utility.FormatBanggo(drAry[0].Fax);
-
-
-
-            // ヨドコウ会社名
+            // 発注会社名
             LitKaishaMeiH.Text = drAry[0].KaishameiY + " " + drAry[0].Eigyousho;
-            // ヨドコウ興産株式会社電話番号
+            // 発注会社電話番号
             LitTelH.Text = Utility.FormatBanggo(drAry[0].TelY);
-            // ヨドコウ興産FAX
+            // 発注会社FAX
             LitFaxH.Text = Utility.FormatBanggo(drAry[0].FaxY);
             ////発注担当者
             this.LitTantousha.Text = drAry[0].Name;

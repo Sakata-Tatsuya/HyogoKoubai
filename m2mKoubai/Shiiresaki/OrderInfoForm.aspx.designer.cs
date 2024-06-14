@@ -231,13 +231,13 @@ namespace m2mKoubai.Shiiresaki
         protected global::System.Web.UI.WebControls.Button BtnHP;
 
         /// <summary>
-        /// BtnNouhinsho コントロール。
+        /// BtnNP コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnNouhinsho;
+        protected global::System.Web.UI.WebControls.Button BtnNP;
 
         /// <summary>
         /// BtnGenhinpyou コントロール。

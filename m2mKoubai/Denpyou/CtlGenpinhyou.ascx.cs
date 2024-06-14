@@ -21,7 +21,7 @@ namespace m2mKoubai.Denpyou
 
         public void Create(m2mKoubaiDAL.ChumonDataSet.V_Chumon_MeisaiRow drMeisai)
         {
-            // ƒˆƒhƒRƒE‹»Y‰ïĞî•ñæ“¾
+            // ”­’‰ïĞî•ñæ“¾
             m2mKoubaiDataSet.T_KaishaInfoRow drKaisha =
                 KaishaInfoClass.getT_KaishaInfoRow(drMeisai.JigyoushoKubun, Global.GetConnection());
             if (drKaisha == null)

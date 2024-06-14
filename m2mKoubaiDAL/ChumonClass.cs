@@ -548,12 +548,11 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_Chumon_MeisaiDataTable
-            getV_Chumon_MeisaiDataTable(string strKeyAry, SqlConnection sqlConn)
+        public static ChumonDataSet.V_Chumon_MeisaiDataTable getV_Chumon_MeisaiDataTable(string strKeyAry, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT          T_Chumon.Year, T_Chumon.HacchuuNo, T_Chumon.HacchuuBi, "
+            "SELECT T_Chumon.Year, T_Chumon.HacchuuNo, T_Chumon.HacchuuBi, "
             + "T_Chumon.ShiiresakiCode, M_Shiiresaki.ShiiresakiMei, "
             + "T_Chumon.BuhinKubun, T_Chumon.BuhinCode, M_Buhin.BuhinMei, "
             + "T_Chumon.Suuryou, T_Chumon.Tanka, M_Buhin.Tani, "
@@ -561,7 +560,7 @@ namespace m2mKoubaiDAL
             + "T_Chumon.HacchushaID, M_Login.Name, T_Chumon.Bikou, "
             + "M_NounyuuBasho.BashoMei, T_Chumon.CancelBi, "
             + "T_Chumon.JigyoushoKubun, T_Chumon.KaritankaFlg, dbo.M_Login.TantoushaCode  "
-            + "FROM            T_Chumon INNER JOIN "
+            + "FROM T_Chumon INNER JOIN "
             + "M_Shiiresaki ON "
             + "T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode INNER JOIN "
             + "M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND "
@@ -589,10 +588,10 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT      DISTINCT            TOP (100) PERCENT T_Chumon.ShiiresakiCode, M_Shiiresaki.ShiiresakiMei "
-            + "FROM                     T_Chumon INNER JOIN "
+            "SELECT DISTINCT TOP (100) PERCENT T_Chumon.ShiiresakiCode, M_Shiiresaki.ShiiresakiMei "
+            + "FROM T_Chumon INNER JOIN "
             + "M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
-            + "ORDER BY           T_Chumon.ShiiresakiCode ";
+            + "ORDER BY T_Chumon.ShiiresakiCode ";
             ChumonDataSet.V_ChumonShiiresakiDataTable dt = new ChumonDataSet.V_ChumonShiiresakiDataTable();
             da.Fill(dt);
             return dt;

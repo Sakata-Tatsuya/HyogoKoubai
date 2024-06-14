@@ -100,13 +100,14 @@ namespace m2mKoubai.Shiiresaki
             this.BtnAT.Attributes["onclick"] = "NKC_REG(null); return false;";
 
             //BtnHacchuusho.Visible = b;
-            BtnNouhinsho.Visible = b;
+            //BtnNouhinsho.Visible = b;
             BtnGenhinpyou.Visible = b;
             BtnHP.Visible = b;
+            BtnNP.Visible = b;
 
             // ˆóü
             //this.BtnHacchuusho.Attributes["onclick"] = string.Format("Print('{0}')", "”­’‘");
-            this.BtnNouhinsho.Attributes["onclick"] = string.Format("Print('{0}')", "”[•i‘");
+            //this.BtnNouhinsho.Attributes["onclick"] = string.Format("Print('{0}')", "”[•i‘");
             this.BtnGenhinpyou.Attributes["onclick"] = string.Format("Print('{0}')", "Œ»•i•[");
 
             //Img
@@ -1660,6 +1661,15 @@ namespace m2mKoubai.Shiiresaki
             SetHidKey("H");
             OutputOrder();
         }
+        protected void BtnNP_Click(object sender, EventArgs e)
+        {
+            SetHidKey("N");
+            OutputDelivery();
+        }
+        protected void BtnGP_Click(object sender, EventArgs e)
+        {
+            SetHidKey("G");
+        }
         protected void OutputOrder()
         {
             //HiddenField HidFileID = form1.FindControl("HidFileID") as HiddenField;
@@ -1672,8 +1682,8 @@ namespace m2mKoubai.Shiiresaki
                 DateTime dtNengappi = DateTime.Now;
 
                 //int nNenGetu = int.Parse(VsNengetu);
-                string strOrderID = @"ODR" + SessionManager.KaishaCode + "_" + dt[0].HacchuuNo;
-                string strFileName = @"”­’‘" + strOrderID + "_" + dtNengappi.ToString("yyyyMMddhhmmss") + ".pdf";
+                string strSlipID = @"ODR" + SessionManager.KaishaCode + "_" + dt[0].HacchuuNo;
+                string strFileName = @"”­’‘" + strSlipID + "_" + dtNengappi.ToString("yyyyMMddhhmmss") + ".pdf";
                 string path = @"c:\temp\m2mKoubai\" + strFileName;
                 DateTime dtTourokuBi = DateTime.Now;
                 DateTime dtInsatuBi = DateTime.Now;
@@ -1682,7 +1692,7 @@ namespace m2mKoubai.Shiiresaki
                 var PDF = CreatePDF.CreateOrderPDF(SessionManager.LoginID, dt);
                 bool isCange = false;
 
-                ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strOrderID, Global.GetConnection());
+                ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strSlipID, Global.GetConnection());
                 if (drB == null)
                 {
                     isCange = true;
@@ -1697,7 +1707,7 @@ namespace m2mKoubai.Shiiresaki
                 dr.KaishaCode = SessionManager.KaishaCode;
                 dr.TourokuUser = SessionManager.LoginID;
                 dr.DataType = "”­’‘";
-                dr.SlipID = strOrderID;
+                dr.SlipID = strSlipID;
                 dr.KeijoBi = dtNengappi;
 
                 if (!isCange)
@@ -1720,6 +1730,73 @@ namespace m2mKoubai.Shiiresaki
                 }
             }
         }
+
+        protected void OutputDelivery()
+        {
+            HiddenField HidKeyPDF = form1.FindControl("HidKeyPDF") as HiddenField;
+            string KeyPDF = HidKeyPDF.Value.ToString();
+            HacchuDataSet_M.V_Hacchu2DataTable dt = HacchuClass.getV_Hacchu2DataTable(KeyPDF, Global.GetConnection());
+
+            if (dt != null)
+            {
+                DateTime dtNengappi = DateTime.Now;
+
+                //int nNenGetu = int.Parse(VsNengetu);
+                string strSlipID = @"DVR" + SessionManager.KaishaCode + "_" + dt[0].HacchuuNo;
+                string strFileName = @"”[•i‘" + strSlipID + "_" + dtNengappi.ToString("yyyyMMddhhmmss") + ".pdf";
+                string path = @"c:\temp\m2mKoubai\" + strFileName;
+                DateTime dtTourokuBi = DateTime.Now;
+                DateTime dtInsatuBi = DateTime.Now;
+                DateTime dtSoshinBi = DateTime.MinValue;
+
+                var PDF = CreatePDF.CreateDeliveryPDF(SessionManager.LoginID, dt);
+                bool isCange = false;
+
+                ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strSlipID, Global.GetConnection());
+                if (drB == null)
+                {
+                    isCange = true;
+                }
+
+                ShareDataSet.T_DocumentRow dr = new ShareDataSet.T_DocumentDataTable().NewT_DocumentRow();
+                dr.FileName = strFileName;
+                dr.ContentType = "application/pdf";
+                dr.FileSize = PDF.ToArray().Length;
+                dr.Data = PDF.ToArray();
+                dr.TourokuBi = dtTourokuBi;
+                dr.KaishaCode = SessionManager.KaishaCode;
+                dr.TourokuUser = SessionManager.LoginID;
+                dr.DataType = "”[•i‘";
+                dr.SlipID = strSlipID;
+                dr.KeijoBi = dtNengappi;
+
+                if (!isCange)
+                {
+                    if (drB.Data != dr.Data) { isCange = true; }
+                }
+                int Ret = 0;
+                if (isCange)
+                {
+                    Ret = FilesClass.SaveDocument(dr, Global.GetConnection());
+                }
+                else
+                {
+                    Ret = drB.FileID;
+                }
+
+                if (Ret > 0)
+                {
+                    HidFileID.Value = Ret.ToString();
+                }
+            }
+        }
+
+
+
+
+
+
+
 
 
 

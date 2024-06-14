@@ -41,7 +41,7 @@ namespace m2mKoubaiDAL
 
         }
         /// <summary>
-        /// ƒˆƒhƒRƒE‹»Yî•ñ‚ğæ“¾
+        /// ”­’‰ïĞî•ñ‚ğæ“¾
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>

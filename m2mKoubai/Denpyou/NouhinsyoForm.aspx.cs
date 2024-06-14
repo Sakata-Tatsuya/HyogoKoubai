@@ -76,8 +76,7 @@ namespace m2mKoubai.Denpyou
                 }
 
                 //G.DataSourceテーブル
-                ChumonDataSet.V_Nouhinsho_MeisaiDataTable dtBind =
-                    new ChumonDataSet.V_Nouhinsho_MeisaiDataTable();
+                ChumonDataSet.V_Nouhinsho_MeisaiDataTable dtBind = new ChumonDataSet.V_Nouhinsho_MeisaiDataTable();
 
                 for (int j = 0; j < dt.Rows.Count; j++)
                 {
@@ -94,9 +93,7 @@ namespace m2mKoubai.Denpyou
                         drBind.Suuryou = dt[j].Suuryou;
                         drBind.Tani = dt[j].Tani;
                         drBind.Tanka = dt[j].Tanka;
-                        // 増税対応
                         drBind.Kingaku = (int)Math.Round(dt[j].Suuryou * dt[j].Tanka, 0, MidpointRounding.AwayFromZero);
-                        //drBind.Kingaku = (int)Math.Floor(dt[j].Suuryou * dt[j].Tanka);
                         nGoukei += drBind.Kingaku;
                         drBind.BarCode = dt[j].HacchuuNo;
 
@@ -157,8 +154,7 @@ namespace m2mKoubai.Denpyou
 
                     }
 
-                    ChumonDataSet.V_Nouhinsho_MeisaiRow[] drAry =
-                        new ChumonDataSet.V_Nouhinsho_MeisaiRow[ary.Count];
+                    ChumonDataSet.V_Nouhinsho_MeisaiRow[] drAry = new ChumonDataSet.V_Nouhinsho_MeisaiRow[ary.Count];
 
                     nNowRowCount += drAry.Length;
                     ary.CopyTo(drAry);
@@ -169,8 +165,6 @@ namespace m2mKoubai.Denpyou
 
                     this.T.Rows[0].Cells[0].Controls.Add(ctlA4);
                     ctlA4.Table.Rows[0].Cells[0].Controls.Add(ctlMeisai);
-
-                   
                    
                     // 納品書の改頁
                     if (nPageCnt < nPageCount - 1 )
