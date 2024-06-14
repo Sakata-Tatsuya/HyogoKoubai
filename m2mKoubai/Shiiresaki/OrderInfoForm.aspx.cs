@@ -11,6 +11,7 @@ using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
 using Core.Type;
 using iTextSharp.text;
+using m2mKoubai.Denpyou;
 
 namespace m2mKoubai.Shiiresaki
 {
@@ -98,12 +99,13 @@ namespace m2mKoubai.Shiiresaki
             this.BtnAC.Attributes["onclick"] = "NKC_CLOSE(); return false;";
             this.BtnAT.Attributes["onclick"] = "NKC_REG(null); return false;";
 
-            BtnHacchuusho.Visible = b;
+            //BtnHacchuusho.Visible = b;
             BtnNouhinsho.Visible = b;
             BtnGenhinpyou.Visible = b;
+            BtnHP.Visible = b;
 
             // àÛç¸
-            this.BtnHacchuusho.Attributes["onclick"] = string.Format("Print('{0}')", "î≠íçèë");
+            //this.BtnHacchuusho.Attributes["onclick"] = string.Format("Print('{0}')", "î≠íçèë");
             this.BtnNouhinsho.Attributes["onclick"] = string.Format("Print('{0}')", "î[ïièë");
             this.BtnGenhinpyou.Attributes["onclick"] = string.Format("Print('{0}')", "åªïiï[");
 

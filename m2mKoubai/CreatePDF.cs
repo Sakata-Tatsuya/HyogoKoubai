@@ -830,7 +830,7 @@ namespace m2mKoubai
         {
             //m2mKoubaiDataSet.M_ShiiresakiRow drShiire = ShiiresakiClass.getM_ShiiresakiRow(sKaishaCode, Global.GetConnection());
             //明細最大行数
-            int MaxRow = 36;
+            int MaxRow = 8;
             string strTemp = string.Empty;
             int intTemp = 0;
 
@@ -941,7 +941,7 @@ namespace m2mKoubai
                 tbl.AddCell(cell);
                 cell = new PdfPCell(new Paragraph("", font10)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
                 tbl.AddCell(cell);
-                strTemp = dtD[0].Name;
+                strTemp = "発注担当者：" + dtD[0].Name;
                 cell = new PdfPCell(new Paragraph(strTemp, font12)) { FixedHeight = 16f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT, BorderWidth = 0 };
                 tbl.AddCell(cell);
                 doc.Add(tbl);
@@ -1072,13 +1072,11 @@ namespace m2mKoubai
                     strTemp = dtD[i].BashoMei;
                     cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                     tbl.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("備考", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_TOP, HorizontalAlignment = Element.ALIGN_CENTER };
-                    cell.Rowspan = 2;
+                    cell = new PdfPCell(new Paragraph("備考", font08)) { FixedHeight = 28f, VerticalAlignment = Element.ALIGN_TOP, HorizontalAlignment = Element.ALIGN_CENTER };
                     tbl.AddCell(cell);
                     strTemp = dtD[i].Bikou;
-                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT };
+                    cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 28f, VerticalAlignment = Element.ALIGN_TOP, HorizontalAlignment = Element.ALIGN_LEFT };
                     cell.Colspan = 5;
-                    cell.Rowspan = 2;
                     tbl.AddCell(cell);
 
                 }

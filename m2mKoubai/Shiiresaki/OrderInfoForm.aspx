@@ -53,26 +53,26 @@
     {
         if(strName == "発注書")
         {
-            var chkIdAry = document.getElementById('HidChkID_H').value.split(',');
-            var hidPrintKey = ''
-            for(var i = 0; i < chkIdAry.length; i++)
-            {
-                var chk = document.getElementById(chkIdAry[i]);
-                if(chk.checked)
-                {
-                    if(hidPrintKey != "") hidPrintKey += "_";
-                    hidPrintKey += chk.value;
-                }
-            }
-            if(hidPrintKey == "")
-            {
-                alert(strName + "チェックを入れてください");
-                return false;
-            }
-            document.getElementById('HidKey').value = hidPrintKey;
-            NewForm.action = "../Denpyou/HacchuushoForm";
-            NewForm.target = "_hacchuusho";
-            OpenWinPost("_hacchuusho",800,600,',menubar=yes');
+            //var chkIdAry = document.getElementById('HidChkID_H').value.split(',');
+            //var hidPrintKey = ''
+            //for(var i = 0; i < chkIdAry.length; i++)
+            //{
+            //    var chk = document.getElementById(chkIdAry[i]);
+            //    if(chk.checked)
+            //    {
+            //        if(hidPrintKey != "") hidPrintKey += "_";
+            //        hidPrintKey += chk.value;
+            //    }
+            //}
+            //if(hidPrintKey == "")
+            //{
+            //    alert(strName + "チェックを入れてください");
+            //    return false;
+            //}
+            //document.getElementById('HidKey').value = hidPrintKey;
+            //NewForm.action = "../Denpyou/HacchuushoForm";
+            //NewForm.target = "_hacchuusho";
+            //OpenWinPost("_hacchuusho",800,600,',menubar=yes');
         }
         else if(strName == "納品書")
         {
@@ -708,7 +708,7 @@
                                 <table id="TblI" runat="server" class="nw">
                                     <tr>
                                         <td nowrap="nowrap">
-                                            <input id="BtnHacchuusho" runat="server" type="button" class="w130 bg98 f9" value="チェックした発注書を&#13;&#10;印刷する"/>
+<%--                                            <input id="BtnHacchuusho" runat="server" type="button" class="w130 bg98 f9" value="チェックした発注書を&#13;&#10;印刷する"/>--%>
                                             <asp:Button ID="BtnHP" runat="server" Text="チェックした発注書を&#13;&#10;印刷する" OnClick="BtnHP_Click" class="w130 bg98 f9"/>
                                             <input id="BtnNouhinsho" runat="server" type="button" class="w130 bg98 f9" value="チェックした納品書を&#13;&#10;印刷する" />
                                             <input id="BtnGenhinpyou" runat="server" type="button" class="w130 bg98 f9" value="チェックした現品票を&#13;&#10;印刷する" />
