@@ -53,7 +53,8 @@
             </tr>
             <tr>
                 <td class="tc" height="40">
-                                <asp:Label ID="LblErrMsg" runat="server" CssClass="def11 b" ForeColor="Red"></asp:Label></td>
+                    <asp:Label ID="LblErrMsg" runat="server" CssClass="def11 b" ForeColor="Red"></asp:Label>
+                </td>
             </tr>
         </table>
         <table align="center">

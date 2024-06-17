@@ -204,13 +204,13 @@ namespace m2mKoubai.Order
         protected global::m2mKoubai.Common.CtlMyPager Pt;
 
         /// <summary>
-        /// BtnI コントロール。
+        /// BtnHP コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnI;
+        protected global::System.Web.UI.WebControls.Button BtnHP;
 
         /// <summary>
         /// TblRow コントロール。
@@ -328,6 +328,24 @@ namespace m2mKoubai.Order
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TbxHenkouNouki;
+
+        /// <summary>
+        /// HidFileID コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HidFileID;
+
+        /// <summary>
+        /// HidKeyPDF コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HidKeyPDF;
 
         /// <summary>
         /// DivNoukiHenkou コントロール。

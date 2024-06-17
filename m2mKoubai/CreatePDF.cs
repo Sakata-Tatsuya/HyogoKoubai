@@ -833,6 +833,8 @@ namespace m2mKoubai
             int MaxRow = 8;
             string strTemp = string.Empty;
             int intTemp = 0;
+            int CntTotal = dtH.Rows.Count;
+            int CntUsed = 0;
 
             // 仕入先配列を作成
             ArrayList aryShiire = new ArrayList();
@@ -1081,6 +1083,7 @@ namespace m2mKoubai
                     cell.Colspan = 5;
                     tbl.AddCell(cell);
 
+                    CntUsed++;
                 }
 
                 if (LineCnt <= MaxRow)
@@ -1104,12 +1107,16 @@ namespace m2mKoubai
                 doc.Add(tbl);
 
                 //1仕入先の編集終了
+                if (CntUsed < CntTotal) 
+                {
+                    doc.NewPage();
+                }
             }
 
             doc.Close();
             return stream;
         }
-        internal static MemoryStream CreateDeliveryPDF(string sLoginID, HacchuDataSet_M.V_Hacchu2DataTable dtH)
+        internal static MemoryStream CreateDeliveryPDF(string sLoginID, string sUrlHost, HacchuDataSet_M.V_Hacchu2DataTable dtH)
         {
             //明細最大行数
             int MaxRow = 20;
@@ -1278,7 +1285,7 @@ namespace m2mKoubai
                 tbl.AddCell(cell);
                 cell = new PdfPCell(new Paragraph("金額", font08)) { FixedHeight = 24f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                 tbl.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("  ", font08)) { FixedHeight = 24f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+                cell = new PdfPCell(new Paragraph("  ", font08)) { FixedHeight = 24f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                 tbl.AddCell(cell);
 
                 int LineCnt = 0;
@@ -1339,7 +1346,10 @@ namespace m2mKoubai
                     strTemp = string.Format("\\{0:#,##0}", dtD[i].Kingaku);
                     cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 24f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
                     tbl.AddCell(cell);
-                    strTemp = "http://localhost:51122/BarCode/BarCodeForm.aspx?BarCode=" + dtD[i].HacchuuNo;
+                    var scheme = System.Web.HttpContext.Current.Request.ApplicationPath;
+                    var path = HttpRuntime.AppDomainAppVirtualPath;
+
+                    strTemp = sUrlHost + "BarCode/BarCodeForm.aspx?BarCode=" + dtD[i].HacchuuNo;
                     iTextSharp.text.Image imageTemp = iTextSharp.text.Image.GetInstance(strTemp);
                     cell = new PdfPCell(imageTemp,true) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                     tbl.AddCell(cell);

@@ -112,9 +112,6 @@ namespace m2mKoubai
             w.WriteLine("[エラーメッセージ]");
             w.WriteLine(ex.Message);
 
-
-
-
             // スタックトレース
             w.WriteLine("[スタックトレース]");
             w.WriteLine(ex.StackTrace);
@@ -127,10 +124,6 @@ namespace m2mKoubai
 
             return w.ToString();
         }
-
-
-
-
 
         private static string GetMyIPAddress()
         {
@@ -219,13 +212,6 @@ namespace m2mKoubai
         {
             get
             {
-                /// 2014/04/01 消費税5% → 8%増税の為、当日の日付により切り替える
-
-
-
-
-
-
                 return System.Configuration.ConfigurationManager.AppSettings["ShouhiZei"];
             }
         }

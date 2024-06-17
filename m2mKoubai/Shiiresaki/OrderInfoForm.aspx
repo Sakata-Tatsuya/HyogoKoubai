@@ -129,7 +129,7 @@
     {
         win = window.open
             ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes" + ect);
-	    win.focus();
+        win.focus();
     }
    
     function ChkAll_H(bool)
@@ -167,15 +167,15 @@
     }
     function Kensaku()
     {
-	    AjaxRequest('kensaku', '');
+        AjaxRequest('kensaku', '');
     }
     function RowChange()
     {
-	    AjaxRequest('row', '');
+        AjaxRequest('row', '');
     }
     function PageChange(pageIndex)
     {
-	    AjaxRequest('page', pageIndex);
+        AjaxRequest('page', pageIndex);
     }
     function OnBuhin()
     {
@@ -189,10 +189,10 @@
         }
     }
     function OnRequestStart(sender, args)
-	{
+    {
         document.getElementById("Img1").style.display = '';
-	}
-	function OnResponseEnd(sender, args)
+    }
+    function OnResponseEnd(sender, args)
     {
         document.getElementById('Img1').style.display = 'none';
         var cmd = args.EventArgument.substring(0, args.EventArgument.indexOf(":"));
@@ -217,31 +217,23 @@
                 }
                 div.innerHTML = '';
                 break;
-            
             case "nyuryoku_close":
-               
                 var g = document.getElementById('G');
-                
                 var cell_index = <%=cell_index %>;
-               
                 var cn_array = param.split("\t");
-                
                 var hid_current_array = document.getElementById('TbxKaitouNouki').value.split("\t");
                 var hid_current_array2 = document.getElementById('TbxShiteiNouki').value.split("\t");
-              
                 if(hid_current_array.length != cn_array.length)
                 {
                     alert('error');
                     return;
                 }
-               
                 for(var i = 0; i < cn_array.length; i++)
                 {
                     var index = GetIndex(cn_array[i]);
                     g.rows[index + 1].cells[<%=cell_index %>].innerHTML = hid_current_array[i] + "<br>" + hid_current_array2[i];
                 }
                 break;
-
             case "nyuryoku_add_row":
             case "nyuryoku_del_row":
                 var g = document.getElementById('G');
@@ -253,57 +245,51 @@
            case "nouki_kaitou_reg":
            case "shiteinouki_reg":
                 break;
-        
         }
     }
 
         function GetIndex(cn)
-	    {
-		    var a = GetDataArray('C');  // key 'C'に紐づくデータは「注文番号_情報区分コード」のCSV形式データ
-		   
-		    for (var i = 0; i < a.length; i++) 
-		    {
-			    if (cn == a[i]) 
-			        return i;
-		    }
-		    return -1;
-	    }
+        {
+            var a = GetDataArray('C');  // key 'C'に紐づくデータは「注文番号_情報区分コード」のCSV形式データ
+            for (var i = 0; i < a.length; i++)
+            {
+                if (cn == a[i])
+                    return i;
+            }
+            return -1;
+        }
         function GetDataArray(key)
         {
- 	        return Core_GetDataArray(key,document.getElementById('HidDataKey'), document.getElementById('HidData'), ',', ':', true);
+            return Core_GetDataArray(key,document.getElementById('HidDataKey'), document.getElementById('HidData'), ',', ':', true);
         }
-	    function GetDataArray2(key)
-	    {
-		    return Core_GetDataArray(key, document.getElementById('HidDataKey'), document.getElementById('HidData'),',', ':', false);
-	    }
+        function GetDataArray2(key)
+        {
+            return Core_GetDataArray(key, document.getElementById('HidDataKey'), document.getElementById('HidData'),',', ':', false);
+        }
 
         // Keyに対応するデータを配列として返す
         function Core_GetDataArray(key, hidDataKey, hidData, separatorKey, separatorData, bErrorNotFoundKey)
         {
             if (null == hidData) return [];
-	        if (hidData.value == "") return [];
-	        	
-	        var arrayKey = hidDataKey.value.split(separatorKey);
-	        var arrayData = hidData.value.split(separatorData);
-	       
-	        var index = -1;
-	        for(var i = 0; i < arrayKey.length; i++) 
-	        {  
-		        if (key == arrayKey[i]) 
-		        {
-			        index = i;
-			        break;
-		        }
-		    }
-	        
-	        if (-1 == index) 
-	        {
-		        if (bErrorNotFoundKey)
-			        alert('JCore Error!! Not Found Key : ' + key);
-		        return [];
-	        }
-        	
-	        return arrayData[index].split(",");
+                if (hidData.value == "") return [];
+                var arrayKey = hidDataKey.value.split(separatorKey);
+                var arrayData = hidData.value.split(separatorData);
+                var index = -1;
+                for(var i = 0; i < arrayKey.length; i++)
+                {
+                    if (key == arrayKey[i])
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+            if (-1 == index) 
+            {
+                if (bErrorNotFoundKey)
+                    alert('JCore Error!! Not Found Key : ' + key);
+                return [];
+            }
+            return arrayData[index].split(",");
         }
 
         function YN(cn_jk)
@@ -327,66 +313,57 @@
         }
 
       function NKM_Touroku(btn, cn_jk, _nk, _su, _kn)
-	    {
-	        NKC_REG(cn_jk);
-	    }
-	    function NKC_REG(cnjk_arg)
-	    {
-	        var nkd_array = [];
-	        
-	        if (null == cnjk_arg)
-	        {
-	            nkd_array = GetDataArray2('KaitouNoukiData');
-	        }
-	        else
-	        {
-	            var a = GetDataArray('KaitouNoukiData');
-	            for(var i = 0; i < a.length; i++)
-	            {
-	                if(cnjk_arg == a[i].split('\t')[0])
-	                {
-	                    nkd_array[0] = a[i];
-	                    break;
-	                }
-	            }
-	            if(0 == nkd_array.length)
-	            {
-	                alert('error');
-	                return;
-	            }
-	        }
-	        
-	        if(0 == nkd_array.length)
-	            return;
-	        
-	        var data_array = [];
-	        var cn_tab_array = [];
-	        
-	        for(var i = 0; i < nkd_array.length; i++)
-	        {
-	            var kaitou_nouki_data = nkd_array[i].split('\t');
-	            var cn_jk = kaitou_nouki_data[0];
-	            var nk = document.getElementById(kaitou_nouki_data[1]);
-	            var suu = document.getElementById(kaitou_nouki_data[2]);
-	            var ktno = document.getElementById(kaitou_nouki_data[3]);
-	            
-	            if(null == nk || null == suu) continue;
-	            
-	            cn_tab_array.push(cn_jk);
-	            
-	            var  nk_vals = nk.value.split(",");
-	            var suu_vals = suu.value.split(",");
-	            var ktno_vals = ktno.value.split(",");
-	            
-	            var nk_suu = '';
-	            
-	            for(var t = 0; t < nk_vals.length; t++)
-	            {
-	                var n = document.getElementById(nk_vals[t]).value;
-	                var s = document.getElementById(suu_vals[t]).value;
-	                var no = document.getElementById(ktno_vals[t]).value;
-	                
-	                if('' == n && '' == s) continue;
+        {
+            NKC_REG(cn_jk);
+        }
+        function NKC_REG(cnjk_arg)
+        {
+            var nkd_array = [];
+            if (null == cnjk_arg)
+            {
+                nkd_array = GetDataArray2('KaitouNoukiData');
+            }
+            else
+            {
+                var a = GetDataArray('KaitouNoukiData');
+                for(var i = 0; i < a.length; i++)
+                {
+                    if(cnjk_arg == a[i].split('\t')[0])
+                    {
+                        nkd_array[0] = a[i];
+                        break;
+                    }
+                }
+                if(0 == nkd_array.length)
+                {
+                    alert('error');
+                    return;
+                }
+            }
+            if(0 == nkd_array.length)
+                return;
+            var data_array = [];
+            var cn_tab_array = [];
+            for(var i = 0; i < nkd_array.length; i++)
+            {
+                var kaitou_nouki_data = nkd_array[i].split('\t');
+                var cn_jk = kaitou_nouki_data[0];
+                var nk = document.getElementById(kaitou_nouki_data[1]);
+                var suu = document.getElementById(kaitou_nouki_data[2]);
+                var ktno = document.getElementById(kaitou_nouki_data[3]);
+                if(null == nk || null == suu) continue;
+                cn_tab_array.push(cn_jk);
+                var  nk_vals = nk.value.split(",");
+                var suu_vals = suu.value.split(",");
+                var ktno_vals = ktno.value.split(",");
+                var nk_suu = '';
+                for(var t = 0; t < nk_vals.length; t++)
+                {
+                    var n = document.getElementById(nk_vals[t]).value;
+                    var s = document.getElementById(suu_vals[t]).value;
+                    var no = document.getElementById(ktno_vals[t]).value;
+
+                    if ('' == n && '' == s) continue;
 
                     if ('' == n)
                     {
@@ -400,37 +377,35 @@
                     }
 
                     if ('' != nk_suu) nk_suu += '\t';
-	                nk_suu += (n + '\t' + s + '\t' + no);
-	            }
-	            nk_suu = nk_suu.replace('|', '');
-	            data_array.push(nk_suu);
-	        }
-	        
-	        if(0 == cn_tab_array.length)
-	        {
-	            alert("登録するデータがありません");
-	            return;
-	        }
-	        
-	        if (null == cnjk_arg) 
-	        {
-		        if (!confirm('登録しますか？'))
-			        return false;
-	        }
+                    nk_suu += (n + '\t' + s + '\t' + no);
+                }
+                nk_suu = nk_suu.replace('|', '');
+                data_array.push(nk_suu);
+            }
+
+            if(0 == cn_tab_array.length)
+            {
+                alert("登録するデータがありません");
+                    return;
+            }
+
+            if (null == cnjk_arg)
+            {
+                if (!confirm('登録しますか？'))
+                    return false;
+            }
 
             var hid_arg = document.getElementById('HidKaitouNoukiArg');
-	        hid_arg.value = data_array.join("|");
-    	    
-	        AjaxRequest('nouki_kaitou_reg', cn_tab_array.join("\t"));
+            hid_arg.value = data_array.join("|");
+            AjaxRequest('nouki_kaitou_reg', cn_tab_array.join("\t"));
     }
-    
-    
-    function NKM_Sum(_suu, tbx_sum)
-	{
-	    var dSum = 0;
-	    for(var i = 0; i < _suu.length; i++)
-	    {
-	        var t = document.getElementById(_suu[i]);
+
+      function NKM_Sum(_suu, tbx_sum)
+    {
+        var dSum = 0;
+        for(var i = 0; i < _suu.length; i++)
+        {
+            var t = document.getElementById(_suu[i]);
 	        if(t == null) 
 	            continue;
 	        if (t.value == "") 
@@ -515,7 +490,7 @@
 	    for(var i = 0; i < a.length; i++)
 	    {
 	        var data_array = a[i].split('\t');
-    	    
+        
 	        var nk = document.getElementById(data_array[1]);
 	        if(null == nk)
 	            cn_array_not_open.push(data_array[0]);
@@ -523,11 +498,11 @@
 	    if(0 == cn_array_not_open.length)
 	    {
 	        alert("全て表示しています");
-			return;
+	        return;
 	    }
 	    AjaxRequest('nyuryoku_open',cn_array_not_open.join("\t"));
-	}
-	function NKC_CLOSE()
+    }
+    function NKC_CLOSE()
 	{
 	    var cn_array = GetDataArray('C');
 	    var a = GetDataArray2('KaitouNoukiData');
@@ -545,12 +520,12 @@
 	    if(0 == cn_array_open.length)
 	    {
 	        alert("全て非表示です");
-			return;
+	        return;
 	    }
 	    AjaxRequest('nyuryoku_close', cn_array_open.join('\t'));
 	}
 	function ShiteiNouki(strKey)
-	{	    
+	{
 	    if (!confirm("指定納期で納期回答を登録しますか?"))
 	        return false;
 	    AjaxRequest('shiteinouki_reg', strKey);

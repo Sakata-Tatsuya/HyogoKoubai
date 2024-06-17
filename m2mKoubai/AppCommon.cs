@@ -95,7 +95,7 @@ namespace m2mKoubai
     {
 
         // 自社の会社コード
-        public const string Jisha_KAISHACODE = "0";
+        public const string Jisha_KAISHACODE = "0000000";
 
         public const string NO_DATA = "該当するデータはありません";
 

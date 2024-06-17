@@ -117,7 +117,6 @@ namespace m2mKoubai
                     return new System.Globalization.CultureInfo(str);
                 }
             }
-
             public string PDFFontName
             {
                 get
@@ -370,8 +369,6 @@ namespace m2mKoubai
                 }
             }
         }
-
-
 
         // ログアウト
         public static void Logout()

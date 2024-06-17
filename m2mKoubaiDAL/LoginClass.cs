@@ -342,11 +342,10 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-             "SELECT                  T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, M_Login.Busho, M_Login.Name, T_KaishaInfo.Tel, "
-            + "T_KaishaInfo.Fax, M_Login.Mail "
-            + "FROM                     M_Login INNER JOIN "
-            + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
-            + "WHERE                   (M_Login.KaishaCode = N'0') AND (M_Login.KanrishaFlg = 1) ";
+             "SELECT T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, M_Login.Busho, M_Login.Name, T_KaishaInfo.Tel, T_KaishaInfo.Fax, M_Login.Mail "
+            + "FROM M_Login "
+            + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "WHERE      (M_Login.KaishaCode = N'0') AND (M_Login.KanrishaFlg = 1) ";
             LoginDataSet.V_MailInfoDataTable dt = new LoginDataSet.V_MailInfoDataTable();
             da.Fill(dt);
             return dt;
@@ -360,11 +359,10 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-             "SELECT                  T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, M_Login.Busho, M_Login.Name, T_KaishaInfo.Tel, "
-            + "T_KaishaInfo.Fax, M_Login.Mail "
-            + "FROM                     M_Login INNER JOIN "
-            + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
-            + "WHERE                   (M_Login.LoginID = @LoginID) ";
+             "SELECT T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, M_Login.Busho, M_Login.Name, T_KaishaInfo.Tel, T_KaishaInfo.Fax, M_Login.Mail "
+            + "FROM  M_Login "
+            + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "WHERE      (M_Login.LoginID = @LoginID) ";
             da.SelectCommand.Parameters.AddWithValue("@LoginID", strLoginID);
             LoginDataSet.V_MailInfoDataTable dt = new LoginDataSet.V_MailInfoDataTable();
             da.Fill(dt);
@@ -404,8 +402,8 @@ namespace m2mKoubaiDAL
             + "M_Login.LoginID, M_Login.UserKubun, M_Login.KaishaCode, M_Login.JigyoushoKubun, M_Login.TantoushaCode, "
             + "M_Login.Busho, M_Login.Yakushoku, M_Login.Password, M_Login.KanrishaFlg, M_Login.Name, M_Login.Mail, "
             + "T_KaishaInfo.EigyouSho "
-            + "FROM                     M_Login INNER JOIN "
-            + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "FROM  M_Login "
+            + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
             + "WHERE UserKubun = @kubun ";
             string strWhere = WhereText(k);
             if (strWhere != "")

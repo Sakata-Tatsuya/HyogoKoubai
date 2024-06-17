@@ -1748,8 +1748,9 @@ namespace m2mKoubai.Shiiresaki
                 DateTime dtTourokuBi = DateTime.Now;
                 DateTime dtInsatuBi = DateTime.Now;
                 DateTime dtSoshinBi = DateTime.MinValue;
+                string sUrlHost = Session["SESSION_HOME_PATH"].ToString();
 
-                var PDF = CreatePDF.CreateDeliveryPDF(SessionManager.LoginID, dt);
+                var PDF = CreatePDF.CreateDeliveryPDF(SessionManager.LoginID, sUrlHost, dt);
                 bool isCange = false;
 
                 ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strSlipID, Global.GetConnection());

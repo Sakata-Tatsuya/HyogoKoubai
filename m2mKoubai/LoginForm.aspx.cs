@@ -108,6 +108,8 @@ namespace m2mKoubai
 
             SessionManager.Login(dr,"ja");
 
+            Session["SESSION_HOME_PATH"] = HttpContext.Current.Request.Url.GetComponents(UriComponents.SchemeAndServer, UriFormat.UriEscaped) + System.Web.HttpContext.Current.Request.ApplicationPath;
+
             if (dr.UserKubun == (byte)UserKubun.Owner)
             {
                 // î≠íçå≥

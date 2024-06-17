@@ -20,6 +20,19 @@
         function AjaxRequest(command_name, arg) {
             <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
         }
+        function pageLoad() {
+            showpdf()
+        }
+        function showpdf() {
+            var fileid = document.getElementById('HidFileID').value;
+            console.log(fileid);
+            if (0 < fileid.length) {
+                document.getElementById('HidFileID').value = '';
+                var url = "/Common/FileView.aspx?FileKey=" + fileid;
+                var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
+                win.focus();
+            }
+        }   
         function Reload() {
             AjaxRequest('reload', '');
         }
@@ -91,7 +104,6 @@
         }
 
         function OnRequestStart(sender, args) {
-            //document.getElementById("Img1").style.display = '';
             document.getElementById("Img1").style.display = '';
         }
         function OnResponseEnd(sender, args) {
@@ -517,7 +529,8 @@
                             <uc2:CtlMyPager ID="Pt" runat="server" />
                         </td>
                         <td class="nw" valign="bottom">
-                            <input id="BtnI" runat="server" type="button" value="チェックした発注書を印刷する" class="bg6 w180 f9" />
+<%--                            <input id="BtnI" runat="server" type="button" value="チェックした発注書を印刷する" class="bg6 w180 f9" />--%>
+                            <asp:Button ID="BtnHP" runat="server" Text="チェックした発注書を印刷する" OnClick="BtnHP_Click" class="bg6 w180 f9"/>
                         </td>
                         <td class="tr" valign="bottom">
                             <table id="TblRow" runat="server">
@@ -789,6 +802,8 @@
                 <input id="HidHenkouNouki" runat="server" type="hidden" />
                 <input id="HidHenkouNoukiArg" runat="server" type="hidden" />
                 <asp:TextBox ID="TbxHenkouNouki" runat="server" CssClass="none"></asp:TextBox>
+                <asp:HiddenField ID="HidFileID" runat="server" />
+                <asp:HiddenField ID="HidKeyPDF" runat="server" />
                 <div id="DivNoukiHenkou" runat="server">
                 </div>
             </td>
