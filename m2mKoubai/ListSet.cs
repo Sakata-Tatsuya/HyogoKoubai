@@ -309,6 +309,21 @@ namespace m2mKoubai
             }
         }
         /// <summary>
+        /// 年度でDdl発注Noをセット
+        /// </summary>
+        /// <param name="ddl"></param>
+        public static void SetDdlHacchuuNo(string strYear, DropDownList ddl)
+        {
+            ddl.Items.Clear();
+            ddl.Items.Add(new ListItem("", ""));
+
+            m2mKoubaiDataSet.T_ChumonDataTable dt = ChumonClass.getT_ChumonDataTableByYear(strYear, 0,Global.GetConnection());
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                ddl.Items.Add(new ListItem(dt[i].HacchuuNo, dt[i].HacchuuNo));
+            }
+        }
+        /// <summary>
         /// 発注情報でDdl発注担当者をセット
         /// </summary>
         /// <param name="ddl"></param>

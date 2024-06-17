@@ -56,25 +56,25 @@
             NewForm.submit();
         }
         function Print() {
-            var chkIdAry = document.getElementById('HidChkID').value.split(',');
-            var hidPrintKey = ''
-            for (var i = 0; i < chkIdAry.length; i++) {
-                var chk = document.getElementById(chkIdAry[i]);
+        //    var chkIdAry = document.getElementById('HidChkID').value.split(',');
+        //    var hidPrintKey = ''
+        //    for (var i = 0; i < chkIdAry.length; i++) {
+        //        var chk = document.getElementById(chkIdAry[i]);
 
-                if (chk.checked) {
-                    if (hidPrintKey != "") hidPrintKey += "_";
-                    hidPrintKey += chk.value;
-                }
-            }
-            if (hidPrintKey == "") {
-                alert("チェックを入れてください");
-                return false;
-            }
-            document.getElementById('HidKey').value = hidPrintKey;
-            NewForm.action = "../Denpyou/HacchuushoForm";
-            NewForm.target = "_hacchuusho";
-            OpenWinPost("_hacchuusho", 800, 600, ',menubar=yes');
-            NewForm.submit();
+        //        if (chk.checked) {
+        //            if (hidPrintKey != "") hidPrintKey += "_";
+        //            hidPrintKey += chk.value;
+        //        }
+        //    }
+        //    if (hidPrintKey == "") {
+        //        alert("チェックを入れてください");
+        //        return false;
+        //    }
+        //    document.getElementById('HidKey').value = hidPrintKey;
+        //    NewForm.action = "../Denpyou/HacchuushoForm";
+        //    NewForm.target = "_hacchuusho";
+        //    OpenWinPost("_hacchuusho", 800, 600, ',menubar=yes');
+        //    NewForm.submit();
         }
         function Msg(key) {
             document.getElementById('HidKey').value = key;

@@ -33,13 +33,13 @@ namespace m2mKoubai
         protected global::m2mKoubai.CtlMainMenu M;
 
         /// <summary>
-        /// BtnCK コントロール。
+        /// BtnChk コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton BtnCK;
+        protected global::System.Web.UI.WebControls.Button BtnChk;
 
         /// <summary>
         /// BtnC コントロール。
@@ -60,13 +60,13 @@ namespace m2mKoubai
         protected global::System.Web.UI.WebControls.DropDownList DdlYear;
 
         /// <summary>
-        /// TbxHacchuNo コントロール。
+        /// DdlHacchuNo コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText TbxHacchuNo;
+        protected global::System.Web.UI.WebControls.DropDownList DdlHacchuNo;
 
         /// <summary>
         /// TblList コントロール。

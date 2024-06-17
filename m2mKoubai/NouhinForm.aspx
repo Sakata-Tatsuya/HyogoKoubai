@@ -18,10 +18,10 @@
     }    
     function Load()
     {
-        var tbx = document.getElementById("TbxHacchuNo");
-        if(tbx != null)
+        var ddl = document.getElementById("DdlHacchuNo");
+        if (ddl != null)
         {
-            tbx.focus();
+            ddl.focus();
         }
     }
     function AjaxRequest(command_name, arg)
@@ -30,8 +30,8 @@
     }
     function Check()
     {
-        var tbx = document.getElementById('TbxHacchuNo');
-        if (tbx == "")
+        var ddl = document.getElementById('DdlHacchuNo');
+        if (ddl.Value == "")
         {
             alert("発注Noを入力してください");
             tbx.focus();
@@ -46,7 +46,7 @@
     
     function Clear(tbl)
     {
-        var tbx = document.getElementById("TbxHacchuNo");
+        var tbx = document.getElementById("DdlHacchuNo");
         tbx.value = "";
         document.getElementById(tbl).style.display = "none"; 
         tbx.focus();
@@ -88,10 +88,10 @@
         AjaxRequest('Kannou', '');
     }
     function OnRequestStart(sender, args)
-	{
+    {
         document.getElementById("Img1").style.display = '';
-	}
-	function OnResponseEnd(sender, args)
+    }
+    function OnResponseEnd(sender, args)
     {
         document.getElementById('Img1').style.display = 'none';
     }
@@ -130,16 +130,15 @@
     }
      // 数値チェック
         function CheckSuu(tbx,str)
-	    {
-	        if (tbx.value.match(/[^0-9]/) != null)
-	        {
-	            alert(str+"は半角数字のみで入力して下さい");
-	            tbx.focus();
-	            return false;
-	        }
-	        return true;
-	    }
-	
+        {
+            if (tbx.value.match(/[^0-9]/) != null)
+            {
+                alert(str+"は半角数字のみで入力して下さい");
+                tbx.focus();
+                return false;
+            }
+            return true;
+        }
     </script>
 
 </head>
@@ -157,18 +156,20 @@
                     発注No
                 </td>
                 <td rowspan="2">
-                    <input id="BtnCK" runat="server" type="button" value="注文内容確認" class="w100 bg6" />
+                    <asp:Button ID="BtnChk" runat="server" Text="注文内容確認" OnClick="BtnChk_Click" class="w100 bg6"/>
+<%--                    <input id="BtnCK" runat="server" type="button" value="注文内容確認" class="w100 bg6" />--%>
                     <input id="BtnC" runat="server" type="button" value="クリア" class="w80 bg6" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:DropDownList ID="DdlYear" runat="server">
+                    <asp:DropDownList ID="DdlYear" runat="server" AutoPostBack="True" onselectedindexchanged="DdlYear_SelectedIndexChanged">
                     </asp:DropDownList>
                     年
                 </td>
                 <td>
-                    <input id="TbxHacchuNo" runat="server" type="text" maxlength="7" class="w100 tr" />&nbsp;
+                    <asp:DropDownList id="DdlHacchuNo" runat="server">
+                    </asp:DropDownList>
                 </td>
             </tr>
         </table>

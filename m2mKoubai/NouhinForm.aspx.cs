@@ -10,6 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using m2mKoubaiDAL;
 using Telerik.Web.UI;
+using System.IO;
 
 namespace m2mKoubai
 {
@@ -17,17 +18,14 @@ namespace m2mKoubai
     {
         //前月一日
         DateTime minDate = new DateTime(DateTime.Today.AddMonths(-1).Year, DateTime.Today.AddMonths(-1).Month, 1);
-
         // 現在表示されている発注No
         private string VsInfo
         {
             get { return Convert.ToString(this.ViewState["VsInfo"]); }
             set { this.ViewState["VsInfo"] = value; }
         }
-
         // 完納ボタンを押したのか納品確定ボタンを押したのか判定
         bool judgeFlg = false;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -55,11 +53,11 @@ namespace m2mKoubai
                 // 今年を選択する
                 DdlYear.SelectedValue = dtNow.Year.ToString();
                 //ListSet.SetYear(DdlYear);
+                ListSet.SetDdlHacchuuNo(DdlYear.SelectedValue.Substring(2,2), DdlHacchuNo);
                 // 最初は非表示
                 this.ShowTblMain(false);
                 this.RdpDay.SelectedDate = DateTime.Today;
             }
-
         }
 
         override protected void OnInit(EventArgs e)
@@ -74,7 +72,7 @@ namespace m2mKoubai
         private void Form_PreRender(object sender, EventArgs e)
         {
             // 確認
-            this.BtnCK.Attributes["onclick"] = "Check(); return false;";
+            //this.BtnCK.Attributes["onclick"] = "Check(); return false;";
             // クリア
             this.BtnC.Attributes["onclick"] = string.Format("Clear('{0}'); return false;", TblList.ClientID);
             // 納品確定
@@ -88,7 +86,7 @@ namespace m2mKoubai
                 string.Format("SuuryouChk('{0}','{1}','{2}'); return false;",
                 LblSuuryou.Text.Replace(",", ""), LblNouhinSumiSuu.Text, TbxNouhinsuu.ClientID);
 
-            this.TbxHacchuNo.Attributes["onkeyup"] = "KenChk();";
+            //this.TbxHacchuNo.Attributes["onkeyup"] = "KenChk();";
             // 数字のみ入力可
             this.SetNumOnly();
 
@@ -109,12 +107,12 @@ namespace m2mKoubai
         }
         private void Create()
         {
-            // 発注Noが7桁未満で入力されたら0を埋める
             string strHacchuNoZeroume = "";
 
             try
             {
-                strHacchuNoZeroume = string.Format("{0:0000000}", Convert.ToInt32(TbxHacchuNo.Value));
+                //strHacchuNoZeroume = string.Format("{0:0000000}", Convert.ToInt32(TbxHacchuNo.Value));
+                strHacchuNoZeroume = string.Format("{0:0000000}", Convert.ToInt32(DdlHacchuNo.SelectedValue));
             }
             catch
             {
@@ -159,8 +157,7 @@ namespace m2mKoubai
         {
             // 発注No
             this.LblHacchuuNo.Text = dr.HacchuuNo;
-
-            // 仕入先コード               
+            // 仕入先コード
             this.LblShiireCode.Text = dr.ShiiresakiCode;
             // 仕入先名
             this.LblShiireMei.Text = dr.ShiiresakiMei;
@@ -295,19 +292,21 @@ namespace m2mKoubai
             if (strCmd == "Check")
             {
                 this.Create();
-
-                this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TbxHacchuNo);
+                //this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TbxHacchuNo);
+                this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.DdlHacchuNo);
                 this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TblList);
             }
             else if (strCmd == "Clear")
             {
-                this.TbxHacchuNo.Value = "";
+                //this.TbxHacchuNo.Value = "";
+                this.DdlHacchuNo.SelectedValue = "";
                 this.ShowTblMain(false);
                 this.ShowMsg("", false);
                 this.BtnNK.Visible = false;
                 this.BtnKN.Visible = false;
 
-                this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TbxHacchuNo);
+                //this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TbxHacchuNo);
+                this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.DdlHacchuNo);
                 this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TblList);
             }
             else if (strCmd == "Nouhin")
@@ -323,13 +322,11 @@ namespace m2mKoubai
                     this.ShowMsg("納品日が指定されていません", true);
                     return;
                 }
-                
                 if (this.RdpDay.SelectedDate.Value < minDate)
                 {
                     this.ShowMsg("前月一日以前の日付は指定出来ません", true);
                     return;
                 }
-
                 if (DateTime.Today < this.RdpDay.SelectedDate.Value)
                 {
                     this.ShowMsg("本日以降の日付は指定出来ません", true);
@@ -346,7 +343,7 @@ namespace m2mKoubai
                 if (drC == null)
                     return;
                 
-                // 登録                
+                // 登録
                 LibError err = NouhinClass_Y.T_Nouhin_Insert_T_Chumon_Update
                     (drN, drC, strkey[0], strkey[1], int.Parse(strkey[2]), int.Parse(strkey[3]),judgeFlg, SessionManager.LoginID, Global.GetConnection());
                 if (err != null)
@@ -364,26 +361,21 @@ namespace m2mKoubai
             }
             else if (strCmd == "Kannou")
             {
-                ///
                 if (this.RdpDay.SelectedDate == null)
                 {
                     this.ShowMsg("納品日が指定されていません", true);
                     return;
                 }
-
                 if (this.RdpDay.SelectedDate.Value < minDate)
                 {
                     this.ShowMsg("前月一日以前の日付は指定出来ません", true);
                     return;
                 }
-
                 if (DateTime.Today < this.RdpDay.SelectedDate.Value)
                 {
                     this.ShowMsg("本日以降の日付は指定出来ません", true);
                     return;
                 }
-
-
                 this.judgeFlg = true;
                 string[] strkey = VsInfo.Split('_');
 
@@ -436,7 +428,6 @@ namespace m2mKoubai
             return dr;
 
         }
-
         private m2mKoubaiDataSet.T_ChumonRow UpdateCreateRow()
         {
             string[] strkey = VsInfo.Split('_');
@@ -462,7 +453,11 @@ namespace m2mKoubai
                 this.LblZeigaku.Text = "";
             }
         }
-
+        protected void DdlYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string strYear = DdlYear.SelectedValue.Substring(2,2);
+            ListSet.SetDdlHacchuuNo(strYear,DdlHacchuNo);
+        }
 
         private void Create_Zeigaku(decimal dKingaku_Round)
         {
@@ -473,39 +468,10 @@ namespace m2mKoubai
             LblZeigaku.Text = Convert.ToString(string.Format("{0:C}", dZeigaku));
         }
 
-        protected void RcbHacchuNo_ItemsRequested(object o, RadComboBoxItemsRequestedEventArgs e)
+        protected void BtnChk_Click(object sender, EventArgs e)
         {
-            RadComboBox rcb = o as RadComboBox;
-
-            rcb.Items.Clear();
-            string strText = e.Text.Trim();
-
-            rcb.Height = Unit.Pixel(180);
-
-            int itemOffset = e.NumberOfItems;
-            int endOffset = itemOffset + 20;
-
-            int nTotal = 0;
-            NouhinDataSet_N.V_NouhinDataTable dt = null;
-
-            try
-            {
-                NouhinClass_Y.getYAE_M_TorihikisakiDataTable(DdlYear.SelectedValue.Substring(2, 2), strText, SessionManager.JigyoushoKubun, itemOffset, 20, Global.GetConnection(), out dt, ref nTotal);
-            }
-            catch (Exception ex)
-            {
-                e.Message = ex.Message;
-                return;
-            }
-            for (int i = 0; i < dt.Count; i++)
-            {
-                rcb.Items.Add(new RadComboBoxItem(dt[i].HacchuuNo, dt[i].HacchuuNo));
-            }
-
-            e.Message = String.Format("Items <b>1</b>-<b>{0}</b> out of <b>{1}</b>",
-                endOffset.ToString(), nTotal.ToString());
+            this.Create();
         }
-
 
 
 

@@ -578,6 +578,21 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+        public static m2mKoubaiDataSet.T_ChumonDataTable getT_ChumonDataTableByYear(string sYear, int nKanno ,SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = "SELECT * FROM T_Chumon "
+             + " WHERE CancelBi IS NULL AND Year = '" + sYear + "' ";
+            if (nKanno < 1)
+            {
+                da.SelectCommand.CommandText += "AND KannouFlg = 0 ";
+            }
+            da.SelectCommand.CommandText += "ORDER BY HacchuuNo ";
+            m2mKoubaiDataSet.T_ChumonDataTable dt = new m2mKoubaiDataSet.T_ChumonDataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
         /// <summary>
         /// T_Chumonテーブルからすべて仕入先を取得
         /// </summary>
