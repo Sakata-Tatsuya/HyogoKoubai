@@ -101,14 +101,15 @@ namespace m2mKoubai.Shiiresaki
 
             //BtnHacchuusho.Visible = b;
             //BtnNouhinsho.Visible = b;
-            BtnGenhinpyou.Visible = b;
-            BtnHP.Visible = b;
-            BtnNP.Visible = b;
+            //BtnGenhinpyou.Visible = b;
+            //BtnHP.Visible = b;
+            //BtnNP.Visible = b;
+            //BtnGP.Visible = b;
 
             // ˆóü
             //this.BtnHacchuusho.Attributes["onclick"] = string.Format("Print('{0}')", "”­’‘");
             //this.BtnNouhinsho.Attributes["onclick"] = string.Format("Print('{0}')", "”[•i‘");
-            this.BtnGenhinpyou.Attributes["onclick"] = string.Format("Print('{0}')", "Œ»•i•[");
+            //this.BtnGenhinpyou.Attributes["onclick"] = string.Format("Print('{0}')", "Œ»•i•[");
 
             //Img
             this.Img1.Style.Add("display", "none");
@@ -242,8 +243,7 @@ namespace m2mKoubai.Shiiresaki
         {
             G.Visible = b;
             TblRow.Visible = b;
-            this.TblI.Visible = b;
-
+            //TblI.Visible = b;
         }
 
         private void SetList()
@@ -1599,7 +1599,7 @@ namespace m2mKoubai.Shiiresaki
             else
                 return true;
         }
-        protected void SetHidKey(string ChkDocType)
+        protected int SetHidKey(string ChkDocType)
         {
             HiddenField HidKeyPDF = form1.FindControl("HidKeyPDF") as HiddenField;
 
@@ -1651,24 +1651,34 @@ namespace m2mKoubai.Shiiresaki
             if (PrintKey == "")
             {
                 this.ShowMsg(strName + "ƒ`ƒFƒbƒN‚ð“ü‚ê‚Ä‚­‚¾‚³‚¢", true);
-                return;
+                return PrintKey.Length;
             }
             HidKeyPDF.Value = PrintKey;
-            
+            return PrintKey.Length;
         }
         protected void BtnHP_Click(object sender, EventArgs e)
         {
-            SetHidKey("H");
-            OutputOrder();
+            int KeyLength = SetHidKey("H");
+            if (KeyLength > 0) 
+            {
+                OutputOrder();
+            }
         }
         protected void BtnNP_Click(object sender, EventArgs e)
         {
-            SetHidKey("N");
-            OutputDelivery();
+            int KeyLength = SetHidKey("N");
+            if (KeyLength > 0) 
+            {
+                OutputDelivery();
+            }
         }
         protected void BtnGP_Click(object sender, EventArgs e)
         {
-            SetHidKey("G");
+            int KeyLength = SetHidKey("G");
+            if (KeyLength > 0) 
+            {
+                OutputItemTag();
+            }
         }
         protected void OutputOrder()
         {
@@ -1786,11 +1796,74 @@ namespace m2mKoubai.Shiiresaki
                 }
 
                 if (Ret > 0)
+                {   
+                    HidFileID.Value = Ret.ToString();
+                }
+            }
+        }
+        protected void OutputItemTag()
+        {
+            HiddenField HidKeyPDF = form1.FindControl("HidKeyPDF") as HiddenField;
+            string KeyPDF = HidKeyPDF.Value.ToString();
+            HacchuDataSet_M.V_Hacchu2DataTable dt = HacchuClass.getV_Hacchu2DataTable(KeyPDF, Global.GetConnection());
+
+            if (dt != null)
+            {
+                DateTime dtNengappi = DateTime.Now;
+
+                //int nNenGetu = int.Parse(VsNengetu);
+                string strSlipID = @"ITM" + SessionManager.KaishaCode + "_" + dt[0].HacchuuNo;
+                string strFileName = @"Œ»•i•[" + strSlipID + "_" + dtNengappi.ToString("yyyyMMddhhmmss") + ".pdf";
+                string path = @"c:\temp\m2mKoubai\" + strFileName;
+                DateTime dtTourokuBi = DateTime.Now;
+                DateTime dtInsatuBi = DateTime.Now;
+                DateTime dtSoshinBi = DateTime.MinValue;
+                string sUrlHost = Session["SESSION_HOME_PATH"].ToString();
+
+                var PDF = CreatePDF.CreateItemtagPDF(SessionManager.LoginID, sUrlHost, dt);
+                bool isCange = false;
+
+                ShareDataSet.T_DocumentRow drB = FilesClass.getLastT_DocumentRow(strSlipID, Global.GetConnection());
+                if (drB == null)
+                {
+                    isCange = true;
+                }
+
+                ShareDataSet.T_DocumentRow dr = new ShareDataSet.T_DocumentDataTable().NewT_DocumentRow();
+                dr.FileName = strFileName;
+                dr.ContentType = "application/pdf";
+                dr.FileSize = PDF.ToArray().Length;
+                dr.Data = PDF.ToArray();
+                dr.TourokuBi = dtTourokuBi;
+                dr.KaishaCode = SessionManager.KaishaCode;
+                dr.TourokuUser = SessionManager.LoginID;
+                dr.DataType = "Œ»•i•[";
+                dr.SlipID = strSlipID;
+                dr.KeijoBi = dtNengappi;
+
+                if (!isCange)
+                {
+                    if (drB.Data != dr.Data) { isCange = true; }
+                }
+                int Ret = 0;
+                if (isCange)
+                {
+                    Ret = FilesClass.SaveDocument(dr, Global.GetConnection());
+                }
+                else
+                {
+                    Ret = drB.FileID;
+                }
+
+                if (Ret > 0)
                 {
                     HidFileID.Value = Ret.ToString();
                 }
             }
         }
+
+
+
 
 
 

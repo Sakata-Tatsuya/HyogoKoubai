@@ -78,7 +78,6 @@
         {
         //    var chkIdAry2 = document.getElementById('HidChkID_N').value.split(',');
         //    var hidPrintKey = ''
-             
         //    for(var i = 0; i < chkIdAry2.length; i++)
         //    {
         //        var chk2 = document.getElementById(chkIdAry2[i]);
@@ -100,28 +99,28 @@
         }
         else if(strName == "現品票")
         {
-             var chkIdAry3 = document.getElementById('HidChkID_G').value.split(',');  
-             var hidPrintKey = ''
-            for(var i = 0; i < chkIdAry3.length; i++)
-            {
-                var chk3 = document.getElementById(chkIdAry3[i]);
-                if(chk3.checked)
-                {
-                    if(hidPrintKey != "") hidPrintKey += "_";
-                    hidPrintKey += chk3.value;
-                }
-            }
-            if(hidPrintKey == "")
-            {
-                alert(strName + "チェックを入れてください");
-                return false;
-            }
-            document.getElementById('HidKey').value = hidPrintKey;
-            NewForm.action = "../Denpyou/GenpinhyouForm";
-            NewForm.target = "_hacchuusho";
-            OpenWinPost("_hacchuusho",500,600,',menubar=yes');
-        }
-        NewForm.submit();
+        //     var chkIdAry3 = document.getElementById('HidChkID_G').value.split(',');  
+        //     var hidPrintKey = ''
+        //    for(var i = 0; i < chkIdAry3.length; i++)
+        //    {
+        //        var chk3 = document.getElementById(chkIdAry3[i]);
+        //        if(chk3.checked)
+        //        {
+        //            if(hidPrintKey != "") hidPrintKey += "_";
+        //            hidPrintKey += chk3.value;
+        //        }
+        //    }
+        //    if(hidPrintKey == "")
+        //    {
+        //        alert(strName + "チェックを入れてください");
+        //        return false;
+        //    }
+        //    document.getElementById('HidKey').value = hidPrintKey;
+        //    NewForm.action = "../Denpyou/GenpinhyouForm";
+        //    NewForm.target = "_hacchuusho";
+        //    OpenWinPost("_hacchuusho",500,600,',menubar=yes');
+        //}
+        //NewForm.submit();
     }
 
     var win = null;
@@ -406,141 +405,138 @@
         for(var i = 0; i < _suu.length; i++)
         {
             var t = document.getElementById(_suu[i]);
-	        if(t == null) 
-	            continue;
-	        if (t.value == "") 
-	            continue;
-	        if(isNaN(t.value)) 
-	            continue;
-	        if(parseFloat(t.value) <= 0)
-	        {
-	            t.value = "";
-	            continue;
-	        }
-	        
-	        dSum += parseFloat(t.value);
-	    }
-	    
-	    document.getElementById(tbx_sum).value = (0 >= dSum)? "" : Shousuu2keta(dSum);
-	}
-	function Shousuu2keta(num)
-	{
-	    var n = num;
-	    n = n + ".";
-	    n = addComma(n.split(".")[0])  + (n.split(".")[1]).substring(0,2);
-	    return n;
-	}
-	function addComma(value){
+            if(t == null) 
+                continue;
+            if (t.value == "") 
+                continue;
+            if(isNaN(t.value)) 
+                continue;
+            if(parseFloat(t.value) <= 0)
+            {
+                t.value = "";
+                continue;
+            }
+            
+            dSum += parseFloat(t.value);
+        }
+        
+        document.getElementById(tbx_sum).value = (0 >= dSum)? "" : Shousuu2keta(dSum);
+    }
+    function Shousuu2keta(num)
+    {
+        var n = num;
+        n = n + ".";
+        n = addComma(n.split(".")[0])  + (n.split(".")[1]).substring(0,2);
+        return n;
+    }
+    function addComma(value){
         var i;
         for(i = 0; i < value.length/3; i++){
             value = value.replace(/^([+-]?\d+)(\d\d\d)/,"$1,$2");
         }
         return value;
     }
-	
-	function NKM_AddRow(cn,_nk,_suu,_ncno)
-	{
-	    var str = '';
-	    for(var i = 0; i < _nk.length; i++)
-	    {
-	        var nk = document.getElementById(_nk[i]);
-	        var suu = document.getElementById(_suu[i]);
-	        var ncno = document.getElementById(_ncno[i]);
-	        if('' != str) str +='\t';
-	        str = str + nk.value;
-	        str += '\t';
-	        str = str + suu.value;
-	        str += '\t';
-	        str = str + ncno.value; 
-	    }
-	    document.getElementById('HidKaitouNoukiArg').value = str;
-	    AjaxRequest('nyuryoku_add_row', cn);
-	}
-	
-	function NKM_DeleteRow(cn, index,_nk,_suu,_ncno)
-	{
-	    var str = '';
-	    for(var i = 0; i < _nk.length; i++)
-	    {
-	        var nk = document.getElementById(_nk[i]);
-	        var suu = document.getElementById(_suu[i]);
-	        var ncno = document.getElementById(_ncno[i]);
-	        if(i == index) continue;
-	        if('' != str) str +='\t';
-	        str = str + nk.value;
-	        str += '\t';
-	        str = str + suu.value;
-	        str += '\t';
-	        str = str + ncno.value; 
-	    }
-	    document.getElementById('HidKaitouNoukiArg').value = str;
-	    AjaxRequest('nyuryoku_del_row', cn);
-	
-	}
-	
-	function NKC_OPEN()
-	{
-	    var a = GetDataArray2('KaitouNoukiData');
-	    if(0 == a.length)
-	    {
-	        alert("表示する項目はありません");
-	        return;
-	    }
-	    var cn_array_not_open = [];
-	    for(var i = 0; i < a.length; i++)
-	    {
-	        var data_array = a[i].split('\t');
-        
-	        var nk = document.getElementById(data_array[1]);
-	        if(null == nk)
-	            cn_array_not_open.push(data_array[0]);
-	    }
-	    if(0 == cn_array_not_open.length)
-	    {
-	        alert("全て表示しています");
-	        return;
-	    }
-	    AjaxRequest('nyuryoku_open',cn_array_not_open.join("\t"));
+
+    function NKM_AddRow(cn,_nk,_suu,_ncno)
+    {
+        var str = '';
+        for(var i = 0; i < _nk.length; i++)
+        {
+            var nk = document.getElementById(_nk[i]);
+            var suu = document.getElementById(_suu[i]);
+            var ncno = document.getElementById(_ncno[i]);
+            if('' != str) str +='\t';
+            str = str + nk.value;
+            str += '\t';
+            str = str + suu.value;
+            str += '\t';
+            str = str + ncno.value; 
+        }
+        document.getElementById('HidKaitouNoukiArg').value = str;
+        AjaxRequest('nyuryoku_add_row', cn);
+    }
+
+    function NKM_DeleteRow(cn, index,_nk,_suu,_ncno)
+    {
+        var str = '';
+        for(var i = 0; i < _nk.length; i++)
+        {
+            var nk = document.getElementById(_nk[i]);
+            var suu = document.getElementById(_suu[i]);
+            var ncno = document.getElementById(_ncno[i]);
+            if(i == index) continue;
+            if('' != str) str +='\t';
+            str = str + nk.value;
+            str += '\t';
+            str = str + suu.value;
+            str += '\t';
+            str = str + ncno.value; 
+        }
+        document.getElementById('HidKaitouNoukiArg').value = str;
+        AjaxRequest('nyuryoku_del_row', cn);
+    }
+
+    function NKC_OPEN()
+    {
+        var a = GetDataArray2('KaitouNoukiData');
+        if(0 == a.length)
+        {
+            alert("表示する項目はありません");
+            return;
+        }
+        var cn_array_not_open = [];
+        for(var i = 0; i < a.length; i++)
+        {
+            var data_array = a[i].split('\t');
+            var nk = document.getElementById(data_array[1]);
+            if(null == nk)
+                cn_array_not_open.push(data_array[0]);
+        }
+        if(0 == cn_array_not_open.length)
+        {
+            alert("全て表示しています");
+            return;
+        }
+        AjaxRequest('nyuryoku_open',cn_array_not_open.join("\t"));
     }
     function NKC_CLOSE()
-	{
-	    var cn_array = GetDataArray('C');
-	    var a = GetDataArray2('KaitouNoukiData');
-	    
-	    if(0 == a.length)
-	        return;
-	    var cn_array_open = [];
-	    for(var i = 0; i < a.length; i++)
-	    {
-	        var data_array = a[i].split('\t');
-	        var nk = document.getElementById(data_array[1]);
-	        if(null != nk)
-	            cn_array_open.push(data_array[0]);
-	    }
-	    if(0 == cn_array_open.length)
-	    {
-	        alert("全て非表示です");
-	        return;
-	    }
-	    AjaxRequest('nyuryoku_close', cn_array_open.join('\t'));
-	}
-	function ShiteiNouki(strKey)
-	{
-	    if (!confirm("指定納期で納期回答を登録しますか?"))
-	        return false;
-	    AjaxRequest('shiteinouki_reg', strKey);
-	}
-	
-	function KeyCodeCheck()
-	{
-	    var kc = event.keyCode;
-	    if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-	    kc == 46 || kc == 8 || kc == 13 || kc == 9)
-	        return true; 
-	    else 
-	        return false;
-	}
-	
+    {
+        var cn_array = GetDataArray('C');
+        var a = GetDataArray2('KaitouNoukiData');
+        if(0 == a.length)
+            return;
+        var cn_array_open = [];
+        for(var i = 0; i < a.length; i++)
+        {
+            var data_array = a[i].split('\t');
+            var nk = document.getElementById(data_array[1]);
+            if(null != nk)
+                cn_array_open.push(data_array[0]);
+        }
+        if(0 == cn_array_open.length)
+        {
+            alert("全て非表示です");
+            return;
+        }
+        AjaxRequest('nyuryoku_close', cn_array_open.join('\t'));
+    }
+    function ShiteiNouki(strKey)
+    {
+        if (!confirm("指定納期で納期回答を登録しますか?"))
+            return false;
+        AjaxRequest('shiteinouki_reg', strKey);
+    }
+
+    function KeyCodeCheck()
+    {
+        var kc = event.keyCode;
+        if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
+        kc == 46 || kc == 8 || kc == 13 || kc == 9)
+            return true; 
+        else 
+            return false;
+    }
+
     function Nouhinsho(key)
     {
        if(confirm("チェックした納品書を印刷しますか？"))
@@ -635,10 +631,10 @@
                                 <asp:DropDownList ID="DdlHacchuTantousha" runat="server">
                                 </asp:DropDownList></td>
                             <td>
-                                <uc3:CtlNengappiFromTo ID="CtlHacchuubi" runat="server"  />
+                                <uc3:CtlNengappiFromTo ID="CtlHacchuubi" runat="server"/>
                             </td>
                             <td>
-                                <uc3:CtlNengappiFromTo ID="CtlNouhinbi" runat="server" />
+                                <uc3:CtlNengappiFromTo ID="CtlNouhinbi" runat="server"/>
                             </td>
                             <td>
                                 <asp:DropDownList ID="DdlMsg" runat="server">
@@ -687,7 +683,8 @@
                                             <asp:Button ID="BtnHP" runat="server" Text="チェックした発注書を&#13;&#10;印刷する" OnClick="BtnHP_Click" class="w130 bg98 f9"/>
 <%--                                            <input id="BtnNouhinsho" runat="server" type="button" class="w130 bg98 f9" value="チェックした納品書を&#13;&#10;印刷する" />--%>
                                             <asp:Button ID="BtnNP" runat="server" Text="チェックした納品書を&#13;&#10;印刷する" OnClick="BtnNP_Click" class="w130 bg98 f9"/>
-                                            <input id="BtnGenhinpyou" runat="server" type="button" class="w130 bg98 f9" value="チェックした現品票を&#13;&#10;印刷する" />
+<%--                                            <input id="BtnGenhinpyou" runat="server" type="button" class="w130 bg98 f9" value="チェックした現品票を&#13;&#10;印刷する" />--%>
+                                            <asp:Button ID="BtnGP" runat="server" Text="チェックした現品票を&#13;&#10;印刷する" OnClick="BtnGP_Click" class="w130 bg98 f9"/>
                                         </td>
                                     </tr>
                                 </table>

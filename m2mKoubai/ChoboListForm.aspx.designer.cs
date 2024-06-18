@@ -51,15 +51,6 @@ namespace m2mKoubai
         protected global::System.Web.UI.WebControls.DropDownList DdlKaisha;
 
         /// <summary>
-        /// CtlTourokuBi コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::m2mKoubai.Common.CtlNengappiFromTo CtlTourokuBi;
-
-        /// <summary>
         /// CtlKeijoBi コントロール。
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace m2mKoubai
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::m2mKoubai.Common.CtlNengappiFromTo CtlKeijoBi;
+
+        /// <summary>
+        /// CtlTourokuBi コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::m2mKoubai.Common.CtlNengappiFromTo CtlTourokuBi;
 
         /// <summary>
         /// BtnKensaku コントロール。

@@ -67,8 +67,8 @@
                     <tr class="bg3">
                         <td>帳票種別</td>
                         <td>取引先</td>
-                        <td>発行日</td>
                         <td>計上日</td>
+                        <td>発行日</td>
                     </tr>
                     <tr>
                         <td>
@@ -78,10 +78,10 @@
                             <asp:DropDownList ID="DdlKaisha" runat="server"></asp:DropDownList>
                         </td>
                         <td>
-                            <uc3:CtlNengappiFromTo ID="CtlTourokuBi" runat="server" />
+                            <uc3:CtlNengappiFromTo ID="CtlKeijoBi" runat="server" />
                         </td>
                         <td>
-                            <uc3:CtlNengappiFromTo ID="CtlKeijoBi" runat="server" />
+                            <uc3:CtlNengappiFromTo ID="CtlTourokuBi" runat="server" />
                         </td>
                     </tr>
                 </table>
