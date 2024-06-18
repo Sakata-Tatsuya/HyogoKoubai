@@ -119,8 +119,8 @@
         //    NewForm.action = "../Denpyou/GenpinhyouForm";
         //    NewForm.target = "_hacchuusho";
         //    OpenWinPost("_hacchuusho",500,600,',menubar=yes');
-        //}
-        //NewForm.submit();
+        }
+        NewForm.submit();
     }
 
     var win = null;
