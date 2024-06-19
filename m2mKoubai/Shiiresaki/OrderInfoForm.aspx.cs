@@ -1656,13 +1656,54 @@ namespace m2mKoubai.Shiiresaki
             HidKeyPDF.Value = PrintKey;
             return PrintKey.Length;
         }
+        protected void ClrHidKey(string ChkDocType)
+        {
+            HiddenField HidKeyPDF = form1.FindControl("HidKeyPDF") as HiddenField;
+            HidKeyPDF.Value = string.Empty;
+
+            HtmlInputCheckBox ChkH_H = G.HeaderRow.FindControl("ChkH_H") as HtmlInputCheckBox;
+            HtmlInputCheckBox ChkH_N = G.HeaderRow.FindControl("ChkH_N") as HtmlInputCheckBox;
+            HtmlInputCheckBox ChkH_G = G.HeaderRow.FindControl("ChkH_G") as HtmlInputCheckBox;
+
+            switch (ChkDocType)
+            {
+                case "H":
+                    ChkH_H.Checked = false;
+                    break;
+                case "N":
+                    ChkH_N.Checked = false;
+                    break;
+                case "G":
+                    ChkH_G.Checked = false;
+                    break;
+            }
+            for (int i = 0; i < G.Rows.Count; i++)
+            {
+                HtmlInputCheckBox ChkH = G.Rows[i].FindControl("ChkH") as HtmlInputCheckBox;
+                HtmlInputCheckBox ChkN = G.Rows[i].FindControl("ChkN") as HtmlInputCheckBox;
+                HtmlInputCheckBox ChkG = G.Rows[i].FindControl("ChkG") as HtmlInputCheckBox;
+                switch (ChkDocType)
+                {
+                    case "H":
+                        ChkH.Checked = false;
+                        break;
+                    case "N":
+                        ChkN.Checked = false;
+                        break;
+                    case "G":
+                        ChkG.Checked = false;
+                        break;
+                }
+            }
+        }
         protected void BtnHP_Click(object sender, EventArgs e)
         {
             int KeyLength = SetHidKey("H");
-            if (KeyLength > 0) 
+            if (KeyLength > 0)
             {
                 OutputOrder();
             }
+            ClrHidKey("H");
         }
         protected void BtnNP_Click(object sender, EventArgs e)
         {
@@ -1671,6 +1712,7 @@ namespace m2mKoubai.Shiiresaki
             {
                 OutputDelivery();
             }
+            ClrHidKey("N");
         }
         protected void BtnGP_Click(object sender, EventArgs e)
         {
@@ -1679,6 +1721,7 @@ namespace m2mKoubai.Shiiresaki
             {
                 OutputItemTag();
             }
+            ClrHidKey("G");
         }
         protected void OutputOrder()
         {

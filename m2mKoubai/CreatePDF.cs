@@ -16,7 +16,10 @@ using System.Collections;
 using System.Runtime.Remoting.Messaging;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Security.Policy;
-//using System.Drawing;
+using AdvBarCodeCtrl;
+using System.Drawing;
+using System.Drawing.Imaging;
+using Telerik.Web.UI.ImageEditor;
 
 namespace m2mKoubai
 {
@@ -61,16 +64,16 @@ namespace m2mKoubai
             //テキスト描画開始
             //pdfContentByte.BeginText();
 
-            Font font = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
-            Font font08 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font08 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font08.Size = 8;
-            Font font09 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font09 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font09.Size = 9;
-            Font font10 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font10 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font10.Size = 10;
-            Font font12 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font12 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font12.Size = 12;
-            Font font14 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font14 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font14.Size = 14;
 
             //事業所単位にページ編集
@@ -541,17 +544,17 @@ namespace m2mKoubai
             //フォントとフォントサイズの指定
             pdfContentByte.SetFontAndSize(baseFont, fontSize);
 
-            Font font = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
 
-            Font font08 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font08 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font08.Size = 8;
-            Font font09 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font09 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font09.Size = 9;
-            Font font10 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font10 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font10.Size = 10;
-            Font font12 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font12 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font12.Size = 12;
-            Font font14 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font14 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font14.Size = 14;
 
             //事業所単位にページ編集
@@ -865,17 +868,17 @@ namespace m2mKoubai
             //フォントとフォントサイズの指定
             pdfContentByte.SetFontAndSize(baseFont, fontSize);
 
-            Font font = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
 
-            Font font08 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font08 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font08.Size = 8;
-            Font font09 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font09 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font09.Size = 9;
-            Font font10 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font10 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font10.Size = 10;
-            Font font12 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font12 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font12.Size = 12;
-            Font font14 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font14 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font14.Size = 14;
 
             //仕入先単位にページ編集
@@ -1152,17 +1155,17 @@ namespace m2mKoubai
             //フォントとフォントサイズの指定
             pdfContentByte.SetFontAndSize(baseFont, fontSize);
 
-            Font font = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
 
-            Font font08 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font08 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font08.Size = 8;
-            Font font09 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font09 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font09.Size = 9;
-            Font font10 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font10 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font10.Size = 10;
-            Font font12 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font12 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font12.Size = 12;
-            Font font14 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font14 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font14.Size = 14;
 
             //仕入先単位にページ編集
@@ -1347,12 +1350,20 @@ namespace m2mKoubai
                     strTemp = string.Format("\\{0:#,##0}", dtD[i].Kingaku);
                     cell = new PdfPCell(new Paragraph(strTemp, font08)) { FixedHeight = 24f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_RIGHT };
                     tbl.AddCell(cell);
-                    var scheme = System.Web.HttpContext.Current.Request.ApplicationPath;
-                    var path = HttpRuntime.AppDomainAppVirtualPath;
 
-                    strTemp = sUrlHost + "BarCode/BarCodeForm.aspx?BarCode=" + dtD[i].HacchuuNo;
-                    iTextSharp.text.Image imageTemp = iTextSharp.text.Image.GetInstance(strTemp);
-                    cell = new PdfPCell(imageTemp,true) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    //strTemp = sUrlHost + "BarCode/BarCodeForm.aspx?BarCode=" + dtD[i].HacchuuNo;
+                    //iTextSharp.text.Image imageTemp = iTextSharp.text.Image.GetInstance(strTemp);
+                    MemoryStream streamImage = GetBarCode(dtD[i].HacchuuNo);
+
+                    if (streamImage != null)
+                    {
+                        iTextSharp.text.Image imageTemp = iTextSharp.text.Image.GetInstance(streamImage);
+                        cell = new PdfPCell(imageTemp, true) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    }
+                    else
+                    {
+                        cell = new PdfPCell(new Paragraph("", font08)) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    }
                     tbl.AddCell(cell);
                 }
 
@@ -1408,15 +1419,15 @@ namespace m2mKoubai
             //フォントとフォントサイズの指定
             pdfContentByte.SetFontAndSize(baseFont, fontSize);
 
-            Font font = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
 
-            Font font08 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font08 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font08.Size = 8;
-            Font font09 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font09 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font09.Size = 9;
-            Font font10 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font10 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font10.Size = 10;
-            Font font12 = new Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
+            iTextSharp.text.Font font12 = new iTextSharp.text.Font(BaseFont.CreateFont(fontName, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED));
             font12.Size = 12;
 
             //納入先順に編集
@@ -1564,20 +1575,27 @@ namespace m2mKoubai
                     tbl.AddCell(cell);
                 }
                 //6
-                strTemp = sUrlHost + "BarCode/BarCodeForm.aspx?BarCode=" + dtD[i].HacchuuNo;
-                iTextSharp.text.Image imageTemp = iTextSharp.text.Image.GetInstance(strTemp);
+                ////strTemp = sUrlHost + "BarCode/BarCodeForm.aspx?BarCode=" + dtD[i].HacchuuNo;
+                //strTemp = "http://m2mkoubai.m2m-asp.com/BarCode/BarCodeForm.aspx?BarCode=" + dtD[i].HacchuuNo;
+                //iTextSharp.text.Image imageTemp = iTextSharp.text.Image.GetInstance(strTemp);
+                MemoryStream streamImage = GetBarCode(dtD[i].HacchuuNo);
+                iTextSharp.text.Image imageTemp = iTextSharp.text.Image.GetInstance(streamImage);
                 cell = new PdfPCell(imageTemp, true) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                 cell.Colspan = 2;
                 tbl.AddCell(cell);
+                streamImage.Dispose();
+
                 cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 24f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
+
                 tbl.AddCell(cell);
                 if (FlgF)
                 {
-                    strTemp = sUrlHost + "BarCode/BarCodeForm.aspx?BarCode=" + dtD[i + 1].HacchuuNo;
-                    iTextSharp.text.Image imageTempR = iTextSharp.text.Image.GetInstance(strTemp);
+                    MemoryStream streamImageR = GetBarCode(dtD[i + 1].HacchuuNo);
+                    iTextSharp.text.Image imageTempR = iTextSharp.text.Image.GetInstance(streamImageR);
                     cell = new PdfPCell(imageTempR, true) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                     cell.Colspan = 2;
                     tbl.AddCell(cell);
+                    streamImageR.Dispose();
                 }
                 else
                 {
@@ -1664,7 +1682,7 @@ namespace m2mKoubai
                 this.bottom = bottom;
             }
 
-            public void CellLayout(PdfPCell cell, Rectangle position, PdfContentByte[] canvases)
+            public void CellLayout(PdfPCell cell, iTextSharp.text.Rectangle position, PdfContentByte[] canvases)
             {
                 var canvas = canvases[PdfPTable.LINECANVAS];
                 if (top != null)
@@ -1705,5 +1723,80 @@ namespace m2mKoubai
                 }
             }
         }
+        private static BarCodeClass bc = null;
+        private static MemoryStream GetBarCode(string strValue)
+        {
+            var ImgStream = new MemoryStream();
+            if (null == bc)
+            {
+                try
+                {
+                    bc = new AdvBarCodeCtrl.BarCodeClass();
+                }
+                catch
+                {
+                    System.Threading.Thread.Sleep(200);
+                    try
+                    {
+                        bc = new AdvBarCodeCtrl.BarCodeClass();
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                }
+                if (null == bc)
+                {
+
+                    return null;
+                }
+
+                bc.Unit = AdvBarCodeCtrl.Units.Pixel;
+                bc.Type = AdvBarCodeCtrl.Types.Code39;
+                bc.CheckCharMode = false;
+                bc.BarHeight = 30;
+                bc.BarWidth = 120;
+                bc.DrawMessage = false;
+            }
+
+            try
+            {
+                bc.Value = strValue;
+                Bitmap bm = bc.GetBitmap();
+                Bitmap bmt = new Bitmap(bm.Width, bm.Height - 8);
+                Graphics g = Graphics.FromImage(bmt);
+                System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 8, bm.Width, bm.Height);
+                g.DrawImage(bm, 0, 0, rect, GraphicsUnit.Pixel);
+
+                //Response.ContentType = "image/gif";
+                //bmt.Save(Response.OutputStream, ImageFormat.Gif);
+                bmt.Save(ImgStream, ImageFormat.Gif);
+                ImgStream.Position = 0;
+
+                // リソースの解放（bm）
+                bm.Dispose();
+                return ImgStream;
+            }
+            catch
+            {
+                //this.Response.Clear();
+                return null;
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

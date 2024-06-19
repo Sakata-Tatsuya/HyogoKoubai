@@ -66,7 +66,6 @@ namespace m2mKoubai.BarCode
                     }
                     catch
                     {
-
                         return;
                     }
                 }
@@ -127,7 +126,7 @@ namespace m2mKoubai.BarCode
         private void SetBarCode(string strValue)
         {
             BarCodeClass bc = (BarCodeClass)this.Cache["BarCodeClass"];
-			
+
             if (null == bc) {
                 try 
                 {
@@ -144,8 +143,6 @@ namespace m2mKoubai.BarCode
                         return;
                     }
                 }
-				
-
                 if (null == bc) {
                     Global.SendMail("BarCodeClassのインスタンス生成失敗");
                     return;
@@ -193,7 +190,7 @@ namespace m2mKoubai.BarCode
             }
 
             // トランザクションを考慮しないといけない？
-            this.Cache["BarCodeClassUsing"] = true;	// これでバーコードオブジェクトのプロパティーがスレッドセーフになるのか？？？
+            this.Cache["BarCodeClassUsing"] = true; // これでバーコードオブジェクトのプロパティーがスレッドセーフになるのか？？？
 
             bc.Value = strValue;
             Bitmap bm = bc.GetBitmap();
@@ -201,7 +198,7 @@ namespace m2mKoubai.BarCode
             Graphics g = Graphics.FromImage(bmt);
             Rectangle rect = new Rectangle(0, 8, bm.Width, bm.Height);
             g.DrawImage(bm, 0, 0, rect, GraphicsUnit.Pixel);
-				
+
             Response.ContentType = "image/gif";
             bmt.Save(Response.OutputStream, ImageFormat.Gif);
 
