@@ -166,19 +166,13 @@ namespace m2mKoubaiDAL
                 drNew.BuhinKubun = dr.BuhinKubun;
                 drNew.BuhinCode = dr.BuhinCode;
                 drNew.BuhinMei = dr.BuhinMei;
-
                 drNew.Tanka = dr.Tanka;
                 drNew.Tani = dr.Tani;
-
                 drNew.Lot = dr.Lot;
-
                 drNew.LT_Suuji = dr.LT_Suuji;
                 drNew.LT_Tani = dr.LT_Tani;
-
                 drNew.ShiiresakiCode1 = dr.ShiiresakiCode1;
-
                 drNew.ShiiresakiCode2 = dr.ShiiresakiCode2;
-
                 drNew.KanjyouKamokuCode = dr.KanjyouKamokuCode;
                 drNew.HiyouKamokuCode = dr.HiyouKamokuCode;
                 drNew.HojyoKamokuNo = dr.HojyoKamokuNo;
@@ -224,7 +218,6 @@ namespace m2mKoubaiDAL
                 // édì¸êÊ1
                 drThis.ShiiresakiCode1 = dr.ShiiresakiCode1;
                 drThis.ShiiresakiCode2 = dr.ShiiresakiCode2;
-
                 drThis.KanjyouKamokuCode = dr.KanjyouKamokuCode;
                 drThis.HiyouKamokuCode = dr.HiyouKamokuCode;
                 drThis.HojyoKamokuNo = dr.HojyoKamokuNo;

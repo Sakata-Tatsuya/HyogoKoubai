@@ -113,16 +113,16 @@ namespace m2mKoubai.Master
             // 仕入先1
             ListSet.SetDdlShiiresaki(DdlShiire1);
             // 仕入先2
-            ListSet.SetDdlShiiresaki(DdlShiire2);
+            //ListSet.SetDdlShiiresaki(DdlShiire2);
 
             // 科目名
-            ListSet.SetKamokuMei(DdlKamoku);
+            //ListSet.SetKamokuMei(DdlKamoku);
 
             // 費用科目名
-            ListSet.SetHiyouMei(DdlHiyou);
+            //ListSet.SetHiyouMei(DdlHiyou);
 
             // 補助科目名
-            ListSet.SetHojyoMei(DdlHojyo);
+            //ListSet.SetHojyoMei(DdlHojyo);
         }
 
         // 新規 
@@ -166,15 +166,15 @@ namespace m2mKoubai.Master
             }
             // 仕入先
             DdlShiire1.SelectedValue = dr.ShiiresakiCode1;
-            if (dr.ShiiresakiCode2 != "")
-                DdlShiire2.SelectedValue = dr.ShiiresakiCode2;
+            //if (dr.ShiiresakiCode2 != "")
+            //    DdlShiire2.SelectedValue = dr.ShiiresakiCode2;
 
-            // 科目
-            DdlKamoku.SelectedValue = dr.KanjyouKamokuCode.ToString();            
-            // 費用
-            DdlHiyou.SelectedValue = dr.HiyouKamokuCode.ToString();
-            // 補助
-            DdlHojyo.SelectedValue = dr.HojyoKamokuNo.ToString();
+            //// 科目
+            //DdlKamoku.SelectedValue = dr.KanjyouKamokuCode.ToString();            
+            //// 費用
+            //DdlHiyou.SelectedValue = dr.HiyouKamokuCode.ToString();
+            //// 補助
+            //DdlHojyo.SelectedValue = dr.HojyoKamokuNo.ToString();
 
             this.ShinkiTouroku(false);
             this.ShowTblMain(true);
@@ -190,24 +190,20 @@ namespace m2mKoubai.Master
         private void ShowTblMain(bool b)
         {
             this.TblMain.Visible = b;
-            this.TblBtn.Visible = b;            
+            this.TblBtn.Visible = b;
         }
         // 登録、更新表示
         private void ShinkiTouroku(bool b)
         {
-            // 登録            
+            // 登録
             BtnT.Visible = b;
-            // 更新            
+            // 更新
             BtnK.Visible = !b;
             if (!b)
             {
-                //                
                 TbxCode.Visible = b; 
             }
         }
-
-
-
 
         // Row作成
         private m2mKoubaiDataSet.M_BuhinRow CreateRow(bool bShinki)
@@ -216,25 +212,25 @@ namespace m2mKoubai.Master
 
             // コード
             if (bShinki)　
-            {      
-                // 新規登録                
+            {
+                // 新規登録
                 dr.BuhinCode = TbxCode.Text;
             }
             else 
             {
-                // 更新                
+                // 更新
                 dr.BuhinCode = LitCode.Text;
             }
             // 品目グループ
-            dr.BuhinKubun = TbxKubun.Text;            
+            dr.BuhinKubun = TbxKubun.Text;
             // 品目名
             dr.BuhinMei = TbxHinmei.Text;
-            // 単価              
+            // 単価
             if (TbxTanka.Text != "")
                 dr.Tanka = decimal.Parse(this.TbxTanka.Text);
             else
                 dr.Tanka = 0;
-            // 単位            
+            // 単位
             dr.Tani = TbxTani.Text;
             // ロット
             if (this.TbxLot.Text != "")
@@ -257,22 +253,26 @@ namespace m2mKoubai.Master
 
             // 仕入先1
             dr.ShiiresakiCode1 = this.DdlShiire1.SelectedValue;
-            // 仕入先2
-            if (this.DdlShiire2.SelectedIndex > 0)
-            {
-                dr.ShiiresakiCode2 = this.DdlShiire2.SelectedValue;
-            }
-            else
-            {
-                dr.ShiiresakiCode2 = "";
-            }
+            //// 仕入先2
+            //if (this.DdlShiire2.SelectedIndex > 0)
+            //{
+            //    dr.ShiiresakiCode2 = this.DdlShiire2.SelectedValue;
+            //}
+            //else
+            //{
+            //    dr.ShiiresakiCode2 = "";
+            //}
+            dr.ShiiresakiCode2 = string.Empty;
 
-            // 科目
-            dr.KanjyouKamokuCode = int.Parse(this.DdlKamoku.SelectedValue);
-            // 費用
-            dr.HiyouKamokuCode = int.Parse(this.DdlHiyou.SelectedValue);
-            // 補助
-            dr.HojyoKamokuNo = int.Parse(this.DdlHojyo.SelectedValue);
+            //// 科目
+            //dr.KanjyouKamokuCode = int.Parse(this.DdlKamoku.SelectedValue);
+            //// 費用
+            //dr.HiyouKamokuCode = int.Parse(this.DdlHiyou.SelectedValue);
+            //// 補助
+            //dr.HojyoKamokuNo = int.Parse(this.DdlHojyo.SelectedValue);
+            dr.KanjyouKamokuCode = 0;
+            dr.HiyouKamokuCode = 0;
+            dr.HojyoKamokuNo = 0;
 
             return dr;
         }
@@ -280,8 +280,7 @@ namespace m2mKoubai.Master
         private bool TourokuCheck(m2mKoubaiDataSet.M_BuhinRow dr)
         {
             // データ重複チェック
-            m2mKoubaiDataSet.M_BuhinRow drChk =
-                BuhinClass.getM_BuhinRow(dr.BuhinCode, Global.GetConnection());
+            m2mKoubaiDataSet.M_BuhinRow drChk = BuhinClass.getM_BuhinRow(dr.BuhinCode, Global.GetConnection());
             if (drChk != null)
             {
                 this.ShowMsg("データが重複しています", true);
@@ -305,7 +304,6 @@ namespace m2mKoubai.Master
                 return;
             }
             this.ShowMsg("登録しました", false);
-
             loadFlg = 1;
         }
 

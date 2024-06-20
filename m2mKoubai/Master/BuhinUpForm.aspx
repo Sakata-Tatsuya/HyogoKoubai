@@ -95,11 +95,11 @@
             alert("仕入先1を選択して下さい");
             return false;
         }
-        if (document.getElementById('DdlShiire1').selectedIndex == document.getElementById('DdlShiire2').selectedIndex)
-        {
-            alert("仕入先1と仕入先2は違う仕入先を選択して下さい");
-            return false;
-        }
+        //if (document.getElementById('DdlShiire1').selectedIndex == document.getElementById('DdlShiire2').selectedIndex)
+        //{
+        //    alert("仕入先1と仕入先2は違う仕入先を選択して下さい");
+        //    return false;
+        //}
         return true;
     }
     function CheckDecimal(deci)
@@ -194,73 +194,73 @@
      }
     </script>
 </head>
-<body class="bg0" onload="OnLoad(<%=loadFlg%>)">
+<body class="bg0" onload="OnLoad(<%= loadFlg %>)">
     <form id="form1" runat="server">
     <div>
         <table id="TblAll" runat="server" align="center" class="def9">
             <tr>
                 <td align="center">
-                    <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label></td>
+                    <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td align="left">
-                    <input id="BtnC" runat="server" class="w80 bg6" type="button" value="閉じる" /></td>
+                    <input id="BtnC" runat="server" class="w80 bg6" type="button" value="閉じる" />
+                </td>
             </tr>
             <tr>
                 <td align="right">
                     <table id="TblMain" runat="server" border="1" bordercolor="#000000" class="col tl bg1">
                         <tr>
-                            <td class="bg4">
-                                品目グループ</td>
+                            <td class="bg4"> 品目グループ</td>
                             <td >
-                                <asp:TextBox ID="TbxKubun" runat="server" MaxLength="5" Width="50px"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxKubun" runat="server" MaxLength="5" Width="50px"></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="bg4">
-                                品目コード</td>
+                            <td class="bg4"> 品目コード</td>
                             <td class="def12">
-                                <asp:TextBox ID="TbxCode" runat="server" MaxLength="10" Width="100px"></asp:TextBox><asp:Literal ID="LitCode" runat="server"></asp:Literal></td>
+                                <asp:TextBox ID="TbxCode" runat="server" MaxLength="10" Width="100px"></asp:TextBox><asp:Literal ID="LitCode" runat="server"></asp:Literal>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="bg4" >
-                                品目名</td>
+                            <td class="bg4" > 品目名</td>
                             <td >
-                                <asp:TextBox ID="TbxHinmei" runat="server" MaxLength="50" Width="400px"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxHinmei" runat="server" MaxLength="50" Width="400px"></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="bg4" >
-                                単価</td>
+                            <td class="bg4" > 単価</td>
                             <td >
-                                <asp:TextBox ID="TbxTanka" runat="server" CssClass="tr" MaxLength="11" Width="100px"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxTanka" runat="server" CssClass="tr" MaxLength="11" Width="100px"></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="bg4">
-                                単位</td>
+                            <td class="bg4"> 単位</td>
                             <td>
-                                <asp:TextBox ID="TbxTani" runat="server" MaxLength="5" Width="80px"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxTani" runat="server" MaxLength="5" Width="80px"></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="bg4">
-                                ロット</td>
+                            <td class="bg4"> ロット</td>
                             <td>
-                                <asp:TextBox ID="TbxLot" runat="server" MaxLength="8" Width="80px" CssClass="tr"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxLot" runat="server" MaxLength="8" Width="80px" CssClass="tr"></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="bg4">
-                                リードタイム</td>
-                            <td>
+                            <td class="bg4"> リードタイム</td> <td>
                                 <asp:TextBox ID="TbxLeadTime" runat="server" Width="30px" CssClass="tr"></asp:TextBox>
                                 <asp:DropDownList ID="DdlLeadTime" runat="server">
-                                </asp:DropDownList></td>
+                                </asp:DropDownList>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="bg4">
-                                仕入先1</td>
-                            <td>
+                            <td class="bg4"> 仕入先</td> <td>
                                 <asp:DropDownList ID="DdlShiire1" runat="server">
-                                </asp:DropDownList></td>
+                                </asp:DropDownList>
+                            </td>
                         </tr>
-                        <tr>
+<%--                        <tr>
                             <td class="bg4">
                                 仕入先2</td>
                             <td>
@@ -287,7 +287,7 @@
                             <td>
                                 <asp:DropDownList ID="DdlHojyo" runat="server">
                                 </asp:DropDownList></td>
-                        </tr>
+                        </tr>--%>
                     </table>
                 </td>
             </tr>

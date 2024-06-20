@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BuhinForm.aspx.cs" Inherits="m2mKoubai.Master.BuhinForm" %>
 
 <%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
-<%--<%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>--%>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 
 <!DOCTYPE html>
@@ -80,7 +79,6 @@
 <body class="bg0">
     <form id="form1" runat="server">
         <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
-<%--        <uc1:CtlTabMain id="Tab" runat="server"></uc1:CtlTabMain>--%>
         <input id="BtnNew" runat="server" type="button" value="新規登録" class="mt5 bg6" /><br />
         <table border="1" bordercolor="#000000" class="def9 col mt5 tc bg1">
             <tr>
@@ -185,8 +183,8 @@
                             <asp:BoundField HeaderText="リードタイム" >
                                 <ItemStyle CssClass="tc" />
                             </asp:BoundField>
-                            <asp:TemplateField HeaderText="仕入先1">
-                                <HeaderTemplate>
+                            <asp:TemplateField HeaderText="仕入先">
+<%--                                <HeaderTemplate>
                                     <table class="tc col" frame="void" width="100%">
                                         <tr>
                                             <td class="s1">仕入先1</td>
@@ -195,8 +193,8 @@
                                             <td>仕入先2</td>
                                         </tr>
                                     </table>
-                                </HeaderTemplate>
-                                <ItemTemplate>
+                                </HeaderTemplate>--%>
+<%--                                <ItemTemplate>
                                     <table class="col" frame="void" width="100%">
                                         <tr>
                                             <td class="s2">
@@ -209,9 +207,12 @@
                                             </td>
                                         </tr>
                                     </table>
+                                </ItemTemplate>--%>
+                                <ItemTemplate>
+                                        <asp:Literal ID="LitShiire1" runat="server"></asp:Literal>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField>
+<%--                            <asp:TemplateField>
                                 <HeaderTemplate>
                                     <table class="tc col" frame="void" width="100%">
                                         <tr>
@@ -298,7 +299,7 @@
                                         </tr>
                                     </table>
                                 </ItemTemplate>
-                            </asp:TemplateField>
+                            </asp:TemplateField>--%>
                         </Columns>
                      <HeaderStyle CssClass="bg3" />
                          <RowStyle CssClass="bg1" />

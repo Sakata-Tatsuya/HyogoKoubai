@@ -150,42 +150,6 @@ namespace m2mKoubai.Master
         protected global::System.Web.UI.WebControls.DropDownList DdlShiire1;
 
         /// <summary>
-        /// DdlShiire2 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlShiire2;
-
-        /// <summary>
-        /// DdlKamoku コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlKamoku;
-
-        /// <summary>
-        /// DdlHiyou コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlHiyou;
-
-        /// <summary>
-        /// DdlHojyo コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlHojyo;
-
-        /// <summary>
         /// TblBtn コントロール。
         /// </summary>
         /// <remarks>

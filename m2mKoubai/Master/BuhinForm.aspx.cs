@@ -23,9 +23,9 @@ namespace m2mKoubai.Master
         private const int G_CELL_LOT = 7;
         private const int G_CELL_LT = 8;
         private const int G_CELL_SHIIRE = 9;
-        private const int G_CELL_Kamoku = 10;
-        private const int G_CELL_Hiyou = 11;
-        private const int G_CELL_Hojyo = 12;
+        //private const int G_CELL_Kamoku = 10;
+        //private const int G_CELL_Hiyou = 11;
+        //private const int G_CELL_Hojyo = 12;
 
         private int VsCurrentPageIndex
         {
@@ -52,10 +52,6 @@ namespace m2mKoubai.Master
                     return;
                 }
                 M.MenuName = "マスタ管理 > 部品・材料";
-                //CtlTabMain tab = FindControl("Tab") as CtlTabMain;
-                //tab.Menu = CtlTabMain.MainMenu.Master;
-                //tab.MasterMenu = CtlTabMain.Master.Buhin;
-
                 // 最初は非表示
                 this.ShowTblMain(false);
                 this.SetList();
@@ -90,7 +86,6 @@ namespace m2mKoubai.Master
             this.BtnS.Attributes["onclick"] = "Delete(); return false;";
             //Img
             this.Img1.Style.Add("display", "none");
-
         }
         private void SetList()
         {
@@ -129,7 +124,7 @@ namespace m2mKoubai.Master
                 this.ShowTblMain(true);
             }
 
-            // ページング            
+            // ページング
             int nPageSize = AloowPaging();
             int nPageCount = 0;
 
@@ -204,7 +199,6 @@ namespace m2mKoubai.Master
         {
             G.Visible = b;
             TblRow.Visible = b;
-         
         }
 
         int nRowNo = 0;
@@ -222,31 +216,27 @@ namespace m2mKoubai.Master
                     ((DataRowView)e.Row.DataItem).Row as BuhinDataSet.V_Buhin_MasterRow;
                 // 削除
                 HtmlInputCheckBox chk = e.Row.FindControl("ChkI") as HtmlInputCheckBox;
-                //BuhinClass.BuhinKey key =
-                //    new BuhinClass.BuhinKey(dr.BuhinCode);
                 chk.Value = dr.BuhinCode;
                 // chkID
                 if (HidChkID.Value != "") this.HidChkID.Value += ",";
                 this.HidChkID.Value += chk.ClientID;
-                // 主キー                
-                //if (HidThisID.Value != "") this.HidThisID.Value += ",";
+                // 主キー
                 if (nRowNo > 0) this.HidThisID.Value += ",";
                 this.HidThisID.Value += chk.Value;
                 
                 // 更新ボタン
                 HtmlInputButton btn = e.Row.FindControl("BK") as HtmlInputButton;
-                btn.Attributes["onclick"] =
-                    string.Format("Update('{0}'); return false; ", chk.Value);
+                btn.Attributes["onclick"] = string.Format("Update('{0}'); return false; ", chk.Value);
                 // 部品区分
                 e.Row.Cells[G_CELL_BUHIN_KUBUN].Text = dr.BuhinKubun;
                 // 品目コード
-                e.Row.Cells[G_CELL_BUHIN_CODE].Text = dr.BuhinCode;                
+                e.Row.Cells[G_CELL_BUHIN_CODE].Text = dr.BuhinCode;
                 // 品目名
                 e.Row.Cells[G_CELL_BUHIN_MEI].Text = dr.BuhinMei;
                 // 単価
                 if (dr.Tanka != 0)
                     e.Row.Cells[G_CELL_TANKA].Text = "\\" + dr.Tanka.ToString("#,##0.00");
-                // 単位                
+                // 単位
                 e.Row.Cells[G_CELL_TANI].Text = dr.Tani;
                 // ロット
                 if (dr.Lot != 0)
@@ -257,38 +247,33 @@ namespace m2mKoubai.Master
                 // 仕入先1
                 if (!dr.IsShiiresakiMei1Null())
                     ((Literal)e.Row.Cells[G_CELL_SHIIRE].FindControl("LitShiire1")).Text = dr.ShiiresakiMei1;                    
-                // 仕入先1
-                if (!dr.IsShiiresakiMei2Null() && dr.ShiiresakiCode2 != "")
-                    ((Literal)e.Row.Cells[G_CELL_SHIIRE].FindControl("LitShiire2")).Text = dr.ShiiresakiMei2;
+                //// 仕入先2
+                //if (!dr.IsShiiresakiMei2Null() && dr.ShiiresakiCode2 != "")
+                //    ((Literal)e.Row.Cells[G_CELL_SHIIRE].FindControl("LitShiire2")).Text = dr.ShiiresakiMei2;
 
-                // 勘定科目
-                if (dr.KanjyouKamokuCode != 0)
-                {
-                    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitKamokuCode")).Text = dr.KanjyouKamokuCode.ToString();
-                    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitKamokuMei")).Text = AppCommon.KamokuMei(dr.KanjyouKamokuCode);
-                }
-                // 費用勘定科目
-                if (dr.HiyouKamokuCode != 0)
-                {
-                    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitHiyouCode")).Text = dr.HiyouKamokuCode.ToString();
-                    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitHiyouMei")).Text = AppCommon.HiyouMei(dr.HiyouKamokuCode);
-                }
-                // 補助勘定科目
-                if (dr.HojyoKamokuNo != 0)
-                {
-                    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitHojyoCode")).Text = dr.HojyoKamokuNo.ToString();
-                    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitHojyoMei")).Text = AppCommon.HojyoMei(dr.HojyoKamokuNo);
-                }
+                //// 勘定科目
+                //if (dr.KanjyouKamokuCode != 0)
+                //{
+                //    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitKamokuCode")).Text = dr.KanjyouKamokuCode.ToString();
+                //    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitKamokuMei")).Text = AppCommon.KamokuMei(dr.KanjyouKamokuCode);
+                //}
+                //// 費用勘定科目
+                //if (dr.HiyouKamokuCode != 0)
+                //{
+                //    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitHiyouCode")).Text = dr.HiyouKamokuCode.ToString();
+                //    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitHiyouMei")).Text = AppCommon.HiyouMei(dr.HiyouKamokuCode);
+                //}
+                //// 補助勘定科目
+                //if (dr.HojyoKamokuNo != 0)
+                //{
+                //    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitHojyoCode")).Text = dr.HojyoKamokuNo.ToString();
+                //    ((Literal)e.Row.Cells[G_CELL_Kamoku].FindControl("LitHojyoMei")).Text = AppCommon.HojyoMei(dr.HojyoKamokuNo);
+                //}
 
 
                 nRowNo++;
             }
         }
-
-
-        
-
-
 
         protected void Ram_AjaxRequest(object sender, Telerik.Web.UI.AjaxRequestEventArgs e)
         {
@@ -325,7 +310,7 @@ namespace m2mKoubai.Master
             {
                 // 行数変更
                 this.SetList();
-                this.Create();                
+                this.Create();
                 this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TblList);
                 this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.DdlHinmoku);
             }
@@ -335,7 +320,6 @@ namespace m2mKoubai.Master
                 string[] strDelKeyAry = strArgs[1].Split(',');
                 for (int i = 0; i < strDelKeyAry.Length; i++)
                 {
-                    //string[] strKey = strDelKeyAry[i].Split('_');
                     LibError err = BuhinClass.M_Buhin_Delete(strDelKeyAry[i], Global.GetConnection());
                     if (err != null)
                     {
@@ -343,7 +327,7 @@ namespace m2mKoubai.Master
                         return;
                     }
                 }
-                this.Create(); // 再表示    
+                this.Create(); // 再表示
                 this.SetList();
                 this.ShowMsg("削除しました", false);
                 this.Ram.AjaxSettings.AddAjaxSetting(this.Ram, this.TblList);
