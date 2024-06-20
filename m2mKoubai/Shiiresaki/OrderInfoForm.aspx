@@ -416,7 +416,6 @@
                 t.value = "";
                 continue;
             }
-            
             dSum += parseFloat(t.value);
         }
         
@@ -554,7 +553,6 @@
     <form id="form1" runat="server">
 <%--        <uc4:CtlTabShiire ID="Tab" runat="server" />--%>
         <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
-       
         <table border="1" bordercolor="#000000" class="col def9 mt5 bg1">
             <tr>
                 <td class="tl">
@@ -671,11 +669,15 @@
                                 <uc2:CtlMyPager ID="Pt" runat="server" />
                             </td>
                             <td align="left">
+                                <asp:DropDownList ID="DdlDataType" runat="server">
+                                    <asp:ListItem Value="CSV">CSV(カンマ区切り)</asp:ListItem>
+                                    <asp:ListItem Value="TAB">テキスト(タブ区切り)</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:Button ID="BtnDownload" runat="server" Text="ダウンロード" OnClick="BtnDownload_Click" />
                             </td>
                         </tr>
                         <tr>
                             <td nowrap="nowrap">
-                              
                                 <table id="TblI" runat="server" class="nw">
                                     <tr>
                                         <td nowrap="nowrap">

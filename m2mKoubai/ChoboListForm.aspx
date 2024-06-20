@@ -19,13 +19,10 @@
             <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
         }
         function pageLoad() {
-            console.log("pageload");
             showpdf()
         }
         function showpdf() {
             var fileid = document.getElementById('HidFileID').value;
-            console.log("fileid");
-            console.log(fileid);
             if (0 < fileid.length) {
                 document.getElementById('HidFileID').value = '';
                 var url = "/Common/FileView.aspx?FileKey=" + fileid;
@@ -109,7 +106,7 @@
         </tr>
         <tr>
             <td>
-                <table width="100%" class="def9">
+                <table class="def9">
                     <tr>
                         <td class="nw" valign="bottom">
                             <uc2:CtlMyPager ID="Pt" runat="server" />

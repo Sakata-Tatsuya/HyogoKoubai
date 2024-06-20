@@ -392,23 +392,22 @@ namespace m2mKoubaiDAL
                         + "FROM    T_Nouhin AS T_Nouhin_1 "
                         + "WHERE   ( T_Chumon.Year = Year ) AND( T_Chumon.HacchuuNo = HacchuuNo ) "
                         + "ORDER BY NouhinNo DESC) AS NouhinBi, "
-
                         + "ISNULL((SELECT SUM(Suuryou) AS NouhinSuuryou "
                         + "FROM    T_Nouhin AS T_Nouhin_1 "
                         + "WHERE   (Year =  T_Chumon.Year) AND (HacchuuNo =  T_Chumon.HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) ),0) AS NouhinSuuryou, "
             + "dbo.T_Chumon.KeigenZeirituFlg "
-        + "FROM dbo.T_Chumon INNER JOIN "
-        + "dbo.M_Login ON dbo.T_Chumon.HacchushaID = dbo.M_Login.LoginID INNER JOIN "
-        + "dbo.M_Shiiresaki ON dbo.T_Chumon.ShiiresakiCode = dbo.M_Shiiresaki.ShiiresakiCode INNER JOIN "
-        + "dbo.M_Buhin ON dbo.T_Chumon.BuhinKubun = dbo.M_Buhin.BuhinKubun AND  "
-        + "dbo.T_Chumon.BuhinCode = dbo.M_Buhin.BuhinCode INNER JOIN "
-        + "dbo.M_NounyuuBasho ON dbo.T_Chumon.NounyuuBashoCode = dbo.M_NounyuuBasho.BashoCode LEFT OUTER JOIN "
-        + "dbo.T_Nouhin ON dbo.T_Chumon.JigyoushoKubun = dbo.T_Nouhin.JigyoushoKubun AND dbo.T_Chumon.Year = dbo.T_Nouhin.Year AND  "
-        + "dbo.T_Chumon.HacchuuNo = dbo.T_Nouhin.HacchuuNo LEFT OUTER JOIN "
-        + "dbo.T_NoukiHenkou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiHenkou.JigyoushoKubun AND  "
-        + "dbo.T_Chumon.Year = dbo.T_NoukiHenkou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiHenkou.HacchuuNo LEFT OUTER JOIN "
-        + "dbo.T_NoukiKaitou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiKaitou.JigyoushoKubun AND  "
-        + "dbo.T_Chumon.Year = dbo.T_NoukiKaitou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiKaitou.HacchuuNo ";
+        + "FROM dbo.T_Chumon "
+        + "INNER JOIN dbo.M_Login ON dbo.T_Chumon.HacchushaID = dbo.M_Login.LoginID "
+        + "INNER JOIN dbo.M_Shiiresaki ON dbo.T_Chumon.ShiiresakiCode = dbo.M_Shiiresaki.ShiiresakiCode "
+        + "INNER JOIN dbo.M_Buhin ON dbo.T_Chumon.BuhinKubun = dbo.M_Buhin.BuhinKubun AND  "
+        + "dbo.T_Chumon.BuhinCode = dbo.M_Buhin.BuhinCode "
+        + "INNER JOIN dbo.M_NounyuuBasho ON dbo.T_Chumon.NounyuuBashoCode = dbo.M_NounyuuBasho.BashoCode "
+        + "LEFT OUTER JOIN dbo.T_Nouhin ON dbo.T_Chumon.JigyoushoKubun = dbo.T_Nouhin.JigyoushoKubun AND dbo.T_Chumon.Year = dbo.T_Nouhin.Year AND "
+        + "                dbo.T_Chumon.HacchuuNo = dbo.T_Nouhin.HacchuuNo "
+        + "LEFT OUTER JOIN dbo.T_NoukiHenkou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiHenkou.JigyoushoKubun AND  "
+        + "                dbo.T_Chumon.Year = dbo.T_NoukiHenkou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiHenkou.HacchuuNo "
+        + "LEFT OUTER JOIN dbo.T_NoukiKaitou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiKaitou.JigyoushoKubun AND  "
+        + "                dbo.T_Chumon.Year = dbo.T_NoukiKaitou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiKaitou.HacchuuNo ";
             // WHERE 
             string strW = WhereText(k, da.SelectCommand);
             if (strW != "")

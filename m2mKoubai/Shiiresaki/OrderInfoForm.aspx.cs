@@ -283,7 +283,6 @@ namespace m2mKoubai.Shiiresaki
             }
             // 仕入先
             k._SCode = SessionManager.KaishaCode;
-
             // 納入場所
             if (DdlNBasho.SelectedIndex > 0)
             {
@@ -1157,7 +1156,6 @@ namespace m2mKoubai.Shiiresaki
                     // 仮テキストボックス（納期回答の指定納期ボタンを保存するため）
                     TbxShiteiNouki.Text = "";
 
-
                     // 行数の取得
                     strChumonKeyArray = strArgs[1].Split('\t');
 
@@ -1903,6 +1901,43 @@ namespace m2mKoubai.Shiiresaki
                     HidFileID.Value = Ret.ToString();
                 }
             }
+        }
+        protected void BtnDownload_Click(object sender, EventArgs e)
+        {
+            bool bTab = ("TAB" == this.DdlDataType.SelectedValue);
+            string extension = bTab ? "txt" : "csv";
+
+            // ■元データ取得
+            ChumonClass.KensakuParam k = this.GetKensakuParam();
+            ChumonDataSet.V_Chumon_JyouhouDataTable dt = ChumonClass.getV_Chumon_JyouhouDataTable(k, Global.GetConnection());
+            // --元データ加工
+            DownloadDataSet.V_NounyuZanDataTable dtDown = new DownloadDataSet.V_NounyuZanDataTable();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DownloadDataSet.V_NounyuZanRow drDown = dtDown.NewV_NounyuZanRow();
+                drDown.HacchuuNo = dt[i].HacchuuNo;
+                drDown.ShiiresakiMei = dt[i].ShiiresakiMei;
+                drDown.BuhinCode = dt[i].BuhinCode;
+                drDown.BuhinMei = dt[i].BuhinMei;
+                drDown.Nouki = dt[i].Nouki;
+                drDown.BashoMei = dt[i].BashoMei;
+                int nouhinSuuryou = dt[i].IsNouhinSuuryouNull() ? 0 : dt[i].NouhinSuuryou;
+                drDown.NounyuZan = dt[i].Suuryou - nouhinSuuryou;
+                dtDown.AddV_NounyuZanRow(drDown);
+            }
+
+            // ■ダウンロードデータ作成
+            string data = DownloadClass.GetTextData(DownloadClass.EnumDataKubun.NounyuZan, dtDown, bTab, Global.GetConnection());
+
+            // ■ダウンロード
+            Response.Clear();
+            string strFileName = string.Format("{0}.{1}", DateTime.Now.ToString("yyyyMMdd HHmm"), extension);
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + strFileName);
+            Response.ContentType = "application/octet-stream";
+            System.Text.Encoding encoding = System.Text.Encoding.GetEncoding("Shift-JIS");
+            Response.BinaryWrite(encoding.GetBytes(data));
+            Response.End();
         }
 
 

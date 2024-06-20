@@ -213,6 +213,24 @@ namespace m2mKoubai.Shiiresaki
         protected global::m2mKoubai.Common.CtlMyPager Pt;
 
         /// <summary>
+        /// DdlDataType コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlDataType;
+
+        /// <summary>
+        /// BtnDownload コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnDownload;
+
+        /// <summary>
         /// TblI コントロール。
         /// </summary>
         /// <remarks>

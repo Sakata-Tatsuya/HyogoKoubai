@@ -21,8 +21,8 @@ namespace m2mKoubaiDAL
                 throw new Exception("データソース(DataTable)を指定してください。");
             }
 
-            string _strColumnDelimiter = bTab ? "\t" : ",";				// 列区切り文字
-            string _strColumnDelimiterReplacement = bTab ? "" : "，";		// 列区切り文字が文字列中に現れた場合の置換文字
+            string _strColumnDelimiter = bTab ? "\t" : ",";                  // 列区切り文字
+            string _strColumnDelimiterReplacement = bTab ? "" : "，";        // 列区切り文字が文字列中に現れた場合の置換文字
 
             System.Text.StringBuilder data = new System.Text.StringBuilder();
 
@@ -32,14 +32,11 @@ namespace m2mKoubaiDAL
             for (int i = 0; i < dtHeader.Rows.Count; i++)
             {
                 if (0 < i) data.Append(_strColumnDelimiter);
-
                 string titleName = dtHeader[i].TitleMei;
-
                 if (0 < titleName.IndexOf(_strColumnDelimiter))
                 {
                     throw new Exception(string.Format("{0}でエラー。見出し文字に{1}は使用できません。", titleName, _strColumnDelimiter));
                 }
-
                 data.Append(titleName);
             }
 
@@ -62,9 +59,7 @@ namespace m2mKoubaiDAL
                     }
 
                     string colName = dtHeader[j].ColumnName;
-
                     str = Convert.ToString(dr[colName]);
-
                     // 文字列の場合は改行を取り除く
                     if (dtSrc.Columns[colName].DataType == typeof(string))
                     {
@@ -76,7 +71,6 @@ namespace m2mKoubaiDAL
                 }
                 data.Append(System.Environment.NewLine);
             }
-
             return data.ToString();
         }
 
