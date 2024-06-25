@@ -10,19 +10,19 @@ namespace m2mKoubaiDAL
 
         public class KensakuParam
         {
-            public string _Code = "";     // コード            
-            //public string _Hinmei = "";     // 品目名   
-            //public string _Kubun = "";    //　部品区分
+            public string _Code = "";      // コード
+            public string _Hinmei = "";    // 品目名
+            public string _Kubun = "";     //　部品区分
         }
         public class BuhinKey
         {
             //private string _Kubun;
-            private string _Code;            
+            private string _Code;
 
             public BuhinKey(string Code)
             {
                 //this._Kubun = Kubun;
-                this._Code = Code;                
+                this._Code = Code;
             }
             //
             public override string ToString()
@@ -40,12 +40,11 @@ namespace m2mKoubaiDAL
             // コード
             if(k._Code != "")
                 w.Add(string.Format("M_Buhin.BuhinCode = '{0}'", k._Code));
-          /*
-            //　部品区分
+            // 部品区分
             if (k._Kubun != "")
             {
                 w.Add(string.Format("M_Buhin.BuhinKubun = '{0}'", k._Kubun));
-            }*/
+            }
             return w.WhereText;
         }
 
@@ -100,17 +99,17 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT          M_Buhin.BuhinCode, M_Buhin.BuhinKubun, M_Buhin.BuhinMei, "
+            "SELECT M_Buhin.BuhinCode, M_Buhin.BuhinKubun, M_Buhin.BuhinMei, "
             + "M_Buhin.Tani, M_Buhin.LT_Suuji, M_Buhin.LT_Tani, "
             + "M_Buhin.Tanka, M_Buhin.Lot, M_Buhin.ShiiresakiCode1, "
             + "M_Buhin.ShiiresakiCode2, M_Shiiresaki.ShiiresakiMei AS ShiiresakiMei1, "
             + "M_Shiiresaki_1.ShiiresakiMei AS ShiiresakiMei2, M_Buhin.KanjyouKamokuCode, M_Buhin.HiyouKamokuCode, "
             + "M_Buhin.HojyoKamokuNo "
             
-            + "FROM            M_Shiiresaki AS M_Shiiresaki_1 RIGHT OUTER JOIN "
-            + "M_Buhin ON "
-            + "M_Shiiresaki_1.ShiiresakiCode = M_Buhin.ShiiresakiCode2 LEFT OUTER JOIN "
-            + "M_Shiiresaki ON "
+            + "FROM M_Shiiresaki AS M_Shiiresaki_1 "
+            + "RIGHT OUTER JOIN M_Buhin ON "
+            + "M_Shiiresaki_1.ShiiresakiCode = M_Buhin.ShiiresakiCode2 "
+            + "LEFT OUTER JOIN M_Shiiresaki ON "
             + "M_Buhin.ShiiresakiCode1 = M_Shiiresaki.ShiiresakiCode ";
 
             string strWhere = WhereText(k);

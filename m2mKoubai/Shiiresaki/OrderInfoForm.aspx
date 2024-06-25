@@ -134,7 +134,6 @@
     function ChkAll_H(bool)
     {
         var idAry = document.getElementById('HidChkID_H').value.split(',');
-      
         for(var i = 0; i < idAry.length; i++)
        {
            var chk = document.getElementById(idAry[i]);
@@ -144,7 +143,6 @@
     function ChkAll_N(bool)
     {
         var idAry = document.getElementById('HidChkID_N').value.split(',');
-       
         for(var i = 0; i < idAry.length; i++)
         {
            var chk = document.getElementById(idAry[i]);
@@ -202,13 +200,11 @@
                 var g = document.getElementById('G');
                 var cn_array = param.split('\t');
                 var div = document.getElementById('DivNoukiKaitou');
-                
                 if(div.children.length != cn_array.length)
                 {
                     alert('error');
                     return;
                 }
-                
                 for(var i = 0; i < cn_array.length; i++)
                 {
                     var index = GetIndex(cn_array[i]);
@@ -241,8 +237,8 @@
                 g.rows[index + 1].cells[<%=cell_index %>].innerHTML = div.innerHTML;
                 div.innerHTML = '';
                 break;
-           case "nouki_kaitou_reg":
-           case "shiteinouki_reg":
+            case "nouki_kaitou_reg":
+            case "shiteinouki_reg":
                 break;
         }
     }
@@ -311,7 +307,7 @@
             AjaxRequest('nyuryoku_close', cn);
         }
 
-      function NKM_Touroku(btn, cn_jk, _nk, _su, _kn)
+        function NKM_Touroku(btn, cn_jk, _nk, _su, _kn)
         {
             NKC_REG(cn_jk);
         }
@@ -399,7 +395,7 @@
             AjaxRequest('nouki_kaitou_reg', cn_tab_array.join("\t"));
     }
 
-      function NKM_Sum(_suu, tbx_sum)
+    function NKM_Sum(_suu, tbx_sum)
     {
         var dSum = 0;
         for(var i = 0; i < _suu.length; i++)
@@ -558,36 +554,30 @@
                 <td class="tl">
                     <table border="1" bordercolor="#000000" class="col tc" frame="below" width="100%">
                         <tr class="bg3">
-                            <td  >
-                                発注No</td>
-                            <td>
-                                発注元事業所</td>
-                            <td  >
-                                品目グループ</td>
-                            <td  >
-                                品目名</td>
-                            <td>
-                                納期変更状況</td>
-                            <td  >
-                                納期</td>
-                            <td  >
-                                回答納期</td>
+                            <td  >発注No</td>
+                            <td>発注元事業所</td>
+                            <td >品目グループ</td>
+                            <td>品目名</td>
+                            <td>納期変更状況</td>
+                            <td>納期</td>
+                            <td>回答納期</td>
                         </tr>
                         <tr>
                             <td >
-                                <asp:TextBox ID="TbxHacchuNo" runat="server" Width="100px" MaxLength="7"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxHacchuNo" runat="server" Width="100px" MaxLength="7"></asp:TextBox>
+                            </td>
                             <td>
-                                <asp:DropDownList ID="DdlJigyoshoKubun" runat="server">
-                                </asp:DropDownList></td>
+                                <asp:DropDownList ID="DdlJigyoshoKubun" runat="server"></asp:DropDownList>
+                            </td>
                             <td >
-                                <asp:DropDownList ID="DdlBuhinKubun" runat="server">
-                                </asp:DropDownList></td>
+                                <asp:DropDownList ID="DdlBuhinKubun" runat="server"></asp:DropDownList>
+                            </td>
                             <td >
-                                <asp:DropDownList ID="DdlBuhin" runat="server">
-                                </asp:DropDownList></td>
+                                <asp:DropDownList ID="DdlBuhin" runat="server"></asp:DropDownList>
+                            </td>
                             <td>
-                                <asp:DropDownList ID="DdlNoukiHenkou" runat="server">
-                                </asp:DropDownList></td>
+                                <asp:DropDownList ID="DdlNoukiHenkou" runat="server"></asp:DropDownList>
+                            </td>
                             <td >
                                 <uc3:CtlNengappiFromTo ID="CtlNouki" runat="server" />
                             </td>
@@ -598,36 +588,28 @@
                     </table>
                     <table  border="1" bordercolor="#000000" class="col tc" frame="void" width="100%">
                         <tr class="bg3">
-                            <td >
-                                納入場所</td>
-                            <td >
-                                納期回答状況</td>
-                            <td >
-                                納品状況</td>
-                            <td >
-                                発注担当者</td>
-                            <td  >
-                                発注日</td>
-                            <td >
-                                納品日</td>
-                            <td>
-                                メッセージ</td>
-                            <td>
-                                キャンセル注文</td>
+                            <td>納入場所</td>
+                            <td>納期回答状況</td>
+                            <td>納品状況</td>
+                            <td>発注担当者</td>
+                            <td>発注日</td>
+                            <td>納品日</td>
+                            <td>メッセージ</td>
+                            <td>キャンセル注文</td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:DropDownList ID="DdlNBasho" runat="server">
-                                </asp:DropDownList></td>
+                                <asp:DropDownList ID="DdlNBasho" runat="server"></asp:DropDownList>
+                            </td>
                             <td>
-                                <asp:DropDownList ID="DdlNKJyoukyou" runat="server">
-                                </asp:DropDownList></td>
+                                <asp:DropDownList ID="DdlNKJyoukyou" runat="server"></asp:DropDownList>
+                            </td>
                             <td>
-                                <asp:DropDownList ID="DdlNJyoukyou" runat="server">
-                                </asp:DropDownList></td>
+                                <asp:DropDownList ID="DdlNJyoukyou" runat="server"></asp:DropDownList>
+                            </td>
                             <td>
-                                <asp:DropDownList ID="DdlHacchuTantousha" runat="server">
-                                </asp:DropDownList></td>
+                                <asp:DropDownList ID="DdlHacchuTantousha" runat="server"></asp:DropDownList>
+                            </td>
                             <td>
                                 <uc3:CtlNengappiFromTo ID="CtlHacchuubi" runat="server"/>
                             </td>
@@ -635,16 +617,17 @@
                                 <uc3:CtlNengappiFromTo ID="CtlNouhinbi" runat="server"/>
                             </td>
                             <td>
-                                <asp:DropDownList ID="DdlMsg" runat="server">
-                                </asp:DropDownList></td>
+                                <asp:DropDownList ID="DdlMsg" runat="server"></asp:DropDownList>
+                            </td>
                             <td>
-                                <asp:DropDownList ID="DdlCancel" runat="server">
-                                </asp:DropDownList></td>
+                                <asp:DropDownList ID="DdlCancel" runat="server"></asp:DropDownList>
+                            </td>
                         </tr>
                     </table>
                 </td>
                 <td>
-                    <input id="BtnK" runat="server" type="button" value="検索" class="w60 bg98" /></td>
+                    <input id="BtnK" runat="server" type="button" value="検索" class="w60 bg98" />
+                </td>
             </tr>
         </table>
         <table id="TblList" runat="server" width="100%" class="def9">
@@ -653,12 +636,13 @@
                     <table  width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                             <td width="40%">
-                                <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label></td>
+                                <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label>
+                            </td>
                             <td class="hei20">
-                                <img id="Img1" runat="server" src="../Img/Load.gif" /></td>
+                                <img id="Img1" runat="server" src="../Img/Load.gif" />
+                            </td>
                         </tr>
                     </table>
-                  
                 </td>
             </tr>
             <tr>

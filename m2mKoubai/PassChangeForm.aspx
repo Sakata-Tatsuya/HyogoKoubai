@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PassChangeForm.aspx.cs" Inherits="m2mKoubai.PassChangeForm" %>
-
 <%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
-<%--<%@ Register Src="CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>--%>
 
 <!DOCTYPE html>
 
@@ -32,44 +30,44 @@
             var img1 = document.getElementById("Img1");
             img1.style.display = "none";
         }
-	function Check()
-	{
-	    var tbxPass = document.getElementById('TbxPass');
-	    if(tbxPass.value == "")
-	    {
-	        alert("パスワードを入力して下さい");
-	        tbxPass.focus();
-	        return;
-	    }
-	    if(tbxPass.value.length < 8)
-	    {
-	        alert("パスワードは8文字以上で入力して下さい");
-	        tbxPass.focus();
-	        return;
-	    }
-        if (!HankakuChk('TbxPass', "パスワード")) {
-            tbxPass.focus();
-            return;
+        function Check()
+        {
+            var tbxPass = document.getElementById('TbxPass');
+            if(tbxPass.value == "")
+            {
+                alert("パスワードを入力して下さい");
+                tbxPass.focus();
+                return;
+            }
+            if(tbxPass.value.length < 8)
+            {
+                alert("パスワードは8文字以上で入力して下さい");
+                tbxPass.focus();
+                return;
+            }
+            if (!HankakuChk('TbxPass', "パスワード")) {
+                tbxPass.focus();
+                return;
+            }
+            var tbxPass2 = document.getElementById("TbxPass2");
+            if (tbxPass2.value == "") {
+                alert("確認用パスワードを入力して下さい");
+                tbxPass2.focus();
+                return;
+            }
+            if (tbxPass.value != tbxPass2.value) {
+                alert("確認用パスワードが間違っています");
+                tbxPass2.focus();
+                return;
+            }
+            if (!HankakuChk('TbxPass2', "パスワード")) {
+                tbxPass.focus();
+                return;
+            }
+            if (confirm("変更しますか？")) {
+                AjaxRequest("henkou", "");
+            }
         }
-        var tbxPass2 = document.getElementById("TbxPass2");
-        if (tbxPass2.value == "") {
-            alert("確認用パスワードを入力して下さい");
-            tbxPass2.focus();
-            return;
-        }
-        if (tbxPass.value != tbxPass2.value) {
-            alert("確認用パスワードが間違っています");
-            tbxPass2.focus();
-            return;
-        }
-        if (!HankakuChk('TbxPass2', "パスワード")) {
-            tbxPass.focus();
-            return;
-        }
-        if (confirm("変更しますか？")) {
-            AjaxRequest("henkou", "");
-        }
-    }
         function HankakuChk(tbxId, objName) {
             var count = 0;
             var val = document.getElementById(tbxId).value;
@@ -128,16 +126,6 @@
                     <input id="BtnT" runat="server" type="button" value="変更登録" class="mt20 bg6 " /></td>
             </tr>
         </table>
-<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
-            <Scripts>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
-                </asp:ScriptReference>
-            </Scripts>
-        </telerik:RadScriptManager>--%>
         <telerik:radajaxmanager id="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:radajaxmanager>

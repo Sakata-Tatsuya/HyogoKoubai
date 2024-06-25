@@ -97,7 +97,6 @@ namespace m2mKoubai.Master
             this.BtnS.Attributes["onclick"] = "Delete(); return false;";
             //Img
             this.Img1.Style.Add("display", "none");
-
         }
 
         private void OnPageIndexChanged(int nNewPageIndex)
@@ -110,15 +109,13 @@ namespace m2mKoubai.Master
         private void DdlLoad()
         {
             // 仕入先
-            m2mKoubaiDataSet.M_ShiiresakiDataTable dt =
-                ShiiresakiClass.getM_ShiiresakiDataTable(Global.GetConnection());
+            m2mKoubaiDataSet.M_ShiiresakiDataTable dt = ShiiresakiClass.getM_ShiiresakiDataTable(Global.GetConnection());
             DdlCode.Items.Clear();
             DdlCode.Items.Add(new ListItem("-----", "0"));
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 DdlCode.Items.Add(new ListItem(String.Format(dt[i].ShiiresakiCode.ToString() + " : " + dt[i].ShiiresakiMei.ToString()), dt[i].ShiiresakiCode.ToString()));
-            }           
-
+            }
         }
 
 
@@ -137,15 +134,14 @@ namespace m2mKoubai.Master
             if (dtShiiresaki.Rows.Count == 0)
             {
                 pagerTop.DdlClear();
-                pagerBottom.DdlClear();               
+                pagerBottom.DdlClear();
                 this.ShowT_Gv(false);
                 return;
             }
-            
 
             DataView dv = dtShiiresaki.DefaultView;
 
-            //ページング            
+            //ページング
             int nPageSize = AloowPaging();
             int nPageCount = 0;
 
@@ -188,7 +184,7 @@ namespace m2mKoubai.Master
         //GridView表示、非表示
         private void ShowT_Gv(bool b)
         {
-            T_Gv.Visible = b;            
+            T_Gv.Visible = b;
         }
 
         private ShiiresakiClass.KensakuParam GetKensakuParam()
@@ -226,7 +222,7 @@ namespace m2mKoubai.Master
         private void ShowMsg(string strMsg, bool bErr)
         {
             this.LblMsg.Text = strMsg;
-            LblMsg.ForeColor = (bErr) ? System.Drawing.Color.Red : System.Drawing.Color.Black;            
+            LblMsg.ForeColor = (bErr) ? System.Drawing.Color.Red : System.Drawing.Color.Black;
         }
 
         protected void G_RowDataBound(object sender, GridViewRowEventArgs e)

@@ -17,7 +17,7 @@
                             <asp:TextBox ID="TbxSum" runat="server" Width="60px" MaxLength="14" BorderStyle="none" ReadOnly="True"></asp:TextBox>
                         </FooterTemplate>
                         <ItemTemplate >
-                            <asp:TextBox ID="TbxS" runat="server" Width="60px" Style="ime-mode: inactive" MaxLength="14" CssClass="tr">
+                            <asp:TextBox ID="TbxS" runat="server" Width="60px" MaxLength="14" CssClass="tr">
                             </asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>

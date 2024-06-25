@@ -217,8 +217,8 @@ namespace m2mKoubai
             ddl.Items.Add(new ListItem("—š—ð", "2"));
            
         }
-        
-        /*
+
+
         /// <summary>
         /// •”•i‹æ•ª
         /// </summary>
@@ -226,16 +226,15 @@ namespace m2mKoubai
         /// <param name="nBuhinKubun"></param>
         public static void SetDdlBuhinKubun(DropDownList ddl)
         {
-            BuhinDataSet_S.V_BuhinKubunDataTable dt =
-               BuhinClass_S.getV_BuhinKubunDataTable(Global.GetConnection());
+            BuhinDataSet_S.V_BuhinKubunDataTable dt = BuhinClass_S.getV_BuhinKubunDataTable(Global.GetConnection());
             ddl.Items.Clear();
             ddl.Items.Add(new ListItem("---", ""));
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                ddl.Items.Add(dt[i].BuhinKubun);
-            }          
+                ddl.Items.Add(new ListItem(dt[i].BuhinKubun, dt[i].BuhinKubun));
+            }
         }
-        */
+
 
 
         public static void SetDdlNounyuuBasho_C(DropDownList ddl)

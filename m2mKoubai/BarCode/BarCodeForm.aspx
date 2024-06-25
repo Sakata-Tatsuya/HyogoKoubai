@@ -6,8 +6,8 @@
 <head runat="server">
     <title></title>
 </head>
-	<body MS_POSITIONING="GridLayout">
-		<form id="BarCode" method="post" runat="server">
-		</form>
-	</body>
-</HTML>
+<body ms_positioning="GridLayout">
+    <form id="BarCode" method="post" runat="server">
+    </form>
+</body>
+</html>

@@ -697,7 +697,7 @@ namespace m2mKoubai
                 tbl.SetTotalWidth(new float[] { 47, 57, 112, 54, 48, 60, 54, 66, 54 });
                 cell = new PdfPCell(new Paragraph("発注No", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                 tbl.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("品目コード", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                cell = new PdfPCell(new Paragraph("品目ｺｰﾄﾞ", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                 tbl.AddCell(cell);
                 cell = new PdfPCell(new Paragraph("品目名", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                 tbl.AddCell(cell);

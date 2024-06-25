@@ -214,7 +214,7 @@
                         <tr>
                             <td class="bg4"> 品目グループ</td>
                             <td >
-                                <asp:TextBox ID="TbxKubun" runat="server" MaxLength="5" Width="50px"></asp:TextBox>
+                                <asp:TextBox ID="TbxKubun" runat="server" MaxLength="5" Width="80px"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>

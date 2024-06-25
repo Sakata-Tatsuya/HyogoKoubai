@@ -15,7 +15,7 @@
     function $(id)
     {
         return document.getElementById(id);
-    }    
+    }
     function Load()
     {
         var ddl = document.getElementById("DdlHacchuNo");
@@ -43,7 +43,6 @@
         }
         AjaxRequest('Check', '');
     }
-    
     function Clear(tbl)
     {
         var tbx = document.getElementById("DdlHacchuNo");
@@ -51,7 +50,6 @@
         document.getElementById(tbl).style.display = "none"; 
         tbx.focus();
     }
-    
     function Nouhin()
     {
         var tbx = document.getElementById("TbxNouhinsuu");
@@ -71,7 +69,7 @@
     }
 
     function Kannou()
-    {   
+    {
         var tbx = document.getElementById("TbxNouhinsuu");
         if (tbx.value == "")
         {
@@ -352,16 +350,6 @@
         </tr>
     </table>
 
-<%--    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
-        <Scripts>
-            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
-            </asp:ScriptReference>
-            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
-            </asp:ScriptReference>
-            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
-            </asp:ScriptReference>
-        </Scripts>
-    </telerik:RadScriptManager>--%>
     <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
         <ClientEvents OnResponseEnd="OnResponseEnd" OnRequestStart="OnRequestStart" />
     </telerik:RadAjaxManager>

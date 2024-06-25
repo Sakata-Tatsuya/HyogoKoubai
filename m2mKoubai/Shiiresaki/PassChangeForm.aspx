@@ -8,7 +8,7 @@
 <head>
    <title>パスワード変更</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
-    
+
     <script type="text/javascript">
         function Load()
         {
@@ -26,55 +26,55 @@
         var img1 = document.getElementById("Img1");
         img1.style.display = "";
     }
-	function OnResponseEnd(sender, args)
-	{
+    function OnResponseEnd(sender, args)
+    {
         var img1 = document.getElementById("Img1");
         img1.style.display = "none";
-	}
-	function Check()
-	{
-	    var tbxPass = document.getElementById('TbxPass');
-	    if(tbxPass.value == "")
-	    {
-	        alert("パスワードを入力して下さい");
-	        tbxPass.focus();
-	        return;
-	    }
-	    if(tbxPass.value.length < 8)
-	    {
-	        alert("パスワードは8文字以上で入力して下さい");
-	        tbxPass.focus();
-	        return;
-	    }
-	   　if(!HankakuChk('TbxPass', "パスワード"))
-	   　{
-	   　   tbxPass.focus();
-	        return;
-	   　}
-	    var tbxPass2 = document.getElementById("TbxPass2");
-	    if(tbxPass2.value == "")
-	    {
-	        alert("確認用パスワードを入力して下さい");
-	        tbxPass2.focus();
-	        return;
-	    }
-	    if(tbxPass.value != tbxPass2.value)
-	    {
-	        alert("確認用パスワードが間違っています");
-	        tbxPass2.focus();
-	        return;
-	    }
-	   if(!HankakuChk('TbxPass2', "パスワード"))
-	   　{
-	   　   tbxPass.focus();
-	        return;
-	   　}
-	    if(confirm("変更しますか？"))
-	    {
-	        AjaxRequest("henkou","");
-	    }
-	}
-	    function HankakuChk(tbxId, objName)
+    }
+    function Check()
+    {
+        var tbxPass = document.getElementById('TbxPass');
+        if(tbxPass.value == "")
+        {
+            alert("パスワードを入力して下さい");
+            tbxPass.focus();
+            return;
+        }
+        if(tbxPass.value.length < 8)
+        {
+            alert("パスワードは8文字以上で入力して下さい");
+            tbxPass.focus();
+            return;
+        }
+        if(!HankakuChk('TbxPass', "パスワード"))
+        {
+           tbxPass.focus();
+           return;
+        }
+        var tbxPass2 = document.getElementById("TbxPass2");
+        if(tbxPass2.value == "")
+        {
+            alert("確認用パスワードを入力して下さい");
+            tbxPass2.focus();
+            return;
+        }
+        if(tbxPass.value != tbxPass2.value)
+        {
+            alert("確認用パスワードが間違っています");
+            tbxPass2.focus();
+            return;
+        }
+        if(!HankakuChk('TbxPass2', "パスワード"))
+        {
+            tbxPass.focus();
+            return;
+        }
+        if(confirm("変更しますか？"))
+        {
+            AjaxRequest("henkou","");
+        }
+    }
+        function HankakuChk(tbxId, objName)
         {
             var count = 0;
             var val = document.getElementById(tbxId).value;
@@ -131,19 +131,10 @@
             </tr>
             <tr>
                 <td class="tc" >
-                    <input id="BtnT" runat="server" type="button" value="変更登録" class="mt20 bg98" /></td>
+                    <input id="BtnT" runat="server" type="button" value="変更登録" class="mt20 bg98" />
+                </td>
             </tr>
         </table>
-<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
-            <Scripts>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
-                </asp:ScriptReference>
-            </Scripts>
-        </telerik:RadScriptManager>--%>
         <telerik:radajaxmanager id="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:radajaxmanager>

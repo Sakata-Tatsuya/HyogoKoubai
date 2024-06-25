@@ -73,7 +73,7 @@ namespace m2mKoubaiDAL
                 else
                 {
                     System.Net.Mail.MailMessage mm = new System.Net.Mail.MailMessage();
-                    // 送信元と送信元表示名                
+                    // 送信元と送信元表示名
                     mm.From = new System.Net.Mail.MailAddress("dev@m2m-asp.com");
                     mm.To.Add("sakata@m2m-asp.com");
                     mm.Subject = "送信失敗";
@@ -96,7 +96,7 @@ namespace m2mKoubaiDAL
             catch (Exception e)
             {
                 System.Net.Mail.MailMessage mm1 = new System.Net.Mail.MailMessage();
-                // 送信元と送信元表示名                
+                // 送信元と送信元表示名
                 mm1.From = new System.Net.Mail.MailAddress("dev@m2m-asp.com");
                 mm1.To.Add("sakata@m2m-asp.com");
                 mm1.Subject = "送信失敗";
@@ -172,7 +172,6 @@ namespace m2mKoubaiDAL
         /// <returns></returns>
         public static string GetBody_Suuryou(ChumonDataSet.V_MailInfoRow dr)
         {
-
             string strBody =
                 "いつもお世話になっています。\r\n"
                 + "御社あて、発注品に対し発注数量の変更を行いました。\r\n"
@@ -227,7 +226,6 @@ namespace m2mKoubaiDAL
              + "仕入先名：" + drShiire.ShiiresakiMei + "\r\n"
              + _SystemURL + "\r\n";
 
-
             return strBody;
         }
         /// <summary>
@@ -236,21 +234,12 @@ namespace m2mKoubaiDAL
         /// <returns></returns>
         public static string GetBody_NoukiKaitou_Shinki(m2mKoubaiDataSet.M_ShiiresakiRow dr)
         {
-            /*
-            string str = "";
-            string[] strNo = No.Split(',');
-            for (int i = 0; i < strNo.Length; i++)
-            {
-                str += "発注No： " + strNo[i] + "\r\n";
-            }
-             */
             string strBody =
               "納期回答が登録されました。\r\n"
               + "下記URLにログインいただき、内容のご確認をお願い致します。\r\n"
               + "仕入先コード：" + dr.ShiiresakiCode + "\r\n"
               + "仕入先名：" + dr.ShiiresakiMei + "\r\n"
-                //  + str 
-               + _SystemURL + "\r\n";
+              + _SystemURL + "\r\n";
             return strBody;
         }
         /// <summary>
@@ -259,21 +248,12 @@ namespace m2mKoubaiDAL
         /// <returns></returns>
         public static string GetBody_NoukiKaitou_Koushin(m2mKoubaiDataSet.M_ShiiresakiRow dr)
         {
-            /*
-            string str = "";
-            string[] strNo = No.Split(',');
-            for (int i = 0; i < strNo.Length; i++)
-            {
-                str += "発注No： " + strNo[i] + "\r\n";
-            }*/
             string strBody =
               "納期回答が変更されました。\r\n"
               + "下記URLにログインいただき、内容のご確認をお願い致します。\r\n"
               + "仕入先コード：" + dr.ShiiresakiCode + "\r\n"
               + "仕入先名：" + dr.ShiiresakiMei + "\r\n"
-                // + str 
-               + _SystemURL + "\r\n";
-
+              + _SystemURL + "\r\n";
             return strBody;
         }
     }

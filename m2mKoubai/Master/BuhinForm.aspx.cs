@@ -89,9 +89,10 @@ namespace m2mKoubai.Master
         }
         private void SetList()
         {
-           // 品目リスト
-           ListSet.SetDdlBuhin(DdlHinmoku);
-            //ListSet.SetDdlBuhin(DdlHinmei);
+            // 部品区分
+            ListSet.SetDdlBuhinKubun(DdlBuhinKubun);
+            // 品目リスト
+            ListSet.SetDdlBuhin(DdlHinmoku);
         }
         // ページチェンジ
         private void OnPageIndexChanged(int nNewPageIndex)
@@ -176,16 +177,15 @@ namespace m2mKoubai.Master
         private BuhinClass.KensakuParam GetKensakuParam()
         {
             BuhinClass.KensakuParam k = new BuhinClass.KensakuParam();
-           
-            // コード
+
             if (DdlHinmoku.SelectedIndex > 0)
             {
-                //string[] strkey = DdlCode.SelectedValue.Split('_');
-                //k._Kubun = strkey[0];
-                //k._Code = strkey[1];
                 k._Code = DdlHinmoku.SelectedValue;
             }
-            
+            if (DdlBuhinKubun.SelectedIndex > 0)
+            {
+                k._Kubun = DdlBuhinKubun.Text;
+            }
             return k;
         }
         // メッセージ表示

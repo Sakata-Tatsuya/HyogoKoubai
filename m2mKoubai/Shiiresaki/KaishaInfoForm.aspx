@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>会社情報</title>
-    <link href="../MainStyle.css" rel="stylesheet" type="text/css" />   
+    <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
          function $(id) {
              return document.getElementById(id);
@@ -35,7 +35,7 @@
     </script>  
 </head>
 <body class="bg99">
-    <form id="form1" runat="server">    
+    <form id="form1" runat="server">
     <div>
         <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
 <%--        <uc1:CtlTabShiire ID="Tab" runat="server" />--%>
@@ -55,32 +55,37 @@
                         <tr>
                             <td nowrap="nowrap" bgcolor="#66cc99" class="bg3">
                                 仕入先コード</td>
-                              <td nowrap="nowrap">             
-                                <asp:Literal ID="LitCode" runat="server"></asp:Literal></td>
+                              <td nowrap="nowrap">
+                                <asp:Literal ID="LitCode" runat="server"></asp:Literal>
+                              </td>
                         </tr>
                         <tr>
                             <td nowrap="nowrap" bgcolor="#66cc99" class="bg3">
                                 仕入先名</td>
                             <td nowrap="nowrap">
-                                <asp:TextBox ID="TbxShiireName" runat="server" MaxLength="20" Width="200px" ></asp:TextBox></td>
+                                <asp:TextBox ID="TbxShiireName" runat="server" MaxLength="20" Width="200px" ></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
                             <td nowrap="nowrap" bgcolor="#66cc99" class="bg3">
                                 郵便番号</td>
                             <td nowrap="nowrap">
-                                <asp:TextBox ID="TbxYuubin" runat="server" MaxLength="8" Width="80px"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxYuubin" runat="server" MaxLength="8" Width="80px"></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
                             <td nowrap="nowrap" bgcolor="#66cc99" class="bg3">
                                 住所</td>
                             <td nowrap="nowrap">
-                                <asp:TextBox ID="TbxJyusho" runat="server" MaxLength="20" Width="250px" ></asp:TextBox></td>
+                                <asp:TextBox ID="TbxJyusho" runat="server" MaxLength="20" Width="250px" ></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
                             <td nowrap="nowrap" bgcolor="#66cc99" class="bg3">
                                 TEL</td>
                             <td nowrap="nowrap">
-                                <asp:TextBox ID="TbxTel" runat="server" MaxLength="12" Width="250px" ></asp:TextBox></td>
+                                <asp:TextBox ID="TbxTel" runat="server" MaxLength="12" Width="250px" ></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
                             <td nowrap="nowrap" bgcolor="#66cc99" class="bg3">
@@ -118,7 +123,8 @@
                     <table id="TblBtn" runat="server">
                         <tr>
                             <td>
-                                &nbsp;<input id="BtnK" runat="server" class="w80 bg98" type="button" value="更新" /></td>
+                                &nbsp;<input id="BtnK" runat="server" class="w80 bg98" type="button" value="更新" />
+                            </td>
                         </tr>
                     </table>
                     &nbsp;
@@ -127,16 +133,6 @@
         </table>    
     </div>
         <br />
-<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
-            <Scripts>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
-                </asp:ScriptReference>
-            </Scripts>
-        </telerik:RadScriptManager>--%>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>

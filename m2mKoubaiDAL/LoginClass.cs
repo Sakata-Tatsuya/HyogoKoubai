@@ -340,8 +340,8 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-                "SELECT dbo.M_Shiiresaki.KensyukoukaiFlg, M_Shiiresaki.KousinKyokaFlg FROM dbo.M_Shiiresaki INNER JOIN "
-              + "dbo.M_Login ON dbo.M_Shiiresaki.ShiiresakiCode = dbo.M_Login.KaishaCode "
+                "SELECT dbo.M_Shiiresaki.KensyukoukaiFlg, M_Shiiresaki.KousinKyokaFlg FROM dbo.M_Shiiresaki "
+              + "INNER JOIN dbo.M_Login ON dbo.M_Shiiresaki.ShiiresakiCode = dbo.M_Login.KaishaCode "
               + "WHERE (LoginID = @LoginID) AND (Password = @Pass)";
             da.SelectCommand.Parameters.AddWithValue("@LoginID", LoginID);
             da.SelectCommand.Parameters.AddWithValue("@Pass", Pass);

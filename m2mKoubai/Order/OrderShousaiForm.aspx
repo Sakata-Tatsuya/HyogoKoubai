@@ -24,20 +24,19 @@
             }
         }
         function KeyCodeCheck()
-	    {
-	        var kc = event.keyCode;
-	        if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-	        kc == 46 || kc == 8 || kc == 13 || kc == 9)
-	            return true; 
-	        else 
-	            return false;
-	    }
-	    function Koushin(suu,tanka)
-	    {
-	        var tbxTanka = document.getElementById('TbxT');
-	        var tbxSuuryou = document.getElementById('TbxS');
-	      
-	        if (parseInt(tbxTanka.value) == 0)
+        {
+            var kc = event.keyCode;
+            if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) ||
+            kc == 46 || kc == 8 || kc == 13 || kc == 9)
+                return true;
+            else
+                return false;
+        }
+        function Koushin(suu,tanka)
+        {
+            var tbxTanka = document.getElementById('TbxT');
+            var tbxSuuryou = document.getElementById('TbxS');
+            if (parseInt(tbxTanka.value) == 0)
             {
                 alert('単価は0以上で入力して下さい');
                 tbxTanka.focus();
@@ -54,8 +53,7 @@
                 tbxTanka.focus();
                 return ;
             }
-         
-           if (tbxSuuryou.value == '0')
+            if (tbxSuuryou.value == '0')
             {
                 alert('数量は0以上で入力して下さい');
                  tbxSuuryou.focus();
@@ -72,33 +70,31 @@
                 tbxSuuryou.focus();
                 return;
             }
-    
-	        
-	        if(tbxTanka.value == '' && tbxSuuryou.value == '')
-	        {
-	            alert("更新するデータを入力してください");
-	            return;
-	        }
-	        else
-	        {
-	            if (confirm('更新しますか？'))
+            if(tbxTanka.value == '' && tbxSuuryou.value == '')
+            {
+                alert("更新するデータを入力してください");
+                return;
+            }
+            else
+            {
+                if (confirm('更新しますか？'))
                 {
                     document.getElementById('HidProcess').value = 'koushin';
                     document.getElementById('BtnProcess').click();
                 }
             }
-	    }
-	     // 数値チェック
+        }
+         // 数値チェック
         function CheckSuu(tbx,str)
-	    {
-	        if (tbx.value.match(/[^0-9,]/) != null)
-	        {
-	            alert(str+"は半角数字のみで入力して下さい");
-	            tbx.focus();
-	            return false;
-	        }
-	        return true;
-	    }	
+        {
+            if (tbx.value.match(/[^0-9,]/) != null)
+            {
+                alert(str+"は半角数字のみで入力して下さい");
+                tbx.focus();
+                return false;
+            }
+            return true;
+        }
         function CheckDecimal(deci,tanka)
         {
             if (deci == '')
@@ -145,14 +141,14 @@
         function OnLoad(loadFlg)
         { 
             if (window.opener != null) 
-            {        
+            {
                 if (loadFlg == 1) 
                 {
                     window.opener.Reload();
                 }
             }
         }
-  </script>
+    </script>
 </head>
 <body class="bg0" onload="OnLoad(<%=loadFlg%>)">
     <form id="form1" runat="server">
@@ -218,7 +214,7 @@
                         <tr>
                             <td class="bg3"  >
                                 単価</td>
-                            <td >                                
+                            <td>
                                 <table cellpadding="0" cellspacing="0" class="hei15">
                                     <tr>
                                         <td nowrap="noWrap">
@@ -238,7 +234,7 @@
                         <tr>
                             <td  class="bg3">
                                 数量</td>
-                            <td >                               
+                            <td>
                                 <table cellpadding="0" cellspacing="0" class="hei15">
                                     <tr>
                                         <td nowrap="noWrap">
@@ -303,11 +299,10 @@
                     <input id="BtnK" runat="server" type="button" value="単価、数量変更" class="bg6 " /></td>
             </tr>
         </table>
-    
+
     </div>
         <asp:Button ID="BtnProcess" runat="server" OnClick="BtnProcess_Click" />
         <input id="HidProcess" runat="server" type="hidden" />
-  
     </form>
 </body>
 </html>

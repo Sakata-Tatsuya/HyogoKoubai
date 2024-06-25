@@ -70,9 +70,9 @@ namespace m2mKoubai
             {
 #if !DEBUG
                 // デバッグじゃない場合エラーメール送信
-				SendMail(strErrMsg);
-				this.Response.Write("Error");
-				Server.ClearError();
+                SendMail(strErrMsg);
+                this.Response.Write("Error");
+                Server.ClearError();
 #endif
             }
             catch (Exception ee)

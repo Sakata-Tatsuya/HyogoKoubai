@@ -46,8 +46,7 @@ namespace m2mKoubaiDAL
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            T_ChumonMsg_Insert(m2mKoubaiDataSet.T_ChumonMsgRow dr, SqlConnection sqlConn)
+        public static LibError T_ChumonMsg_Insert(m2mKoubaiDataSet.T_ChumonMsgRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_ChumonMsg";
@@ -60,7 +59,6 @@ namespace m2mKoubaiDAL
                 sqlConn.Open();
                 object objRet = da.InsertCommand.ExecuteScalar();
                 return null;
-
             }
             catch (Exception e)
             {
@@ -76,8 +74,7 @@ namespace m2mKoubaiDAL
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            T_ChumonMsg_Update(int MsgID, string msg, SqlConnection sqlConn)
+        public static LibError T_ChumonMsg_Update(int MsgID, string msg, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_ChumonMsg WHERE MsgID = @MsgID";
@@ -90,7 +87,6 @@ namespace m2mKoubaiDAL
             try
             {
                 m2mKoubaiDataSet.T_ChumonMsgRow drThis = (m2mKoubaiDataSet.T_ChumonMsgRow)dt.Rows[0];
-                //drNew.ItemArray = dr.ItemArray;
                 drThis.Message = msg;
                 drThis.KoushinBi = DateTime.Now;
                 da.Update(dt);
@@ -107,8 +103,7 @@ namespace m2mKoubaiDAL
         /// <param name="MsgID"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            T_ChumonMsg_Delete(int MsgID, SqlConnection sqlConn)
+        public static LibError T_ChumonMsg_Delete(int MsgID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_ChumonMsg WHERE MsgID = @MsgID";
@@ -130,8 +125,7 @@ namespace m2mKoubaiDAL
                 return new LibError(e);
             }
         }
-        public static LibError 
-            T_ChumonMsg_Kaifuu(byte p, string p_2, int nMsgID, SqlConnection sqlConn)
+        public static LibError T_ChumonMsg_Kaifuu(byte p, string p_2, int nMsgID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "select * from T_ChumonMsg where MsgID = @nMsgID";
@@ -161,8 +155,7 @@ namespace m2mKoubaiDAL
         /// 
         /// </summary>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.T_ChumonMsgRow
-            newT_ChumonMsgRow()
+        public static m2mKoubaiDataSet.T_ChumonMsgRow newT_ChumonMsgRow()
         {
             return new m2mKoubaiDataSet.T_ChumonMsgDataTable().NewT_ChumonMsgRow();
         }

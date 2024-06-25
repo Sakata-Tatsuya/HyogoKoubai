@@ -67,23 +67,19 @@ namespace m2mKoubai
                         return;
                     }
                     // 注文キー情報
-                    ChumonClass.ChumonKey key =
-                        new ChumonClass.ChumonKey(strAry[0]);
-
+                    ChumonClass.ChumonKey key = new ChumonClass.ChumonKey(strAry[0]);
                     // 主キー1
                     VsYear = key.Year;
                     // 主キー2
                     VsHacchuuNo = key.HacchuuNo;
                     // 主キー3
                     VsKubun = key.JigyoushoKubun;      
-                  
                 }
                 catch
                 {
                     this.ShowMsg(AppCommon.NO_DATA, true);
                     return;
                 }
-
                 this.Create();
             }
             loadFlg = 0;
@@ -107,7 +103,6 @@ namespace m2mKoubai
             BtnReg.Style.Add("display", "none");
             // クリア
             BtnClear.Attributes["onclick"] = "Clear(); return false;";
-
         }
 
         private void Create()
@@ -134,25 +129,21 @@ namespace m2mKoubai
             // 主キー
             dr.Year = VsYear;
             dr.HacchuuNo = VsHacchuuNo;
-           dr.JigyoushoKubun = VsKubun;
+            dr.JigyoushoKubun = VsKubun;
             // ユーザー区分
             dr.UserKubun = SessionManager.UserKubun;
             //
             dr.LoginID = SessionManager.LoginID;
             // メッセージ
             dr.Message = this.TbxMsg.Text;
-           
             // 開封フラグ
             dr.OpenedFlg = false;
             // メッセージ登録日
             dr.TourokuBi = DateTime.Now;
-            
-
             // 更新日(設定なし)
             // 開封日(設定なし)  
-          
             return dr;
-        }   
+        }
 
         private void ShowMsg(string strMsg, bool bError)
         {
@@ -197,7 +188,6 @@ namespace m2mKoubai
                     {
                         btnK.Text = "修正";
                         btnK.CommandName = "Shusei";
-
                         btnS.Text = "削除";
                         btnS.CommandName = "Del";
                         btnS.Attributes["onclick"] = string.Format("return confirm('{0}');", "削除しますか？");
@@ -217,7 +207,6 @@ namespace m2mKoubai
                     }
                     btnS.Visible = false;
                 }
-
             }
         }
 
@@ -255,7 +244,6 @@ namespace m2mKoubai
             if (e.CommandName == "Shusei")
             {
                 // ボタンのvalueを修正にする
-              
                 VsMsgID = Convert.ToInt32(e.CommandArgument);
                 m2mKoubaiDataSet.T_ChumonMsgRow dr =
                     ChumonMsgClass.getT_ChumonMsgRow(VsMsgID, Global.GetConnection());
@@ -266,8 +254,6 @@ namespace m2mKoubai
                 }
                 BtnT.Value = "修正";
                 this.TbxMsg.Text = dr.Message;
-
-               
             }
             else if (e.CommandName == "Kaifuu")
             {
@@ -302,9 +288,7 @@ namespace m2mKoubai
                     this.VsMsgID = 0;
                     // ボタンのvalueを登録にする
                     BtnT.Value = "登録";
-
                 }
-
                 loadFlg = 1;
             }
         }

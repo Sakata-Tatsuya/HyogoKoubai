@@ -47,14 +47,13 @@ namespace m2mKoubaiDAL
                 return null;
         }
 
-        /*
+
         /// <summary>
         /// •”•i‹æ•ª‚ðŽæ“¾‚·‚é
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static BuhinDataSet_S.V_BuhinKubunDataTable 
-            getV_BuhinKubunDataTable(SqlConnection sqlConn)
+        public static BuhinDataSet_S.V_BuhinKubunDataTable getV_BuhinKubunDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -65,7 +64,7 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
-        */
+
 
         /// <summary>
         /// •”•i‹æ•ª‚ðŽæ“¾‚·‚é

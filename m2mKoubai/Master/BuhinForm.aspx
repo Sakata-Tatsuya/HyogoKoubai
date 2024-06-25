@@ -83,14 +83,20 @@
         <table border="1" bordercolor="#000000" class="def9 col mt5 tc bg1">
             <tr>
                 <td class="bg3" >
+                    品目グループ</td>
+                <td class="bg3" >
                     品目</td>
                 <td rowspan="2">
                     <input id="BtnK" runat="server" class="w60 bg6" type="button" value="検索" />
                 </td>
             </tr>
             <tr>
+                <td >
+                    <asp:DropDownList ID="DdlBuhinKubun" runat="server">
+                    </asp:DropDownList>
+                </td>
                 <td>
-                   <asp:DropDownList ID="DdlHinmoku" runat="server">
+                    <asp:DropDownList ID="DdlHinmoku" runat="server">
                     </asp:DropDownList>
                 </td>
             </tr>

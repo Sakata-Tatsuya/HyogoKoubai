@@ -400,7 +400,7 @@ namespace m2mKoubai
             // “ú•t‚¯‚ğ—j“ú‚É•ÏŠ·
             DayOfWeek weekTo = dateTo.DayOfWeek;
             // TŠÔ”‚ğæ“¾
-            int n = nAddDays / 7;         
+            int n = nAddDays / 7;
             if (n == 0) // ˆêTŠÔ–¢–‚Ìê‡
             {
                 // Œ`“yA‰Î`“úA“ú`‹à‚Ìê‡‚ÍA“ú” + 1
@@ -423,7 +423,7 @@ namespace m2mKoubai
             }
             else// ˆêTŠÔˆÈã‚Ìê‡
             {
-                int nNew = nAddDays % 7;                
+                int nNew = nAddDays % 7;
                 if (nNew == 0)
                 {
 
@@ -446,7 +446,7 @@ namespace m2mKoubai
                         nAddDays = nAddDays + ((n + 1) * 2);
                     else
                         nAddDays = nAddDays + n * 2;
-                }              
+                }
 
             }
             // ÅI”[Šú‚ª“y—j“ú‚Ìê‡AÅI”[Šú{2
@@ -458,7 +458,6 @@ namespace m2mKoubai
             else
                 return DateTime.Now.AddDays(nAddDays);
 
-               
         }
 
         // “¾ˆÓæ‚ÌY“ú‚É‚æ‚éŠúŠÔì¬
@@ -466,7 +465,6 @@ namespace m2mKoubai
         {
             // Y“ú‚É‚æ‚Á‚Ä•Ï‰» 
             int[] nDayAry = new int[2];
-
             int[] nDayAry1 = { 1, 31 };
             int[] nDayAry2 = { 6, 5 };
             int[] nDayAry3 = { 11, 10 };
@@ -491,14 +489,14 @@ namespace m2mKoubai
             if (nShimeBi == (int)ShiiresakiClass.ShimeBi.JYUGO || nShimeBi == (int)ShiiresakiClass.ShimeBi.NIJYU ||
                 nShimeBi == (int)ShiiresakiClass.ShimeBi.NIJYUGO)
             {
-                // ”NŒ‚ğ’²®      
+                // ”NŒ‚ğ’²®
                 SetYearMonth(ref nYear, ref nMonth);
             }
 
             nSNen = CreateNengappi(nYear, nMonth, nDayAry[0]);
             if (nDayAry[1] < nDayAry[0])
             {
-                // ”NŒ‚ğ’²®  
+                // ”NŒ‚ğ’²®
                 SetYearMonthPlus(ref nYear, ref nMonth);
             }
 

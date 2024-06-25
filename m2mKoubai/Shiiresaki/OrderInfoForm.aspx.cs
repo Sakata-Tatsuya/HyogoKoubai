@@ -248,7 +248,6 @@ namespace m2mKoubai.Shiiresaki
 
         private void SetList()
         {
-
             //　納入場所
             ListSet.SetDdlNounyuuBasho_C(DdlNBasho);
             // 納期回答状況
@@ -258,7 +257,6 @@ namespace m2mKoubai.Shiiresaki
             ListSet.SetDdlNoukiJyoukyou(DdlNoukiHenkou);
             // 部品区分
             ListSet.SetDdlBuhinKubun_C(DdlBuhinKubun, SessionManager.KaishaCode);
-
             // 部品
             this.DdlBuhinKubun.Attributes["onchange"] = "OnBuhin(); return false";
             // 発注担当者
@@ -267,7 +265,7 @@ namespace m2mKoubai.Shiiresaki
             ListSet.SetDdlMsg(DdlMsg);
             // キャンセル日
             ListSet.SetDdlCancel(DdlCancel);
-        　　//
+            // 発注元事業所
             ListSet.SetDdlJigyoushoKubun(SessionManager.UserKubun, DdlJigyoshoKubun);
         }
         private ChumonClass.KensakuParam GetKensakuParam()
@@ -342,7 +340,6 @@ namespace m2mKoubai.Shiiresaki
             {
                 k._KaitouNouki = ctlKaitouNouki.GetNengappiKikan();
             }
-
             // メッセージ
             k._Msg = int.Parse(DdlMsg.SelectedValue);
             // キャンセル
@@ -444,7 +441,7 @@ namespace m2mKoubai.Shiiresaki
                 // 発注担当者名
                 LitHacchuuTantoushaMei.Text = dr.Name;
                 // 部品コード
-                LitCode.Text = dr.BuhinKubun + dr.BuhinCode;
+                LitCode.Text = dr.BuhinKubun + " " + dr.BuhinCode;
                 // 部品目名
                 LitName.Text = dr.BuhinMei;
                 // 数量

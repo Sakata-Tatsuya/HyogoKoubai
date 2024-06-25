@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginMsgUpForm.aspx.cs" Inherits="m2mKoubai.Master.LoginMsgUpForm" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
@@ -11,29 +10,28 @@
     {
         return document.getElementById(id);
     }
-    
     function OnLoad(loadFlg)
-    {    
+    {
         if (window.opener != null) 
-        {        
+        {
             if (loadFlg == 1) 
-            {            
+            {
                 window.opener.Reload();
             }
         }
-    }   
+    }
     function Touroku()
-    {       
+    {
         if (!MsgCheck())
             return; 
-                       
+
         if (confirm("登録しますか？"))
-        {            
+        {
             document.getElementById('BtnTS').click();
-        }                                           
-    }  
+        }
+    }
     function MsgCheck()
-   {              
+    {
         var msg = document.getElementById("TbxMsg").value;
         if (msg == "")
         {
@@ -46,29 +44,28 @@
             return false;
         }
         return true;
-    }        
+    }
     function Koushin()
-    {       
+    {
         if (!MsgCheck())
             return;
         if (confirm("更新しますか？"))
-        {                         
+        {
             document.getElementById('BtnKS').click();
-        }                               
-    }  
+        }
+    }
     function Close() 
-    {               
-        window.close();                        
-       
-    }   
+    {
+        window.close();
+    }
     function OnRequestStart()
-    {            
+    {
         document.getElementById('Img1').style.display = '';
-    }           
+    }
     function OnResponseEnd()
-    {            
+    {
         document.getElementById('Img1').style.display = 'none';
-    }                
+    }
     </script>
 </head>
 <body class="bg0" onload="OnLoad(<%=loadFlg%>)">

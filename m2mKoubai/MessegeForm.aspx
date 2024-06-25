@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MessegeForm.aspx.cs" Inherits="m2mKoubai.MessegeForm" %>
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>メッセージ</title>
-    <link href="MainStyle.css" rel="stylesheet" type="text/css" /> <script type="text/javascript">    
+    <link href="MainStyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
     function $(id)
     {
         return document.getElementById(id);
@@ -28,26 +28,26 @@
             return;
         }
         if (confirm(document.getElementById('BtnT').value+"しますか？"))
-        {          
+        {
             document.getElementById('BtnReg').click();
         }
-    }   
+    }
     function Clear()
     {
         document.getElementById('TbxMsg').value = "";
         document.getElementById('TbxMsg').focus();
     } 
     function OnLoad(loadFlg)
-    {           
+    {
         document.getElementById('TbxMsg').focus();
         if (window.opener != null) 
-        {        
-            if (loadFlg == 1) 
-            {            
+        {
+            if (loadFlg == 1)
+            {
                 window.opener.Reload();
             }
         }
-    }    
+    }
     </script>
 </head>
 <body onload="OnLoad(<%=loadFlg%>)" class="bg0">
@@ -56,7 +56,8 @@
         <table id="TblAll" runat="server" align="center" border="0" cellpadding="1" cellspacing="1" class="def9">
             <tr>
                 <td align="center" class="hei20">
-                    <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label></td>
+                    <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td align="center" class="nowrap">
@@ -65,7 +66,8 @@
                             <td class="tr" width="60%">
                             </td>
                             <td class="tr">
-                                <input id="BtnC" runat="server" onclick="Close()" type="button" value="閉じる" class="w80 bg6 " /></td>
+                                <input id="BtnC" runat="server" onclick="Close()" type="button" value="閉じる" class="w80 bg6 " />
+                            </td>
                         </tr>
                     </table>
                     <table id="TblMsg" runat="server" border="1" bordercolor="#000000" class="col def9" cellpadding="0" cellspacing="0">
@@ -73,8 +75,8 @@
                             <td class="bg7 b">
                                 メッセージ</td>
                             <td nowrap="nowrap">
-                                <asp:TextBox ID="TbxMsg" runat="server" MaxLength="100" Rows="6" TextMode="MultiLine"
-                                    Width="350px"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxMsg" runat="server" MaxLength="100" Rows="6" TextMode="MultiLine" Width="350px"></asp:TextBox>
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -82,7 +84,8 @@
             <tr>
                 <td align="center">
                     <input id="BtnClear" runat="server" class="w80 bg6" type="button" value="クリア" />
-                    <input id="BtnT" runat="server" class="w80 bg6" type="button" value="登録" /></td>
+                    <input id="BtnT" runat="server" class="w80 bg6" type="button" value="登録" />
+                </td>
             </tr>
             <tr>
                 <td align="center">
@@ -112,7 +115,6 @@
                 </td>
             </tr>
         </table>
-    
     </div>
         <asp:Button ID="BtnReg" runat="server" OnClick="BtnReg_Click" />
     </form>
