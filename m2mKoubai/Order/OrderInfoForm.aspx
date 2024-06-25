@@ -124,24 +124,20 @@
                     div.innerHTML = '';
                     break;
                 case "nyuryoku_close":
-
                     var g = document.getElementById('G');
                     var cell_index = <%=cell_index %>;
                     var cn_array = param.split("\t");
                     var hid_current_array = document.getElementById('TbxHenkouNouki').value.split("\t");
-
                     if(hid_current_array.length != cn_array.length)
                     {
                         alert('error');
                         return;
                     }
-
                     for(var i = 0; i < cn_array.length; i++)
                     {
                         var index = GetIndex(cn_array[i]);
                         g.rows[index + 1].cells[<%=cell_index %>].innerHTML = hid_current_array[i];
                     }
-
                     break;
                 case "nyuryoku_add_row":
                 case "nyuryoku_del_row":
@@ -182,7 +178,6 @@
 
             var arrayKey = hidDataKey.value.split(separatorKey);
             var arrayData = hidData.value.split(separatorData);
-
             var index = -1;
             for (var i = 0; i < arrayKey.length; i++) {
                 if (key == arrayKey[i]) {
@@ -196,7 +191,6 @@
                     alert('JCore Error!! Not Found Key : ' + key);
                 return [];
             }
-
             return arrayData[index].split(",");
         }
 
