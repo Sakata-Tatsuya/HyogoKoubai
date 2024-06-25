@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShiiresakiAccountUpForm.aspx.cs" Inherits="m2mKoubai.Master.ShiiresakiAccountUpForm" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
@@ -15,9 +14,9 @@
     function OnLoad(loadFlg)
     {    
         if (window.opener != null) 
-        {        
+        {
             if (loadFlg == 1) 
-            {            
+            {
                 window.opener.Reload();
             }
         }
@@ -26,12 +25,12 @@
     {       
         if (!TourokuChk(true))
             return; 
-                       
+
         if (confirm("登録しますか？"))
-        {            
+        {
             document.getElementById('BtnTS').click();
-        }                                           
-    }  
+        }
+    }
     function TourokuChk(bool)
     {  
         if(bool)
@@ -60,11 +59,11 @@
                 tbxPass.focus();
                 return;
             }
-            
+
             if(tbxPass.value.length < 8)
             {
-                alert("パスワードは8文字以上で入力して下さい");             
-                tbxPass.focus();                    
+                alert("パスワードは8文字以上で入力して下さい");
+                tbxPass.focus();
                 return false;
             }
             if(!HankakuChk('TbxPass', 'パスワード'))
@@ -72,36 +71,32 @@
                 tbxPass.focus();
                 return;
             }
-           
-       }
-       else
-       {
+        }
+        else
+        {
             var tbxPass = document.getElementById('TbxPass'); 
             if(tbxPass.value != "")
             {
                 if(tbxPass.value.length < 8)
                 {
-                    alert("パスワードは8文字以上で入力して下さい");             
-                    tbxPass.focus();                    
+                    alert("パスワードは8文字以上で入力して下さい");
+                    tbxPass.focus();
                     return false;
                 }
                 if(!HankakuChk('TbxPass', 'パスワード'))
-            {
-                tbxPass.focus();
-                return;
+                {
+                    tbxPass.focus();
+                    return;
+                }
             }
-           
-            }
-       }
-                
-       
+        }
         var tbxCode = document.getElementById('TbxTCode');
         if(tbxCode.value == "")
         {
             alert("担当者コードを入力してください");
             tbxCode.focus();
             return;
-        } 
+        }
         if(tbxCode.value.length != 6)
         {
              alert("担当者コードを6桁で入力してください");
@@ -130,8 +125,6 @@
             tbxYakushoku.focus();
             return;
         }
-        
-        
         var tbxMail = document.getElementById('TbxMail');
         if(tbxMail.value == "")
         {
@@ -155,61 +148,58 @@
             }
         }
         return true;
-    }        
+    }
     function Koushin()
-    {       
+    {
         if (!TourokuChk(false))
             return; 
         if (confirm("更新しますか？"))
-        {                         
+        {
             document.getElementById('BtnKS').click();
-        }                               
-    }  
+        }
+    }
     function Close() 
-    {           
-        window.close();         
-    }   
+    {
+        window.close();
+    }
     function OnRequestStart()
-    {            
+    {
         document.getElementById('Img1').style.display = '';
-    }           
+    }
     function OnResponseEnd()
-    {            
+    {
         document.getElementById('Img1').style.display = 'none';
-    }  
+    }
      function KeyCodeCheck()
-    {       
-        var kc = event.keyCode;                    
+    {
+        var kc = event.keyCode;
         if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-            kc == 46 || kc == 8 || kc == 13 || kc == 9)         
-            return true;                 
-        else          
-            return false;         
-    }    
+            kc == 46 || kc == 8 || kc == 13 || kc == 9)
+            return true;
+        else
+            return false;
+    }
     function HankakuChk(tbxId, objName)
-    {      
+    {
         var count = 0;
         var val = document.getElementById(tbxId).value;   
-       
         for( var i = 0; i < val.length; i++ )
         {
             var s = val.substring(i, i + 1);
             var c = s.charCodeAt(0);
             if (c < 256 || (c >= 0xff61 && c <= 0xff9f))
-            {                           
+            {
             }
             else
-            {     
+            {
                 alert(objName + 'は半角英数字のみで入力して下さい');     
-                               
                 return false;
-            }                 
+            }
         }
-             
         return true; 
-    }    
+    }
     function MailCheck(Mail)
-    {       
+    {
         var flag = 0;
         if(!Mail.match(/.+@.+\..+/)) 
         {
@@ -224,7 +214,7 @@
         {
             return true;
         }
-    }        
+    }
     </script>
 </head>
 <body class="bg0" onload="OnLoad(<%=loadFlg%>)">
@@ -283,14 +273,14 @@
                             <td class="bg4">
                                 パスワード</td>
                             <td >
-                                <asp:TextBox ID="TbxPass" runat="server" TextMode="Password" MaxLength="20" Width="200px"></asp:TextBox></td>
+                                <asp:TextBox ID="TbxPass" runat="server" MaxLength="20" Width="200px"></asp:TextBox></td>
+<%--                                <asp:TextBox ID="TbxPass" runat="server" TextMode="Password" MaxLength="20" Width="200px"></asp:TextBox></td>--%>
                         </tr>
                         <tr>
                             <td class="bg4" >
                                 E-Mail</td>
                             <td colspan="1" >
                                 <asp:TextBox ID="TbxMail" runat="server" Width="300px" MaxLength="50"></asp:TextBox></td>
-                           
                         </tr>
                     </table>
                 </td>
@@ -308,7 +298,6 @@
                 </td>
             </tr>
         </table>
-    
     </div>
         <asp:Button ID="BtnTS" runat="server" OnClick="BtnTS_Click" />
         <asp:Button ID="BtnKS" runat="server" OnClick="BtnKS_Click" />

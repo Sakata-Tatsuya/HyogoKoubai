@@ -1956,7 +1956,7 @@ namespace m2mKoubaiDAL {
                 this.columnShiiresakiCode.AllowDBNull = false;
                 this.columnShiiresakiCode.MaxLength = 10;
                 this.columnBuhinKubun.AllowDBNull = false;
-                this.columnBuhinKubun.MaxLength = 2;
+                this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinCode.AllowDBNull = false;
                 this.columnBuhinCode.MaxLength = 25;
                 this.columnTanka.AllowDBNull = false;

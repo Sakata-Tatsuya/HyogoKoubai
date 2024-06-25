@@ -212,8 +212,7 @@ namespace m2mKoubai.Master
             }
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                BuhinDataSet.V_Buhin_MasterRow dr =
-                    ((DataRowView)e.Row.DataItem).Row as BuhinDataSet.V_Buhin_MasterRow;
+                BuhinDataSet.V_Buhin_MasterRow dr = ((DataRowView)e.Row.DataItem).Row as BuhinDataSet.V_Buhin_MasterRow;
                 // 削除
                 HtmlInputCheckBox chk = e.Row.FindControl("ChkI") as HtmlInputCheckBox;
                 chk.Value = dr.BuhinCode;
@@ -223,7 +222,6 @@ namespace m2mKoubai.Master
                 // 主キー
                 if (nRowNo > 0) this.HidThisID.Value += ",";
                 this.HidThisID.Value += chk.Value;
-                
                 // 更新ボタン
                 HtmlInputButton btn = e.Row.FindControl("BK") as HtmlInputButton;
                 btn.Attributes["onclick"] = string.Format("Update('{0}'); return false; ", chk.Value);

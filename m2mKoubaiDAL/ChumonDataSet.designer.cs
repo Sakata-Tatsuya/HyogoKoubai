@@ -5692,7 +5692,7 @@ namespace m2mKoubaiDAL {
                 this.columnShiiresakiMei.AllowDBNull = false;
                 this.columnShiiresakiMei.MaxLength = 30;
                 this.columnBuhinKubun.AllowDBNull = false;
-                this.columnBuhinKubun.MaxLength = 2;
+                this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinCode.AllowDBNull = false;
                 this.columnBuhinCode.MaxLength = 25;
                 this.columnBuhinMei.AllowDBNull = false;

@@ -20,15 +20,15 @@
         {
             var win = window.open
             ("NounyuBashoUpForm?key="+key,"_brank","width=500px,height=200px,location=no,resizable=yes,scrollbars=yes");
-	        win.focus();
+            win.focus();
         }
-    	function Shinki()
-		{
-		    var win = window.open
+        function Shinki()
+        {
+            var win = window.open
             ("NounyuBashoUpForm","_brank","width=500px,height=200px,location=no,resizable=yes,scrollbars=yes");
-		    win.focus();
-		}
-		function Delete()
+            win.focus();
+        }
+        function Delete()
         {
             var chkIDAry = document.getElementById('HidChkID').value.split(',');
             var thisIDAry = document.getElementById('HidThisID').value.split(',');
@@ -64,7 +64,7 @@
                 chk.checked = bool;
             }
         }
-	    function OnRequestStart()
+        function OnRequestStart()
         {
             document.getElementById('Img1').style.display = '';
         }
@@ -76,17 +76,17 @@
         {
             AjaxRequest('page', pageIndex);
         }    
-	    function Kensaku()
+    function Kensaku()
         {
-	        AjaxRequest('kensaku', '');
+            AjaxRequest('kensaku', '');
         }
         function Row()
         {
-	        AjaxRequest('row', '');
+            AjaxRequest('row', '');
         }
         function Reload()
         {
-	        AjaxRequest('row', '');
+            AjaxRequest('row', '');
         }
         function KeyCodeCheck()
         {
@@ -97,7 +97,7 @@
             else
                 return false;
         }
-    
+
     </script> 
 </head>
 <body class="bg0">

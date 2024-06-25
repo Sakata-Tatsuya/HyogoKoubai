@@ -100,11 +100,11 @@ namespace m2mKoubai.Master
         private void HankakuChk()
         {
             this.TbxID.Attributes["onfocusout"] =
-               string.Format("HankakuChk('{0}','{1}');", TbxPass.ClientID, "ログインID");
+               string.Format("HankakuChk('{0}','{1}');", TbxID.ClientID, "ログインID");
             this.TbxPass.Attributes["onfocusout"] =
                string.Format("HankakuChk('{0}','{1}');", TbxPass.ClientID, "パスワード");
             this.TbxMail.Attributes["onfocusout"] =
-               string.Format("HankakuChk('{0}','{1}');", TbxPass.ClientID, "E-Mail");
+               string.Format("HankakuChk('{0}','{1}');", TbxMail.ClientID, "E-Mail");
 
         }
 
@@ -135,7 +135,6 @@ namespace m2mKoubai.Master
             TbxYakushoku.Text = dr.Yakushoku;
             //　パスワード
             TbxPass.Text = dr.Password;
-            
             //　担当者コード
             TbxTCode.Text = dr.TantoushaCode;
             //　担当者名
@@ -150,9 +149,6 @@ namespace m2mKoubai.Master
 
             // 事業所区分
             DdlJigyoushoKubun.SelectedValue = dr.JigyoushoKubun.ToString();
-
-
-
             this.ShinkiTouroku(false);
             this.ShowTblMain(true);
         }
@@ -172,14 +168,22 @@ namespace m2mKoubai.Master
         // 登録、更新表示
         private void ShinkiTouroku(bool b)
         {
-            // 新規登録  
-            if (!b)
+            // 新規登録
+            if (b)
+            {
+                if (TbxTCode.Text.Length == 0)
+                {
+                    int NextCode = LoginClass.GetMaxTantoushaCode(1, Global.GetConnection());
+                    if (NextCode > 0) { TbxTCode.Text = (NextCode + 1).ToString(); }
+                }
+            }
+            else
             {
                 TbxID.Visible = b;
             }
-            // 登録            
+            // 登録
             BtnT.Visible = b;
-            // 更新            
+            // 更新
             BtnK.Visible = !b;
         }
 
@@ -190,13 +194,13 @@ namespace m2mKoubai.Master
 
             if (bSinki)
             {
-                // 新規時                
+                // 新規時
                 // ログインID
                 dr.LoginID = TbxID.Text;
             }
             else
             {
-                // 更新時              
+                // 更新時
                 // ログインID
                 dr.LoginID = LitLoginID.Text;
             }
@@ -209,7 +213,7 @@ namespace m2mKoubai.Master
             //　役職
             dr.Yakushoku = TbxYakushoku.Text;
             //　パスワード
-            dr.Password = TbxPass.Text;           
+            dr.Password = TbxPass.Text;
             //　管理者権限
             //dr.KanrishaFlg = false;
             if (this.RbtnKanrisha.Checked)
@@ -219,8 +223,8 @@ namespace m2mKoubai.Master
             else
             {
                 dr.KanrishaFlg = false;
-            }                       
-           
+            }
+ 
             //　担当者コード
             dr.TantoushaCode = TbxTCode.Text;
             //　担当者名

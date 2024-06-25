@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShiiresakiAccountForm.aspx.cs" Inherits="m2mKoubai.Master.ShiiresakiAccountForm" %>
 
 <%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
-<%--<%@ Register Src="../CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>--%>
 <%@ Register Src="../Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 <!DOCTYPE html>
 
@@ -19,18 +18,18 @@
       }
 
         function Update(key)
-        {               
+        {
            var win = window.open
             ("ShiiresakiAccountUpForm?key="+key,"_brank","width=550px,height=400px,location=no,resizable=yes,scrollbars=yes");
-	        win.focus();
+            win.focus();
         }
-    	function Shinki()
-		{
-		   var win = window.open
+        function Shinki()
+        {
+           var win = window.open
             ("ShiiresakiAccountUpForm","_brank","width=550px,height=400px,location=no,resizable=yes,scrollbars=yes");
-		    win.focus();
-		}
-		function Delete()
+            win.focus();
+        }
+        function Delete()
         {
             var chkIDAry = document.getElementById('HidChkID').value.split(',');
             var thisIDAry = document.getElementById('HidThisID').value.split(',');
@@ -66,7 +65,7 @@
                 chk.checked = bool;
             }
         }
-	    function OnRequestStart()
+        function OnRequestStart()
         {
             document.getElementById('Img1').style.display = '';
         }
@@ -78,9 +77,9 @@
         {
             AjaxRequest('page', pageIndex);
         }
-	    function Kensaku()
+        function Kensaku()
         {
-	        AjaxRequest('kensaku', '');
+            AjaxRequest('kensaku', '');
         }
         function Row()
         {
@@ -88,18 +87,16 @@
         }
         function Reload()
         {
-	        AjaxRequest('row', '');
+            AjaxRequest('row', '');
         }
-
   </script>
 </head>
 <body class="bg0">
     <form id="form1" runat="server">
     <div>
-<%--        <uc1:CtlTabMain ID="Tab" runat="server" />--%>
         <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
         <input id="BtnNew" runat="server" type="button" value="新規登録" class="mt5 bg6" />
-      
+
         <table border="1" bordercolor="#000000" class="def9 bg1 col mt5 tc" id="TblKen" runat="server" >
             <tr class="bg15 tc">
                 <td class="bg3">
@@ -112,7 +109,7 @@
                     <asp:DropDownList ID="DdlSCode" runat="server"></asp:DropDownList></td>
             </tr>
         </table>
-        
+
         <table width="100%" id="TblList" runat="server" class="def9">
             <tr>
                 <td>
@@ -207,16 +204,6 @@
             </tr>
         </table>
        
-<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
-            <Scripts>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
-                </asp:ScriptReference>
-            </Scripts>
-        </telerik:RadScriptManager>--%>
         <telerik:radajaxmanager id="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:radajaxmanager>

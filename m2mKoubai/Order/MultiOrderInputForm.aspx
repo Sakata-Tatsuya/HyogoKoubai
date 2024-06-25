@@ -2,11 +2,8 @@
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
-<%--<%@ Register Src="~/CtlTabMain.ascx" TagName="CtlTabMain" TagPrefix="uc1" %>--%>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
 
-<%--<%@ Register Assembly="RadInput.Net2" Namespace="Telerik.WebControls" TagPrefix="radI" %>--%>
-<%--<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
 
 <!DOCTYPE html>
 
@@ -31,7 +28,7 @@
         /*
         function Reload()
         {
-	        AjaxRequest('Reload', meisai);
+            AjaxRequest('Reload', meisai);
         }
         */
         function OnRequestStart() { document.getElementById('Img1').style.display = '';}
@@ -85,21 +82,6 @@
                                     <td style="padding:0 0 0 0">
                                         <asp:Button ID="BtnClear" runat="server" Text="入力内容を全てクリアする" OnClick="BtnClear_Click" />
                                     </td>
-<%--                                    <td style="padding:0 0 0 0">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    &nbsp;税率：
-                                                </td>
-                                                <td>
-                                                    <asp:DropDownList ID="DdlTax" runat="server">
-                                                        <asp:ListItem Value="8">8%</asp:ListItem>
-                                                        <asp:ListItem Selected="True" Value="10">10%</asp:ListItem>
-                                                    </asp:DropDownList>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>--%>
                                 </tr>
                             </table>
                             </td>
@@ -246,12 +228,12 @@
                                                     DateFormat ="yyyy/MM/dd" Font-Size="9pt" RangeValidation="Immediate" DisplayPromptChar="_" PromptChar=" ">
                                                    </DateInput>
                                                 </telerik:RadDatePicker>
-                                              </td>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="tc">
-                                                <asp:DropDownList ID="DdlBasho" runat="server">
-                                                </asp:DropDownList></td>
+                                                <asp:DropDownList ID="DdlBasho" runat="server"> </asp:DropDownList>
+                                            </td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
@@ -277,7 +259,8 @@
             </tr>
             <tr>
                 <td class="tc">
-                    <asp:Label ID="LblOK" runat="server" CssClass="b"></asp:Label></td>
+                    <asp:Label ID="LblOK" runat="server" CssClass="b"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td class="tc">
@@ -286,23 +269,12 @@
             </tr>
             <tr>
                 <td>
-<%--                    <radcln:radcalendar id="SC" runat="server" Skin="Web20"></radCln:radcalendar>--%>
                     <input id="HidChkID" runat="server" type="hidden" />
                     <input id="HidArgs" runat="server" type="hidden" />
                     <input id="HidNoukiID" runat="server" type="hidden" />
                 </td>
             </tr>
         </table>
-<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
-            <Scripts>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
-                </asp:ScriptReference>
-            </Scripts>
-        </telerik:RadScriptManager>--%>
         <telerik:RadAjaxManager ID="Ram"  runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>

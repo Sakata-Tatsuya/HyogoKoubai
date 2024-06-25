@@ -11,31 +11,31 @@
     {
         return document.getElementById(id);
     }
-    
+
     function OnLoad(loadFlg)
-    {    
+    {
         if (window.opener != null) 
-        {        
+        {
             if (loadFlg == 1) 
-            {            
+            {
                 window.opener.Reload();
             }
         }
-    }   
+    }
     function Touroku()
-    {       
+    {
         if (!TourokuChk(true))
-            return; 
-                       
+            return;
+
         if (confirm("登録しますか？"))
-        {            
+        {
             document.getElementById('BtnTS').click();
-        }                                           
-    }  
+        }
+    }
     function TourokuChk(bool)
-    {  
+    {
         if(bool)
-        {            
+        {
             var tbxID = document.getElementById('TbxID');
             if(tbxID.value == "")
             {
@@ -55,11 +55,11 @@
                 tbxPass.focus();
                 return;
             }
-            
+
             if(tbxPass.value.length < 8)
             {
-                alert("パスワードは8文字以上で入力して下さい");             
-                tbxPass.focus();                    
+                alert("パスワードは8文字以上で入力して下さい");
+                tbxPass.focus();
                 return false;
             }
             if(!HankakuChk('TbxPass', 'パスワード'))
@@ -67,7 +67,7 @@
                 tbxPass.focus();
                 return;
             }
-           
+
        }
        else
        {
@@ -76,8 +76,8 @@
             {
                 if(tbxPass.value.length < 8)
                 {
-                    alert("パスワードは8文字以上で入力して下さい");             
-                    tbxPass.focus();                    
+                    alert("パスワードは8文字以上で入力して下さい");
+                    tbxPass.focus();
                     return false;
                 }
                 if(!HankakuChk('TbxPass', 'パスワード'))
@@ -88,8 +88,7 @@
            
             }
        }
-                
-       
+
         var tbxCode = document.getElementById('TbxTCode');
         if(tbxCode.value == "")
         {
@@ -151,61 +150,60 @@
          if(ddl.selectedIndex == 0)
          {
          
-            alert("事業所区分を選択してください");            
+            alert("事業所区分を選択してください");
             return;
          }
         return true;
-    }        
+    }
     function Koushin()
-    {       
+    {
         if (!TourokuChk(false))
             return; 
         if (confirm("更新しますか？"))
-        {                         
+        {
             document.getElementById('BtnKS').click();
-        }                               
-    }  
+        }
+    }
     function Close() 
-    {           
-        window.close();         
-    }   
+    {
+        window.close();
+    }
     function OnRequestStart()
-    {            
+    {
         document.getElementById('Img1').style.display = '';
-    }           
+    }
     function OnResponseEnd()
-    {            
+    {
         document.getElementById('Img1').style.display = 'none';
-    }  
+    }
      function KeyCodeCheck()
-    {       
-        var kc = event.keyCode;                    
+    {
+        var kc = event.keyCode;
         if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-            kc == 46 || kc == 8 || kc == 13 || kc == 9)         
-            return true;                 
-        else          
-            return false;         
-    }    
+            kc == 46 || kc == 8 || kc == 13 || kc == 9)
+            return true;
+        else
+            return false;
+    }
     function HankakuChk(tbxId, objName)
-    {      
+    {
         var count = 0;
-        var val = document.getElementById(tbxId).value;   
-       
+        var val = document.getElementById(tbxId).value;
+
         for( var i = 0; i < val.length; i++ )
         {
             var s = val.substring(i, i + 1);
             var c = s.charCodeAt(0);
             if (c < 256 || (c >= 0xff61 && c <= 0xff9f))
-            {                           
+            {
             }
             else
-            {     
+            {
                 alert(objName + 'は半角英数字のみで入力して下さい');     
-                               
                 return false;
-            }                 
+            }
         }
-             
+
         return true; 
     }    
     function MailCheck(Mail)
@@ -224,7 +222,7 @@
         {
             return true;
         }
-    }        
+    }
     </script>
 </head>
 <body class="bg0" onload="OnLoad(<%=loadFlg%>)">
@@ -275,15 +273,15 @@
                         <tr>
                             <td class="bg4">
                                 パスワード</td>
-                            <td >
-                                <asp:TextBox ID="TbxPass" runat="server" TextMode="Password" MaxLength="20" Width="200px"></asp:TextBox></td>
+                            <td>
+                                <asp:TextBox ID="TbxPass" runat="server" MaxLength="20" Width="200px"></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
                             <td class="bg4" >
                                 E-Mail</td>
                             <td colspan="1" >
                                 <asp:TextBox ID="TbxMail" runat="server" Width="300px" MaxLength="50"></asp:TextBox></td>
-                           
                         </tr>
                         <tr>
                             <td class="bg4">

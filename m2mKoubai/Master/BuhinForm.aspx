@@ -16,17 +16,17 @@
         function AjaxRequest(command_name, arg) {
             <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
         }
-         function Update(key) {
-             var win = window.open
-                 ("BuhinUpForm.aspx?key=" + key, "_brank", "width=600px,height=500px,location=no,resizable=yes,scrollbars=yes");
-             win.focus();
-         }
-         function Shinki() {
-             var win = window.open
-                 ("BuhinUpForm.aspx", "_brank", "width=600px,height=500px,location=no,resizable=yes,scrollbars=yes");
-             win.focus();
-         }
-		function Delete()
+        function Update(key) {
+            var win = window.open
+                ("BuhinUpForm.aspx?key=" + key, "_brank", "width=600px,height=500px,location=no,resizable=yes,scrollbars=yes");
+            win.focus();
+        }
+        function Shinki() {
+            var win = window.open
+                ("BuhinUpForm.aspx", "_brank", "width=600px,height=500px,location=no,resizable=yes,scrollbars=yes");
+            win.focus();
+        }
+        function Delete()
         {
             var chkIDAry = document.getElementById('HidChkID').value.split(',');
             var thisIDAry = document.getElementById('HidThisID').value.split(',');
@@ -301,11 +301,10 @@
                                 </ItemTemplate>
                             </asp:TemplateField>--%>
                         </Columns>
-                     <HeaderStyle CssClass="bg3" />
-                         <RowStyle CssClass="bg1" />
-                         <AlternatingRowStyle CssClass="bg2" />
+                    <HeaderStyle CssClass="bg3"/>
+                         <RowStyle CssClass="bg1"/>
+                         <AlternatingRowStyle CssClass="bg2"/>
                     </asp:GridView>
-                   
                     <uc2:CtlMyPager ID="Pb" runat="server" />
                 </td>
             </tr>
@@ -327,7 +326,7 @@
             </Scripts>
         </telerik:RadScriptManager>--%>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
-        <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
+            <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:RadAjaxManager>
          
     </form>

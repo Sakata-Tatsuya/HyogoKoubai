@@ -280,6 +280,10 @@ namespace m2mKoubai.Order
                     {
                         RcbBuhinKubun.SelectedValue = drM.BuhinKubun;
                         RcbBuhinKubun.Text = drM.BuhinKubun;
+                        if (TbxTanka.Text == string.Empty && drM.Tanka > 0)
+                        {
+                            TbxTanka.Text = mi.strTanka = drM.Tanka.ToString("#,###");
+                        }
                         LblLot.Text = drM.Lot.ToString("#,###");
                         LblTani.Text = drM.Tani;
                         if (drM.LT_Suuji > 0)

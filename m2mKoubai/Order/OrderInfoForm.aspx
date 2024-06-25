@@ -25,14 +25,13 @@
         }
         function showpdf() {
             var fileid = document.getElementById('HidFileID').value;
-            console.log(fileid);
             if (0 < fileid.length) {
                 document.getElementById('HidFileID').value = '';
                 var url = "/Common/FileView.aspx?FileKey=" + fileid;
                 var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
                 win.focus();
             }
-        }   
+        }
         function Reload() {
             AjaxRequest('reload', '');
         }
@@ -120,7 +119,6 @@
                         alert('error');
                         return;
                     }
-
                     for (var i = 0; i < cn_array.length; i++) {
                         var index = GetIndex(cn_array[i]);
                         g.rows[index + 1].cells[<%=cell_index %>].innerHTML = div.children[i].innerHTML;
@@ -133,19 +131,19 @@
                     var cell_index = <%=cell_index %>;
                     var cn_array = param.split("\t");
                     var hid_current_array = document.getElementById('TbxHenkouNouki').value.split("\t");
-                 
+
                     if(hid_current_array.length != cn_array.length)
                     {
                         alert('error');
                         return;
                     }
-                   
+
                     for(var i = 0; i < cn_array.length; i++)
                     {
                         var index = GetIndex(cn_array[i]);
                         g.rows[index + 1].cells[<%=cell_index %>].innerHTML = hid_current_array[i];
                     }
-                   
+
                     break;
                 case "nyuryoku_add_row":
                 case "nyuryoku_del_row":
@@ -268,7 +266,6 @@
 
                     if ('' == n && '' == s) continue;
 
-                    // 追加部分 
                     if ('' == n) {
                         alert("納期を入力してください");
                         return;
@@ -315,7 +312,6 @@
                     t.value = "";
                     continue;
                 }
-
                 dSum += parseFloat(t.value);
             }
 
@@ -368,7 +364,6 @@
             }
             document.getElementById('HidHenkouNoukiArg').value = str;
             AjaxRequest('nyuryoku_del_row', cn);
-
         }
 
         function NKC_OPEN() {
@@ -380,7 +375,6 @@
             var cn_array_not_open = [];
             for (var i = 0; i < a.length; i++) {
                 var data_array = a[i].split('\t');
-
                 var nk = document.getElementById(data_array[1]);
                 if (null == nk)
                     cn_array_not_open.push(data_array[0]);
@@ -416,16 +410,6 @@
 </head>
 <body bottommargin="0" leftmargin="4" topmargin="0" rightmargin="4">
     <form id="form1" runat="server">
-    <%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
-            <Scripts>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
-                </asp:ScriptReference>
-            </Scripts>
-        </telerik:RadScriptManager>--%>
 <%--    <uc1:CtlTabMain ID="Tab" runat="server" />--%>
     <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
     <table border="1" bordercolor="#000000" class="col def9 mt5 bg1">

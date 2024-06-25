@@ -49,7 +49,7 @@
                 tbxCode.focus();
                 return;
             }
-      }
+        }
         var tbxName = document.getElementById('TbxName');
         if(tbxName.value == "")
         {
@@ -69,28 +69,28 @@
         }
     }
     function Close() 
-    {           
-        window.close();         
-    }   
+    {
+        window.close();
+    }
     function OnRequestStart()
-    {            
+    {
         document.getElementById('Img1').style.display = '';
-    }           
+    }
     function OnResponseEnd()
-    {            
+    {
         document.getElementById('Img1').style.display = 'none';
-    }  
+    }
      function KeyCodeCheck()
-    {       
-        var kc = event.keyCode;                    
+    {
+        var kc = event.keyCode;
         if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-            kc == 46 || kc == 8 || kc == 13 || kc == 9)         
-            return true;                 
-        else          
-            return false;         
-    }    
+            kc == 46 || kc == 8 || kc == 13 || kc == 9)
+            return true;
+        else
+            return false;
+    }
      function HankakuChk(tbxId, objName)
-        {      
+        {
             var count = 0;
             var val = tbxId.value;
             for( var i = 0; i < val.length; i++ )
@@ -102,7 +102,7 @@
                 }
                 else
                 {
-                    alert(objName + 'は半角英数字のみで入力して下さい');     
+                    alert(objName + 'は半角英数字のみで入力して下さい');
                     return false;
                 }
             }

@@ -21,15 +21,15 @@
         {
             var win = window.open
             ("TantoushaAccountUpForm?key="+key,"_brank","width=600px,height=380px,location=no,resizable=yes,scrollbars=yes");
-	        win.focus();
+            win.focus();
         }
-    	function Shinki()
-		{
-		    var win = window.open
+        function Shinki()
+        {
+            var win = window.open
             ("TantoushaAccountUpForm","_brank","width=600px,height=380px,location=no,resizable=yes,scrollbars=yes");
-		    win.focus();
-		}
-		function Delete()
+            win.focus();
+        }
+        function Delete()
         {
             var chkIDAry = document.getElementById('HidChkID').value.split(',');
             var thisIDAry = document.getElementById('HidThisID').value.split(',');
@@ -65,7 +65,7 @@
                 chk.checked = bool;
             }
         }
-	    function OnRequestStart()
+        function OnRequestStart()
         {
             document.getElementById('Img1').style.display = '';
         }
@@ -77,19 +77,19 @@
         {
             AjaxRequest('page', pageIndex);
         }
-	    function Kensaku()
+        function Kensaku()
         {
-	        AjaxRequest('kensaku', '');
+            AjaxRequest('kensaku', '');
         }
         function Row()
         {
-	        AjaxRequest('row', '');
+            AjaxRequest('row', '');
         }
         function Reload()
         {
-	        AjaxRequest('row', '');
+            AjaxRequest('row', '');
         }
-    
+
        </script> 
 </head>
 <body class="bg0">
@@ -98,7 +98,7 @@
 <%--        <uc1:CtlTabMain ID="Tab" runat="server" />--%>
         <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
         <input id="BtnNew" runat="server" class="mt5 bg6" type="button" value="新規登録" /><br />
-      
+
         <table border="1" bordercolor="#000000" class="def9 bg1 col mt5 tc">
             <tr class="bg15 tc">
                 <td style="height: 15px" class="bg3">

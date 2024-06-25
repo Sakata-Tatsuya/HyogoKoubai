@@ -6,112 +6,111 @@
 <head>
     <title>会社情報登録</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript">
-  function $(id)
-  {
-      return document.getElementById(id);
-  }
-  
-  function OnLoad(loadFlg)
-  {
-      if (window.opener != null)
-      {
-          if (loadFlg == 1)
-          {
-              window.opener.Reload();
-          }
-      }
-  }
-  function Touroku()
-  {     
-      if (!TourokuChk(true))
-          return;         
-      
-      if (confirm("登録しますか？"))
-      {
-          document.getElementById('BtnTS').click();
-      }
-  }  
-  function TourokuChk(bool)
-  {
-      if (bool)
-      {     
-         /*
-          var TbxKaishaMei = document.getElementById('TbxKaishaMei');
-          if (TbxKaishaMei.value == "")
-          {
-              alert("会社名を入力してください");
-              TbxKaishaMei.focus();
-              return;
-          }
-          */
-           var TbxKaishaID = document.getElementById('TbxKaishaID');
-          if (TbxKaishaID.value == "")
-          {
-              alert("事業所コードを入力してください");
-              TbxKaishaID.focus();
-              return;
-          }
-           if (TbxKaishaID.value == "0")
-          {
-              alert("事業所コードは0以上で入力して下さい");
-              TbxKaishaID.focus();
-              return;
-          }
-          var TbxEigyousho = document.getElementById('TbxEigyousho');
-          if (TbxEigyousho.value == "")
-          {
-              alert("事業所名を入力してください")
-              TbxEigyousho.focus();
-              return;
-          }
-          var TbxJyusho = document.getElementById('TbxJyusho');
-          if (TbxJyusho.value == "")
-          {
-              alert("住所を入力してください");
-              TbxJyusho.focus();
-              return;
-          }
-          var TbxYubin = document.getElementById('TbxYubin');
-          if (TbxYubin.value == "")
-          {
-              alert("郵便番号を入力してください")
-              TbxYubin.focus();
-              return;
-          }
-          var TbxTel = document.getElementById('TbxTel');
-          if (TbxTel.value == "")
-          {
-              alert("電話番号を入力してください")
-              TbxTel.focus();
-              return;
-          }
-      }
-      return true;           
-  }
-  function Koushin()
-  {
-      if (!TourokuChk(false))
-          return;
-      if (confirm("更新しますか？"));
-      {
-          document.getElementById('BtnKS').click();
-      }
-  }
-  function KeyCodeCheck()
-  {       
-      var kc = event.keyCode;
-      if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) || 
-          kc == 46 || kc == 8 || kc == 13 || kc == 9)
-          return true;
-      else
-          return false;
-  }
-  function Close()
-  {
-      window.close();
-  }
-  </script>
+    <script type="text/javascript">
+        function $(id)
+        {
+            return document.getElementById(id);
+        }
+
+        function OnLoad(loadFlg)
+        {
+            if (window.opener != null)
+            {
+                if (loadFlg == 1)
+                {
+                    window.opener.Reload();
+                }
+            }
+        }
+        function Touroku()
+        {
+            if (!TourokuChk(true))
+                return;
+            if (confirm("登録しますか？"))
+            {
+                document.getElementById('BtnTS').click();
+            }
+        }
+        function TourokuChk(bool)
+        {
+            if (bool)
+            {
+               /*
+                var TbxKaishaMei = document.getElementById('TbxKaishaMei');
+                if (TbxKaishaMei.value == "")
+                {
+                    alert("会社名を入力してください");
+                    TbxKaishaMei.focus();
+                    return;
+                }
+                */
+                 var TbxKaishaID = document.getElementById('TbxKaishaID');
+                if (TbxKaishaID.value == "")
+                {
+                    alert("事業所コードを入力してください");
+                    TbxKaishaID.focus();
+                    return;
+                }
+                if (TbxKaishaID.value == "0")
+                {
+                    alert("事業所コードは0以上で入力して下さい");
+                    TbxKaishaID.focus();
+                    return;
+                }
+                var TbxEigyousho = document.getElementById('TbxEigyousho');
+                if (TbxEigyousho.value == "")
+                {
+                    alert("事業所名を入力してください")
+                    TbxEigyousho.focus();
+                    return;
+                }
+                var TbxJyusho = document.getElementById('TbxJyusho');
+                if (TbxJyusho.value == "")
+                {
+                    alert("住所を入力してください");
+                    TbxJyusho.focus();
+                    return;
+                }
+                var TbxYubin = document.getElementById('TbxYubin');
+                if (TbxYubin.value == "")
+                {
+                    alert("郵便番号を入力してください")
+                    TbxYubin.focus();
+                    return;
+                }
+                var TbxTel = document.getElementById('TbxTel');
+                if (TbxTel.value == "")
+                {
+                    alert("電話番号を入力してください")
+                    TbxTel.focus();
+                    return;
+                }
+            }
+            return true;
+
+        function Koushin()
+        {
+            if (!TourokuChk(false))
+                return;
+            if (confirm("更新しますか？"));
+            {
+                document.getElementById('BtnKS').click();
+            }
+        }
+        function KeyCodeCheck()
+        {
+            var kc = event.keyCode;
+            if((kc >= 37 && kc <= 40) || (kc >= 48 && kc <= 57) || (kc >= 96 && kc <= 105) ||
+                kc == 46 || kc == 8 || kc == 13 || kc == 9)
+                return true;
+            else
+                return false;
+        }
+        function Close()
+        {
+            window.close();
+        }
+    </script>
 </head>
 <body class="bg0" onload="OnLoad(<%=loadFlg%>)">
     <form runat="server">

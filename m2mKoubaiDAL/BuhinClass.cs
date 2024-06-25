@@ -96,8 +96,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static BuhinDataSet.V_Buhin_MasterDataTable 
-            getV_Buhin_MasterDataTable(KensakuParam k, SqlConnection sqlConn)
+        public static BuhinDataSet.V_Buhin_MasterDataTable getV_Buhin_MasterDataTable(KensakuParam k, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =

@@ -62,9 +62,9 @@
 	                alert('単価の小数部は2桁以内で入力して下さい');
 	                return false;
 	            }
-		        return true;
-		    }
-	    }
+	            return true;
+	        }
+        }
         function DelChk(bool)
         {
             var idAry = document.getElementById('HidChkID').value.split(',');
@@ -77,7 +77,7 @@
         /*
         function Reload()
         {
-	        AjaxRequest('Reload', meisai);
+            AjaxRequest('Reload', meisai);
         }
         */
 
@@ -87,16 +87,6 @@
 </head>
 <body class="bg0">
     <form id="form1" runat="server">
-<%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
-            <Scripts>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
-                </asp:ScriptReference>
-                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
-                </asp:ScriptReference>
-            </Scripts>
-        </telerik:RadScriptManager>--%>
 <%--    <uc1:CtlTabMain ID="Tab" runat="server" />--%>
     <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
     <table id="TblMain" runat="server" width="100%" class="def9">
@@ -127,21 +117,6 @@
                                     <td style="padding:0 0 0 0">
                                         <asp:Button ID="BtnClear" runat="server" Text="入力内容を全てクリアする" OnClick="BtnClear_Click" />
                                     </td>
-<%--                                    <td style="padding:0 0 0 0">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    &nbsp;税率：
-                                                </td>
-                                                <td>
-                                                    <asp:DropDownList ID="DdlTax" runat="server">
-                                                        <asp:ListItem Value="8">8%</asp:ListItem>
-                                                        <asp:ListItem Selected="True" Value="10">10%</asp:ListItem>
-                                                    </asp:DropDownList>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>--%>
                                 </tr>
                             </table>
                         </td>

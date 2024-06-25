@@ -15,21 +15,21 @@ namespace m2mKoubaiDAL
         /// <param name="sqlConn"></param>
         /// <returns></returns> 
         public static int GetMaxHacchuuNo(SqlConnection sqlConn)
-        {            
+        {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-                "SELECT MAX(HacchuuNo) as HacchuuNo FROM T_Chumon WHERE Year = @Year ";     
+                "SELECT MAX(HacchuuNo) as HacchuuNo FROM T_Chumon WHERE Year = @Year ";
             da.SelectCommand.Parameters.AddWithValue("@Year", DateTime.Now.ToString("yy"));
             //da.SelectCommand.Parameters.AddWithValue("@Kubun", nKubun);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            DataTable dt = ds.Tables[0];            
+            DataTable dt = ds.Tables[0];
             if (dt.Rows[0].IsNull("HacchuuNo"))
             {
                 return 0;
             }
             else
-            {                
+            {
                 return (int.Parse(dt.Rows[0]["HacchuuNo"].ToString()));
             }
         }

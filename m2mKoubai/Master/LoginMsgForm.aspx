@@ -22,15 +22,15 @@
         {
             var win = window.open
             ("LoginMsgUpForm?MsgID="+key,"_brank","width=550px,height=300px,location=no,resizable=yes,scrollbars=yes");
-	        win.focus();
+            win.focus();
         }
-    	function Shinki()
-		{
-		    var win = window.open
+        function Shinki()
+        {
+            var win = window.open
             ("LoginMsgUpForm","_brank","width=550px,height=300px,location=no,resizable=yes,scrollbars=yes");
-		    win.focus();
-		}
-		function Delete()
+            win.focus();
+        }
+        function Delete()
         {
             var chkIDAry = document.getElementById('HidChkID').value.split(',');
             var thisIDAry = document.getElementById('HidThisID').value.split(',');
@@ -66,7 +66,7 @@
                 chk.checked = bool;
             }
         }
-	    function OnRequestStart()
+        function OnRequestStart()
         {
             document.getElementById('Img1').style.display = '';
         }
@@ -78,17 +78,17 @@
         {
             AjaxRequest('page', pageIndex);
         }
-	    function Kensaku()
+        function Kensaku()
         {
             AjaxRequest('kensaku', '');
         }
         function Row()
         {
-	        AjaxRequest('row', '');
+            AjaxRequest('row', '');
         }
         function Reload()
         {
-	        AjaxRequest('row', '');
+            AjaxRequest('row', '');
         }
      </script> 
 </head>

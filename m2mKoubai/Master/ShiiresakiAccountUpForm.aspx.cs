@@ -23,7 +23,6 @@ namespace m2mKoubai.Master
 
         protected int loadFlg = 0;  // 表示元window_reload用
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -39,7 +38,6 @@ namespace m2mKoubai.Master
                 {
                     // 新規
                     this.Shinki();
-                    
                 }
                 else
                 {
@@ -97,11 +95,11 @@ namespace m2mKoubai.Master
         private void HankakuChk()
         {
             this.TbxID.Attributes["onfocusout"] =
-               string.Format("HankakuChk('{0}','{1}');", TbxPass.ClientID, "ログインID");
+               string.Format("HankakuChk('{0}','{1}');", TbxID.ClientID, "ログインID");
             this.TbxPass.Attributes["onfocusout"] =
                string.Format("HankakuChk('{0}','{1}');", TbxPass.ClientID, "パスワード");
             this.TbxMail.Attributes["onfocusout"] =
-               string.Format("HankakuChk('{0}','{1}');", TbxPass.ClientID, "E-Mail");
+               string.Format("HankakuChk('{0}','{1}');", TbxMail.ClientID, "E-Mail");
  
         }
 
@@ -116,8 +114,7 @@ namespace m2mKoubai.Master
         {
             // 会社リスト作成
             ListSet.SetDdlShiiresaki(this.DdlShiire);
-            m2mKoubaiDataSet.M_LoginRow dr =
-                LoginClass.getM_LoginRow(VsLoginID, Global.GetConnection());
+            m2mKoubaiDataSet.M_LoginRow dr = LoginClass.getM_LoginRow(VsLoginID, Global.GetConnection());
             if (dr == null)
             {
                 this.ShowTblMain(false);
@@ -126,7 +123,6 @@ namespace m2mKoubai.Master
             }
             // ログインID
             LitLoginID.Text = dr.LoginID ;
-
             //　会社リスト
             DdlShiire.SelectedValue = dr.KaishaCode;
             //  部署
@@ -143,7 +139,7 @@ namespace m2mKoubai.Master
             TbxTName.Text = dr.Name;
             // メールアドレス
             TbxMail.Text = dr.Mail;
-            
+
             this.ShinkiTouroku(false);
             this.ShowTblMain(true);
         }
@@ -163,19 +159,24 @@ namespace m2mKoubai.Master
         // 登録、更新表示
         private void ShinkiTouroku(bool b)
         {
-            // 新規登録  
+            // 新規登録
             if (b)
             {
                 // 会社リスト作成
                 ListSet.SetDdlShiiresaki(this.DdlShiire);
+                if (TbxTCode.Text.Length == 0)
+                {
+                    int NextCode = LoginClass.GetMaxTantoushaCode(2, Global.GetConnection());
+                    if (NextCode > 0) { TbxTCode.Text = (NextCode + 1).ToString(); }
+                }
             }
             else
             {
                 TbxID.Visible = b;
             }
-            // 登録            
+            // 登録
             BtnT.Visible = b;
-            // 更新            
+            // 更新
             BtnK.Visible = !b;
         }
 
@@ -186,13 +187,13 @@ namespace m2mKoubai.Master
 
             if (bSinki)
             {
-                // 新規時                
+                // 新規時
                 // ログインID
                 dr.LoginID = TbxID.Text;
             }
             else
             {
-                // 更新時              
+                // 更新時
                 // ログインID
                 dr.LoginID = LitLoginID.Text;
             }
@@ -205,10 +206,7 @@ namespace m2mKoubai.Master
             //　役職
             dr.Yakushoku = TbxYakushoku.Text;
             //　パスワード
-            //if (TbxPass.Text != "")
-            //{
-                dr.Password = TbxPass.Text;
-            //}
+            dr.Password = TbxPass.Text;
             //　管理者区分
             dr.KanrishaFlg = false;
             //　担当者コード
@@ -219,7 +217,7 @@ namespace m2mKoubai.Master
             dr.Mail = TbxMail.Text;
             // 事業所区分
             dr.JigyoushoKubun = 0;
-            
+
             return dr;
         }
         // 新規登録重複チェック
@@ -257,7 +255,6 @@ namespace m2mKoubai.Master
             loadFlg = 1;
         }
 
-
         // 更新ボタンクリック
         protected void BtnKS_Click(object sender, EventArgs e)
         {
@@ -276,7 +273,7 @@ namespace m2mKoubai.Master
             loadFlg = 1;
         }
 
-      
-    
+
+
     }
 }

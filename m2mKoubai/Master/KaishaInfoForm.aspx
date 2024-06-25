@@ -25,74 +25,73 @@
             ("KaishaInfoUpForm","_brank","width=550px,height=350px,location=no,resizable=yes,scrollbars=yes");
             win.focus();
         }
-     function Update(key)
-     {
-        var win = window.open
-        ("KaishaInfoUpForm?key="+key,"_brank","width=550px,height=350px,location=no,resizable=yes,scrollbars=yes");
-        win.focus();
-     }
-     function Delete()
-     {
-         var chkIDAry = document.getElementById('HidChkID').value.split(',');
-         var thisIDAry = document.getElementById('HidThisID').value.split(',');
-        var hidDelKey = '';
-        for (var i = 0; i < chkIDAry.length; i++)
+        function Update(key)
         {
-            var chk = document.getElementById(chkIDAry[i]);
-            if (chk.checked)
+            var win = window.open
+            ("KaishaInfoUpForm?key="+key,"_brank","width=550px,height=350px,location=no,resizable=yes,scrollbars=yes");
+            win.focus();
+        }
+        function Delete()
+        {
+            var chkIDAry = document.getElementById('HidChkID').value.split(',');
+            var thisIDAry = document.getElementById('HidThisID').value.split(',');
+            var hidDelKey = '';
+            for (var i = 0; i < chkIDAry.length; i++)
             {
-                if (hidDelKey != "") hidDelKey += ",";
-                hidDelKey += thisIDAry[i];
+                var chk = document.getElementById(chkIDAry[i]);
+                if (chk.checked)
+                {
+                    if (hidDelKey != "") hidDelKey += ",";
+                    hidDelKey += thisIDAry[i];
+                }
+            }
+            if (hidDelKey == "")
+            {
+                alert("チェックを入れてください");
+                return false;
+            }
+            if (confirm("削除しますか？"))
+            {
+                if (confirm("本当に削除しますか？"))
+                {
+                    AjaxRequest('delete', hidDelKey);
+                }
             }
         }
-        
-        if (hidDelKey == "")
+        function DelChk(bool)
         {
-            alert("チェックを入れてください");
-            return false;
-        }
-        if (confirm("削除しますか？"))
-        {
-            if (confirm("本当に削除しますか？"))
+            var idAry = document.getElementById('HidChkID').value.split(',');
+            for (var i = 0; i < idAry.length; i++)
             {
-                AjaxRequest('delete', hidDelKey);
+                var chk = document.getElementById(idAry[i]);
+                chk.checked = bool;
             }
         }
-     }
-     function DelChk(bool)
-     {
-         var idAry = document.getElementById('HidChkID').value.split(',');
-        for (var i = 0; i < idAry.length; i++)
+        function OnRequestStart()
         {
-            var chk = document.getElementById(idAry[i]);
-            chk.checked = bool;
+            document.getElementById('Img1').style.display = '';
         }
-     }
-     function OnRequestStart()
-     {
-         document.getElementById('Img1').style.display = '';
-     }
-     function OnResponseEnd()
-     {
-         document.getElementById('Img1').style.display = 'none';
-     }
-     function PageChange(pageIndex)
-     {
-        AjaxRequest('page', pageIndex);
-     }
-	 function Kensaku()
-	 {
-	    AjaxRequest('kensaku', '');
-	 }
-	 function Row()
-	 {
-	    AjaxRequest('row', '');
-	 }
-	 function Reload()
-	 {
-	    AjaxRequest('row', '');
-	 }
-    </script>    
+        function OnResponseEnd()
+        {
+            document.getElementById('Img1').style.display = 'none';
+        }
+        function PageChange(pageIndex)
+        {
+            AjaxRequest('page', pageIndex);
+        }
+        function Kensaku()
+        {
+            AjaxRequest('kensaku', '');
+        }
+        function Row()
+        {
+            AjaxRequest('row', '');
+        }
+        function Reload()
+        {
+            AjaxRequest('row', '');
+        }
+    </script>
 </head>
 <body class="bg0">
     <form id="Form1" runat="server">    
@@ -100,13 +99,13 @@
         <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
         <input id="BtnNew" runat="server" type="button" value="新規登録" class="mt5 bg6" />       
         <table border="1" bordercolor="#000000"  id="TblKen" class="def9 bg1 col mt5 tc" runat="server">
-            <tr>               
+            <tr>
                    <td class="bg3" style="width: 152px">
                     事業所</td>
                 <td rowspan="2">
                     <input id="BtnKen" runat="server" class="w60 bg6" type="button" value="検索" /></td>
             </tr>
-            <tr>                
+            <tr>
                 <td>
                     <asp:DropDownList ID="DdlJCode" runat="server" Width="148px"></asp:DropDownList></td>
             </tr>
@@ -179,7 +178,7 @@
                             </asp:TemplateField>
                             <asp:BoundField HeaderText="事業所コード" > 
                                 <ItemStyle CssClass="tc" />             
-                                </asp:BoundField>
+                            </asp:BoundField>
                             <asp:BoundField HeaderText="事業所名">
                             </asp:BoundField>
                             <asp:BoundField HeaderText="住所">

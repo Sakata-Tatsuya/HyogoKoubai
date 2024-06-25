@@ -4,7 +4,7 @@
     <tr>
         <td nowrap="nowrap" >
             <asp:GridView  ID="G" runat="server" AutoGenerateColumns="False" BackColor="White" 
-            CssClass="def tl@"  ShowFooter="True" OnRowDataBound="G_RowDataBound" Width="180px">
+            CssClass="def tl"  ShowFooter="True" OnRowDataBound="G_RowDataBound" Width="180px">
                   <Columns>
                     <asp:TemplateField HeaderText="”[Šú">
                         <ItemTemplate>
@@ -34,7 +34,7 @@
             </asp:GridView>
         </td>
     </tr>
-    <tr  >
+    <tr>
         <td  nowrap="nowrap">
             <asp:Button ID="BtnTouroku" runat="server" Text="“o˜^" Font-Size="8pt" />
             <asp:Button ID="BtnClose" runat="server" Text="•Â‚¶‚é" Font-Size="8pt" />

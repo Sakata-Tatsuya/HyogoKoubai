@@ -7,8 +7,8 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="False" ViewPortX="-10" ViewPortY="-10" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:V_Hacchu" ZOrder="2" X="423" Y="111" Height="367" Width="189" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="299" />
-    <Shape ID="DesignTable:V_HacchuBind" ZOrder="3" X="243" Y="108" Height="296" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="292" />
     <Shape ID="DesignTable:V_Hacchu2" ZOrder="1" X="700" Y="127" Height="305" Width="203" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:V_HacchuBind" ZOrder="3" X="243" Y="108" Height="296" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="292" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

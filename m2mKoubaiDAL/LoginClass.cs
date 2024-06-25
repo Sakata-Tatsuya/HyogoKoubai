@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using m2mKoubaiDAL;
+using System.Data;
 
 namespace m2mKoubaiDAL
 {
@@ -274,20 +275,19 @@ namespace m2mKoubaiDAL
             return dt;
         }
 
-        public static LoginDataSet.V_ShiiresakiAccountDataTable
-           getV_ShiiresakiAccountDataTable(byte bUserKubun, SqlConnection sqlConn)
+        public static LoginDataSet.V_ShiiresakiAccountDataTable getV_ShiiresakiAccountDataTable(byte bUserKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT          M_Login.LoginID, M_Login.UserKubun, "
+            "SELECT  M_Login.LoginID, M_Login.UserKubun, "
             + "M_Login.KaishaCode AS ShiiresakiCode, M_Login.Busho, "
             + "M_Login.Yakushoku, M_Login.Password, M_Login.KanrishaFlg, "
             + "M_Login.TantoushaCode, M_Login.Name, M_Login.Mail, "
             + "M_Shiiresaki.ShiiresakiMei "
-            + "FROM                     dbo.M_Login INNER JOIN "
-            + "M_Shiiresaki ON "
+            + "FROM dbo.M_Login "
+            + "INNER JOIN M_Shiiresaki ON "
             + "M_Login.KaishaCode = M_Shiiresaki.ShiiresakiCode "
-            + "WHERE                   (M_Login.UserKubun = @UserKubun) ";
+            + "WHERE (M_Login.UserKubun = @UserKubun) ";
 
             da.SelectCommand.Parameters.AddWithValue("@UserKubun", bUserKubun);
             LoginDataSet.V_ShiiresakiAccountDataTable dt = new LoginDataSet.V_ShiiresakiAccountDataTable();
@@ -307,6 +307,26 @@ namespace m2mKoubaiDAL
                 return null;
         }
 
+        public static int GetMaxTantoushaCode(int iUserKubun, SqlConnection sqlConn)
+        {
+            int MaxCode = 0;
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText =
+                "SELECT MAX(TantoushaCode) as TantoushaCode FROM M_Login WHERE UserKubun = @UserKubun ";
+            da.SelectCommand.Parameters.AddWithValue("@UserKubun", iUserKubun);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows[0].IsNull("TantoushaCode"))
+            {
+                return MaxCode;
+            }
+            else
+            {
+                int.TryParse(dt.Rows[0]["TantoushaCode"].ToString(), out MaxCode);
+                return MaxCode;
+            }
+        }
 
         /// <summary>
         /// édì¸êÊÇÃê›íËÇéÊìæ
