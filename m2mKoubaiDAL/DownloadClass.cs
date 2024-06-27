@@ -13,7 +13,6 @@ namespace m2mKoubaiDAL
             Kenshu = 1,
             NounyuZan = 2,
         }
-
         public static string GetTextData(EnumDataKubun dataKubun, DataTable dtSrc, bool bTab, SqlConnection sqlConn)
         {
             if (dtSrc == null)
@@ -74,8 +73,7 @@ namespace m2mKoubaiDAL
             return data.ToString();
         }
 
-        public static DownloadDataSet.T_DownloadHeaderDataTable
-            GetT_DownloadHeaderDataTable(byte dataKubun, SqlConnection sqlConn)
+        public static DownloadDataSet.T_DownloadHeaderDataTable GetT_DownloadHeaderDataTable(byte dataKubun, SqlConnection sqlConn)
         {
             string sql = "SELECT * FROM T_DownloadHeader WHERE DataKubun = @DataKubun ORDER BY FieldIndex";
             SqlDataAdapter da = new SqlDataAdapter(sql, sqlConn);

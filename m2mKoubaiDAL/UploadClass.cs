@@ -76,8 +76,6 @@ namespace m2mKoubaiDAL
 
                     dtThis.Clear();
                 }
-
-
                 sqlTran.Commit();
             }
             catch (Exception ex)

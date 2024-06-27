@@ -8,8 +8,7 @@ namespace m2mKoubaiDAL
 {
     public class NoukiHenkouClass
     {
-        public static m2mKoubaiDataSet.T_NoukiHenkouDataTable
-            getT_NoukiHenkouDataTable(SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_NoukiHenkouDataTable getT_NoukiHenkouDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_NoukiHenkou";
@@ -17,6 +16,7 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -26,8 +26,7 @@ namespace m2mKoubaiDAL
         /// <param name="HenkouNo"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.T_NoukiHenkouDataTable
-            getT_NoukiHenkouDataTable(string Year, string HacchuuNo, int nKubun, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_NoukiHenkouDataTable getT_NoukiHenkouDataTable(string Year, string HacchuuNo, int nKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_NoukiHenkou WHERE Year = @Year AND HacchuuNo = @HacchuuNo AND JigyoushoKubun = @JigyoushoKubun ";
@@ -39,11 +38,11 @@ namespace m2mKoubaiDAL
             return dt;
         }
 
-        public static m2mKoubaiDataSet.T_NoukiHenkouRow
-            newT_NoukiHenkouRow()
+        public static m2mKoubaiDataSet.T_NoukiHenkouRow newT_NoukiHenkouRow()
         {
             return new m2mKoubaiDataSet.T_NoukiHenkouDataTable().NewT_NoukiHenkouRow();
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -52,14 +51,13 @@ namespace m2mKoubaiDAL
         /// <param name="nNo"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.T_NoukiHenkouDataTable
-            getT_NoukiHenkouDataTable(string strYear, string strNo, int nKubun, int nNo, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_NoukiHenkouDataTable getT_NoukiHenkouDataTable(string strYear, string strNo, int nKubun, int nNo, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT                  T_NoukiHenkou.* "
-            + "FROM                     T_NoukiHenkou "
-            + "WHERE                   (HenkouNo = @HenkouNo) AND (Year = @Year) AND (HacchuuNo = @HacchuuNo) AND (JigyoushoKubun = @JigyoushoKubun) ";
+            "SELECT T_NoukiHenkou.* "
+            + "FROM T_NoukiHenkou "
+            + "WHERE (HenkouNo = @HenkouNo) AND (Year = @Year) AND (HacchuuNo = @HacchuuNo) AND (JigyoushoKubun = @JigyoushoKubun) ";
             da.SelectCommand.Parameters.AddWithValue("@Year", strYear);
             da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", strNo);
             da.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);
@@ -69,10 +67,8 @@ namespace m2mKoubaiDAL
             return dt;
         }
 
-        //　納期回答更新       
-        public static LibError
-            T_NoukiHenkou_Update(string year, string no, int nKubun, int nhenkouNo,
-                                string LoginID, SqlConnection sqlConn)
+        //　納期回答更新
+        public static LibError T_NoukiHenkou_Update(string year, string no, int nKubun, int nhenkouNo, string LoginID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -90,19 +86,15 @@ namespace m2mKoubaiDAL
             da.Fill(dtNew);
             try
             {
-
                 for (int i = 0; i < dtNew.Rows.Count; i++)
                 {
                     m2mKoubaiDataSet.T_NoukiHenkouRow dr = dtNew.Rows[i] as m2mKoubaiDataSet.T_NoukiHenkouRow;
-
                     dr.ShouninFlg = true;
                     dr.ShouninshaID = LoginID;
                     da.Update(dtNew);
                 }
                 da.Update(dtNew);
                 return null;
-
-
             }
             catch (Exception e)
             {
@@ -111,17 +103,14 @@ namespace m2mKoubaiDAL
         }
 
         //　納期変更登録・更新
-        public static LibError
-            T_NoukiHenkou_Update(string strYear, string strHacchuuNo, int nKubun,
-                                Hashtable NoukiHenkouDataTbl, int nHenkouNo, SqlConnection sqlConn)
+        public static LibError T_NoukiHenkou_Update(string strYear, string strHacchuuNo, int nKubun,
+                               Hashtable NoukiHenkouDataTbl, int nHenkouNo, SqlConnection sqlConn)
         {
-            //
             ArrayList aryNouki = (ArrayList)NoukiHenkouDataTbl["Nouki"];
             ArrayList arySuuryou = (ArrayList)NoukiHenkouDataTbl["Suuryou"];
             ArrayList aryKaitouNo = (ArrayList)NoukiHenkouDataTbl["HenkouNo"];
             int nRowNo = 1;
 
-           
                 SqlDataAdapter daHenkouNoukiIns = new SqlDataAdapter("", sqlConn);
                 daHenkouNoukiIns.SelectCommand.CommandText =
                     "SELECT * FROM T_NoukiHenkou";

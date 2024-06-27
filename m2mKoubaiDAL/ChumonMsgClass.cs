@@ -12,8 +12,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.T_ChumonMsgDataTable
-            getT_ChumonMsgDataTable(SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_ChumonMsgDataTable getT_ChumonMsgDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_ChumonMsg";
@@ -27,8 +26,7 @@ namespace m2mKoubaiDAL
         /// <param name="MsgID"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.T_ChumonMsgRow
-            getT_ChumonMsgRow(int MsgID, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_ChumonMsgRow getT_ChumonMsgRow(int MsgID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_ChumonMsg WHERE MsgID = @MsgID";
@@ -164,26 +162,22 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonMsgDataSet.V_Chumon_MessageDataTable
-            getV_Chumon_MessageDataTable(string strYear, string strHacchuuNo, int nKubun,  SqlConnection sqlConn)
+        public static ChumonMsgDataSet.V_Chumon_MessageDataTable getV_Chumon_MessageDataTable(string strYear, string strHacchuuNo, int nKubun,  SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-             "SELECT          M_Login.Name, M_Login_1.Name AS OpenedName, "
+             "SELECT M_Login.Name, M_Login_1.Name AS OpenedName, "
             + "T_ChumonMsg.MsgID, T_ChumonMsg.Year, "
             + "T_ChumonMsg.HacchuuNo, T_ChumonMsg.UserKubun, "
             + "T_ChumonMsg.LoginID, T_ChumonMsg.Message, "
             + "T_ChumonMsg.TourokuBi, T_ChumonMsg.KoushinBi, "
             + "T_ChumonMsg.OpenedFlg, T_ChumonMsg.OpenedUserKubun, "
             + "T_ChumonMsg.OpenedLoginID, T_ChumonMsg.OpenedDate, dbo.T_ChumonMsg.JigyoushoKubun "
-            + "FROM            M_Login INNER JOIN "
-            + "T_ChumonMsg ON "
-            + "M_Login.LoginID = T_ChumonMsg.LoginID LEFT OUTER JOIN "
-            + "M_Login AS M_Login_1 ON "
-            + "T_ChumonMsg.OpenedLoginID = M_Login_1.LoginID "
-            + "WHERE                   (T_ChumonMsg.HacchuuNo = @HacchuuNo) AND (T_ChumonMsg.Year = @Year) AND (T_ChumonMsg.JigyoushoKubun = @JigyoushoKubun) "
-            
-            + "ORDER BY           T_ChumonMsg.TourokuBi DESC ";
+            + "FROM M_Login "
+            + "INNER JOIN T_ChumonMsg ON M_Login.LoginID = T_ChumonMsg.LoginID "
+            + "LEFT OUTER JOIN M_Login AS M_Login_1 ON T_ChumonMsg.OpenedLoginID = M_Login_1.LoginID "
+            + "WHERE (T_ChumonMsg.HacchuuNo = @HacchuuNo) AND (T_ChumonMsg.Year = @Year) AND (T_ChumonMsg.JigyoushoKubun = @JigyoushoKubun) "
+            + "ORDER BY T_ChumonMsg.TourokuBi DESC ";
             da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", strHacchuuNo);            
             da.SelectCommand.Parameters.AddWithValue("@Year", strYear);
             da.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);

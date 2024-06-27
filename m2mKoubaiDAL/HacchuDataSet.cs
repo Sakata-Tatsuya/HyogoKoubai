@@ -2,7 +2,7 @@
 {
 
 
-    public partial class HacchuDataSet_M
+    public partial class HacchuDataSet
     {
         partial class V_HacchuBindDataTable
         {

@@ -7,9 +7,6 @@ namespace m2mKoubaiDAL
 {
     public class ShiiresakiClass
     {
-       
-
-
         public enum ShimeBi
         {
             MATUJITU = 0,
@@ -22,8 +19,8 @@ namespace m2mKoubaiDAL
 
         public class KensakuParam
         {
-            public string _Code = "";     // コード
-            // public string _Name = "";     //仕入先名    
+            public string _Code = "";       // コード
+            // public string _Name = "";    //仕入先名
         }
 
         public class ShiiresakiKey
@@ -45,12 +42,10 @@ namespace m2mKoubaiDAL
         private static string WhereText(KensakuParam k)
         {
             Core.Sql.WhereGenerator w = new Core.Sql.WhereGenerator();
-            //string str = "";
-
             // コード
             if (k._Code != "")
                 w.Add(string.Format("M_Shiiresaki.ShiiresakiCode = '{0}'", k._Code));
-            // 仕入先名   
+            // 仕入先名
             /* if (k._Name != "")
              {
                  w.Add(string.Format("M_Shiiresaki.ShiiresakiMei = '{0}'", k._Name));
@@ -59,8 +54,7 @@ namespace m2mKoubaiDAL
         }
 
 
-        public static m2mKoubaiDataSet.M_ShiiresakiDataTable
-            getM_ShiiresakiDataTable(SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_ShiiresakiDataTable getM_ShiiresakiDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki";
@@ -69,8 +63,7 @@ namespace m2mKoubaiDAL
             return dt;
         }
 
-        public static m2mKoubaiDataSet.M_ShiiresakiDataTable
-           getM_ShiiresakiDataTable(KensakuParam k, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_ShiiresakiDataTable getM_ShiiresakiDataTable(KensakuParam k, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki ";
@@ -103,6 +96,7 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+
         public static void getM_ShiiresakiDataTable(string strText, bool bFirstMatch, int nStartIndex, int nCount,
             SqlConnection sqlConn, out ShiiresakiDataSet.M_ShiiresakiDataTable dt, ref int nTotal)
         {
@@ -128,9 +122,7 @@ namespace m2mKoubaiDAL
             info.LoadData(cmd, sqlConn, dt, ref nTotal);
         }
 
-
-        public static m2mKoubaiDataSet.M_ShiiresakiRow
-           GetV_SHiiresakiRow(string ShiiresakiCode, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_ShiiresakiRow GetV_SHiiresakiRow(string ShiiresakiCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -145,14 +137,12 @@ namespace m2mKoubaiDAL
                 return null;
         }
 
-        public static m2mKoubaiDataSet.M_ShiiresakiRow
-            newM_ShiiresakiRow()
+        public static m2mKoubaiDataSet.M_ShiiresakiRow newM_ShiiresakiRow()
         {
             return new m2mKoubaiDataSet.M_ShiiresakiDataTable().NewM_ShiiresakiRow();
         }
 
-        public static LibError
-            M_Shiiresaki_Delete(string ShiiresakiCode, SqlConnection sqlConn)
+        public static LibError M_Shiiresaki_Delete(string ShiiresakiCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Shiiresaki WHERE ShiiresakiCode = @ShiiresakiCode";
@@ -222,7 +212,6 @@ namespace m2mKoubaiDAL
             {
                 return new LibError("エラー");
             }
-
         }
 
         public static LibError M_Shiiresaki_Update(string ShiiresakiCode, m2mKoubaiDataSet.M_ShiiresakiRow dr, SqlConnection sqlConn)

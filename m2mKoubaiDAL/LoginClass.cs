@@ -11,16 +11,14 @@ namespace m2mKoubaiDAL
     {
         public class KensakuParam
         {
-            public string _Code = "";     // コード
-            public int _JigyoushoKubun = 0;     // 事業所区分    
+            public string _Code = "";       // コード
+            public int _JigyoushoKubun = 0; // 事業所区分
         }
 
         // 検索条件
         private static string WhereText(KensakuParam k)
         {
             Core.Sql.WhereGenerator w = new Core.Sql.WhereGenerator();
-            //string str = "";
-
             // コード
             if (k._Code != "")
                 w.Add(string.Format("M_Login.TantoushaCode = '{0}'", k._Code));
@@ -36,8 +34,7 @@ namespace m2mKoubaiDAL
         /// <param name="LoginID"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_LoginRow
-            getM_LoginRow(string LoginID, string Pass, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_LoginRow getM_LoginRow(string LoginID, string Pass, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE LoginID = @LoginID AND Password =@Pass";
@@ -58,8 +55,7 @@ namespace m2mKoubaiDAL
         /// <param name="strNewPass"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            M_Login_Update_Password(string strID, string strNewPass, SqlConnection sqlConn)
+        public static LibError M_Login_Update_Password(string strID, string strNewPass, SqlConnection sqlConn)
         {
             SqlCommand cmdUp = new SqlCommand("", sqlConn);
             cmdUp.CommandText =
@@ -91,8 +87,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_LoginDataTable
-            getM_Login_ShanaiDataTable(KensakuParam k, byte bkubun, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_LoginDataTable getM_Login_ShanaiDataTable(KensakuParam k, byte bkubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE UserKubun = @kubun ";
@@ -114,8 +109,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_LoginDataTable
-            getM_LoginDataTable(byte bKubun, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_LoginDataTable getM_LoginDataTable(byte bKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE UserKubun = @UserKubun ";
@@ -130,8 +124,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="LoginID"></param>
         /// <param name="sqlConn"></param>
-        public static LibError
-            M_Login_Delete(string LoginID, SqlConnection sqlConn)
+        public static LibError M_Login_Delete(string LoginID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE LoginID = @LoginID";
@@ -153,14 +146,14 @@ namespace m2mKoubaiDAL
                 return new LibError(e);
             }
         }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            M_Login_Insert(m2mKoubaiDataSet.M_LoginRow dr, SqlConnection sqlConn)
+        public static LibError M_Login_Insert(m2mKoubaiDataSet.M_LoginRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login";
@@ -190,6 +183,7 @@ namespace m2mKoubaiDAL
                 return new LibError(e);
             }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -197,8 +191,7 @@ namespace m2mKoubaiDAL
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            M_Login_Update(string LoginID, m2mKoubaiDataSet.M_LoginRow dr, SqlConnection sqlConn)
+        public static LibError M_Login_Update(string LoginID, m2mKoubaiDataSet.M_LoginRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Login WHERE LoginID = @LoginID";
@@ -211,8 +204,6 @@ namespace m2mKoubaiDAL
             m2mKoubaiDataSet.M_LoginRow drThis = (m2mKoubaiDataSet.M_LoginRow)dt.Rows[0];
             try
             {
-                //drNew.ItemArray = dr.ItemArray;
-                // drThis.UserKubun = dr.UserKubun;
                 drThis.KaishaCode = dr.KaishaCode;
                 drThis.Busho = dr.Busho;
                 drThis.Yakushoku = dr.Yakushoku;
@@ -220,8 +211,6 @@ namespace m2mKoubaiDAL
                 {
                     drThis.Password = dr.Password;
                 }
-              
-                    
                 drThis.KanrishaFlg = dr.KanrishaFlg;
                 drThis.TantoushaCode = dr.TantoushaCode;
                 drThis.Name = dr.Name;
@@ -235,34 +224,33 @@ namespace m2mKoubaiDAL
                 return new LibError(e);
             }
         }
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_LoginRow
-            newM_LoginRow()
+        public static m2mKoubaiDataSet.M_LoginRow newM_LoginRow()
         {
             return new m2mKoubaiDataSet.M_LoginDataTable().NewM_LoginRow();
         }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LoginDataSet.V_ShiiresakiAccountDataTable
-            getV_ShiiresakiAccountDataTable(KensakuParam k, byte bUserKubun, SqlConnection sqlConn)
+        public static LoginDataSet.V_ShiiresakiAccountDataTable getV_ShiiresakiAccountDataTable(KensakuParam k, byte bUserKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT          M_Login.LoginID, M_Login.UserKubun, "
+            "SELECT M_Login.LoginID, M_Login.UserKubun, "
             + "M_Login.KaishaCode AS ShiiresakiCode, M_Login.Busho, "
             + "M_Login.Yakushoku, M_Login.Password, M_Login.KanrishaFlg, "
             + "M_Login.TantoushaCode, M_Login.Name, M_Login.Mail, "
             + "M_Shiiresaki.ShiiresakiMei "
-            + "FROM                     dbo.M_Login INNER JOIN "
-            + "M_Shiiresaki ON "
-            + "M_Login.KaishaCode = M_Shiiresaki.ShiiresakiCode "
-            + "WHERE                   (M_Login.UserKubun = @UserKubun) ";
+            + "FROM dbo.M_Login "
+            + "INNER JOIN M_Shiiresaki ON M_Login.KaishaCode = M_Shiiresaki.ShiiresakiCode "
+            + "WHERE (M_Login.UserKubun = @UserKubun) ";
             string strWhere = WhereText(k);
             if (strWhere != "")
             {
@@ -285,8 +273,7 @@ namespace m2mKoubaiDAL
             + "M_Login.TantoushaCode, M_Login.Name, M_Login.Mail, "
             + "M_Shiiresaki.ShiiresakiMei "
             + "FROM dbo.M_Login "
-            + "INNER JOIN M_Shiiresaki ON "
-            + "M_Login.KaishaCode = M_Shiiresaki.ShiiresakiCode "
+            + "INNER JOIN M_Shiiresaki ON M_Login.KaishaCode = M_Shiiresaki.ShiiresakiCode "
             + "WHERE (M_Login.UserKubun = @UserKubun) ";
 
             da.SelectCommand.Parameters.AddWithValue("@UserKubun", bUserKubun);
@@ -335,8 +322,7 @@ namespace m2mKoubaiDAL
         /// <param name="Pass"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LoginDataSet.V_Shiiresaki_FlgRow
-            getV_Shiiresaki_FlgRow(string LoginID, string Pass, SqlConnection sqlConn)
+        public static LoginDataSet.V_Shiiresaki_FlgRow getV_Shiiresaki_FlgRow(string LoginID, string Pass, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -352,13 +338,13 @@ namespace m2mKoubaiDAL
             else
                 return null;
         }
+
         /// <summary>
         /// 全て管理者のメール情報取得
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LoginDataSet.V_MailInfoDataTable
-            getV_MailInfoDataTable(SqlConnection sqlConn)
+        public static LoginDataSet.V_MailInfoDataTable getV_MailInfoDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -369,13 +355,14 @@ namespace m2mKoubaiDAL
             LoginDataSet.V_MailInfoDataTable dt = new LoginDataSet.V_MailInfoDataTable();
             da.Fill(dt);
             return dt;
-        } /// <summary>
+        }
+
+        /// <summary>
         /// ログインIDによって、管理者のメール情報取得
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LoginDataSet.V_MailInfoRow
-            getV_MailInfoRow(string strLoginID, SqlConnection sqlConn)
+        public static LoginDataSet.V_MailInfoRow getV_MailInfoRow(string strLoginID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -391,14 +378,14 @@ namespace m2mKoubaiDAL
             else
                 return null;
         }
+
         /// <summary>
         /// 会社コードによって、仕入先の担当者メール情報取得
         /// </summary>
         /// <param name="strCode"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_LoginDataTable
-            getM_LoginDataTable(string strCode, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_LoginDataTable getM_LoginDataTable(string strCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -408,13 +395,13 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+
         /// <summary>
         /// 管理側担当者情報を取得
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LoginDataSet.V_TantoushaAccountDataTable
-            getV_TantoushaAccountDataTable(KensakuParam k, byte bkubun, SqlConnection sqlConn)
+        public static LoginDataSet.V_TantoushaAccountDataTable getV_TantoushaAccountDataTable(KensakuParam k, byte bkubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =

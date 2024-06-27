@@ -34,19 +34,17 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_KaishaInfo ";
-           　
+
             m2mKoubaiDataSet.T_KaishaInfoDataTable dt = new m2mKoubaiDataSet.T_KaishaInfoDataTable();
             da.Fill(dt);
             return dt;
-
         }
         /// <summary>
         /// 発注会社情報を取得
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.T_KaishaInfoRow
-            getT_KaishaInfoRow(SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_KaishaInfoRow getT_KaishaInfoRow(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_KaishaInfo WHERE KaishaID = 1";
@@ -64,8 +62,7 @@ namespace m2mKoubaiDAL
         /// <param name="JigyoushoKubun"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.T_KaishaInfoDataTable
-            getT_KaishaInfoDataTable(int JigyoushoKubun, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_KaishaInfoDataTable getT_KaishaInfoDataTable(int JigyoushoKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_KaishaInfo WHERE KaishaID = @KaishaID";
@@ -73,7 +70,6 @@ namespace m2mKoubaiDAL
             m2mKoubaiDataSet.T_KaishaInfoDataTable dt = new m2mKoubaiDataSet.T_KaishaInfoDataTable();
             da.Fill(dt);
             return dt;
-            
         }
         /// <summary>
         /// 検索条件で会社情報取得
@@ -96,8 +92,7 @@ namespace m2mKoubaiDAL
             return dt;
         }
 
-        public static m2mKoubaiDataSet.T_KaishaInfoRow 
-            getT_KaishaInfoRow(int KaishaID, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_KaishaInfoRow getT_KaishaInfoRow(int KaishaID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_KaishaInfo WHERE KaishaID = @KaishaID";
@@ -111,8 +106,7 @@ namespace m2mKoubaiDAL
         }
 
         // 更新
-        public static LibError
-            T_KaishaInfo_Insert(m2mKoubaiDataSet.T_KaishaInfoRow dr, SqlConnection sqlConn)
+        public static LibError T_KaishaInfo_Insert(m2mKoubaiDataSet.T_KaishaInfoRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_KaishaInfo";
@@ -133,8 +127,7 @@ namespace m2mKoubaiDAL
             finally { sqlConn.Close(); }
         }
 
-        public static LibError
-            T_KaishaInfo_Update(int KaishaID, m2mKoubaiDataSet.T_KaishaInfoRow dr, SqlConnection sqlConn)
+        public static LibError T_KaishaInfo_Update(int KaishaID, m2mKoubaiDataSet.T_KaishaInfoRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_KaishaInfo WHERE KaishaID = @KaishaID";
@@ -142,8 +135,8 @@ namespace m2mKoubaiDAL
             da.UpdateCommand = (new SqlCommandBuilder(da)).GetUpdateCommand();
             m2mKoubaiDataSet.T_KaishaInfoDataTable dt = new m2mKoubaiDataSet.T_KaishaInfoDataTable();
             da.Fill(dt);
-            if (1 != dt.Rows.Count)            
-                return new LibError("エラー");         
+            if (1 != dt.Rows.Count)
+                return new LibError("エラー");
             try
             {
                 m2mKoubaiDataSet.T_KaishaInfoRow drThis = (m2mKoubaiDataSet.T_KaishaInfoRow)dt.Rows[0];
@@ -165,8 +158,7 @@ namespace m2mKoubaiDAL
             }
         }
         // 削除
-        public static LibError
-            T_KaishaInfo_Delete(string KaishaID, SqlConnection sqlConn)
+        public static LibError T_KaishaInfo_Delete(string KaishaID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_KaishaInfo WHERE KaishaID = @KaishaID ";
@@ -188,7 +180,7 @@ namespace m2mKoubaiDAL
                 return new LibError(e);
             }
         }
-               
+
         public static m2mKoubaiDataSet.T_KaishaInfoRow newT_KaishaInfoRow()
         {
             return new m2mKoubaiDataSet.T_KaishaInfoDataTable().NewT_KaishaInfoRow();
@@ -202,13 +194,13 @@ namespace m2mKoubaiDAL
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT DISTINCT  "
-            + "dbo.T_KaishaInfo.KaishaID, COUNT(*) AS Count, dbo.T_KaishaInfo.KaishaMei,  "
-            + "dbo.T_KaishaInfo.EigyouSho, dbo.T_KaishaInfo.Address, dbo.T_KaishaInfo.Yuubin,  "
-            + "dbo.T_KaishaInfo.Tel, dbo.T_KaishaInfo.Fax, dbo.T_KaishaInfo.Mail, " 
+            "SELECT DISTINCT "
+            + "dbo.T_KaishaInfo.KaishaID, COUNT(*) AS Count, dbo.T_KaishaInfo.KaishaMei, "
+            + "dbo.T_KaishaInfo.EigyouSho, dbo.T_KaishaInfo.Address, dbo.T_KaishaInfo.Yuubin, "
+            + "dbo.T_KaishaInfo.Tel, dbo.T_KaishaInfo.Fax, dbo.T_KaishaInfo.Mail, "
             + "dbo.M_Login.JigyoushoKubun "
-            + "FROM            dbo.M_Login RIGHT OUTER JOIN "
-            + "dbo.T_KaishaInfo ON  "
+            + "FROM dbo.M_Login "
+            + "RIGHT OUTER JOIN dbo.T_KaishaInfo ON "
             + "dbo.M_Login.JigyoushoKubun = dbo.T_KaishaInfo.KaishaID ";
 
             string strWhere = WhereText(k, da.SelectCommand);
@@ -219,9 +211,9 @@ namespace m2mKoubaiDAL
 
             da.SelectCommand.CommandText += "GROUP BY     dbo.T_KaishaInfo.KaishaID, dbo.T_KaishaInfo.KaishaMei, "
                                         + "dbo.T_KaishaInfo.EigyouSho, dbo.T_KaishaInfo.Address, dbo.T_KaishaInfo.Yuubin, "
-                                        + "dbo.T_KaishaInfo.Tel, dbo.T_KaishaInfo.Fax, dbo.T_KaishaInfo.Mail,  "
-                                        + "dbo.M_Login.JigyoushoKubun ";
-            da.SelectCommand.CommandText += "ORDER BY           T_KaishaInfo.KaishaID ";
+                                        + "dbo.T_KaishaInfo.Tel, dbo.T_KaishaInfo.Fax, dbo.T_KaishaInfo.Mail, "
+                                        + "dbo.M_Login.JigyoushoKubun "
+                                        + "ORDER BY           T_KaishaInfo.KaishaID ";
             LoginDataSet.V_Jigyousho_CountDataTable dt = new LoginDataSet.V_Jigyousho_CountDataTable();
             da.Fill(dt);
             return dt;

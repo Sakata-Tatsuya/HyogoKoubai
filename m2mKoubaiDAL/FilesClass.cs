@@ -65,7 +65,7 @@ namespace m2mKoubaiDAL
         }
 
 
-    public static ShareDataSet.T_DocumentRow getT_DocumentRow(string FileID, SqlConnection sqlConn)
+        public static ShareDataSet.T_DocumentRow getT_DocumentRow(string FileID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = @"SELECT * FROM T_Document

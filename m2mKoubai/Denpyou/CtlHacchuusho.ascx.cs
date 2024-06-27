@@ -27,7 +27,7 @@ namespace m2mKoubai.Denpyou
 
         }
 
-        public void Create(HacchuDataSet_M.V_HacchuBindRow[] drAry, int cnt)
+        public void Create(HacchuDataSet.V_HacchuBindRow[] drAry, int cnt)
         {
             G.DataSource = drAry;
             G.DataBind();
@@ -49,7 +49,7 @@ namespace m2mKoubai.Denpyou
             LitDate.Text = DateTime.Today.ToString("yyyyîNMMåéddì˙");
         }
 
-        public void Create_Top(HacchuDataSet_M.V_HacchuBindRow[] drAry)
+        public void Create_Top(HacchuDataSet.V_HacchuBindRow[] drAry)
         {
             // édì¸êÊ   
             this.LitKaisha.Text = drAry[0].ShiiresakiMei;
@@ -77,8 +77,8 @@ namespace m2mKoubai.Denpyou
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                HacchuDataSet_M.V_HacchuBindRow dr =
-                   e.Row.DataItem as HacchuDataSet_M.V_HacchuBindRow;
+                HacchuDataSet.V_HacchuBindRow dr =
+                   e.Row.DataItem as HacchuDataSet.V_HacchuBindRow;
 
                 // î≠íçNoÇ™àÍívÇµÇ»Ç¢èÍçá
                 if (!dr.IsHacchuuNoNull())

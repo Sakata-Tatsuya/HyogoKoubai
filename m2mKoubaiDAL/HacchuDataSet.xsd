@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="HacchuDataSet_M" targetNamespace="http://tempuri.org/HacchuDataSet_M.xsd" xmlns:mstns="http://tempuri.org/HacchuDataSet_M.xsd" xmlns="http://tempuri.org/HacchuDataSet_M.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="HacchuDataSet" targetNamespace="http://tempuri.org/HacchuDataSet.xsd" xmlns:mstns="http://tempuri.org/HacchuDataSet.xsd" xmlns="http://tempuri.org/HacchuDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -102,7 +102,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="HacchuDataSet_M" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="HacchuDataSet_M" msprop:Generator_DataSetName="HacchuDataSet_M">
+  <xs:element name="HacchuDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="HacchuDataSet" msprop:Generator_DataSetName="HacchuDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="V_HacchuBind" msprop:Generator_RowEvHandlerName="V_HacchuBindRowChangeEventHandler" msprop:Generator_RowDeletedName="V_HacchuBindRowDeleted" msprop:Generator_RowDeletingName="V_HacchuBindRowDeleting" msprop:Generator_RowEvArgName="V_HacchuBindRowChangeEvent" msprop:Generator_RowChangedName="V_HacchuBindRowChanged" msprop:Generator_TablePropName="V_HacchuBind" msprop:Generator_UserTableName="V_HacchuBind" msprop:Generator_RowChangingName="V_HacchuBindRowChanging" msprop:Generator_RowClassName="V_HacchuBindRow" msprop:Generator_TableClassName="V_HacchuBindDataTable" msprop:Generator_TableVarName="tableV_HacchuBind">

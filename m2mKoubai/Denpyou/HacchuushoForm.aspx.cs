@@ -56,7 +56,7 @@ namespace m2mKoubai.Denpyou
         int cnt = 0;
         private void Create(string key)
         {
-            HacchuDataSet_M.V_HacchuDataTable dt = HacchuClass.getV_HacchuDataTable(key, Global.GetConnection());
+            HacchuDataSet.V_HacchuDataTable dt = HacchuClass.getV_HacchuDataTable(key, Global.GetConnection());
 
             if (dt.Rows.Count == 0)
             {
@@ -83,13 +83,13 @@ namespace m2mKoubai.Denpyou
                     cnt = 0;
 
                     // G_DataBind(表示用データ取得)
-                    HacchuDataSet_M.V_HacchuBindDataTable dtBind = new HacchuDataSet_M.V_HacchuBindDataTable();
+                    HacchuDataSet.V_HacchuBindDataTable dtBind = new HacchuDataSet.V_HacchuBindDataTable();
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         if (dt[i].ShiiresakiCode == aryShiire[nKubunCnt].ToString())
                         {
-                            HacchuDataSet_M.V_HacchuBindRow drBind = (HacchuDataSet_M.V_HacchuBindRow)dtBind.NewV_HacchuBindRow();
+                            HacchuDataSet.V_HacchuBindRow drBind = (HacchuDataSet.V_HacchuBindRow)dtBind.NewV_HacchuBindRow();
 
                             drBind.Year = dt[i].Year;
                             drBind.ShiiresakiCode = dt[i].ShiiresakiCode;
@@ -181,8 +181,8 @@ namespace m2mKoubai.Denpyou
 
                         if (nPageCount != 1) { cnt++; }
 
-                        HacchuDataSet_M.V_HacchuBindRow[] drAry =
-                            new HacchuDataSet_M.V_HacchuBindRow[ary.Count];
+                        HacchuDataSet.V_HacchuBindRow[] drAry =
+                            new HacchuDataSet.V_HacchuBindRow[ary.Count];
                         nNowPageCount += drAry.Length;
                         ary.CopyTo(drAry);
 
@@ -241,15 +241,15 @@ namespace m2mKoubai.Denpyou
                     cnt = 0;
 
                     // G_DataBind(表示用データ取得)
-                    HacchuDataSet_M.V_HacchuBindDataTable dtBind =
-                        new HacchuDataSet_M.V_HacchuBindDataTable();
+                    HacchuDataSet.V_HacchuBindDataTable dtBind =
+                        new HacchuDataSet.V_HacchuBindDataTable();
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         if (dt[i].JigyoushoKubun.ToString() == aryKubun[nKubunCnt].ToString())
                         {
-                            HacchuDataSet_M.V_HacchuBindRow drBind =
-                                (HacchuDataSet_M.V_HacchuBindRow)dtBind.NewV_HacchuBindRow();
+                            HacchuDataSet.V_HacchuBindRow drBind =
+                                (HacchuDataSet.V_HacchuBindRow)dtBind.NewV_HacchuBindRow();
 
                             drBind.Year = dt[i].Year;
                             drBind.ShiiresakiCode = dt[i].ShiiresakiCode;
@@ -340,8 +340,8 @@ namespace m2mKoubai.Denpyou
                         }
 
                         if (nPageCount != 1) { cnt++; }
-                        HacchuDataSet_M.V_HacchuBindRow[] drAry =
-                            new HacchuDataSet_M.V_HacchuBindRow[ary.Count];
+                        HacchuDataSet.V_HacchuBindRow[] drAry =
+                            new HacchuDataSet.V_HacchuBindRow[ary.Count];
                         nNowPageCount += drAry.Length;
                         ary.CopyTo(drAry);
 

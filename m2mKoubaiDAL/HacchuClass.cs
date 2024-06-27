@@ -74,7 +74,7 @@ namespace m2mKoubaiDAL
             return w.WhereText;
         }
 
-        public static HacchuDataSet_M.V_HacchuDataTable getV_HacchuDataTable(string key, SqlConnection sqlConn)
+        public static HacchuDataSet.V_HacchuDataTable getV_HacchuDataTable(string key, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -85,29 +85,29 @@ namespace m2mKoubaiDAL
             + "M_Shiiresaki.YubinBangou, M_Shiiresaki.Tel, M_Shiiresaki.Fax, M_Shiiresaki.Address, T_Chumon.JigyoushoKubun, "
             + "T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, T_KaishaInfo.Yuubin AS YuubinY, T_KaishaInfo.Address AS AddressY, "
             + "T_KaishaInfo.Tel AS TelY, T_KaishaInfo.Fax AS FaxY "
-            + "FROM                     T_Chumon INNER JOIN "
-            + "M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND "
-            + "T_Chumon.BuhinCode = M_Buhin.BuhinCode INNER JOIN "
-            + "M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode INNER JOIN "
-            + "M_NounyuuBasho ON T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode INNER JOIN "
-            + "T_KaishaInfo ON T_Chumon.JigyoushoKubun = T_KaishaInfo.KaishaID LEFT OUTER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID ";
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND "
+            + "T_Chumon.BuhinCode = M_Buhin.BuhinCode "
+            + "INNER JOIN M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
+            + "INNER JOIN M_NounyuuBasho ON T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode "
+            + "INNER JOIN T_KaishaInfo ON T_Chumon.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "LEFT OUTER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID ";
 
-            // WHERE            
+            // WHERE
             string strW = WhereText(key, da.SelectCommand);
             if (strW != "")
             {
                 da.SelectCommand.CommandText += " WHERE " + strW;
-            }           
+            }
             // GROUP BY
             // ORDER BY
             da.SelectCommand.CommandText += "  ORDER BY dbo.T_Chumon.ShiiresakiCode, T_Chumon.JigyoushoKubun, dbo.T_Chumon.HacchuuNo ";
 
-            HacchuDataSet_M.V_HacchuDataTable dt = new HacchuDataSet_M.V_HacchuDataTable();
+            HacchuDataSet.V_HacchuDataTable dt = new HacchuDataSet.V_HacchuDataTable();
             da.Fill(dt);
             return dt;
         }
-        public static HacchuDataSet_M.V_Hacchu2DataTable getV_Hacchu2DataTable(string key, SqlConnection sqlConn)
+        public static HacchuDataSet.V_Hacchu2DataTable getV_Hacchu2DataTable(string key, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM V_Hacchu2 ";
@@ -120,7 +120,7 @@ namespace m2mKoubaiDAL
             // GROUP BY
             // ORDER BY
             da.SelectCommand.CommandText += " ORDER BY ShiiresakiCode, JigyoushoKubun, HacchuuNo ";
-            HacchuDataSet_M.V_Hacchu2DataTable dt = new HacchuDataSet_M.V_Hacchu2DataTable();
+            HacchuDataSet.V_Hacchu2DataTable dt = new HacchuDataSet.V_Hacchu2DataTable();
             da.Fill(dt);
             return dt;
         }

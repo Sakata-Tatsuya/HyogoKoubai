@@ -20,9 +20,9 @@ namespace m2mKoubaiDAL {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("HacchuDataSet_M")]
+    [global::System.Xml.Serialization.XmlRootAttribute("HacchuDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class HacchuDataSet_M : global::System.Data.DataSet {
+    public partial class HacchuDataSet : global::System.Data.DataSet {
         
         private V_HacchuDataTable tableV_Hacchu;
         
@@ -34,7 +34,7 @@ namespace m2mKoubaiDAL {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public HacchuDataSet_M() {
+        public HacchuDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace m2mKoubaiDAL {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected HacchuDataSet_M(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected HacchuDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -157,7 +157,7 @@ namespace m2mKoubaiDAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            HacchuDataSet_M cln = ((HacchuDataSet_M)(base.Clone()));
+            HacchuDataSet cln = ((HacchuDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -247,9 +247,9 @@ namespace m2mKoubaiDAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "HacchuDataSet_M";
+            this.DataSetName = "HacchuDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/HacchuDataSet_M.xsd";
+            this.Namespace = "http://tempuri.org/HacchuDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableV_Hacchu = new V_HacchuDataTable();
@@ -289,7 +289,7 @@ namespace m2mKoubaiDAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            HacchuDataSet_M ds = new HacchuDataSet_M();
+            HacchuDataSet ds = new HacchuDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -1016,7 +1016,7 @@ namespace m2mKoubaiDAL {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HacchuDataSet_M ds = new HacchuDataSet_M();
+                HacchuDataSet ds = new HacchuDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1750,7 +1750,7 @@ namespace m2mKoubaiDAL {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HacchuDataSet_M ds = new HacchuDataSet_M();
+                HacchuDataSet ds = new HacchuDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2421,7 +2421,7 @@ namespace m2mKoubaiDAL {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HacchuDataSet_M ds = new HacchuDataSet_M();
+                HacchuDataSet ds = new HacchuDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -4084,7 +4084,7 @@ namespace m2mKoubaiDAL {
         }
     }
 }
-namespace m2mKoubaiDAL.HacchuDataSet_MTableAdapters {
+namespace m2mKoubaiDAL.HacchuDataSetTableAdapters {
     
     
     /// <summary>
@@ -4216,7 +4216,7 @@ namespace m2mKoubaiDAL.HacchuDataSet_MTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::m2mKoubaiDAL.Properties.Settings.Default.m2mKoubaiConnectionString;
+            this._connection.ConnectionString = global::m2mKoubaiDAL.Properties.Settings.Default.YodokoTestConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4233,7 +4233,7 @@ namespace m2mKoubaiDAL.HacchuDataSet_MTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HacchuDataSet_M.V_HacchuDataTable dataTable) {
+        public virtual int Fill(HacchuDataSet.V_HacchuDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4246,9 +4246,9 @@ namespace m2mKoubaiDAL.HacchuDataSet_MTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HacchuDataSet_M.V_HacchuDataTable GetData() {
+        public virtual HacchuDataSet.V_HacchuDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HacchuDataSet_M.V_HacchuDataTable dataTable = new HacchuDataSet_M.V_HacchuDataTable();
+            HacchuDataSet.V_HacchuDataTable dataTable = new HacchuDataSet.V_HacchuDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4400,7 +4400,7 @@ namespace m2mKoubaiDAL.HacchuDataSet_MTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HacchuDataSet_M.V_Hacchu2DataTable dataTable) {
+        public virtual int Fill(HacchuDataSet.V_Hacchu2DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4413,9 +4413,9 @@ namespace m2mKoubaiDAL.HacchuDataSet_MTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HacchuDataSet_M.V_Hacchu2DataTable GetData() {
+        public virtual HacchuDataSet.V_Hacchu2DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HacchuDataSet_M.V_Hacchu2DataTable dataTable = new HacchuDataSet_M.V_Hacchu2DataTable();
+            HacchuDataSet.V_Hacchu2DataTable dataTable = new HacchuDataSet.V_Hacchu2DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

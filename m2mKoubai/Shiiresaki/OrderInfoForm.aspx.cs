@@ -1722,7 +1722,7 @@ namespace m2mKoubai.Shiiresaki
             //HiddenField HidFileID = form1.FindControl("HidFileID") as HiddenField;
             HiddenField HidKeyPDF = form1.FindControl("HidKeyPDF") as HiddenField;
             string KeyPDF = HidKeyPDF.Value.ToString();
-            HacchuDataSet_M.V_Hacchu2DataTable dt = HacchuClass.getV_Hacchu2DataTable(KeyPDF, Global.GetConnection());
+            HacchuDataSet.V_Hacchu2DataTable dt = HacchuClass.getV_Hacchu2DataTable(KeyPDF, Global.GetConnection());
 
             if (dt != null)
             {
@@ -1782,7 +1782,7 @@ namespace m2mKoubai.Shiiresaki
         {
             HiddenField HidKeyPDF = form1.FindControl("HidKeyPDF") as HiddenField;
             string KeyPDF = HidKeyPDF.Value.ToString();
-            HacchuDataSet_M.V_Hacchu2DataTable dt = HacchuClass.getV_Hacchu2DataTable(KeyPDF, Global.GetConnection());
+            HacchuDataSet.V_Hacchu2DataTable dt = HacchuClass.getV_Hacchu2DataTable(KeyPDF, Global.GetConnection());
 
             if (dt != null)
             {
@@ -1842,7 +1842,7 @@ namespace m2mKoubai.Shiiresaki
         {
             HiddenField HidKeyPDF = form1.FindControl("HidKeyPDF") as HiddenField;
             string KeyPDF = HidKeyPDF.Value.ToString();
-            HacchuDataSet_M.V_Hacchu2DataTable dt = HacchuClass.getV_Hacchu2DataTable(KeyPDF, Global.GetConnection());
+            HacchuDataSet.V_Hacchu2DataTable dt = HacchuClass.getV_Hacchu2DataTable(KeyPDF, Global.GetConnection());
 
             if (dt != null)
             {

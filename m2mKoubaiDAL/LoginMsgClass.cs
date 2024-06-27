@@ -25,13 +25,13 @@ namespace m2mKoubaiDAL
             }
             return w.WhereText;
         }
+
         /// <summary>
         /// 有効のデータのみ取得
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_LoginMsgDataTable
-            getM_LoginMsgDataTable(SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_LoginMsgDataTable getM_LoginMsgDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_LoginMsg WHERE  DelFlg = 0 ";
@@ -40,8 +40,7 @@ namespace m2mKoubaiDAL
             return dt;
         }
 
-        public static m2mKoubaiDataSet.M_LoginMsgDataTable
-            getM_LoginMsgDataTable(KensakuParam k, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_LoginMsgDataTable getM_LoginMsgDataTable(KensakuParam k, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_LoginMsg ";
@@ -61,8 +60,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_LoginMsgDataTable
-           getM_LoginMsg2DataTable(SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_LoginMsgDataTable getM_LoginMsg2DataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_LoginMsg ";
@@ -70,14 +68,14 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+
         /// <summary>
         /// 主キーによって、データを取得
         /// </summary>
         /// <param name="MsgID"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_LoginMsgRow
-            getM_LoginMsgRow(int MsgID, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_LoginMsgRow getM_LoginMsgRow(int MsgID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_LoginMsg WHERE MsgID = @MsgID";
@@ -89,14 +87,14 @@ namespace m2mKoubaiDAL
             else
                 return null;
         }
+
         /// <summary>
         /// ログインメッセージを登録する
         /// </summary>
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            M_LoginMsg_Insert(m2mKoubaiDataSet.M_LoginMsgRow dr, SqlConnection sqlConn)
+        public static LibError M_LoginMsg_Insert(m2mKoubaiDataSet.M_LoginMsgRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_LoginMsg";
@@ -119,6 +117,7 @@ namespace m2mKoubaiDAL
                 sqlConn.Close();
             }
         }
+
          /// <summary>
          /// ログインメッセージを更新する
          /// </summary>
@@ -126,9 +125,7 @@ namespace m2mKoubaiDAL
          /// <param name="dr"></param>
          /// <param name="sqlConn"></param>
          /// <returns></returns>
-  
-        public static LibError
-            M_LoginMsg_Update(int MsgID, m2mKoubaiDataSet.M_LoginMsgRow dr, SqlConnection sqlConn)
+        public static LibError M_LoginMsg_Update(int MsgID, m2mKoubaiDataSet.M_LoginMsgRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_LoginMsg WHERE MsgID = @MsgID";
@@ -152,14 +149,14 @@ namespace m2mKoubaiDAL
                 return new LibError(e);
             }
         }
+
         /// <summary>
         /// ログインメッセージを削除する
         /// </summary>
         /// <param name="MsgID"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            M_LoginMsg_Delete(int MsgID, SqlConnection sqlConn)
+        public static LibError M_LoginMsg_Delete(int MsgID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_LoginMsg WHERE MsgID = @MsgID";

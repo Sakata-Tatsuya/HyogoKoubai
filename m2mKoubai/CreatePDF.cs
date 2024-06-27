@@ -830,7 +830,7 @@ namespace m2mKoubai
             return stream;
         }
 
-        internal static MemoryStream CreateOrderPDF(string sLoginID, HacchuDataSet_M.V_Hacchu2DataTable dtH)
+        internal static MemoryStream CreateOrderPDF(string sLoginID, HacchuDataSet.V_Hacchu2DataTable dtH)
         {
             //m2mKoubaiDataSet.M_ShiiresakiRow drShiire = ShiiresakiClass.getM_ShiiresakiRow(sKaishaCode, Global.GetConnection());
             //明細最大行数
@@ -887,7 +887,7 @@ namespace m2mKoubai
                 string strDC = aryShiire[nShiireCnt].ToString();
 
                 DataRow[] drD = dtH.Select("ShiiresakiCode='" + strDC + "'");
-                HacchuDataSet_M.V_Hacchu2DataTable dtD = new HacchuDataSet_M.V_Hacchu2DataTable();
+                HacchuDataSet.V_Hacchu2DataTable dtD = new HacchuDataSet.V_Hacchu2DataTable();
                 foreach (var drnew in drD)
                 {
                     DataRow newrow = dtD.NewRow();
@@ -1120,7 +1120,7 @@ namespace m2mKoubai
             doc.Close();
             return stream;
         }
-        internal static MemoryStream CreateDeliveryPDF(string sLoginID, string sUrlHost, HacchuDataSet_M.V_Hacchu2DataTable dtH)
+        internal static MemoryStream CreateDeliveryPDF(string sLoginID, string sUrlHost, HacchuDataSet.V_Hacchu2DataTable dtH)
         {
             //明細最大行数
             int MaxRow = 20;
@@ -1174,7 +1174,7 @@ namespace m2mKoubai
                 string strDC = aryShiire[nShiireCnt].ToString();
 
                 DataRow[] drD = dtH.Select("ShiiresakiCode='" + strDC + "'");
-                HacchuDataSet_M.V_Hacchu2DataTable dtD = new HacchuDataSet_M.V_Hacchu2DataTable();
+                HacchuDataSet.V_Hacchu2DataTable dtD = new HacchuDataSet.V_Hacchu2DataTable();
                 foreach (var drnew in drD)
                 {
                     DataRow newrow = dtD.NewRow();
@@ -1397,7 +1397,7 @@ namespace m2mKoubai
             return stream;
         }
 
-        internal static MemoryStream CreateItemtagPDF(string sLoginID, string sUrlHost, HacchuDataSet_M.V_Hacchu2DataTable dtH)
+        internal static MemoryStream CreateItemtagPDF(string sLoginID, string sUrlHost, HacchuDataSet.V_Hacchu2DataTable dtH)
         {
             //明細最大行数
             int MaxRow = 3;
@@ -1432,7 +1432,7 @@ namespace m2mKoubai
 
             //納入先順に編集
             DataRow[] drD = dtH.Select("NounyuuBashoCode <> '' " , "NounyuuBashoCode ");
-            HacchuDataSet_M.V_Hacchu2DataTable dtD = new HacchuDataSet_M.V_Hacchu2DataTable();
+            HacchuDataSet.V_Hacchu2DataTable dtD = new HacchuDataSet.V_Hacchu2DataTable();
             foreach (var drnew in drD)
             {
                 DataRow newrow = dtD.NewRow();

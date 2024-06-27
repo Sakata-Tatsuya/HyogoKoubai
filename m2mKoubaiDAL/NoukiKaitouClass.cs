@@ -7,8 +7,7 @@ namespace m2mKoubaiDAL
 {
     public class NoukiKaitouClass
     {
-        public static m2mKoubaiDataSet.T_NoukiKaitouDataTable
-            getT_NoukiKaitouDataTable(SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_NoukiKaitouDataTable getT_NoukiKaitouDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_NoukiKaitou";
@@ -17,14 +16,13 @@ namespace m2mKoubaiDAL
             return dt;
         }
 
-        public static m2mKoubaiDataSet.T_NoukiKaitouRow
-            getT_NoukiKaitouRow(string Year, string HacchuuNo, int nKubun, int KaitouNo, int RowNo, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_NoukiKaitouRow getT_NoukiKaitouRow(string Year, string HacchuuNo, int nKubun, int KaitouNo, int RowNo, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_NoukiKaitou WHERE Year = @Year AND HacchuuNo = @HacchuuNo AND KaitouNo = @KaitouNo AND RowNo = @RowNo AND JigyoushoKubun = @JigyoushoKubun";
             da.SelectCommand.Parameters.AddWithValue("@Year", Year);
             da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", HacchuuNo);
-            da.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);     
+            da.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);
             da.SelectCommand.Parameters.AddWithValue("@KaitouNo", KaitouNo);
             da.SelectCommand.Parameters.AddWithValue("@RowNo", RowNo);
             m2mKoubaiDataSet.T_NoukiKaitouDataTable dt = new m2mKoubaiDataSet.T_NoukiKaitouDataTable();
@@ -35,8 +33,7 @@ namespace m2mKoubaiDAL
                 return null;
         }
 
-        public static LibError
-            T_NoukiKaitou_Insert(m2mKoubaiDataSet.T_NoukiKaitouRow dr, SqlConnection sqlConn)
+        public static LibError T_NoukiKaitou_Insert(m2mKoubaiDataSet.T_NoukiKaitouRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_NoukiKaitou";
@@ -66,8 +63,8 @@ namespace m2mKoubaiDAL
             }
         }
 
-        public static LibError
-            T_NoukiKaitou_Update(string Year, string HacchuuNo, int nKubun, string ShiiresakiCode, int KaitouNo, int RowNo, m2mKoubaiDataSet.T_NoukiKaitouRow dr, SqlConnection sqlConn)
+        public static LibError T_NoukiKaitou_Update(string Year, string HacchuuNo, int nKubun, string ShiiresakiCode, int KaitouNo, 
+            int RowNo, m2mKoubaiDataSet.T_NoukiKaitouRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_NoukiKaitou WHERE Year = @Year AND HacchuuNo = @HacchuuNo AND  KaitouNo = @KaitouNo AND RowNo = @RowNo AND JigyoushoKubun = @JigyoushoKubun ";
@@ -99,8 +96,7 @@ namespace m2mKoubaiDAL
             }
         }
 
-        public static LibError
-            T_NoukiKaitou_Delete(string Year, string HacchuuNo, int nKubun, int KaitouNo, int RowNo, SqlConnection sqlConn)
+        public static LibError T_NoukiKaitou_Delete(string Year, string HacchuuNo, int nKubun, int KaitouNo, int RowNo, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_NoukiKaitou WHERE Year = @Year AND HacchuuNo = @HacchuuNo AND  KaitouNo = @KaitouNo AND RowNo = @RowNo AND JigyoushoKubun = @JigyoushoKubun ";
@@ -126,26 +122,26 @@ namespace m2mKoubaiDAL
                 return new LibError(e);
             }
         }
-        public static m2mKoubaiDataSet.T_NoukiKaitouRow
-            newT_NoukiKaitouRow()
+
+        public static m2mKoubaiDataSet.T_NoukiKaitouRow newT_NoukiKaitouRow()
         {
             return new m2mKoubaiDataSet.T_NoukiKaitouDataTable().NewT_NoukiKaitouRow();
         }
-        //Å@î[ä˙âÒìöçXêV       
+
+        //Å@î[ä˙âÒìöçXêV
         public static LibError
             T_NoukiKaitou_Update(string year, string no, int nKubun, string code, int nkaitouNo,
                                 string LoginID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
-            da.SelectCommand.CommandText =
-                                            "SELECT * FROM T_NoukiKaitou "
-                                            + "WHERE  Year = @Year AND HacchuuNo = @HacchuuNo AND "
-                                            + "KaitouNo = @KaitouNo AND JigyoushoKubun = @JigyoushoKubun ";
+            da.SelectCommand.CommandText = "SELECT * FROM T_NoukiKaitou "
+                                         + "WHERE  Year = @Year AND HacchuuNo = @HacchuuNo AND "
+                                         + "KaitouNo = @KaitouNo AND JigyoushoKubun = @JigyoushoKubun ";
 
             da.SelectCommand.Parameters.AddWithValue("@Year", year);
             da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", no);
             da.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);     
-          da.SelectCommand.Parameters.AddWithValue("@KaitouNo", nkaitouNo);
+            da.SelectCommand.Parameters.AddWithValue("@KaitouNo", nkaitouNo);
             da.UpdateCommand = (new SqlCommandBuilder(da).GetUpdateCommand());
             m2mKoubaiDataSet.T_NoukiKaitouDataTable dtNew = new m2mKoubaiDataSet.T_NoukiKaitouDataTable();
             da.Fill(dtNew);
@@ -172,8 +168,7 @@ namespace m2mKoubaiDAL
             }
         }
 
-        public static LibError
-            T_NoukiKaitou_Insert(string strYear, string strHacchuuNo, int nKubun, 
+        public static LibError T_NoukiKaitou_Insert(string strYear, string strHacchuuNo, int nKubun, 
             int nKaitouNo, string Suuryou, string strNouki, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
@@ -217,11 +212,9 @@ namespace m2mKoubaiDAL
         }
 
         //Å@î[ä˙âÒìöìoò^ÅEçXêV
-        public static LibError
-            T_NoukiKaitou_Update(string strYear, string strHacchuuNo,int nKubun,
-                                Hashtable KaitouNoukiDataTbl, int nKaitouNo, SqlConnection sqlConn)
+        public static LibError T_NoukiKaitou_Update(string strYear, string strHacchuuNo,int nKubun,
+                               Hashtable KaitouNoukiDataTbl, int nKaitouNo, SqlConnection sqlConn)
         {
-            //
             ArrayList aryNouki = (ArrayList)KaitouNoukiDataTbl["Nouki"];
             ArrayList arySuuryou = (ArrayList)KaitouNoukiDataTbl["Suuryou"];
             ArrayList aryKaitouNo = (ArrayList)KaitouNoukiDataTbl["KaitouNo"];
@@ -244,8 +237,7 @@ namespace m2mKoubaiDAL
                 daKaitouNoukiIns.Fill(dtKaitouNoukiIns);
                 for (int i = 0; i < aryKaitouNo.Count; i++)
                 {
-                    m2mKoubaiDataSet.T_NoukiKaitouRow drKaitouNoukiIns =
-                        dtKaitouNoukiIns.NewT_NoukiKaitouRow();
+                    m2mKoubaiDataSet.T_NoukiKaitouRow drKaitouNoukiIns = dtKaitouNoukiIns.NewT_NoukiKaitouRow();
 
                     drKaitouNoukiIns.Year= strYear;
                     drKaitouNoukiIns.HacchuuNo = strHacchuuNo;
@@ -280,14 +272,13 @@ namespace m2mKoubaiDAL
             }
         }
 
-        public static m2mKoubaiDataSet.T_NoukiKaitouDataTable
-            getT_NoukiKaitouDataTable(string strYear, string strNo, int nKubun, int nNo, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_NoukiKaitouDataTable getT_NoukiKaitouDataTable(string strYear, string strNo, int nKubun, int nNo, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT                  T_NoukiKaitou.* "
-            + "FROM                     T_NoukiKaitou "
-            + "WHERE                   (Year = @Year) AND (HacchuuNo = @HacchuuNo) AND (KaitouNo = @KaitouNo) AND (JigyoushoKubun = @JigyoushoKubun) ";
+            "SELECT  T_NoukiKaitou.* "
+            + "FROM  T_NoukiKaitou "
+            + "WHERE (Year = @Year) AND (HacchuuNo = @HacchuuNo) AND (KaitouNo = @KaitouNo) AND (JigyoushoKubun = @JigyoushoKubun) ";
 
             da.SelectCommand.Parameters.AddWithValue("@Year", strYear);
             da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", strNo);

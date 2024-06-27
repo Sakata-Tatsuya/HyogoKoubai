@@ -123,7 +123,6 @@ namespace m2mKoubaiDAL
         /// <returns></returns>
         public static string GetBody_Cancel(ChumonDataSet.V_MailInfoRow dr)
         {
-
             string strBody =
                 "いつもお世話になっています。\r\n"
                 + "御社あて、発注品に対し発注の取消を行いました。\r\n"
@@ -166,6 +165,7 @@ namespace m2mKoubaiDAL
             return strBody;
 
         }
+
         /// <summary>
         /// メール本文(発注数量の変更)
         /// </summary>
@@ -188,6 +188,7 @@ namespace m2mKoubaiDAL
             return strBody;
 
         }
+
         /// <summary>
         /// メール本文(指定納期変更時のメール)
         /// </summary>
@@ -212,12 +213,12 @@ namespace m2mKoubaiDAL
 
             return strBody;
         }
+
         /// <summary>
         /// メール本文(【会社情報更新メール】)
         /// </summary>
         /// <returns></returns>
-        public static string GetBody_KaishaInfo_Koushin
-            (ChumonDataSet.V_Chumon_MailRow dr, m2mKoubaiDataSet.M_ShiiresakiRow drShiire)
+        public static string GetBody_KaishaInfo_Koushin(ChumonDataSet.V_Chumon_MailRow dr, m2mKoubaiDataSet.M_ShiiresakiRow drShiire)
         {
             string strBody =
              "会社情報が更新されました。\r\n"
@@ -228,6 +229,7 @@ namespace m2mKoubaiDAL
 
             return strBody;
         }
+
         /// <summary>
         /// メール本文(納期回答登録時のメール)
         /// </summary>
@@ -242,6 +244,7 @@ namespace m2mKoubaiDAL
               + _SystemURL + "\r\n";
             return strBody;
         }
+
         /// <summary>
         /// メール本文(納期回答変更時のメール)
         /// </summary>
@@ -258,3 +261,4 @@ namespace m2mKoubaiDAL
         }
     }
 }
+

@@ -18,16 +18,14 @@ namespace m2mKoubaiDAL
         private static string WhereText(KensakuParam k, SqlCommand cmd)
         {
             Core.Sql.WhereGenerator w = new Core.Sql.WhereGenerator();
-            //string str = "";
 
-            //
             if (k._BashoCode != "")
             {               
 
                 w.Add(string.Format("M_NounyuuBasho.BashoCode LIKE @BashoCode "));
                 cmd.Parameters.AddWithValue("@BashoCode", k._BashoCode + "%");
             }
-            //
+
             if (k._BashoName != "")
             {
                 w.Add(string.Format("M_NounyuuBasho.BashoMei LIKE @BashoMei "));
@@ -43,8 +41,7 @@ namespace m2mKoubaiDAL
         /// <param name="k"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_NounyuuBashoDataTable
-            getM_NounyuuBashoDataTable(KensakuParam k, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_NounyuuBashoDataTable getM_NounyuuBashoDataTable(KensakuParam k, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_NounyuuBasho ";
@@ -57,14 +54,14 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+
         /// <summary>
         ///全てデータを取得
         /// </summary>
         /// <param name="k"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_NounyuuBashoDataTable
-            getM_NounyuuBashoDataTable( SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_NounyuuBashoDataTable getM_NounyuuBashoDataTable( SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_NounyuuBasho ";
@@ -73,14 +70,14 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
+
         /// <summary>
         /// 主キーによって、でーたを取得
         /// </summary>
         /// <param name="BashoCode"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_NounyuuBashoRow
-            getM_NounyuuBashoRow(string BashoCode, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_NounyuuBashoRow getM_NounyuuBashoRow(string BashoCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_NounyuuBasho WHERE BashoCode = @BashoCode";
@@ -92,14 +89,14 @@ namespace m2mKoubaiDAL
             else
                 return null;
         }
+ 
         /// <summary>
         /// 納入場所の登録
         /// </summary>
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            M_NounyuuBasho_Insert(m2mKoubaiDataSet.M_NounyuuBashoRow dr, SqlConnection sqlConn)
+        public static LibError M_NounyuuBasho_Insert(m2mKoubaiDataSet.M_NounyuuBashoRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_NounyuuBasho";
@@ -108,7 +105,6 @@ namespace m2mKoubaiDAL
             m2mKoubaiDataSet.M_NounyuuBashoRow drNew = dt.NewM_NounyuuBashoRow();
             try
             {
-                //drNew.ItemArray = dr.ItemArray;
                 drNew.BashoCode = dr.BashoCode;
                 drNew.BashoMei = dr.BashoMei;
                 dt.Rows.Add(drNew);
@@ -120,6 +116,7 @@ namespace m2mKoubaiDAL
                 return new LibError(e);
             }
         }
+
         /// <summary>
         /// 納入場所の更新
         /// </summary>
@@ -127,8 +124,7 @@ namespace m2mKoubaiDAL
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            M_NounyuuBasho_Update(string BashoCode, m2mKoubaiDataSet.M_NounyuuBashoRow dr, SqlConnection sqlConn)
+        public static LibError M_NounyuuBasho_Update(string BashoCode, m2mKoubaiDataSet.M_NounyuuBashoRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_NounyuuBasho WHERE BashoCode = @BashoCode";
@@ -141,7 +137,6 @@ namespace m2mKoubaiDAL
             try
             {
                 m2mKoubaiDataSet.M_NounyuuBashoRow drThis = (m2mKoubaiDataSet.M_NounyuuBashoRow)dt.Rows[0];
-                //drNew.ItemArray = dr.ItemArray;
                 drThis.BashoMei = dr.BashoMei;
                 da.Update(dt);
                 return null;
@@ -151,14 +146,14 @@ namespace m2mKoubaiDAL
                 return new LibError(e);
             }
         }
+
         /// <summary>
         /// 納入場所の削除
         /// </summary>
         /// <param name="BashoCode"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            M_NounyuuBasho_Delete(string BashoCode, SqlConnection sqlConn)
+        public static LibError M_NounyuuBasho_Delete(string BashoCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_NounyuuBasho WHERE BashoCode = @BashoCode";
@@ -180,12 +175,12 @@ namespace m2mKoubaiDAL
                 return new LibError(e);
             }
         }
+
         /// <summary>
         ///　NewRow
         /// </summary>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_NounyuuBashoRow
-            newM_NounyuuBashoRow()
+        public static m2mKoubaiDataSet.M_NounyuuBashoRow newM_NounyuuBashoRow()
         {
             return new m2mKoubaiDataSet.M_NounyuuBashoDataTable().NewM_NounyuuBashoRow();
         }

@@ -117,6 +117,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].TantoushaCode + ":" + dt[i].Name, dt[i].TantoushaCode));
             }
         }
+
         /// <summary>
         /// Ddl担当者をセットする
         /// </summary>
@@ -133,6 +134,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].TantoushaCode + ":" + dt[i].Name, dt[i].TantoushaCode));
             }
         }
+
         /// <summary>
         /// Ddl担当者をセットする
         /// </summary>
@@ -149,6 +151,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].TantoushaCode + ":" + dt[i].Name, dt[i].LoginID));
             }
         }
+
         /// <summary>
         /// Ddl仕入先をセットする
         /// </summary>
@@ -164,6 +167,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].ShiiresakiCode + ":" + dt[i].ShiiresakiMei, dt[i].ShiiresakiCode));
             }
         }
+
         /// <summary>
         /// 納入場所を取得
         /// </summary>
@@ -241,7 +245,6 @@ namespace m2mKoubai
             }
         }
 
-
         /// <summary>
         ///発注情報で仕入れ先をセットする
         /// </summary>
@@ -257,6 +260,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].ShiiresakiCode + ":" + dt[i].ShiiresakiMei, dt[i].ShiiresakiCode));
             }
         }
+
         /// <summary>
         /// 発注情報でDdl部品区分をセット
         /// </summary>
@@ -272,7 +276,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].BuhinKubun, dt[i].BuhinKubun));
             }
         }
-       
+
         /// <summary>
         /// 発注情報でDdl部品をセット
         /// </summary>
@@ -298,6 +302,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].BuhinCode + ":" + dt[i].BuhinMei, dt[i].BuhinCode));
             }
         }
+
         /// <summary>
         /// 年度でDdl発注Noをセット
         /// </summary>
@@ -313,6 +318,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].HacchuuNo, dt[i].HacchuuNo));
             }
         }
+
         /// <summary>
         /// 発注情報でDdl発注担当者をセット
         /// </summary>
@@ -329,6 +335,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].TantoushaCode + ":" + dt[i].Name, dt[i].TantoushaCode));
             }
         }
+
         /// <summary>
         /// 発注情報でDdl納期回答状況
         /// </summary>
@@ -342,6 +349,7 @@ namespace m2mKoubai
             if(nkubun == (byte)UserKubun.Owner)
                 ddl.Items.Add(new ListItem("未承認", "3"));
         }
+
         /// <summary>
         /// 発注情報でDdl納期状況
         /// </summary>
@@ -353,6 +361,7 @@ namespace m2mKoubai
             ddl.Items.Add(new ListItem("未承認", "1"));
             
         }
+
         /// <summary>
         /// 発注情報でDdl納品状況
         /// </summary>
@@ -382,7 +391,6 @@ namespace m2mKoubai
             }
             ddl.SelectedValue = "0";
         }
-
 
         /// <summary>
         /// 品目の勘定科目名
@@ -449,6 +457,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].BuhinKubun, dt[i].BuhinKubun));
             }
         }
+
         /// <summary>
         /// 検収情報でDdl部品をセット
         /// </summary>
@@ -481,6 +490,7 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].ShiiresakiCode + ":" + dt[i].ShiiresakiMei, dt[i].ShiiresakiCode));
             }
         }
+
         /// <summary>
         /// 注文情報画面でDdlCancelをセット
         /// </summary>
@@ -492,6 +502,7 @@ namespace m2mKoubai
             ddl.Items.Add(new ListItem("キャンセル", "1"));
           
         }
+
         /// <summary>
         /// Ddl仕入先をセットする
         /// </summary>

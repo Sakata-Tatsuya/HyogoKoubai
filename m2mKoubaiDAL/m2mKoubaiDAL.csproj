@@ -113,13 +113,13 @@
       <DependentUpon>DownloadDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="HacchuClass.cs" />
-    <Compile Include="HacchuDataSet_M.cs">
-      <DependentUpon>HacchuDataSet_M.xsd</DependentUpon>
+    <Compile Include="HacchuDataSet.cs">
+      <DependentUpon>HacchuDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="HacchuDataSet_M.Designer.cs">
+    <Compile Include="HacchuDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HacchuDataSet_M.xsd</DependentUpon>
+      <DependentUpon>HacchuDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="HonyakuClass.cs" />
     <Compile Include="KaishaInfoClass.cs" />
@@ -246,16 +246,16 @@
     <None Include="DownloadDataSet.xss">
       <DependentUpon>DownloadDataSet.xsd</DependentUpon>
     </None>
-    <None Include="HacchuDataSet_M.xsc">
-      <DependentUpon>HacchuDataSet_M.xsd</DependentUpon>
+    <None Include="HacchuDataSet.xsc">
+      <DependentUpon>HacchuDataSet.xsd</DependentUpon>
     </None>
-    <None Include="HacchuDataSet_M.xsd">
+    <None Include="HacchuDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HacchuDataSet_M.Designer.cs</LastGenOutput>
+      <LastGenOutput>HacchuDataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="HacchuDataSet_M.xss">
-      <DependentUpon>HacchuDataSet_M.xsd</DependentUpon>
+    <None Include="HacchuDataSet.xss">
+      <DependentUpon>HacchuDataSet.xsd</DependentUpon>
     </None>
     <None Include="KenshuDataSet.xsc">
       <DependentUpon>KenshuDataSet.xsd</DependentUpon>
