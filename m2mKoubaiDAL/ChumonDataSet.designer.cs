@@ -50,6 +50,8 @@ namespace m2mKoubaiDAL {
         
         private V_Chumon_JyouhouDataTable tableV_Chumon_Jyouhou;
         
+        private V_OrderInputDataTable tableV_OrderInput;
+        
         private V_Jyuryosho_MeisaiDataTable tableV_Jyuryosho_Meisai;
         
         private V_Nouhinsho_MeisaiDataTable tableV_Nouhinsho_Meisai;
@@ -120,6 +122,9 @@ namespace m2mKoubaiDAL {
                 }
                 if ((ds.Tables["V_Chumon_Jyouhou"] != null)) {
                     base.Tables.Add(new V_Chumon_JyouhouDataTable(ds.Tables["V_Chumon_Jyouhou"]));
+                }
+                if ((ds.Tables["V_OrderInput"] != null)) {
+                    base.Tables.Add(new V_OrderInputDataTable(ds.Tables["V_OrderInput"]));
                 }
                 if ((ds.Tables["V_Jyuryosho_Meisai"] != null)) {
                     base.Tables.Add(new V_Jyuryosho_MeisaiDataTable(ds.Tables["V_Jyuryosho_Meisai"]));
@@ -279,6 +284,16 @@ namespace m2mKoubaiDAL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public V_OrderInputDataTable V_OrderInput {
+            get {
+                return this.tableV_OrderInput;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public V_Jyuryosho_MeisaiDataTable V_Jyuryosho_Meisai {
             get {
                 return this.tableV_Jyuryosho_Meisai;
@@ -401,6 +416,9 @@ namespace m2mKoubaiDAL {
                 if ((ds.Tables["V_Chumon_Jyouhou"] != null)) {
                     base.Tables.Add(new V_Chumon_JyouhouDataTable(ds.Tables["V_Chumon_Jyouhou"]));
                 }
+                if ((ds.Tables["V_OrderInput"] != null)) {
+                    base.Tables.Add(new V_OrderInputDataTable(ds.Tables["V_OrderInput"]));
+                }
                 if ((ds.Tables["V_Jyuryosho_Meisai"] != null)) {
                     base.Tables.Add(new V_Jyuryosho_MeisaiDataTable(ds.Tables["V_Jyuryosho_Meisai"]));
                 }
@@ -518,6 +536,12 @@ namespace m2mKoubaiDAL {
                     this.tableV_Chumon_Jyouhou.InitVars();
                 }
             }
+            this.tableV_OrderInput = ((V_OrderInputDataTable)(base.Tables["V_OrderInput"]));
+            if ((initTable == true)) {
+                if ((this.tableV_OrderInput != null)) {
+                    this.tableV_OrderInput.InitVars();
+                }
+            }
             this.tableV_Jyuryosho_Meisai = ((V_Jyuryosho_MeisaiDataTable)(base.Tables["V_Jyuryosho_Meisai"]));
             if ((initTable == true)) {
                 if ((this.tableV_Jyuryosho_Meisai != null)) {
@@ -566,6 +590,8 @@ namespace m2mKoubaiDAL {
             base.Tables.Add(this.tableV_Chumon_Meisai);
             this.tableV_Chumon_Jyouhou = new V_Chumon_JyouhouDataTable();
             base.Tables.Add(this.tableV_Chumon_Jyouhou);
+            this.tableV_OrderInput = new V_OrderInputDataTable();
+            base.Tables.Add(this.tableV_OrderInput);
             this.tableV_Jyuryosho_Meisai = new V_Jyuryosho_MeisaiDataTable();
             base.Tables.Add(this.tableV_Jyuryosho_Meisai);
             this.tableV_Nouhinsho_Meisai = new V_Nouhinsho_MeisaiDataTable();
@@ -647,6 +673,12 @@ namespace m2mKoubaiDAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeV_Chumon_Jyouhou() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeV_OrderInput() {
             return false;
         }
         
@@ -755,6 +787,9 @@ namespace m2mKoubaiDAL {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void V_Chumon_JyouhouRowChangeEventHandler(object sender, V_Chumon_JyouhouRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void V_OrderInputRowChangeEventHandler(object sender, V_OrderInputRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void V_Jyuryosho_MeisaiRowChangeEventHandler(object sender, V_Jyuryosho_MeisaiRowChangeEvent e);
@@ -5860,6 +5895,414 @@ namespace m2mKoubaiDAL {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class V_OrderInputDataTable : global::System.Data.TypedTableBase<V_OrderInputRow> {
+            
+            private global::System.Data.DataColumn columnShiiresakiCode;
+            
+            private global::System.Data.DataColumn columnBuhinKubun;
+            
+            private global::System.Data.DataColumn columnBuhinCode;
+            
+            private global::System.Data.DataColumn columnTanka;
+            
+            private global::System.Data.DataColumn columnSuuryou;
+            
+            private global::System.Data.DataColumn columnNouki;
+            
+            private global::System.Data.DataColumn columnNounyuuBashoCode;
+            
+            private global::System.Data.DataColumn columnBikou;
+            
+            private global::System.Data.DataColumn columnTani;
+            
+            private global::System.Data.DataColumn columnLot;
+            
+            private global::System.Data.DataColumn columnLT;
+            
+            private global::System.Data.DataColumn columnKariTankaFlg;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_OrderInputDataTable() {
+                this.TableName = "V_OrderInput";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_OrderInputDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected V_OrderInputDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ShiiresakiCodeColumn {
+                get {
+                    return this.columnShiiresakiCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BuhinKubunColumn {
+                get {
+                    return this.columnBuhinKubun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BuhinCodeColumn {
+                get {
+                    return this.columnBuhinCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TankaColumn {
+                get {
+                    return this.columnTanka;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SuuryouColumn {
+                get {
+                    return this.columnSuuryou;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NoukiColumn {
+                get {
+                    return this.columnNouki;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NounyuuBashoCodeColumn {
+                get {
+                    return this.columnNounyuuBashoCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BikouColumn {
+                get {
+                    return this.columnBikou;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TaniColumn {
+                get {
+                    return this.columnTani;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LotColumn {
+                get {
+                    return this.columnLot;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LTColumn {
+                get {
+                    return this.columnLT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KariTankaFlgColumn {
+                get {
+                    return this.columnKariTankaFlg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_OrderInputRow this[int index] {
+                get {
+                    return ((V_OrderInputRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_OrderInputRowChangeEventHandler V_OrderInputRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_OrderInputRowChangeEventHandler V_OrderInputRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_OrderInputRowChangeEventHandler V_OrderInputRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_OrderInputRowChangeEventHandler V_OrderInputRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddV_OrderInputRow(V_OrderInputRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_OrderInputRow AddV_OrderInputRow(string ShiiresakiCode, string BuhinKubun, string BuhinCode, string Tanka, string Suuryou, string Nouki, string NounyuuBashoCode, string Bikou, string Tani, string Lot, string LT, string KariTankaFlg) {
+                V_OrderInputRow rowV_OrderInputRow = ((V_OrderInputRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        ShiiresakiCode,
+                        BuhinKubun,
+                        BuhinCode,
+                        Tanka,
+                        Suuryou,
+                        Nouki,
+                        NounyuuBashoCode,
+                        Bikou,
+                        Tani,
+                        Lot,
+                        LT,
+                        KariTankaFlg};
+                rowV_OrderInputRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowV_OrderInputRow);
+                return rowV_OrderInputRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                V_OrderInputDataTable cln = ((V_OrderInputDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new V_OrderInputDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnShiiresakiCode = base.Columns["ShiiresakiCode"];
+                this.columnBuhinKubun = base.Columns["BuhinKubun"];
+                this.columnBuhinCode = base.Columns["BuhinCode"];
+                this.columnTanka = base.Columns["Tanka"];
+                this.columnSuuryou = base.Columns["Suuryou"];
+                this.columnNouki = base.Columns["Nouki"];
+                this.columnNounyuuBashoCode = base.Columns["NounyuuBashoCode"];
+                this.columnBikou = base.Columns["Bikou"];
+                this.columnTani = base.Columns["Tani"];
+                this.columnLot = base.Columns["Lot"];
+                this.columnLT = base.Columns["LT"];
+                this.columnKariTankaFlg = base.Columns["KariTankaFlg"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnShiiresakiCode = new global::System.Data.DataColumn("ShiiresakiCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShiiresakiCode);
+                this.columnBuhinKubun = new global::System.Data.DataColumn("BuhinKubun", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBuhinKubun);
+                this.columnBuhinCode = new global::System.Data.DataColumn("BuhinCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBuhinCode);
+                this.columnTanka = new global::System.Data.DataColumn("Tanka", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTanka);
+                this.columnSuuryou = new global::System.Data.DataColumn("Suuryou", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSuuryou);
+                this.columnNouki = new global::System.Data.DataColumn("Nouki", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNouki);
+                this.columnNounyuuBashoCode = new global::System.Data.DataColumn("NounyuuBashoCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNounyuuBashoCode);
+                this.columnBikou = new global::System.Data.DataColumn("Bikou", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBikou);
+                this.columnTani = new global::System.Data.DataColumn("Tani", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTani);
+                this.columnLot = new global::System.Data.DataColumn("Lot", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLot);
+                this.columnLT = new global::System.Data.DataColumn("LT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLT);
+                this.columnKariTankaFlg = new global::System.Data.DataColumn("KariTankaFlg", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKariTankaFlg);
+                this.columnShiiresakiCode.MaxLength = 10;
+                this.columnBuhinKubun.MaxLength = 5;
+                this.columnBuhinCode.MaxLength = 25;
+                this.columnNouki.MaxLength = 10;
+                this.columnNounyuuBashoCode.MaxLength = 10;
+                this.columnBikou.MaxLength = 200;
+                this.columnTani.MaxLength = 5;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_OrderInputRow NewV_OrderInputRow() {
+                return ((V_OrderInputRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new V_OrderInputRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(V_OrderInputRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.V_OrderInputRowChanged != null)) {
+                    this.V_OrderInputRowChanged(this, new V_OrderInputRowChangeEvent(((V_OrderInputRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.V_OrderInputRowChanging != null)) {
+                    this.V_OrderInputRowChanging(this, new V_OrderInputRowChangeEvent(((V_OrderInputRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.V_OrderInputRowDeleted != null)) {
+                    this.V_OrderInputRowDeleted(this, new V_OrderInputRowChangeEvent(((V_OrderInputRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.V_OrderInputRowDeleting != null)) {
+                    this.V_OrderInputRowDeleting(this, new V_OrderInputRowChangeEvent(((V_OrderInputRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveV_OrderInputRow(V_OrderInputRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ChumonDataSet ds = new ChumonDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "V_OrderInputDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class V_Jyuryosho_MeisaiDataTable : global::System.Data.TypedTableBase<V_Jyuryosho_MeisaiRow> {
             
             private global::System.Data.DataColumn columnHacchuuNo;
@@ -8485,6 +8928,357 @@ namespace m2mKoubaiDAL {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class V_OrderInputRow : global::System.Data.DataRow {
+            
+            private V_OrderInputDataTable tableV_OrderInput;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_OrderInputRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableV_OrderInput = ((V_OrderInputDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ShiiresakiCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.ShiiresakiCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'ShiiresakiCode\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.ShiiresakiCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BuhinKubun {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.BuhinKubunColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'BuhinKubun\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.BuhinKubunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BuhinCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.BuhinCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'BuhinCode\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.BuhinCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Tanka {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.TankaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'Tanka\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.TankaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Suuryou {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.SuuryouColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'Suuryou\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.SuuryouColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Nouki {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.NoukiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'Nouki\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.NoukiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NounyuuBashoCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.NounyuuBashoCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'NounyuuBashoCode\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.NounyuuBashoCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Bikou {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.BikouColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'Bikou\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.BikouColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Tani {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.TaniColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'Tani\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.TaniColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Lot {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.LotColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'Lot\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.LotColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string LT {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.LTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'LT\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.LTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string KariTankaFlg {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_OrderInput.KariTankaFlgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_OrderInput\' にある列 \'KariTankaFlg\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_OrderInput.KariTankaFlgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsShiiresakiCodeNull() {
+                return this.IsNull(this.tableV_OrderInput.ShiiresakiCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetShiiresakiCodeNull() {
+                this[this.tableV_OrderInput.ShiiresakiCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBuhinKubunNull() {
+                return this.IsNull(this.tableV_OrderInput.BuhinKubunColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBuhinKubunNull() {
+                this[this.tableV_OrderInput.BuhinKubunColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBuhinCodeNull() {
+                return this.IsNull(this.tableV_OrderInput.BuhinCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBuhinCodeNull() {
+                this[this.tableV_OrderInput.BuhinCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTankaNull() {
+                return this.IsNull(this.tableV_OrderInput.TankaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTankaNull() {
+                this[this.tableV_OrderInput.TankaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSuuryouNull() {
+                return this.IsNull(this.tableV_OrderInput.SuuryouColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSuuryouNull() {
+                this[this.tableV_OrderInput.SuuryouColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNoukiNull() {
+                return this.IsNull(this.tableV_OrderInput.NoukiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNoukiNull() {
+                this[this.tableV_OrderInput.NoukiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNounyuuBashoCodeNull() {
+                return this.IsNull(this.tableV_OrderInput.NounyuuBashoCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNounyuuBashoCodeNull() {
+                this[this.tableV_OrderInput.NounyuuBashoCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBikouNull() {
+                return this.IsNull(this.tableV_OrderInput.BikouColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBikouNull() {
+                this[this.tableV_OrderInput.BikouColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTaniNull() {
+                return this.IsNull(this.tableV_OrderInput.TaniColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTaniNull() {
+                this[this.tableV_OrderInput.TaniColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsLotNull() {
+                return this.IsNull(this.tableV_OrderInput.LotColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetLotNull() {
+                this[this.tableV_OrderInput.LotColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsLTNull() {
+                return this.IsNull(this.tableV_OrderInput.LTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetLTNull() {
+                this[this.tableV_OrderInput.LTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKariTankaFlgNull() {
+                return this.IsNull(this.tableV_OrderInput.KariTankaFlgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKariTankaFlgNull() {
+                this[this.tableV_OrderInput.KariTankaFlgColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class V_Jyuryosho_MeisaiRow : global::System.Data.DataRow {
             
             private V_Jyuryosho_MeisaiDataTable tableV_Jyuryosho_Meisai;
@@ -9528,6 +10322,40 @@ namespace m2mKoubaiDAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public V_Chumon_JyouhouRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class V_OrderInputRowChangeEvent : global::System.EventArgs {
+            
+            private V_OrderInputRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_OrderInputRowChangeEvent(V_OrderInputRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_OrderInputRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -11536,6 +12364,18 @@ namespace m2mKoubaiDAL.ChumonDataSetTableAdapters {
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class V_OrderInputTableAdapter : global::System.ComponentModel.Component {
     }
 }
 

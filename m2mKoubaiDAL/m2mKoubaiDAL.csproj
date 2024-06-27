@@ -71,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuhinClass.cs" />
-    <Compile Include="BuhinClass_S.cs" />
     <Compile Include="BuhinDataSet.cs">
       <DependentUpon>BuhinDataSet.xsd</DependentUpon>
     </Compile>
@@ -80,16 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BuhinDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BuhinDataSet_S.cs">
-      <DependentUpon>BuhinDataSet_S.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BuhinDataSet_S.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BuhinDataSet_S.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ChumonClass.cs" />
-    <Compile Include="ChumonClass_S.cs" />
     <Compile Include="ChumonDataSet.cs">
       <DependentUpon>ChumonDataSet.xsd</DependentUpon>
     </Compile>
@@ -97,14 +87,6 @@
       <DependentUpon>ChumonDataSet.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ChumonDataSet_S.cs">
-      <DependentUpon>ChumonDataSet_S.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ChumonDataSet_S.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ChumonDataSet_S.xsd</DependentUpon>
     </Compile>
     <Compile Include="ChumonMsgClass.cs" />
     <Compile Include="ChumonMsgDataSet.Designer.cs">
@@ -158,15 +140,14 @@
     </Compile>
     <Compile Include="LoginMsgClass.cs" />
     <Compile Include="MailClass.cs" />
-    <Compile Include="NouhinClass_N.cs" />
-    <Compile Include="NouhinClass_Y.cs" />
-    <Compile Include="NouhinDataSet_N.cs">
-      <DependentUpon>NouhinDataSet_N.xsd</DependentUpon>
+    <Compile Include="NouhinClass.cs" />
+    <Compile Include="NouhinDataSet.cs">
+      <DependentUpon>NouhinDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="NouhinDataSet_N.Designer.cs">
+    <Compile Include="NouhinDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NouhinDataSet_N.xsd</DependentUpon>
+      <DependentUpon>NouhinDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="NoukiHenkouClass.cs" />
     <Compile Include="NoukiHenkouDataSet.Designer.cs">
@@ -204,11 +185,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ShiiresakiDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ShiiresakiDataSet_S.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShiiresakiDataSet_S.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Type.cs" />
     <Compile Include="UploadClass.cs" />
     <Compile Include="Utility.cs" />
@@ -226,17 +202,6 @@
     <None Include="BuhinDataSet.xss">
       <DependentUpon>BuhinDataSet.xsd</DependentUpon>
     </None>
-    <None Include="BuhinDataSet_S.xsc">
-      <DependentUpon>BuhinDataSet_S.xsd</DependentUpon>
-    </None>
-    <None Include="BuhinDataSet_S.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BuhinDataSet_S.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="BuhinDataSet_S.xss">
-      <DependentUpon>BuhinDataSet_S.xsd</DependentUpon>
-    </None>
     <None Include="ChumonDataSet.xsc">
       <DependentUpon>ChumonDataSet.xsd</DependentUpon>
     </None>
@@ -247,17 +212,6 @@
     </None>
     <None Include="ChumonDataSet.xss">
       <DependentUpon>ChumonDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ChumonDataSet_S.xsc">
-      <DependentUpon>ChumonDataSet_S.xsd</DependentUpon>
-    </None>
-    <None Include="ChumonDataSet_S.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ChumonDataSet_S.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="ChumonDataSet_S.xss">
-      <DependentUpon>ChumonDataSet_S.xsd</DependentUpon>
     </None>
     <None Include="ChumonMsgDataSet.xsc">
       <DependentUpon>ChumonMsgDataSet.xsd</DependentUpon>
@@ -325,16 +279,16 @@
     <None Include="LoginDataSet.xss">
       <DependentUpon>LoginDataSet.xsd</DependentUpon>
     </None>
-    <None Include="NouhinDataSet_N.xsc">
-      <DependentUpon>NouhinDataSet_N.xsd</DependentUpon>
+    <None Include="NouhinDataSet.xsc">
+      <DependentUpon>NouhinDataSet.xsd</DependentUpon>
     </None>
-    <None Include="NouhinDataSet_N.xsd">
+    <None Include="NouhinDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>NouhinDataSet_N.Designer.cs</LastGenOutput>
+      <LastGenOutput>NouhinDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="NouhinDataSet_N.xss">
-      <DependentUpon>NouhinDataSet_N.xsd</DependentUpon>
+    <None Include="NouhinDataSet.xss">
+      <DependentUpon>NouhinDataSet.xsd</DependentUpon>
     </None>
     <None Include="NoukiHenkouDataSet.xsc">
       <DependentUpon>NoukiHenkouDataSet.xsd</DependentUpon>
@@ -383,17 +337,6 @@
     </None>
     <None Include="ShiiresakiDataSet.xss">
       <DependentUpon>ShiiresakiDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ShiiresakiDataSet_S.xsc">
-      <DependentUpon>ShiiresakiDataSet_S.xsd</DependentUpon>
-    </None>
-    <None Include="ShiiresakiDataSet_S.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ShiiresakiDataSet_S.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="ShiiresakiDataSet_S.xss">
-      <DependentUpon>ShiiresakiDataSet_S.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

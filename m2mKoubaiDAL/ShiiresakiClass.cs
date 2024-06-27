@@ -268,29 +268,23 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ShiiresakiDataSet_S.V_ShiiresakiDataTable getV_ShiiresakiDataTable(SqlConnection sqlConn)
+        public static ShiiresakiDataSet.V_ShiiresakiDataTable getV_ShiiresakiDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
-            //da.SelectCommand.CommandText = "SELECT ShiiresakiCode, ShiiresakiMei FROM M_Shiiresaki";
 
             da.SelectCommand.CommandText =
-                "SELECT          ShiiresakiCode, ShiiresakiMei "
-                + "FROM            dbo.M_Buhin INNER JOIN "
-                + "                      dbo.M_Shiiresaki ON "
-                + "                      dbo.M_Buhin.ShiiresakiCode1 = M_Shiiresaki.ShiiresakiCode "
+                "SELECT ShiiresakiCode, ShiiresakiMei "
+                + "FROM dbo.M_Buhin "
+                + "INNER JOIN dbo.M_Shiiresaki ON dbo.M_Buhin.ShiiresakiCode1 = M_Shiiresaki.ShiiresakiCode "
                 + "UNION "
-                + "SELECT          ShiiresakiCode, ShiiresakiMei "
-                + "FROM            dbo.M_Buhin INNER JOIN "
-                + "                      dbo.M_Shiiresaki AS M_Shiiresaki_1 ON "
-                + "                      dbo.M_Buhin.ShiiresakiCode1 = M_Shiiresaki_1.ShiiresakiCode ";
+                + "SELECT ShiiresakiCode, ShiiresakiMei "
+                + "FROM dbo.M_Buhin "
+                + "INNER JOIN dbo.M_Shiiresaki AS M_Shiiresaki_1 ON  dbo.M_Buhin.ShiiresakiCode1 = M_Shiiresaki_1.ShiiresakiCode ";
             
-            ShiiresakiDataSet_S.V_ShiiresakiDataTable dt = new ShiiresakiDataSet_S.V_ShiiresakiDataTable();
+            ShiiresakiDataSet.V_ShiiresakiDataTable dt = new ShiiresakiDataSet.V_ShiiresakiDataTable();
             da.Fill(dt);
             return dt;
         }
-
-
-
 
         /// <summary>
         /// ÉçÉOÉCÉìIDÇ…ÇÊÇ¡ÇƒÅAâÔé–èÓïÒÇéÊìæ

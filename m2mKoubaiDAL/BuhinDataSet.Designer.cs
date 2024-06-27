@@ -24,11 +24,15 @@ namespace m2mKoubaiDAL {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class BuhinDataSet : global::System.Data.DataSet {
         
-        private V_Buhin_BuhinKubunDataTable tableV_Buhin_BuhinKubun;
+        private V_BuhinKubunDataTable tableV_BuhinKubun;
         
         private V_Buhin_TaniDataTable tableV_Buhin_Tani;
         
         private V_Buhin_MasterDataTable tableV_Buhin_Master;
+        
+        private V_BuhinCodeMeiDataTable tableV_BuhinCodeMei;
+        
+        private V_BuhinInfoDataTable tableV_BuhinInfo;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -58,14 +62,20 @@ namespace m2mKoubaiDAL {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["V_Buhin_BuhinKubun"] != null)) {
-                    base.Tables.Add(new V_Buhin_BuhinKubunDataTable(ds.Tables["V_Buhin_BuhinKubun"]));
+                if ((ds.Tables["V_BuhinKubun"] != null)) {
+                    base.Tables.Add(new V_BuhinKubunDataTable(ds.Tables["V_BuhinKubun"]));
                 }
                 if ((ds.Tables["V_Buhin_Tani"] != null)) {
                     base.Tables.Add(new V_Buhin_TaniDataTable(ds.Tables["V_Buhin_Tani"]));
                 }
                 if ((ds.Tables["V_Buhin_Master"] != null)) {
                     base.Tables.Add(new V_Buhin_MasterDataTable(ds.Tables["V_Buhin_Master"]));
+                }
+                if ((ds.Tables["V_BuhinCodeMei"] != null)) {
+                    base.Tables.Add(new V_BuhinCodeMeiDataTable(ds.Tables["V_BuhinCodeMei"]));
+                }
+                if ((ds.Tables["V_BuhinInfo"] != null)) {
+                    base.Tables.Add(new V_BuhinInfoDataTable(ds.Tables["V_BuhinInfo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -89,9 +99,9 @@ namespace m2mKoubaiDAL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public V_Buhin_BuhinKubunDataTable V_Buhin_BuhinKubun {
+        public V_BuhinKubunDataTable V_BuhinKubun {
             get {
-                return this.tableV_Buhin_BuhinKubun;
+                return this.tableV_BuhinKubun;
             }
         }
         
@@ -112,6 +122,26 @@ namespace m2mKoubaiDAL {
         public V_Buhin_MasterDataTable V_Buhin_Master {
             get {
                 return this.tableV_Buhin_Master;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public V_BuhinCodeMeiDataTable V_BuhinCodeMei {
+            get {
+                return this.tableV_BuhinCodeMei;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public V_BuhinInfoDataTable V_BuhinInfo {
+            get {
+                return this.tableV_BuhinInfo;
             }
         }
         
@@ -182,14 +212,20 @@ namespace m2mKoubaiDAL {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["V_Buhin_BuhinKubun"] != null)) {
-                    base.Tables.Add(new V_Buhin_BuhinKubunDataTable(ds.Tables["V_Buhin_BuhinKubun"]));
+                if ((ds.Tables["V_BuhinKubun"] != null)) {
+                    base.Tables.Add(new V_BuhinKubunDataTable(ds.Tables["V_BuhinKubun"]));
                 }
                 if ((ds.Tables["V_Buhin_Tani"] != null)) {
                     base.Tables.Add(new V_Buhin_TaniDataTable(ds.Tables["V_Buhin_Tani"]));
                 }
                 if ((ds.Tables["V_Buhin_Master"] != null)) {
                     base.Tables.Add(new V_Buhin_MasterDataTable(ds.Tables["V_Buhin_Master"]));
+                }
+                if ((ds.Tables["V_BuhinCodeMei"] != null)) {
+                    base.Tables.Add(new V_BuhinCodeMeiDataTable(ds.Tables["V_BuhinCodeMei"]));
+                }
+                if ((ds.Tables["V_BuhinInfo"] != null)) {
+                    base.Tables.Add(new V_BuhinInfoDataTable(ds.Tables["V_BuhinInfo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -224,10 +260,10 @@ namespace m2mKoubaiDAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableV_Buhin_BuhinKubun = ((V_Buhin_BuhinKubunDataTable)(base.Tables["V_Buhin_BuhinKubun"]));
+            this.tableV_BuhinKubun = ((V_BuhinKubunDataTable)(base.Tables["V_BuhinKubun"]));
             if ((initTable == true)) {
-                if ((this.tableV_Buhin_BuhinKubun != null)) {
-                    this.tableV_Buhin_BuhinKubun.InitVars();
+                if ((this.tableV_BuhinKubun != null)) {
+                    this.tableV_BuhinKubun.InitVars();
                 }
             }
             this.tableV_Buhin_Tani = ((V_Buhin_TaniDataTable)(base.Tables["V_Buhin_Tani"]));
@@ -242,6 +278,18 @@ namespace m2mKoubaiDAL {
                     this.tableV_Buhin_Master.InitVars();
                 }
             }
+            this.tableV_BuhinCodeMei = ((V_BuhinCodeMeiDataTable)(base.Tables["V_BuhinCodeMei"]));
+            if ((initTable == true)) {
+                if ((this.tableV_BuhinCodeMei != null)) {
+                    this.tableV_BuhinCodeMei.InitVars();
+                }
+            }
+            this.tableV_BuhinInfo = ((V_BuhinInfoDataTable)(base.Tables["V_BuhinInfo"]));
+            if ((initTable == true)) {
+                if ((this.tableV_BuhinInfo != null)) {
+                    this.tableV_BuhinInfo.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -252,17 +300,21 @@ namespace m2mKoubaiDAL {
             this.Namespace = "http://tempuri.org/BuhinDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableV_Buhin_BuhinKubun = new V_Buhin_BuhinKubunDataTable();
-            base.Tables.Add(this.tableV_Buhin_BuhinKubun);
+            this.tableV_BuhinKubun = new V_BuhinKubunDataTable();
+            base.Tables.Add(this.tableV_BuhinKubun);
             this.tableV_Buhin_Tani = new V_Buhin_TaniDataTable();
             base.Tables.Add(this.tableV_Buhin_Tani);
             this.tableV_Buhin_Master = new V_Buhin_MasterDataTable();
             base.Tables.Add(this.tableV_Buhin_Master);
+            this.tableV_BuhinCodeMei = new V_BuhinCodeMeiDataTable();
+            base.Tables.Add(this.tableV_BuhinCodeMei);
+            this.tableV_BuhinInfo = new V_BuhinInfoDataTable();
+            base.Tables.Add(this.tableV_BuhinInfo);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeV_Buhin_BuhinKubun() {
+        private bool ShouldSerializeV_BuhinKubun() {
             return false;
         }
         
@@ -275,6 +327,18 @@ namespace m2mKoubaiDAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeV_Buhin_Master() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeV_BuhinCodeMei() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeV_BuhinInfo() {
             return false;
         }
         
@@ -334,7 +398,7 @@ namespace m2mKoubaiDAL {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void V_Buhin_BuhinKubunRowChangeEventHandler(object sender, V_Buhin_BuhinKubunRowChangeEvent e);
+        public delegate void V_BuhinKubunRowChangeEventHandler(object sender, V_BuhinKubunRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void V_Buhin_TaniRowChangeEventHandler(object sender, V_Buhin_TaniRowChangeEvent e);
@@ -342,19 +406,25 @@ namespace m2mKoubaiDAL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void V_Buhin_MasterRowChangeEventHandler(object sender, V_Buhin_MasterRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void V_BuhinCodeMeiRowChangeEventHandler(object sender, V_BuhinCodeMeiRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void V_BuhinInfoRowChangeEventHandler(object sender, V_BuhinInfoRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class V_Buhin_BuhinKubunDataTable : global::System.Data.TypedTableBase<V_Buhin_BuhinKubunRow> {
+        public partial class V_BuhinKubunDataTable : global::System.Data.TypedTableBase<V_BuhinKubunRow> {
             
             private global::System.Data.DataColumn columnBuhinKubun;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Buhin_BuhinKubunDataTable() {
-                this.TableName = "V_Buhin_BuhinKubun";
+            public V_BuhinKubunDataTable() {
+                this.TableName = "V_BuhinKubun";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -362,7 +432,7 @@ namespace m2mKoubaiDAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal V_Buhin_BuhinKubunDataTable(global::System.Data.DataTable table) {
+            internal V_BuhinKubunDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -379,7 +449,7 @@ namespace m2mKoubaiDAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected V_Buhin_BuhinKubunDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected V_BuhinKubunDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -403,45 +473,45 @@ namespace m2mKoubaiDAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Buhin_BuhinKubunRow this[int index] {
+            public V_BuhinKubunRow this[int index] {
                 get {
-                    return ((V_Buhin_BuhinKubunRow)(this.Rows[index]));
+                    return ((V_BuhinKubunRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event V_Buhin_BuhinKubunRowChangeEventHandler V_Buhin_BuhinKubunRowChanging;
+            public event V_BuhinKubunRowChangeEventHandler V_BuhinKubunRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event V_Buhin_BuhinKubunRowChangeEventHandler V_Buhin_BuhinKubunRowChanged;
+            public event V_BuhinKubunRowChangeEventHandler V_BuhinKubunRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event V_Buhin_BuhinKubunRowChangeEventHandler V_Buhin_BuhinKubunRowDeleting;
+            public event V_BuhinKubunRowChangeEventHandler V_BuhinKubunRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event V_Buhin_BuhinKubunRowChangeEventHandler V_Buhin_BuhinKubunRowDeleted;
+            public event V_BuhinKubunRowChangeEventHandler V_BuhinKubunRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddV_Buhin_BuhinKubunRow(V_Buhin_BuhinKubunRow row) {
+            public void AddV_BuhinKubunRow(V_BuhinKubunRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Buhin_BuhinKubunRow AddV_Buhin_BuhinKubunRow(string BuhinKubun) {
-                V_Buhin_BuhinKubunRow rowV_Buhin_BuhinKubunRow = ((V_Buhin_BuhinKubunRow)(this.NewRow()));
+            public V_BuhinKubunRow AddV_BuhinKubunRow(string BuhinKubun) {
+                V_BuhinKubunRow rowV_BuhinKubunRow = ((V_BuhinKubunRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         BuhinKubun};
-                rowV_Buhin_BuhinKubunRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowV_Buhin_BuhinKubunRow);
-                return rowV_Buhin_BuhinKubunRow;
+                rowV_BuhinKubunRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowV_BuhinKubunRow);
+                return rowV_BuhinKubunRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                V_Buhin_BuhinKubunDataTable cln = ((V_Buhin_BuhinKubunDataTable)(base.Clone()));
+                V_BuhinKubunDataTable cln = ((V_BuhinKubunDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -449,7 +519,7 @@ namespace m2mKoubaiDAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new V_Buhin_BuhinKubunDataTable();
+                return new V_BuhinKubunDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -469,28 +539,28 @@ namespace m2mKoubaiDAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Buhin_BuhinKubunRow NewV_Buhin_BuhinKubunRow() {
-                return ((V_Buhin_BuhinKubunRow)(this.NewRow()));
+            public V_BuhinKubunRow NewV_BuhinKubunRow() {
+                return ((V_BuhinKubunRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new V_Buhin_BuhinKubunRow(builder);
+                return new V_BuhinKubunRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(V_Buhin_BuhinKubunRow);
+                return typeof(V_BuhinKubunRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.V_Buhin_BuhinKubunRowChanged != null)) {
-                    this.V_Buhin_BuhinKubunRowChanged(this, new V_Buhin_BuhinKubunRowChangeEvent(((V_Buhin_BuhinKubunRow)(e.Row)), e.Action));
+                if ((this.V_BuhinKubunRowChanged != null)) {
+                    this.V_BuhinKubunRowChanged(this, new V_BuhinKubunRowChangeEvent(((V_BuhinKubunRow)(e.Row)), e.Action));
                 }
             }
             
@@ -498,8 +568,8 @@ namespace m2mKoubaiDAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.V_Buhin_BuhinKubunRowChanging != null)) {
-                    this.V_Buhin_BuhinKubunRowChanging(this, new V_Buhin_BuhinKubunRowChangeEvent(((V_Buhin_BuhinKubunRow)(e.Row)), e.Action));
+                if ((this.V_BuhinKubunRowChanging != null)) {
+                    this.V_BuhinKubunRowChanging(this, new V_BuhinKubunRowChangeEvent(((V_BuhinKubunRow)(e.Row)), e.Action));
                 }
             }
             
@@ -507,8 +577,8 @@ namespace m2mKoubaiDAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.V_Buhin_BuhinKubunRowDeleted != null)) {
-                    this.V_Buhin_BuhinKubunRowDeleted(this, new V_Buhin_BuhinKubunRowChangeEvent(((V_Buhin_BuhinKubunRow)(e.Row)), e.Action));
+                if ((this.V_BuhinKubunRowDeleted != null)) {
+                    this.V_BuhinKubunRowDeleted(this, new V_BuhinKubunRowChangeEvent(((V_BuhinKubunRow)(e.Row)), e.Action));
                 }
             }
             
@@ -516,14 +586,14 @@ namespace m2mKoubaiDAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.V_Buhin_BuhinKubunRowDeleting != null)) {
-                    this.V_Buhin_BuhinKubunRowDeleting(this, new V_Buhin_BuhinKubunRowChangeEvent(((V_Buhin_BuhinKubunRow)(e.Row)), e.Action));
+                if ((this.V_BuhinKubunRowDeleting != null)) {
+                    this.V_BuhinKubunRowDeleting(this, new V_BuhinKubunRowChangeEvent(((V_BuhinKubunRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveV_Buhin_BuhinKubunRow(V_Buhin_BuhinKubunRow row) {
+            public void RemoveV_BuhinKubunRow(V_BuhinKubunRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -550,7 +620,7 @@ namespace m2mKoubaiDAL {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "V_Buhin_BuhinKubunDataTable";
+                attribute2.FixedValue = "V_BuhinKubunDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1315,27 +1385,611 @@ namespace m2mKoubaiDAL {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
+        ///Represents the strongly named DataTable class.
         ///</summary>
-        public partial class V_Buhin_BuhinKubunRow : global::System.Data.DataRow {
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class V_BuhinCodeMeiDataTable : global::System.Data.TypedTableBase<V_BuhinCodeMeiRow> {
             
-            private V_Buhin_BuhinKubunDataTable tableV_Buhin_BuhinKubun;
+            private global::System.Data.DataColumn columnBuhinCode;
+            
+            private global::System.Data.DataColumn columnBuhinMei;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal V_Buhin_BuhinKubunRow(global::System.Data.DataRowBuilder rb) : 
+            public V_BuhinCodeMeiDataTable() {
+                this.TableName = "V_BuhinCodeMei";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_BuhinCodeMeiDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected V_BuhinCodeMeiDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BuhinCodeColumn {
+                get {
+                    return this.columnBuhinCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BuhinMeiColumn {
+                get {
+                    return this.columnBuhinMei;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinCodeMeiRow this[int index] {
+                get {
+                    return ((V_BuhinCodeMeiRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_BuhinCodeMeiRowChangeEventHandler V_BuhinCodeMeiRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_BuhinCodeMeiRowChangeEventHandler V_BuhinCodeMeiRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_BuhinCodeMeiRowChangeEventHandler V_BuhinCodeMeiRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_BuhinCodeMeiRowChangeEventHandler V_BuhinCodeMeiRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddV_BuhinCodeMeiRow(V_BuhinCodeMeiRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinCodeMeiRow AddV_BuhinCodeMeiRow(string BuhinCode, string BuhinMei) {
+                V_BuhinCodeMeiRow rowV_BuhinCodeMeiRow = ((V_BuhinCodeMeiRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        BuhinCode,
+                        BuhinMei};
+                rowV_BuhinCodeMeiRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowV_BuhinCodeMeiRow);
+                return rowV_BuhinCodeMeiRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinCodeMeiRow FindByBuhinCode(string BuhinCode) {
+                return ((V_BuhinCodeMeiRow)(this.Rows.Find(new object[] {
+                            BuhinCode})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                V_BuhinCodeMeiDataTable cln = ((V_BuhinCodeMeiDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new V_BuhinCodeMeiDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnBuhinCode = base.Columns["BuhinCode"];
+                this.columnBuhinMei = base.Columns["BuhinMei"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnBuhinCode = new global::System.Data.DataColumn("BuhinCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBuhinCode);
+                this.columnBuhinMei = new global::System.Data.DataColumn("BuhinMei", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBuhinMei);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnBuhinCode}, true));
+                this.columnBuhinCode.AllowDBNull = false;
+                this.columnBuhinCode.Unique = true;
+                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinMei.AllowDBNull = false;
+                this.columnBuhinMei.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinCodeMeiRow NewV_BuhinCodeMeiRow() {
+                return ((V_BuhinCodeMeiRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new V_BuhinCodeMeiRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(V_BuhinCodeMeiRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.V_BuhinCodeMeiRowChanged != null)) {
+                    this.V_BuhinCodeMeiRowChanged(this, new V_BuhinCodeMeiRowChangeEvent(((V_BuhinCodeMeiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.V_BuhinCodeMeiRowChanging != null)) {
+                    this.V_BuhinCodeMeiRowChanging(this, new V_BuhinCodeMeiRowChangeEvent(((V_BuhinCodeMeiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.V_BuhinCodeMeiRowDeleted != null)) {
+                    this.V_BuhinCodeMeiRowDeleted(this, new V_BuhinCodeMeiRowChangeEvent(((V_BuhinCodeMeiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.V_BuhinCodeMeiRowDeleting != null)) {
+                    this.V_BuhinCodeMeiRowDeleting(this, new V_BuhinCodeMeiRowChangeEvent(((V_BuhinCodeMeiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveV_BuhinCodeMeiRow(V_BuhinCodeMeiRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                BuhinDataSet ds = new BuhinDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "V_BuhinCodeMeiDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class V_BuhinInfoDataTable : global::System.Data.TypedTableBase<V_BuhinInfoRow> {
+            
+            private global::System.Data.DataColumn columnTani;
+            
+            private global::System.Data.DataColumn columnLT_Suuji;
+            
+            private global::System.Data.DataColumn columnLT_Tani;
+            
+            private global::System.Data.DataColumn columnTanka;
+            
+            private global::System.Data.DataColumn columnLot;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinInfoDataTable() {
+                this.TableName = "V_BuhinInfo";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_BuhinInfoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected V_BuhinInfoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TaniColumn {
+                get {
+                    return this.columnTani;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LT_SuujiColumn {
+                get {
+                    return this.columnLT_Suuji;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LT_TaniColumn {
+                get {
+                    return this.columnLT_Tani;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TankaColumn {
+                get {
+                    return this.columnTanka;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LotColumn {
+                get {
+                    return this.columnLot;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinInfoRow this[int index] {
+                get {
+                    return ((V_BuhinInfoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_BuhinInfoRowChangeEventHandler V_BuhinInfoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_BuhinInfoRowChangeEventHandler V_BuhinInfoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_BuhinInfoRowChangeEventHandler V_BuhinInfoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_BuhinInfoRowChangeEventHandler V_BuhinInfoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddV_BuhinInfoRow(V_BuhinInfoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinInfoRow AddV_BuhinInfoRow(string Tani, int LT_Suuji, byte LT_Tani, decimal Tanka, int Lot) {
+                V_BuhinInfoRow rowV_BuhinInfoRow = ((V_BuhinInfoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Tani,
+                        LT_Suuji,
+                        LT_Tani,
+                        Tanka,
+                        Lot};
+                rowV_BuhinInfoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowV_BuhinInfoRow);
+                return rowV_BuhinInfoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                V_BuhinInfoDataTable cln = ((V_BuhinInfoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new V_BuhinInfoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnTani = base.Columns["Tani"];
+                this.columnLT_Suuji = base.Columns["LT_Suuji"];
+                this.columnLT_Tani = base.Columns["LT_Tani"];
+                this.columnTanka = base.Columns["Tanka"];
+                this.columnLot = base.Columns["Lot"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnTani = new global::System.Data.DataColumn("Tani", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTani);
+                this.columnLT_Suuji = new global::System.Data.DataColumn("LT_Suuji", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLT_Suuji);
+                this.columnLT_Tani = new global::System.Data.DataColumn("LT_Tani", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLT_Tani);
+                this.columnTanka = new global::System.Data.DataColumn("Tanka", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTanka);
+                this.columnLot = new global::System.Data.DataColumn("Lot", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLot);
+                this.columnTani.AllowDBNull = false;
+                this.columnTani.MaxLength = 5;
+                this.columnLT_Suuji.AllowDBNull = false;
+                this.columnLT_Tani.AllowDBNull = false;
+                this.columnTanka.AllowDBNull = false;
+                this.columnLot.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinInfoRow NewV_BuhinInfoRow() {
+                return ((V_BuhinInfoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new V_BuhinInfoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(V_BuhinInfoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.V_BuhinInfoRowChanged != null)) {
+                    this.V_BuhinInfoRowChanged(this, new V_BuhinInfoRowChangeEvent(((V_BuhinInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.V_BuhinInfoRowChanging != null)) {
+                    this.V_BuhinInfoRowChanging(this, new V_BuhinInfoRowChangeEvent(((V_BuhinInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.V_BuhinInfoRowDeleted != null)) {
+                    this.V_BuhinInfoRowDeleted(this, new V_BuhinInfoRowChangeEvent(((V_BuhinInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.V_BuhinInfoRowDeleting != null)) {
+                    this.V_BuhinInfoRowDeleting(this, new V_BuhinInfoRowChangeEvent(((V_BuhinInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveV_BuhinInfoRow(V_BuhinInfoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                BuhinDataSet ds = new BuhinDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "V_BuhinInfoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class V_BuhinKubunRow : global::System.Data.DataRow {
+            
+            private V_BuhinKubunDataTable tableV_BuhinKubun;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_BuhinKubunRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableV_Buhin_BuhinKubun = ((V_Buhin_BuhinKubunDataTable)(this.Table));
+                this.tableV_BuhinKubun = ((V_BuhinKubunDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string BuhinKubun {
                 get {
-                    return ((string)(this[this.tableV_Buhin_BuhinKubun.BuhinKubunColumn]));
+                    return ((string)(this[this.tableV_BuhinKubun.BuhinKubunColumn]));
                 }
                 set {
-                    this[this.tableV_Buhin_BuhinKubun.BuhinKubunColumn] = value;
+                    this[this.tableV_BuhinKubun.BuhinKubunColumn] = value;
                 }
             }
         }
@@ -1581,25 +2235,132 @@ namespace m2mKoubaiDAL {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class V_BuhinCodeMeiRow : global::System.Data.DataRow {
+            
+            private V_BuhinCodeMeiDataTable tableV_BuhinCodeMei;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_BuhinCodeMeiRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableV_BuhinCodeMei = ((V_BuhinCodeMeiDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BuhinCode {
+                get {
+                    return ((string)(this[this.tableV_BuhinCodeMei.BuhinCodeColumn]));
+                }
+                set {
+                    this[this.tableV_BuhinCodeMei.BuhinCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BuhinMei {
+                get {
+                    return ((string)(this[this.tableV_BuhinCodeMei.BuhinMeiColumn]));
+                }
+                set {
+                    this[this.tableV_BuhinCodeMei.BuhinMeiColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class V_BuhinInfoRow : global::System.Data.DataRow {
+            
+            private V_BuhinInfoDataTable tableV_BuhinInfo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_BuhinInfoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableV_BuhinInfo = ((V_BuhinInfoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Tani {
+                get {
+                    return ((string)(this[this.tableV_BuhinInfo.TaniColumn]));
+                }
+                set {
+                    this[this.tableV_BuhinInfo.TaniColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int LT_Suuji {
+                get {
+                    return ((int)(this[this.tableV_BuhinInfo.LT_SuujiColumn]));
+                }
+                set {
+                    this[this.tableV_BuhinInfo.LT_SuujiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public byte LT_Tani {
+                get {
+                    return ((byte)(this[this.tableV_BuhinInfo.LT_TaniColumn]));
+                }
+                set {
+                    this[this.tableV_BuhinInfo.LT_TaniColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Tanka {
+                get {
+                    return ((decimal)(this[this.tableV_BuhinInfo.TankaColumn]));
+                }
+                set {
+                    this[this.tableV_BuhinInfo.TankaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Lot {
+                get {
+                    return ((int)(this[this.tableV_BuhinInfo.LotColumn]));
+                }
+                set {
+                    this[this.tableV_BuhinInfo.LotColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class V_Buhin_BuhinKubunRowChangeEvent : global::System.EventArgs {
+        public class V_BuhinKubunRowChangeEvent : global::System.EventArgs {
             
-            private V_Buhin_BuhinKubunRow eventRow;
+            private V_BuhinKubunRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Buhin_BuhinKubunRowChangeEvent(V_Buhin_BuhinKubunRow row, global::System.Data.DataRowAction action) {
+            public V_BuhinKubunRowChangeEvent(V_BuhinKubunRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public V_Buhin_BuhinKubunRow Row {
+            public V_BuhinKubunRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1681,6 +2442,74 @@ namespace m2mKoubaiDAL {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class V_BuhinCodeMeiRowChangeEvent : global::System.EventArgs {
+            
+            private V_BuhinCodeMeiRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinCodeMeiRowChangeEvent(V_BuhinCodeMeiRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinCodeMeiRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class V_BuhinInfoRowChangeEvent : global::System.EventArgs {
+            
+            private V_BuhinInfoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinInfoRowChangeEvent(V_BuhinInfoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_BuhinInfoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace m2mKoubaiDAL.BuhinDataSetTableAdapters {
@@ -1695,7 +2524,7 @@ namespace m2mKoubaiDAL.BuhinDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class V_Buhin_BuhinKubunTableAdapter : global::System.ComponentModel.Component {
+    public partial class V_BuhinKubunTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1707,7 +2536,7 @@ namespace m2mKoubaiDAL.BuhinDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public V_Buhin_BuhinKubunTableAdapter() {
+        public V_BuhinKubunTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1778,7 +2607,7 @@ namespace m2mKoubaiDAL.BuhinDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "V_Buhin_BuhinKubun";
+            tableMapping.DataSetTable = "V_BuhinKubun";
             tableMapping.ColumnMappings.Add("BuhinKubun", "BuhinKubun");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -1804,7 +2633,7 @@ namespace m2mKoubaiDAL.BuhinDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BuhinDataSet.V_Buhin_BuhinKubunDataTable dataTable) {
+        public virtual int Fill(BuhinDataSet.V_BuhinKubunDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1817,9 +2646,9 @@ namespace m2mKoubaiDAL.BuhinDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BuhinDataSet.V_Buhin_BuhinKubunDataTable GetData() {
+        public virtual BuhinDataSet.V_BuhinKubunDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BuhinDataSet.V_Buhin_BuhinKubunDataTable dataTable = new BuhinDataSet.V_Buhin_BuhinKubunDataTable();
+            BuhinDataSet.V_BuhinKubunDataTable dataTable = new BuhinDataSet.V_BuhinKubunDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2114,6 +2943,289 @@ namespace m2mKoubaiDAL.BuhinDataSetTableAdapters {
         public virtual BuhinDataSet.V_Buhin_MasterDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             BuhinDataSet.V_Buhin_MasterDataTable dataTable = new BuhinDataSet.V_Buhin_MasterDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class V_BuhinCodeMeiTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public V_BuhinCodeMeiTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "V_BuhinCodeMei";
+            tableMapping.ColumnMappings.Add("BuhinCode", "BuhinCode");
+            tableMapping.ColumnMappings.Add("BuhinMei", "BuhinMei");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::m2mKoubaiDAL.Properties.Settings.Default.m2mKoubaiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT BuhinCode, BuhinMei FROM dbo.V_BuhinCodeMei";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(BuhinDataSet.V_BuhinCodeMeiDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual BuhinDataSet.V_BuhinCodeMeiDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            BuhinDataSet.V_BuhinCodeMeiDataTable dataTable = new BuhinDataSet.V_BuhinCodeMeiDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class V_BuhinInfoTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public V_BuhinInfoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "V_BuhinInfo";
+            tableMapping.ColumnMappings.Add("Tani", "Tani");
+            tableMapping.ColumnMappings.Add("LT_Suuji", "LT_Suuji");
+            tableMapping.ColumnMappings.Add("LT_Tani", "LT_Tani");
+            tableMapping.ColumnMappings.Add("Tanka", "Tanka");
+            tableMapping.ColumnMappings.Add("Lot", "Lot");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::m2mKoubaiDAL.Properties.Settings.Default.m2mKoubaiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT Tani, LT_Suuji, LT_Tani, Tanka, Lot FROM dbo.V_BuhinInfo";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(BuhinDataSet.V_BuhinInfoDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual BuhinDataSet.V_BuhinInfoDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            BuhinDataSet.V_BuhinInfoDataTable dataTable = new BuhinDataSet.V_BuhinInfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

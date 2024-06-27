@@ -326,6 +326,30 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_OrderInputTableAdapter" GeneratorDataComponentClassName="V_OrderInputTableAdapter" Name="V_OrderInput" UserDataComponentName="V_OrderInputTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="m2mKoubai2.dbo.V_OrderInput" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ShiiresakiCode, BuhinKubun, BuhinCode, Tanka, Suuryou, Nouki, NounyuuBashoCode, Bikou, Tani, Lot, LT_Suuji FROM V_OrderInput</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ShiiresakiCode" DataSetColumn="ShiiresakiCode" />
+              <Mapping SourceColumn="BuhinKubun" DataSetColumn="BuhinKubun" />
+              <Mapping SourceColumn="BuhinCode" DataSetColumn="BuhinCode" />
+              <Mapping SourceColumn="Tanka" DataSetColumn="Tanka" />
+              <Mapping SourceColumn="Suuryou" DataSetColumn="Suuryou" />
+              <Mapping SourceColumn="Nouki" DataSetColumn="Nouki" />
+              <Mapping SourceColumn="Bikou" DataSetColumn="Bikou" />
+              <Mapping SourceColumn="Tani" DataSetColumn="Tani" />
+              <Mapping SourceColumn="Lot" DataSetColumn="Lot" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -963,125 +987,185 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="V_Chumon_Jyouhou" msprop:Generator_RowClassName="V_Chumon_JyouhouRow" msprop:Generator_RowEvHandlerName="V_Chumon_JyouhouRowChangeEventHandler" msprop:Generator_RowDeletedName="V_Chumon_JyouhouRowDeleted" msprop:Generator_RowDeletingName="V_Chumon_JyouhouRowDeleting" msprop:Generator_RowEvArgName="V_Chumon_JyouhouRowChangeEvent" msprop:Generator_TablePropName="V_Chumon_Jyouhou" msprop:Generator_RowChangedName="V_Chumon_JyouhouRowChanged" msprop:Generator_UserTableName="V_Chumon_Jyouhou" msprop:Generator_RowChangingName="V_Chumon_JyouhouRowChanging" msprop:Generator_TableClassName="V_Chumon_JyouhouDataTable" msprop:Generator_TableVarName="tableV_Chumon_Jyouhou">
+        <xs:element name="V_Chumon_Jyouhou" msprop:Generator_RowEvHandlerName="V_Chumon_JyouhouRowChangeEventHandler" msprop:Generator_RowDeletedName="V_Chumon_JyouhouRowDeleted" msprop:Generator_RowDeletingName="V_Chumon_JyouhouRowDeleting" msprop:Generator_RowEvArgName="V_Chumon_JyouhouRowChangeEvent" msprop:Generator_TablePropName="V_Chumon_Jyouhou" msprop:Generator_RowChangedName="V_Chumon_JyouhouRowChanged" msprop:Generator_UserTableName="V_Chumon_Jyouhou" msprop:Generator_RowChangingName="V_Chumon_JyouhouRowChanging" msprop:Generator_RowClassName="V_Chumon_JyouhouRow" msprop:Generator_TableClassName="V_Chumon_JyouhouDataTable" msprop:Generator_TableVarName="tableV_Chumon_Jyouhou">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Year" msprop:Generator_UserColumnName="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnVarNameInTable="columnYear">
+              <xs:element name="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_UserColumnName="Year" msprop:Generator_ColumnVarNameInTable="columnYear">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="HacchuuNo" msprop:Generator_UserColumnName="HacchuuNo" msprop:Generator_ColumnPropNameInTable="HacchuuNoColumn" msprop:Generator_ColumnPropNameInRow="HacchuuNo" msprop:Generator_ColumnVarNameInTable="columnHacchuuNo">
+              <xs:element name="HacchuuNo" msprop:Generator_ColumnPropNameInTable="HacchuuNoColumn" msprop:Generator_ColumnPropNameInRow="HacchuuNo" msprop:Generator_UserColumnName="HacchuuNo" msprop:Generator_ColumnVarNameInTable="columnHacchuuNo">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="7" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="HacchuuBi" msprop:Generator_UserColumnName="HacchuuBi" msprop:Generator_ColumnPropNameInTable="HacchuuBiColumn" msprop:Generator_ColumnPropNameInRow="HacchuuBi" msprop:Generator_ColumnVarNameInTable="columnHacchuuBi" type="xs:dateTime" />
-              <xs:element name="HacchushaID" msprop:Generator_UserColumnName="HacchushaID" msprop:Generator_ColumnPropNameInTable="HacchushaIDColumn" msprop:Generator_ColumnPropNameInRow="HacchushaID" msprop:Generator_ColumnVarNameInTable="columnHacchushaID">
+              <xs:element name="HacchuuBi" msprop:Generator_ColumnPropNameInTable="HacchuuBiColumn" msprop:Generator_ColumnPropNameInRow="HacchuuBi" msprop:Generator_UserColumnName="HacchuuBi" msprop:Generator_ColumnVarNameInTable="columnHacchuuBi" type="xs:dateTime" />
+              <xs:element name="HacchushaID" msprop:Generator_ColumnPropNameInTable="HacchushaIDColumn" msprop:Generator_ColumnPropNameInRow="HacchushaID" msprop:Generator_UserColumnName="HacchushaID" msprop:Generator_ColumnVarNameInTable="columnHacchushaID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName">
+              <xs:element name="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ShiiresakiCode" msprop:Generator_UserColumnName="ShiiresakiCode" msprop:Generator_ColumnPropNameInTable="ShiiresakiCodeColumn" msprop:Generator_ColumnPropNameInRow="ShiiresakiCode" msprop:Generator_ColumnVarNameInTable="columnShiiresakiCode">
+              <xs:element name="ShiiresakiCode" msprop:Generator_ColumnPropNameInTable="ShiiresakiCodeColumn" msprop:Generator_ColumnPropNameInRow="ShiiresakiCode" msprop:Generator_UserColumnName="ShiiresakiCode" msprop:Generator_ColumnVarNameInTable="columnShiiresakiCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ShiiresakiMei" msprop:Generator_UserColumnName="ShiiresakiMei" msprop:Generator_ColumnPropNameInTable="ShiiresakiMeiColumn" msprop:Generator_ColumnPropNameInRow="ShiiresakiMei" msprop:Generator_ColumnVarNameInTable="columnShiiresakiMei">
+              <xs:element name="ShiiresakiMei" msprop:Generator_ColumnPropNameInTable="ShiiresakiMeiColumn" msprop:Generator_ColumnPropNameInRow="ShiiresakiMei" msprop:Generator_UserColumnName="ShiiresakiMei" msprop:Generator_ColumnVarNameInTable="columnShiiresakiMei">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BuhinKubun" msprop:Generator_UserColumnName="BuhinKubun" msprop:Generator_ColumnPropNameInTable="BuhinKubunColumn" msprop:Generator_ColumnPropNameInRow="BuhinKubun" msprop:Generator_ColumnVarNameInTable="columnBuhinKubun">
+              <xs:element name="BuhinKubun" msprop:Generator_ColumnPropNameInTable="BuhinKubunColumn" msprop:Generator_ColumnPropNameInRow="BuhinKubun" msprop:Generator_UserColumnName="BuhinKubun" msprop:Generator_ColumnVarNameInTable="columnBuhinKubun">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BuhinCode" msprop:Generator_UserColumnName="BuhinCode" msprop:Generator_ColumnPropNameInTable="BuhinCodeColumn" msprop:Generator_ColumnPropNameInRow="BuhinCode" msprop:Generator_ColumnVarNameInTable="columnBuhinCode">
+              <xs:element name="BuhinCode" msprop:Generator_ColumnPropNameInTable="BuhinCodeColumn" msprop:Generator_ColumnPropNameInRow="BuhinCode" msprop:Generator_UserColumnName="BuhinCode" msprop:Generator_ColumnVarNameInTable="columnBuhinCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BuhinMei" msprop:Generator_UserColumnName="BuhinMei" msprop:Generator_ColumnPropNameInTable="BuhinMeiColumn" msprop:Generator_ColumnPropNameInRow="BuhinMei" msprop:Generator_ColumnVarNameInTable="columnBuhinMei">
+              <xs:element name="BuhinMei" msprop:Generator_ColumnPropNameInTable="BuhinMeiColumn" msprop:Generator_ColumnPropNameInRow="BuhinMei" msprop:Generator_UserColumnName="BuhinMei" msprop:Generator_ColumnVarNameInTable="columnBuhinMei">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Suuryou" msprop:Generator_UserColumnName="Suuryou" msprop:Generator_ColumnPropNameInTable="SuuryouColumn" msprop:Generator_ColumnPropNameInRow="Suuryou" msprop:Generator_ColumnVarNameInTable="columnSuuryou" type="xs:int" />
-              <xs:element name="Tanka" msprop:Generator_UserColumnName="Tanka" msprop:Generator_ColumnPropNameInTable="TankaColumn" msprop:Generator_ColumnPropNameInRow="Tanka" msprop:Generator_ColumnVarNameInTable="columnTanka" type="xs:decimal" />
-              <xs:element name="Tani" msprop:Generator_UserColumnName="Tani" msprop:Generator_ColumnPropNameInTable="TaniColumn" msprop:Generator_ColumnPropNameInRow="Tani" msprop:Generator_ColumnVarNameInTable="columnTani">
+              <xs:element name="Suuryou" msprop:Generator_ColumnPropNameInTable="SuuryouColumn" msprop:Generator_ColumnPropNameInRow="Suuryou" msprop:Generator_UserColumnName="Suuryou" msprop:Generator_ColumnVarNameInTable="columnSuuryou" type="xs:int" />
+              <xs:element name="Tanka" msprop:Generator_ColumnPropNameInTable="TankaColumn" msprop:Generator_ColumnPropNameInRow="Tanka" msprop:Generator_UserColumnName="Tanka" msprop:Generator_ColumnVarNameInTable="columnTanka" type="xs:decimal" />
+              <xs:element name="Tani" msprop:Generator_ColumnPropNameInTable="TaniColumn" msprop:Generator_ColumnPropNameInRow="Tani" msprop:Generator_UserColumnName="Tani" msprop:Generator_ColumnVarNameInTable="columnTani">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Kingaku" msprop:Generator_UserColumnName="Kingaku" msprop:Generator_ColumnPropNameInTable="KingakuColumn" msprop:Generator_ColumnPropNameInRow="Kingaku" msprop:Generator_ColumnVarNameInTable="columnKingaku" type="xs:int" />
-              <xs:element name="NounyuuBashoCode" msprop:Generator_UserColumnName="NounyuuBashoCode" msprop:Generator_ColumnPropNameInTable="NounyuuBashoCodeColumn" msprop:Generator_ColumnPropNameInRow="NounyuuBashoCode" msprop:Generator_ColumnVarNameInTable="columnNounyuuBashoCode">
+              <xs:element name="Kingaku" msprop:Generator_ColumnPropNameInTable="KingakuColumn" msprop:Generator_ColumnPropNameInRow="Kingaku" msprop:Generator_UserColumnName="Kingaku" msprop:Generator_ColumnVarNameInTable="columnKingaku" type="xs:int" />
+              <xs:element name="NounyuuBashoCode" msprop:Generator_ColumnPropNameInTable="NounyuuBashoCodeColumn" msprop:Generator_ColumnPropNameInRow="NounyuuBashoCode" msprop:Generator_UserColumnName="NounyuuBashoCode" msprop:Generator_ColumnVarNameInTable="columnNounyuuBashoCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BashoMei" msprop:Generator_UserColumnName="BashoMei" msprop:Generator_ColumnPropNameInTable="BashoMeiColumn" msprop:Generator_ColumnPropNameInRow="BashoMei" msprop:Generator_ColumnVarNameInTable="columnBashoMei">
+              <xs:element name="BashoMei" msprop:Generator_ColumnPropNameInTable="BashoMeiColumn" msprop:Generator_ColumnPropNameInRow="BashoMei" msprop:Generator_UserColumnName="BashoMei" msprop:Generator_ColumnVarNameInTable="columnBashoMei">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Nouki" msprop:Generator_UserColumnName="Nouki" msprop:Generator_ColumnPropNameInTable="NoukiColumn" msprop:Generator_ColumnPropNameInRow="Nouki" msprop:Generator_ColumnVarNameInTable="columnNouki">
+              <xs:element name="Nouki" msprop:Generator_ColumnPropNameInTable="NoukiColumn" msprop:Generator_ColumnPropNameInRow="Nouki" msprop:Generator_UserColumnName="Nouki" msprop:Generator_ColumnVarNameInTable="columnNouki">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="8" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Zeiritu" msprop:Generator_UserColumnName="Zeiritu" msprop:Generator_ColumnPropNameInTable="ZeirituColumn" msprop:Generator_ColumnPropNameInRow="Zeiritu" msprop:Generator_ColumnVarNameInTable="columnZeiritu" type="xs:int" minOccurs="0" />
-              <xs:element name="CancelBi" msprop:Generator_UserColumnName="CancelBi" msprop:Generator_ColumnPropNameInTable="CancelBiColumn" msprop:Generator_ColumnPropNameInRow="CancelBi" msprop:Generator_ColumnVarNameInTable="columnCancelBi" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="JigyoushoKubun" msprop:Generator_UserColumnName="JigyoushoKubun" msprop:Generator_ColumnPropNameInTable="JigyoushoKubunColumn" msprop:Generator_ColumnPropNameInRow="JigyoushoKubun" msprop:Generator_ColumnVarNameInTable="columnJigyoushoKubun" type="xs:int" />
-              <xs:element name="KaritankaFlg" msprop:Generator_UserColumnName="KaritankaFlg" msprop:Generator_ColumnPropNameInTable="KaritankaFlgColumn" msprop:Generator_ColumnPropNameInRow="KaritankaFlg" msprop:Generator_ColumnVarNameInTable="columnKaritankaFlg" type="xs:boolean" default="false" />
-              <xs:element name="TantoushaCode" msprop:Generator_UserColumnName="TantoushaCode" msprop:Generator_ColumnPropNameInTable="TantoushaCodeColumn" msprop:Generator_ColumnPropNameInRow="TantoushaCode" msprop:Generator_ColumnVarNameInTable="columnTantoushaCode">
+              <xs:element name="Zeiritu" msprop:Generator_ColumnPropNameInTable="ZeirituColumn" msprop:Generator_ColumnPropNameInRow="Zeiritu" msprop:Generator_UserColumnName="Zeiritu" msprop:Generator_ColumnVarNameInTable="columnZeiritu" type="xs:int" minOccurs="0" />
+              <xs:element name="CancelBi" msprop:Generator_ColumnPropNameInTable="CancelBiColumn" msprop:Generator_ColumnPropNameInRow="CancelBi" msprop:Generator_UserColumnName="CancelBi" msprop:Generator_ColumnVarNameInTable="columnCancelBi" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JigyoushoKubun" msprop:Generator_ColumnPropNameInTable="JigyoushoKubunColumn" msprop:Generator_ColumnPropNameInRow="JigyoushoKubun" msprop:Generator_UserColumnName="JigyoushoKubun" msprop:Generator_ColumnVarNameInTable="columnJigyoushoKubun" type="xs:int" />
+              <xs:element name="KaritankaFlg" msprop:Generator_ColumnPropNameInTable="KaritankaFlgColumn" msprop:Generator_ColumnPropNameInRow="KaritankaFlg" msprop:Generator_UserColumnName="KaritankaFlg" msprop:Generator_ColumnVarNameInTable="columnKaritankaFlg" type="xs:boolean" default="false" />
+              <xs:element name="TantoushaCode" msprop:Generator_ColumnPropNameInTable="TantoushaCodeColumn" msprop:Generator_ColumnPropNameInRow="TantoushaCode" msprop:Generator_UserColumnName="TantoushaCode" msprop:Generator_ColumnVarNameInTable="columnTantoushaCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="UserKubun" msdata:ReadOnly="true" msprop:Generator_UserColumnName="UserKubun" msprop:Generator_ColumnPropNameInTable="UserKubunColumn" msprop:Generator_ColumnPropNameInRow="UserKubun" msprop:Generator_ColumnVarNameInTable="columnUserKubun" type="xs:unsignedByte" minOccurs="0" />
-              <xs:element name="OpenedFlg" msdata:ReadOnly="true" msprop:Generator_UserColumnName="OpenedFlg" msprop:Generator_ColumnPropNameInTable="OpenedFlgColumn" msprop:Generator_ColumnPropNameInRow="OpenedFlg" msprop:Generator_ColumnVarNameInTable="columnOpenedFlg" type="xs:boolean" default="false" minOccurs="0" />
-              <xs:element name="HenkouNo" msdata:ReadOnly="true" msprop:Generator_UserColumnName="HenkouNo" msprop:Generator_ColumnPropNameInTable="HenkouNoColumn" msprop:Generator_ColumnPropNameInRow="HenkouNo" msprop:Generator_ColumnVarNameInTable="columnHenkouNo" type="xs:int" minOccurs="0" />
-              <xs:element name="HenkouShouninFlg" msdata:ReadOnly="true" msprop:Generator_UserColumnName="HenkouShouninFlg" msprop:Generator_ColumnPropNameInTable="HenkouShouninFlgColumn" msprop:Generator_ColumnPropNameInRow="HenkouShouninFlg" msprop:Generator_ColumnVarNameInTable="columnHenkouShouninFlg" type="xs:boolean" minOccurs="0" />
-              <xs:element name="KaitouNo" msdata:ReadOnly="true" msprop:Generator_UserColumnName="KaitouNo" msprop:Generator_ColumnPropNameInTable="KaitouNoColumn" msprop:Generator_ColumnPropNameInRow="KaitouNo" msprop:Generator_ColumnVarNameInTable="columnKaitouNo" type="xs:int" default="0" minOccurs="0" />
-              <xs:element name="KaitouShouninFlg" msdata:ReadOnly="true" msprop:Generator_UserColumnName="KaitouShouninFlg" msprop:Generator_ColumnPropNameInTable="KaitouShouninFlgColumn" msprop:Generator_ColumnPropNameInRow="KaitouShouninFlg" msprop:Generator_ColumnVarNameInTable="columnKaitouShouninFlg" type="xs:boolean" default="false" minOccurs="0" />
-              <xs:element name="NouhinNo" msdata:ReadOnly="true" msprop:Generator_UserColumnName="NouhinNo" msprop:Generator_ColumnPropNameInTable="NouhinNoColumn" msprop:Generator_ColumnPropNameInRow="NouhinNo" msprop:Generator_ColumnVarNameInTable="columnNouhinNo" type="xs:int" default="0" minOccurs="0" />
-              <xs:element name="NouhinBi" msdata:ReadOnly="true" msprop:Generator_UserColumnName="NouhinBi" msprop:Generator_ColumnPropNameInTable="NouhinBiColumn" msprop:Generator_ColumnPropNameInRow="NouhinBi" msprop:Generator_ColumnVarNameInTable="columnNouhinBi" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="NouhinSuuryou" msdata:ReadOnly="true" msprop:Generator_UserColumnName="NouhinSuuryou" msprop:Generator_ColumnPropNameInTable="NouhinSuuryouColumn" msprop:Generator_ColumnPropNameInRow="NouhinSuuryou" msprop:Generator_ColumnVarNameInTable="columnNouhinSuuryou" type="xs:int" default="0" minOccurs="0" />
-              <xs:element name="KeigenZeirituFlg" msprop:Generator_UserColumnName="KeigenZeirituFlg" msprop:Generator_ColumnPropNameInTable="KeigenZeirituFlgColumn" msprop:Generator_ColumnPropNameInRow="KeigenZeirituFlg" msprop:Generator_ColumnVarNameInTable="columnKeigenZeirituFlg" type="xs:boolean" default="false" />
+              <xs:element name="UserKubun" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="UserKubunColumn" msprop:Generator_ColumnPropNameInRow="UserKubun" msprop:Generator_UserColumnName="UserKubun" msprop:Generator_ColumnVarNameInTable="columnUserKubun" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="OpenedFlg" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="OpenedFlgColumn" msprop:Generator_ColumnPropNameInRow="OpenedFlg" msprop:Generator_UserColumnName="OpenedFlg" msprop:Generator_ColumnVarNameInTable="columnOpenedFlg" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="HenkouNo" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="HenkouNoColumn" msprop:Generator_ColumnPropNameInRow="HenkouNo" msprop:Generator_UserColumnName="HenkouNo" msprop:Generator_ColumnVarNameInTable="columnHenkouNo" type="xs:int" minOccurs="0" />
+              <xs:element name="HenkouShouninFlg" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="HenkouShouninFlgColumn" msprop:Generator_ColumnPropNameInRow="HenkouShouninFlg" msprop:Generator_UserColumnName="HenkouShouninFlg" msprop:Generator_ColumnVarNameInTable="columnHenkouShouninFlg" type="xs:boolean" minOccurs="0" />
+              <xs:element name="KaitouNo" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="KaitouNoColumn" msprop:Generator_ColumnPropNameInRow="KaitouNo" msprop:Generator_UserColumnName="KaitouNo" msprop:Generator_ColumnVarNameInTable="columnKaitouNo" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="KaitouShouninFlg" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="KaitouShouninFlgColumn" msprop:Generator_ColumnPropNameInRow="KaitouShouninFlg" msprop:Generator_UserColumnName="KaitouShouninFlg" msprop:Generator_ColumnVarNameInTable="columnKaitouShouninFlg" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="NouhinNo" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="NouhinNoColumn" msprop:Generator_ColumnPropNameInRow="NouhinNo" msprop:Generator_UserColumnName="NouhinNo" msprop:Generator_ColumnVarNameInTable="columnNouhinNo" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="NouhinBi" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="NouhinBiColumn" msprop:Generator_ColumnPropNameInRow="NouhinBi" msprop:Generator_UserColumnName="NouhinBi" msprop:Generator_ColumnVarNameInTable="columnNouhinBi" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NouhinSuuryou" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="NouhinSuuryouColumn" msprop:Generator_ColumnPropNameInRow="NouhinSuuryou" msprop:Generator_UserColumnName="NouhinSuuryou" msprop:Generator_ColumnVarNameInTable="columnNouhinSuuryou" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="KeigenZeirituFlg" msprop:Generator_ColumnPropNameInTable="KeigenZeirituFlgColumn" msprop:Generator_ColumnPropNameInRow="KeigenZeirituFlg" msprop:Generator_UserColumnName="KeigenZeirituFlg" msprop:Generator_ColumnVarNameInTable="columnKeigenZeirituFlg" type="xs:boolean" default="false" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_OrderInput" msprop:Generator_RowEvHandlerName="V_OrderInputRowChangeEventHandler" msprop:Generator_RowDeletedName="V_OrderInputRowDeleted" msprop:Generator_RowDeletingName="V_OrderInputRowDeleting" msprop:Generator_RowEvArgName="V_OrderInputRowChangeEvent" msprop:Generator_TablePropName="V_OrderInput" msprop:Generator_RowChangedName="V_OrderInputRowChanged" msprop:Generator_RowChangingName="V_OrderInputRowChanging" msprop:Generator_TableClassName="V_OrderInputDataTable" msprop:Generator_RowClassName="V_OrderInputRow" msprop:Generator_TableVarName="tableV_OrderInput" msprop:Generator_UserTableName="V_OrderInput">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ShiiresakiCode" msprop:Generator_ColumnPropNameInRow="ShiiresakiCode" msprop:Generator_ColumnPropNameInTable="ShiiresakiCodeColumn" msprop:Generator_ColumnVarNameInTable="columnShiiresakiCode" msprop:Generator_UserColumnName="ShiiresakiCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BuhinKubun" msprop:Generator_ColumnPropNameInRow="BuhinKubun" msprop:Generator_ColumnPropNameInTable="BuhinKubunColumn" msprop:Generator_ColumnVarNameInTable="columnBuhinKubun" msprop:Generator_UserColumnName="BuhinKubun" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BuhinCode" msprop:Generator_ColumnPropNameInRow="BuhinCode" msprop:Generator_ColumnPropNameInTable="BuhinCodeColumn" msprop:Generator_ColumnVarNameInTable="columnBuhinCode" msprop:Generator_UserColumnName="BuhinCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanka" msprop:Generator_ColumnPropNameInRow="Tanka" msprop:Generator_ColumnPropNameInTable="TankaColumn" msprop:Generator_ColumnVarNameInTable="columnTanka" msprop:Generator_UserColumnName="Tanka" type="xs:string" minOccurs="0" />
+              <xs:element name="Suuryou" msprop:Generator_ColumnPropNameInRow="Suuryou" msprop:Generator_ColumnPropNameInTable="SuuryouColumn" msprop:Generator_ColumnVarNameInTable="columnSuuryou" msprop:Generator_UserColumnName="Suuryou" type="xs:string" minOccurs="0" />
+              <xs:element name="Nouki" msprop:Generator_ColumnPropNameInRow="Nouki" msprop:Generator_ColumnPropNameInTable="NoukiColumn" msprop:Generator_ColumnVarNameInTable="columnNouki" msprop:Generator_UserColumnName="Nouki" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NounyuuBashoCode" msprop:Generator_ColumnPropNameInRow="NounyuuBashoCode" msprop:Generator_ColumnPropNameInTable="NounyuuBashoCodeColumn" msprop:Generator_ColumnVarNameInTable="columnNounyuuBashoCode" msprop:Generator_UserColumnName="NounyuuBashoCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bikou" msprop:Generator_ColumnPropNameInRow="Bikou" msprop:Generator_ColumnPropNameInTable="BikouColumn" msprop:Generator_ColumnVarNameInTable="columnBikou" msprop:Generator_UserColumnName="Bikou" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tani" msprop:Generator_ColumnPropNameInRow="Tani" msprop:Generator_ColumnPropNameInTable="TaniColumn" msprop:Generator_ColumnVarNameInTable="columnTani" msprop:Generator_UserColumnName="Tani" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Lot" msprop:Generator_ColumnPropNameInRow="Lot" msprop:Generator_ColumnPropNameInTable="LotColumn" msprop:Generator_ColumnVarNameInTable="columnLot" msprop:Generator_UserColumnName="Lot" type="xs:string" minOccurs="0" />
+              <xs:element name="LT" msprop:Generator_ColumnPropNameInRow="LT" msprop:Generator_ColumnPropNameInTable="LTColumn" msprop:Generator_ColumnVarNameInTable="columnLT" msprop:Generator_UserColumnName="LT" type="xs:string" minOccurs="0" />
+              <xs:element name="KariTankaFlg" msprop:Generator_ColumnPropNameInRow="KariTankaFlg" msprop:Generator_ColumnPropNameInTable="KariTankaFlgColumn" msprop:Generator_ColumnVarNameInTable="columnKariTankaFlg" msprop:Generator_UserColumnName="KariTankaFlg" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

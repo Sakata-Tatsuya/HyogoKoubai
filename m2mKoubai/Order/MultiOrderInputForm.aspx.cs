@@ -344,7 +344,7 @@ namespace m2mKoubai.Order
             VsShiiresaki = DdlShiiresaki.SelectedValue;
 
             // ç≈êVÇÃî≠íçî‘çÜéÊìæ
-            int MaxHacchuuNo = ChumonClass_S.GetMaxHacchuuNo(Global.GetConnection());
+            int MaxHacchuuNo = ChumonClass.GetMaxHacchuuNo(Global.GetConnection());
             VsHacchuuNo = MaxHacchuuNo + 1;
             for (int i = 0; i < RowNum; i++)
             {
@@ -375,7 +375,7 @@ namespace m2mKoubai.Order
         {
             List<ChumonClass.ChumonMeisai> lst = GetMeisaiItems();
 
-            int MaxHacchuuNo = ChumonClass_S.GetMaxHacchuuNo(Global.GetConnection());
+            int MaxHacchuuNo = ChumonClass.GetMaxHacchuuNo(Global.GetConnection());
             VsHacchuuNo = MaxHacchuuNo + 1;
 
             for (int i = 0; i < lst.Count; i++)
@@ -408,7 +408,7 @@ namespace m2mKoubai.Order
         protected void BtnDel_Click(object sender, EventArgs e)
         {
             List<ChumonClass.ChumonMeisai> lst = GetMeisaiItems();
-            int MaxHacchuuNo = ChumonClass_S.GetMaxHacchuuNo(Global.GetConnection());
+            int MaxHacchuuNo = ChumonClass.GetMaxHacchuuNo(Global.GetConnection());
             VsHacchuuNo = MaxHacchuuNo + 1;
 
             for (int i = 0; i < lst.Count; i++)
@@ -583,7 +583,7 @@ namespace m2mKoubai.Order
                 //        return;
                 //    }
                 //}
-                //LibError err = ChumonClass_S.T_Chumon_Insert(_dtOrder, SessionManager.LoginID, SessionManager.JigyoushoKubun, Convert.ToInt32(DdlTax.SelectedValue), Global.GetConnection());
+                //LibError err = ChumonClass.T_Chumon_Insert(_dtOrder, SessionManager.LoginID, SessionManager.JigyoushoKubun, Convert.ToInt32(DdlTax.SelectedValue), Global.GetConnection());
                 //if (err != null)
                 //{
                 //    this.ShowMsg("î≠íçÇ…é∏îsÇµÇ‹ÇµÇΩ<br/>" + err.Message, true);
@@ -777,7 +777,7 @@ namespace m2mKoubai.Order
         {
             List<ChumonClass.ChumonMeisai> lstS = GetMeisaiItems();
             List<ChumonClass.ChumonMeisai> lst = new List<ChumonClass.ChumonMeisai>();
-            int MaxHacchuuNo = ChumonClass_S.GetMaxHacchuuNo(Global.GetConnection());
+            int MaxHacchuuNo = ChumonClass.GetMaxHacchuuNo(Global.GetConnection());
             VsHacchuuNo = MaxHacchuuNo + 1;
 
             for (int i = 0; i < lstS.Count; i++)
@@ -848,7 +848,7 @@ namespace m2mKoubai.Order
                 dt.AddT_ChumonRow(dr);
             }
 
-            LibError err = ChumonClass_S.T_Chumon_Insert(dt, Global.GetConnection());
+            LibError err = ChumonClass.T_Chumon_Insert(dt, Global.GetConnection());
             if (err != null)
             {
                 this.ShowMsg("î≠íçÇ…é∏îsÇµÇ‹ÇµÇΩ<br/>" + err.Message, true);

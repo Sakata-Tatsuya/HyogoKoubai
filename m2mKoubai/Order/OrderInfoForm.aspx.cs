@@ -523,7 +523,7 @@ namespace m2mKoubai.Order
                 // ”[•i“ú
                 if (!dr.IsNouhinNoNull())
                 {
-                    m2mKoubaiDataSet.T_NouhinDataTable dt = NouhinClass_N.getT_NouhinDataTable(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun, Global.GetConnection());
+                    m2mKoubaiDataSet.T_NouhinDataTable dt = NouhinClass.getT_NouhinDataTable(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun, Global.GetConnection());
                     string strNouhinbi = "";
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {

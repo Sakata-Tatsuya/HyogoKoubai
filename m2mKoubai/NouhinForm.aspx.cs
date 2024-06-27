@@ -122,7 +122,7 @@ namespace m2mKoubai
             }
 
             // 注文Noによって、注文データを取得
-            NouhinDataSet_N.V_NouhinRow dr = NouhinClass_Y.getV_NouhinRow(DdlYear.SelectedValue.Substring(2, 2), strHacchuNoZeroume, SessionManager.JigyoushoKubun, Global.GetConnection());
+            NouhinDataSet.V_NouhinRow dr = NouhinClass.getV_NouhinRow(DdlYear.SelectedValue.Substring(2, 2), strHacchuNoZeroume, SessionManager.JigyoushoKubun, Global.GetConnection());
 
             if (dr == null)
             {
@@ -153,7 +153,7 @@ namespace m2mKoubai
             }
         }
 
-        private void GetHacchuuInfo(NouhinDataSet_N.V_NouhinRow dr)
+        private void GetHacchuuInfo(NouhinDataSet.V_NouhinRow dr)
         {
             // 発注No
             this.LblHacchuuNo.Text = dr.HacchuuNo;
@@ -344,7 +344,7 @@ namespace m2mKoubai
                     return;
                 
                 // 登録
-                LibError err = NouhinClass_Y.T_Nouhin_Insert_T_Chumon_Update
+                LibError err = NouhinClass.T_Nouhin_Insert_T_Chumon_Update
                     (drN, drC, strkey[0], strkey[1], int.Parse(strkey[2]), int.Parse(strkey[3]),judgeFlg, SessionManager.LoginID, Global.GetConnection());
                 if (err != null)
                 {
@@ -387,7 +387,7 @@ namespace m2mKoubai
                 if (drC == null)
                     return;
 
-                LibError err = NouhinClass_Y.T_Nouhin_Insert_T_Chumon_Update
+                LibError err = NouhinClass.T_Nouhin_Insert_T_Chumon_Update
                     (drN, drC, strkey[0], strkey[1],int.Parse(strkey[2]),int.Parse(strkey[3]), judgeFlg, SessionManager.LoginID, Global.GetConnection());
                 if (err != null)
                 {
@@ -414,7 +414,7 @@ namespace m2mKoubai
         {
             string[] strkey = VsInfo.Split('_');
             // NewRow
-            m2mKoubaiDataSet.T_NouhinRow dr = NouhinClass_Y.newT_NouhinRow();
+            m2mKoubaiDataSet.T_NouhinRow dr = NouhinClass.newT_NouhinRow();
 
             dr.Year = strkey[0];
             dr.HacchuuNo = strkey[1];

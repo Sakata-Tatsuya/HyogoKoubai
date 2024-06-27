@@ -12,7 +12,7 @@ using Core.Sql;
 
 namespace m2mKoubaiDAL
 {
-    public class NouhinClass_Y
+    public class NouhinClass
     {
         public class KensakuParam
         {
@@ -34,7 +34,7 @@ namespace m2mKoubaiDAL
             return w.WhereText;
         }
         public static void getYAE_M_TorihikisakiDataTable(string Year, string strText, int nKubun, int nStartIndex, int nCount,
-            SqlConnection sqlConn, out NouhinDataSet_N.V_NouhinDataTable dt, ref int nTotal)
+            SqlConnection sqlConn, out NouhinDataSet.V_NouhinDataTable dt, ref int nTotal)
         {
             Core.Sql.RowNumberInfo info = new Core.Sql.RowNumberInfo();
             info.nStartNumber = nStartIndex + 1;
@@ -52,10 +52,21 @@ namespace m2mKoubaiDAL
             cmd.Parameters.AddWithValue("@Year", Year);
             cmd.Parameters.AddWithValue("@JigyoushoKubun", nKubun);
 
-            dt = new NouhinDataSet_N.V_NouhinDataTable();
+            dt = new NouhinDataSet.V_NouhinDataTable();
             info.LoadData(cmd, sqlConn, dt, ref nTotal);
         }
 
+        public static m2mKoubaiDataSet.T_NouhinDataTable getT_NouhinDataTable(string Year, string HacchuuNo, int nKubun, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = "SELECT * FROM T_Nouhin WHERE Year = @Year AND HacchuuNo = @HacchuuNo  AND JigyoushoKubun = @JigyoushoKubun ";
+            da.SelectCommand.Parameters.AddWithValue("@Year", Year);
+            da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", HacchuuNo);
+            da.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);
+            m2mKoubaiDataSet.T_NouhinDataTable dt = new m2mKoubaiDataSet.T_NouhinDataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
         /// <summary>
         /// 注文Noによって、注文データを取得
@@ -64,7 +75,7 @@ namespace m2mKoubaiDAL
         /// <param name="sqlConn"></param>
         /// <returns></returns>
         /// 修正 09/07/23 (LEFT OUTER JOIN)
-        public static NouhinDataSet_N.V_NouhinRow getV_NouhinRow(string Year, string HacchuuNo, int nKubun, SqlConnection sqlConn)
+        public static NouhinDataSet.V_NouhinRow getV_NouhinRow(string Year, string HacchuuNo, int nKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -104,10 +115,10 @@ namespace m2mKoubaiDAL
             da.SelectCommand.Parameters.AddWithValue("@Year", Year);
             da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", HacchuuNo);
             da.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);
-            NouhinDataSet_N.V_NouhinDataTable dt = new NouhinDataSet_N.V_NouhinDataTable();
+            NouhinDataSet.V_NouhinDataTable dt = new NouhinDataSet.V_NouhinDataTable();
             da.Fill(dt);
             if (1 == dt.Rows.Count)
-                return (NouhinDataSet_N.V_NouhinRow)dt.Rows[0];
+                return (NouhinDataSet.V_NouhinRow)dt.Rows[0];
             else
                 return null;
         }
@@ -135,7 +146,7 @@ namespace m2mKoubaiDAL
             daNs.SelectCommand.Parameters.AddWithValue("@Year", Year);
             daNs.SelectCommand.Parameters.AddWithValue("@HacchuuNo", HacchuuNo);
             daNs.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nKubun);
-            NouhinDataSet_N.V_Nouhin_SuryouSumDataTable dtNs = new NouhinDataSet_N.V_Nouhin_SuryouSumDataTable();
+            NouhinDataSet.V_Nouhin_SuryouSumDataTable dtNs = new NouhinDataSet.V_Nouhin_SuryouSumDataTable();
             daNs.Fill(dtNs);
 
             SqlDataAdapter daC = new SqlDataAdapter("", sqlConn);

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace m2mKoubaiDAL
 {
@@ -77,9 +78,9 @@ namespace m2mKoubaiDAL
         // 発注の主キー
         public class ChumonKey
         {
-            private string _Year;// 年
-            private string _HacchuuNo;   // 発注No
-            private int _JigyoushoKubun;  // 仕入先コード
+            private string _Year;           // 年
+            private string _HacchuuNo;      // 発注No
+            private int _JigyoushoKubun;    // 仕入先コード
 
             public ChumonKey(string strYear, string strHacchuuNo, int nJigyoushoKubun)
             {
@@ -93,9 +94,8 @@ namespace m2mKoubaiDAL
                 this._Year = strKeyAry[0];
                 this._HacchuuNo = strKeyAry[1];
                 this._JigyoushoKubun = int.Parse(strKeyAry[2]);
-
-
             }
+
             /// <summary>
             /// [発注No_データ作成年月日_データ作成時間_種別]の形で結合させた文字列を返す
             /// </summary>
@@ -118,8 +118,6 @@ namespace m2mKoubaiDAL
             }
 
         }
-
-
 
         /// <summary>
         /// Where文を作成
@@ -227,7 +225,6 @@ namespace m2mKoubaiDAL
             if (k._Hacchuubi != null)
             {
                 w.Add(Core.Type.NengappiKikan.GenerateSQL(k._Hacchuubi, false, "(convert(varchar,T_Chumon.HacchuuBi,112))"));
-
             }
             // 納期
             if (k._Nouki != null && k._Nouki.KikanTypeIsNotNone)
@@ -243,13 +240,12 @@ namespace m2mKoubaiDAL
                     + "WHERE ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  ORDER BY HenkouNo DESC)", false) + "))");
             }
 
-            // 回答納期            
+            // 回答納期
             if (k._KaitouNouki != null && k._KaitouNouki.KikanTypeIsNotNone)
             {
                 w.Add(k._KaitouNouki.GenerateSQL("(SELECT Top(1) Nouki "
                     + "FROM  T_NoukiKaitou AS T_NoukiKaitou_2 "
                     + "WHERE ( T_Chumon.Year = Year) AND ( T_Chumon.HacchuuNo = HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun)  ORDER BY KaitouNo DESC)", false));
-
             }
             // 納品日
             if (k._NouhinBi != null && k._NouhinBi.KikanTypeIsNotNone)
@@ -477,17 +473,17 @@ namespace m2mKoubaiDAL
                         + "WHERE                   (Year =  T_Chumon.Year) AND (HacchuuNo =  T_Chumon.HacchuuNo) AND (T_Chumon.JigyoushoKubun = JigyoushoKubun) ) AS NouhinSuuryou "
 
 
-            + "FROM dbo.T_Chumon INNER JOIN "
-            + "dbo.M_Login ON dbo.T_Chumon.HacchushaID = dbo.M_Login.LoginID INNER JOIN "
-            + "dbo.M_Shiiresaki ON dbo.T_Chumon.ShiiresakiCode = dbo.M_Shiiresaki.ShiiresakiCode INNER JOIN "
-            + "dbo.M_Buhin ON dbo.T_Chumon.BuhinKubun = dbo.M_Buhin.BuhinKubun AND  "
-            + "dbo.T_Chumon.BuhinCode = dbo.M_Buhin.BuhinCode INNER JOIN "
-            + "dbo.M_NounyuuBasho ON dbo.T_Chumon.NounyuuBashoCode = dbo.M_NounyuuBasho.BashoCode LEFT OUTER JOIN "
-            + "dbo.T_Nouhin ON dbo.T_Chumon.JigyoushoKubun = dbo.T_Nouhin.JigyoushoKubun AND dbo.T_Chumon.Year = dbo.T_Nouhin.Year AND  "
-            + "dbo.T_Chumon.HacchuuNo = dbo.T_Nouhin.HacchuuNo LEFT OUTER JOIN "
-            + "dbo.T_NoukiHenkou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiHenkou.JigyoushoKubun AND  "
-            + "dbo.T_Chumon.Year = dbo.T_NoukiHenkou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiHenkou.HacchuuNo LEFT OUTER JOIN "
-            + "dbo.T_NoukiKaitou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiKaitou.JigyoushoKubun AND  "
+            + "FROM dbo.T_Chumon "
+            + "INNER JOIN dbo.M_Login ON dbo.T_Chumon.HacchushaID = dbo.M_Login.LoginID "
+            + "INNER JOIN dbo.M_Shiiresaki ON dbo.T_Chumon.ShiiresakiCode = dbo.M_Shiiresaki.ShiiresakiCode "
+            + "INNER JOIN dbo.M_Buhin ON dbo.T_Chumon.BuhinKubun = dbo.M_Buhin.BuhinKubun AND "
+            + "dbo.T_Chumon.BuhinCode = dbo.M_Buhin.BuhinCode "
+            + "INNER JOIN dbo.M_NounyuuBasho ON dbo.T_Chumon.NounyuuBashoCode = dbo.M_NounyuuBasho.BashoCode "
+            + "LEFT OUTER JOIN dbo.T_Nouhin ON dbo.T_Chumon.JigyoushoKubun = dbo.T_Nouhin.JigyoushoKubun "
+            + "AND dbo.T_Chumon.Year = dbo.T_Nouhin.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_Nouhin.HacchuuNo "
+            + "LEFT OUTER JOIN dbo.T_NoukiHenkou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiHenkou.JigyoushoKubun AND "
+            + "dbo.T_Chumon.Year = dbo.T_NoukiHenkou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiHenkou.HacchuuNo "
+            + "LEFT OUTER JOIN dbo.T_NoukiKaitou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiKaitou.JigyoushoKubun AND "
             + "dbo.T_Chumon.Year = dbo.T_NoukiKaitou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiKaitou.HacchuuNo "
             + "WHERE (T_Chumon.Year = @Year) AND (T_Chumon.HacchuuNo = @HacchuuNo) AND (T_Chumon.JigyoushoKubun = @JigyoushoKubun)";
 
@@ -508,12 +504,11 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_Chumon_MeisaiRow
-            getV_Chumon_MeisaiRow(string strYear, string strHacchuuNo, int nJigyoushoKubun, SqlConnection sqlConn)
+        public static ChumonDataSet.V_Chumon_MeisaiRow getV_Chumon_MeisaiRow(string strYear, string strHacchuuNo, int nJigyoushoKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-               "SELECT          T_Chumon.Year, T_Chumon.HacchuuNo, T_Chumon.HacchuuBi, "
+               "SELECT T_Chumon.Year, T_Chumon.HacchuuNo, T_Chumon.HacchuuBi, "
             + "T_Chumon.ShiiresakiCode, M_Shiiresaki.ShiiresakiMei, "
             + "T_Chumon.BuhinKubun, T_Chumon.BuhinCode, M_Buhin.BuhinMei, "
             + "T_Chumon.Suuryou, T_Chumon.Tanka, M_Buhin.Tani, "
@@ -521,15 +516,13 @@ namespace m2mKoubaiDAL
             + "T_Chumon.HacchushaID, M_Login.Name, T_Chumon.Bikou, "
             + "M_NounyuuBasho.BashoMei, T_Chumon.CancelBi, "
             + "T_Chumon.JigyoushoKubun, T_Chumon.KaritankaFlg, dbo.M_Login.TantoushaCode "
-            + "FROM            T_Chumon INNER JOIN "
-            + "M_Shiiresaki ON "
-            + "T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode INNER JOIN "
-            + "M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND "
-            + "T_Chumon.BuhinCode = M_Buhin.BuhinCode INNER JOIN "
-            + "M_NounyuuBasho ON "
-            + "T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode INNER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
-            + "WHERE (T_Chumon.HacchuuNo = @HacchuuNo)  AND (T_Chumon.Year = @Year) AND (T_Chumon.JigyoushoKubun = @JigyoushoKubun)  ";
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
+            + "INNER JOIN M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND "
+            + "T_Chumon.BuhinCode = M_Buhin.BuhinCode "
+            + "INNER JOIN M_NounyuuBasho ON T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode "
+            + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+            + "WHERE (T_Chumon.HacchuuNo = @HacchuuNo)  AND (T_Chumon.Year = @Year) AND (T_Chumon.JigyoushoKubun = @JigyoushoKubun) ";
             da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", strHacchuuNo);
             da.SelectCommand.Parameters.AddWithValue("@Year", strYear);
             da.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nJigyoushoKubun);
@@ -559,14 +552,12 @@ namespace m2mKoubaiDAL
             + "T_Chumon.HacchushaID, M_Login.Name, T_Chumon.Bikou, "
             + "M_NounyuuBasho.BashoMei, T_Chumon.CancelBi, "
             + "T_Chumon.JigyoushoKubun, T_Chumon.KaritankaFlg, dbo.M_Login.TantoushaCode  "
-            + "FROM T_Chumon INNER JOIN "
-            + "M_Shiiresaki ON "
-            + "T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode INNER JOIN "
-            + "M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND "
-            + "T_Chumon.BuhinCode = M_Buhin.BuhinCode INNER JOIN "
-            + "M_NounyuuBasho ON "
-            + "T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode INNER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
+            + "INNER JOIN M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND "
+            + "T_Chumon.BuhinCode = M_Buhin.BuhinCode "
+            + "INNER JOIN M_NounyuuBasho ON T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode "
+            + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
             + "WHERE T_Chumon.CancelBi IS NULL ";
             string strWhere = WhereKey(strKeyAry);
             if (strWhere != "")
@@ -597,14 +588,13 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_ChumonShiiresakiDataTable
-            getV_ChumonShiiresakiDataTablee(SqlConnection sqlConn)
+        public static ChumonDataSet.V_ChumonShiiresakiDataTable getV_ChumonShiiresakiDataTablee(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
             "SELECT DISTINCT TOP (100) PERCENT T_Chumon.ShiiresakiCode, M_Shiiresaki.ShiiresakiMei "
-            + "FROM T_Chumon INNER JOIN "
-            + "M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
             + "ORDER BY T_Chumon.ShiiresakiCode ";
             ChumonDataSet.V_ChumonShiiresakiDataTable dt = new ChumonDataSet.V_ChumonShiiresakiDataTable();
             da.Fill(dt);
@@ -621,9 +611,9 @@ namespace m2mKoubaiDAL
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
             "SELECT DISTINCT TOP (100) PERCENT T_Chumon.NounyuuBashoCode, M_NounyuuBasho.BashoMei "
-            + "FROM                     M_NounyuuBasho INNER JOIN "
-            + "T_Chumon ON M_NounyuuBasho.BashoCode = T_Chumon.NounyuuBashoCode "
-            + "ORDER BY           T_Chumon.NounyuuBashoCode ";
+            + "FROM  M_NounyuuBasho "
+            + "INNER JOIN T_Chumon ON M_NounyuuBasho.BashoCode = T_Chumon.NounyuuBashoCode "
+            + "ORDER BY T_Chumon.NounyuuBashoCode ";
             ChumonDataSet.V_ChumonNounyuuBashoDataTable dt = new ChumonDataSet.V_ChumonNounyuuBashoDataTable();
             da.Fill(dt);
             return dt;
@@ -703,16 +693,15 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_ChumonTantoushaDataTable
-            getV_ChumonTantoushaDataTable(SqlConnection sqlConn)
+        public static ChumonDataSet.V_ChumonTantoushaDataTable getV_ChumonTantoushaDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT       DISTINCT           TOP (100) PERCENT M_Login.TantoushaCode, M_Login.Name "
-            + "FROM                     T_Chumon INNER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
-             + "WHERE T_Chumon.CancelBi IS NULL "
-            + "ORDER BY            dbo.M_Login.TantoushaCode ";
+            "SELECT DISTINCT TOP (100) PERCENT M_Login.TantoushaCode, M_Login.Name "
+            + "FROM  T_Chumon "
+            + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+            + "WHERE T_Chumon.CancelBi IS NULL "
+            + "ORDER BY dbo.M_Login.TantoushaCode ";
             ChumonDataSet.V_ChumonTantoushaDataTable dt = new ChumonDataSet.V_ChumonTantoushaDataTable();
             da.Fill(dt);
             return dt;
@@ -724,22 +713,19 @@ namespace m2mKoubaiDAL
         /// <param name="k"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        //public static ChumonDataSet.V_Chumon_KenshuRow
-        //getV_Chumon_KenshuRow(string strYear, string strHacchuuNo, SqlConnection sqlConn)
-        public static ChumonDataSet.V_Chumon_KenshuDataTable
-            getV_Chumon_KenshuDataTable(string strKeyAry, SqlConnection sqlConn)
+        public static ChumonDataSet.V_Chumon_KenshuDataTable getV_Chumon_KenshuDataTable(string strKeyAry, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
-            "SELECT                  TOP (100) PERCENT T_Chumon.Year, T_Chumon.HacchuuNo, T_Chumon.HacchuuBi, T_Chumon.ShiiresakiCode, "
+            "SELECT TOP (100) PERCENT T_Chumon.Year, T_Chumon.HacchuuNo, T_Chumon.HacchuuBi, T_Chumon.ShiiresakiCode, "
             + "M_Shiiresaki.ShiiresakiMei, T_Chumon.BuhinKubun, T_Chumon.BuhinCode, M_Buhin.BuhinMei, T_Chumon.Suuryou, "
             + "T_Chumon.Tanka, M_NounyuuBasho.BashoMei, M_Buhin.Tani "
-            + "FROM                     T_Chumon INNER JOIN "
-            + "M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode INNER JOIN "
-            + "M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND "
-            + "T_Chumon.BuhinCode = M_Buhin.BuhinCode INNER JOIN "
-            + "M_NounyuuBasho ON T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode "
-             + "WHERE T_Chumon.CancelBi IS NULL ";
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Shiiresaki ON T_Chumon.ShiiresakiCode = M_Shiiresaki.ShiiresakiCode "
+            + "INNER JOIN M_Buhin ON T_Chumon.BuhinKubun = M_Buhin.BuhinKubun AND "
+            + "T_Chumon.BuhinCode = M_Buhin.BuhinCode "
+            + "INNER JOIN M_NounyuuBasho ON T_Chumon.NounyuuBashoCode = M_NounyuuBasho.BashoCode "
+            + "WHERE T_Chumon.CancelBi IS NULL ";
 
             string strWhere = WhereKey(strKeyAry);
             if (strWhere != "")
@@ -761,9 +747,6 @@ namespace m2mKoubaiDAL
         private static string WhereKey(string strAry)
         {
             string[] strKeyAry = strAry.Split('_');
-
-
-
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < strKeyAry.Length; i++)
             {
@@ -773,11 +756,8 @@ namespace m2mKoubaiDAL
                 int nKubun = int.Parse(strKey[2]);
 
                 if (sb.Length > 0) sb.Append(" OR ");
-
                 sb.Append("(T_Chumon.Year = '" + strYear + "' AND T_Chumon.HacchuuNo = '" + strHacchuNo + "' AND T_Chumon.JigyoushoKubun = '" + nKubun + "')");
-
             }
-
             return "(" + sb.ToString() + ")";
         }
 
@@ -790,8 +770,7 @@ namespace m2mKoubaiDAL
         /// <param name="dr"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static LibError
-            T_Chumon_Update_CancelBi(string Year, string HacchuuNo, int nJigyoushoKubun, m2mKoubaiDataSet.T_ChumonRow dr, SqlConnection sqlConn)
+        public static LibError T_Chumon_Update_CancelBi(string Year, string HacchuuNo, int nJigyoushoKubun, m2mKoubaiDataSet.T_ChumonRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_Chumon WHERE Year = @Year AND HacchuuNo = @HacchuuNo AND JigyoushoKubun = @JigyoushoKubun";
@@ -799,7 +778,6 @@ namespace m2mKoubaiDAL
             da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", HacchuuNo);
             da.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nJigyoushoKubun);
             da.UpdateCommand = (new SqlCommandBuilder(da)).GetUpdateCommand();
-
 
             m2mKoubaiDataSet.T_ChumonDataTable dt = new m2mKoubaiDataSet.T_ChumonDataTable();
             da.Fill(dt);
@@ -850,10 +828,9 @@ namespace m2mKoubaiDAL
                 if (dr.Tanka >= 0)
                 {
                     drThis.Tanka = dr.Tanka;
-                    //drThis.Kingaku = (int)Math.Floor(dr.Tanka * dt[0].Suuryou);   // 2015.03.05 金額は常に再計算するように修正
                     drThis.KaritankaFlg = false;
                 }
-                drThis.Kingaku = (int)Math.Floor(drThis.Tanka * drThis.Suuryou);    // 2015.03.05 金額は常に再計算するように修正
+                drThis.Kingaku = (int)Math.Floor(drThis.Tanka * drThis.Suuryou);
                 da.Update(dt);
                 return null;
             }
@@ -869,19 +846,17 @@ namespace m2mKoubaiDAL
         /// <param name="strHacchuuNo"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_Chumon_MailDataTable
-            getV_Chumon_MailDataTable(string strYear, string strHacchuuNo, int nJigyoushoKubun, SqlConnection sqlConn)
+        public static ChumonDataSet.V_Chumon_MailDataTable getV_Chumon_MailDataTable(string strYear, string strHacchuuNo, int nJigyoushoKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
             "SELECT M_Login.Mail AS FromMail, M_Login_1.Mail AS ToMail, T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, "
             + "T_KaishaInfo.Tel, T_KaishaInfo.Fax, M_Login.Busho, "
             + "M_Login.Name, M_Login.JigyoushoKubun, M_Login.LoginID "
-
-            + "FROM T_Chumon INNER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID INNER JOIN "
-            + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID INNER JOIN "
-            + "M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+            + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "INNER JOIN M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
             + "WHERE (T_Chumon.Year = @Year) AND (T_Chumon.HacchuuNo = @HacchuuNo) AND (T_Chumon.JigyoushoKubun = @JigyoushoKubun)  ";
 
             da.SelectCommand.Parameters.AddWithValue("@Year", strYear);
@@ -900,20 +875,17 @@ namespace m2mKoubaiDAL
         /// <param name="strHacchuuNo"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_Chumon_MailRow
-            getV_Chumon_MailRow(string strYear, string strHacchuuNo, int nJigyoushoKubun, string strLoginID, SqlConnection sqlConn)
+        public static ChumonDataSet.V_Chumon_MailRow getV_Chumon_MailRow(string strYear, string strHacchuuNo, int nJigyoushoKubun, string strLoginID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
             "SELECT DISTINCT  M_Login.Mail AS ToMail, M_Login_1.Mail AS FromMail, T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, "
             + "T_KaishaInfo.Tel, T_KaishaInfo.Fax, M_Login.Busho, "
             + "M_Login.Name, M_Login.JigyoushoKubun, M_Login.LoginID "
-
-            + "FROM T_Chumon INNER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID INNER JOIN "
-            + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID INNER JOIN "
-            + "M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
-
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+            + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "INNER JOIN M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
             + "WHERE (T_Chumon.Year = @Year) AND (T_Chumon.HacchuuNo = @HacchuuNo) AND "
             + "(T_Chumon.JigyoushoKubun = @JigyoushoKubun)  AND (M_Login_1.LoginID = @ID) ";
 
@@ -937,8 +909,7 @@ namespace m2mKoubaiDAL
         /// <param name="strID"></param>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_MailToCCDataTable
-            getV_MailToCCDataTable(int nKubun, string strID, SqlConnection sqlConn)
+        public static ChumonDataSet.V_MailToCCDataTable getV_MailToCCDataTable(int nKubun, string strID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -958,8 +929,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.T_ChumonDataTable
-            getT_ChumonDataTable(SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_ChumonDataTable getT_ChumonDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -985,8 +955,7 @@ namespace m2mKoubaiDAL
         /// <param name="sqlConn"></param>
         /// <returns></returns>
         /// 追加 09/07/23
-        public static m2mKoubaiDataSet.T_ChumonRow
-           getT_ChumonRow(string Year, string HacchuuNo, int nJigyoushoKubun, SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.T_ChumonRow getT_ChumonRow(string Year, string HacchuuNo, int nJigyoushoKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -1013,8 +982,7 @@ namespace m2mKoubaiDAL
         /// <param name="sqlConn"></param>
         /// <returns></returns>
         /// 追加 09/07/23
-        public static LibError
-            T_Chumon_Update_Kannou(string Year, string HacchuuNo, int nJigyoushoKubun, m2mKoubaiDataSet.T_ChumonRow dr, SqlConnection sqlConn)
+        public static LibError T_Chumon_Update_Kannou(string Year, string HacchuuNo, int nJigyoushoKubun, m2mKoubaiDataSet.T_ChumonRow dr, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM T_Chumon WHERE Year = @Year AND HacchuuNo = @HacchuuNo  AND JigyoushoKubun = @JigyoushoKubun ";
@@ -1045,8 +1013,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_MailInfoDataTable
-            getV_MailInfoDataTable(string strLoginID, string strShiireCode, SqlConnection sqlConn)
+        public static ChumonDataSet.V_MailInfoDataTable getV_MailInfoDataTable(string strLoginID, string strShiireCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -1054,11 +1021,11 @@ namespace m2mKoubaiDAL
             + "M_Login.Mail AS Mail_Y, M_Login_1.Mail AS Mail_S, T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, T_KaishaInfo.Tel, "
             + "T_KaishaInfo.Fax, M_Login.Busho, M_Login.Name, M_Login.JigyoushoKubun, M_Login.LoginID AS LoginID_Y, "
             + "M_Login_1.LoginID AS LoginID_S, M_Login_1.KaishaCode "
-            + "FROM                     T_Chumon INNER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID INNER JOIN "
-            + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID INNER JOIN "
-            + "M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
-            + "WHERE                   (M_Login.LoginID = @LoginID) AND (M_Login_1.KaishaCode = @ShiireCode) ";
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+            + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "INNER JOIN M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
+            + "WHERE (M_Login.LoginID = @LoginID) AND (M_Login_1.KaishaCode = @ShiireCode) ";
 
             da.SelectCommand.Parameters.AddWithValue("@LoginID", strLoginID);
             da.SelectCommand.Parameters.AddWithValue("@ShiireCode", strShiireCode);
@@ -1072,8 +1039,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_MailInfoDataTable
-            getV_MailInfo2DataTable(string strLoginID, string strShiireCode, SqlConnection sqlConn)
+        public static ChumonDataSet.V_MailInfoDataTable getV_MailInfo2DataTable(string strLoginID, string strShiireCode, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -1081,11 +1047,11 @@ namespace m2mKoubaiDAL
             + "M_Login.Mail AS Mail_Y, M_Login_1.Mail AS Mail_S, T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, T_KaishaInfo.Tel, "
             + "T_KaishaInfo.Fax, M_Login.Busho, M_Login.Name, M_Login.JigyoushoKubun, M_Login.LoginID AS LoginID_Y, "
             + "M_Login_1.LoginID AS LoginID_S, M_Login_1.KaishaCode "
-            + "FROM                     T_Chumon INNER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID INNER JOIN "
-            + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID INNER JOIN "
-            + "M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
-            + "WHERE                   (M_Login_1.LoginID = @LoginID) AND (M_Login_1.KaishaCode = @ShiireCode) ";
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+            + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "INNER JOIN M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
+            + "WHERE (M_Login_1.LoginID = @LoginID) AND (M_Login_1.KaishaCode = @ShiireCode) ";
 
             da.SelectCommand.Parameters.AddWithValue("@LoginID", strLoginID);
             da.SelectCommand.Parameters.AddWithValue("@ShiireCode", strShiireCode);
@@ -1108,10 +1074,10 @@ namespace m2mKoubaiDAL
             + "M_Login.Mail AS Mail_Y, M_Login_1.Mail AS Mail_S, T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, T_KaishaInfo.Tel, "
             + "T_KaishaInfo.Fax, M_Login.Busho, M_Login.Name, M_Login.JigyoushoKubun, M_Login.LoginID AS LoginID_Y, "
             + "M_Login_1.LoginID AS LoginID_S, M_Login_1.KaishaCode "
-            + "FROM                     T_Chumon INNER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID INNER JOIN "
-            + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID INNER JOIN "
-            + "M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+            + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "INNER JOIN M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
 
             + "WHERE (T_Chumon.Year = @Year) AND (T_Chumon.HacchuuNo = @HacchuuNo) AND (T_Chumon.JigyoushoKubun = @JigyoushoKubun)  ";
 
@@ -1124,8 +1090,7 @@ namespace m2mKoubaiDAL
             return dt;
         }
       
-           public static ChumonDataSet.V_MailInfoDataTable
-            getV_MailInfoDataTable(string strYear, string strHacchuuNo, int nJigyoushoKubun, string strID, SqlConnection sqlConn)
+           public static ChumonDataSet.V_MailInfoDataTable getV_MailInfoDataTable(string strYear, string strHacchuuNo, int nJigyoushoKubun, string strID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -1133,11 +1098,10 @@ namespace m2mKoubaiDAL
             + "M_Login.Mail AS Mail_Y, M_Login_1.Mail AS Mail_S, T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, T_KaishaInfo.Tel, "
             + "T_KaishaInfo.Fax, M_Login.Busho, M_Login.Name, M_Login.JigyoushoKubun, M_Login.LoginID AS LoginID_Y, "
             + "M_Login_1.LoginID AS LoginID_S, M_Login_1.KaishaCode "
-            + "FROM                     T_Chumon INNER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID INNER JOIN "
-            + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID INNER JOIN "
-            + "M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
-
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+            + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "INNER JOIN M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
             + "WHERE (T_Chumon.Year = @Year) AND (T_Chumon.HacchuuNo = @HacchuuNo) AND "
             + "(T_Chumon.JigyoushoKubun = @JigyoushoKubun)   AND (M_Login_1.LoginID = @ID) ";
 
@@ -1150,16 +1114,12 @@ namespace m2mKoubaiDAL
             return dt;
         }
 
-
-
-
         /// <summary>
         /// 回答納期登録、更新とき、メール送信情報
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_MailInfoDataTable
-            getV_MailInfo_KNDataTable(string strKeyAry, string strID, SqlConnection sqlConn)
+        public static ChumonDataSet.V_MailInfoDataTable getV_MailInfo_KNDataTable(string strKeyAry, string strID, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
@@ -1167,10 +1127,10 @@ namespace m2mKoubaiDAL
             + "M_Login.Mail AS Mail_Y, M_Login_1.Mail AS Mail_S, T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, T_KaishaInfo.Tel, "
             + "T_KaishaInfo.Fax, M_Login.Busho, M_Login.Name, M_Login.JigyoushoKubun, M_Login.LoginID AS LoginID_Y, "
             + "M_Login_1.LoginID AS LoginID_S, M_Login_1.KaishaCode "
-            + "FROM                     T_Chumon INNER JOIN "
-            + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID INNER JOIN "
-            + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID INNER JOIN "
-            + "M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
+            + "FROM T_Chumon "
+            + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+            + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+            + "INNER JOIN M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
 
             + "WHERE (M_Login_1.LoginID = @ID) ";
 
@@ -1179,7 +1139,7 @@ namespace m2mKoubaiDAL
                 da.SelectCommand.CommandText += "AND " + strWhere;
 
             da.SelectCommand.Parameters.AddWithValue("@ID", strID);
-            da.SelectCommand.CommandText += "ORDER BY           LoginID_Y ";
+            da.SelectCommand.CommandText += "ORDER BY LoginID_Y ";
             ChumonDataSet.V_MailInfoDataTable dt = new ChumonDataSet.V_MailInfoDataTable();
             da.Fill(dt);
             return dt;
@@ -1193,20 +1153,17 @@ namespace m2mKoubaiDAL
        /// <param name="strHacchuuNo"></param>
        /// <param name="sqlConn"></param>
        /// <returns></returns>
-       public static ChumonDataSet.V_Chumon_MailDataTable
-           getV_Chumon_Mail_KaishaInfoDataTable(string strLoginID, string strShiireCode, SqlConnection sqlConn)
+       public static ChumonDataSet.V_Chumon_MailDataTable getV_Chumon_Mail_KaishaInfoDataTable(string strLoginID, string strShiireCode, SqlConnection sqlConn)
        {
            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
            da.SelectCommand.CommandText =
-           "SELECT DISTINCT  M_Login.Mail AS ToMail, M_Login_1.Mail AS FromMail, T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, "
+           "SELECT DISTINCT M_Login.Mail AS ToMail, M_Login_1.Mail AS FromMail, T_KaishaInfo.KaishaMei, T_KaishaInfo.EigyouSho, "
            + "T_KaishaInfo.Tel, T_KaishaInfo.Fax, M_Login.Busho, "
            + "M_Login.Name, M_Login.JigyoushoKubun, M_Login.LoginID "
-
-           + "FROM T_Chumon INNER JOIN "
-           + "M_Login ON T_Chumon.HacchushaID = M_Login.LoginID INNER JOIN "
-           + "T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID INNER JOIN "
-           + "M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
-
+           + "FROM T_Chumon "
+           + "INNER JOIN M_Login ON T_Chumon.HacchushaID = M_Login.LoginID "
+           + "INNER JOIN T_KaishaInfo ON M_Login.JigyoushoKubun = T_KaishaInfo.KaishaID "
+           + "INNER JOIN M_Login AS M_Login_1 ON T_Chumon.ShiiresakiCode = M_Login_1.KaishaCode "
            + "WHERE (M_Login_1.LoginID = @LoginID) AND (M_Login_1.KaishaCode = @ShiireCode) ";
 
            da.SelectCommand.Parameters.AddWithValue("@LoginID", strLoginID);
@@ -1223,9 +1180,6 @@ namespace m2mKoubaiDAL
        private static string WhereKey2(string strAry)
        {
            string[] strKeyAry = strAry.Split('\t');
-
-
-
            StringBuilder sb = new StringBuilder();
            for (int i = 0; i < strKeyAry.Length; i++)
            {
@@ -1242,29 +1196,28 @@ namespace m2mKoubaiDAL
 
            return "(" + sb.ToString() + ")";
        }
-        public static ChumonDataSet.V_Chumon_NoukiKaitouDataTable
-            getV_Chumon_NoukiKaitouDataTable(string strKeyAry, SqlConnection sqlConn)
+        public static ChumonDataSet.V_Chumon_NoukiKaitouDataTable getV_Chumon_NoukiKaitouDataTable(string strKeyAry, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =
             "SELECT DISTINCT "
-             + " TOP (100) PERCENT dbo.T_Chumon.Year, dbo.T_Chumon.HacchuuNo, dbo.M_Login.Name, dbo.T_Chumon.ShiiresakiCode,  "
+             + " TOP (100) PERCENT dbo.T_Chumon.Year, dbo.T_Chumon.HacchuuNo, dbo.M_Login.Name, dbo.T_Chumon.ShiiresakiCode, "
              + " dbo.M_Shiiresaki.ShiiresakiMei, dbo.T_Chumon.JigyoushoKubun, dbo.M_Login.TantoushaCode, "
-             + " (SELECT                  TOP (1) KaitouNo "
-             + " FROM                     dbo.T_NoukiKaitou AS T_NoukiKaitou_1 "
-             + " WHERE                   (dbo.T_Chumon.Year = Year) AND (dbo.T_Chumon.HacchuuNo = HacchuuNo) AND  "
+             + " (SELECT TOP (1) KaitouNo "
+             + " FROM dbo.T_NoukiKaitou AS T_NoukiKaitou_1 "
+             + " WHERE (dbo.T_Chumon.Year = Year) AND (dbo.T_Chumon.HacchuuNo = HacchuuNo) AND  "
              + " (dbo.T_Chumon.JigyoushoKubun = JigyoushoKubun) "
-             + " ORDER BY           KaitouNo DESC) AS KaitouNo, dbo.T_Chumon.HacchushaID, dbo.M_Login.Mail "
-             + "FROM dbo.T_Chumon INNER JOIN "
-             + "dbo.M_Login ON dbo.T_Chumon.HacchushaID = dbo.M_Login.LoginID INNER JOIN "
-             + "dbo.M_Shiiresaki ON dbo.T_Chumon.ShiiresakiCode = dbo.M_Shiiresaki.ShiiresakiCode LEFT OUTER JOIN "
-             + "dbo.T_NoukiKaitou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiKaitou.JigyoushoKubun AND  "
-             + " dbo.T_Chumon.Year = dbo.T_NoukiKaitou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiKaitou.HacchuuNo ";
+             + " ORDER BY KaitouNo DESC) AS KaitouNo, dbo.T_Chumon.HacchushaID, dbo.M_Login.Mail "
+             + "FROM dbo.T_Chumon "
+             + "INNER JOIN dbo.M_Login ON dbo.T_Chumon.HacchushaID = dbo.M_Login.LoginID "
+             + "INNER JOIN dbo.M_Shiiresaki ON dbo.T_Chumon.ShiiresakiCode = dbo.M_Shiiresaki.ShiiresakiCode "
+             + "LEFT OUTER JOIN dbo.T_NoukiKaitou ON dbo.T_Chumon.JigyoushoKubun = dbo.T_NoukiKaitou.JigyoushoKubun AND "
+             + "dbo.T_Chumon.Year = dbo.T_NoukiKaitou.Year AND dbo.T_Chumon.HacchuuNo = dbo.T_NoukiKaitou.HacchuuNo ";
            
             string strWhere = WhereKey2(strKeyAry);
             if (strWhere != "")
                 da.SelectCommand.CommandText += "WHERE " + strWhere;
-            da.SelectCommand.CommandText += "ORDER BY           dbo.T_Chumon.HacchushaID ";
+            da.SelectCommand.CommandText += "ORDER BY dbo.T_Chumon.HacchushaID ";
 
             ChumonDataSet.V_Chumon_NoukiKaitouDataTable dt = new ChumonDataSet.V_Chumon_NoukiKaitouDataTable();
             da.Fill(dt);
@@ -1272,6 +1225,108 @@ namespace m2mKoubaiDAL
 
 
         }
-       
+
+        /// <summary>
+        /// 今年の注文Noの最大値を取得
+        /// </summary>
+        /// <param name="sqlConn"></param>
+        /// <returns></returns> 
+        public static int GetMaxHacchuuNo(SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText =
+                "SELECT MAX(HacchuuNo) as HacchuuNo FROM T_Chumon WHERE Year = @Year ";
+            da.SelectCommand.Parameters.AddWithValue("@Year", DateTime.Now.ToString("yy"));
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows[0].IsNull("HacchuuNo"))
+            {
+                return 0;
+            }
+            else
+            {
+                return (int.Parse(dt.Rows[0]["HacchuuNo"].ToString()));
+            }
+        }
+
+        public static LibError T_Chumon_Insert(m2mKoubaiDataSet.T_ChumonDataTable dtOrder, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = "SELECT * FROM T_Chumon";
+            da.InsertCommand = (new SqlCommandBuilder(da)).GetInsertCommand();
+            m2mKoubaiDataSet.T_ChumonDataTable dt = new m2mKoubaiDataSet.T_ChumonDataTable();
+
+            DateTime date = DateTime.Now;
+            int nOrderNo = ChumonClass.GetMaxHacchuuNo(sqlConn);
+
+            SqlTransaction sqlTran = null;
+            try
+            {
+                sqlConn.Open();
+                sqlTran = sqlConn.BeginTransaction();
+                da.InsertCommand.Transaction = sqlTran;
+
+                for (int i = 0; i < dtOrder.Rows.Count; i++)
+                {
+                    m2mKoubaiDataSet.T_ChumonRow drNew = dt.NewT_ChumonRow();
+                    nOrderNo++;
+
+                    drNew.ItemArray = dtOrder[i].ItemArray;
+                    drNew.HacchuuNo = nOrderNo.ToString("0000000");
+                    drNew.Nouki = dtOrder[i].Nouki.Replace("/", "");
+                    dt.Rows.Add(drNew);
+                }
+                da.Update(dt);
+                sqlTran.Commit();
+                return null;
+            }
+            catch (Exception e)
+            {
+                if (sqlTran != null)
+                    sqlTran.Rollback();
+                return new LibError(e);
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

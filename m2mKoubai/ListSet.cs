@@ -33,15 +33,7 @@ namespace m2mKoubai
         public static void SetDdlTani(DropDownList ddl)
         {
             ddl.Items.Clear();
-            /*
-            ddl.Items.Add(new ListItem("---", "0"));
-            ddl.Items.Add(new ListItem("kg", "kg"));
-            ddl.Items.Add(new ListItem("m", "m"));
-            ddl.Items.Add(new ListItem("–{", "–{"));
-            ddl.Items.Add(new ListItem("–‡", "–‡"));
-            */
-            BuhinDataSet_S.V_Buhin_TaniDataTable dt =
-                BuhinClass_S.getV_Buhin_TaniDataTable(Global.GetConnection());
+            BuhinDataSet.V_Buhin_TaniDataTable dt = BuhinClass.getV_Buhin_TaniDataTable(Global.GetConnection());
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ddl.Items.Add(dt[i].Tani);
@@ -196,7 +188,7 @@ namespace m2mKoubai
         /// <param name="nBuhinKubun"></param>
         public static void SetddlBuhin_KubunBetsu(DropDownList ddl, string strShiiresakiCode, string strKubun)
         {
-            BuhinDataSet_S.V_BuhinCodeMeiDataTable dt = BuhinClass_S.getV_BuhinCodeMeiDataTable(strShiiresakiCode, strKubun, Global.GetConnection());
+            BuhinDataSet.V_BuhinCodeMeiDataTable dt = BuhinClass.getV_BuhinCodeMeiDataTable(strShiiresakiCode, strKubun, Global.GetConnection());
             ddl.Items.Clear();
             ddl.Items.Add(new ListItem("---", ""));
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -226,7 +218,7 @@ namespace m2mKoubai
         /// <param name="nBuhinKubun"></param>
         public static void SetDdlBuhinKubun(DropDownList ddl)
         {
-            BuhinDataSet_S.V_BuhinKubunDataTable dt = BuhinClass_S.getV_BuhinKubunDataTable(Global.GetConnection());
+            BuhinDataSet.V_BuhinKubunDataTable dt = BuhinClass.getV_BuhinKubunDataTable(Global.GetConnection());
             ddl.Items.Clear();
             ddl.Items.Add(new ListItem("---", ""));
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -234,7 +226,6 @@ namespace m2mKoubai
                 ddl.Items.Add(new ListItem(dt[i].BuhinKubun, dt[i].BuhinKubun));
             }
         }
-
 
 
         public static void SetDdlNounyuuBasho_C(DropDownList ddl)
@@ -510,7 +501,7 @@ namespace m2mKoubai
         {
             ddl.Items.Clear();
             ddl.Items.Add(new ListItem("---", "0"));
-            ShiiresakiDataSet_S.V_ShiiresakiDataTable dt =
+            ShiiresakiDataSet.V_ShiiresakiDataTable dt =
                 ShiiresakiClass.getV_ShiiresakiDataTable(Global.GetConnection());
             for (int i = 0; i < dt.Rows.Count; i++)
             {

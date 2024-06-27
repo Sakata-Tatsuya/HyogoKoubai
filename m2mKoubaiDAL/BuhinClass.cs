@@ -7,7 +7,6 @@ namespace m2mKoubaiDAL
 {
     public class BuhinClass
     {
-
         public class KensakuParam
         {
             public string _Code = "";      // コード
@@ -18,13 +17,11 @@ namespace m2mKoubaiDAL
         {
             //private string _Kubun;
             private string _Code;
-
             public BuhinKey(string Code)
             {
                 //this._Kubun = Kubun;
                 this._Code = Code;
             }
-            //
             public override string ToString()
             {
                 //return this._Kubun + "_" + this._Code;
@@ -35,8 +32,6 @@ namespace m2mKoubaiDAL
         private static string WhereText(KensakuParam k)
         {
             Core.Sql.WhereGenerator w = new Core.Sql.WhereGenerator();
-            //string str = "";
-
             // コード
             if(k._Code != "")
                 w.Add(string.Format("M_Buhin.BuhinCode = '{0}'", k._Code));
@@ -48,6 +43,22 @@ namespace m2mKoubaiDAL
             return w.WhereText;
         }
 
+        /// <summary>
+        /// 部品の単位を取得する
+        /// </summary>
+        /// <param name="sqlConn"></param>
+        /// <returns></returns>
+        public static BuhinDataSet.V_Buhin_TaniDataTable getV_Buhin_TaniDataTable(SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText =
+            "SELECT DISTINCT TOP (100) PERCENT Tani "
+            + "FROM M_Buhin "
+            + "ORDER BY Tani ";
+            BuhinDataSet.V_Buhin_TaniDataTable dt = new BuhinDataSet.V_Buhin_TaniDataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
 
 
@@ -56,8 +67,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static m2mKoubaiDataSet.M_BuhinDataTable
-            getM_BuhinDataTable(SqlConnection sqlConn)
+        public static m2mKoubaiDataSet.M_BuhinDataTable getM_BuhinDataTable(SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText = "SELECT * FROM M_Buhin";
@@ -65,30 +75,6 @@ namespace m2mKoubaiDAL
             da.Fill(dt);
             return dt;
         }
-
-        /*
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="k"></param>
-        /// <param name="sqlConn"></param>
-        /// <returns></returns>
-        public static m2mKoubaiDataSet.M_BuhinDataTable
-           getM_BuhinDataTable(KensakuParam k, SqlConnection sqlConn)
-        {
-            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
-            da.SelectCommand.CommandText = "SELECT * FROM M_Buhin ";
-            string strWhere = WhereText(k);
-            if (strWhere != "")
-            {
-                da.SelectCommand.CommandText += "WHERE " + strWhere;
-            }
-            
-            m2mKoubaiDataSet.M_BuhinDataTable dt = new m2mKoubaiDataSet.M_BuhinDataTable();
-            da.Fill(dt);
-            return dt;
-        }
-        */
 
         /// <summary>
         /// 部品データを取得(マスター画面表示用)
@@ -125,6 +111,51 @@ namespace m2mKoubaiDAL
             return dt;
         }
 
+        /// <summary>
+        /// 部品区分を取得する
+        /// </summary>
+        /// <param name="sqlConn"></param>
+        /// <returns></returns>
+        public static BuhinDataSet.V_BuhinKubunDataTable getV_BuhinKubunDataTable(SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText =
+            "SELECT DISTINCT TOP (100) PERCENT BuhinKubun "
+            + "FROM  M_Buhin "
+            + "ORDER BY BuhinKubun ";
+            BuhinDataSet.V_BuhinKubunDataTable dt = new BuhinDataSet.V_BuhinKubunDataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        /// <summary>
+        /// 部品区分を取得する
+        /// </summary>
+        /// <param name="sqlConn"></param>
+        /// <returns></returns>
+        public static BuhinDataSet.V_BuhinKubunDataTable getV_BuhinKubunDataTable(string strShiireCode, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            if (strShiireCode != string.Empty)
+            {
+                da.SelectCommand.CommandText =
+                "SELECT DISTINCT TOP (100) PERCENT BuhinKubun "
+                + "FROM  M_Buhin "
+                + "WHERE (ShiiresakiCode1 = @ShiiresakiCode) OR "
+                + "(ShiiresakiCode2 = @ShiiresakiCode) "
+                + "ORDER BY BuhinKubun ";
+                da.SelectCommand.Parameters.AddWithValue("@ShiiresakiCode", strShiireCode);
+            }
+            else
+            {
+                da.SelectCommand.CommandText = "SELECT DISTINCT TOP (100) PERCENT BuhinKubun FROM M_Buhin"
+                + "ORDER BY BuhinKubun ";
+            }
+
+            BuhinDataSet.V_BuhinKubunDataTable dt = new BuhinDataSet.V_BuhinKubunDataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
         /// <summary>
         ///主キーによって、部品データを取得
@@ -288,6 +319,19 @@ namespace m2mKoubaiDAL
 
             dt = new m2mKoubaiDataSet.M_BuhinDataTable();
             info.LoadData(cmd, sqlConn, dt, ref nTotal);
+        }
+
+        public static BuhinDataSet.V_BuhinCodeMeiDataTable getV_BuhinCodeMeiDataTable(string strShiiresakiCode, string strKubun, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = "SELECT BuhinCode, BuhinMei FROM M_Buhin "
+                       + "WHERE (BuhinKubun = @BuhinKubun AND ShiiresakiCode1 = @ShiiresakiCode) OR "
+                       + "(BuhinKubun = @BuhinKubun AND ShiiresakiCode2 = @ShiiresakiCode)";
+            da.SelectCommand.Parameters.AddWithValue("@BuhinKubun", strKubun);
+            da.SelectCommand.Parameters.AddWithValue("@ShiiresakiCode", strShiiresakiCode);
+            BuhinDataSet.V_BuhinCodeMeiDataTable dt = new BuhinDataSet.V_BuhinCodeMeiDataTable();
+            da.Fill(dt);
+            return dt;
         }
 
 
