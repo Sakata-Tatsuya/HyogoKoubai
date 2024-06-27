@@ -39,8 +39,6 @@ namespace m2mKoubai.Denpyou
                 this.T.Visible = false;
                 //AppCommon.ShowTable(false, this.T);
             }
-
-
         }
 
         // ’•¶”NŒ“úİ’è
@@ -77,8 +75,7 @@ namespace m2mKoubai.Denpyou
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                HacchuDataSet.V_HacchuBindRow dr =
-                   e.Row.DataItem as HacchuDataSet.V_HacchuBindRow;
+                HacchuDataSet.V_HacchuBindRow dr = e.Row.DataItem as HacchuDataSet.V_HacchuBindRow;
 
                 // ”­’No‚ªˆê’v‚µ‚È‚¢ê‡
                 if (!dr.IsHacchuuNoNull())

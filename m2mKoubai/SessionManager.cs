@@ -10,16 +10,16 @@ namespace m2mKoubai
     public class SessionManager
     {
         public const string SESSION_LOGIN_ID = "SESSION_LOGIN_ID";     　　     // ログインID
-        public const string SESSION_USER_KUBUN = "SESSION_USER_KUBUN";     　　 // ユーザー区分  
-        public const string SESSION_KAISHA_CODE = "SESSION_KAISHA_CODE";　　　　// 会社コード  
+        public const string SESSION_USER_KUBUN = "SESSION_USER_KUBUN";     　　 // ユーザー区分
+        public const string SESSION_KAISHA_CODE = "SESSION_KAISHA_CODE";　　　　// 会社コード
         public const string SESSION_JIGYOUSHO_KUBUN = "SESSION_JIGYOUSHO_KUBUN"; // 事業所区分
-        public const string SESSION_KANRISHA_FLAG = "SESSION_KANRISHA_FLAG"; 　 // マスタ管理者区分    
-        public const string SESSION_TANTOUSHA_CODE = "SESSION_TANTOUSHA_CODE";　// 担当者コード         
-        public const string SESSION_TANTOUSHA_NAME = "SESSION_TANTOUSHA_NAME";　// 担当者名  
+        public const string SESSION_KANRISHA_FLAG = "SESSION_KANRISHA_FLAG"; 　 // マスタ管理者区分
+        public const string SESSION_TANTOUSHA_CODE = "SESSION_TANTOUSHA_CODE";　// 担当者コード
+        public const string SESSION_TANTOUSHA_NAME = "SESSION_TANTOUSHA_NAME";　// 担当者名
         public const string SESSION_USER = "SESSION_LOGIN_USER";
 
         public const string SESSION_KENSYU_FLAG = "SESSION_KENSYU_FLAG"; 　     // 検収情報
-        public const string SESSION_KAISHA_KOUSHIN_FLG = "SESSION_KAISHA_KOUSHIN_FLG"; 　     // 会社情報許可フラグ
+        public const string SESSION_KAISHA_KOUSHIN_FLG = "SESSION_KAISHA_KOUSHIN_FLG";       // 会社情報許可フラグ
         /// <summary>
         /// ログイン情報をセッションに格納
         /// </summary>
@@ -27,13 +27,13 @@ namespace m2mKoubai
         public static void Login(m2mKoubaiDataSet.M_LoginRow dr, string strLanguage)
         {
             System.Web.Security.FormsAuthentication.SetAuthCookie(dr.LoginID, false);
-            System.Web.HttpContext.Current.Session[SESSION_USER_KUBUN] = dr.UserKubun;  　      // ユーザー区分
-            System.Web.HttpContext.Current.Session[SESSION_TANTOUSHA_CODE] = dr.TantoushaCode;  // 担当者コード
-            System.Web.HttpContext.Current.Session[SESSION_KANRISHA_FLAG] = dr.KanrishaFlg;  　 // マスタ管理者区分
-            System.Web.HttpContext.Current.Session[SESSION_LOGIN_ID] = dr.LoginID;  　          // ログインID        
-            System.Web.HttpContext.Current.Session[SESSION_TANTOUSHA_NAME] = dr.Name;           // 担当者名        
-            System.Web.HttpContext.Current.Session[SESSION_KAISHA_CODE] = dr.KaishaCode;      　// 会社コード
-            System.Web.HttpContext.Current.Session[SESSION_JIGYOUSHO_KUBUN] = dr.JigyoushoKubun; // 事業所区分
+            System.Web.HttpContext.Current.Session[SESSION_USER_KUBUN] = dr.UserKubun;              // ユーザー区分
+            System.Web.HttpContext.Current.Session[SESSION_TANTOUSHA_CODE] = dr.TantoushaCode;      // 担当者コード
+            System.Web.HttpContext.Current.Session[SESSION_KANRISHA_FLAG] = dr.KanrishaFlg;         // マスタ管理者区分
+            System.Web.HttpContext.Current.Session[SESSION_LOGIN_ID] = dr.LoginID;                  // ログインID
+            System.Web.HttpContext.Current.Session[SESSION_TANTOUSHA_NAME] = dr.Name;               // 担当者名
+            System.Web.HttpContext.Current.Session[SESSION_KAISHA_CODE] = dr.KaishaCode;            // 会社コード
+            System.Web.HttpContext.Current.Session[SESSION_JIGYOUSHO_KUBUN] = dr.JigyoushoKubun;    // 事業所区分
             LoginUser u = LoginUser.New(dr.LoginID, strLanguage);
             if (null != u)
             {
@@ -52,7 +52,7 @@ namespace m2mKoubai
             //private MasterDataSet.M_TorihikisakiRow _drTorihikisaki = null;
 
             private System.Collections.Hashtable _tblSessionData = new System.Collections.Hashtable();
-            private System.Collections.Hashtable _tblUserView = new System.Collections.Hashtable();	// 自身の表示設定(キーはリストID)
+            private System.Collections.Hashtable _tblUserView = new System.Collections.Hashtable(); // 自身の表示設定(キーはリストID)
 
             public string UserID
             {

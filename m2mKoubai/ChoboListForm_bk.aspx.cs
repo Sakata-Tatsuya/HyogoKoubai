@@ -8,11 +8,10 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using Telerik.Web.UI;
 using m2mKoubaiDAL;
-using System.Collections.Generic;
 
 namespace m2mKoubai
 {
-    public partial class ChoboListForm : System.Web.UI.Page
+    public partial class ChoboListForm_bk : System.Web.UI.Page
     {
         private int VsCurrentPageIndex
         {
@@ -121,13 +120,13 @@ namespace m2mKoubai
                 this.ShowTblMain(true);
             }
 
-            //ページング
+            //ページング            
             int nPageSize = AloowPaging();
             int nPageCount = 0;
             if (nPageSize > 0)
             {
-                D.PageSize = nPageSize;
-                D.AllowPaging = true;
+                G.PageSize = nPageSize;
+                G.AllowPaging = true;
                 nPageCount = dt.Rows.Count / nPageSize;
                 if (0 < dt.Rows.Count % nPageSize) nPageCount++;
                 if (nPageCount <= VsCurrentPageIndex)
@@ -143,17 +142,18 @@ namespace m2mKoubai
             }
             else
             {
-                D.PageSize = dt.Rows.Count;
-                D.AllowPaging = false;
+                G.PageSize = dt.Rows.Count;
+                G.AllowPaging = false;
                 VsCurrentPageIndex = 0;
             }
-            D.CurrentPageIndex = VsCurrentPageIndex;
+            G.PageIndex = VsCurrentPageIndex;
             pagerTop.Create(nPageCount);
             pagerBottom.Create(nPageCount);
-            pagerTop.CurrentPageIndex = pagerBottom.CurrentPageIndex = D.CurrentPageIndex;
+            pagerTop.CurrentPageIndex = pagerBottom.CurrentPageIndex = G.PageIndex;
 
-            D.DataSource = dt;
-            D.DataBind();
+            G.DataSource = dt;
+            G.DataBind();
+            G.EnableViewState = false;
         }
         private int AloowPaging()
         {
@@ -177,7 +177,7 @@ namespace m2mKoubai
         // GridView表示
         private void ShowTblMain(bool b)
         {
-            D.Visible = b;
+            G.Visible = b;
         }
 
         private void SetList()
@@ -215,35 +215,34 @@ namespace m2mKoubai
             Create();
         }
 
-        protected void D_ItemDataBound(object sender, Telerik.Web.UI.GridItemEventArgs e)
-        {
-            if (e.Item.ItemType != Telerik.Web.UI.GridItemType.Item && e.Item.ItemType != Telerik.Web.UI.GridItemType.AlternatingItem)
-                return;
 
-            ShareDataSet.V_DocumentRow dr = ((DataRowView)e.Item.DataItem).Row as ShareDataSet.V_DocumentRow;
-            Label LblDataType = e.Item.FindControl("LblDataType") as Label;
-            Label LblKeijoBi = e.Item.FindControl("LblKeijoBi") as Label;
-            Label LblSlipID = e.Item.FindControl("LblSlipID") as Label;
-            Label LblKaisha = e.Item.FindControl("LblKaisha") as Label;
-            Label LblTourokuBi = e.Item.FindControl("LblTourokuBi") as Label;
-            ImageButton BtnDisp = e.Item.FindControl("BtnDisp") as ImageButton;
-            //帳票種別
-            LblDataType.Text = dr.DataType;
-            //計上日
-            LblKeijoBi.Text = dr.KeijoBi.ToString("yyyy/MM/dd");
-            //帳票番号
-            LblSlipID.Text = dr.SlipID;
-            BtnDisp.CommandArgument = dr.FileID.ToString();
-            //取引先
-            LblKaisha.Text = dr.KaishaMei;
-            //発行日
-            LblTourokuBi.Text = dr.TourokuBi.ToString("yyyy/MM/dd");
-        }
-        protected void D_PreRender(object sender, EventArgs e)
+        protected void G_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //this.D.MasterTableView.Attributes["bordercolor"] = "#708090";
-            this.D.MasterTableView.Attributes["border"] = "1";
-            //this.D.MasterTableView.HeaderStyle.CssClass = "radgrid_header_cor";
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+            }
+            else if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                ShareDataSet.V_DocumentRow dr = ((DataRowView)e.Row.DataItem).Row as ShareDataSet.V_DocumentRow;
+                Label LblDataType = e.Row.FindControl("LblDataType") as Label;
+                Label LblKeijoBi = e.Row.FindControl("LblKeijoBi") as Label;
+                Label LblSlipID = e.Row.FindControl("LblSlipID") as Label;
+                Label LblKaisha = e.Row.FindControl("LblKaisha") as Label;
+                Label LblTourokuBi = e.Row.FindControl("LblTourokuBi") as Label;
+                ImageButton BtnDisp = e.Row.FindControl("BtnDisp") as ImageButton;
+
+                //帳票種別
+                LblDataType.Text = dr.DataType;
+                //計上日
+                LblKeijoBi.Text = dr.KeijoBi.ToString("yyyy/MM/dd");
+                //帳票番号
+                LblSlipID.Text = dr.SlipID;
+                BtnDisp.CommandArgument = dr.FileID.ToString();
+                //取引先
+                LblKaisha.Text = dr.KaishaMei;
+                //発行日
+                LblTourokuBi.Text = dr.TourokuBi.ToString("yyyy/MM/dd");
+            }
         }
         protected void Ram_AjaxRequest(object sender, Telerik.Web.UI.AjaxRequestEventArgs e)
         {
@@ -251,6 +250,7 @@ namespace m2mKoubai
 
             string[] strArgs = e.Argument.Split(':');
             string strCmd = strArgs[0];
+            LibError err = null;
  
             switch (strCmd)
             {
@@ -317,36 +317,8 @@ namespace m2mKoubai
             }
         }
 
-        protected void D_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
-        {
-            D.MasterTableView.CurrentPageIndex = e.NewPageIndex;
-            Create();
-        }
 
-        bool _bD_PageSizeChanged = false;
-        protected void D_PageSizeChanged(object sender, Telerik.Web.UI.GridPageSizeChangedEventArgs e)
-        {
-            if (!_bD_PageSizeChanged)
-            {
-                _bD_PageSizeChanged = true;
-                D.MasterTableView.PageSize = e.NewPageSize;
-                Create();
-            }
-        }
 
-        protected void D_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
-        {
-            //string cmdArg = e.CommandArgument.ToString();
-            //int dummy;
-            //if (int.TryParse(cmdArg, out dummy)) { return; }
-            //if (cmdArg == "First" || cmdArg == "Prev" || cmdArg == "Next" || cmdArg == "Last") { return; }
-        }
-        protected void BtnDisp_Click(object sender, EventArgs e)
-        {
-            ImageButton BtnDisp = sender as ImageButton;
-            //string strFileID = (string)e.ToString();
-            HidFileID.Value = BtnDisp.CommandArgument.ToString();
-        }
 
 
 

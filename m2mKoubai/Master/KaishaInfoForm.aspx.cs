@@ -93,7 +93,7 @@ namespace m2mKoubai.Master
         {
             // 行数変更
             this.DdlRow.Attributes["onchange"] = "Row(); return false;";
-            // 更新ボタン            
+            // 更新ボタン
             //this.BtnK.Attributes["onclick"] = "Koushin(); return false;";
             // 新規登録ボタン
             this.BtnNew.Attributes["onclick"] = "Shinki(); return false;";
@@ -294,7 +294,7 @@ namespace m2mKoubai.Master
                 }
                 else
                 {
-                    btn.Visible = false;                       
+                    btn.Visible = false;
                 }
                 */ 
                 e.Row.Cells[G_CELL_SHUUSEI].CssClass = "hei30 tc";

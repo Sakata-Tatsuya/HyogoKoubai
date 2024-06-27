@@ -11,7 +11,7 @@ namespace m2mKoubai
 {
 
 
-    public partial class ChoboListForm
+    public partial class ChoboListForm_bk
     {
 
         /// <summary>
@@ -123,22 +123,13 @@ namespace m2mKoubai
         protected global::System.Web.UI.WebControls.DropDownList DdlRow;
 
         /// <summary>
-        /// DivD コントロール。
+        /// G コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivD;
-
-        /// <summary>
-        /// D コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid D;
+        protected global::System.Web.UI.WebControls.GridView G;
 
         /// <summary>
         /// Pb コントロール。

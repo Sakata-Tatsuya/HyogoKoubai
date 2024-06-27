@@ -177,7 +177,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField HeaderText="事業所コード" > 
-                                <ItemStyle CssClass="tc" />             
+                                <ItemStyle CssClass="tc" />
                             </asp:BoundField>
                             <asp:BoundField HeaderText="事業所名">
                             </asp:BoundField>

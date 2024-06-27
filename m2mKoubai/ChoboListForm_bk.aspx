@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChoboListForm.aspx.cs" Inherits="m2mKoubai.ChoboListForm" ValidateRequest="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChoboListForm_bk.aspx.cs" Inherits="m2mKoubai.ChoboListForm_bk" ValidateRequest="false" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
 <%@ Register Src="~/Common/CtlNengappiFromTo.ascx" TagName="CtlNengappiFromTo" TagPrefix="uc3" %>
 <%@ Register Src="~/Common/CtlMyPager.ascx" TagName="CtlMyPager" TagPrefix="uc2" %>
-<%--<%@ Register Assembly="Core" namespace="Core.Web" tagprefix="cc1" %>--%>
+<%@ Register Assembly="Core" namespace="Core.Web" tagprefix="cc1" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -84,6 +84,7 @@
                 </table>
             </td>
             <td>
+<%--                <input id="BtnK" runat="server" type="button" value="検索" class="w60 bg6" />--%>
                 <asp:Button ID="BtnKensaku" runat="server" Text="検索" Width="50px" OnClick="BtnKensaku_Click" Height="30px" />
             </td>
         </tr>
@@ -128,78 +129,71 @@
                         </td>
                     </tr>
                 </table>
-            <div id="DivD" runat="server" width="80vw" height="70vh">
-                <telerik:RadGrid ID="D" runat="server" CssClass="def9" PageSize="30" width="750px" height="700px" 
-                    AllowPaging="False" EnableAJAX="True" EnableAJAXLoadingTemplate="True"
-                    AllowCustomPaging="True" EnableEmbeddedSkins="False" Skin="Web20"
-                    GridLines="None" OnPageIndexChanged="D_PageIndexChanged" 
-                    OnPageSizeChanged="D_PageSizeChanged" CellPadding="0" 
-                    EnableEmbeddedBaseStylesheet="False" OnPreRender="D_PreRender"
-                    OnItemDataBound="D_ItemDataBound">
-                    <MasterTableView CellPadding="2" GridLines="Both" border="0" CellSpacing="0" AutoGenerateColumns="False" >
-                        <Columns>
-                            <telerik:GridTemplateColumn UniqueName="ColDataType" HeaderText="帳票種別">
-                                <ItemTemplate>
-                                    <asp:Label ID="LblDataType" runat="server"></asp:Label>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" />
-                            </telerik:GridTemplateColumn>
+                <asp:GridView ID="G" runat="server" AutoGenerateColumns="False" OnRowDataBound="G_RowDataBound" CssClass="def9" OnRowCommand="G_RowCommand">
+                    <Columns>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="LblDataTypeH" runat="server" Text="帳票種別"></asp:Label>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="LblDataType" runat="server"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
-                            <telerik:GridTemplateColumn UniqueName="ColKeijoBi" HeaderText="計上日">
-                                <ItemTemplate>
-                                    <asp:Label ID="LblKeijoBi" runat="server"></asp:Label>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" />
-                            </telerik:GridTemplateColumn>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="LblKeijoBiH" runat="server" Text="計上日"></asp:Label>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="LblKeijoBi" runat="server"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
-                            <telerik:GridTemplateColumn UniqueName="ColSlipID" HeaderText="帳票番号">
-                                <ItemTemplate>
-                                    <asp:Label ID="LblSlipID" runat="server"></asp:Label>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" />
-                            </telerik:GridTemplateColumn>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="LblSlipIDH" runat="server" Text="帳票番号"></asp:Label>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="LblSlipID" runat="server"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
-                            <telerik:GridTemplateColumn UniqueName="ColDisp" HeaderText="　">
-                                <ItemTemplate>
-                                    <asp:ImageButton ID="BtnDisp" runat="server" ImageUrl="/img/pdf.gif" Width="24" Height="24" OnClick="BtnDisp_Click" />
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" />
-                            </telerik:GridTemplateColumn>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="BtnDispH" runat="server" Text="　"></asp:Label>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:ImageButton ID="BtnDisp" runat="server" ImageUrl="/img/pdf.gif" Width="24" Height="24" CommandName="disp"/>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
-                            <telerik:GridTemplateColumn UniqueName="ColKaisha" HeaderText="発行社">
-                                <ItemTemplate>
-                                    <asp:Label ID="LblKaisha" runat="server"></asp:Label>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" />
-                            </telerik:GridTemplateColumn>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="LblKaishaH" runat="server" Text="取引先"></asp:Label>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="LblKaisha" runat="server"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
-                            <telerik:GridTemplateColumn UniqueName="ColTourokuBi" HeaderText="発行日">
-                                <ItemTemplate>
-                                    <asp:Label ID="LblTourokuBi" runat="server"></asp:Label>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" />
-                            </telerik:GridTemplateColumn>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="LblTourokuBiH" runat="server" Text="発行日"></asp:Label>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="LblTourokuBi" runat="server"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
-                        </Columns>
-                        <EditFormSettings>
-                            <EditColumn InsertImageUrl="Update.gif" UpdateImageUrl="Update.gif" EditImageUrl="Edit.gif" CancelImageUrl="Cancel.gif">
-                            </EditColumn>
-                        </EditFormSettings>
-                        <HeaderStyle  CssClass="bg3" HorizontalAlign="Center" Wrap="False" />
-                        <ItemStyle Wrap="False"></ItemStyle>
-                        <PagerStyle Position="Top" AlwaysVisible="False"
-                            PagerTextFormat="ページ移動: {4} &amp;nbsp;ページ : &lt;strong&gt;{0:N0}&lt;/strong&gt; / &lt;strong&gt;{1:N0}&lt;/strong&gt; | 件数: &lt;strong&gt;{2:N0}&lt;/strong&gt; - &lt;strong&gt;{3:N0}件&lt;/strong&gt; / &lt;strong&gt;{5:N0}&lt;/strong&gt;件中" 
-                            PageSizeLabelText="ページサイズ:" FirstPageToolTip="最初のページに移動" 
-                            LastPageToolTip="最後のページに移動" NextPageToolTip="次のページに移動" 
-                            PrevPageToolTip="前のページに移動"/>
-                    </MasterTableView>
-                    <GroupingSettings CollapseAllTooltip="Collapse all groups"></GroupingSettings>
-
-                    <ClientSettings>
-                        <Scrolling AllowScroll="True" UseStaticHeaders="True" />
-                    </ClientSettings>
-                </telerik:RadGrid>
-            </div>
+                    </Columns>
+                    <HeaderStyle CssClass="bg3" HorizontalAlign = "center" VerticalAlign = "middle"/>
+                    <RowStyle CssClass="bg1" HorizontalAlign = "center" VerticalAlign = "middle"/>
+                    <AlternatingRowStyle CssClass="bg2" />
+<%--                    <ClientSettings AllowColumnsReorder="false" AllowDragToGroup="false" ReorderColumnsOnClient="false">
+                        <Scrolling AllowScroll="True" UseStaticHeaders="true"></Scrolling>
+                        <Resizing AllowColumnResize="false" EnableRealTimeResize="false" />
+                    </ClientSettings>--%>
+                </asp:GridView>
                 <uc2:CtlMyPager ID="Pb" runat="server" />
                 <asp:HiddenField ID="HidFileID" runat="server" />
             </td>
