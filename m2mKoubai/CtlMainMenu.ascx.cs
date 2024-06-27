@@ -197,7 +197,7 @@ namespace m2mKoubai
 
         public delegate void EventHandler(OptionMenu m);
 
-        public event EventHandler OnOptionMenuSelected = null;
+        //public event EventHandler OnOptionMenuSelected = null;
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
@@ -316,7 +316,7 @@ namespace m2mKoubai
             this.LblLoginUser.Text = drUser.Name;
 
             // 現在表示しているページを探す
-            Telerik.Web.UI.RadMenuItem found = null;
+            //Telerik.Web.UI.RadMenuItem found = null;
             string strPage = "~" + this.Request.Url.PathAndQuery.Substring(this.Request.ApplicationPath.Length);
             System.Collections.ArrayList lstMenuTree = new System.Collections.ArrayList();
             // lstMenuTreeはメニューが見つかったと時のリンクしているメニューを保持する。(順番は逆に入っている)

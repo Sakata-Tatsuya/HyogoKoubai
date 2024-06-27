@@ -250,7 +250,6 @@ namespace m2mKoubai
 
             string[] strArgs = e.Argument.Split(':');
             string strCmd = strArgs[0];
-            LibError err = null;
  
             switch (strCmd)
             {

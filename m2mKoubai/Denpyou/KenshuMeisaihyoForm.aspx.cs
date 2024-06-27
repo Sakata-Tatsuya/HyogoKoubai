@@ -40,7 +40,7 @@ namespace m2mKoubai.Denpyou
         }
         decimal nGoukei = 0;
         decimal nGoukei_Tax = 0;
-        decimal dZeiRitsu = 0;
+        //decimal dZeiRitsu = 0;
         private void Create(string strKey)
         {
 
