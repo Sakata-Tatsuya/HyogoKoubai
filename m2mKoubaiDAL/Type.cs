@@ -40,7 +40,6 @@ namespace m2mKoubaiDAL
         public const string Kanrisha = "1";
         public const string None = "";
     }
-    
 
     /// <summary>
     /// リードタイムの単位コード

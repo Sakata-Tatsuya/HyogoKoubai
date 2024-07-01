@@ -116,7 +116,6 @@ namespace m2mKoubaiDAL
             {
                 get { return this._JigyoushoKubun; }
             }
-
         }
 
         /// <summary>
@@ -491,7 +490,7 @@ namespace m2mKoubaiDAL
             da.SelectCommand.Parameters.AddWithValue("@HacchuuNo", strHacchuuNo);
             da.SelectCommand.Parameters.AddWithValue("@JigyoushoKubun", nJigyoushoKubun);
 
-            da.SelectCommand.CommandText += " ORDER BY          T_Chumon.HacchuuNo ";
+            da.SelectCommand.CommandText += " ORDER BY T_Chumon.HacchuuNo ";
             ChumonDataSet.V_Chumon_JyouhouDataTable dt = new ChumonDataSet.V_Chumon_JyouhouDataTable();
             da.Fill(dt);
             if (1 == dt.Rows.Count)
@@ -1065,8 +1064,7 @@ namespace m2mKoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
-        public static ChumonDataSet.V_MailInfoDataTable
-            getV_MailInfoDataTable(string strYear, string strHacchuuNo, int nJigyoushoKubun, SqlConnection sqlConn)
+        public static ChumonDataSet.V_MailInfoDataTable getV_MailInfoDataTable(string strYear, string strHacchuuNo, int nJigyoushoKubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
             da.SelectCommand.CommandText =

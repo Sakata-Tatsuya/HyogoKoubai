@@ -140,7 +140,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BarCode\BarCodeForm.aspx" />
-    <Content Include="ChoboListForm_bk.aspx" />
     <Content Include="Common\FileView.aspx" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
@@ -9533,13 +9532,6 @@
     </Compile>
     <Compile Include="BarCode\BarCodeForm.aspx.designer.cs">
       <DependentUpon>BarCodeForm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ChoboListForm_bk.aspx.cs">
-      <DependentUpon>ChoboListForm_bk.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ChoboListForm_bk.aspx.designer.cs">
-      <DependentUpon>ChoboListForm_bk.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\CtlMyPager.ascx.cs">
       <DependentUpon>CtlMyPager.ascx</DependentUpon>

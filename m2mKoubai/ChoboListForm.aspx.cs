@@ -42,7 +42,7 @@ namespace m2mKoubai
         {
             if (!IsPostBack)
             {
-                M.MenuName = "発注情報";
+                M.MenuName = "帳票管理";
                 VsKaishaCode = string.Empty;
                 if (SessionManager.UserKubun != (byte)UserKubun.Owner)
                 {
@@ -63,7 +63,6 @@ namespace m2mKoubai
             pagerBottom.OnPageIndexChanged += new Common.CtlMyPager.CtlMyPagerEventHandler(this.OnPageIndexChanged);
             pagerTop.ClientEvent = pagerBottom.ClientEvent = "PageChange";
         }
-
         override protected void OnInit(EventArgs e)
         {
             InitializeComponent();
@@ -84,15 +83,12 @@ namespace m2mKoubai
             // 行数変更
             this.DdlRow.Attributes["onchange"] = "RowChange(); return false;";
         }
-
-
         // ページチェンジ
         private void OnPageIndexChanged(int nNewPageIndex)
         {
             VsCurrentPageIndex = nNewPageIndex;
             this.Create();
         }
-        // クリエート
         private void Create()
         {
             HidKey.Value = "";
@@ -104,7 +100,6 @@ namespace m2mKoubai
             {
                 this.ShowMsg("", true);
                 return;
-
             }
             ShareDataSet.V_DocumentDataTable dt = FilesClass.getV_DocumentDataTable(k, Global.GetConnection());
 
