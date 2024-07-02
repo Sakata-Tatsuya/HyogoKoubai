@@ -1358,7 +1358,8 @@ namespace m2mKoubai
                     if (streamImage != null)
                     {
                         iTextSharp.text.Image imageTemp = iTextSharp.text.Image.GetInstance(streamImage);
-                        cell = new PdfPCell(imageTemp, true) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                        imageTemp.ScaleAbsolute(80f, 10f);
+                        cell = new PdfPCell(imageTemp, false) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                     }
                     else
                     {
@@ -1580,7 +1581,8 @@ namespace m2mKoubai
                 //iTextSharp.text.Image imageTemp = iTextSharp.text.Image.GetInstance(strTemp);
                 MemoryStream streamImage = GetBarCode(dtD[i].HacchuuNo);
                 iTextSharp.text.Image imageTemp = iTextSharp.text.Image.GetInstance(streamImage);
-                cell = new PdfPCell(imageTemp, true) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                imageTemp.ScaleAbsolute(180f, 18f);
+                cell = new PdfPCell(imageTemp, false) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                 cell.Colspan = 2;
                 tbl.AddCell(cell);
                 streamImage.Dispose();
@@ -1592,7 +1594,8 @@ namespace m2mKoubai
                 {
                     MemoryStream streamImageR = GetBarCode(dtD[i + 1].HacchuuNo);
                     iTextSharp.text.Image imageTempR = iTextSharp.text.Image.GetInstance(streamImageR);
-                    cell = new PdfPCell(imageTempR, true) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
+                    imageTempR.ScaleAbsolute(180f, 18f);
+                    cell = new PdfPCell(imageTempR, false) { VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                     cell.Colspan = 2;
                     tbl.AddCell(cell);
                     streamImageR.Dispose();
