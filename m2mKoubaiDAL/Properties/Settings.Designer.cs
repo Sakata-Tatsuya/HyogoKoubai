@@ -26,7 +26,7 @@ namespace m2mKoubaiDAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.206;Initial Catalog=m2mKoubai2;User ID=sa;Password=sa@db;En" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.209;Initial Catalog=m2mKoubai2;User ID=sa;Password=sa@db;En" +
             "crypt=False")]
         public string m2mKoubaiConnectionString {
             get {
@@ -37,7 +37,7 @@ namespace m2mKoubaiDAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.206;Initial Catalog=m2mKoubai2;User ID=sa;Password=sa@db;En" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.209;Initial Catalog=m2mKoubai2;User ID=sa;Password=sa@db;En" +
             "crypt=False")]
         public string ConnectionString {
             get {
