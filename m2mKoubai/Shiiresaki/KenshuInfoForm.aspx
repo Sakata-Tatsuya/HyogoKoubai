@@ -24,7 +24,7 @@
          }
          function showpdf() {
              var fileid = document.getElementById('HidFileID').value;
-             console.log(fileid);
+             //console.log(fileid);
              if (0 < fileid.length) {
                  document.getElementById('HidFileID').value = '';
                  var url = "/Common/FileView.aspx?FileKey=" + fileid;

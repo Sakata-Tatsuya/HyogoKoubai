@@ -17,7 +17,6 @@
 .bg3
 {
 	/*ヘッダー等での利用*/
-	/*background-color:#66cc99;*/
 	background-color:#0b0489;
 	color:White;
 	font-weight:bold;
@@ -25,7 +24,6 @@
 .bg4
 {
 	/*Upload、Download画面で利用*/
-	/*background-color:#66cc99;*/
 	background-color:#0b0489;
 	color:White;
 	font-weight:bold;
@@ -39,7 +37,6 @@
 .bg6
 {
 	/*ボタン背景色で利用*/
-	/*background-color:#ffff99;*/
 	background-color:#72d3ff;
 }
 
@@ -47,7 +44,6 @@
 .bg7
 {
 	/*仕入先側MessageFormのヘッダー*/
-	/*background-color:#00a0ff;*/
 	background-color:#0b0489;
 	color:White;
 }
@@ -83,7 +79,6 @@
 .bg13
 {
 	/*何故二つあるかは不明*/
-	/*background-color:#1f0cf2;*/
 	background-color:#e7f2ff;	
 }
 
@@ -95,7 +90,6 @@
 .bg99
 {
 	/*仕入先側背景色*/
-	/*background-color:#ffff99;*/
 	background-color:#d0e4ff;
 }
 

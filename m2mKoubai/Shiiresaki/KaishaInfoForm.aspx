@@ -2,7 +2,6 @@
 
 <%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
 <%--<%@ Register Src="CtlTabShiire.ascx" TagName="CtlTabShiire" TagPrefix="uc1" %>--%>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >

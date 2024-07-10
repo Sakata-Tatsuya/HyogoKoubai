@@ -24,7 +24,7 @@
       }
       function showpdf() {
           var fileid = document.getElementById('HidFileID').value;
-          console.log(fileid);
+          //console.log(fileid);
           if (0 < fileid.length) {
               document.getElementById('HidFileID').value = '';
               var url = "/Common/FileView.aspx?FileKey=" + fileid;
@@ -915,7 +915,7 @@
                             </asp:TemplateField>
                         </Columns>
                         <RowStyle CssClass="bg1" />
-                         <HeaderStyle BorderStyle="None" CssClass="bg3" />
+                        <HeaderStyle BorderStyle="None" CssClass="bg3" />
                         <AlternatingRowStyle CssClass="bg2" />
                     </asp:GridView>
                   
