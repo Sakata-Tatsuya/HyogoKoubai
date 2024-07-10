@@ -1,7 +1,6 @@
 .bg0
 {
 	/*îwåiêF*/
-	/*background-color:#66ccff;*/
 	background-color:#e7f2ff;
 }
 .bg1 
@@ -11,7 +10,6 @@
 .bg2
 {
 	/*AlternatingRowStyleÇ≈ÇÃóòóp*/
-	/*background-color:#C0FFC0;*/
 	background-color:#ADD8E6;
 }
 .bg3
@@ -459,54 +457,40 @@
 	text-align:left;	
 }
 
-
-
-
-
-
-
-.ime_disabled
-{
-	ime-mode:disabled;
-}	
-.shadow
-{		
-	filter:shadow(color=Purple,direction=135);	
-	color:White;	
-}
-.shadow2
-{		
-	filter:shadow(color=#00CDFF,direction=135);	
-	color:White;	
-}
-.shadow3
-{		
-	filter:shadow(color=#000000,direction=135);	
-	color:White;	
-}
-.shadow4
-{		
-	filter:shadow(direction=135);	
-	color:White;	
-}
-.fil_btn
-{
-	background-color:#ffffff;
-	filter:progid:DXImageTransform.Microsoft.gradient (startColorstr=#a8c6ef, endColorstr=#ffffff, gradientType=0);	
-}
-.fil_bg
-{	
-	filter:progid:DXImageTransform.Microsoft.gradient (startColorstr=#e5f6ff, endColorstr=#ffffe5, gradientType=0);	
-}
-.fil_bg2
-{	
-	filter:progid:DXImageTransform.Microsoft.gradient (startColorstr=#ffe5ff, endColorstr=#ffffe5, gradientType=0);	
+.btnAqua {
+	font-size: 10pt;
+	height: 30px;
+	width: 90px;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	transition: all 0.3s;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	color: black;
+	background-color: aqua;
+	border-radius: 0.3rem;
+	top: 0px;
+	left: 0px;
 }
 
-.fil_img
-{	
-	filter:progid:DXImageTransform.Microsoft.Chroma(Color=#000000);
+.btn {
+	font-size: 10pt;
+	height: 30px;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	transition: all 0.3s;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	color: black;
+	border-radius: 0.3rem;
+	top: 0px;
+	left: 0px;
 }
+
 
 .s1
 {

@@ -11,7 +11,7 @@ namespace m2mKoubai
 {
 
 
-    public partial class ChoboListForm
+    public partial class ChoboListFormBak
     {
 
         /// <summary>
@@ -31,15 +31,6 @@ namespace m2mKoubai
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::m2mKoubai.CtlMainMenu M;
-
-        /// <summary>
-        /// divList コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divList;
 
         /// <summary>
         /// DdlDataType コントロール。
@@ -166,51 +157,6 @@ namespace m2mKoubai
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HidFileID;
-
-        /// <summary>
-        /// divDtl コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDtl;
-
-        /// <summary>
-        /// BtnBack コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBack;
-
-        /// <summary>
-        /// btn_save コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell btn_save;
-
-        /// <summary>
-        /// btnSave コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
-
-        /// <summary>
-        /// LblPdf コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPdf;
 
         /// <summary>
         /// Ram コントロール。

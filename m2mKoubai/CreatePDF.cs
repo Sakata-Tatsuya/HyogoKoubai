@@ -1411,6 +1411,11 @@ namespace m2mKoubai
             var doc = new Document(PageSize.A4, 0, 0, 0, 0);
             //iTextSharp.text.Rectangle FullA4 = new iTextSharp.text.Rectangle(595f, 842f);//(横,縦)
             //var doc = new Document(FullA4, 0f, 0f, 14f, 14f);
+            //設定済値を参照
+            //string strPage  = String.Format("{0} {1} {2} {3}\r\n", doc.Left, doc.Right, doc.Top, doc.Bottom);
+            //strPage += String.Format("{0} {1} {2} {3}\r\n", doc.LeftMargin, doc.RightMargin, doc.TopMargin, doc.BottomMargin);
+            //strPage += String.Format("PageSize:{0}\r\n", doc.PageSize);
+
             var stream = new MemoryStream();
             //ファイルの出力先を設定
             var pw = PdfWriter.GetInstance(doc, stream);
@@ -1481,7 +1486,7 @@ namespace m2mKoubai
                 tbl.AddCell(cell);
                 cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 30f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER, BorderWidth = 0 };
                 tbl.AddCell(cell);
-                if (FlgF) 
+                if (FlgF)
                 {
                     cell = new PdfPCell(new Paragraph("現品票", font08)) { FixedHeight = 30f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_CENTER };
                     cell.Colspan = 2;
@@ -1635,7 +1640,6 @@ namespace m2mKoubai
                 cell = new PdfPCell(new Paragraph("", font08)) { FixedHeight = 14f, VerticalAlignment = Element.ALIGN_MIDDLE, HorizontalAlignment = Element.ALIGN_LEFT, BorderWidth = 0 };
                 cell.Colspan = 5;
                 tbl.AddCell(cell);
-
             }
 
             if (LineCnt <= MaxRow)

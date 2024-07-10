@@ -6,18 +6,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
-using static System.Web.HttpUtility;
 using Telerik.Web.UI;
 using m2mKoubaiDAL;
 using System.Collections.Generic;
-using System.Linq;
-using Core.Utility;
-using Telerik.Web.UI.Diagram;
-using Org.BouncyCastle.Ocsp;
 
 namespace m2mKoubai
 {
-    public partial class ChoboListForm : System.Web.UI.Page
+    public partial class ChoboListFormBak : System.Web.UI.Page
     {
         private int VsCurrentPageIndex
         {
@@ -43,32 +38,6 @@ namespace m2mKoubai
                 this.ViewState["VsKaishaCode"] = value;
             }
         }
-        private string VsFileID
-        {
-            get
-            {
-                object obj = this.ViewState["FileID"];
-                if (null == obj) return "";
-                return Convert.ToString(obj);
-            }
-            set
-            {
-                this.ViewState["FileID"] = value;
-            }
-        }
-        private string VsFileName
-        {
-            get
-            {
-                object obj = this.ViewState["FileName"];
-                if (null == obj) return "";
-                return Convert.ToString(obj);
-            }
-            set
-            {
-                this.ViewState["FileName"] = value;
-            }
-        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -86,19 +55,13 @@ namespace m2mKoubai
                     DdlKaisha.SelectedValue = VsKaishaCode;
                     DdlKaisha.Enabled = false;
                 }
-                VsFileID = string.Empty;
-                divList.Style["display"] = "";
-                divDtl.Style["display"] = "none";
             }
-            if (VsFileID == string.Empty)
-            {
-                this.Create();
-                Common.CtlMyPager pagerTop = (Common.CtlMyPager)this.FindControl("Pt");
-                Common.CtlMyPager pagerBottom = (Common.CtlMyPager)this.FindControl("Pb");
-                pagerTop.OnPageIndexChanged += new Common.CtlMyPager.CtlMyPagerEventHandler(this.OnPageIndexChanged);
-                pagerBottom.OnPageIndexChanged += new Common.CtlMyPager.CtlMyPagerEventHandler(this.OnPageIndexChanged);
-                pagerTop.ClientEvent = pagerBottom.ClientEvent = "PageChange";
-            }
+            this.Create();
+            Common.CtlMyPager pagerTop = (Common.CtlMyPager)this.FindControl("Pt");
+            Common.CtlMyPager pagerBottom = (Common.CtlMyPager)this.FindControl("Pb");
+            pagerTop.OnPageIndexChanged += new Common.CtlMyPager.CtlMyPagerEventHandler(this.OnPageIndexChanged);
+            pagerBottom.OnPageIndexChanged += new Common.CtlMyPager.CtlMyPagerEventHandler(this.OnPageIndexChanged);
+            pagerTop.ClientEvent = pagerBottom.ClientEvent = "PageChange";
         }
         override protected void OnInit(EventArgs e)
         {
@@ -376,62 +339,12 @@ namespace m2mKoubai
         protected void BtnDisp_Click(object sender, EventArgs e)
         {
             ImageButton BtnDisp = sender as ImageButton;
-            VsFileID = BtnDisp.CommandArgument.ToString();
+            //string strFileID = (string)e.ToString();
             HidFileID.Value = BtnDisp.CommandArgument.ToString();
-            Showpdf(VsFileID);
-            divList.Style["display"] = "none";
-            divDtl.Style["display"] = "";
         }
 
-        protected void BtnBack_Click(object sender, EventArgs e)
-        {
-            VsFileID = VsFileName = string.Empty;
-            divList.Style["display"] = "";
-            divDtl.Style["display"] = "none";
-        }
 
-        protected void BtnSave_Click(object sender, EventArgs e)
-        {
-            ShareDataSet.T_DocumentRow dr = FilesClass.getT_DocumentRow(VsFileID, Global.GetConnection());
 
-            if (dr != null)
-            {
-                Response.Clear();
-                try
-                {
-                    Response.AddHeader("Content-Disposition", "attachment; filename=" + System.Web.HttpUtility.UrlEncode(dr.FileName));
-                    Response.ContentType = "application/octet-stream";
-                    this.Response.BinaryWrite(dr.Data);
-                }
-                catch (Exception ex)
-                {
-                }
-                finally
-                {
-                    Response.End();
-                }
-
-            }
-        }
-        protected void BtnPrint_Click(object sender, EventArgs e)
-        {
-        }
-
-        protected void Showpdf(string strFileID)
-        {
-
-            ShareDataSet.T_DocumentRow dr = FilesClass.getT_DocumentRow(strFileID, Global.GetConnection());
-
-            if (dr != null)
-            {
-                VsFileName = dr.FileName;
-                Byte[] bytes = new byte[0];
-                bytes = bytes.Concat((byte[])dr.Data.ToArray()).ToArray();
-
-                LblPdf.Text = "<iframe align=\"center\"  width = \"500px\" height =\"700px\" type = \"application/pdf\" src = \"data:application/pdf;base64," + HtmlEncode(Convert.ToBase64String(bytes)) + "#toolbar=0&navpanes=0\" ></iframe >";
-            }
-
-        }
 
 
 

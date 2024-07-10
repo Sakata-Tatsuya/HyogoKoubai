@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChoboListForm.aspx.cs" Inherits="m2mKoubai.ChoboListForm" ValidateRequest="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChoboListFormBak.aspx.cs" Inherits="m2mKoubai.ChoboListFormBak" ValidateRequest="false" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register TagName="CtlMainMenu" Src="~/CtlMainMenu.ascx" TagPrefix="uc1" %>
@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>帳票管理</title>
-    <link href="MainStyle.css" rel="stylesheet" type="text/css" />
+    <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript">
         function $(id) {
@@ -18,25 +18,25 @@
         function AjaxRequest(command_name, arg) {
             <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
         }
-        //function pageLoad() {
-        //    showpdf()
-        //}
-        //function showpdf() {
-        //    var fileid = document.getElementById('HidFileID').value;
-        //    if (0 < fileid.length) {
-        //        document.getElementById('HidFileID').value = '';
-        //        var url = "/Common/FileView.aspx?FileKey=" + fileid;
-        //        var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
-        //        win.focus();
-        //    }
-        //}
+        function pageLoad() {
+            showpdf()
+        }
+        function showpdf() {
+            var fileid = document.getElementById('HidFileID').value;
+            if (0 < fileid.length) {
+                document.getElementById('HidFileID').value = '';
+                var url = "/Common/FileView.aspx?FileKey=" + fileid;
+                var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
+                win.focus();
+            }
+        }
 
-        //var win = null;
-        //function OpenWinPost(target, w, h, etc) {
-        //    win = window.open
-        //        ("", target, "width=" + w + "px,height=" + h + "px,location=no,resizable=yes,scrollbars=yes" + etc);
-        //    win.focus();
-        //}
+        var win = null;
+        function OpenWinPost(target, w, h, etc) {
+            win = window.open
+                ("", target, "width=" + w + "px,height=" + h + "px,location=no,resizable=yes,scrollbars=yes" + etc);
+            win.focus();
+        }
         function RowChange() {
             AjaxRequest('row', '');
         }
@@ -57,7 +57,6 @@
 <body bottommargin="0" leftmargin="4" topmargin="0" rightmargin="4">
     <form id="form1" runat="server">
     <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
-    <div id="divList" runat="server">
     <table border="1" bordercolor="#000000" class="col def9 mt5 bg1">
         <tr>
             <td class="tl">
@@ -206,29 +205,6 @@
             </td>
         </tr>
     </table>
-    </div>
-
-    <div id="divDtl" runat="server">
-        <table style="border-collapse: collapse; margin-top: 20px; white-space: nowrap;">
-            <tr>
-                <td style="width: 100px;">
-                    <asp:Button ID="BtnBack" runat="server"  Text="一覧に戻る" CssClass="btn" OnClick="BtnBack_Click"/>
-                </td>
-                <td style="width: 40px;">
-                </td>
-                <td id="btn_save" runat="server" style="padding:5px;">
-                    <asp:Button ID="btnSave" runat="server" Text="保存" CssClass="btnAqua" OnClick="BtnSave_Click"/>
-                </td>
-<%--                <td id="btn_print" runat="server" style="padding:5px;"><asp:Button ID="btnPrint" runat="server" Text="印刷" CssClass="btn" OnClick="BtnPrint_Click"/></td>--%>
-<%--                <td id="Td1" runat="server" style="padding:5px;"><asp:Button ID="Button1" runat="server" Text="送信" CssClass="btn" OnClick="btnSend_Click"/></td>--%>
-            </tr>
-        </table>
-        <div class="ReportsPdf">
-            <asp:Label ID="LblPdf" runat="server" Text=""></asp:Label>
-        </div>
-
-    </div>
-
 
     <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
          <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
