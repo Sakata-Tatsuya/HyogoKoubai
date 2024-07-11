@@ -19,20 +19,20 @@
          function AjaxRequest(command_name, arg) {
             <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);
          }
-         function pageLoad() {
-             showpdf()
-         }
-         function showpdf() {
-             var fileid = document.getElementById('HidFileID').value;
-             //console.log(fileid);
-             if (0 < fileid.length) {
-                 document.getElementById('HidFileID').value = '';
-                 var url = "/Common/FileView.aspx?FileKey=" + fileid;
-                 var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
-                 win.focus();
-             }
-         }   
-	     function Reload()
+         //function pageLoad() {
+         //    showpdf()
+         //}
+         //function showpdf() {
+         //    var fileid = document.getElementById('HidFileID').value;
+         //    //console.log(fileid);
+         //    if (0 < fileid.length) {
+         //        document.getElementById('HidFileID').value = '';
+         //        var url = "/Common/FileView.aspx?FileKey=" + fileid;
+         //        var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
+         //        win.focus();
+         //    }
+         //}
+         function Reload()
          {
              AjaxRequest('reload', '');
          }
@@ -47,22 +47,22 @@
          }
          function RowChange()
          {
-	         AjaxRequest('row', '');
+             AjaxRequest('row', '');
          }
          function PageChange(pageIndex)
          {
-     	    AjaxRequest('page', pageIndex);
+            AjaxRequest('page', pageIndex);
          }
          function OnBuhin()
          {
              AjaxRequest('ddlBuhin', '');
          }
-     	function HacchuuNo(key, hacchuuNo)
+        function HacchuuNo(key, hacchuuNo)
         {
             document.getElementById('HidKey').value = key +'\t'+ hacchuuNo;
             NewForm.action = "OrderShousaiForm";
             NewForm.target = "_hacchuu";
-    	    OpenWinPost("_hacchuu",500,500);
+            OpenWinPost("_hacchuu",500,500);
             NewForm.submit();
         }
         function Print()
@@ -83,11 +83,11 @@
                 alert("チェックを入れてください");
                 return false;
             }
-    
+
             document.getElementById('HidKey').value = hidPrintKey;
             NewForm.action = "../Denpyou/JyuryousyoForm";
             NewForm.target = "_hacchuusho";
-	        OpenWinPost2("_hacchuusho",800,600);
+            OpenWinPost2("_hacchuusho",800,600);
             NewForm.submit();
         }
         function Kenshu(key)
@@ -95,7 +95,7 @@
             document.getElementById('HidKey').value = key;
             NewForm.action = "../Denpyou/KenshuMeisaihyoForm";
             NewForm.target = "_hacchuusho";
-	        OpenWinPost2("_hacchuusho",800,600);
+            OpenWinPost2("_hacchuusho",800,600);
             NewForm.submit();
         }
         function Seikyu(key)
@@ -103,7 +103,7 @@
             document.getElementById('HidKey').value = key;
             NewForm.action = "../Denpyou/SeikyusyoForm";
             NewForm.target = "_hacchuusho";
-    	    OpenWinPost2("_hacchuusho",800,600);
+            OpenWinPost2("_hacchuusho",800,600);
             NewForm.submit();
         }
         function Jyuryou()
@@ -113,7 +113,6 @@
             for(var i = 0; i < chkIdAry.length; i++)
             {
                 var chk = document.getElementById(chkIdAry[i]);
-           
                 if(chk.checked)
                 {
                     if(hidPrintKey != "") hidPrintKey += "_";
@@ -125,11 +124,10 @@
                 alert("チェックを入れてください");
                 return false;
             }
-    
             document.getElementById('HidKey').value = hidPrintKey;
             NewForm.action = "../Denpyou/JyuryousyoForm";
             NewForm.target = "_hacchuusho";
-	        OpenWinPost2("_hacchuusho",800,600);
+            OpenWinPost2("_hacchuusho",800,600);
             NewForm.submit();
         }
         var win = null;
@@ -137,35 +135,32 @@
         {
             win = window.open
                 ("",target,"width="+w+"px,height="+h+"px,location=no,resizable=yes,scrollbars=yes");
-	        win.focus();
+            win.focus();
         }
      
         function OpenWinPost2(target,w,h,etc)
         {
             win = window.open
                 ("",target,"width="+w+"px,height="+h+"px,menubar=yes,location=no,resizable=yes,scrollbars=yes");
-    	    win.focus();
+            win.focus();
         }
-    	function ChkAll(bool)
+        function ChkAll(bool)
         {
             var idAry = document.getElementById('HidChkID').value.split(',');
-      
             for(var i = 0; i < idAry.length; i++)
             {
                 var chk = document.getElementById(idAry[i]);
                 chk.checked = bool;
             }
         }
-	
         function OnRequestStart(sender, args)
-	    {
+        {
             document.getElementById("Img1").style.display = '';
-    	}
-	    function OnResponseEnd(sender, args)
+        }
+        function OnResponseEnd(sender, args)
         {
             document.getElementById('Img1').style.display = 'none';
         }
-   
         function KeyCodeCheck()
         {
             var kc = event.keyCode;
@@ -179,8 +174,6 @@
 </head>
 <body class="bg99">
     <form id="form1" runat="server">
-    <div>
-<%--        <uc1:CtlTabShiire ID="Tab" runat="server" />--%>
         <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
         <table border="1" bordercolor="#000000" class="tc col bg1 def9 mt5">
             <tr class="bg3">
@@ -215,6 +208,7 @@
                     </asp:DropDownList></td>--%>
             </tr>
         </table>
+    <div id="divList" runat="server">
         <table id="TblList" runat="server" width="100%" class="def9">
             <tr>
                 <td>
@@ -264,7 +258,7 @@
                         </tr>
                     </table>
                     <asp:GridView ID="G" runat="server" AutoGenerateColumns="False" Width="100%" CssClass="def9" OnRowDataBound="G_RowDataBound">
-                        <Columns>                          
+                        <Columns>
                             <asp:TemplateField>
                                 <HeaderTemplate>
                                     <table class="tc col" frame="void" width="100%">
@@ -334,8 +328,24 @@
                 </td>
             </tr>
         </table>
-    
     </div>
+
+    <div id="divDtl" runat="server" width="900px">
+        <table style="border-collapse: collapse; margin-top: 20px; white-space: nowrap;">
+            <tr>
+                <td style="width: 100px;">
+                    <asp:Button ID="BtnBack" runat="server"  Text="一覧に戻る" CssClass="btn" OnClick="BtnBack_Click"/>
+                </td>
+            </tr>
+        </table>
+        <div class="ReportsPdf">
+            <asp:Label ID="LblPdf" runat="server" Text=""></asp:Label>
+        </div>
+
+    </div>
+
+
+
 <%--        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">

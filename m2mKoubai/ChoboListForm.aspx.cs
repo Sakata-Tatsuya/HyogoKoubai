@@ -428,7 +428,7 @@ namespace m2mKoubai
                 Byte[] bytes = new byte[0];
                 bytes = bytes.Concat((byte[])dr.Data.ToArray()).ToArray();
 
-                LblPdf.Text = "<iframe align=\"center\"  width = \"500px\" height =\"700px\" type = \"application/pdf\" src = \"data:application/pdf;base64," + HtmlEncode(Convert.ToBase64String(bytes)) + "#toolbar=0&navpanes=0\" ></iframe >";
+                LblPdf.Text = "<iframe align=\"center\"  width = \"600px\" height =\"700px\" type = \"application/pdf\" src = \"data:application/pdf;base64," + HtmlEncode(Convert.ToBase64String(bytes)) + "#toolbar=0&navpanes=0\" ></iframe >";
             }
 
         }
