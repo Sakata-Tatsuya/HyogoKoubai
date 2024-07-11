@@ -208,7 +208,7 @@
     </table>
     </div>
 
-    <div id="divDtl" runat="server" width="900px">
+    <div id="divDtl" runat="server">
         <table style="border-collapse: collapse; margin-top: 20px; white-space: nowrap;">
             <tr>
                 <td style="width: 100px;">

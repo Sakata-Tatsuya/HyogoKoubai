@@ -60,15 +60,6 @@ namespace m2mKoubai.Shiiresaki
         protected global::System.Web.UI.WebControls.DropDownList DdlMonth;
 
         /// <summary>
-        /// divList コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divList;
-
-        /// <summary>
         /// TblList コントロール。
         /// </summary>
         /// <remarks>
@@ -193,33 +184,6 @@ namespace m2mKoubai.Shiiresaki
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HidFileID;
-
-        /// <summary>
-        /// divDtl コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDtl;
-
-        /// <summary>
-        /// BtnBack コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBack;
-
-        /// <summary>
-        /// LblPdf コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPdf;
 
         /// <summary>
         /// Ram コントロール。
