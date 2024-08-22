@@ -98,7 +98,7 @@
                             <asp:Label ID="LblMsg" runat="server" CssClass="b"></asp:Label>
                         </td>
                         <td class="hei20">
-                            <img id="Img1" runat="server" src="../Img/Load.gif" />
+                            <img id="Img1" runat="server" src="Img/Load.gif" />
                         </td>
                     </tr>
                 </table>
@@ -162,7 +162,7 @@
 
                             <telerik:GridTemplateColumn UniqueName="ColDisp" HeaderText="　">
                                 <ItemTemplate>
-                                    <asp:ImageButton ID="BtnDisp" runat="server" ImageUrl="/img/pdf.gif" Width="24" Height="24" OnClick="BtnDisp_Click" />
+                                    <asp:ImageButton ID="BtnDisp" runat="server" ImageUrl="img/pdf.gif" Width="24" Height="24" OnClick="BtnDisp_Click" />
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" Wrap="False" />
                             </telerik:GridTemplateColumn>
