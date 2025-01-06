@@ -1408,9 +1408,8 @@ namespace m2mKoubai
             int MaxRow = 3;
             string strTemp = string.Empty;
             //PDF の準備
-            var doc = new Document(PageSize.A4, 0, 0, 0, 0);
-            //iTextSharp.text.Rectangle FullA4 = new iTextSharp.text.Rectangle(595f, 842f);//(横,縦)
-            //var doc = new Document(FullA4, 0f, 0f, 14f, 14f);
+            var doc = new Document(PageSize.A4, 0f, 0f, 0f, 0f);
+            //doc.SetLeft = doc.Right = doc.Top = doc.Bottom = 0f;
             //設定済値を参照
             //string strPage  = String.Format("{0} {1} {2} {3}\r\n", doc.Left, doc.Right, doc.Top, doc.Bottom);
             //strPage += String.Format("{0} {1} {2} {3}\r\n", doc.LeftMargin, doc.RightMargin, doc.TopMargin, doc.BottomMargin);
@@ -1421,6 +1420,7 @@ namespace m2mKoubai
             var pw = PdfWriter.GetInstance(doc, stream);
             //ドキュメントを開く
             doc.Open();
+
             PdfContentByte pdfContentByte = pw.DirectContent;
 
             string fontFolder = Environment.SystemDirectory.Replace("system32", "fonts");
@@ -1653,7 +1653,6 @@ namespace m2mKoubai
         }
 
 
-                                                                                                                    
 
 
 
