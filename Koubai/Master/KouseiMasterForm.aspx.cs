@@ -190,7 +190,7 @@ namespace Koubai.Master
             HM.Text = hinban + " : " + hinmei;
 
             SeisanDataSet.VIEW_KouseiTreeVRow drBind = dtBind.NewVIEW_KouseiTreeVRow();
-            drBind.SeihinCode = hinban;
+            drBind.SeihinCode = string.Empty;
             drBind.BuhinCode = hinban;
             drBind.KouteiCode = string.Empty;
             drBind.KouteiMei = string.Empty;
@@ -205,13 +205,13 @@ namespace Koubai.Master
             drBind.Tantou = string.Empty;
             drBind.Syounin = string.Empty;
             drBind.SelectOR = string.Empty;
-            drBind.No = 0;
+            //drBind.No = 0;
             drBind.ORNo = string.Empty;
             drBind.MakerCode = string.Empty;
             drBind.TooshiNo = string.Empty;
             drBind.Bikou1 = string.Empty;
             drBind.Bikou2 = string.Empty;
-            drBind.HyoujiSeihinCode = hinban;
+            drBind.HyoujiSeihinCode = string.Empty;
           
            dtBind.AddVIEW_KouseiTreeVRow(drBind);
 
@@ -588,6 +588,8 @@ namespace Koubai.Master
             VsListMode = (byte)EnumListMode.HinmokuList;
             this.DivTree.Visible = false;
             divKensaku.Visible = true;
+            this.HM.Text = string.Empty;
+
             CreateList();
 
         }
