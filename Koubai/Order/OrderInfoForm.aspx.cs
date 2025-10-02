@@ -157,7 +157,7 @@ namespace Koubai.Order
                 this.ShowTblMain(true);
             }
 
-            //ページング            
+            //ページング
             int nPageSize = AloowPaging();
             int nPageCount = 0;
             if (nPageSize > 0)
@@ -190,7 +190,6 @@ namespace Koubai.Order
 
             G.DataSource = dt;
             G.DataBind();
-            //G.EnableViewState = false;
 
             G.Attributes.Add("bordercolor", "#e1e1c8"); //
 
@@ -252,8 +251,6 @@ namespace Koubai.Order
             ChumonClass.KensakuParam k = new ChumonClass.KensakuParam();
             // ユーザー区分
             k._userKubun = (byte)SessionManager.UserKubun;
-            // 事業所区分（追加09-07-29 呉）
-            //k._JigyoushoKubun = SessionManager.JigyoushoKubun;
             // 発注No
             if (TbxHacchuNo.Text != "")
             {
@@ -324,7 +321,6 @@ namespace Koubai.Order
             if (k._Cancelbi == 0)
                 b = true;
 
-
             // メッセージ
             k._Msg = int.Parse(DdlMsg.SelectedValue);
             return k;
@@ -337,7 +333,7 @@ namespace Koubai.Order
 
             if (e.Row.RowType == DataControlRowType.Header)
             {
-                // DL_ChkAll               
+                // DL_ChkAll
                 HtmlInputCheckBox chkH = e.Row.FindControl("ChkH") as HtmlInputCheckBox;
                 chkH.Visible = b;
                 if (b)
@@ -600,7 +596,7 @@ namespace Koubai.Order
                 {
                     if (i == 0 || nHenkouNo == int.Parse(dvHN[i]["HenkouNo"].ToString()))
                     {
-                        // 最新登録の場合赤字で表示                           
+                        // 最新登録の場合赤字で表示
                         strNouki1 +=
                              string.Format("<font color = \"red\"> {0} {1}:{2}<br>", Utility.FormatToyyMMdd(dvHN[i]["Nouki"].ToString()),
                                 "数量", dvHN[i]["Suuryou"].ToString());
@@ -680,8 +676,7 @@ namespace Koubai.Order
 
         }
         // 変更納期が承認済の場合
-        private void GetNoukiInfo(ChumonDataSet.V_Chumon_JyouhouRow dr, DataView dvHN,
-                                    out NoukiHenkouInfo info, bool bCreateHenkou, out string strNoukiHenkou)
+        private void GetNoukiInfo(ChumonDataSet.V_Chumon_JyouhouRow dr, DataView dvHN, out NoukiHenkouInfo info, bool bCreateHenkou, out string strNoukiHenkou)
         {
             info = new NoukiHenkouInfo();
             string[] strNoukiAry = null;
@@ -809,8 +804,8 @@ namespace Koubai.Order
                     {
                         strNoukiKaitou2 +=
                             string.Format("{0} {1}:{2:N0}</font><br>",
-                                                            Utility.FormatToyyMMdd(dvNK[i]["Nouki"].ToString()),
-                                                            "数量", dvNK[i]["Suuryou"]);
+                                           Utility.FormatToyyMMdd(dvNK[i]["Nouki"].ToString()),
+                                           "数量", dvNK[i]["Suuryou"]);
 
                         if ((i > 0 && i == dvNK.Count - 1) || ((nKaitouNo - 1) != int.Parse(dvNK[i + 1]["KaitouNo"].ToString())))
                         {
@@ -846,8 +841,7 @@ namespace Koubai.Order
             }
         }
         // 回答納期承認済
-        private void GetNoukiKaitouInfo(ChumonDataSet.V_Chumon_JyouhouRow dr, DataView dvNK,
-                                       out NoukiKaitouInfo info)
+        private void GetNoukiKaitouInfo(ChumonDataSet.V_Chumon_JyouhouRow dr, DataView dvNK, out NoukiKaitouInfo info)
         {
             info = new NoukiKaitouInfo();
             string[] strNKaitouAry = new string[dvNK.Count];

@@ -507,7 +507,6 @@ namespace Koubai
         /// Ddl仕入先をセットする
         /// </summary>
         /// <param name="ddl"></param>
-        /// 09/07/24 追加
         public static void SetDdlShiiresakiMulti(DropDownList ddl)
         {
             ddl.Items.Clear();

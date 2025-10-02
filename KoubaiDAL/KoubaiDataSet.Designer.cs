@@ -1062,7 +1062,7 @@ namespace KoubaiDAL {
                                 this.columnBuhinCode}, true));
                 this.columnBuhinCode.AllowDBNull = false;
                 this.columnBuhinCode.Unique = true;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinKubun.AllowDBNull = false;
                 this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinMei.AllowDBNull = false;
@@ -1958,7 +1958,7 @@ namespace KoubaiDAL {
                 this.columnBuhinKubun.AllowDBNull = false;
                 this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnTanka.AllowDBNull = false;
                 this.columnSuuryou.AllowDBNull = false;
                 this.columnKingaku.AllowDBNull = false;
@@ -5646,7 +5646,7 @@ namespace KoubaiDAL {
                 this.columnNo.ReadOnly = true;
                 this.columnNo.Unique = true;
                 this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinKubun.AllowDBNull = false;
                 this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinMei.AllowDBNull = false;
@@ -6120,7 +6120,7 @@ namespace KoubaiDAL {
                 this.columnShiiresakiCode.AllowDBNull = false;
                 this.columnShiiresakiCode.MaxLength = 10;
                 this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnTanka.AllowDBNull = false;
                 this.columnSuuryou.AllowDBNull = false;
                 this.columnNouki.AllowDBNull = false;

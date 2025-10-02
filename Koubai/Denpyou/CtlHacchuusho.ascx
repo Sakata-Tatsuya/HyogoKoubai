@@ -51,7 +51,7 @@
                             <tr>
                                 <td class="f11">
                                 </td>
-                                <td class="f11" nowrap="noWrap">
+                                <td class="f11" nowrap="nowrap">
                                     <asp:Literal ID="LitKaishaMeiH" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
@@ -67,9 +67,9 @@
                                     FAX:<asp:Literal ID="LitFaxH" runat="server"></asp:Literal></td>
                             </tr>
                             <tr>
-                                <td class="f11 hei25 tl " valign="bottom" nowrap="noWrap">
+                                <td class="f11 hei25 tl " valign="bottom" nowrap="nowrap">
                                     î≠íçíSìñé“:</td>
-                                <td class="f11 tc" valign="bottom" nowrap="noWrap">
+                                <td class="f11 tc" valign="bottom" nowrap="nowrap">
                                     <asp:Literal ID="LitTantousha" runat="server"></asp:Literal></td>
                             </tr>
                         </table>

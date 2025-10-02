@@ -26,7 +26,7 @@ namespace KoubaiDAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.209;Initial Catalog=Koubai2;User ID=sa;Password=sa@db;En" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.211;Initial Catalog=m2mKoubai2;User ID=sa;Password=sa@db;En" +
             "crypt=False")]
         public string KoubaiConnectionString {
             get {
@@ -37,11 +37,22 @@ namespace KoubaiDAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.209;Initial Catalog=Koubai2;User ID=sa;Password=sa@db;En" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.211;Initial Catalog=m2mKoubai2;User ID=sa;Password=sa@db;En" +
             "crypt=False")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.211;Initial Catalog=HsPAS;Persist Security Info=True;User I" +
+            "D=sa;Password=sa@db;Encrypt=False;TrustServerCertificate=True")]
+        public string HsPASConnectionString {
+            get {
+                return ((string)(this["HsPASConnectionString"]));
             }
         }
     }

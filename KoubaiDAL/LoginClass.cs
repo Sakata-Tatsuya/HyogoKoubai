@@ -87,6 +87,21 @@ namespace KoubaiDAL
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <returns></returns>
+        public static KoubaiDataSet.M_LoginDataTable getM_LoginDataTable(SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText = "SELECT * FROM M_Login ";
+
+            KoubaiDataSet.M_LoginDataTable dt = new KoubaiDataSet.M_LoginDataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        /// <summary>
+        /// ƒ†[ƒU[‹æ•ª‚ª1‚Ì‚Æ‚«
+        /// </summary>
+        /// <param name="sqlConn"></param>
+        /// <returns></returns>
         public static KoubaiDataSet.M_LoginDataTable getM_Login_ShanaiDataTable(KensakuParam k, byte bkubun, SqlConnection sqlConn)
         {
             SqlDataAdapter da = new SqlDataAdapter("", sqlConn);

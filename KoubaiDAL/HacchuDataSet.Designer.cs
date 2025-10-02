@@ -906,7 +906,7 @@ namespace KoubaiDAL {
                 this.columnBuhinKubun.AllowDBNull = false;
                 this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnTanka.AllowDBNull = false;
                 this.columnSuuryou.AllowDBNull = false;
                 this.columnNouki.AllowDBNull = false;
@@ -1642,7 +1642,7 @@ namespace KoubaiDAL {
                 this.columnBuhinKubun.AllowDBNull = false;
                 this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinMei.AllowDBNull = false;
                 this.columnBuhinMei.MaxLength = 50;
                 this.columnSuuryou.AllowDBNull = false;
@@ -2341,7 +2341,7 @@ namespace KoubaiDAL {
                 this.columnShiiresakiCode.MaxLength = 10;
                 this.columnShiiresakiMei.MaxLength = 30;
                 this.columnBuhinKubun.MaxLength = 5;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinMei.MaxLength = 50;
                 this.columnTani.MaxLength = 5;
                 this.columnNounyuuBashoCode.MaxLength = 20;

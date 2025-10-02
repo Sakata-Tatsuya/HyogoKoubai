@@ -2594,7 +2594,7 @@ namespace KoubaiDAL {
                 this.columnBuhinKubun.AllowDBNull = false;
                 this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinMei.AllowDBNull = false;
                 this.columnBuhinMei.MaxLength = 50;
                 this.columnSuuryou.AllowDBNull = false;
@@ -2879,7 +2879,7 @@ namespace KoubaiDAL {
                 this.columnBuhinKubun = new global::System.Data.DataColumn("BuhinKubun", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBuhinKubun);
                 this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinMei.AllowDBNull = false;
                 this.columnBuhinMei.MaxLength = 50;
                 this.columnBuhinKubun.AllowDBNull = false;
@@ -4978,7 +4978,7 @@ namespace KoubaiDAL {
                 this.columnBuhinKubun.AllowDBNull = false;
                 this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinMei.AllowDBNull = false;
                 this.columnBuhinMei.MaxLength = 50;
                 this.columnSuuryou.AllowDBNull = false;
@@ -5729,7 +5729,7 @@ namespace KoubaiDAL {
                 this.columnBuhinKubun.AllowDBNull = false;
                 this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinMei.AllowDBNull = false;
                 this.columnBuhinMei.MaxLength = 50;
                 this.columnSuuryou.AllowDBNull = false;
@@ -6167,7 +6167,7 @@ namespace KoubaiDAL {
                 base.Columns.Add(this.columnKariTankaFlg);
                 this.columnShiiresakiCode.MaxLength = 10;
                 this.columnBuhinKubun.MaxLength = 5;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnNouki.MaxLength = 10;
                 this.columnNounyuuBashoCode.MaxLength = 10;
                 this.columnBikou.MaxLength = 200;

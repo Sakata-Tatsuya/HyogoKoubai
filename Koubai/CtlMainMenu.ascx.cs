@@ -235,6 +235,7 @@ namespace Koubai
                         this.RadMenuItemSM2.Visible = false;
                         break;
                     case (byte)UserKubun.Shiiresaki:
+                        this.RadMenuItem11.Visible = false;
                         this.RadMenuItemO1.Visible = false;
                         this.RadMenuItemO2.Visible = false;
                         this.RadMenuItemO3.Visible = false;

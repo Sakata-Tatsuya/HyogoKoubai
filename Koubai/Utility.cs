@@ -130,6 +130,15 @@ namespace Koubai
                 return yyyyMM.Substring(0, 4) + "”N" + yyyyMM.Substring(4, 2) + "Œ";
             }
         }
+        public static string GetYM(int nM, string strOLDYM)
+        {
+            string strYM = "";
+            DateTime dtBirth = DateTime.Parse(Utility.FormatFromyyyyMMdd(strOLDYM + "01"));
+            dtBirth = dtBirth.AddMonths(nM);
+            strYM = dtBirth.ToString().Substring(0, 5) + int.Parse(dtBirth.ToString().Substring(5, 2));
+            return strYM.Replace("/", "”N");
+        }
+
         // —X•Ö”Ô†•ÏŠ·
         public static string FormatYuubin(string strBanggou)
         {

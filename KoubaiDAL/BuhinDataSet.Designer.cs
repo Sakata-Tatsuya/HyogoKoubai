@@ -1238,7 +1238,7 @@ namespace KoubaiDAL {
                                 this.columnBuhinCode}, true));
                 this.columnBuhinCode.AllowDBNull = false;
                 this.columnBuhinCode.Unique = true;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinKubun.AllowDBNull = false;
                 this.columnBuhinKubun.MaxLength = 5;
                 this.columnBuhinMei.AllowDBNull = false;
@@ -1530,7 +1530,7 @@ namespace KoubaiDAL {
                                 this.columnBuhinCode}, true));
                 this.columnBuhinCode.AllowDBNull = false;
                 this.columnBuhinCode.Unique = true;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinMei.AllowDBNull = false;
                 this.columnBuhinMei.MaxLength = 50;
             }

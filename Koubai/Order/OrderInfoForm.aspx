@@ -402,7 +402,6 @@
 </head>
 <body bottommargin="0" leftmargin="4" topmargin="0" rightmargin="4">
     <form id="form1" runat="server">
-<%--    <uc1:CtlTabMain ID="Tab" runat="server" />--%>
     <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
     <table border="1" bordercolor="#000000" class="col def9 mt5 bg1">
         <tr>
@@ -511,12 +510,12 @@
                         <td class="tr" valign="bottom">
                             <table id="TblRow" runat="server">
                                 <tr>
-                                    <td nowrap="noWrap">
+                                    <td nowrap="nowrap">
                                         納期回答入力：<input id="BtnAH" runat="server" type="button" class="w100 bg6 f9" value="納期入力欄を&#13;&#10;全て表示させる" />
                                         <input id="BtnAC" runat="server" type="button" class="w100 bg6 f9" value="納期入力欄を&#13;&#10;全て閉じる" />
                                         <input id="BtnAT" runat="server" type="button" class="f9 w150 bg6" value="表示されている入力欄を&#13;&#10;全て登録する" />
                                     </td>
-                                    <td valign="bottom" nowrap="noWrap">
+                                    <td valign="bottom" nowrap="nowrap">
                                         <asp:DropDownList ID="DdlRow" runat="server">
                                             <asp:ListItem>10</asp:ListItem>
                                             <asp:ListItem>20</asp:ListItem>

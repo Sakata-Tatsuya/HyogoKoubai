@@ -517,7 +517,7 @@ namespace KoubaiDAL {
                 this.columnShiiresakiMei.AllowDBNull = false;
                 this.columnShiiresakiMei.MaxLength = 30;
                 this.columnBuhinCode.AllowDBNull = false;
-                this.columnBuhinCode.MaxLength = 25;
+                this.columnBuhinCode.MaxLength = 250;
                 this.columnBuhinMei.AllowDBNull = false;
                 this.columnBuhinMei.MaxLength = 50;
                 this.columnNouki.AllowDBNull = false;

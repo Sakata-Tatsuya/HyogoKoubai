@@ -2,25 +2,25 @@
 <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
 <table border="1" bordercolor="#000000" class="col def12" width="50%">
     <tr>
-        <td colspan="2" class="def14 b tc" height="30" width="300" nowrap="noWrap">
+        <td colspan="2" class="def14 b tc" height="30" width="300" nowrap="nowrap">
             現品票</td>
     </tr>
     <tr>
-        <td height="25" class="tl" nowrap="noWrap">
+        <td height="25" class="tl" nowrap="nowrap">
             お届け先</td>
-        <td nowrap="noWrap" class="tl">
+        <td nowrap="nowrap" class="tl">
             <asp:Literal ID="LitTodokesaki" runat="server"></asp:Literal>御中</td>
     </tr>
     <tr>
-        <td height="25" class="tl" nowrap="noWrap">
+        <td height="25" class="tl" nowrap="nowrap">
             発注No</td>
-        <td class="tl" nowrap="noWrap">
+        <td class="tl" nowrap="nowrap">
             <asp:Literal ID="LitHacchuuNo" runat="server"></asp:Literal></td>
     </tr>
     <tr>
-        <td height="25" class="tl" nowrap="noWrap">
+        <td height="25" class="tl" nowrap="nowrap">
             品目コード</td>
-        <td class="tl" nowrap="noWrap">
+        <td class="tl" nowrap="nowrap">
             <asp:Literal ID="LitBuhinCode" runat="server"></asp:Literal></td>
     </tr>
     <tr>

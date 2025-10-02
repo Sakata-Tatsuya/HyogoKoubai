@@ -101,10 +101,10 @@
     </script> 
 </head>
 <body class="bg0">
-    <form id="form1" runat="server">    
+    <form id="form1" runat="server">
 <%--        <uc1:CtlTabMain ID="Tab" runat="server" />--%>
         <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
-        <input id="BtnNew" runat="server" type="button" value="新規登録" class="mt5 bg6" />       
+        <input id="BtnNew" runat="server" type="button" value="新規登録" class="mt5 bg6" />
         <table border="1" bordercolor="#000000" class="def9 bg1 col mt5 tc">
             <tr>
                 <td class="bg3" style="width: 83px">

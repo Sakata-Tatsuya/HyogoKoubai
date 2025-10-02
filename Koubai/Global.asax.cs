@@ -191,6 +191,22 @@ namespace Koubai
                 return System.Configuration.ConfigurationManager.AppSettings["LoginUrl"];
             }
         }
+        public static int DataDownloadMaxGyou
+        {
+            get
+            {
+                return 50000;
+            }
+        }
+
+        public static string TempPath
+        {
+            get
+            {
+                return System.Configuration.ConfigurationManager.AppSettings["TempPath"];
+            }
+        }
+
 
         /// <summary>
         /// SMTP_Server

@@ -40,7 +40,7 @@
     </script>
 </head>
 <body class="bg0">
-    <form id="form1" runat="server">    
+    <form id="form1" runat="server">
 <%--        <uc1:CtlTabMain ID="Tab" runat="server" />--%>
         <uc1:CtlMainMenu ID="M" runat="server"></uc1:CtlMainMenu>
         <table id="TblMain" runat="server" width="100%" class="def9">

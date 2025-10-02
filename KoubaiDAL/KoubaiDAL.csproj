@@ -63,6 +63,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\m2mKoubai\dll\Core.Web.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -95,6 +96,19 @@
       <DependentUpon>ChumonMsgDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="FilesClass.cs" />
+    <Compile Include="LoginDataSet.cs">
+      <DependentUpon>LoginDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MasterClass.cs" />
+    <Compile Include="MasterDataSet.cs">
+      <DependentUpon>MasterDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MasterDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SeisanClass.cs" />
     <Compile Include="KoubaiDataSet.cs">
       <DependentUpon>KoubaiDataSet.xsd</DependentUpon>
     </Compile>
@@ -171,6 +185,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SeisanDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeisanDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ShareDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -187,6 +206,7 @@
     </Compile>
     <Compile Include="Type.cs" />
     <Compile Include="UploadClass.cs" />
+    <Compile Include="UserViewClass.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +299,17 @@
     <None Include="LoginDataSet.xss">
       <DependentUpon>LoginDataSet.xsd</DependentUpon>
     </None>
+    <None Include="MasterDataSet.xsc">
+      <DependentUpon>MasterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MasterDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MasterDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MasterDataSet.xss">
+      <DependentUpon>MasterDataSet.xsd</DependentUpon>
+    </None>
     <None Include="NouhinDataSet.xsc">
       <DependentUpon>NouhinDataSet.xsd</DependentUpon>
     </None>
@@ -315,6 +346,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SeisanDataSet.xsc">
+      <DependentUpon>SeisanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SeisanDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SeisanDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SeisanDataSet.xss">
+      <DependentUpon>SeisanDataSet.xsd</DependentUpon>
     </None>
     <None Include="ShareDataSet.xsc">
       <DependentUpon>ShareDataSet.xsd</DependentUpon>

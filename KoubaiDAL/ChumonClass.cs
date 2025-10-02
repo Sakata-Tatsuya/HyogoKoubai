@@ -1291,6 +1291,49 @@ namespace KoubaiDAL
             }
         }
 
+        /// ŠúŠÔ“üŒÉ—\’è‚ðŽæ“¾
+        public static decimal GetSumNyukoYotei(string sBuhinCode,string startDay, string stopDay, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText =
+                "SELECT SUM(Suuryou) as Suuryou FROM T_Chumon WHERE BuhinCode = @BuhinCode AND Nouki >= @startDay AND Nouki < @stopDay ";
+            da.SelectCommand.Parameters.AddWithValue("@BuhinCode", sBuhinCode);
+            da.SelectCommand.Parameters.AddWithValue("@startDay", startDay);
+            da.SelectCommand.Parameters.AddWithValue("@stopDay", stopDay);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows[0].IsNull("Suuryou"))
+            {
+                return 0;
+            }
+            else
+            {
+                return (decimal.Parse(dt.Rows[0]["Suuryou"].ToString()));
+            }
+        }
+
+        /// ŠúŠÔ”­’”—Ê‚ðŽæ“¾
+        public static decimal GetSumHacyuuSu(string sBuhinCode, string startDay, string stopDay, SqlConnection sqlConn)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText =
+                "SELECT SUM(Suuryou) as Suuryou FROM T_Chumon WHERE BuhinCode = @BuhinCode AND HacchuuBi >= @startDay AND HacchuuBi < @stopDay ";
+            da.SelectCommand.Parameters.AddWithValue("@BuhinCode", sBuhinCode);
+            da.SelectCommand.Parameters.AddWithValue("@startDay", startDay);
+            da.SelectCommand.Parameters.AddWithValue("@stopDay", stopDay);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows[0].IsNull("Suuryou"))
+            {
+                return 0;
+            }
+            else
+            {
+                return (decimal.Parse(dt.Rows[0]["Suuryou"].ToString()));
+            }
+        }
 
 
 

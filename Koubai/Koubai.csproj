@@ -70,13 +70,10 @@
     <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="m2mKoubaiDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\m2mKoubaiDAL\bin\Debug\m2mKoubaiDAL.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.FriendlyUrls, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net40\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -141,6 +138,9 @@
   <ItemGroup>
     <Content Include="BarCode\BarCodeForm.aspx" />
     <Content Include="ChoboListFormBak.aspx" />
+    <Content Include="Common\CtlFilter.ascx" />
+    <Content Include="Common\CtlItemEdit.ascx" />
+    <Content Include="Common\DownloadDataForm.aspx" />
     <Content Include="Common\FileView.aspx" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
@@ -330,6 +330,8 @@
     <Content Include="Img\bg01.gif" />
     <Content Include="Img\bg02.gif" />
     <Content Include="Img\bg04.gif" />
+    <Content Include="Jyuchu\BuhinForcastForm.aspx" />
+    <Content Include="Jyuchu\ProductsForcastForm.aspx" />
     <Content Include="Kenshu\KenshuInfoForm.aspx" />
     <Content Include="Kenshu\KenshuInfoShukeiForm.aspx" />
     <Content Include="LoginForm.aspx" />
@@ -338,8 +340,11 @@
     <Content Include="Img\Load.gif" />
     <Content Include="Master\BuhinForm.aspx" />
     <Content Include="Master\BuhinUpForm.aspx" />
+    <Content Include="Master\CtlKouseiMasterUpload.ascx" />
+    <Content Include="Master\CtlKouseiReg.ascx" />
     <Content Include="Master\KaishaInfoForm.aspx" />
     <Content Include="Master\KaishaInfoUpForm.aspx" />
+    <Content Include="Master\KouseiMasterForm.aspx" />
     <Content Include="Master\LoginMsgForm.aspx" />
     <Content Include="Master\LoginMsgUpForm.aspx" />
     <Content Include="Master\NounyuBashoForm.aspx" />
@@ -9542,6 +9547,20 @@
     <Compile Include="ChoboListFormBak.aspx.designer.cs">
       <DependentUpon>ChoboListFormBak.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Common\CtlFilter.ascx.cs">
+      <DependentUpon>CtlFilter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\CtlFilter.ascx.designer.cs">
+      <DependentUpon>CtlFilter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CtlItemEdit.ascx.cs">
+      <DependentUpon>CtlItemEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\CtlItemEdit.ascx.designer.cs">
+      <DependentUpon>CtlItemEdit.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Common\CtlMyPager.ascx.cs">
       <DependentUpon>CtlMyPager.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -9555,6 +9574,13 @@
     </Compile>
     <Compile Include="Common\CtlNengappiFromTo.ascx.designer.cs">
       <DependentUpon>CtlNengappiFromTo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\DownloadDataForm.aspx.cs">
+      <DependentUpon>DownloadDataForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\DownloadDataForm.aspx.designer.cs">
+      <DependentUpon>DownloadDataForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\FileView.aspx.cs">
       <DependentUpon>FileView.aspx</DependentUpon>
@@ -9735,6 +9761,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Jyuchu\BuhinForcastForm.aspx.cs">
+      <DependentUpon>BuhinForcastForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jyuchu\BuhinForcastForm.aspx.designer.cs">
+      <DependentUpon>BuhinForcastForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jyuchu\ProductsForcastForm.aspx.cs">
+      <DependentUpon>ProductsForcastForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jyuchu\ProductsForcastForm.aspx.designer.cs">
+      <DependentUpon>ProductsForcastForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Kenshu\KenshuInfoForm.aspx.cs">
       <DependentUpon>KenshuInfoForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -9771,6 +9811,20 @@
     <Compile Include="Master\BuhinUpForm.aspx.designer.cs">
       <DependentUpon>BuhinUpForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Master\CtlKouseiMasterUpload.ascx.cs">
+      <DependentUpon>CtlKouseiMasterUpload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\CtlKouseiMasterUpload.ascx.designer.cs">
+      <DependentUpon>CtlKouseiMasterUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\CtlKouseiReg.ascx.cs">
+      <DependentUpon>CtlKouseiReg.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\CtlKouseiReg.ascx.designer.cs">
+      <DependentUpon>CtlKouseiReg.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Master\KaishaInfoForm.aspx.cs">
       <DependentUpon>KaishaInfoForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -9784,6 +9838,13 @@
     </Compile>
     <Compile Include="Master\KaishaInfoUpForm.aspx.designer.cs">
       <DependentUpon>KaishaInfoUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\KouseiMasterForm.aspx.cs">
+      <DependentUpon>KouseiMasterForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\KouseiMasterForm.aspx.designer.cs">
+      <DependentUpon>KouseiMasterForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master\LoginMsgForm.aspx.cs">
       <DependentUpon>LoginMsgForm.aspx</DependentUpon>
@@ -10004,6 +10065,7 @@
     <Compile Include="Upload\UploadForm.aspx.designer.cs">
       <DependentUpon>UploadForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserViewManager.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>

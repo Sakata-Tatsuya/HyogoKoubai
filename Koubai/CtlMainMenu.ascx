@@ -47,6 +47,12 @@
         <td>
             <telerik:RadMenu ID="N" Font-Size="9pt" CollapseDelay="200" runat="server" Font-Bold="False" Skin="MetroTouch" style="top: 0px; left: 0px">
                 <Items>
+                    <telerik:RadMenuItem ID="RadMenuItem11" runat="server" Text="生産情報">
+                        <Items>
+                            <telerik:RadMenuItem ID="RadMenuItem111" runat="server" Text="製品製造計画" NavigateUrl="~/Jyuchu/ProductsForcastForm.aspx"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem ID="RadMenuItem112" runat="server" Text="部品所要量 " NavigateUrl="~/Jyuchu/BuhinForcastForm.aspx"></telerik:RadMenuItem>
+                        </Items>
+                    </telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemO1" runat="server" Text="発注情報" NavigateUrl="~/Order/OrderInfoForm.aspx"></telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemO2" runat="server" Text="発注入力">
                         <Items>
@@ -65,6 +71,7 @@
                             <telerik:RadMenuItem ID="RadMenuItemOM2" runat="server" Text="担当者(社内)" NavigateUrl="~/Master/TantoushaAccountForm.aspx"></telerik:RadMenuItem>
                             <telerik:RadMenuItem ID="RadMenuItemOM3" runat="server" Text="担当者(仕入先)" NavigateUrl="~/Master/ShiiresakiAccountForm.aspx"></telerik:RadMenuItem>
                             <telerik:RadMenuItem ID="RadMenuItemOM4" runat="server" Text="部品・材料" NavigateUrl="~/Master/BuhinForm.aspx"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem ID="RadMenuItemOM8" runat="server" Text="部品表(BOM)" NavigateUrl="~/Master/KouseiMasterForm.aspx"></telerik:RadMenuItem>
                             <telerik:RadMenuItem ID="RadMenuItemOM5" runat="server" Text="メッセージ登録" NavigateUrl="~/Master/LoginMsgForm.aspx"></telerik:RadMenuItem>
                             <telerik:RadMenuItem ID="RadMenuItemOM6" runat="server" Text="納入場所" NavigateUrl="~/Master/NounyuBashoForm.aspx"></telerik:RadMenuItem>
                             <telerik:RadMenuItem ID="RadMenuItemOM7" runat="server" Text="事業所情報" NavigateUrl="~/Master/KaishaInfoForm.aspx"></telerik:RadMenuItem>

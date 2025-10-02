@@ -220,7 +220,7 @@
                         <tr>
                             <td class="bg4"> 品目コード</td>
                             <td class="def12">
-                                <asp:TextBox ID="TbxCode" runat="server" MaxLength="10" Width="100px"></asp:TextBox><asp:Literal ID="LitCode" runat="server"></asp:Literal>
+                                <asp:TextBox ID="TbxCode" runat="server" MaxLength="250" Width="400px"></asp:TextBox><asp:Literal ID="LitCode" runat="server"></asp:Literal>
                             </td>
                         </tr>
                         <tr>

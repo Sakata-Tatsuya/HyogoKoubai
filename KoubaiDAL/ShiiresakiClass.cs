@@ -137,6 +137,25 @@ namespace KoubaiDAL
                 return null;
         }
 
+        public static string GetShiiresakiMei(string ShiiresakiCode, SqlConnection sqlConn)
+        {
+            string sShiiresakiMei = string.Empty;
+            SqlDataAdapter da = new SqlDataAdapter("", sqlConn);
+            da.SelectCommand.CommandText =
+                "SELECT  *  FROM M_Shiiresaki "
+                + "WHERE   (ShiiresakiCode = @ShiiresakiCode) ";
+            da.SelectCommand.Parameters.AddWithValue("@ShiiresakiCode", ShiiresakiCode);
+            KoubaiDataSet.M_ShiiresakiDataTable dt = new KoubaiDataSet.M_ShiiresakiDataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count == 1)
+            {
+                KoubaiDataSet.M_ShiiresakiRow dr = (KoubaiDataSet.M_ShiiresakiRow)dt.Rows[0];
+                sShiiresakiMei = dr.ShiiresakiMei;
+            }
+            return sShiiresakiMei;
+        }
+
+
         public static KoubaiDataSet.M_ShiiresakiRow newM_ShiiresakiRow()
         {
             return new KoubaiDataSet.M_ShiiresakiDataTable().NewM_ShiiresakiRow();
