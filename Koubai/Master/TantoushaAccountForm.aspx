@@ -220,8 +220,8 @@
                 </asp:ScriptReference>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
                 </asp:ScriptReference>
-            </Scripts>--%>
-        </telerik:RadScriptManager>
+            </Scripts>
+        </telerik:RadScriptManager>--%>
         <telerik:radajaxmanager id="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart= "OnRequestStart" OnResponseEnd="OnResponseEnd" />
         </telerik:radajaxmanager>

@@ -12,9 +12,9 @@
 </Tabs>
 </radts:radtabstrip>
 </td>
-        <td valign="top">      
+        <td valign="top">
             <radts:radtabstrip id="Radtabstrip1" runat="server"  RadControlsDir="~/MyRadControls/" Skin="ClassicBlue" SkinsPath="~/MyRadControls/TabStrip/Skins">
-                <Tabs>           
+                <Tabs>
                     <radTS:Tab ID="TabLO" SelectedCssClass="" ForeColor=""  runat="server" Text="ログアウト" ></radTS:Tab>
                 </Tabs>
             </radts:radtabstrip>

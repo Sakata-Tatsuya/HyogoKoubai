@@ -31,7 +31,7 @@
                  AjaxRequest('koushin', '');
              }
          }
-    </script>  
+    </script>
 </head>
 <body class="bg99">
     <form id="form1" runat="server">
@@ -129,7 +129,7 @@
                     &nbsp;
                 </td>
             </tr>
-        </table>    
+        </table>
     </div>
         <br />
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">

@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>アップロード</title>
-        <link href="../MainStyle.css" rel="stylesheet" type="text/css" />    
+        <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="bg0">
     <form id="form1" runat="server">

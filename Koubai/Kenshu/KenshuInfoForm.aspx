@@ -49,7 +49,7 @@
     }
     function Print()
     {
-        var chkIdAry = document.getElementById('HidChkID').value.split(',');        
+        var chkIdAry = document.getElementById('HidChkID').value.split(',');
         var hidPrintKey = ''
         for(var i = 0; i < chkIdAry.length; i++)
         {
@@ -261,7 +261,7 @@
                     </table>
                     <asp:GridView ID="G" runat="server" AutoGenerateColumns="False" Width="100%" CssClass="def9" OnRowDataBound="G_RowDataBound">
                         <PagerSettings Visible="False" />
-                        <Columns>                           
+                        <Columns>
                             <asp:TemplateField>
                                 <HeaderTemplate>
                                     <table border="1" bordercolor="#ffffff" class="tc col" frame="void" width="100%">
@@ -300,16 +300,16 @@
                                  <ItemStyle CssClass="tc" />
                              </asp:TemplateField>
                              <asp:TemplateField HeaderText="品目名">
-                             </asp:TemplateField>                            
+                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="注文数量">
                                 <ItemStyle CssClass="tr" />
-                            </asp:TemplateField>                            
+                            </asp:TemplateField>
                             <asp:BoundField HeaderText="単位" >
                                 <ItemStyle CssClass="tc" />
                             </asp:BoundField>
                             <asp:TemplateField HeaderText="単価">
                                 <ItemStyle CssClass="tr" />
-                            </asp:TemplateField>                          
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="注文金額">
                                 <ItemStyle CssClass="tr" />
                             </asp:TemplateField>
@@ -330,7 +330,7 @@
             </tr>
             <tr>
                 <td>
-                    <uc3:CtlMyPager ID="Pb" runat="server" />                 
+                    <uc3:CtlMyPager ID="Pb" runat="server" />
                   </td>
             </tr>
             <tr>
@@ -343,10 +343,10 @@
         </telerik:RadCalendar>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
          <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </telerik:RadAjaxManager>    
+        </telerik:RadAjaxManager>
     </form>
      <form id="NewForm" method="post" name="NewForm" >
             <input id="HidKey" runat="server" type="hidden" /></form>
-     
+
 </body>
 </html>

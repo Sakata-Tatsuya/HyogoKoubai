@@ -105,15 +105,6 @@ namespace Koubai
         protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO2;
 
         /// <summary>
-        /// RadMenuItemO21 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO21;
-
-        /// <summary>
         /// RadMenuItemO22 コントロール。
         /// </summary>
         /// <remarks>
@@ -121,15 +112,6 @@ namespace Koubai
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO22;
-
-        /// <summary>
-        /// RadMenuItemO23 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadMenuItem RadMenuItemO23;
 
         /// <summary>
         /// RadMenuItemO3 コントロール。

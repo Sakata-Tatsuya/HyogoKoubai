@@ -182,7 +182,7 @@
     function HankakuChk(tbxId, objName)
     {
         var count = 0;
-        var val = document.getElementById(tbxId).value;   
+        var val = document.getElementById(tbxId).value;
         for( var i = 0; i < val.length; i++ )
         {
             var s = val.substring(i, i + 1);
@@ -192,7 +192,7 @@
             }
             else
             {
-                alert(objName + 'は半角英数字のみで入力して下さい');     
+                alert(objName + 'は半角英数字のみで入力して下さい');
                 return false;
             }
         }

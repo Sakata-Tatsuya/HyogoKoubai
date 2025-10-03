@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>検収情報</title>
-    <link href="../MainStyle.css" rel="stylesheet" type="text/css" />   
+    <link href="../MainStyle.css" rel="stylesheet" type="text/css" />
      <script type="text/javascript">
          function $(id) {
              return document.getElementById(id);
@@ -265,7 +265,7 @@
                         </tr>
                     </table>
                     <asp:GridView ID="G" runat="server" AutoGenerateColumns="False" Width="100%" CssClass="def9" OnRowDataBound="G_RowDataBound">
-                        <Columns>                          
+                        <Columns>
                             <asp:TemplateField>
                                 <HeaderTemplate>
                                     <table class="tc col" frame="void" width="100%">
@@ -348,9 +348,10 @@
         </telerik:RadScriptManager>--%>
         <telerik:RadAjaxManager ID="Ram" runat="server" OnAjaxRequest="Ram_AjaxRequest">
             <ClientEvents OnRequestStart="OnRequestStart" OnResponseEnd="OnResponseEnd" />
-        </telerik:RadAjaxManager>    
-    </form>   
+        </telerik:RadAjaxManager>
+    </form>
     <form id="NewForm" method="post" name="NewForm" >
-            <input id="HidKey" runat="server" type="hidden" /></form>
+            <input id="HidKey" runat="server" type="hidden" />
+    </form>
 </body>
 </html>

@@ -183,6 +183,7 @@ namespace Koubai.Jyuchu
                 string TodayYM = DateTime.Today.ToString("yyyyMM");
                 VsKijyunYM = TodayYM;
                 DdlKijyunYM.SelectedValue = VsKijyunYM;
+                ListSet.SetDdlShiiresakiMulti(DdlShiiresaki);
                 this.Create();
             }
             Common.CtlMyPager pagerTop = (Common.CtlMyPager)this.FindControl("Pt");

@@ -132,7 +132,7 @@
                             </td>
                             <td class="tr">
                                 <table id="TblRow" runat="server" class="def9">
-                                    <tr>                                        
+                                    <tr>
                                         <td>
                                             <input id="BtnS" runat="server" type="button" value="チェックしたデータを削除する" class="bg6" /></td>
                                         <td>

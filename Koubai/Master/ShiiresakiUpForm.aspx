@@ -161,7 +161,7 @@
                         <tr>
                             <td class="bg4">
                                 仕入先コード</td>
-                            <td class="def12" >                                
+                            <td class="def12" >
                                 <asp:TextBox ID="TbxShiireCode" runat="server"  MaxLength="10"></asp:TextBox><asp:Literal ID="LitCode" runat="server"></asp:Literal></td>
                         </tr>
                         <tr>

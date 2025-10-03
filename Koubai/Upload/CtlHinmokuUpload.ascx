@@ -20,7 +20,7 @@
                         <asp:FileUpload ID="FileUpload1" runat="server" /></td>
                 </tr>
             </table>
-            <asp:LinkButton ID="LnkCsvSample" runat="server" OnClick="LnkCsvSample_Click" >サンプル(CSV)</asp:LinkButton>            
+            <asp:LinkButton ID="LnkCsvSample" runat="server" OnClick="LnkCsvSample_Click" >サンプル(CSV)</asp:LinkButton>
             <asp:LinkButton ID="LnkTabSample" runat="server" OnClick="LnkTabSample_Click" >サンプル(TAB)</asp:LinkButton>
         </td>
         <td valign="top" style="white-space:nowrap;">

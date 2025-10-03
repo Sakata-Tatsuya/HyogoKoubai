@@ -56,9 +56,9 @@
                     <telerik:RadMenuItem ID="RadMenuItemO1" runat="server" Text="発注情報" NavigateUrl="~/Order/OrderInfoForm.aspx"></telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemO2" runat="server" Text="発注入力">
                         <Items>
-                            <telerik:RadMenuItem ID="RadMenuItemO21" runat="server" Text="個別発注" NavigateUrl="~/Order/OrderInputForm.aspx"></telerik:RadMenuItem>
-                            <telerik:RadMenuItem ID="RadMenuItemO22" runat="server" Text="複数発注" NavigateUrl="~/Order/MultiOrderInputForm.aspx"></telerik:RadMenuItem>
-                            <telerik:RadMenuItem ID="RadMenuItemO23" runat="server" Text="カタログサイト発注" NavigateUrl="~/Order/PunchoutOrderForm.aspx"></telerik:RadMenuItem>
+<%--                            <telerik:RadMenuItem ID="RadMenuItemO21" runat="server" Text="個別発注" NavigateUrl="~/Order/OrderInputForm.aspx"></telerik:RadMenuItem>--%>
+                            <telerik:RadMenuItem ID="RadMenuItemO22" runat="server" Text="発注入力" NavigateUrl="~/Order/MultiOrderInputForm.aspx"></telerik:RadMenuItem>
+<%--                            <telerik:RadMenuItem ID="RadMenuItemO23" runat="server" Text="カタログサイト発注" NavigateUrl="~/Order/PunchoutOrderForm.aspx"></telerik:RadMenuItem>--%>
                         </Items>
                     </telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemO3" runat="server" Text="納品" NavigateUrl="~/NouhinForm.aspx"></telerik:RadMenuItem>

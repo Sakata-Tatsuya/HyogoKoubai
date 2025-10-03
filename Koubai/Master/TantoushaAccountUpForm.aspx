@@ -199,7 +199,7 @@
             }
             else
             {
-                alert(objName + 'は半角英数字のみで入力して下さい');     
+                alert(objName + 'は半角英数字のみで入力して下さい');
                 return false;
             }
         }

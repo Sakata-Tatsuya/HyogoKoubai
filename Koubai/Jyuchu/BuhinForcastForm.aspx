@@ -184,7 +184,7 @@
                                             <table class="tc col" width="360px" frame="void">
                                                 <tr>
                                                     <td class="s1">
-                                                        材料名
+                                                        品目コード
                                                     </td>
                                                 </tr>
                                                 <tr>
