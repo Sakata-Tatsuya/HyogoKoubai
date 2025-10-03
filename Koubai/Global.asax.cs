@@ -191,6 +191,14 @@ namespace Koubai
                 return System.Configuration.ConfigurationManager.AppSettings["LoginUrl"];
             }
         }
+        public static string AppRootURL
+        {
+            get
+            {
+                return System.Configuration.ConfigurationManager.AppSettings["AppRtUrl"];
+            }
+        }
+
         public static int DataDownloadMaxGyou
         {
             get
@@ -206,7 +214,6 @@ namespace Koubai
                 return System.Configuration.ConfigurationManager.AppSettings["TempPath"];
             }
         }
-
 
         /// <summary>
         /// SMTP_Server

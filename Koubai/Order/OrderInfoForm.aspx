@@ -23,9 +23,10 @@
         }
         function showpdf() {
             var fileid = document.getElementById('HidFileID').value;
+            var app_root = '<%= Session["SESSION_APP_ROOT"]%>';
             if (0 < fileid.length) {
                 document.getElementById('HidFileID').value = '';
-                var url = "/Common/FileView.aspx?FileKey=" + fileid;
+                var url = app_root + "/Common/FileView.aspx?FileKey=" + fileid;
                 var win = window.open(url, "_brank", "width=1200px,height=768px,location=no,resizable=yes,scrollbars=yes");
                 win.focus();
             }

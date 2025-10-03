@@ -36,18 +36,18 @@ namespace Koubai
         }
         private void Create()
         {
-            _dt = LoginMsgClass.getM_LoginMsgDataTable(Global.GetConnection());      
+            _dt = LoginMsgClass.getM_LoginMsgDataTable(Global.GetConnection());
             if (_dt.Rows.Count > 0)
             {
                 G.DataSource = _dt;
                 G.DataBind();
-                //G.Attributes.Add("bordercolor", "#00A0FF"); // 水色                
+                //G.Attributes.Add("bordercolor", "#00A0FF"); // 水色
             }
             else
             {
                 G.DataSource = new int[1];
                 G.DataBind();
-            }             
+            }
         }
 
         protected void G_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -109,15 +109,16 @@ namespace Koubai
             SessionManager.Login(dr,"ja");
 
             Session["SESSION_HOME_PATH"] = HttpContext.Current.Request.Url.GetComponents(UriComponents.SchemeAndServer, UriFormat.UriEscaped) + System.Web.HttpContext.Current.Request.ApplicationPath;
+            Session["SESSION_APP_ROOT"] = Global.AppRootURL;
 
             if (dr.UserKubun == (byte)UserKubun.Owner)
             {
                 // 発注元
                 this.Response.Redirect("~/Order/OrderInfoForm.aspx");
             }
-            else            
+            else
             {
-                // 仕入先                  
+                // 仕入先
                 this.Response.Redirect("~/Shiiresaki/OrderInfoForm.aspx");
             }
         }

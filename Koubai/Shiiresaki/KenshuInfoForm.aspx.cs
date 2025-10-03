@@ -65,7 +65,7 @@ namespace Koubai.Shiiresaki
                 //CtlTabShiire tab = FindControl("Tab") as CtlTabShiire;
                 //tab.Menu = CtlTabShiire.MainMenu.Kensyu_Jyouhou;
 
-                DateTime dtNow = DateTime.Now;                
+                DateTime dtNow = DateTime.Now;
                 int nYear = dtNow.Year;
                 // 今年
                 DdlYear.Items.Add(nYear.ToString());
@@ -74,7 +74,7 @@ namespace Koubai.Shiiresaki
                 DdlYear.Items.Add(nYear.ToString());
                 // 再来年
                 nYear--;
-                DdlYear.Items.Add(nYear.ToString());               
+                DdlYear.Items.Add(nYear.ToString());
                 // 今年を選択する
                 DdlYear.SelectedValue = dtNow.Year.ToString();
                 // 月
@@ -165,7 +165,7 @@ namespace Koubai.Shiiresaki
                 this.ShowTblMain(true);
             }
 
-            //ページング            
+            //ページング
             int nPageSize = AloowPaging();
             int nPageCount = 0;
             if (nPageSize > 0)
@@ -307,9 +307,9 @@ namespace Koubai.Shiiresaki
             if (e.Row.RowType == DataControlRowType.DataRow)
             {        
                 KenshuDataSet.V_Kenshu2Row dr = ((DataRowView)e.Row.DataItem).Row as KenshuDataSet.V_Kenshu2Row;
-                ChumonClass.ChumonKey key = new ChumonClass.ChumonKey(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun);               
+                ChumonClass.ChumonKey key = new ChumonClass.ChumonKey(dr.Year, dr.HacchuuNo, dr.JigyoushoKubun);
 
-                // 発注NO              
+                // 発注NO
                 (e.Row.FindControl("LitHacchuuNo") as Literal).Text =
                     Utility.LinkToHacchuuNo(key.ToString(), dr.HacchuuNo);
                 // 発注日
