@@ -643,7 +643,7 @@ namespace Koubai.Jyuchu
                 Literal LitShiiresakiCode = D.Rows[i].FindControl("LitShiiresakiCode") as Literal;
                 Literal LitLeadTime = D.Rows[i].FindControl("LitLeadTime") as Literal;
                 Literal LitLot = D.Rows[i].FindControl("LitLot") as Literal;
-                Literal LblHacchuSuN0 = D.Rows[i].FindControl("LblHacchuSuN0") as Literal;
+                Label LblHacchuSuN0 = D.Rows[i].FindControl("LblHacchuSuN0") as Label;
                 DateTime dtNow = DateTime.Now;
                 DateTime dtTemp = DateTime.Now;
                 int intTemp = 0;
@@ -654,6 +654,10 @@ namespace Koubai.Jyuchu
                 if (ChkI.Checked)
                 {
                     ChkI.Checked = false;
+                    decSuryo = 0;
+                    decimal.TryParse(LblHacchuSuN0.Text.Replace(",", ""), out decSuryo);
+                    if (decSuryo <= 0) { continue; }
+
                     KoubaiDataSet.T_ChumonRow dr = dt.NewT_ChumonRow();
 
                     dr.Year = VsYaer;
@@ -672,9 +676,8 @@ namespace Koubai.Jyuchu
                         dr.BuhinKubun = string.Empty;
                         dr.Tanka = 0;
                     }
-                    decSuryo = decKingaku = 0;
+                    decKingaku = 0;
                     decTanka = dr.Tanka;
-                    decimal.TryParse(LblHacchuSuN0.Text.Replace(",", ""), out decSuryo);
                     decKingaku = decTanka * decSuryo;
                     dr.Suuryou = (int)decSuryo;
                     dr.Kingaku = (int)decKingaku;
@@ -689,6 +692,11 @@ namespace Koubai.Jyuchu
                     dr.NounyuuBashoCode = "08";
                     dr.Bikou = string.Empty;
                     dr.HacchuuBi = dtNow;
+                    // デモ用　発注日は基準年月1日-LT
+                    string strDemo = VsKijyunYM.Substring(0, 4) + "/" + VsKijyunYM.Substring(4, 2) + "/01";
+                    DateTime dtDemi = DateTime.Parse(strDemo);
+                    dr.HacchuuBi = dtDemi.AddDays(-14);
+                    // デモ用　発注日は基準年月1日-LT
                     dr.HacchushaID = VsUserID;
                     dr.KannouFlg = false;
                     dr.KaritankaFlg = false;
