@@ -50,7 +50,8 @@
                     <telerik:RadMenuItem ID="RadMenuItem11" runat="server" Text="生産情報">
                         <Items>
                             <telerik:RadMenuItem ID="RadMenuItem111" runat="server" Text="製品製造計画" NavigateUrl="~/Jyuchu/ProductsForcastForm.aspx"></telerik:RadMenuItem>
-                            <telerik:RadMenuItem ID="RadMenuItem112" runat="server" Text="部品所要量 " NavigateUrl="~/Jyuchu/BuhinForcastForm.aspx"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem ID="RadMenuItem112" runat="server" Text="部品所要量" NavigateUrl="~/Jyuchu/BuhinForcastForm.aspx"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem ID="RadMenuItem113" runat="server" Text="部品発注シミュレーション" NavigateUrl="~/Jyuchu/BuhinSimForm.aspx"></telerik:RadMenuItem>
                         </Items>
                     </telerik:RadMenuItem>
                     <telerik:RadMenuItem ID="RadMenuItemO1" runat="server" Text="発注情報" NavigateUrl="~/Order/OrderInfoForm.aspx"></telerik:RadMenuItem>

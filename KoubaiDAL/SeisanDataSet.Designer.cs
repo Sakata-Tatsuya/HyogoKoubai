@@ -36,6 +36,8 @@ namespace KoubaiDAL {
         
         private T_SeisanKeikakuDataTable tableT_SeisanKeikaku;
         
+        private V_ShoyouSimDataTable tableV_ShoyouSim;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -81,6 +83,9 @@ namespace KoubaiDAL {
                 }
                 if ((ds.Tables["T_SeisanKeikaku"] != null)) {
                     base.Tables.Add(new T_SeisanKeikakuDataTable(ds.Tables["T_SeisanKeikaku"]));
+                }
+                if ((ds.Tables["V_ShoyouSim"] != null)) {
+                    base.Tables.Add(new V_ShoyouSimDataTable(ds.Tables["V_ShoyouSim"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -157,6 +162,16 @@ namespace KoubaiDAL {
         public T_SeisanKeikakuDataTable T_SeisanKeikaku {
             get {
                 return this.tableT_SeisanKeikaku;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public V_ShoyouSimDataTable V_ShoyouSim {
+            get {
+                return this.tableV_ShoyouSim;
             }
         }
         
@@ -245,6 +260,9 @@ namespace KoubaiDAL {
                 if ((ds.Tables["T_SeisanKeikaku"] != null)) {
                     base.Tables.Add(new T_SeisanKeikakuDataTable(ds.Tables["T_SeisanKeikaku"]));
                 }
+                if ((ds.Tables["V_ShoyouSim"] != null)) {
+                    base.Tables.Add(new V_ShoyouSimDataTable(ds.Tables["V_ShoyouSim"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -314,6 +332,12 @@ namespace KoubaiDAL {
                     this.tableT_SeisanKeikaku.InitVars();
                 }
             }
+            this.tableV_ShoyouSim = ((V_ShoyouSimDataTable)(base.Tables["V_ShoyouSim"]));
+            if ((initTable == true)) {
+                if ((this.tableV_ShoyouSim != null)) {
+                    this.tableV_ShoyouSim.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -336,6 +360,8 @@ namespace KoubaiDAL {
             base.Tables.Add(this.tableVIEW_SeihinKouseiCheck);
             this.tableT_SeisanKeikaku = new T_SeisanKeikakuDataTable();
             base.Tables.Add(this.tableT_SeisanKeikaku);
+            this.tableV_ShoyouSim = new V_ShoyouSimDataTable();
+            base.Tables.Add(this.tableV_ShoyouSim);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -371,6 +397,12 @@ namespace KoubaiDAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeT_SeisanKeikaku() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeV_ShoyouSim() {
             return false;
         }
         
@@ -446,6 +478,9 @@ namespace KoubaiDAL {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void T_SeisanKeikakuRowChangeEventHandler(object sender, T_SeisanKeikakuRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void V_ShoyouSimRowChangeEventHandler(object sender, V_ShoyouSimRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2733,6 +2768,876 @@ namespace KoubaiDAL {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class V_ShoyouSimDataTable : global::System.Data.TypedTableBase<V_ShoyouSimRow> {
+            
+            private global::System.Data.DataColumn columnNengetu;
+            
+            private global::System.Data.DataColumn columnBuhinCode;
+            
+            private global::System.Data.DataColumn columnShiiresakiCode1;
+            
+            private global::System.Data.DataColumn columnLot;
+            
+            private global::System.Data.DataColumn columnTani;
+            
+            private global::System.Data.DataColumn columnLT_Suuji;
+            
+            private global::System.Data.DataColumn columnLT_Tani;
+            
+            private global::System.Data.DataColumn columnTanka;
+            
+            private global::System.Data.DataColumn columnNyuN_1;
+            
+            private global::System.Data.DataColumn columnNyuN0;
+            
+            private global::System.Data.DataColumn columnNyuN1;
+            
+            private global::System.Data.DataColumn columnNyuN2;
+            
+            private global::System.Data.DataColumn columnNyuN3;
+            
+            private global::System.Data.DataColumn columnNyuN4;
+            
+            private global::System.Data.DataColumn columnNyuN5;
+            
+            private global::System.Data.DataColumn columnNyuN6;
+            
+            private global::System.Data.DataColumn columnUseN_1;
+            
+            private global::System.Data.DataColumn columnUseN0;
+            
+            private global::System.Data.DataColumn columnUseN1;
+            
+            private global::System.Data.DataColumn columnUseN2;
+            
+            private global::System.Data.DataColumn columnUseN3;
+            
+            private global::System.Data.DataColumn columnUseN4;
+            
+            private global::System.Data.DataColumn columnUseN5;
+            
+            private global::System.Data.DataColumn columnUseN6;
+            
+            private global::System.Data.DataColumn columnOdrN_1;
+            
+            private global::System.Data.DataColumn columnOdrN0;
+            
+            private global::System.Data.DataColumn columnOdrN1;
+            
+            private global::System.Data.DataColumn columnOdrN2;
+            
+            private global::System.Data.DataColumn columnOdrN3;
+            
+            private global::System.Data.DataColumn columnOdrN4;
+            
+            private global::System.Data.DataColumn columnOdrN5;
+            
+            private global::System.Data.DataColumn columnOdrN6;
+            
+            private global::System.Data.DataColumn columnZaiN_1;
+            
+            private global::System.Data.DataColumn columnZaiN0;
+            
+            private global::System.Data.DataColumn columnZaiN1;
+            
+            private global::System.Data.DataColumn columnZaiN2;
+            
+            private global::System.Data.DataColumn columnZaiN3;
+            
+            private global::System.Data.DataColumn columnZaiN4;
+            
+            private global::System.Data.DataColumn columnZaiN5;
+            
+            private global::System.Data.DataColumn columnZaiN6;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_ShoyouSimDataTable() {
+                this.TableName = "V_ShoyouSim";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_ShoyouSimDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected V_ShoyouSimDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NengetuColumn {
+                get {
+                    return this.columnNengetu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BuhinCodeColumn {
+                get {
+                    return this.columnBuhinCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ShiiresakiCode1Column {
+                get {
+                    return this.columnShiiresakiCode1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LotColumn {
+                get {
+                    return this.columnLot;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TaniColumn {
+                get {
+                    return this.columnTani;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LT_SuujiColumn {
+                get {
+                    return this.columnLT_Suuji;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LT_TaniColumn {
+                get {
+                    return this.columnLT_Tani;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TankaColumn {
+                get {
+                    return this.columnTanka;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NyuN_1Column {
+                get {
+                    return this.columnNyuN_1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NyuN0Column {
+                get {
+                    return this.columnNyuN0;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NyuN1Column {
+                get {
+                    return this.columnNyuN1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NyuN2Column {
+                get {
+                    return this.columnNyuN2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NyuN3Column {
+                get {
+                    return this.columnNyuN3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NyuN4Column {
+                get {
+                    return this.columnNyuN4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NyuN5Column {
+                get {
+                    return this.columnNyuN5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NyuN6Column {
+                get {
+                    return this.columnNyuN6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UseN_1Column {
+                get {
+                    return this.columnUseN_1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UseN0Column {
+                get {
+                    return this.columnUseN0;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UseN1Column {
+                get {
+                    return this.columnUseN1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UseN2Column {
+                get {
+                    return this.columnUseN2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UseN3Column {
+                get {
+                    return this.columnUseN3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UseN4Column {
+                get {
+                    return this.columnUseN4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UseN5Column {
+                get {
+                    return this.columnUseN5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UseN6Column {
+                get {
+                    return this.columnUseN6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OdrN_1Column {
+                get {
+                    return this.columnOdrN_1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OdrN0Column {
+                get {
+                    return this.columnOdrN0;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OdrN1Column {
+                get {
+                    return this.columnOdrN1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OdrN2Column {
+                get {
+                    return this.columnOdrN2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OdrN3Column {
+                get {
+                    return this.columnOdrN3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OdrN4Column {
+                get {
+                    return this.columnOdrN4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OdrN5Column {
+                get {
+                    return this.columnOdrN5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OdrN6Column {
+                get {
+                    return this.columnOdrN6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ZaiN_1Column {
+                get {
+                    return this.columnZaiN_1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ZaiN0Column {
+                get {
+                    return this.columnZaiN0;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ZaiN1Column {
+                get {
+                    return this.columnZaiN1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ZaiN2Column {
+                get {
+                    return this.columnZaiN2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ZaiN3Column {
+                get {
+                    return this.columnZaiN3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ZaiN4Column {
+                get {
+                    return this.columnZaiN4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ZaiN5Column {
+                get {
+                    return this.columnZaiN5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ZaiN6Column {
+                get {
+                    return this.columnZaiN6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_ShoyouSimRow this[int index] {
+                get {
+                    return ((V_ShoyouSimRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_ShoyouSimRowChangeEventHandler V_ShoyouSimRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_ShoyouSimRowChangeEventHandler V_ShoyouSimRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_ShoyouSimRowChangeEventHandler V_ShoyouSimRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_ShoyouSimRowChangeEventHandler V_ShoyouSimRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddV_ShoyouSimRow(V_ShoyouSimRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_ShoyouSimRow AddV_ShoyouSimRow(
+                        string Nengetu, 
+                        string BuhinCode, 
+                        string ShiiresakiCode1, 
+                        int Lot, 
+                        string Tani, 
+                        int LT_Suuji, 
+                        byte LT_Tani, 
+                        decimal Tanka, 
+                        decimal NyuN_1, 
+                        decimal NyuN0, 
+                        decimal NyuN1, 
+                        decimal NyuN2, 
+                        decimal NyuN3, 
+                        decimal NyuN4, 
+                        decimal NyuN5, 
+                        decimal NyuN6, 
+                        decimal UseN_1, 
+                        decimal UseN0, 
+                        decimal UseN1, 
+                        decimal UseN2, 
+                        decimal UseN3, 
+                        decimal UseN4, 
+                        decimal UseN5, 
+                        decimal UseN6, 
+                        decimal OdrN_1, 
+                        decimal OdrN0, 
+                        decimal OdrN1, 
+                        decimal OdrN2, 
+                        decimal OdrN3, 
+                        decimal OdrN4, 
+                        decimal OdrN5, 
+                        decimal OdrN6, 
+                        decimal ZaiN_1, 
+                        decimal ZaiN0, 
+                        decimal ZaiN1, 
+                        decimal ZaiN2, 
+                        decimal ZaiN3, 
+                        decimal ZaiN4, 
+                        decimal ZaiN5, 
+                        decimal ZaiN6) {
+                V_ShoyouSimRow rowV_ShoyouSimRow = ((V_ShoyouSimRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Nengetu,
+                        BuhinCode,
+                        ShiiresakiCode1,
+                        Lot,
+                        Tani,
+                        LT_Suuji,
+                        LT_Tani,
+                        Tanka,
+                        NyuN_1,
+                        NyuN0,
+                        NyuN1,
+                        NyuN2,
+                        NyuN3,
+                        NyuN4,
+                        NyuN5,
+                        NyuN6,
+                        UseN_1,
+                        UseN0,
+                        UseN1,
+                        UseN2,
+                        UseN3,
+                        UseN4,
+                        UseN5,
+                        UseN6,
+                        OdrN_1,
+                        OdrN0,
+                        OdrN1,
+                        OdrN2,
+                        OdrN3,
+                        OdrN4,
+                        OdrN5,
+                        OdrN6,
+                        ZaiN_1,
+                        ZaiN0,
+                        ZaiN1,
+                        ZaiN2,
+                        ZaiN3,
+                        ZaiN4,
+                        ZaiN5,
+                        ZaiN6};
+                rowV_ShoyouSimRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowV_ShoyouSimRow);
+                return rowV_ShoyouSimRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                V_ShoyouSimDataTable cln = ((V_ShoyouSimDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new V_ShoyouSimDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnNengetu = base.Columns["Nengetu"];
+                this.columnBuhinCode = base.Columns["BuhinCode"];
+                this.columnShiiresakiCode1 = base.Columns["ShiiresakiCode1"];
+                this.columnLot = base.Columns["Lot"];
+                this.columnTani = base.Columns["Tani"];
+                this.columnLT_Suuji = base.Columns["LT_Suuji"];
+                this.columnLT_Tani = base.Columns["LT_Tani"];
+                this.columnTanka = base.Columns["Tanka"];
+                this.columnNyuN_1 = base.Columns["NyuN_1"];
+                this.columnNyuN0 = base.Columns["NyuN0"];
+                this.columnNyuN1 = base.Columns["NyuN1"];
+                this.columnNyuN2 = base.Columns["NyuN2"];
+                this.columnNyuN3 = base.Columns["NyuN3"];
+                this.columnNyuN4 = base.Columns["NyuN4"];
+                this.columnNyuN5 = base.Columns["NyuN5"];
+                this.columnNyuN6 = base.Columns["NyuN6"];
+                this.columnUseN_1 = base.Columns["UseN_1"];
+                this.columnUseN0 = base.Columns["UseN0"];
+                this.columnUseN1 = base.Columns["UseN1"];
+                this.columnUseN2 = base.Columns["UseN2"];
+                this.columnUseN3 = base.Columns["UseN3"];
+                this.columnUseN4 = base.Columns["UseN4"];
+                this.columnUseN5 = base.Columns["UseN5"];
+                this.columnUseN6 = base.Columns["UseN6"];
+                this.columnOdrN_1 = base.Columns["OdrN_1"];
+                this.columnOdrN0 = base.Columns["OdrN0"];
+                this.columnOdrN1 = base.Columns["OdrN1"];
+                this.columnOdrN2 = base.Columns["OdrN2"];
+                this.columnOdrN3 = base.Columns["OdrN3"];
+                this.columnOdrN4 = base.Columns["OdrN4"];
+                this.columnOdrN5 = base.Columns["OdrN5"];
+                this.columnOdrN6 = base.Columns["OdrN6"];
+                this.columnZaiN_1 = base.Columns["ZaiN_1"];
+                this.columnZaiN0 = base.Columns["ZaiN0"];
+                this.columnZaiN1 = base.Columns["ZaiN1"];
+                this.columnZaiN2 = base.Columns["ZaiN2"];
+                this.columnZaiN3 = base.Columns["ZaiN3"];
+                this.columnZaiN4 = base.Columns["ZaiN4"];
+                this.columnZaiN5 = base.Columns["ZaiN5"];
+                this.columnZaiN6 = base.Columns["ZaiN6"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnNengetu = new global::System.Data.DataColumn("Nengetu", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNengetu);
+                this.columnBuhinCode = new global::System.Data.DataColumn("BuhinCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBuhinCode);
+                this.columnShiiresakiCode1 = new global::System.Data.DataColumn("ShiiresakiCode1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShiiresakiCode1);
+                this.columnLot = new global::System.Data.DataColumn("Lot", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLot);
+                this.columnTani = new global::System.Data.DataColumn("Tani", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTani);
+                this.columnLT_Suuji = new global::System.Data.DataColumn("LT_Suuji", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLT_Suuji);
+                this.columnLT_Tani = new global::System.Data.DataColumn("LT_Tani", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLT_Tani);
+                this.columnTanka = new global::System.Data.DataColumn("Tanka", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTanka);
+                this.columnNyuN_1 = new global::System.Data.DataColumn("NyuN_1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNyuN_1);
+                this.columnNyuN0 = new global::System.Data.DataColumn("NyuN0", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNyuN0);
+                this.columnNyuN1 = new global::System.Data.DataColumn("NyuN1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNyuN1);
+                this.columnNyuN2 = new global::System.Data.DataColumn("NyuN2", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNyuN2);
+                this.columnNyuN3 = new global::System.Data.DataColumn("NyuN3", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNyuN3);
+                this.columnNyuN4 = new global::System.Data.DataColumn("NyuN4", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNyuN4);
+                this.columnNyuN5 = new global::System.Data.DataColumn("NyuN5", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNyuN5);
+                this.columnNyuN6 = new global::System.Data.DataColumn("NyuN6", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNyuN6);
+                this.columnUseN_1 = new global::System.Data.DataColumn("UseN_1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUseN_1);
+                this.columnUseN0 = new global::System.Data.DataColumn("UseN0", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUseN0);
+                this.columnUseN1 = new global::System.Data.DataColumn("UseN1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUseN1);
+                this.columnUseN2 = new global::System.Data.DataColumn("UseN2", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUseN2);
+                this.columnUseN3 = new global::System.Data.DataColumn("UseN3", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUseN3);
+                this.columnUseN4 = new global::System.Data.DataColumn("UseN4", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUseN4);
+                this.columnUseN5 = new global::System.Data.DataColumn("UseN5", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUseN5);
+                this.columnUseN6 = new global::System.Data.DataColumn("UseN6", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUseN6);
+                this.columnOdrN_1 = new global::System.Data.DataColumn("OdrN_1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOdrN_1);
+                this.columnOdrN0 = new global::System.Data.DataColumn("OdrN0", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOdrN0);
+                this.columnOdrN1 = new global::System.Data.DataColumn("OdrN1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOdrN1);
+                this.columnOdrN2 = new global::System.Data.DataColumn("OdrN2", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOdrN2);
+                this.columnOdrN3 = new global::System.Data.DataColumn("OdrN3", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOdrN3);
+                this.columnOdrN4 = new global::System.Data.DataColumn("OdrN4", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOdrN4);
+                this.columnOdrN5 = new global::System.Data.DataColumn("OdrN5", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOdrN5);
+                this.columnOdrN6 = new global::System.Data.DataColumn("OdrN6", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOdrN6);
+                this.columnZaiN_1 = new global::System.Data.DataColumn("ZaiN_1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZaiN_1);
+                this.columnZaiN0 = new global::System.Data.DataColumn("ZaiN0", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZaiN0);
+                this.columnZaiN1 = new global::System.Data.DataColumn("ZaiN1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZaiN1);
+                this.columnZaiN2 = new global::System.Data.DataColumn("ZaiN2", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZaiN2);
+                this.columnZaiN3 = new global::System.Data.DataColumn("ZaiN3", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZaiN3);
+                this.columnZaiN4 = new global::System.Data.DataColumn("ZaiN4", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZaiN4);
+                this.columnZaiN5 = new global::System.Data.DataColumn("ZaiN5", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZaiN5);
+                this.columnZaiN6 = new global::System.Data.DataColumn("ZaiN6", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZaiN6);
+                this.columnNengetu.MaxLength = 20;
+                this.columnBuhinCode.AllowDBNull = false;
+                this.columnBuhinCode.MaxLength = 250;
+                this.columnShiiresakiCode1.AllowDBNull = false;
+                this.columnShiiresakiCode1.MaxLength = 10;
+                this.columnLot.AllowDBNull = false;
+                this.columnTani.AllowDBNull = false;
+                this.columnTani.MaxLength = 5;
+                this.columnLT_Suuji.AllowDBNull = false;
+                this.columnLT_Tani.AllowDBNull = false;
+                this.columnTanka.AllowDBNull = false;
+                this.columnNyuN_1.ReadOnly = true;
+                this.columnNyuN0.ReadOnly = true;
+                this.columnNyuN1.ReadOnly = true;
+                this.columnNyuN2.ReadOnly = true;
+                this.columnNyuN3.ReadOnly = true;
+                this.columnNyuN4.ReadOnly = true;
+                this.columnNyuN5.ReadOnly = true;
+                this.columnNyuN6.ReadOnly = true;
+                this.columnUseN_1.ReadOnly = true;
+                this.columnUseN6.ReadOnly = true;
+                this.columnOdrN_1.ReadOnly = true;
+                this.columnOdrN0.ReadOnly = true;
+                this.columnOdrN1.ReadOnly = true;
+                this.columnOdrN2.ReadOnly = true;
+                this.columnOdrN3.ReadOnly = true;
+                this.columnOdrN4.ReadOnly = true;
+                this.columnOdrN5.ReadOnly = true;
+                this.columnOdrN6.ReadOnly = true;
+                this.columnZaiN_1.ReadOnly = true;
+                this.columnZaiN0.ReadOnly = true;
+                this.columnZaiN1.ReadOnly = true;
+                this.columnZaiN2.ReadOnly = true;
+                this.columnZaiN3.ReadOnly = true;
+                this.columnZaiN4.ReadOnly = true;
+                this.columnZaiN5.ReadOnly = true;
+                this.columnZaiN6.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_ShoyouSimRow NewV_ShoyouSimRow() {
+                return ((V_ShoyouSimRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new V_ShoyouSimRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(V_ShoyouSimRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.V_ShoyouSimRowChanged != null)) {
+                    this.V_ShoyouSimRowChanged(this, new V_ShoyouSimRowChangeEvent(((V_ShoyouSimRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.V_ShoyouSimRowChanging != null)) {
+                    this.V_ShoyouSimRowChanging(this, new V_ShoyouSimRowChangeEvent(((V_ShoyouSimRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.V_ShoyouSimRowDeleted != null)) {
+                    this.V_ShoyouSimRowDeleted(this, new V_ShoyouSimRowChangeEvent(((V_ShoyouSimRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.V_ShoyouSimRowDeleting != null)) {
+                    this.V_ShoyouSimRowDeleting(this, new V_ShoyouSimRowChangeEvent(((V_ShoyouSimRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveV_ShoyouSimRow(V_ShoyouSimRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                SeisanDataSet ds = new SeisanDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "V_ShoyouSimDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class VIEW_BuhinForcastRow : global::System.Data.DataRow {
@@ -3955,6 +4860,1022 @@ namespace KoubaiDAL {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class V_ShoyouSimRow : global::System.Data.DataRow {
+            
+            private V_ShoyouSimDataTable tableV_ShoyouSim;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_ShoyouSimRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableV_ShoyouSim = ((V_ShoyouSimDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Nengetu {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_ShoyouSim.NengetuColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'Nengetu\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.NengetuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BuhinCode {
+                get {
+                    return ((string)(this[this.tableV_ShoyouSim.BuhinCodeColumn]));
+                }
+                set {
+                    this[this.tableV_ShoyouSim.BuhinCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ShiiresakiCode1 {
+                get {
+                    return ((string)(this[this.tableV_ShoyouSim.ShiiresakiCode1Column]));
+                }
+                set {
+                    this[this.tableV_ShoyouSim.ShiiresakiCode1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Lot {
+                get {
+                    return ((int)(this[this.tableV_ShoyouSim.LotColumn]));
+                }
+                set {
+                    this[this.tableV_ShoyouSim.LotColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Tani {
+                get {
+                    return ((string)(this[this.tableV_ShoyouSim.TaniColumn]));
+                }
+                set {
+                    this[this.tableV_ShoyouSim.TaniColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int LT_Suuji {
+                get {
+                    return ((int)(this[this.tableV_ShoyouSim.LT_SuujiColumn]));
+                }
+                set {
+                    this[this.tableV_ShoyouSim.LT_SuujiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public byte LT_Tani {
+                get {
+                    return ((byte)(this[this.tableV_ShoyouSim.LT_TaniColumn]));
+                }
+                set {
+                    this[this.tableV_ShoyouSim.LT_TaniColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Tanka {
+                get {
+                    return ((decimal)(this[this.tableV_ShoyouSim.TankaColumn]));
+                }
+                set {
+                    this[this.tableV_ShoyouSim.TankaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NyuN_1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.NyuN_1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'NyuN_1\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.NyuN_1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NyuN0 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.NyuN0Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'NyuN0\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.NyuN0Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NyuN1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.NyuN1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'NyuN1\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.NyuN1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NyuN2 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.NyuN2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'NyuN2\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.NyuN2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NyuN3 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.NyuN3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'NyuN3\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.NyuN3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NyuN4 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.NyuN4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'NyuN4\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.NyuN4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NyuN5 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.NyuN5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'NyuN5\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.NyuN5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NyuN6 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.NyuN6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'NyuN6\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.NyuN6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal UseN_1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.UseN_1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'UseN_1\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.UseN_1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal UseN0 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.UseN0Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'UseN0\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.UseN0Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal UseN1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.UseN1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'UseN1\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.UseN1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal UseN2 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.UseN2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'UseN2\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.UseN2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal UseN3 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.UseN3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'UseN3\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.UseN3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal UseN4 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.UseN4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'UseN4\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.UseN4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal UseN5 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.UseN5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'UseN5\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.UseN5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal UseN6 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.UseN6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'UseN6\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.UseN6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal OdrN_1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.OdrN_1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'OdrN_1\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.OdrN_1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal OdrN0 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.OdrN0Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'OdrN0\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.OdrN0Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal OdrN1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.OdrN1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'OdrN1\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.OdrN1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal OdrN2 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.OdrN2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'OdrN2\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.OdrN2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal OdrN3 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.OdrN3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'OdrN3\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.OdrN3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal OdrN4 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.OdrN4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'OdrN4\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.OdrN4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal OdrN5 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.OdrN5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'OdrN5\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.OdrN5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal OdrN6 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.OdrN6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'OdrN6\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.OdrN6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ZaiN_1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.ZaiN_1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'ZaiN_1\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.ZaiN_1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ZaiN0 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.ZaiN0Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'ZaiN0\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.ZaiN0Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ZaiN1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.ZaiN1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'ZaiN1\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.ZaiN1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ZaiN2 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.ZaiN2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'ZaiN2\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.ZaiN2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ZaiN3 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.ZaiN3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'ZaiN3\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.ZaiN3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ZaiN4 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.ZaiN4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'ZaiN4\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.ZaiN4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ZaiN5 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.ZaiN5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'ZaiN5\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.ZaiN5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ZaiN6 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ShoyouSim.ZaiN6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'V_ShoyouSim\' にある列 \'ZaiN6\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ShoyouSim.ZaiN6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNengetuNull() {
+                return this.IsNull(this.tableV_ShoyouSim.NengetuColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNengetuNull() {
+                this[this.tableV_ShoyouSim.NengetuColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNyuN_1Null() {
+                return this.IsNull(this.tableV_ShoyouSim.NyuN_1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNyuN_1Null() {
+                this[this.tableV_ShoyouSim.NyuN_1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNyuN0Null() {
+                return this.IsNull(this.tableV_ShoyouSim.NyuN0Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNyuN0Null() {
+                this[this.tableV_ShoyouSim.NyuN0Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNyuN1Null() {
+                return this.IsNull(this.tableV_ShoyouSim.NyuN1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNyuN1Null() {
+                this[this.tableV_ShoyouSim.NyuN1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNyuN2Null() {
+                return this.IsNull(this.tableV_ShoyouSim.NyuN2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNyuN2Null() {
+                this[this.tableV_ShoyouSim.NyuN2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNyuN3Null() {
+                return this.IsNull(this.tableV_ShoyouSim.NyuN3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNyuN3Null() {
+                this[this.tableV_ShoyouSim.NyuN3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNyuN4Null() {
+                return this.IsNull(this.tableV_ShoyouSim.NyuN4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNyuN4Null() {
+                this[this.tableV_ShoyouSim.NyuN4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNyuN5Null() {
+                return this.IsNull(this.tableV_ShoyouSim.NyuN5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNyuN5Null() {
+                this[this.tableV_ShoyouSim.NyuN5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNyuN6Null() {
+                return this.IsNull(this.tableV_ShoyouSim.NyuN6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNyuN6Null() {
+                this[this.tableV_ShoyouSim.NyuN6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUseN_1Null() {
+                return this.IsNull(this.tableV_ShoyouSim.UseN_1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUseN_1Null() {
+                this[this.tableV_ShoyouSim.UseN_1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUseN0Null() {
+                return this.IsNull(this.tableV_ShoyouSim.UseN0Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUseN0Null() {
+                this[this.tableV_ShoyouSim.UseN0Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUseN1Null() {
+                return this.IsNull(this.tableV_ShoyouSim.UseN1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUseN1Null() {
+                this[this.tableV_ShoyouSim.UseN1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUseN2Null() {
+                return this.IsNull(this.tableV_ShoyouSim.UseN2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUseN2Null() {
+                this[this.tableV_ShoyouSim.UseN2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUseN3Null() {
+                return this.IsNull(this.tableV_ShoyouSim.UseN3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUseN3Null() {
+                this[this.tableV_ShoyouSim.UseN3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUseN4Null() {
+                return this.IsNull(this.tableV_ShoyouSim.UseN4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUseN4Null() {
+                this[this.tableV_ShoyouSim.UseN4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUseN5Null() {
+                return this.IsNull(this.tableV_ShoyouSim.UseN5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUseN5Null() {
+                this[this.tableV_ShoyouSim.UseN5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUseN6Null() {
+                return this.IsNull(this.tableV_ShoyouSim.UseN6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUseN6Null() {
+                this[this.tableV_ShoyouSim.UseN6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOdrN_1Null() {
+                return this.IsNull(this.tableV_ShoyouSim.OdrN_1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOdrN_1Null() {
+                this[this.tableV_ShoyouSim.OdrN_1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOdrN0Null() {
+                return this.IsNull(this.tableV_ShoyouSim.OdrN0Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOdrN0Null() {
+                this[this.tableV_ShoyouSim.OdrN0Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOdrN1Null() {
+                return this.IsNull(this.tableV_ShoyouSim.OdrN1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOdrN1Null() {
+                this[this.tableV_ShoyouSim.OdrN1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOdrN2Null() {
+                return this.IsNull(this.tableV_ShoyouSim.OdrN2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOdrN2Null() {
+                this[this.tableV_ShoyouSim.OdrN2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOdrN3Null() {
+                return this.IsNull(this.tableV_ShoyouSim.OdrN3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOdrN3Null() {
+                this[this.tableV_ShoyouSim.OdrN3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOdrN4Null() {
+                return this.IsNull(this.tableV_ShoyouSim.OdrN4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOdrN4Null() {
+                this[this.tableV_ShoyouSim.OdrN4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOdrN5Null() {
+                return this.IsNull(this.tableV_ShoyouSim.OdrN5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOdrN5Null() {
+                this[this.tableV_ShoyouSim.OdrN5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOdrN6Null() {
+                return this.IsNull(this.tableV_ShoyouSim.OdrN6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOdrN6Null() {
+                this[this.tableV_ShoyouSim.OdrN6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsZaiN_1Null() {
+                return this.IsNull(this.tableV_ShoyouSim.ZaiN_1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetZaiN_1Null() {
+                this[this.tableV_ShoyouSim.ZaiN_1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsZaiN0Null() {
+                return this.IsNull(this.tableV_ShoyouSim.ZaiN0Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetZaiN0Null() {
+                this[this.tableV_ShoyouSim.ZaiN0Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsZaiN1Null() {
+                return this.IsNull(this.tableV_ShoyouSim.ZaiN1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetZaiN1Null() {
+                this[this.tableV_ShoyouSim.ZaiN1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsZaiN2Null() {
+                return this.IsNull(this.tableV_ShoyouSim.ZaiN2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetZaiN2Null() {
+                this[this.tableV_ShoyouSim.ZaiN2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsZaiN3Null() {
+                return this.IsNull(this.tableV_ShoyouSim.ZaiN3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetZaiN3Null() {
+                this[this.tableV_ShoyouSim.ZaiN3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsZaiN4Null() {
+                return this.IsNull(this.tableV_ShoyouSim.ZaiN4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetZaiN4Null() {
+                this[this.tableV_ShoyouSim.ZaiN4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsZaiN5Null() {
+                return this.IsNull(this.tableV_ShoyouSim.ZaiN5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetZaiN5Null() {
+                this[this.tableV_ShoyouSim.ZaiN5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsZaiN6Null() {
+                return this.IsNull(this.tableV_ShoyouSim.ZaiN6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetZaiN6Null() {
+                this[this.tableV_ShoyouSim.ZaiN6Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -4144,6 +6065,40 @@ namespace KoubaiDAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public T_SeisanKeikakuRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class V_ShoyouSimRowChangeEvent : global::System.EventArgs {
+            
+            private V_ShoyouSimRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_ShoyouSimRowChangeEvent(V_ShoyouSimRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_ShoyouSimRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5456,6 +7411,212 @@ SELECT Nengetu, Season, SeihinCode, SeisanSu, TyakusyuYM FROM T_SeisanKeikaku WH
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Season, decimal SeisanSu, string TyakusyuYM, string Original_Nengetu, string Original_Season, string Original_SeihinCode, decimal Original_SeisanSu, string Original_TyakusyuYM) {
             return this.Update(Original_Nengetu, Season, Original_SeihinCode, SeisanSu, TyakusyuYM, Original_Nengetu, Original_Season, Original_SeihinCode, Original_SeisanSu, Original_TyakusyuYM);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class V_ShoyouSimTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public V_ShoyouSimTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "V_ShoyouSim";
+            tableMapping.ColumnMappings.Add("Nengetu", "Nengetu");
+            tableMapping.ColumnMappings.Add("BuhinCode", "BuhinCode");
+            tableMapping.ColumnMappings.Add("ShiiresakiCode1", "ShiiresakiCode1");
+            tableMapping.ColumnMappings.Add("Lot", "Lot");
+            tableMapping.ColumnMappings.Add("Tani", "Tani");
+            tableMapping.ColumnMappings.Add("LT_Suuji", "LT_Suuji");
+            tableMapping.ColumnMappings.Add("LT_Tani", "LT_Tani");
+            tableMapping.ColumnMappings.Add("Tanka", "Tanka");
+            tableMapping.ColumnMappings.Add("NyuN_1", "NyuN_1");
+            tableMapping.ColumnMappings.Add("NyuN0", "NyuN0");
+            tableMapping.ColumnMappings.Add("NyuN1", "NyuN1");
+            tableMapping.ColumnMappings.Add("NyuN2", "NyuN2");
+            tableMapping.ColumnMappings.Add("NyuN3", "NyuN3");
+            tableMapping.ColumnMappings.Add("NyuN4", "NyuN4");
+            tableMapping.ColumnMappings.Add("NyuN5", "NyuN5");
+            tableMapping.ColumnMappings.Add("NyuN6", "NyuN6");
+            tableMapping.ColumnMappings.Add("UseN_1", "UseN_1");
+            tableMapping.ColumnMappings.Add("UseN0", "UseN0");
+            tableMapping.ColumnMappings.Add("UseN1", "UseN1");
+            tableMapping.ColumnMappings.Add("UseN2", "UseN2");
+            tableMapping.ColumnMappings.Add("UseN3", "UseN3");
+            tableMapping.ColumnMappings.Add("UseN4", "UseN4");
+            tableMapping.ColumnMappings.Add("UseN5", "UseN5");
+            tableMapping.ColumnMappings.Add("UseN6", "UseN6");
+            tableMapping.ColumnMappings.Add("OdrN_1", "OdrN_1");
+            tableMapping.ColumnMappings.Add("OdrN0", "OdrN0");
+            tableMapping.ColumnMappings.Add("OdrN1", "OdrN1");
+            tableMapping.ColumnMappings.Add("OdrN2", "OdrN2");
+            tableMapping.ColumnMappings.Add("OdrN3", "OdrN3");
+            tableMapping.ColumnMappings.Add("OdrN4", "OdrN4");
+            tableMapping.ColumnMappings.Add("OdrN5", "OdrN5");
+            tableMapping.ColumnMappings.Add("OdrN6", "OdrN6");
+            tableMapping.ColumnMappings.Add("ZaiN_1", "ZaiN_1");
+            tableMapping.ColumnMappings.Add("ZaiN0", "ZaiN0");
+            tableMapping.ColumnMappings.Add("ZaiN1", "ZaiN1");
+            tableMapping.ColumnMappings.Add("ZaiN2", "ZaiN2");
+            tableMapping.ColumnMappings.Add("ZaiN3", "ZaiN3");
+            tableMapping.ColumnMappings.Add("ZaiN4", "ZaiN4");
+            tableMapping.ColumnMappings.Add("ZaiN5", "ZaiN5");
+            tableMapping.ColumnMappings.Add("ZaiN6", "ZaiN6");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::KoubaiDAL.Properties.Settings.Default.HsPASConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT * FROM V_ShoyouSim";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(SeisanDataSet.V_ShoyouSimDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual SeisanDataSet.V_ShoyouSimDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            SeisanDataSet.V_ShoyouSimDataTable dataTable = new SeisanDataSet.V_ShoyouSimDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     

@@ -330,6 +330,7 @@
     <Content Include="Img\bg01.gif" />
     <Content Include="Img\bg02.gif" />
     <Content Include="Img\bg04.gif" />
+    <Content Include="Jyuchu\BuhinSimForm.aspx" />
     <Content Include="Jyuchu\BuhinForcastForm.aspx" />
     <Content Include="Jyuchu\ProductsForcastForm.aspx" />
     <Content Include="Kenshu\KenshuInfoForm.aspx" />
@@ -9760,6 +9761,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Jyuchu\BuhinSimForm.aspx.cs">
+      <DependentUpon>BuhinSimForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jyuchu\BuhinSimForm.aspx.designer.cs">
+      <DependentUpon>BuhinSimForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Jyuchu\BuhinForcastForm.aspx.cs">
       <DependentUpon>BuhinForcastForm.aspx</DependentUpon>
