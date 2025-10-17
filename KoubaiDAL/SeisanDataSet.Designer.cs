@@ -3485,32 +3485,6 @@ namespace KoubaiDAL {
                 this.columnLT_Suuji.AllowDBNull = false;
                 this.columnLT_Tani.AllowDBNull = false;
                 this.columnTanka.AllowDBNull = false;
-                this.columnNyuN_1.ReadOnly = true;
-                this.columnNyuN0.ReadOnly = true;
-                this.columnNyuN1.ReadOnly = true;
-                this.columnNyuN2.ReadOnly = true;
-                this.columnNyuN3.ReadOnly = true;
-                this.columnNyuN4.ReadOnly = true;
-                this.columnNyuN5.ReadOnly = true;
-                this.columnNyuN6.ReadOnly = true;
-                this.columnUseN_1.ReadOnly = true;
-                this.columnUseN6.ReadOnly = true;
-                this.columnOdrN_1.ReadOnly = true;
-                this.columnOdrN0.ReadOnly = true;
-                this.columnOdrN1.ReadOnly = true;
-                this.columnOdrN2.ReadOnly = true;
-                this.columnOdrN3.ReadOnly = true;
-                this.columnOdrN4.ReadOnly = true;
-                this.columnOdrN5.ReadOnly = true;
-                this.columnOdrN6.ReadOnly = true;
-                this.columnZaiN_1.ReadOnly = true;
-                this.columnZaiN0.ReadOnly = true;
-                this.columnZaiN1.ReadOnly = true;
-                this.columnZaiN2.ReadOnly = true;
-                this.columnZaiN3.ReadOnly = true;
-                this.columnZaiN4.ReadOnly = true;
-                this.columnZaiN5.ReadOnly = true;
-                this.columnZaiN6.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

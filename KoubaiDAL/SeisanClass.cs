@@ -235,19 +235,25 @@ namespace KoubaiDAL
 
             for (int i = 1; i < 7; i++)
             {
-                if (dNyu[i] < 1)
+                if (i == 1 && dr.OdrN0 > 0)
                 {
                     dNyu[i] = dOdr[i - 1];
-                }
-                dZai[i] = dZai[i - 1] + dNyu[i] - dUse[i];
-                if ((dZai[i - 1] + dNyu[i] - dUse[i]) <= dUse[i + 1])
-                {
-                    dTemp = Math.Ceiling(Math.Abs(dZai[i] - dUse[i + 1]) / dLot);
-                    dOdr[i] = dLot * dTemp;
+                    dZai[i] = dZai[i - 1] + dNyu[i] - dUse[i];
+                    dOdr[i] = dr.OdrN0;
                 }
                 else
                 {
-                    dOdr[i] = 0;
+                    dNyu[i] = dOdr[i - 1];
+                    dZai[i] = dZai[i - 1] + dNyu[i] - dUse[i];
+                    if ((dZai[i - 1] + dNyu[i] - dUse[i]) <= dUse[i + 1])
+                    {
+                        dTemp = Math.Ceiling(Math.Abs(dZai[i] - dUse[i + 1]) / dLot);
+                        dOdr[i] = dLot * dTemp;
+                    }
+                    else
+                    {
+                        dOdr[i] = 0;
+                    }
                 }
             }
 

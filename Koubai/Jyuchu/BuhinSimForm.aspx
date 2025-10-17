@@ -19,6 +19,10 @@
 <%--            <%= Ram.ClientID %>.ajaxRequest(command_name + ':' + arg);--%>
             $(Ram).ajaxRequest(command_name + ':' + arg);
         }
+        function CntRow(cnt) {
+            document.forms[0].count.value = cnt;
+            return;
+        }
         //function pageLoad() {
         //    showpdf()
         //}
@@ -228,6 +232,7 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <asp:Literal ID="LitLot" runat="server"></asp:Literal>
+                                            <asp:Literal ID="LitTani" runat="server"></asp:Literal>
                                         </ItemTemplate>
                                         <ItemStyle CssClass="tc" width="100px"/>
                                     </asp:TemplateField>
@@ -310,7 +315,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="s2">
-                                                        <asp:Label ID="LblHacchuSuN0" runat="server"></asp:Label>
+<%--                                                        <asp:Label ID="LblHacchuSuN0" runat="server"></asp:Label>--%>
+                                                        <asp:TextBox ID="TbxHacchuSuN0" runat="server" MaxLength="8" style="width: 58px;border: none; text-align: right; margin: 0px; white-space: nowrap;font-size:9pt;font-weight: normal;color:red;"
+                                                            AutoPostBack="true" OnTextChanged="Tbx_TextChanged"></asp:TextBox>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -534,6 +541,8 @@
 
     <telerik:RadAjaxLoadingPanel ID="LP" runat="server" Skin="Web20">
     </telerik:RadAjaxLoadingPanel>
+
+    <input type="hidden" id="count" runat="server" />
 
     </form>
 </body>

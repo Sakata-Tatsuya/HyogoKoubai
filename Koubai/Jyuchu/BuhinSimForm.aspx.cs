@@ -7,18 +7,25 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Security.Principal;
 using System.Web;
+using System.Web.DynamicData;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.MobileControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using Telerik.Web.UI.ExportInfrastructure;
+using static System.Net.Mime.MediaTypeNames;
+using Label = System.Web.UI.WebControls.Label;
+using TextBox = System.Web.UI.WebControls.TextBox;
 
 namespace Koubai.Jyuchu
 {
@@ -419,6 +426,7 @@ namespace Koubai.Jyuchu
                 Literal LitShiiresakiMei = e.Row.FindControl("LitShiiresakiMei") as Literal;
                 Literal LitLeadTime = e.Row.FindControl("LitLeadTime") as Literal;
                 Literal LitLot = e.Row.FindControl("LitLot") as Literal;
+                Literal LitTani = e.Row.FindControl("LitTani") as Literal;
                 Label LblNyukaSuN_1 = e.Row.FindControl("LblNyukaSuN_1") as Label;
                 Label LblNyukaSuN0 = e.Row.FindControl("LblNyukaSuN0") as Label;
                 Label LblNyukaSuN1 = e.Row.FindControl("LblNyukaSuN1") as Label;
@@ -436,7 +444,8 @@ namespace Koubai.Jyuchu
                 Label LblShoyouSuN5 = e.Row.FindControl("LblShoyouSuN5") as Label;
                 Label LblShoyouSuTT = e.Row.FindControl("LblShoyouSuTT") as Label;
                 Label LblHacchuSuN_1 = e.Row.FindControl("LblHacchuSuN_1") as Label;
-                Label LblHacchuSuN0 = e.Row.FindControl("LblHacchuSuN0") as Label;
+                //Label LblHacchuSuN0 = e.Row.FindControl("LblHacchuSuN0") as Label;
+                TextBox TbxHacchuSuN0 = e.Row.FindControl("TbxHacchuSuN0") as TextBox;
                 Label LblHacchuSuN1 = e.Row.FindControl("LblHacchuSuN1") as Label;
                 Label LblHacchuSuN2 = e.Row.FindControl("LblHacchuSuN2") as Label;
                 Label LblHacchuSuN3 = e.Row.FindControl("LblHacchuSuN3") as Label;
@@ -452,12 +461,15 @@ namespace Koubai.Jyuchu
                 Label LblZaikoSuN5 = e.Row.FindControl("LblZaikoSuN5") as Label;
                 Label LblZaikoSuTT = e.Row.FindControl("LblZaikoSuTT") as Label;
 
+                TbxHacchuSuN0.Attributes["onFocus"] = string.Format("CntRow('{0}')", e.Row.RowIndex);
+
                 LitNengetu.Text = dr.Nengetu;
                 LitBuhinCode.Text = dr.BuhinCode;
                 LitShiiresakiCode.Text = dr.ShiiresakiCode1;
                 LitShiiresakiMei.Text = ShiiresakiClass.GetShiiresakiMei(dr.ShiiresakiCode1, Global.GetConnection());
                 LitLeadTime.Text = (dr.LT_Suuji * AppCommon.LT_Suuji(dr.LT_Tani)).ToString();
-                LitLot.Text = dr.Lot.ToString() + dr.Tani;
+                LitLot.Text = dr.Lot.ToString();
+                LitTani.Text = dr.Tani;
 
                 ////発注計画計算
                 //decimal[] dNyu = new decimal[8];
@@ -465,8 +477,8 @@ namespace Koubai.Jyuchu
                 //decimal[] dOdr = new decimal[8];
                 //decimal[] dZai = new decimal[8];
                 //表示フラグ
-                int[] fNyu = new int[8] { 0, 0, 1, 1, 1, 1, 1, 0 };
-                int[] fOdr = new int[8] { 0, 1, 1, 1, 1, 1, 1, 0 };
+                //int[] fNyu = new int[8] { 0, 0, 1, 1, 1, 1, 1, 0 };
+                //int[] fOdr = new int[8] { 0, 1, 1, 1, 1, 1, 1, 0 };
                 decimal dTemp = 0;
                 //パラメータ取得
                 decimal dLot = dr.Lot; //最小ロット
@@ -492,7 +504,8 @@ namespace Koubai.Jyuchu
                 LblShoyouSuTT.Text = dUseTT.ToString("#,##0");
 
                 LblHacchuSuN_1.Text = dr.OdrN_1.ToString("#,##0");
-                LblHacchuSuN0.Text = dr.OdrN0.ToString("#,##0");
+                //LblHacchuSuN0.Text = dr.OdrN0.ToString("#,##0");
+                TbxHacchuSuN0.Text = dr.OdrN0.ToString("#,##0");
                 LblHacchuSuN1.Text = dr.OdrN1.ToString("#,##0");
                 LblHacchuSuN2.Text = dr.OdrN2.ToString("#,##0");
                 LblHacchuSuN3.Text = dr.OdrN3.ToString("#,##0");
@@ -511,18 +524,18 @@ namespace Koubai.Jyuchu
                 decimal dZaiTT = dr.ZaiN_1 + dNyuTT - dUseTT;
                 LblZaikoSuTT.Text = dZaiTT.ToString("#,##0");
 
-                if (fNyu[1] == 1) { LblNyukaSuN0.ForeColor = Color.Red; }
-                if (fNyu[2] == 1) { LblNyukaSuN1.ForeColor = Color.Red; }
-                if (fNyu[3] == 1) { LblNyukaSuN2.ForeColor = Color.Red; }
-                if (fNyu[4] == 1) { LblNyukaSuN3.ForeColor = Color.Red; }
-                if (fNyu[5] == 1) { LblNyukaSuN4.ForeColor = Color.Red; }
-                if (fNyu[6] == 1) { LblNyukaSuN5.ForeColor = Color.Red; }
-                if (fOdr[1] == 1) { LblHacchuSuN0.ForeColor = Color.Red; }
-                if (fOdr[2] == 1) { LblHacchuSuN1.ForeColor = Color.Red; }
-                if (fOdr[3] == 1) { LblHacchuSuN2.ForeColor = Color.Red; }
-                if (fOdr[4] == 1) { LblHacchuSuN3.ForeColor = Color.Red; }
-                if (fOdr[5] == 1) { LblHacchuSuN4.ForeColor = Color.Red; }
-                if (fOdr[6] == 1) { LblHacchuSuN5.ForeColor = Color.Red; }
+                //if (fNyu[1] == 1) { LblNyukaSuN0.ForeColor = Color.Red; }
+                //if (fNyu[2] == 1) { LblNyukaSuN1.ForeColor = Color.Red; }
+                //if (fNyu[3] == 1) { LblNyukaSuN2.ForeColor = Color.Red; }
+                //if (fNyu[4] == 1) { LblNyukaSuN3.ForeColor = Color.Red; }
+                //if (fNyu[5] == 1) { LblNyukaSuN4.ForeColor = Color.Red; }
+                //if (fNyu[6] == 1) { LblNyukaSuN5.ForeColor = Color.Red; }
+                //if (fOdr[1] == 1) { TbxHacchuSuN0.ForeColor = Color.Red; }
+                //if (fOdr[2] == 1) { LblHacchuSuN1.ForeColor = Color.Red; }
+                //if (fOdr[3] == 1) { LblHacchuSuN2.ForeColor = Color.Red; }
+                //if (fOdr[4] == 1) { LblHacchuSuN3.ForeColor = Color.Red; }
+                //if (fOdr[5] == 1) { LblHacchuSuN4.ForeColor = Color.Red; }
+                //if (fOdr[6] == 1) { LblHacchuSuN5.ForeColor = Color.Red; }
 
             }
         }
@@ -637,7 +650,8 @@ namespace Koubai.Jyuchu
                 Literal LitShiiresakiCode = D.Rows[i].FindControl("LitShiiresakiCode") as Literal;
                 Literal LitLeadTime = D.Rows[i].FindControl("LitLeadTime") as Literal;
                 Literal LitLot = D.Rows[i].FindControl("LitLot") as Literal;
-                Label LblHacchuSuN0 = D.Rows[i].FindControl("LblHacchuSuN0") as Label;
+                //Label LblHacchuSuN0 = D.Rows[i].FindControl("LblHacchuSuN0") as Label;
+                TextBox TbxHacchuSuN0 = D.Rows[i].FindControl("TbxHacchuSuN0") as TextBox;
                 DateTime dtNow = DateTime.Now;
                 DateTime dtTemp = DateTime.Now;
                 int intTemp = 0;
@@ -649,7 +663,7 @@ namespace Koubai.Jyuchu
                 {
                     ChkI.Checked = false;
                     decSuryo = 0;
-                    decimal.TryParse(LblHacchuSuN0.Text.Replace(",", ""), out decSuryo);
+                    decimal.TryParse(TbxHacchuSuN0.Text.Replace(",", ""), out decSuryo);
                     if (decSuryo <= 0) { continue; }
 
                     KoubaiDataSet.T_ChumonRow dr = dt.NewT_ChumonRow();
@@ -680,17 +694,23 @@ namespace Koubai.Jyuchu
                     dr.Zeiritu = intTemp;
                     intTemp = 0;
                     int.TryParse(LitLeadTime.Text, out intTemp);
-                    dtTemp = DateTime.Today.AddDays(intTemp);
-                    dr.Nouki = dtTemp.ToString("yyyyMMdd");
-                    dr.KeigenZeirituFlg = Utility.GetKeigenZeirituFlg(dtTemp, VsZeiritu);
+                    // デモ用暫定
+                    DateTime dtNouki = DateTime.Now;
+                    DateTime dtOder = DateTime.Now;
+                    dtTemp = DateTime.Today;
+                    DateTime.TryParse(VsKijyunYM.Substring(0,4)+"/"+ VsKijyunYM.Substring(4, 2) + "/01", out dtTemp);
+                    dtNouki = dtTemp.AddMonths(1);
+                    dtOder = dtNouki.AddDays(intTemp * -1);
+                    //dtTemp = DateTime.Today.AddDays(intTemp);
+                    //dr.Nouki = dtTemp.ToString("yyyyMMdd");
+                    //dr.KeigenZeirituFlg = Utility.GetKeigenZeirituFlg(dtTemp, VsZeiritu);
+                    dr.Nouki = dtNouki.ToString("yyyyMMdd");
+                    dr.KeigenZeirituFlg = Utility.GetKeigenZeirituFlg(dtNouki, VsZeiritu);
                     dr.NounyuuBashoCode = "08";
                     dr.Bikou = string.Empty;
-                    dr.HacchuuBi = dtNow;
-                    // デモ用　発注日は基準年月1日-LT
-                    string strDemo = VsKijyunYM.Substring(0, 4) + "/" + VsKijyunYM.Substring(4, 2) + "/01";
-                    DateTime dtDemi = DateTime.Parse(strDemo);
-                    dr.HacchuuBi = dtDemi.AddDays(-14);
-                    // デモ用　発注日は基準年月1日-LT
+                    //dr.HacchuuBi = dtNow;
+                    dr.HacchuuBi = dtOder;
+                    // デモ用暫定
                     dr.HacchushaID = VsUserID;
                     dr.KannouFlg = false;
                     dr.KaritankaFlg = false;
@@ -729,8 +749,15 @@ namespace Koubai.Jyuchu
                     //}
                 }
             }
+            else
+            {
+                this.ShowMsg("発注可能な明細が選択されていません<br/>", true);
+            }
 
-            this.Create();
+            LoadInit();
+            this.D.DataSource = VsShoyouSim;
+            this.D.DataBind();
+            //this.Create();
 
         }
 
@@ -751,6 +778,299 @@ namespace Koubai.Jyuchu
             return p;
         }
 
+        protected void Tbx_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tbx = (TextBox)sender;
+            int nIndex = 0;
+            int.TryParse(count.Value,out nIndex);
+            string sKijyunYM = VsKijyunYM.Substring(0, 4) + "/" + VsKijyunYM.Substring(4) + "/01";
+            DateTime dtN0 = DateTime.Today;
+            DateTime.TryParse(sKijyunYM, out dtN0);
+
+            SeisanDataSet.V_ShoyouSimRow drSS = GetMeisai(nIndex);
+            SeisanDataSet.V_ShoyouSimRow drSv = SeisanClass.ShoyouSimRowCulc(drSS, dtN0, Global.GetConnection());
+
+            //SeisanDataSet.V_ShoyouSimRow drSv = SeisanClass.ShoyouSimRowCulc(GetMeisai(nIndex), dtN0, Global.GetConnection());
+
+            var dataRows = VsShoyouSim.Select("Nengetu = '" + drSv.Nengetu + "' and BuhinCode = '" + drSv.BuhinCode + "' ");
+            foreach (DataRow dataRow in VsShoyouSim.Rows)
+            {
+                dataRow.ItemArray = drSv.ItemArray;
+            }
+            //for (int i = 0; i < VsShoyouSim.Rows.Count; i++)
+            //{
+            //    if (VsShoyouSim[i].Nengetu == drSv.Nengetu && VsShoyouSim[i].BuhinCode == drSv.BuhinCode)
+            //    {
+            //        VsShoyouSim[i].ItemArray = drSv.ItemArray;
+            //    }
+            //}
+            SetMeisai(nIndex, drSv);
+
+        }
+
+        protected SeisanDataSet.V_ShoyouSimRow GetMeisai(int nIndex)
+        {
+            DateTime now = DateTime.Now;
+            int intWork = 0;
+            decimal decWork = 0;
+            decimal dTemp = 0;
+            DateTime dtWork = SqlDateTime.MinValue.Value;
+
+            SeisanDataSet.V_ShoyouSimDataTable dtSv = new SeisanDataSet.V_ShoyouSimDataTable();
+
+            Literal LitNengetu = D.Rows[nIndex].FindControl("LitNengetu") as Literal;
+            Literal LitBuhinCode = D.Rows[nIndex].FindControl("LitBuhinCode") as Literal;
+            Literal LitShiiresakiCode = D.Rows[nIndex].FindControl("LitShiiresakiCode") as Literal;
+            Literal LitShiiresakiMei = D.Rows[nIndex].FindControl("LitShiiresakiMei") as Literal;
+            Literal LitLeadTime = D.Rows[nIndex].FindControl("LitLeadTime") as Literal;
+            Literal LitLot = D.Rows[nIndex].FindControl("LitLot") as Literal;
+            Literal LitTani = D.Rows[nIndex].FindControl("LitTani") as Literal;
+            Label LblNyukaSuN_1 = D.Rows[nIndex].FindControl("LblNyukaSuN_1") as Label;
+            Label LblNyukaSuN0 = D.Rows[nIndex].FindControl("LblNyukaSuN0") as Label;
+            Label LblNyukaSuN1 = D.Rows[nIndex].FindControl("LblNyukaSuN1") as Label;
+            Label LblNyukaSuN2 = D.Rows[nIndex].FindControl("LblNyukaSuN2") as Label;
+            Label LblNyukaSuN3 = D.Rows[nIndex].FindControl("LblNyukaSuN3") as Label;
+            Label LblNyukaSuN4 = D.Rows[nIndex].FindControl("LblNyukaSuN4") as Label;
+            Label LblNyukaSuN5 = D.Rows[nIndex].FindControl("LblNyukaSuN5") as Label;
+            Label LblNyukaSuTT = D.Rows[nIndex].FindControl("LblNyukaSuTT") as Label;
+            Label LblShoyouSuN_1 = D.Rows[nIndex].FindControl("LblShoyouSuN_1") as Label;
+            Label LblShoyouSuN0 = D.Rows[nIndex].FindControl("LblShoyouSuN0") as Label;
+            Label LblShoyouSuN1 = D.Rows[nIndex].FindControl("LblShoyouSuN1") as Label;
+            Label LblShoyouSuN2 = D.Rows[nIndex].FindControl("LblShoyouSuN2") as Label;
+            Label LblShoyouSuN3 = D.Rows[nIndex].FindControl("LblShoyouSuN3") as Label;
+            Label LblShoyouSuN4 = D.Rows[nIndex].FindControl("LblShoyouSuN4") as Label;
+            Label LblShoyouSuN5 = D.Rows[nIndex].FindControl("LblShoyouSuN5") as Label;
+            Label LblShoyouSuTT = D.Rows[nIndex].FindControl("LblShoyouSuTT") as Label;
+            Label LblHacchuSuN_1 = D.Rows[nIndex].FindControl("LblHacchuSuN_1") as Label;
+            TextBox TbxHacchuSuN0 = D.Rows[nIndex].FindControl("TbxHacchuSuN0") as TextBox;
+            Label LblHacchuSuN1 = D.Rows[nIndex].FindControl("LblHacchuSuN1") as Label;
+            Label LblHacchuSuN2 = D.Rows[nIndex].FindControl("LblHacchuSuN2") as Label;
+            Label LblHacchuSuN3 = D.Rows[nIndex].FindControl("LblHacchuSuN3") as Label;
+            Label LblHacchuSuN4 = D.Rows[nIndex].FindControl("LblHacchuSuN4") as Label;
+            Label LblHacchuSuN5 = D.Rows[nIndex].FindControl("LblHacchuSuN5") as Label;
+            Label LblHacchuSuTT = D.Rows[nIndex].FindControl("LblHacchuSuTT") as Label;
+            Label LblZaikoSuN_1 = D.Rows[nIndex].FindControl("LblZaikoSuN_1") as Label;
+            Label LblZaikoSuN0 = D.Rows[nIndex].FindControl("LblZaikoSuN0") as Label;
+            Label LblZaikoSuN1 = D.Rows[nIndex].FindControl("LblZaikoSuN1") as Label;
+            Label LblZaikoSuN2 = D.Rows[nIndex].FindControl("LblZaikoSuN2") as Label;
+            Label LblZaikoSuN3 = D.Rows[nIndex].FindControl("LblZaikoSuN3") as Label;
+            Label LblZaikoSuN4 = D.Rows[nIndex].FindControl("LblZaikoSuN4") as Label;
+            Label LblZaikoSuN5 = D.Rows[nIndex].FindControl("LblZaikoSuN5") as Label;
+            Label LblZaikoSuTT = D.Rows[nIndex].FindControl("LblZaikoSuTT") as Label;
+
+            SeisanDataSet.V_ShoyouSimRow drSv = dtSv.NewV_ShoyouSimRow();
+
+            drSv.Nengetu = LitNengetu.Text;
+            drSv.BuhinCode = LitBuhinCode.Text;
+            drSv.ShiiresakiCode1 = LitShiiresakiCode.Text;
+            KoubaiDataSet.M_BuhinRow drM = BuhinClass.getM_BuhinRow(drSv.BuhinCode, Global.GetConnection());
+            if (drM != null)
+            {
+                drSv.Lot = drM.Lot;
+                drSv.Tani = drM.Tani;
+                drSv.LT_Suuji = drM.LT_Suuji;
+                drSv.LT_Tani = drM.LT_Tani;
+                drSv.Tanka = drM.Tanka;
+            }
+            else
+            {
+                intWork = 0;
+                int.TryParse(LitLot.Text.Trim().Replace(",", ""), out intWork);
+                drSv.Lot = intWork;
+                drSv.Tani = LitTani.Text;
+                drSv.LT_Suuji = 2;
+                drSv.LT_Tani = 2;
+                drSv.Tanka = 0;
+            }
+            decWork = 0;
+            decimal.TryParse(LblNyukaSuN_1.Text.Trim().Replace(",", ""), out decWork);
+            drSv.NyuN_1 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblNyukaSuN0.Text.Trim().Replace(",", ""), out decWork);
+            drSv.NyuN0 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblNyukaSuN1.Text.Trim().Replace(",", ""), out decWork);
+            drSv.NyuN1 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblNyukaSuN2.Text.Trim().Replace(",", ""), out decWork);
+            drSv.NyuN2 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblNyukaSuN3.Text.Trim().Replace(",", ""), out decWork);
+            drSv.NyuN3 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblNyukaSuN4.Text.Trim().Replace(",", ""), out decWork);
+            drSv.NyuN4 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblNyukaSuN5.Text.Trim().Replace(",", ""), out decWork);
+            drSv.NyuN5 = decWork;
+            drSv.NyuN6 = 0;
+            decWork = 0;
+            decimal.TryParse(LblShoyouSuN_1.Text.Trim().Replace(",", ""), out decWork);
+            drSv.UseN_1 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblShoyouSuN0.Text.Trim().Replace(",", ""), out decWork);
+            drSv.UseN0 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblShoyouSuN1.Text.Trim().Replace(",", ""), out decWork);
+            drSv.UseN1 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblShoyouSuN2.Text.Trim().Replace(",", ""), out decWork);
+            drSv.UseN2 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblShoyouSuN3.Text.Trim().Replace(",", ""), out decWork);
+            drSv.UseN3 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblShoyouSuN4.Text.Trim().Replace(",", ""), out decWork);
+            drSv.UseN4 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblShoyouSuN5.Text.Trim().Replace(",", ""), out decWork);
+            drSv.UseN5 = decWork;
+            drSv.UseN6 = 0;
+            decWork = 0;
+            decimal.TryParse(LblHacchuSuN_1.Text.Trim().Replace(",", ""), out decWork);
+            drSv.OdrN_1 = decWork;
+            decWork = 0;
+            decimal.TryParse(TbxHacchuSuN0.Text.Trim().Replace(",", ""), out decWork);
+            if (decWork > 0 && drSv.Lot > 0)
+            {
+                dTemp = Math.Ceiling(decWork / drSv.Lot);
+                decWork = drSv.Lot * dTemp;
+            }
+            drSv.OdrN0 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblHacchuSuN1.Text.Trim().Replace(",", ""), out decWork);
+            drSv.OdrN1 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblHacchuSuN2.Text.Trim().Replace(",", ""), out decWork);
+            drSv.OdrN2 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblHacchuSuN3.Text.Trim().Replace(",", ""), out decWork);
+            drSv.OdrN3 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblHacchuSuN4.Text.Trim().Replace(",", ""), out decWork);
+            drSv.OdrN4 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblHacchuSuN5.Text.Trim().Replace(",", ""), out decWork);
+            drSv.OdrN5 = decWork;
+            drSv.OdrN6 = 0;
+            decWork = 0;
+            decimal.TryParse(LblZaikoSuN_1.Text.Trim().Replace(",", ""), out decWork);
+            drSv.ZaiN_1 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblZaikoSuN0.Text.Trim().Replace(",", ""), out decWork);
+            drSv.ZaiN0 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblZaikoSuN1.Text.Trim().Replace(",", ""), out decWork);
+            drSv.ZaiN1 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblZaikoSuN2.Text.Trim().Replace(",", ""), out decWork);
+            drSv.ZaiN2 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblZaikoSuN3.Text.Trim().Replace(",", ""), out decWork);
+            drSv.ZaiN3 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblZaikoSuN4.Text.Trim().Replace(",", ""), out decWork);
+            drSv.ZaiN4 = decWork;
+            decWork = 0;
+            decimal.TryParse(LblZaikoSuN5.Text.Trim().Replace(",", ""), out decWork);
+            drSv.ZaiN5 = decWork;
+            drSv.ZaiN6 = 0;
+
+            return drSv;
+        }
+
+        protected void SetMeisai(int nIndex, SeisanDataSet.V_ShoyouSimRow dr)
+        {
+            Literal LitNengetu = D.Rows[nIndex].FindControl("LitNengetu") as Literal;
+            Literal LitBuhinCode = D.Rows[nIndex].FindControl("LitBuhinCode") as Literal;
+            Literal LitShiiresakiCode = D.Rows[nIndex].FindControl("LitShiiresakiCode") as Literal;
+            Literal LitShiiresakiMei = D.Rows[nIndex].FindControl("LitShiiresakiMei") as Literal;
+            Literal LitLeadTime = D.Rows[nIndex].FindControl("LitLeadTime") as Literal;
+            Literal LitLot = D.Rows[nIndex].FindControl("LitLot") as Literal;
+            Literal LitTani = D.Rows[nIndex].FindControl("LitTani") as Literal;
+            Label LblNyukaSuN_1 = D.Rows[nIndex].FindControl("LblNyukaSuN_1") as Label;
+            Label LblNyukaSuN0 = D.Rows[nIndex].FindControl("LblNyukaSuN0") as Label;
+            Label LblNyukaSuN1 = D.Rows[nIndex].FindControl("LblNyukaSuN1") as Label;
+            Label LblNyukaSuN2 = D.Rows[nIndex].FindControl("LblNyukaSuN2") as Label;
+            Label LblNyukaSuN3 = D.Rows[nIndex].FindControl("LblNyukaSuN3") as Label;
+            Label LblNyukaSuN4 = D.Rows[nIndex].FindControl("LblNyukaSuN4") as Label;
+            Label LblNyukaSuN5 = D.Rows[nIndex].FindControl("LblNyukaSuN5") as Label;
+            Label LblNyukaSuTT = D.Rows[nIndex].FindControl("LblNyukaSuTT") as Label;
+            Label LblShoyouSuN_1 = D.Rows[nIndex].FindControl("LblShoyouSuN_1") as Label;
+            Label LblShoyouSuN0 = D.Rows[nIndex].FindControl("LblShoyouSuN0") as Label;
+            Label LblShoyouSuN1 = D.Rows[nIndex].FindControl("LblShoyouSuN1") as Label;
+            Label LblShoyouSuN2 = D.Rows[nIndex].FindControl("LblShoyouSuN2") as Label;
+            Label LblShoyouSuN3 = D.Rows[nIndex].FindControl("LblShoyouSuN3") as Label;
+            Label LblShoyouSuN4 = D.Rows[nIndex].FindControl("LblShoyouSuN4") as Label;
+            Label LblShoyouSuN5 = D.Rows[nIndex].FindControl("LblShoyouSuN5") as Label;
+            Label LblShoyouSuTT = D.Rows[nIndex].FindControl("LblShoyouSuTT") as Label;
+            Label LblHacchuSuN_1 = D.Rows[nIndex].FindControl("LblHacchuSuN_1") as Label;
+            TextBox TbxHacchuSuN0 = D.Rows[nIndex].FindControl("TbxHacchuSuN0") as TextBox;
+            Label LblHacchuSuN1 = D.Rows[nIndex].FindControl("LblHacchuSuN1") as Label;
+            Label LblHacchuSuN2 = D.Rows[nIndex].FindControl("LblHacchuSuN2") as Label;
+            Label LblHacchuSuN3 = D.Rows[nIndex].FindControl("LblHacchuSuN3") as Label;
+            Label LblHacchuSuN4 = D.Rows[nIndex].FindControl("LblHacchuSuN4") as Label;
+            Label LblHacchuSuN5 = D.Rows[nIndex].FindControl("LblHacchuSuN5") as Label;
+            Label LblHacchuSuTT = D.Rows[nIndex].FindControl("LblHacchuSuTT") as Label;
+            Label LblZaikoSuN_1 = D.Rows[nIndex].FindControl("LblZaikoSuN_1") as Label;
+            Label LblZaikoSuN0 = D.Rows[nIndex].FindControl("LblZaikoSuN0") as Label;
+            Label LblZaikoSuN1 = D.Rows[nIndex].FindControl("LblZaikoSuN1") as Label;
+            Label LblZaikoSuN2 = D.Rows[nIndex].FindControl("LblZaikoSuN2") as Label;
+            Label LblZaikoSuN3 = D.Rows[nIndex].FindControl("LblZaikoSuN3") as Label;
+            Label LblZaikoSuN4 = D.Rows[nIndex].FindControl("LblZaikoSuN4") as Label;
+            Label LblZaikoSuN5 = D.Rows[nIndex].FindControl("LblZaikoSuN5") as Label;
+            Label LblZaikoSuTT = D.Rows[nIndex].FindControl("LblZaikoSuTT") as Label;
+
+            LitNengetu.Text = dr.Nengetu;
+            LitBuhinCode.Text = dr.BuhinCode;
+            LitShiiresakiCode.Text = dr.ShiiresakiCode1;
+            LitShiiresakiMei.Text = ShiiresakiClass.GetShiiresakiMei(dr.ShiiresakiCode1, Global.GetConnection());
+            LitLeadTime.Text = (dr.LT_Suuji * AppCommon.LT_Suuji(dr.LT_Tani)).ToString();
+            LitLot.Text = dr.Lot.ToString();
+            LitTani.Text = dr.Tani;
+
+            LblNyukaSuN_1.Text = dr.NyuN_1.ToString("#,##0");
+            LblNyukaSuN0.Text = dr.NyuN0.ToString("#,##0");
+            LblNyukaSuN1.Text = dr.NyuN1.ToString("#,##0");
+            LblNyukaSuN2.Text = dr.NyuN2.ToString("#,##0");
+            LblNyukaSuN3.Text = dr.NyuN3.ToString("#,##0");
+            LblNyukaSuN4.Text = dr.NyuN4.ToString("#,##0");
+            LblNyukaSuN5.Text = dr.NyuN5.ToString("#,##0");
+            decimal dNyuTT = dr.NyuN0 + dr.NyuN1 + dr.NyuN2 + dr.NyuN3 + dr.NyuN4 + dr.NyuN5;
+            LblNyukaSuTT.Text = dNyuTT.ToString("#,##0");
+
+            LblShoyouSuN_1.Text = dr.UseN_1.ToString("#,##0");
+            LblShoyouSuN0.Text = dr.UseN0.ToString("#,##0");
+            LblShoyouSuN1.Text = dr.UseN1.ToString("#,##0");
+            LblShoyouSuN2.Text = dr.UseN2.ToString("#,##0");
+            LblShoyouSuN3.Text = dr.UseN3.ToString("#,##0");
+            LblShoyouSuN4.Text = dr.UseN4.ToString("#,##0");
+            LblShoyouSuN5.Text = dr.UseN5.ToString("#,##0");
+            decimal dUseTT = dr.UseN0 + dr.UseN1 + dr.UseN2 + dr.UseN3 + dr.UseN4 + dr.UseN5;
+            LblShoyouSuTT.Text = dUseTT.ToString("#,##0");
+
+            LblHacchuSuN_1.Text = dr.OdrN_1.ToString("#,##0");
+            //LblHacchuSuN0.Text = dr.OdrN0.ToString("#,##0");
+            TbxHacchuSuN0.Text = dr.OdrN0.ToString("#,##0");
+            LblHacchuSuN1.Text = dr.OdrN1.ToString("#,##0");
+            LblHacchuSuN2.Text = dr.OdrN2.ToString("#,##0");
+            LblHacchuSuN3.Text = dr.OdrN3.ToString("#,##0");
+            LblHacchuSuN4.Text = dr.OdrN4.ToString("#,##0");
+            LblHacchuSuN5.Text = dr.OdrN5.ToString("#,##0");
+            decimal dOdrTT = dr.OdrN0 + dr.OdrN1 + dr.OdrN2 + dr.OdrN3 + dr.OdrN4 + dr.OdrN5;
+            LblHacchuSuTT.Text = dOdrTT.ToString("#,##0");
+
+            LblZaikoSuN_1.Text = dr.ZaiN_1.ToString("#,##0");
+            LblZaikoSuN0.Text = dr.ZaiN0.ToString("#,##0");
+            LblZaikoSuN1.Text = dr.ZaiN1.ToString("#,##0");
+            LblZaikoSuN2.Text = dr.ZaiN2.ToString("#,##0");
+            LblZaikoSuN3.Text = dr.ZaiN3.ToString("#,##0");
+            LblZaikoSuN4.Text = dr.ZaiN4.ToString("#,##0");
+            LblZaikoSuN5.Text = dr.ZaiN5.ToString("#,##0");
+            decimal dZaiTT = dr.ZaiN_1 + dNyuTT - dUseTT;
+            LblZaikoSuTT.Text = dZaiTT.ToString("#,##0");
+
+        }
 
 
 
