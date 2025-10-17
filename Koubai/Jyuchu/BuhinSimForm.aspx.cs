@@ -177,7 +177,7 @@ namespace Koubai.Jyuchu
         bool b = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.LblMsg.Text = "";
+            //this.LblMsg.Text = "";
             //this.BtnPostback.Style["display"] = "none";
             //this.BtnDelPostback.Style["display"] = "none";
             if (!this.IsPostBack)
