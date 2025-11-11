@@ -43,7 +43,7 @@ namespace KoubaiDAL
                 // 仕入先コード
                 if (k._ShiiresakiCode != string.Empty)
                 {
-                    w.Add(string.Format("ShiiresakiCode = '{0}'", k._ShiiresakiCode));
+                    w.Add(string.Format("ShiiresakiCode1 = '{0}'", k._ShiiresakiCode));
                 }
                 return w.WhereText;
             }
@@ -231,7 +231,12 @@ namespace KoubaiDAL
             {
                 dUse[0] = drN_1.N0;
             }
-            dZai[0] = dNyu[0] - dUse[0];
+            //dZai[0] = dNyu[0] - dUse[0];
+            dZai[0] = ZaikoClass.GetZensyaZaikoSu(dtN_1.ToString("yyyyMM"), dr.BuhinCode, sqlConn);
+            if (dZai[0] == 0)
+            {
+                dZai[0] = dNyu[0] - dUse[0];
+            }
 
             for (int i = 1; i < 7; i++)
             {

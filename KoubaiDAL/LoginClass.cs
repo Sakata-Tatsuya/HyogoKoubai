@@ -50,7 +50,7 @@ namespace KoubaiDAL
 
         /// <summary>
         /// パスワードを更新する
-        /// </summary>      
+        /// </summary>
         /// <param name="LoginID"></param>
         /// <param name="strNewPass"></param>
         /// <param name="sqlConn"></param>

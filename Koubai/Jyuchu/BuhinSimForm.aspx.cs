@@ -1,5 +1,6 @@
 ﻿using Core.Type;
 using KoubaiDAL;
+using Org.BouncyCastle.X509;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -242,6 +243,7 @@ namespace Koubai.Jyuchu
 
             if (1 > dtH.Rows.Count)
             {
+                VsShoyouSim = dtH;
                 return;
             }
             VsShoyouSim = SeisanClass.ShoyouSimCulc(dtH, dtN0, Global.GetConnection());
@@ -638,9 +640,24 @@ namespace Koubai.Jyuchu
 
         protected void BtnOD_Click(object sender, EventArgs e)
         {
+            ShowMsg("", false);
+
             KoubaiDataSet.T_ChumonDataTable dt = new KoubaiDataSet.T_ChumonDataTable();
             int MaxHacchuuNo = ChumonClass.GetMaxHacchuuNo(Global.GetConnection());
             VsHacchuuNo = MaxHacchuuNo;
+            ZaikoDataSet.T_ZaikoDataTable dtZ = new ZaikoDataSet.T_ZaikoDataTable();
+
+            DateTime[] dtN = new DateTime[8];
+            string sKijyunYM = VsKijyunYM.Substring(0, 4) + "/" + VsKijyunYM.Substring(4) + "/01";
+            dtN[1] = DateTime.Today;
+            DateTime.TryParse(sKijyunYM, out dtN[1]);
+            dtN[0] = dtN[1].AddMonths(-1);
+            dtN[2] = dtN[1].AddMonths(1);
+            dtN[3] = dtN[1].AddMonths(2);
+            dtN[4] = dtN[1].AddMonths(3);
+            dtN[5] = dtN[1].AddMonths(4);
+            dtN[6] = dtN[1].AddMonths(5);
+            dtN[7] = dtN[1].AddMonths(6);
 
             for (int i = 0; i < D.Rows.Count; i++)
             {
@@ -652,12 +669,20 @@ namespace Koubai.Jyuchu
                 Literal LitLot = D.Rows[i].FindControl("LitLot") as Literal;
                 //Label LblHacchuSuN0 = D.Rows[i].FindControl("LblHacchuSuN0") as Label;
                 TextBox TbxHacchuSuN0 = D.Rows[i].FindControl("TbxHacchuSuN0") as TextBox;
+                Label LblZaikoSuN0 = D.Rows[i].FindControl("LblZaikoSuN0") as Label;
+                Label LblZaikoSuN_1 = D.Rows[i].FindControl("LblZaikoSuN_1") as Label;
+                Label LblZaikoSuN1 = D.Rows[i].FindControl("LblZaikoSuN1") as Label;
+                Label LblZaikoSuN2 = D.Rows[i].FindControl("LblZaikoSuN2") as Label;
+                Label LblZaikoSuN3 = D.Rows[i].FindControl("LblZaikoSuN3") as Label;
+                Label LblZaikoSuN4 = D.Rows[i].FindControl("LblZaikoSuN4") as Label;
+                Label LblZaikoSuN5 = D.Rows[i].FindControl("LblZaikoSuN5") as Label;
                 DateTime dtNow = DateTime.Now;
                 DateTime dtTemp = DateTime.Now;
                 int intTemp = 0;
                 decimal decTanka = 0;
                 decimal decSuryo = 0;
                 decimal decKingaku = 0;
+                decimal[] dZai = new decimal[8];
 
                 if (ChkI.Checked)
                 {
@@ -715,9 +740,34 @@ namespace Koubai.Jyuchu
                     dr.KannouFlg = false;
                     dr.KaritankaFlg = false;
                     dr.KeigenZeirituFlg = false;
-
                     dt.AddT_ChumonRow(dr);
                 }
+                dZai[0] = decimal.Parse(LblZaikoSuN_1.Text.Replace(",", ""));
+                dZai[1] = decimal.Parse(LblZaikoSuN0.Text.Replace(",", ""));
+                dZai[2] = decimal.Parse(LblZaikoSuN1.Text.Replace(",", ""));
+                dZai[3] = decimal.Parse(LblZaikoSuN2.Text.Replace(",", ""));
+                dZai[4] = decimal.Parse(LblZaikoSuN3.Text.Replace(",", ""));
+                dZai[5] = decimal.Parse(LblZaikoSuN4.Text.Replace(",", ""));
+                dZai[6] = decimal.Parse(LblZaikoSuN5.Text.Replace(",", ""));
+                int iNengetu = int.Parse(LitNengetu.Text);
+
+                for (int IX = 0; IX < 7; IX++)
+                {
+                    ZaikoDataSet.T_ZaikoRow drZ = dtZ.NewT_ZaikoRow();
+                    //drZ.Nengetu = int.Parse(LitNengetu.Text);
+                    drZ.Nengetu = int.Parse(dtN[IX].ToString("yyyyMM"));
+                    drZ.LocationCode = "08";
+                    drZ.ItemCode = LitBuhinCode.Text;
+                    drZ.HinmokuKubun = 0;//部品材料
+                    drZ.ZaikoSu = dZai[IX];
+                    drZ.Tanka = 0;
+                    drZ.TourokuBi = dtNow;
+                    drZ.KoushinBi = dtNow;
+                    drZ.ShikibetsuID = string.Empty;
+
+                    dtZ.AddT_ZaikoRow(drZ);
+                }
+
             }
             if (dt.Rows.Count > 0)
             {
@@ -728,25 +778,12 @@ namespace Koubai.Jyuchu
                 }
                 else
                 {
-                    //// 仕入先配列を作成
-                    //ArrayList aryShiire = new ArrayList();
-                    //for (int i = 0; i < dt.Rows.Count; i++)
-                    //{
-                    //    if (!aryShiire.Contains(dt[i].ShiiresakiCode))
-                    //    {
-                    //        aryShiire.Add(dt[i].ShiiresakiCode);
-                    //    }
-                    //}
-                    //for (int i = 0; i < aryShiire.Count; i++)
-                    //{
-                    //    // 主キーによって、メール送信に必要データ取得
-                    //    ChumonDataSet.V_MailInfoDataTable dtMail = ChumonClass.getV_MailInfoDataTable(VsUserID, aryShiire[i].ToString(), Global.GetConnection());
-                    //    for (int j = 0; j < dtMail.Rows.Count; j++)
-                    //    {
-                    //        MailClass.MailParam p = this.GetMailParam(dtMail[j]);
-                    //        MailClass.SendMail(p, null);
-                    //    }
-                    //}
+                    // T_Zaiko UPDATE
+                    err = ZaikoClass.UpdateT_Zaiko(dtZ, Global.GetConnection());
+                    if (err != null)
+                    {
+                        this.ShowMsg("在庫更新でエラーがありました<br/>" + err.Message, true);
+                    }
                 }
             }
             else

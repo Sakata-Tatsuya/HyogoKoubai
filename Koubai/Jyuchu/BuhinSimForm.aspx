@@ -6,7 +6,7 @@
 <%@ Register Assembly="Core" namespace="Core.Web" tagprefix="cc1" %>
 <!DOCTYPE html>
 
-<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" >
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
   <title>製品製造計画</title>
     <link href="../MainStyle.css" rel="stylesheet" type="text/css" />

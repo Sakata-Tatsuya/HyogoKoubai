@@ -211,6 +211,12 @@
     <Compile Include="UploadClass.cs" />
     <Compile Include="UserViewClass.cs" />
     <Compile Include="Utility.cs" />
+    <Compile Include="ZaikoClass.cs" />
+    <Compile Include="ZaikoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZaikoDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -382,6 +388,17 @@
     </None>
     <None Include="ShiiresakiDataSet.xss">
       <DependentUpon>ShiiresakiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ZaikoDataSet.xsc">
+      <DependentUpon>ZaikoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ZaikoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ZaikoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ZaikoDataSet.xss">
+      <DependentUpon>ZaikoDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
